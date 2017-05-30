@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._1._4
+﻿namespace _1._1._4
 {
     /*
      * 1.1.4 下列语句各有什么问题（如果有的话）？

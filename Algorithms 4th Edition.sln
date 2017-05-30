@@ -3,8 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "第一章 基础", "第一章 基础", "{344FB20B-6315-477C-B032-B4E217E8A2DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 基础编程模型", "1.1 基础编程模型", "{DFE42318-B911-485D-97AA-05731503AADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1.1", "1.1.1\1.1.1.csproj", "{451096E5-834C-42D1-B88B-99E6DBFED9BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "练习", "练习", "{5D495249-F8EF-4434-965C-3417A613C427}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{451096E5-834C-42D1-B88B-99E6DBFED9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451096E5-834C-42D1-B88B-99E6DBFED9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451096E5-834C-42D1-B88B-99E6DBFED9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451096E5-834C-42D1-B88B-99E6DBFED9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFE42318-B911-485D-97AA-05731503AADD} = {344FB20B-6315-477C-B032-B4E217E8A2DD}
+		{451096E5-834C-42D1-B88B-99E6DBFED9BD} = {5D495249-F8EF-4434-965C-3417A613C427}
+		{5D495249-F8EF-4434-965C-3417A613C427} = {DFE42318-B911-485D-97AA-05731503AADD}
 	EndGlobalSection
 EndGlobal

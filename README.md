@@ -6,10 +6,12 @@
 
 ## 相关资料  
 
-官方MOOC课程：  
+官方MOOC课程： 
+
 https://www.coursera.org/learn/algorithms-part1
 
-官方资料站（英语）：  
+官方资料站 (English):
+
 http://algs4.cs.princeton.edu/
 
 ## 使用方法 & 测试环境

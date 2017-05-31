@@ -4,7 +4,9 @@
 
 ## 使用方法 & 测试环境
 
-使用方法：打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行
+使用方法：
+打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行  
+或者直接打开目录下的相应项目文件  
 
 测试环境：Windows10 15063 + Visual Studio 2017 + .NET Core1.1  
 

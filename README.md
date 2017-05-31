@@ -1,6 +1,9 @@
 # Algorithms-4th-Edition
 
-算法（第4版）习题题解 C# 版
+算法（第4版）习题题解 C# 版  
+
+官方MOOC课程：  
+https://www.coursera.org/learn/algorithms-part1
 
 ## 使用方法 & 测试环境
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "第一章 基础", "第一章 基础", "{344FB20B-6315-477C-B032-B4E217E8A2DD}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1.12", "1 Foundation\1.1\1.1.12\1.1.12.csproj", "{A80B60C7-5053-447E-A775-2B5FCB5D8B98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1.13", "1 Foundation\1.1\1.1.13\1.1.13.csproj", "{56237335-F932-447E-BA9A-E7010E942F83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1.14", "1 Foundation\1.1\1.1.14\1.1.14.csproj", "{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{56237335-F932-447E-BA9A-E7010E942F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56237335-F932-447E-BA9A-E7010E942F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56237335-F932-447E-BA9A-E7010E942F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,5 +119,6 @@ Global
 		{34A89BFC-8AD8-41CD-90B1-01B25F66DF82} = {5D495249-F8EF-4434-965C-3417A613C427}
 		{A80B60C7-5053-447E-A775-2B5FCB5D8B98} = {5D495249-F8EF-4434-965C-3417A613C427}
 		{56237335-F932-447E-BA9A-E7010E942F83} = {5D495249-F8EF-4434-965C-3417A613C427}
+		{E4E1F02F-1523-43D0-B777-A2D5ADBBC2E7} = {5D495249-F8EF-4434-965C-3417A613C427}
 	EndGlobalSection
 EndGlobal

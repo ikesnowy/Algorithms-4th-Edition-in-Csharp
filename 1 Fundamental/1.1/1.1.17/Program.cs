@@ -13,7 +13,7 @@ namespace _1._1._17
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"{exR2(6)}");//输出 StackOverflow Exception
+            Console.WriteLine($"{exR2(6)}");//抛出 StackOverflow Exception
         }
 
         public static string exR2(int n)

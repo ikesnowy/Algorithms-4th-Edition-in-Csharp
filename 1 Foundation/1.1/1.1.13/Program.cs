@@ -29,10 +29,10 @@ namespace _1._1._13
                 }
             }
 
-            Console.WriteLine("原二维数组：");
+            Console.WriteLine("Origin");
             PrintArray2D(array, M, N);
 
-            Console.WriteLine("转置后：");
+            Console.WriteLine("Transposed");
             PrintArrayTranspose2D(array, M, N);
         }
 

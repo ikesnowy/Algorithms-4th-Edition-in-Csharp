@@ -24,7 +24,7 @@
             //if a > b { c = 0; } 
             //if后必须跟括号
 
-            if (a > b) c = 0; 
+            if (a > b) c = 0;
             //正确
 
             //if (a > b) c = 0 else b = 0; 

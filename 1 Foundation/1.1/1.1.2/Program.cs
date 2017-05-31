@@ -25,7 +25,7 @@ namespace _1._1._2
             //变量名.GetType() 返回变量类型
             //Type.ToString() 将类型名转换为字符串
 
-            Console.WriteLine("\t变量名\t类型     \t值");
+            Console.WriteLine("\tName\tType     \tValue");
             Console.WriteLine($"\ta\t{a.GetType().ToString()}\t{a}");
             Console.WriteLine($"\tb\t{b.GetType().ToString()}\t{b}");
             Console.WriteLine($"\tc\t{c.GetType().ToString()}\t{c}");

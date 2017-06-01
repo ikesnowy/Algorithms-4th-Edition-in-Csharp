@@ -2,17 +2,27 @@
 
 算法（第4版）习题题解 C# 版  
 
-官方MOOC课程：  
+当前已经完成到习题 1.1.18  
+
+## 相关资料  
+
+官方MOOC课程： 
+
 https://www.coursera.org/learn/algorithms-part1
+
+官方资料站 (English):
+
+http://algs4.cs.princeton.edu/
 
 ## 使用方法 & 测试环境
 
-使用方法：  
+### 使用方法：  
 
-打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行  
-或者直接打开目录下的相应项目文件  
+1. 下载整个解决方案(可能会非常大），打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行  
+2. 下载你需要的项目文件，添加到 Visual Studio 中运行
+3. 直接在 Github 上查看、复制源代码（推荐）
 
-测试环境：  
+### 测试环境：  
 
 Windows10 15063 + Visual Studio 2017 + .NET Core1.1  
 

@@ -22,9 +22,20 @@ http://algs4.cs.princeton.edu/
 2. 下载你需要的项目文件，添加到 Visual Studio 中运行
 3. 直接在 Github 上查看、复制源代码（推荐）
 
-### 测试环境：  
+### 目标平台 & 测试环境：  
 
+控制台应用程序  
 Windows10 15063 + Visual Studio 2017 + .NET Core1.1  
+
+Windows 窗体应用程序（部分题目需要绘图）  
+Windows10 15063 + Visual Studio 2017 + .NET Framework 4.6.1
+
+测试环境（部分题目要求测试运算时间）  
+Surface Pro3
+
+CPU i7 4650U @1.70GHz
+
+OS Windows10 15063
 
 ## 格式说明
 

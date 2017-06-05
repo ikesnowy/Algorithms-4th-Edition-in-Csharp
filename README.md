@@ -18,7 +18,7 @@ http://algs4.cs.princeton.edu/
 
 ### 使用方法：  
 
-1. 下载整个解决方案(可能会非常大），打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行  
+1. 下载整个解决方案（可能会非常大），打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行  
 2. 下载你需要的项目文件，添加到 Visual Studio 中运行
 3. 直接在 Github 上查看、复制源代码（推荐）
 

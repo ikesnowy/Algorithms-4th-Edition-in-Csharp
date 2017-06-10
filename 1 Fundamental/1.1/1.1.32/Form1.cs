@@ -55,6 +55,11 @@ namespace _1._1._32
                 try
                 {
                     int N = int.Parse(InputN.Text);
+                    if (N <= 0)
+                    {
+                        ErrorLabel.Text = "N 必须大于 0";
+                        return;
+                    }
                     double L = double.Parse(InputL.Text);
                     double R = double.Parse(InputR.Text);
                     Program.StartDrawing(Numbers, N, L, R);

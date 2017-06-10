@@ -35,40 +35,12 @@ Windows10 15063 + Visual Studio 2017 + .NET Core1.1  
 #### Windows 窗体应用程序（部分题目需要绘图）  
 Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
 
-测试环境（部分题目要求测试运算时间）  
+#### 测试环境（部分题目要求测试运算时间）  
 Surface Pro3
 
 CPU i7 4650U @1.70GHz
 
 OS Windows10 15063
-
-## 格式说明
-
-在 namespace 和 class 之间给出题目详情
-
-中英文字符之间用空格隔开
-
-示例：
-
-    namespace _1._1._15  
-    {  
-        /*  
-         * 1.1.15  
-         *   
-         * 编写一个静态方法 histogram()，  
-         * 接受一个整型数组 a[] 和一个整数 M 作为参数并返回一个大小为 M 的数组，  
-         * 其中第 i 个元素的值为整数 i 在参数数组中出现的次数。  
-         * 如果 a[] 中的值均在 0 到 M-1 之间，  
-         * 返回数组中所有元素之和应该和 a.length 相等。  
-         *   
-         */  
-        class Program  
-        {  
-            static void Main(string[] args)  
-            {  
-            }  
-        }  
-    }  
 
 ## 相关资料  
 

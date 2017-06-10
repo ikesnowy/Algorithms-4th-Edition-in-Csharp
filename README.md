@@ -4,15 +4,10 @@
 
 当前已经完成到习题 1.1.32  
 
-## 相关资料  
+## 目录
 
-官方MOOC课程： 
-
-https://www.coursera.org/learn/algorithms-part1
-
-官方资料站 (English):
-
-http://algs4.cs.princeton.edu/
+- [1.基础 Fundamental](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental)
+  - [1.1 基础编程模型](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)
 
 ## 使用方法 & 测试环境
 
@@ -74,3 +69,13 @@ OS Windows10 15063
             }  
         }  
     }  
+
+## 相关资料  
+
+官方MOOC课程： 
+
+https://www.coursera.org/learn/algorithms-part1
+
+官方资料站 (English):
+
+http://algs4.cs.princeton.edu/

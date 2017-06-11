@@ -20,7 +20,22 @@ namespace _1._1._33
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            double[][] a = new double[][]
+            {
+                new double[] {1, 2, 3},
+                new double[] {4, 5, 6}
+            };
+
+            double[][] b = new double[][]
+            {
+                new double[] {1, 4},
+                new double[] {2, 5},
+                new double[] {3, 6}
+            };
+
+            double[][] c;
+
+            c = Matrix.Mult(a, b);
         }
     }
 }

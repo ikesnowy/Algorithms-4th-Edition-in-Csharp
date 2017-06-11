@@ -1,12 +1,92 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
 
 namespace _1._1._38
 {
+    /*
+     * 1.1.38
+     * 
+     * 二分查找与暴力查找。
+     * 根据 1.1.10.4 节给出的暴力查找法编写一个程序 BruteForceSearch，
+     * 在你的计算机上比较它和 BinarySearch 处理 largeW.txt 和 largeT.txt 所需的时间。
+     * 
+     */
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string[] largeWString = File.ReadAllLines("largeW.txt");
+            int[] largeW = new int[largeWString.Length];
+            for (int i = 0; i < largeW.Length; ++i)
+            {
+                largeW[i] = int.Parse(largeWString[i]);
+            }
+            Stopwatch timer = Stopwatch.StartNew();
+            BruteForceSearch(111111, largeW);
+            Console.WriteLine($"BruteForceSearch: {timer.ElapsedMilliseconds} ms");
+
+            timer.Restart();
+            rank(111111, largeW);
+            Console.WriteLine($"BinarySearch: {timer.ElapsedMilliseconds} ms");
+
+            string[] largeTString = File.ReadAllLines("largeT.txt");
+            int[] largeT = new int[largeTString.Length];
+            for (int i = 0; i < largeW.Length; ++i)
+            {
+                largeT[i] = int.Parse(largeTString[i]);
+            }
+
+            timer.Restart();
+            BruteForceSearch(111111, largeT);
+            Console.WriteLine($"BruteForceSearch: {timer.ElapsedMilliseconds} ms");
+
+            timer.Restart();
+            rank(111111, largeT);
+            Console.WriteLine($"BinarySearch: {timer.ElapsedMilliseconds} ms");
+        }
+
+        //暴力查找
+        public static int BruteForceSearch(int key, int[] a)
+        {
+            for (int i = 0; i < a.Length; ++i)
+            {
+                if (a[i] == key)
+                    return i;
+            }
+
+            return -1;
+        }
+
+        //重载方法，用于启动二分查找
+        public static int rank(int key, int[] a)
+        {
+            return rank(key, a, 0, a.Length - 1, 1);
+        }
+
+        //二分查找
+        public static int rank(int key, int[] a, int lo, int hi, int number)
+        {
+            if (lo > hi)
+            {
+                return -1;
+            }
+
+            int mid = lo + (hi - lo) / 2;
+
+            if (key < a[mid])
+            {
+                return rank(key, a, lo, mid - 1, number + 1);
+            }
+            else if (key > a[mid])
+            {
+                return rank(key, a, mid + 1, hi, number + 1);
+            }
+            else
+            {
+                return mid;
+            }
         }
     }
 }

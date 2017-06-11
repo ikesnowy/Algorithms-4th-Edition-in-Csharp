@@ -1,21 +1,23 @@
 ﻿using System;
 
-namespace _1._1._36
+namespace _1._1._37
 {
     /*
-     * 1.1.36
+     * 1.1.37
      * 
-     * 乱序检查。
-     * 
-     * 通过实验检查表 1.1.10 中的乱序代码是否能够产生预期的效果。
-     * 编写一个程序 ShuttleTest，接受命令行参数 M 和 N，
-     * 将大小为 M 的数组打乱 N 次且在每次打乱之前都将数组重新初始化为 a[i] = i。
-     * 打印一个 M×M 的表格，对于所有的列 j，行 i 表示的是 i 在打乱后落到 j 的位置的次数。
-     * 数组中的所有元素的值都应该接近于 N/M。
+     * 糟糕的打乱。
+     * 假设在我们的乱序代码中你选择的是一个 0 到 N - 1 而非 i 到 N - 1 之间的随机整数。
+     * 证明得到的结果并非均匀地分布在 N! 种可能性之间。
+     * 用上一题中的测试检验这个版本。
      * 
      */
     class Program
     {
+        //使用 0~N-1 的随机数会导致每次交换的数字可能相同
+        //例如：
+        //原数组： 1 2 3 4
+        //第一次： 2 1 3 4 random = 1，第 0 个和第 1 个交换
+        //第二次： 1 2 3 4 random = 0，第 1 个和第 0 个交换
         static void Main(string[] args)
         {
             int M = 10;//数组大小
@@ -46,7 +48,7 @@ namespace _1._1._36
         }
 
         /// <summary>
-        /// 打乱数组
+        /// 打乱数组（不够好的版本）
         /// </summary>
         /// <param name="a">需要打乱的数组</param>
         /// <param name="seed">用于生成随机数的种子值</param>
@@ -56,7 +58,8 @@ namespace _1._1._36
             Random random = new Random(seed);
             for (int i = 0; i < N; ++i)
             {
-                int r = i + random.Next(N - i);//等于StdRandom.uniform(N-i)
+                //int r = i + random.Next(N - i);
+                int r = random.Next(N); //返回的是 0 ~ N-1 之间的随机整数
                 int temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
@@ -73,7 +76,7 @@ namespace _1._1._36
             {
                 for (int j = 0; j < a.GetLength(1); ++j)
                 {
-                    Console.Write($"\t{a[i,j]}");
+                    Console.Write($"\t{a[i, j]}");
                 }
                 Console.Write("\n");
             }

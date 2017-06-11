@@ -96,5 +96,28 @@ namespace _1._1._33
             }
             return trans;
         }
+
+        /// <summary>
+        /// 矩阵与向量的乘积（左乘）
+        /// </summary>
+        /// <param name="a">左乘的矩阵</param>
+        /// <param name="x">向量</param>
+        /// <returns>返回一个向量</returns>
+        public static double[] Mult(double[][] a, double[] x)
+        {
+            if (a[0].Length != x.Length)
+            {
+                throw new FormatException("a's column number must be equal to x's length");
+            }
+
+            double[] result = new double[a.GetLength(0)];
+
+            for (int i = 0; i < a.GetLength(0); ++i)
+            {
+                result[i] = Dot(a[i], x);
+            }
+
+            return result;
+        }
     }
 }

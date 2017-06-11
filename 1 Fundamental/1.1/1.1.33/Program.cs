@@ -20,6 +20,8 @@ namespace _1._1._33
     {
         static void Main(string[] args)
         {
+            double[] x = new double[] { 1, 2, 3 };
+
             double[][] a = new double[][]
             {
                 new double[] {1, 2, 3},
@@ -37,6 +39,7 @@ namespace _1._1._33
 
             c = Matrix.Mult(a, b);
             Matrix.Transpose(a);
+            Matrix.Mult(a, x);
         }
     }
 }

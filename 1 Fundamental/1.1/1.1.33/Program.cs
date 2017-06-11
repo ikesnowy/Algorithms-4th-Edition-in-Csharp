@@ -35,11 +35,28 @@ namespace _1._1._33
                 new double[] {3, 6}
             };
 
-            double[][] c;
+            double[][] c = Matrix.Mult(a, b);
 
-            c = Matrix.Mult(a, b);
-            Matrix.Transpose(a);
-            Matrix.Mult(a, x);
+            Console.WriteLine("a:");
+            Matrix.PrintMatrix(a);
+
+            Console.WriteLine("b:");
+            Matrix.PrintMatrix(b);
+
+            Console.WriteLine("a * b =");
+            Matrix.PrintMatrix(c);
+
+            Console.WriteLine("a^T = ");
+            Matrix.PrintMatrix(Matrix.Transpose(a));
+
+            Console.WriteLine("x:");
+            Matrix.PrintVector(x);
+
+            Console.WriteLine("a * x =");
+            Matrix.PrintVector(Matrix.Mult(a, x));
+
+            Console.WriteLine("x * b =");
+            Matrix.PrintVector(Matrix.Mult(x, b));
         }
     }
 }

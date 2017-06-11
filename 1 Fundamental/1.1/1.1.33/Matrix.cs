@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace _1._1._33
 {
     public class Matrix
     {
         /// <summary>
-        /// 向量点乘
+        /// 计算两个向量的点积
         /// </summary>
         /// <param name="x">需要点乘的向量</param>
         /// <param name="y">需要点乘的另一个向量</param>
@@ -32,7 +30,7 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 两个矩阵相乘，返回一个矩阵
+        /// 计算两个矩阵相乘的结果，返回一个矩阵
         /// </summary>
         /// <param name="a">用交错数组表示的 m * p 矩阵</param>
         /// <param name="b">用交错数组表示的 p * n 矩阵</param>
@@ -98,11 +96,12 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 矩阵与向量的乘积（左乘）
+        /// 计算矩阵与向量的乘积
         /// </summary>
         /// <param name="a">左乘的矩阵</param>
-        /// <param name="x">向量</param>
+        /// <param name="x">列向量</param>
         /// <returns>返回一个向量</returns>
+        /// <exception cref="FormatException"></exception>
         public static double[] Mult(double[][] a, double[] x)
         {
             if (a[0].Length != x.Length)
@@ -118,6 +117,64 @@ namespace _1._1._33
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 计算向量与矩阵的乘积
+        /// </summary>
+        /// <param name="x">行向量</param>
+        /// <param name="a">矩阵</param>
+        /// <returns>返回一个向量</returns>
+        /// <exception cref="FormatException"></exception>
+        public static double[] Mult(double[] x, double[][] a)
+        {
+            if (a.GetLength(0) != x.Length)
+            {
+                throw new FormatException("a's column number must be equal to x's length");
+            }
+
+            double[] result = new double[a[0].Length];
+
+            for (int i = 0; i < a[0].Length; ++i)
+            {
+                double[] colVector = new double[a.GetLength(0)];
+                for (int j = 0; j < colVector.Length; ++j)
+                {
+                    colVector[j] = a[j][i];
+                }
+                result[i] = Dot(x, colVector);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 在控制台上输出矩阵
+        /// </summary>
+        /// <param name="a">需要输出的矩阵</param>
+        public static void PrintMatrix(double[][] a)
+        {
+            for (int i = 0; i < a.GetLength(0); ++i)
+            {
+                for (int j = 0; j < a[i].Length; ++j)
+                {
+                    Console.Write($"\t{a[i][j]}");
+                }
+                Console.Write("\n");
+            }
+        }
+
+        /// <summary>
+        /// 在控制台上输出一行向量
+        /// </summary>
+        /// <param name="a">需要输出的向量</param>
+        public static void PrintVector(double[] a)
+        {
+            for (int i = 0; i < a.Length; ++i)
+            {
+                Console.Write($"\t{a[i]}");
+            }
+            Console.Write("\n");
         }
     }
 }

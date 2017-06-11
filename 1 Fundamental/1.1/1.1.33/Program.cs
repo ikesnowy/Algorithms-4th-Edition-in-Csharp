@@ -36,6 +36,7 @@ namespace _1._1._33
             double[][] c;
 
             c = Matrix.Mult(a, b);
+            Matrix.Transpose(a);
         }
     }
 }

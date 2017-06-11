@@ -61,17 +61,40 @@ namespace _1._1._33
                 double[] resultrow = new double[n];
                 for (int j = 0; j < n; ++j)
                 {
+                    //result[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
                     double[] row = a[i];
                     double[] col = new double[p];
+                    //取得列向量
                     for (int k = 0; k < p; ++k)
                     {
                         col[k] = b[k][j];
                     }
+                    //点积
                     resultrow[j] = Dot(row, col);
                 }
                 result[i] = resultrow;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 将一个矩阵转置
+        /// </summary>
+        /// <param name="a">待转置的矩阵</param>
+        /// <returns>返回转置后的数组</returns>
+        public static double[][] Transpose(double[][] a)
+        {
+            double[][] trans = new double[a[0].Length][];
+            for (int i = 0; i < a[0].Length; ++i)
+            {
+                double[] row = new double[a.GetLength(0)];
+                for (int j = 0; j < a.GetLength(0); ++j)
+                {
+                    row[j] = a[j][i];
+                }
+                trans[i] = row;
+            }
+            return trans;
         }
     }
 }

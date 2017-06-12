@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _1._1._25
+﻿namespace _1._1._25
 {
     /*
      * 1.1.25

@@ -19,7 +19,7 @@ namespace _1._1._36
         static void Main(string[] args)
         {
             int M = 10;//数组大小
-            int N = 100000;//打乱次数
+            int N = 1000;//打乱次数
             int[] a = new int[10];
 
             int[,] result = new int[M, M];

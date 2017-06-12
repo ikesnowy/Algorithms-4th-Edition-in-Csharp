@@ -26,7 +26,7 @@ namespace _1._1._27
         static void Main(string[] args)
         {
             BinomialCache = new double?[101, 51];
-            Console.WriteLine(Binomial(5, 2, 0.25));
+            Console.WriteLine(Binomial(100, 50, 0.25));
             Console.WriteLine(BinomialCalled);
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,15 +28,6 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 基于当前点返回一个 Point 类对象
-        /// </summary>
-        /// <returns>Point 类对象</returns>
-        public Point GetPoint()
-        {
-            return new Point((int)X, (int)Y);
-        }
-
-        /// <summary>
         /// 计算两个 Point2D 之间的距离
         /// </summary>
         /// <param name="that">需要计算的另一个点</param>
@@ -46,11 +36,6 @@ namespace _1._2._1
         {
             double temp = Math.Pow(this.X - that.X, 2) + Math.Pow(this.Y - that.Y, 2);
             return Math.Sqrt(temp);
-        }
-
-        public void Draw(Graphics g)
-        {
-            g.FillEllipse(Brushes.Black, (int)X - Radius, (int)Y - Radius, Radius * 2, Radius * 2);
         }
     }
 }

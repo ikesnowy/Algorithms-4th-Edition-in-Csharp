@@ -42,6 +42,7 @@ namespace _1._2._2
                 intervalList.Add(new Interval1D(lo, hi));
             }
 
+            //判断是否相交并输出
             for (int i = 0; i < N; ++i)
             {
                 for (int j = i + 1; j < N; ++j)

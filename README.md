@@ -2,12 +2,13 @@
 
 算法（第4版）习题题解 C# 版  
 
-当前已经完成 1.1 节所有习题  
+当前已经完成到 1.2.1    
 
 ## 目录
 
 - [1.基础 Fundamental](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental)
-  - [1.1 基础编程模型](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)
+  - [1.1 基础编程模型](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)  
+  - [1.2 数据抽象](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2)
 
 ## 使用方法 & 测试环境
 

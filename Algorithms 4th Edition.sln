@@ -11,7 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-练习（1.1.1~1.1.25）"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4972DBA6-799A-424A-A8A2-3B622DED1EFB}"
 	ProjectSection(SolutionItems) = preProject
-		1 Fundamental\1.2\1.2.1\Point2D.cs = 1 Fundamental\1.2\1.2.1\Point2D.cs
 		README.md = README.md
 	EndProjectSection
 EndProject

@@ -9,10 +9,14 @@ namespace _1._2._1
     /// <summary>
     /// Point2D 二维点类
     /// </summary>
-    class Point2D : IComparable<Point2D>
+    public sealed class Point2D : IComparable<Point2D>
     {
-        public double X { get; set; }
-        public double Y { get; set; }
+        public readonly static Comparer<Point2D> X_Order = new XOrder();
+        public readonly static Comparer<Point2D> Y_Order = new YOrder();
+        public readonly static Comparer<Point2D> R_Order = new ROrder();
+
+        public double X { get; }
+        public double Y { get; }
         public int Radius { get; set; }
 
         public Point2D(double x, double y)
@@ -60,18 +64,6 @@ namespace _1._2._1
             double dx = that.X - this.X;
             double dy = that.Y - this.Y;
             return Math.Atan2(dy, dx);
-        }
-
-
-        /// <summary>
-        /// 计算两个 Point2D 之间的距离
-        /// </summary>
-        /// <param name="that">需要计算的另一个点</param>
-        /// <returns>返回两点之间的距离</returns>
-        public double DistTo(Point2D that)
-        {
-            double temp = Math.Pow(this.X - that.X, 2) + Math.Pow(this.Y - that.Y, 2);
-            return Math.Sqrt(temp);
         }
 
         /// <summary>
@@ -130,6 +122,11 @@ namespace _1._2._1
             return dx * dx + dy * dy;
         }
 
+        /// <summary>
+        /// 实现IComparable接口
+        /// </summary>
+        /// <param name="other">需要比较的另一个对象</param>
+        /// <returns></returns>
         int IComparable<Point2D>.CompareTo(Point2D other)
         {
             if (this.Y < other.Y)
@@ -144,6 +141,9 @@ namespace _1._2._1
             return 0;
         }
 
+        /// <summary>
+        /// 按照 X 顺序比较
+        /// </summary>
         private class XOrder : Comparer<Point2D>
         {
             public override int Compare(Point2D x, Point2D y)
@@ -162,6 +162,9 @@ namespace _1._2._1
             }
         }
 
+        /// <summary>
+        /// 按照 Y 顺序比较
+        /// </summary>
         private class YOrder : Comparer<Point2D>
         {
             public override int Compare(Point2D x, Point2D y)
@@ -179,6 +182,9 @@ namespace _1._2._1
             }
         }
 
+        /// <summary>
+        /// 按照极径顺序比较
+        /// </summary>
         private class ROrder : Comparer<Point2D>
         {
             public override int Compare(Point2D x, Point2D y)
@@ -198,12 +204,158 @@ namespace _1._2._1
             }
         }
 
+        /// <summary>
+        /// 按照 atan2 值顺序比较
+        /// </summary>
         private class Atan2Order : Comparer<Point2D>
         {
+            private Point2D parent;
+            public Atan2Order() { }
+            public Atan2Order(Point2D parent)
+            {
+                this.parent = parent;
+            }
             public override int Compare(Point2D x, Point2D y)
             {
-                double angle1 = x.AngleTo
+                double angle1 = parent.AngleTo(x);
+                double angle2 = parent.AngleTo(y);
+                if (angle1 < angle2)
+                {
+                    return -1;
+                }
+                else if (angle1 > angle2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
+        }
+
+        /// <summary>
+        /// 按照极角顺序比较
+        /// </summary>
+        private class PolorOrder : Comparer<Point2D>
+        {
+            private Point2D parent;
+            public PolorOrder() { }
+            public PolorOrder(Point2D parent)
+            {
+                this.parent = parent;
+            }
+            public override int Compare(Point2D q1, Point2D q2)
+            {
+                double dx1 = q1.X - parent.X;
+                double dy1 = q1.Y - parent.Y;
+                double dx2 = q2.X - parent.X;
+                double dy2 = q2.Y - parent.Y;
+
+                if (dy2 >= 0 && dy2 < 0)
+                {
+                    return -1;
+                }
+                else if (dy2 >= 0 && dy1 < 0)
+                {
+                    return 1;
+                }
+                else if (dy1 == 0 && dy2 == 0)
+                {
+                    if (dx1 >= 0 && dx2 < 0)
+                    {
+                        return -1;
+                    }
+                    else if (dx2 >= 0 && dx1 < 0)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return -CCW(this.parent, q1, q2);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 按照距离顺序比较
+        /// </summary>
+        private class DistanceToOrder : Comparer<Point2D>
+        {
+            private Point2D parent;
+            public DistanceToOrder() { }
+            public DistanceToOrder(Point2D parent)
+            {
+                this.parent = parent;
+            }
+            public override int Compare(Point2D p, Point2D q)
+            {
+                double dist1 = parent.DistanceSquareTo(p);
+                double dist2 = parent.DistanceSquareTo(q);
+
+                if (dist1 < dist2)
+                {
+                    return -1;
+                }
+                else if (dist1 > dist2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public Comparer<Point2D> Polor_Order()
+        {
+            return new PolorOrder(this);
+        }
+
+        public Comparer<Point2D> Atan2_Order()
+        {
+            return new Atan2Order(this);
+        }
+
+        public Comparer<Point2D> DistanceTo_Order()
+        {
+            return new DistanceToOrder(this);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this)
+            {
+                return true;
+            }
+            if (obj == null)
+            {
+                return false;
+            }
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+            Point2D that = (Point2D)obj;
+            return this.X == that.X && this.Y == that.Y;
+        }
+
+        public override string ToString()
+        {
+            return "(" + X + ", " + Y + ")";
+        }
+
+        public override int GetHashCode()
+        {
+            int hashX = X.GetHashCode();
+            int hashY = Y.GetHashCode();
+            return 31 * hashX + hashY;
         }
     }
 

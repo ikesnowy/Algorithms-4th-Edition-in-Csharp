@@ -54,13 +54,25 @@ namespace _1._1._23
             }
         }
 
-        //重载方法，用于启动二分查找
+        /// <summary>
+        /// 二分查找，默认查找整个数组。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a)
         {
             return rank(key, a, 0, a.Length - 1);
         }
 
-        //二分查找
+        /// <summary>
+        /// 二分查找。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <param name="lo">查找的下界。</param>
+        /// <param name="hi">查找的上界。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a, int lo, int hi)
         {
 

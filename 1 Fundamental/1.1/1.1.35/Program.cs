@@ -62,7 +62,11 @@ namespace _1._1._35
             }
         }
 
-        //利用随机数模拟掷骰子
+        /// <summary>
+        /// 模拟掷骰子实验。
+        /// </summary>
+        /// <param name="N">掷骰子的次数。</param>
+        /// <returns></returns>
         static double[] PlayDice(int N)
         {
             Random random = new Random();

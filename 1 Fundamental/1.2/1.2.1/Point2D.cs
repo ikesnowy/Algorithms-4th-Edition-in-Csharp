@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace _1._2._1
 {
     /// <summary>
-    /// Point2D 二维点类
+    /// Point2D 二维点类。
     /// </summary>
     public sealed class Point2D : IComparable<Point2D>
     {
@@ -37,7 +37,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 返回极半径
+        /// 返回极半径。
         /// </summary>
         /// <returns></returns>
         public double R()
@@ -46,7 +46,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 返回极角
+        /// 返回极角。
         /// </summary>
         /// <returns></returns>
         public double Theta()
@@ -55,9 +55,9 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 返回两个点之间的角度
+        /// 返回两个点之间的角度。
         /// </summary>
-        /// <param name="that">要计算角度的另一个点</param>
+        /// <param name="that">要计算角度的另一个点。</param>
         /// <returns></returns>
         private double AngleTo(Point2D that)
         {
@@ -67,11 +67,11 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 判断 a,b,c 三个点的关系，如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}
+        /// 判断 a,b,c 三个点的关系，如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}。
         /// </summary>
-        /// <param name="a">第一个点</param>
-        /// <param name="b">第二个点</param>
-        /// <param name="c">第三个点</param>
+        /// <param name="a">第一个点。</param>
+        /// <param name="b">第二个点。</param>
+        /// <param name="c">第三个点。</param>
         /// <returns></returns>
         public static int CCW(Point2D a, Point2D b, Point2D c)
         {
@@ -84,11 +84,11 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 返回 abc 三个点构成的三角形的面积的平方
+        /// 返回 abc 三个点构成的三角形的面积的平方。
         /// </summary>
-        /// <param name="a">第一个点</param>
-        /// <param name="b">第二个点</param>
-        /// <param name="c">第三个点</param>
+        /// <param name="a">第一个点。</param>
+        /// <param name="b">第二个点。</param>
+        /// <param name="c">第三个点。</param>
         /// <returns></returns>
         public static double Area2(Point2D a, Point2D b, Point2D c)
         {
@@ -97,9 +97,9 @@ namespace _1._2._1
 
 
         /// <summary>
-        /// 返回当前点到另一个点之间的距离
+        /// 返回当前点到另一个点之间的距离。
         /// </summary>
-        /// <param name="that">另一个点</param>
+        /// <param name="that">另一个点。</param>
         /// <returns></returns>
         public double DistanceTo(Point2D that)
         {
@@ -110,9 +110,9 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 返回当前点到另一个点之间的距离的平方
+        /// 返回当前点到另一个点之间的距离的平方。
         /// </summary>
-        /// <param name="that">另一个点</param>
+        /// <param name="that">另一个点。</param>
         /// <returns></returns>
         public double DistanceSquareTo(Point2D that)
         {
@@ -123,9 +123,9 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 实现IComparable接口
+        /// 实现 IComparable 接口。
         /// </summary>
-        /// <param name="other">需要比较的另一个对象</param>
+        /// <param name="other">需要比较的另一个对象。</param>
         /// <returns></returns>
         int IComparable<Point2D>.CompareTo(Point2D other)
         {
@@ -142,7 +142,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照 X 顺序比较
+        /// 按照 X 顺序比较。
         /// </summary>
         private class XOrder : Comparer<Point2D>
         {
@@ -163,7 +163,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照 Y 顺序比较
+        /// 按照 Y 顺序比较。
         /// </summary>
         private class YOrder : Comparer<Point2D>
         {
@@ -183,7 +183,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照极径顺序比较
+        /// 按照极径顺序比较。
         /// </summary>
         private class ROrder : Comparer<Point2D>
         {
@@ -205,7 +205,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照 atan2 值顺序比较
+        /// 按照 atan2 值顺序比较。
         /// </summary>
         private class Atan2Order : Comparer<Point2D>
         {
@@ -235,7 +235,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照极角顺序比较
+        /// 按照极角顺序比较。
         /// </summary>
         private class PolorOrder : Comparer<Point2D>
         {
@@ -283,7 +283,7 @@ namespace _1._2._1
         }
 
         /// <summary>
-        /// 按照距离顺序比较
+        /// 按照距离顺序比较。
         /// </summary>
         private class DistanceToOrder : Comparer<Point2D>
         {
@@ -358,6 +358,4 @@ namespace _1._2._1
             return 31 * hashX + hashY;
         }
     }
-
-    
 }

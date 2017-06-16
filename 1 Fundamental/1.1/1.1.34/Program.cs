@@ -59,9 +59,9 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 获取最大值和最小值
+        /// 获取最大值和最小值。
         /// </summary>
-        /// <param name="input">输入流</param>
+        /// <param name="input">输入流。</param>
         static void MinAndMax(int[] input)
         {
             //只用到了两个变量
@@ -87,10 +87,10 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 获取中位数
+        /// 获取中位数。
         /// </summary>
-        /// <param name="input">输入流</param>
-        /// <returns>中位数</returns>
+        /// <param name="input">输入流。</param>
+        /// <returns></returns>
         static int MidNumber(int[] input)
         {
             //需要对输入值进行去重 & 排序，故需要保存
@@ -103,11 +103,11 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 获取第 k 小的数
+        /// 获取第 k 小的数。
         /// </summary>
-        /// <param name="k">需要获取的排名</param>
-        /// <param name="input">输入流</param>
-        /// <returns>第 k 小的数</returns>
+        /// <param name="k">需要获取的排名。</param>
+        /// <param name="input">输入流。</param>
+        /// <returns></returns>
         static int NumberK (int k, int[] input)
         {
             int[] temp = new int[101];
@@ -133,10 +133,10 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 计算输入流中所有数的平方和
+        /// 计算输入流中所有数的平方和。
         /// </summary>
-        /// <param name="input">输入流</param>
-        /// <returns>所有数的平方和</returns>
+        /// <param name="input">输入流。</param>
+        /// <returns>所有数的平方和。</returns>
         static long SquareSum(int[] input)
         {
             long sum = 0;
@@ -153,10 +153,10 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 计算所有输入数据的平均值
+        /// 计算所有输入数据的平均值。
         /// </summary>
-        /// <param name="input">输入流</param>
-        /// <returns>所有输入数据的平均值</returns>
+        /// <param name="input">输入流。</param>
+        /// <returns>所有输入数据的平均值。</returns>
         static double Average(int[] input)
         {
             long sum = 0;
@@ -176,10 +176,10 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 计算大于平均值的元素数量
+        /// 计算大于平均值的元素数量。
         /// </summary>
-        /// <param name="input">输入流</param>
-        /// <returns>大于平均值的元素数量</returns>
+        /// <param name="input">输入流。</param>
+        /// <returns>大于平均值的元素数量。</returns>
         static double AboveAverage(int[] input)
         {
             double ave = Average(input);
@@ -201,9 +201,9 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 升序打印数组
+        /// 升序打印数组。
         /// </summary>
-        /// <param name="input">输入流</param>
+        /// <param name="input">输入流。</param>
         static void Ascending(int[] input)
         {
             Array.Sort(input);
@@ -217,9 +217,9 @@ namespace _1._1._34
         }
 
         /// <summary>
-        /// 随机打印数组
+        /// 随机打印数组。
         /// </summary>
-        /// <param name="input">输入流</param>
+        /// <param name="input">输入流。</param>
         static void Shuffle(int[] input)
         {
             Random random = new Random();

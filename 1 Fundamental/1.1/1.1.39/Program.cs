@@ -42,11 +42,11 @@ namespace _1._1._39
         }
 
         /// <summary>
-        /// 执行一次“实验”
+        /// 执行一次“实验”，返回相同数字的数目。
         /// </summary>
-        /// <param name="N">数组的大小</param>
-        /// <param name="seed">随机种子</param>
-        /// <returns>返回相同数字的数目</returns>
+        /// <param name="N">数组的大小。</param>
+        /// <param name="seed">随机种子。</param>
+        /// <returns></returns>
         static int Test(int N, int seed)
         {
             Random random = new Random(seed);
@@ -100,9 +100,9 @@ namespace _1._1._39
         }
 
         /// <summary>
-        /// 在控制台上输出矩阵
+        /// 在控制台上输出矩阵。
         /// </summary>
-        /// <param name="a">需要输出的矩阵</param>
+        /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(double[,] a)
         {
             for (int i = 0; i < a.GetLength(0); ++i)

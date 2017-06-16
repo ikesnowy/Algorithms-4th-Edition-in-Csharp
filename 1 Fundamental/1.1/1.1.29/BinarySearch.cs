@@ -40,7 +40,12 @@ namespace _1._1._29
             }
         }
 
-        //返回数组中相等元素的个数
+        /// <summary>
+        /// 计算数组中相等元素的个数。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <returns></returns>
         public static int count(int key, int[] a)
         {
             int lowerBound = rank(key, a);
@@ -64,7 +69,12 @@ namespace _1._1._29
             return upperBound - lowerBound + 1;
         }
 
-        //返回数组中小于该数的数字个数
+        /// <summary>
+        /// 计算数组中小于该数的数字个数。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a)
         {
             int mid = rank(key, a, 0, a.Length - 1);
@@ -83,7 +93,14 @@ namespace _1._1._29
             return mid;
         }
 
-        //二分查找
+        /// <summary>
+        /// 二分查找。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <param name="lo">查找的下界。</param>
+        /// <param name="hi">查找的上界。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a, int lo, int hi)
         {
 

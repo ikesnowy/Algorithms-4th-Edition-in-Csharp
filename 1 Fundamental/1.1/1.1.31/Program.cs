@@ -27,10 +27,10 @@ namespace _1._1._31
         }
 
         /// <summary>
-        /// 主绘图函数
+        /// 主绘图函数。
         /// </summary>
-        /// <param name="N">点的总数目</param>
-        /// <param name="p">每对点之间连接的概率</param>
+        /// <param name="N">点的总数目。</param>
+        /// <param name="p">每对点之间连接的概率。</param>
         public static void StartDrawing(int N, double p)
         {
             int pointSize = 5;//每个点绘制的大小
@@ -90,12 +90,12 @@ namespace _1._1._31
         }
 
         /// <summary>
-        /// 计算一个点绕某点旋转之后的坐标值
+        /// 计算一个点绕某点旋转之后的坐标值。
         /// </summary>
-        /// <param name="origin">旋转的圆心</param>
-        /// <param name="point">需要旋转的点</param>
-        /// <param name="dgree">旋转的角度（逆时针）</param>
-        /// <returns>返回旋转后的坐标</returns>
+        /// <param name="origin">旋转的圆心。</param>
+        /// <param name="point">需要旋转的点。</param>
+        /// <param name="dgree">旋转的角度（逆时针）。</param>
+        /// <returns>返回旋转后的坐标。</returns>
         public static Point Rotate(Point origin, Point point, double dgree)
         {
             Point rotated = new Point();

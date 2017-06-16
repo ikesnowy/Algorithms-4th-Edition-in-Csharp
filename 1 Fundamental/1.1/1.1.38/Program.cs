@@ -46,7 +46,12 @@ namespace _1._1._38
             Console.WriteLine($"BinarySearch: {timer.ElapsedMilliseconds} ms");
         }
 
-        //暴力查找
+        /// <summary>
+        /// 暴力查找算法。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <returns></returns>
         public static int BruteForceSearch(int key, int[] a)
         {
             for (int i = 0; i < a.Length; ++i)
@@ -58,13 +63,26 @@ namespace _1._1._38
             return -1;
         }
 
-        //重载方法，用于启动二分查找
+        /// <summary>
+        /// 二分查找，默认在整个数组范围内查找。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a)
         {
             return rank(key, a, 0, a.Length - 1, 1);
         }
 
-        //二分查找
+        /// <summary>
+        /// 二分查找。
+        /// </summary>
+        /// <param name="key">关键字。</param>
+        /// <param name="a">查找范围。</param>
+        /// <param name="lo">查找的下界。</param>
+        /// <param name="hi">查找的上界。</param>
+        /// <param name="number">递归调用的次数。</param>
+        /// <returns></returns>
         public static int rank(int key, int[] a, int lo, int hi, int number)
         {
             if (lo > hi)

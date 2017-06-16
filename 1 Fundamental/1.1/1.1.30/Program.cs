@@ -30,6 +30,12 @@ namespace _1._1._30
             PrintArray2D(a, N, N);
         }
 
+        /// <summary>
+        /// 计算两个数之间的最大公约数。
+        /// </summary>
+        /// <param name="a">第一个数。</param>
+        /// <param name="b">第二个数。</param>
+        /// <returns></returns>
         static int gcd(int a, int b)
         {
             if (b == 0)

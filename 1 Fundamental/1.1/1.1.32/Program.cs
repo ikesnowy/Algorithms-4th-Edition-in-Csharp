@@ -27,6 +27,13 @@ namespace _1._1._32
             Application.Run(new Form1());
         }
 
+        /// <summary>
+        /// 主绘图函数。
+        /// </summary>
+        /// <param name="array">输入的 double 数组。</param>
+        /// <param name="N">分割的段数。</param>
+        /// <param name="l">直方图 x 轴范围的下界。</param>
+        /// <param name="r">直方图 x 轴范围的上界。</param>
         public static void StartDrawing(double[] array, int N, double l, double r)
         {
             //创建并显示绘图窗口

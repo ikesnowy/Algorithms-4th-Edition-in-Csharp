@@ -46,10 +46,10 @@ namespace _1._1._36
         }
 
         /// <summary>
-        /// 打乱数组
+        /// 打乱数组。
         /// </summary>
-        /// <param name="a">需要打乱的数组</param>
-        /// <param name="seed">用于生成随机数的种子值</param>
+        /// <param name="a">需要打乱的数组。</param>
+        /// <param name="seed">用于生成随机数的种子值。</param>
         static void Shuffle(int[] a, int seed)
         {
             int N = a.Length;
@@ -64,9 +64,9 @@ namespace _1._1._36
         }
 
         /// <summary>
-        /// 在控制台上输出矩阵
+        /// 在控制台上输出矩阵。
         /// </summary>
-        /// <param name="a">需要输出的矩阵</param>
+        /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(int[,] a)
         {
             for (int i = 0; i < a.GetLength(0); ++i)

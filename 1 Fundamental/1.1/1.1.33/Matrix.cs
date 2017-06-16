@@ -5,11 +5,11 @@ namespace _1._1._33
     public class Matrix
     {
         /// <summary>
-        /// 计算两个向量的点积
+        /// 计算两个向量的点积。
         /// </summary>
-        /// <param name="x">需要点乘的向量</param>
-        /// <param name="y">需要点乘的另一个向量</param>
-        /// <returns>返回点乘的结果</returns>
+        /// <param name="x">需要点乘的向量。</param>
+        /// <param name="y">需要点乘的另一个向量。</param>
+        /// <returns>返回点乘的结果。</returns>
         /// <exception cref="FormatException"></exception>
         public static double Dot(double[] x, double[] y)
         {
@@ -30,11 +30,11 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 计算两个矩阵相乘的结果，返回一个矩阵
+        /// 计算两个矩阵相乘的结果，返回一个矩阵。
         /// </summary>
-        /// <param name="a">用交错数组表示的 m * p 矩阵</param>
-        /// <param name="b">用交错数组表示的 p * n 矩阵</param>
-        /// <returns>返回 m * n 的矩阵</returns>
+        /// <param name="a">用交错数组表示的 m * p 矩阵。</param>
+        /// <param name="b">用交错数组表示的 p * n 矩阵。</param>
+        /// <returns>返回 m * n 的矩阵。</returns>
         /// <exception cref="FormatException"></exception>
         /// <example>
         ///     a = {(1,2,3),(4,5,6)}
@@ -76,10 +76,10 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 将一个矩阵转置
+        /// 将一个矩阵转置。
         /// </summary>
-        /// <param name="a">待转置的矩阵</param>
-        /// <returns>返回转置后的数组</returns>
+        /// <param name="a">待转置的矩阵。</param>
+        /// <returns>返回转置后的数组。</returns>
         public static double[][] Transpose(double[][] a)
         {
             double[][] trans = new double[a[0].Length][];
@@ -96,11 +96,11 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 计算矩阵与向量的乘积
+        /// 计算矩阵与向量的乘积。
         /// </summary>
-        /// <param name="a">左乘的矩阵</param>
-        /// <param name="x">列向量</param>
-        /// <returns>返回一个向量</returns>
+        /// <param name="a">左乘的矩阵。</param>
+        /// <param name="x">列向量。</param>
+        /// <returns>返回一个向量。</returns>
         /// <exception cref="FormatException"></exception>
         public static double[] Mult(double[][] a, double[] x)
         {
@@ -120,11 +120,11 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 计算向量与矩阵的乘积
+        /// 计算向量与矩阵的乘积。
         /// </summary>
-        /// <param name="x">行向量</param>
-        /// <param name="a">矩阵</param>
-        /// <returns>返回一个向量</returns>
+        /// <param name="x">行向量。</param>
+        /// <param name="a">矩阵。</param>
+        /// <returns>返回一个向量。</returns>
         /// <exception cref="FormatException"></exception>
         public static double[] Mult(double[] x, double[][] a)
         {
@@ -149,9 +149,9 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 在控制台上输出矩阵
+        /// 在控制台上输出矩阵。
         /// </summary>
-        /// <param name="a">需要输出的矩阵</param>
+        /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(double[][] a)
         {
             for (int i = 0; i < a.GetLength(0); ++i)
@@ -165,9 +165,9 @@ namespace _1._1._33
         }
 
         /// <summary>
-        /// 在控制台上输出一行向量
+        /// 在控制台上输出一行向量。
         /// </summary>
-        /// <param name="a">需要输出的向量</param>
+        /// <param name="a">需要输出的向量。</param>
         public static void PrintVector(double[] a)
         {
             for (int i = 0; i < a.Length; ++i)

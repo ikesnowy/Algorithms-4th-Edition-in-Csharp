@@ -14,6 +14,7 @@ namespace _1._2._1
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("Type the value of N:");
             int N = int.Parse(Console.ReadLine());
             List<Point2D> pointlist = new List<Point2D>();

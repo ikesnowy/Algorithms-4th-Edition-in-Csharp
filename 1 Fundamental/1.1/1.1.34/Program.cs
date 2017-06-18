@@ -108,7 +108,7 @@ namespace _1._1._34
         /// <param name="k">需要获取的排名。</param>
         /// <param name="input">输入流。</param>
         /// <returns></returns>
-        static int NumberK (int k, int[] input)
+        static int NumberK(int k, int[] input)
         {
             int[] temp = new int[101];
 

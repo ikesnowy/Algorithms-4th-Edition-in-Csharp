@@ -8,7 +8,7 @@ namespace Geometry
     /// <summary>
     /// 一维闭区间。
     /// </summary>
-    class Interval1D
+    public class Interval1D
     {
         public static readonly Comparer<Interval1D> Min_Order = new MinEndpointComparer();
         public static readonly Comparer<Interval1D> Max_Order = new MaxEndpointComparer();

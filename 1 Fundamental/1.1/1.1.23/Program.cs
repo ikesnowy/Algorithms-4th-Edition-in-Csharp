@@ -17,7 +17,7 @@ namespace _1._1._23
             //从largeW.txt中读取数据
             string[] whiteList = File.ReadAllLines("largeW.txt");
             int[] WhiteList = new int[whiteList.Length];
-            
+
             for (int i = 0; i < whiteList.Length; ++i)
             {
                 WhiteList[i] = int.Parse(whiteList[i]);
@@ -34,7 +34,7 @@ namespace _1._1._23
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }
 
-            Console.WriteLine("Type '+' to get the numbers that not in the whitelist," + 
+            Console.WriteLine("Type '+' to get the numbers that not in the whitelist," +
                 "'-' to get the numbers that in the whitelist.");
             char operation = Console.ReadLine()[0];
 

@@ -24,7 +24,7 @@ namespace _1._1._39
             int T = 10;
             int M = 4;
 
-            double[,] Matrix = new double[M,2];
+            double[,] Matrix = new double[M, 2];
 
             for (int i = 0; i < M; ++i)
             {

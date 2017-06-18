@@ -8,7 +8,7 @@ namespace Geometry
     /// <summary>
     /// 二维闭合区间
     /// </summary>
-    class Interval2D
+    public class Interval2D
     {
         private readonly Interval1D X;
         private readonly Interval1D Y;

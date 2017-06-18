@@ -73,7 +73,7 @@ namespace _1._1._36
             {
                 for (int j = 0; j < a.GetLength(1); ++j)
                 {
-                    Console.Write($"\t{a[i,j]}");
+                    Console.Write($"\t{a[i, j]}");
                 }
                 Console.Write("\n");
             }

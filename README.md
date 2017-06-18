@@ -30,10 +30,6 @@
 
 ### 目标平台 & 测试环境：  
 
-#### 控制台应用程序  
-Windows10 15063 + Visual Studio 2017 + .NET Core1.1  
-
-#### Windows 窗体应用程序（部分题目需要绘图）  
 Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
 
 #### 测试环境（部分题目要求测试运算时间）  

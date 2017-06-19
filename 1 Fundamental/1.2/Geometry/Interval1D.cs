@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Drawing;
 
 namespace Geometry
 {
@@ -54,9 +53,19 @@ namespace Geometry
         }
 
         /// <summary>
-        /// 目标值是否处在区域内。
+        /// 判断目标区间是否被本区间包含。
         /// </summary>
-        /// <param name="x">如果目标值在区域内则返回 True，否则返回 False。</param>
+        /// <param name="that">需要判断是否被包含的区间。</param>
+        /// <returns></returns>
+        public bool Contains(Interval1D that)
+        {
+            return this.Min < that.Min && this.Max > that.Max;
+        }
+
+        /// <summary>
+        /// 目标值是否处在区域内。如果目标值在区域内则返回 True，否则返回 False。
+        /// </summary>
+        /// <param name="x">需要判断的值。</param>
         /// <returns></returns>
         public bool Contains(double x)
         {
@@ -74,6 +83,18 @@ namespace Geometry
                 return false;
 
             return true;
+        }
+
+        /// <summary>
+        /// 绘制一维区间。
+        /// </summary>
+        /// <param name="g">原点在左下方，y轴向上，x轴向右的画布。</param>
+        /// <param name="y">绘制一维区间的 y轴 坐标。</param>
+        public void Draw(Graphics g, int y)
+        {
+            Point A = new Point((int)Min, y);
+            Point B = new Point((int)Max, y);
+            g.DrawLine(Pens.Black, A, B);
         }
 
         /// <summary>

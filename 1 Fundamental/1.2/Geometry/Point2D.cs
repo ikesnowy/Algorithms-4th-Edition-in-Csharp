@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Drawing;
 
 namespace Geometry
 {
@@ -119,6 +118,15 @@ namespace Geometry
             double dy = this.Y - that.Y;
 
             return dx * dx + dy * dy;
+        }
+
+        /// <summary>
+        /// 绘制二维点。
+        /// </summary>
+        /// <param name="g">原点在左下方，y轴向上，x轴向右的画布。</param>
+        public void Draw(Graphics g)
+        {
+            g.FillEllipse(Brushes.Black, (int)X, (int)Y, Radius, Radius);
         }
 
         /// <summary>

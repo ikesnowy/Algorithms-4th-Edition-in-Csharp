@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace Geometry
 {
@@ -45,6 +46,16 @@ namespace Geometry
         }
 
         /// <summary>
+        /// 判断目标区间是否被本区间包含。
+        /// </summary>
+        /// <param name="that">需要判断是否被包含的区间。</param>
+        /// <returns></returns>
+        public bool Contains(Interval2D that)
+        {
+            return this.X.Contains(that.X) && this.Y.Contains(that.Y);
+        }
+
+        /// <summary>
         /// 判断一个二维点是否在该平面范围内。
         /// </summary>
         /// <param name="p">需要判断的二维点。</param>
@@ -61,6 +72,17 @@ namespace Geometry
         public double Area()
         {
             return this.X.Length() * this.Y.Length();
+        }
+
+        /// <summary>
+        /// 在画布上绘制二维区间。
+        /// </summary>
+        /// <param name="g">原点在左下方，x轴向右，y轴向上的画布。</param>
+        public void Draw(Graphics g)
+        {
+            Rectangle rect = new Rectangle((int)this.X.Min, (int)this.Y.Min, (int)this.X.Length(), (int)this.Y.Length());
+            g.DrawRectangle(Pens.White, rect);
+            g.FillRectangle(Brushes.Black, rect);
         }
 
         /// <summary>

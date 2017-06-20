@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 16);
+            this.label1.Location = new System.Drawing.Point(29, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 36);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 16);
+            this.label2.Location = new System.Drawing.Point(197, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 36);
             this.label2.TabIndex = 1;
@@ -56,23 +56,23 @@
             // 
             // InputN
             // 
-            this.InputN.Location = new System.Drawing.Point(89, 12);
+            this.InputN.Location = new System.Drawing.Point(96, 19);
             this.InputN.Name = "InputN";
             this.InputN.Size = new System.Drawing.Size(100, 44);
             this.InputN.TabIndex = 2;
             // 
             // InputMax
             // 
-            this.InputMax.Location = new System.Drawing.Point(290, 12);
+            this.InputMax.Location = new System.Drawing.Point(297, 19);
             this.InputMax.Name = "InputMax";
             this.InputMax.Size = new System.Drawing.Size(100, 44);
             this.InputMax.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(413, 12);
+            this.button1.Location = new System.Drawing.Point(418, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 44);
+            this.button1.Size = new System.Drawing.Size(136, 56);
             this.button1.TabIndex = 4;
             this.button1.Text = "开始";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // ErrorLabel
             // 
             this.ErrorLabel.AutoSize = true;
-            this.ErrorLabel.Location = new System.Drawing.Point(22, 63);
+            this.ErrorLabel.Location = new System.Drawing.Point(29, 70);
             this.ErrorLabel.Name = "ErrorLabel";
             this.ErrorLabel.Size = new System.Drawing.Size(0, 36);
             this.ErrorLabel.TabIndex = 5;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(583, 108);
+            this.ClientSize = new System.Drawing.Size(583, 126);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.InputMax);

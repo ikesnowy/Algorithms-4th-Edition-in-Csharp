@@ -18,7 +18,7 @@
 1. 下载整个解决方案（可能会非常大），打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行。  
 2. 下载你需要的项目文件和库文件（库文件一般位于相应章节文件夹下），添加到 Visual Studio 中运行。  
 3. 直接在 Github 上查看、复制源代码（推荐）。  
-4. 去[我的博客](http://www.cnblogs.com/ikesnowy/)上查看相关代码和解释。  
+4. 去 [我的博客](http://www.cnblogs.com/ikesnowy/) 上查看相关代码和解释。  
 
 ### 文件说明：
 

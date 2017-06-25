@@ -23,5 +23,10 @@ namespace _1._2._13
         {
             return 
         }
+
+        int IComparable<Transaction>.CompareTo(Transaction other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

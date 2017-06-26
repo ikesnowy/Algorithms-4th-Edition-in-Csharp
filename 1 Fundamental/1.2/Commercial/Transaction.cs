@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1._2._13
+namespace Commercial
 {
-    class Transaction : IComparable<Transaction>
+    public class Transaction : IComparable<Transaction>
     {
         public string Who { get; }
         public Date When { get; }
         public double Amount { get; }
+
+        Transaction(string transaction)
+        {
+            string[] a = transaction.Split(' ');
+            Who = a[0];
+            When = new Date(a[1]);
+            Amount = double.Parse(a[2]);
+        }
 
         Transaction(string who, Date when, double amount)
         {

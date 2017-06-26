@@ -4,13 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1._2._13
+namespace Commercial
 {
-    class Date : IComparable<Date>
+    public class Date : IComparable<Date>
     {
         public int Month { get; }//月
         public int Day { get; }//日
         public int Year { get; }//年
+
+        public Date(string date)
+        {
+            string[] a = date.Split('/');
+            if (a.Length != 3)
+                throw new ArgumentException("Illgal Date");
+            Month = int.Parse(a[0]);
+            Day = int.Parse(a[1]);
+            Year = int.Parse(a[2]);
+        }
 
         public Date(int m, int d, int y)
         {

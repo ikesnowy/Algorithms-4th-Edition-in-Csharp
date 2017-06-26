@@ -115,7 +115,7 @@ namespace Commercial
 
             return
                 (that.Amount == this.Amount) &&
-                (that.When == this.When) &&
+                (that.When.Equals(this.When)) &&
                 (that.Who == this.Who);
         }
 

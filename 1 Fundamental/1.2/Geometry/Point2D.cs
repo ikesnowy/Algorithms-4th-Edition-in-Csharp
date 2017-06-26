@@ -134,7 +134,7 @@ namespace Geometry
         /// </summary>
         /// <param name="other">需要比较的另一个对象。</param>
         /// <returns></returns>
-        int IComparable<Point2D>.CompareTo(Point2D other)
+        public int CompareTo(Point2D other)
         {
             if (this.Y < other.Y)
                 return -1;

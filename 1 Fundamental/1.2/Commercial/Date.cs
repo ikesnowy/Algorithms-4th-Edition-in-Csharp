@@ -12,6 +12,10 @@ namespace Commercial
         public int Day { get; }//日
         public int Year { get; }//年
 
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="date">形如 "05/31/2017" 的字符串。</param>
         public Date(string date)
         {
             string[] a = date.Split('/');
@@ -22,6 +26,12 @@ namespace Commercial
             Year = int.Parse(a[2]);
         }
 
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="m">交易月份。</param>
+        /// <param name="d">交易日。</param>
+        /// <param name="y">交易年份。</param>
         public Date(int m, int d, int y)
         {
             this.Month = m;
@@ -29,11 +39,20 @@ namespace Commercial
             this.Year = y;
         }
 
+        /// <summary>
+        /// 返回形如 05/22/2017 的字符串。
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.Month + "/" + this.Day + "/" + this.Year;
         }
 
+        /// <summary>
+        /// 比较两个日期是否相同。
+        /// </summary>
+        /// <param name="obj">需要比较的另一个对象。</param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -46,6 +65,10 @@ namespace Commercial
             return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
         }
 
+        /// <summary>
+        /// 获取日期的哈希值。
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             int hash = 17;
@@ -55,7 +78,12 @@ namespace Commercial
             return hash;
         }
 
-        int IComparable<Date>.CompareTo(Date other)
+        /// <summary>
+        /// 比较两个日期的先后。
+        /// </summary>
+        /// <param name="other">另一个日期。</param>
+        /// <returns></returns>
+        public int CompareTo(Date other)
         {
             if (this.Year > other.Year)
                 return 1;

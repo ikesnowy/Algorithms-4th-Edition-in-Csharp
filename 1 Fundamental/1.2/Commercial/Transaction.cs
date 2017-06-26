@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,11 @@ namespace Commercial
         public Date When { get; }
         public double Amount { get; }
 
-        Transaction(string transaction)
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="transaction">用空格隔开的形如 “姓名 日期 金额” 的字符串。</param>
+        public Transaction(string transaction)
         {
             string[] a = transaction.Split(' ');
             Who = a[0];
@@ -20,7 +25,13 @@ namespace Commercial
             Amount = double.Parse(a[2]);
         }
 
-        Transaction(string who, Date when, double amount)
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="who">客户姓名。</param>
+        /// <param name="when">交易日期。</param>
+        /// <param name="amount">交易金额。</param>
+        public Transaction(string who, Date when, double amount)
         {
             if (double.IsNaN(amount) || double.IsInfinity(amount))
             {
@@ -31,12 +42,21 @@ namespace Commercial
             this.Amount = amount;
         }
 
+        /// <summary>
+        /// 返回字符串形式的交易信息。
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("%-10s %10s %8.2f", Who, When, Amount);
+            return string.Format("{0, -10} {1, 10} {2, 8:F2}", Who, When, Amount);
         }
 
-        int IComparable<Transaction>.CompareTo(Transaction other)
+        /// <summary>
+        /// 默认按照交易金额升序比较。
+        /// </summary>
+        /// <param name="other">比较的另一个对象。</param>
+        /// <returns></returns>
+        public int CompareTo(Transaction other)
         {
             if (this.Amount < other.Amount)
                 return -1;
@@ -45,6 +65,44 @@ namespace Commercial
             return 0;
         }
 
+        /// <summary>
+        /// 按照客户姓名升序比较。
+        /// </summary>
+        public class WhoOrder : IComparer<Transaction>
+        {
+            int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+            {
+                return x.Who.CompareTo(y.Who);
+            }
+        }
+
+        /// <summary>
+        /// 按照交易时间升序比较。
+        /// </summary>
+        public class WhenOrder : IComparer<Transaction>
+        {
+            int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+            {
+                return x.When.CompareTo(y.When);
+            }
+        }
+
+        /// <summary>
+        /// 按照交易金额升序比较。
+        /// </summary>
+        public class HowMuchOrder : IComparer<Transaction>
+        {
+            int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+            {
+                return x.Amount.CompareTo(y.Amount);
+            }
+        }
+
+        /// <summary>
+        /// 比较两笔交易是否相同。
+        /// </summary>
+        /// <param name="obj">另一个对象。</param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -61,6 +119,10 @@ namespace Commercial
                 (that.Who == this.Who);
         }
 
+        /// <summary>
+        /// 返回交易信息的哈希值。
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             int hash = 1;

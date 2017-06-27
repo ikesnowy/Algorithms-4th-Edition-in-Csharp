@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._2._9
+﻿namespace _1._2._9
 {
     /// <summary>
     /// 计数器类

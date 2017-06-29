@@ -12,22 +12,37 @@ namespace Generics
         private Node<Item> first;
         private int count;
 
+        /// <summary>
+        /// 默认构造函数。
+        /// </summary>
         public Stack()
         {
             this.first = null;
             this.count = 0;
         }
 
+        /// <summary>
+        /// 检查栈是否为空。
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty()
         {
             return this.first == null;
         }
 
+        /// <summary>
+        /// 返回栈内元素的数量。
+        /// </summary>
+        /// <returns></returns>
         public int Size()
         {
             return this.count;
         }
 
+        /// <summary>
+        /// 将一个元素压入栈中。
+        /// </summary>
+        /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
             Node<Item> oldFirst = first;
@@ -37,6 +52,10 @@ namespace Generics
             count++;
         }
 
+        /// <summary>
+        /// 将一个元素从栈中弹出，返回弹出的元素。
+        /// </summary>
+        /// <returns></returns>
         public Item Pop()
         {
             if (IsEmpty())
@@ -47,6 +66,10 @@ namespace Generics
             return item;
         }
 
+        /// <summary>
+        /// 返回栈顶元素（但不弹出它）。
+        /// </summary>
+        /// <returns></returns>
         public Item Peek()
         {
             if (IsEmpty())

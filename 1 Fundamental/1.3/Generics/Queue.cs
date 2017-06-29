@@ -13,6 +13,9 @@ namespace Generics
         private Node<Item> last;
         private int count;
 
+        /// <summary>
+        /// 默认构造函数。
+        /// </summary>
         public Queue()
         {
             this.first = null;
@@ -20,16 +23,28 @@ namespace Generics
             this.count = 0;
         }
 
+        /// <summary>
+        /// 检查队列是否为空。
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty()
         {
             return this.first == null;
         }
 
+        /// <summary>
+        /// 返回队列中元素的数量。
+        /// </summary>
+        /// <returns></returns>
         public int Size()
         {
             return this.count;
         }
 
+        /// <summary>
+        /// 返回队列中的第一个元素（但不让它出队）。
+        /// </summary>
+        /// <returns></returns>
         public Item Peek()
         {
             if (IsEmpty())
@@ -37,6 +52,10 @@ namespace Generics
             return this.first.item;
         }
 
+        /// <summary>
+        /// 将一个新元素加入队列中。
+        /// </summary>
+        /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
             Node<Item> oldLast = this.last;
@@ -50,6 +69,10 @@ namespace Generics
             count++;
         }
 
+        /// <summary>
+        /// 将队列中的第一个元素出队并返回它。
+        /// </summary>
+        /// <returns></returns>
         public Item Dequeue()
         {
             if (IsEmpty())

@@ -25,7 +25,6 @@ namespace Generics_Test
 
             Stack<string> stack = new Stack<string>();
             string input = "to be or not to - be - - that - - - is";
-
             string[] s = input.Split(' ');
 
             foreach (string n in s)

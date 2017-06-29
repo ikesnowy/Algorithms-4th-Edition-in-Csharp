@@ -1,0 +1,138 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Generics
+{
+    public class Stack<Item> : IEnumerable<Item>
+    {
+        private Node<Item> first;
+        private int count;
+
+        /// <summary>
+        /// 默认构造函数。
+        /// </summary>
+        public Stack()
+        {
+            this.first = null;
+            this.count = 0;
+        }
+
+        /// <summary>
+        /// 检查栈是否为空。
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmpty()
+        {
+            return this.first == null;
+        }
+
+        /// <summary>
+        /// 返回栈内元素的数量。
+        /// </summary>
+        /// <returns></returns>
+        public int Size()
+        {
+            return this.count;
+        }
+
+        /// <summary>
+        /// 将一个元素压入栈中。
+        /// </summary>
+        /// <param name="item">要压入栈中的元素。</param>
+        public void Push(Item item)
+        {
+            Node<Item> oldFirst = first;
+            this.first = new Node<Item>();
+            this.first.item = item;
+            this.first.next = oldFirst;
+            count++;
+        }
+
+        /// <summary>
+        /// 将一个元素从栈中弹出，返回弹出的元素。
+        /// </summary>
+        /// <returns></returns>
+        public Item Pop()
+        {
+            if (IsEmpty())
+                throw new InvalidOperationException("Stack Underflow");
+            Item item = first.item;
+            first = first.next;
+            count--;
+            return item;
+        }
+
+        /// <summary>
+        /// 返回栈顶元素（但不弹出它）。
+        /// </summary>
+        /// <returns></returns>
+        public Item Peek()
+        {
+            if (IsEmpty())
+                throw new InvalidOperationException("Stack Underflow");
+            return first.item;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder s = new StringBuilder();
+            foreach (Item n in this)
+            {
+                s.Append(n);
+                s.Append(' ');
+            }
+            return s.ToString();
+        }
+
+        public IEnumerator<Item> GetEnumerator()
+        {
+            return new StackEnumerator(this.first);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        private class StackEnumerator : IEnumerator<Item>
+        {
+            private Node<Item> current;
+            private Node<Item> first;
+
+            public StackEnumerator(Node<Item> first)
+            {
+                this.current = new Node<Item>();
+                this.current.next = first;
+                this.first = this.current;
+            }
+
+            Item IEnumerator<Item>.Current => current.item;
+
+            object IEnumerator.Current => current.item;
+
+            void IDisposable.Dispose()
+            {
+                this.current = null;
+                this.first = null;
+            }
+
+            bool IEnumerator.MoveNext()
+            {
+                if (this.current.next == null)
+                    return false;
+
+                this.current = this.current.next;
+                return true;
+            }
+
+            void IEnumerator.Reset()
+            {
+                this.current = this.first;
+            }
+        }
+    }
+}

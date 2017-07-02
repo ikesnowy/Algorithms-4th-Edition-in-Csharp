@@ -20,21 +20,21 @@ namespace _1._3._10
         //结果 A B +，变成后续表达式
         static void Main(string[] args)
         {
-            Stack<char> stack = new Stack<char>();
-            string input = "( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )";
-            foreach (char n in input)
+            Stack<string> stack = new Stack<string>();
+            string[] input = "( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )".Split(' ');
+            foreach (string n in input)
             {
-                if (n == ' ')
+                if (n == " ")
                     continue;
-                else if (n == '+' || n == '-' || n == '*' || n == '/')
+                else if (n == "+" || n == "-" || n == "*" || n == "/")
                 {
                     stack.Push(n);
                 }
-                else if (n == ')')
+                else if (n == ")")
                 {
                     Console.Write(stack.Pop() + " ");
                 }
-                else if (n == '(')
+                else if (n == "(")
                 {
                     continue;
                 }

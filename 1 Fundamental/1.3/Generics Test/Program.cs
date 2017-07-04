@@ -51,6 +51,19 @@ namespace Generics_Test
 
             Console.WriteLine($"({queue.Size()}) left on queue");
             Console.WriteLine(queue);
+
+            LinkedList<string> link = new LinkedList<string>();
+            link.Insert("first");
+            link.Insert("second");
+            link.Insert("third");
+            link.Insert("fourth");
+
+            Console.WriteLine(link.ToString());
+            Console.WriteLine(link.Find(2));
+            Console.WriteLine(link.Delete(2));
+            Console.WriteLine(link.ToString());
+            link.Insert("second", 2);
+            Console.WriteLine(link.ToString());
         }
     }
 }

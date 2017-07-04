@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace _1._3._16
 {
+    /*
+     * 1.3.16
+     * 
+     * 使用 1.3.1.5 节中的 readInts() 作为模板为 Date 编写一个静态方法 readDates()，
+     * 从标准输入中读取由练习 1.2.19 的表格指定的格式的多个日期并返回一个它们的数组。
+     * 
+     */
     class Program
     {
         static void Main(string[] args)

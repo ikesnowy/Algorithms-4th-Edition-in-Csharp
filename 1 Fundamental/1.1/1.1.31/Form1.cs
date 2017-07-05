@@ -31,15 +31,15 @@ namespace _1._1._31
                 }
                 Program.StartDrawing(N, p);
             }
-            catch (ArgumentNullException aex)
+            catch (ArgumentNullException)
             {
                 ErrorLabel.Text = "参数不足，是否漏填了某个参数？";
             }
-            catch (FormatException fex)
+            catch (FormatException)
             {
                 ErrorLabel.Text = "你似乎填入了非数字的内容（是否漏填了参数？）。";
             }
-            catch (OverflowException oex)
+            catch (OverflowException)
             {
                 ErrorLabel.Text = "你填入的数字太大了。";
             }

@@ -49,6 +49,8 @@ namespace _1._3._25
 
         static void InsertAfter<Item>(Node<Item> A, Node<Item> B)
         {
+            if (A == null || B == null)
+                return;
             B.next = A.next;
             A.next = B;
         }

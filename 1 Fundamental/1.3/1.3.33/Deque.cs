@@ -86,6 +86,10 @@ namespace _1._3._33
             {
                 this.first = this.last;
             }
+            else
+            {
+                oldLast.next = this.last;
+            }
             this.count++;
         }
 
@@ -107,6 +111,11 @@ namespace _1._3._33
             if (this.last == null)
             {
                 this.first = null;
+            }
+            else
+            {
+                this.last.next.item = default(Item);
+                this.last.next = null;
             }
             return temp;
         }
@@ -130,8 +139,60 @@ namespace _1._3._33
             {
                 this.last = null;
             }
+            else
+            {
+                this.first.prev.item = default(Item);
+                this.first.prev = null;
+            }
 
             return temp;
+        }
+
+        public IEnumerator<Item> GetEnumerator()
+        {
+            return new DequeEnumerator(this.first);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        private class DequeEnumerator : IEnumerator<Item>
+        {
+            private DoubleNode<Item> current;
+            private DoubleNode<Item> first;
+
+            public DequeEnumerator(DoubleNode<Item> first) 
+            {
+                this.current = new DoubleNode<Item>();
+                this.current.next = first;
+                this.current.prev = null;
+                this.first = this.current;
+            }
+
+            public Item Current => current.item;
+
+            object IEnumerator.Current => current.item;
+
+            public void Dispose()
+            {
+                this.current = null;
+                this.first = null;
+            }
+
+            public bool MoveNext()
+            {
+                if (this.current.next == null)
+                    return false;
+                this.current = this.current.next;
+                return true;
+            }
+
+            public void Reset()
+            {
+                this.current = this.first;
+            }
         }
     }
 }

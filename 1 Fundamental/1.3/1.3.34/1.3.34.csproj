@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8479AEC9-3C61-48CA-A0EC-56CD5B9DE13B}</ProjectGuid>
+    <ProjectGuid>{84EF4016-C028-4F1A-A8F5-455B0B415467}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_1._3._33</RootNamespace>
-    <AssemblyName>1.3.33</AssemblyName>
+    <RootNamespace>_1._3._34</RootNamespace>
+    <AssemblyName>1.3.34</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deque.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResizingArrayDeque.cs" />
+    <Compile Include="RandomBag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

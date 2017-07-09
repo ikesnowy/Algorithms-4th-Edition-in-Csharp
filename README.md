@@ -10,7 +10,9 @@
   - [1.1 基础编程模型](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)  
 
   - [1.2 数据抽象](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2) 
+
     [1.2 类库 Geometry (Point2D.cs Interval1D.cs Interval2D.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Geometry) 
+
     [1.2 类库 Commercial (Date.cs Transaction.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Commercial)  
 
   - [1.3 背包、队列和栈](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3)

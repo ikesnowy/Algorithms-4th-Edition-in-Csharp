@@ -17,7 +17,6 @@ namespace _1._3._40
         private Node<Item> first;
         private int count;
 
-
         /// <summary>
         /// 检查编码组是否为空。
         /// </summary>
@@ -55,6 +54,7 @@ namespace _1._3._40
                 {
                     return current;
                 }
+                current = current.next;
             }
             return null;
         }
@@ -77,7 +77,7 @@ namespace _1._3._40
                 this.first = temp;
                 this.count++;
             }
-            else
+            else if (temp != null && this.count != 1)
             {
                 Node<Item> target = temp.next;
                 temp.next = temp.next.next;
@@ -98,6 +98,20 @@ namespace _1._3._40
             }
 
             return this.first.item;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder s = new StringBuilder();
+            Node<Item> current = this.first;
+            while (current != null)
+            {
+                s.Append(current.item.ToString());
+                s.Append(" ");
+                current = current.next;
+            }
+
+            return s.ToString();
         }
     }
 }

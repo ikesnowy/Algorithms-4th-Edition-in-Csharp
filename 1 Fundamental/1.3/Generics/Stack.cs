@@ -22,6 +22,22 @@ namespace Generics
         }
 
         /// <summary>
+        /// 复制构造函数。
+        /// </summary>
+        /// <param name="s"></param>
+        public Stack(Stack<Item> s)
+        {
+            if (s.first != null)
+            {
+                this.first = new Node<Item>(s.first);
+                for (Node<Item> x = this.first; x.next != null; x = x.next)
+                {
+                    x.next = new Node<Item>(x.next);
+                }
+            }
+        }
+
+        /// <summary>
         /// 检查栈是否为空。
         /// </summary>
         /// <returns></returns>

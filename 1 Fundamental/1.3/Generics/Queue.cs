@@ -24,6 +24,18 @@ namespace Generics
         }
 
         /// <summary>
+        /// 复制构造函数。
+        /// </summary>
+        /// <param name="r"></param>
+        public Queue(Queue<Item> r)
+        {
+            foreach (Item i in r)
+            {
+                Enqueue(i);
+            }
+        }
+
+        /// <summary>
         /// 检查队列是否为空。
         /// </summary>
         /// <returns></returns>

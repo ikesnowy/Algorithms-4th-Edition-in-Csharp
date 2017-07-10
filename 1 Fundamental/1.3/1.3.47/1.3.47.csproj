@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E4B3F7BE-0F12-480F-BC40-B6A213C52AC7}</ProjectGuid>
+    <ProjectGuid>{4FA8E7F0-87A7-4084-BA27-BA5DF4CE18A1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_1._3._45</RootNamespace>
-    <AssemblyName>1.3.45</AssemblyName>
+    <RootNamespace>_1._3._47</RootNamespace>
+    <AssemblyName>1.3.47</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steque.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -97,6 +97,30 @@ namespace Generics
             return item;
         }
 
+        /// <summary>
+        /// 在当前队列之后附加一个队列。
+        /// </summary>
+        /// <param name="q1">需要被附加的队列。</param>
+        /// <param name="q2">需要附加的队列（将被删除）。</param>
+        public static Queue<Item> Catenation(Queue<Item> q1, Queue<Item> q2)
+        {
+            if (q1.IsEmpty())
+            {
+                q1.first = q2.first;
+                q1.last = q2.last;
+                q1.count = q2.count;
+            }
+            else
+            {
+                q1.last.next = q2.first;
+                q1.last = q2.last;
+                q1.count += q2.count;
+            }
+
+            q2 = null;
+            return q1;
+        }
+
         public override string ToString()
         {
             StringBuilder s = new StringBuilder();

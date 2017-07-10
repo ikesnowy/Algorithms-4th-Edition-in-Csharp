@@ -5,36 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generics
+namespace _1._3._47
 {
-    public class Stack<Item> : IEnumerable<Item>
+    //API:
+    //public class Steque<Item> : Ienumerable<Item>
+    //    public Steque(); 默认构造函数。
+    //    public bool IsEmpty(); 检查 Steque 是否为空。
+    //    public int Size(); 返回 Steque 中的元素数量。
+    //    public void Push(Item item); 向 Steque 中压入一个元素。
+    //    public Item Pop(); 从 Steque 中弹出一个元素。
+    //    public void Peek(); 返回栈顶元素（但不弹出它）。
+    //    public void Enqueue(Item item); 将一个元素添加入 Steque 中。
+
+    public class Steque<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
+        private Node<Item> last;
         private int count;
+
+        private class Node<T>
+        {
+            public T item;
+            public Node<T> next;
+        }
 
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public Stack()
+        public Steque()
         {
             this.first = null;
             this.count = 0;
-        }
-
-        /// <summary>
-        /// 复制构造函数。
-        /// </summary>
-        /// <param name="s"></param>
-        public Stack(Stack<Item> s)
-        {
-            if (s.first != null)
-            {
-                this.first = new Node<Item>(s.first);
-                for (Node<Item> x = this.first; x.next != null; x = x.next)
-                {
-                    x.next = new Node<Item>(x.next);
-                }
-            }
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace Generics
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return count == 0;
         }
 
         /// <summary>
@@ -65,6 +66,11 @@ namespace Generics
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
+
+            if (oldFirst == null)
+            {
+                this.last = this.first;
+            }
             count++;
         }
 
@@ -79,7 +85,28 @@ namespace Generics
             Item item = first.item;
             first = first.next;
             count--;
+            if (count == 0)
+            {
+                this.last = null;
+            }
             return item;
+        }
+
+        /// <summary>
+        /// 将一个元素加入队列中。
+        /// </summary>
+        /// <param name="item">要入队的元素。</param>
+        public void Enqueue(Item item)
+        {
+            Node<Item> oldLast = this.last;
+            this.last = new Node<Item>();
+            this.last.item = item;
+            this.last.next = null;
+            if (IsEmpty())
+                this.first = this.last;
+            else
+                oldLast.next = this.last;
+            count++;
         }
 
         /// <summary>
@@ -94,26 +121,22 @@ namespace Generics
         }
 
         /// <summary>
-        /// 将两个栈连接。
+        /// 将两个 Steque 连接。
         /// </summary>
-        /// <param name="s1">第一个栈。</param>
-        /// <param name="s2">第二个栈（将被删除）。</param>
+        /// <param name="s1">第一个 Steque </param>
+        /// <param name="s2">第二个 Steque （将被删除）</param>
         /// <returns></returns>
-        public static Stack<Item> Catenation(Stack<Item> s1, Stack<Item> s2)
+        public static Steque<Item> Catenation(Steque<Item> s1, Steque<Item> s2)
         {
             if (s1.IsEmpty())
             {
                 s1.first = s2.first;
+                s1.last = s2.last;
                 s1.count = s2.count;
             }
             else
             {
-                Node<Item> last = s1.first;
-                while (last.next != null)
-                {
-                    last = last.next;
-                }
-                last.next = s2.first;
+                s1.last.next = s2.first;
                 s1.count += s2.count;
             }
             s2 = null;

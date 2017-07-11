@@ -16,13 +16,11 @@ namespace _1._3._49
         Stack<Item> Hr;
 
         bool isRecopying;
-        int lendiff;
         int nowcopying;
 
         public StackQueue()
         {
             this.isRecopying = false;
-            this.lendiff = 0;
             this.nowcopying = 0;
 
             this.H = new Stack<Item>();
@@ -47,35 +45,37 @@ namespace _1._3._49
 
         public void Enqueue(Item item)
         {
-            if (!this.isRecopying && this.lendiff > 0)
+            if (!this.isRecopying && Lendiff() > 0)
             {
-                this.lendiff--;
                 this.nowcopying = 0;
                 this.T.Push(item);
             }
-            else if (!this.isRecopying && this.lendiff == 0)
+            else if (!this.isRecopying && Lendiff() == 0)
             {
                 this.T.Push(item);
                 this.isRecopying = true;
-                this.HH = this.H.Copy();
+                this.h = this.H.Copy();
                 OneStep(OneStep(this));
             }
             else if (this.isRecopying)
             {
-                this.lendiff--;
                 this.TT.Push(item);
                 OneStep(OneStep(this));
             }
         }
 
+        public int Lendiff()
+        {
+            return this.H.Size() - this.T.Size();
+        }
+
         public Item Dequeue()
         {
-            if (!this.isRecopying && this.lendiff > 0)
+            if (!this.isRecopying && Lendiff() > 0)
             {
-                this.lendiff--;
                 return this.H.Pop();
             }
-            else if (!this.isRecopying && this.lendiff == 0)
+            else if (!this.isRecopying && Lendiff() == 0)
             {
                 Item temp = this.H.Pop();
                 this.HH = this.H;
@@ -86,7 +86,7 @@ namespace _1._3._49
             else
             {
                 Item temp = this.h.Pop();
-                this.lendiff--;
+                this.nowcopying--;
                 OneStep(OneStep(this));
                 return temp;
             }
@@ -96,7 +96,6 @@ namespace _1._3._49
         {
             if (q.isRecopying && !q.H.IsEmpty() && !q.T.IsEmpty())
             {
-                q.lendiff++;
                 q.nowcopying++;
                 q.HH.Push(q.T.Pop());
                 q.Hr.Push(q.H.Pop());
@@ -104,23 +103,21 @@ namespace _1._3._49
             else if (q.isRecopying && q.H.IsEmpty() && !q.T.IsEmpty())
             {
                 q.isRecopying = true;
-                q.lendiff++;
                 q.HH.Push(q.T.Pop());
             }
             else if (q.isRecopying && q.H.IsEmpty() && q.T.IsEmpty() && q.nowcopying > 1)
             {
                 q.isRecopying = true;
-                q.lendiff++;
                 q.nowcopying--;
                 q.HH.Push(q.Hr.Pop());
             }
             else if (q.isRecopying && q.H.IsEmpty() && q.T.IsEmpty() && q.nowcopying == 1)
             {
                 q.isRecopying = false;
-                q.lendiff++;
                 q.nowcopying--;
                 q.HH.Push(q.Hr.Pop());
                 q.H = q.HH;
+                q.T = q.TT;
                 q.HH = new Stack<Item>();
                 q.TT = new Stack<Item>();
                 q.Hr = new Stack<Item>();
@@ -129,7 +126,6 @@ namespace _1._3._49
             else if (q.isRecopying && q.H.IsEmpty() && q.T.IsEmpty() && q.nowcopying == 0)
             {
                 q.isRecopying = false;
-                q.lendiff++;
                 q.H = q.HH;
                 q.T = q.TT;
                 q.HH = new Stack<Item>();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1._3._48
 {
-    public class Deque<Item> : IEnumerable<Item>
+    public class DeStack<Item> : IEnumerable<Item>
     {
         private class DoubleNode<T>
         {
@@ -18,34 +18,54 @@ namespace _1._3._48
 
         DoubleNode<Item> first;
         DoubleNode<Item> last;
-        int count;
+        int leftcount;
+        int rightcount;
 
         /// <summary>
-        /// 默认构造函数，建立一个双端队列。
+        /// 默认构造函数，建立一个双端栈。
         /// </summary>
-        public Deque()
+        public DeStack()
         {
             this.first = null;
             this.last = null;
-            this.count = 0;
+            this.leftcount = 0;
+            this.rightcount = 0;
         }
 
         /// <summary>
-        /// 检查队列是否为空。
+        /// 检查左侧栈是否为空。
         /// </summary>
         /// <returns></returns>
-        public bool IsEmpty()
+        public bool IsLeftEmpty()
         {
-            return this.count == 0;
+            return this.leftcount == 0;
         }
 
         /// <summary>
-        /// 返回队列中元素的数量。
+        /// 检查右侧栈是否为空。
         /// </summary>
         /// <returns></returns>
-        public int Size()
+        public bool IsRightEmpty()
         {
-            return this.count;
+            return this.rightcount == 0;
+        }
+
+        /// <summary>
+        /// 返回左侧栈中元素的数量。
+        /// </summary>
+        /// <returns></returns>
+        public int LeftSize()
+        {
+            return this.leftcount;
+        }
+
+        /// <summary>
+        /// 返回右侧栈中元素的数量。
+        /// </summary>
+        /// <returns></returns>
+        public int RightSize()
+        {
+            return this.rightcount;
         }
 
         /// <summary>
@@ -65,7 +85,11 @@ namespace _1._3._48
             {
                 this.last = this.first;
             }
-            this.count++;
+            else
+            {
+                oldFirst.prev = this.first;
+            }
+            this.leftcount++;
         }
 
         /// <summary>
@@ -90,7 +114,7 @@ namespace _1._3._48
             {
                 oldLast.next = this.last;
             }
-            this.count++;
+            this.rightcount++;
         }
 
         /// <summary>
@@ -99,14 +123,14 @@ namespace _1._3._48
         /// <returns></returns>
         public Item PopRight()
         {
-            if (IsEmpty())
+            if (IsRightEmpty())
             {
                 throw new InvalidOperationException();
             }
 
             Item temp = this.last.item;
             this.last = this.last.prev;
-            this.count--;
+            this.rightcount--;
 
             if (this.last == null)
             {
@@ -126,14 +150,14 @@ namespace _1._3._48
         /// <returns></returns>
         public Item PopLeft()
         {
-            if (IsEmpty())
+            if (IsLeftEmpty())
             {
                 throw new InvalidOperationException();
             }
 
             Item temp = this.first.item;
             this.first = this.first.next;
-            this.count--;
+            this.leftcount--;
 
             if (this.first == null)
             {

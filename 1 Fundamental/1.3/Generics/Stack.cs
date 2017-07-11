@@ -120,6 +120,18 @@ namespace Generics
             return s1;
         }
 
+        /// <summary>
+        /// 创建栈的浅表副本。
+        /// </summary>
+        /// <returns></returns>
+        public Stack<Item> Copy()
+        {
+            Stack<Item> temp = new Stack<Item>();
+            temp.first = this.first;
+            temp.count = this.count;
+            return temp;
+        }
+
         public override string ToString()
         {
             StringBuilder s = new StringBuilder();

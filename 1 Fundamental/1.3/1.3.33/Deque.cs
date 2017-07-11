@@ -65,6 +65,10 @@ namespace _1._3._33
             {
                 this.last = this.first;
             }
+            else
+            {
+                oldFirst.prev = this.first;
+            }
             this.count++;
         }
 

@@ -61,6 +61,11 @@ namespace _1._3._45
             return false;
         }
 
+        /// <summary>
+        /// 判断输出序列是否正确。
+        /// </summary>
+        /// <param name="output">输出序列。</param>
+        /// <returns></returns>
         static bool IsOutputPossible(int[] output)
         {
             int input = 0;

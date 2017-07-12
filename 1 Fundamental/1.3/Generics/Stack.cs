@@ -33,6 +33,7 @@ namespace Generics
                     x.next = new Node<Item>(x.next);
                 }
             }
+            this.count = s.count;
         }
 
         /// <summary>

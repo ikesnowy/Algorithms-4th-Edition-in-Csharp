@@ -17,8 +17,8 @@ namespace Generics
         /// </summary>
         public Bag()
         {
-            first = null;
-            count = 0;
+            this.first = null;
+            this.count = 0;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Generics
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return first == null;
+            return this.first == null;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Generics
         /// <returns></returns>
         public int Size()
         {
-            return count;
+            return this.count;
         }
 
         /// <summary>
@@ -45,11 +45,11 @@ namespace Generics
         /// <param name="item">要添加的元素。</param>
         public void Add(Item item)
         {
-            Node<Item> oldFirst = first;
-            first = new Node<Item>();
-            first.item = item;
-            first.next = oldFirst;
-            count++;
+            Node<Item> oldFirst = this.first;
+            this.first = new Node<Item>();
+            this.first.item = item;
+            this.first.next = oldFirst;
+            this.count++;
         }
 
         public IEnumerator<Item> GetEnumerator()

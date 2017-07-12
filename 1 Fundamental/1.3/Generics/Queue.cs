@@ -78,7 +78,7 @@ namespace Generics
                 this.first = this.last;
             else
                 oldLast.next = this.last;
-            count++;
+            this.count++;
         }
 
         /// <summary>

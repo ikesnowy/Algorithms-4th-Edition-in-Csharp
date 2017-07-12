@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generics
+namespace _1._3._50
 {
     public class Stack<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
         private int count;
+        private int popcount;
+        private int pushcount;
 
         /// <summary>
         /// 默认构造函数。
@@ -18,6 +20,8 @@ namespace Generics
         public Stack()
         {
             this.first = null;
+            this.popcount = 0;
+            this.pushcount = 0;
             this.count = 0;
         }
 
@@ -61,11 +65,12 @@ namespace Generics
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = this.first;
+            Node<Item> oldFirst = first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
             this.count++;
+            this.pushcount++;
         }
 
         /// <summary>
@@ -79,6 +84,7 @@ namespace Generics
             Item item = this.first.item;
             this.first = this.first.next;
             this.count--;
+            this.popcount++;
             return item;
         }
 
@@ -90,7 +96,7 @@ namespace Generics
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return this.first.item;
+            return first.item;
         }
 
         /// <summary>
@@ -145,7 +151,7 @@ namespace Generics
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new StackEnumerator(this.first);
+            return new StackEnumerator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -155,14 +161,17 @@ namespace Generics
 
         private class StackEnumerator : IEnumerator<Item>
         {
+            private Stack<Item> s;
+            private int popcount;
+            private int pushcount;
             private Node<Item> current;
-            private Node<Item> first;
 
-            public StackEnumerator(Node<Item> first)
+            public StackEnumerator(Stack<Item> s)
             {
-                this.current = new Node<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                this.s = s;
+                this.current = s.first;
+                this.popcount = s.popcount;
+                this.pushcount = s.pushcount;
             }
 
             Item IEnumerator<Item>.Current => current.item;
@@ -172,11 +181,14 @@ namespace Generics
             void IDisposable.Dispose()
             {
                 this.current = null;
-                this.first = null;
+                this.s = null;
             }
 
             bool IEnumerator.MoveNext()
             {
+                if (s.popcount != this.popcount || s.pushcount != this.pushcount)
+                    throw new InvalidOperationException("Stack has been modified");
+
                 if (this.current.next == null)
                     return false;
 
@@ -186,7 +198,7 @@ namespace Generics
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                this.current = this.s.first;
             }
         }
     }

@@ -62,7 +62,7 @@ namespace Generics
 
             n.next = front.next;
             front.next = n;
-            count++;
+            this.count++;
         }
 
         /// <summary>

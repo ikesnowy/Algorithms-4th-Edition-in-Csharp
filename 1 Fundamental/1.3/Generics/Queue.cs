@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Generics
 {
@@ -78,7 +76,7 @@ namespace Generics
                 this.first = this.last;
             else
                 oldLast.next = this.last;
-            count++;
+            this.count++;
         }
 
         /// <summary>

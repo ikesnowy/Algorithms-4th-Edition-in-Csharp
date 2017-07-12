@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Generics
 {
@@ -61,11 +59,11 @@ namespace Generics
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = first;
+            Node<Item> oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -76,9 +74,9 @@ namespace Generics
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            Item item = first.item;
-            first = first.next;
-            count--;
+            Item item = this.first.item;
+            this.first = this.first.next;
+            this.count--;
             return item;
         }
 
@@ -90,7 +88,7 @@ namespace Generics
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return first.item;
+            return this.first.item;
         }
 
         /// <summary>

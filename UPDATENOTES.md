@@ -1,5 +1,11 @@
 # Update Notes
 
+## Day47
+
+### Fixed Issues
+
+1. Add a space between "Generics" and "(Bag...".
+
 ## Day 46
 
 ### Progress

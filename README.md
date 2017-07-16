@@ -19,7 +19,7 @@
 
   - [1.3 背包、队列和栈](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3)
 
-    [1.3 类库 Generics(Bag.cs LinkedList.cs Node.cs Queue.cs Stack.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3/Generics)
+    [1.3 类库 Generics (Bag.cs LinkedList.cs Node.cs Queue.cs Stack.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3/Generics)
 
 ## 使用方法 & 测试环境
 

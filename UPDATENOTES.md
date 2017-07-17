@@ -1,6 +1,23 @@
 # Update Notes
 
-## Day47
+## Day48	July 17, 2017
+
+### Progress
+
+1. Add data for test(1Kints.txt, 2Kints.txt, 4Kints.txt, 8Kints.txt, 16Kints.txt, 32Kints.txt, 1Mints.txt).
+2. Add library Measurement(Stopwatch.cs, ThreeSum.cs).
+3. Add library TestCase(1Kints.txt, 2Kints.txt, 4Kints.txt, 8Kints.txt, 16Kints.txt, 32Kints.txt, 1Mints.txt).
+4. Solved problem 1.4.2.
+
+### Fixed Issues
+
+1. 1.4.1 now contains a detailed proof of combination formula.
+
+### Further more
+
+1. Add date in the UPDATENOTES.md.
+
+## Day47	July 16, 2017
 
 ### Progress
 
@@ -14,7 +31,7 @@
 
 1. 1.4.1 need a better proof using mathematical induction.
 
-## Day 46
+## Day 46	July 15, 2017
 
 ### Progress
 

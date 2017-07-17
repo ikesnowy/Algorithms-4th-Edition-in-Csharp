@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day48
+
+### Progress
+
+### Fixed Issues
+
+1. 1.4.1 now contains a detailed proof of combination formula.
+
 ## Day47
 
 ### Progress

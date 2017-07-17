@@ -4,6 +4,8 @@
 
 ### Progress
 
+1. Add data for test.
+
 ### Fixed Issues
 
 1. 1.4.1 now contains a detailed proof of combination formula.

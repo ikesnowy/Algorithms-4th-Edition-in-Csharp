@@ -44,5 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThreeSum.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

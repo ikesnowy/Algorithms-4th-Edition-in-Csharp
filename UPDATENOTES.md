@@ -1,5 +1,21 @@
 # Update Notes
 
+## Day49	July 18, 2017
+
+### Progress
+
+1. Add DoubleTest.cs in Measurement.
+
+### Fixed Issues
+
+1. Fixed a format error in UPDATENOTES.md.
+
+### Further more
+
+1. Add 1.4 into the content in README.md.
+
+
+
 ## Day48	July 17, 2017
 
 ### Progress
@@ -17,7 +33,9 @@
 
 1. Add date in the UPDATENOTES.md.
 
-## Day47	July 16, 2017
+
+
+## Day 47	July 16, 2017
 
 ### Progress
 
@@ -31,7 +49,9 @@
 
 1. 1.4.1 need a better proof using mathematical induction.
 
-## Day 46	July 15, 2017
+
+
+## Day46	July 15, 2017
 
 ### Progress
 

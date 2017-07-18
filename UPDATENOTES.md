@@ -4,6 +4,8 @@
 
 ### Progress
 
+1. Add DoubleTest.cs in Measurement.
+
 ### Fixed Issues
 
 1. Fixed a format error in UPDATENOTES.md.

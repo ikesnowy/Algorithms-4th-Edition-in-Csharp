@@ -9,10 +9,8 @@ namespace Measurement
     /// <summary>
     /// 用暴力方法寻找数组中和为零的三元组。
     /// </summary>
-    public class ThreeSum
+    public static class ThreeSum
     {
-        public ThreeSum() { }
-
         /// <summary>
         /// 输出所有和为零的三元组。
         /// </summary>

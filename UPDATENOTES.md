@@ -1,6 +1,14 @@
 # Update Notes
 
-## Day49	July 18, 2017
+## Day50	July 19, 2017
+
+### Progress
+
+1. Nothing important, busy day.
+
+2. Now there would be an "N" on the X-axis.
+
+  ## Day49July 18, 2017
 
 ### Progress
 

@@ -19,7 +19,7 @@ namespace _1._4._3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.Painting();
+            Program.PaintLinear();
         }
     }
 }

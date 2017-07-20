@@ -8,14 +8,14 @@ namespace Measurement
 {
     public class Stopwatch
     {
-        private readonly long start;
+        private readonly DateTime start;
 
         /// <summary>
         /// 新建并开始一个计时器。
         /// </summary>
         public Stopwatch()
         {
-            this.start = DateTime.Now.Millisecond;
+            this.start = DateTime.Now;
         }
 
         /// <summary>
@@ -24,8 +24,8 @@ namespace Measurement
         /// <returns></returns>
         public double ElapsedTime()
         {
-            long now = DateTime.Now.Millisecond;
-            return (now - start) / 1000.0;
+            DateTime now = DateTime.Now;
+            return (now - start).TotalMilliseconds / 1000.0;
         }
     }
 }

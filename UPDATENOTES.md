@@ -1,14 +1,23 @@
 # Update Notes
 
+## Day51	July 20, 2017
+
+### Progress
+
+1. 1.4.3 Finished.
+
+
+
 ## Day50	July 19, 2017
 
 ### Progress
 
 1. Nothing important, busy day.
-
 2. Now there would be an "N" on the X-axis.
 
-  ## Day49July 18, 2017
+
+
+## Day49	July 18, 2017
 
 ### Progress
 
@@ -21,6 +30,8 @@
 ### Further more
 
 1. Add 1.4 into the content in README.md.
+
+
 
 
 
@@ -43,6 +54,8 @@
 
 
 
+
+
 ## Day 47	July 16, 2017
 
 ### Progress
@@ -56,6 +69,8 @@
 ### Knowing Issues
 
 1. 1.4.1 need a better proof using mathematical induction.
+
+
 
 
 

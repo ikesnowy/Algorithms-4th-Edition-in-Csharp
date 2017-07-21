@@ -1,10 +1,23 @@
 # Update Notes
 
+## Day52	July 21, 2017
+
+### Progress
+
+1. 1.4.4 ~ 1.4.10 Finished.
+2. Add TwoSum.cs into Measurement.
+
+
+
+
+
 ## Day51	July 20, 2017
 
 ### Progress
 
 1. 1.4.3 Finished.
+
+
 
 
 
@@ -14,6 +27,8 @@
 
 1. Nothing important, busy day.
 2. Now there would be an "N" on the X-axis.
+
+
 
 
 

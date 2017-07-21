@@ -4,7 +4,7 @@
 
 ### Progress
 
-1. 1.4.4 ~ 1.4.5 Finished.
+1. 1.4.4 ~ 1.4.6 Finished.
 2. Add TwoSum.cs into Measurement.
 
 

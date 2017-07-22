@@ -5,7 +5,7 @@
 ### Progress
 
 1. Add StaticSETofInts.cs for 1.4.11.
-2. 1.4.11 Finished.
+2. 1.4.11 ~ 1.4.12 Finished.
 
 
 

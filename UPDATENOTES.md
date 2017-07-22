@@ -1,5 +1,14 @@
 # Update Notes
 
+## Day53	July 22, 2017
+
+### Progress
+
+1. Add StaticSETofInts.cs for 1.4.11.
+2. 1.4.11 ~ 1.4.12 Finished.
+
+
+
 ## Day52	July 21, 2017
 
 ### Progress

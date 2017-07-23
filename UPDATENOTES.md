@@ -1,11 +1,22 @@
 # Update Notes
 
+## Day54	July 23, 2017
+
+### Progress
+
+1. Add FourSum.cs into Measurement.
+2. 1.4.13 ~ 1.4.14 Finished.
+
+
+
 ## Day53	July 22, 2017
 
 ### Progress
 
 1. Add StaticSETofInts.cs for 1.4.11.
 2. 1.4.11 ~ 1.4.12 Finished.
+
+
 
 
 

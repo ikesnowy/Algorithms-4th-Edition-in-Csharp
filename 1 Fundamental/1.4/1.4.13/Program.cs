@@ -23,22 +23,39 @@ namespace _1._4._13
     {
         static void Main(string[] args)
         {
-            /*   a.Accumulator
+            /*   
+             *   这里的空间开销中不包含 String 的内容开销，只包含对 String 的引用。
+             *   对象的固定开销用 Object 表示
+             *   a.Accumulator
              *      = int * 1 + double * 2 + Object * 1
              *      = 4 * 1 + 8 * 2 + 16 * 1 = 36
              *      = 40（填充到 8 的倍数）
              *   b.Transaction
              *      = string * 1 + Date * 1 + double * 1 + Object * 1
-             *      = 8 * 1 + 8 * 1 + 8 * 1 + 16 * 1
-             *      = 40
+             *      = 8 * 1 + (8 + 32) * 1 + 8 * 1 + 16 * 1
+             *      = 72
              *   c.FixedCapacityStackOfStrings
-             *      = string[] * 1 + string * C + int * 1 +  Object
-             *      = 24 * 1 + 8C + 4 + 24 + 16
+             *      = string[] * 1 + string * C + int * 1 +  Object * 1
+             *      = 24 * 1 + 8C + 4 * 1 + 16 * 1
              *      = 8C + 44
              *      = 8C + 48（填充）
              *   d.Point2D
-             *      = double * 2 + Comparator * 3
-             *      = 8 * 2 + 
+             *      = double * 2 + Object * 1
+             *      = 8 * 2 + 16 * 1
+             *      = 24
+             *   e.Interval1D
+             *      = double * 2 + Object * 1
+             *      = 8 * 2 + 16 * 1
+             *      = 24
+             *   f.Interval2D
+             *      = Interval1D * 2 + Object * 1
+             *      = (8 + 24) * 2 + 16 * 1
+             *      = 80
+             *   g.Double
+             *      = double * 1 + Object * 1
+             *      = 8 * 1 + 16 * 1
+             *      = 24
+             *      
              */
         }
     }

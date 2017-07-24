@@ -48,5 +48,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Measurement\Measurement.csproj">
+      <Project>{af538402-f108-4a7e-89a4-381973c81558}</Project>
+      <Name>Measurement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestCase\TestCase.csproj">
+      <Project>{7979f56b-1fe9-40ef-86ed-5f113b2df391}</Project>
+      <Name>TestCase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day56	July 25, 2017
+
+### Progress
+
+1. Update README.md
+
+
+
 ## Day55	July 24, 2017
 
 ### Progress
@@ -14,6 +22,8 @@
 
 1. Add FourSum.cs into Measurement.
 2. 1.4.13 ~ 1.4.14 Finished.
+
+
 
 
 

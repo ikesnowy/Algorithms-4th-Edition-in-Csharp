@@ -1,5 +1,15 @@
 # Update Notes
 
+## Day57	July 26, 2017
+
+### Progress
+
+1. 1.4.16 ~ 1.4.18 Finished.
+
+
+
+
+
 ## Day56	July 25, 2017
 
 ### Progress
@@ -8,11 +18,15 @@
 
 
 
+
+
 ## Day55	July 24, 2017
 
 ### Progress
 
 1. 1.4.15 Finished.
+
+
 
 
 

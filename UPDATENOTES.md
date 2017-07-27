@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day58	July 27, 2017
+
+### Progress
+
+1. 1.4.19 Started.
+
+
+
 ## Day57	July 26, 2017
 
 ### Progress

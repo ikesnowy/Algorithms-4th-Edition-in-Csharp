@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day59	July28, 2017
+
+### Progress
+
+1. Busy day.
+
+
+
 ## Day58	July 27, 2017
 
 ### Progress

@@ -1,10 +1,20 @@
 # Update Notes
 
+## Day60	July29, 2017
+
+### Progress
+
+1. 1.4.19 HalfDone.
+
+
+
 ## Day59	July28, 2017
 
 ### Progress
 
 1. Busy day.
+
+
 
 
 

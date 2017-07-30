@@ -18,6 +18,8 @@ namespace _1._4._19
      */
     class Program
     {
+        //先查找 N/2 行中的最小元素，并令其与上下元素比较，
+        //如果不满足题意，则向相邻的最小元素靠近再次查找
         static void Main(string[] args)
         {
         }

@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day62	July31, 2017
+
+### Progress
+
+1. Busy day. Start from tomorrow.
+
+
+
 ## Day61	July30, 2017
 
 ### Progress

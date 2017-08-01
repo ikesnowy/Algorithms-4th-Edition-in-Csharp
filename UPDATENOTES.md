@@ -1,10 +1,20 @@
 # Update Notes
 
+## Day63	August1, 2017
+
+### Progress
+
+1. Busy day.
+
+
+
 ## Day62	July31, 2017
 
 ### Progress
 
 1. Busy day. Start from tomorrow.
+
+
 
 
 
@@ -16,11 +26,15 @@
 
 
 
+
+
 ## Day60	July29, 2017
 
 ### Progress
 
 1. 1.4.19 HalfDone.
+
+
 
 
 

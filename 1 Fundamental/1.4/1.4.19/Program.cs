@@ -22,6 +22,42 @@ namespace _1._4._19
         //如果不满足题意，则向相邻的最小元素靠近再次查找
         static void Main(string[] args)
         {
+
+        }
+
+        static int Minimum(int[,] matrix)
+        {
+            int min = int.MaxValue;
+            int n = matrix.GetLength(0);
+            int mid = n / 2;
+            //获取矩阵边界以及中间行/中间列中的最小值
+            for (int i = 0; i < n; ++i)
+            {
+                if (min > matrix[0, i])
+                {
+                    min = matrix[0, i];
+                }
+                if (min > matrix[n - 1, i])
+                {
+                    min = matrix[n - 1, i];
+                }
+                if (min > matrix[mid, i])
+                {
+                    min = matrix[mid, i];
+                }
+                if (min > matrix[i, 0])
+                {
+                    min = matrix[i, 0];
+                }
+                if (min > matrix[i, n - 1])
+                {
+                    min = matrix[i, n - 1];
+                }
+                if (min > matrix[i, mid])
+                {
+                    min = matrix[i, mid];
+                }
+            }
         }
     }
 }

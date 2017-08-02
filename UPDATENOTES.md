@@ -1,6 +1,14 @@
 # Update Notes
 
-## Day63	August1, 2017
+## Day64	August 2, 2017
+
+### Progress
+
+1. Add space between month and day.
+
+
+
+## Day63	August 1, 2017
 
 ### Progress
 
@@ -8,7 +16,9 @@
 
 
 
-## Day62	July31, 2017
+
+
+## Day62	July 31, 2017
 
 ### Progress
 
@@ -18,7 +28,7 @@
 
 
 
-## Day61	July30, 2017
+## Day61	July 30, 2017
 
 ### Progress
 
@@ -28,7 +38,7 @@
 
 
 
-## Day60	July29, 2017
+## Day60	July 29, 2017
 
 ### Progress
 
@@ -38,7 +48,7 @@
 
 
 
-## Day59	July28, 2017
+## Day59	July 28, 2017
 
 ### Progress
 
@@ -53,6 +63,8 @@
 ### Progress
 
 1. 1.4.19 Started.
+
+
 
 
 

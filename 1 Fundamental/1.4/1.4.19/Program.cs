@@ -25,7 +25,7 @@ namespace _1._4._19
 
         }
 
-        static int Minimum(int[,] matrix)
+        static int Minimum(int[,] matrix, int start, int length)
         {
             int min = int.MaxValue;
             int n = matrix.GetLength(0);

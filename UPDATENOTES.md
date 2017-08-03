@@ -1,10 +1,20 @@
 # Update Notes
 
+Day65	August 3, 2017
+
+Progress
+
+1. Use "roll down the hill" to solve problem 1.4.19.
+
+
+
 ## Day64	August 2, 2017
 
 ### Progress
 
 1. Add space between month and day.
+
+
 
 
 

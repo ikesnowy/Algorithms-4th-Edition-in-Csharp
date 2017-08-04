@@ -1,10 +1,20 @@
 # Update Notes
 
-Day65	August 3, 2017
+## Day66	August 4, 2017
 
-Progress
+### Progress
+
+1. 1.4.19 still has bug.
+
+
+
+## Day65	August 3, 2017
+
+### Progress
 
 1. Use "roll down the hill" to solve problem 1.4.19.
+
+
 
 
 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E2579EC-6B1D-4BCD-98DB-1A688C6E21B4}</ProjectGuid>
+    <ProjectGuid>{D56DAB57-BD2E-4FC7-8D33-B4E8597B1FF4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_1._4._21</RootNamespace>
-    <AssemblyName>1.4.21</AssemblyName>
+    <RootNamespace>_1._4._22</RootNamespace>
+    <AssemblyName>1.4.22</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,16 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Measurement\Measurement.csproj">
-      <Project>{af538402-f108-4a7e-89a4-381973c81558}</Project>
-      <Name>Measurement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestCase\TestCase.csproj">
-      <Project>{7979f56b-1fe9-40ef-86ed-5f113b2df391}</Project>
-      <Name>TestCase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

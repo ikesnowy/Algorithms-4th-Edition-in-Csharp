@@ -29,7 +29,7 @@ namespace Measurement
         /// </summary>
         /// <param name="key">要查找的值。</param>
         /// <returns></returns>
-        public bool Cantains(int key)
+        public bool Contains(int key)
         {
             return Rank(key, 0, a.Length - 1) != -1;
         }

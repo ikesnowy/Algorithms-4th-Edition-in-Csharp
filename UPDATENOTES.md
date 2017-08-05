@@ -1,10 +1,20 @@
 # Update Notes
 
+## Day67	August 5, 2017
+
+### Progress
+
+1. 1.4.19 Finished.
+
+
+
 ## Day66	August 4, 2017
 
 ### Progress
 
 1. 1.4.19 still has bug.
+
+
 
 
 

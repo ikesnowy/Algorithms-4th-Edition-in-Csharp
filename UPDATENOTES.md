@@ -1,11 +1,21 @@
 # Update Notes
 
+## Day68	August 6, 2017
+
+### Progress
+
+1. 1.4.22, now solution has been found.
+
+
+
 ## Day67	August 5, 2017
 
 ### Progress
 
 1. 1.4.19~1.4.21 Finished.
 2. 1.4.22 Started.
+
+
 
 
 

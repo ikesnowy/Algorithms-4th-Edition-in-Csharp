@@ -26,7 +26,28 @@ namespace _1._4._22
         //使用斐波那契数列作为缩减范围的依据
         static int rank(int[] a, int key)
         {
+            int Fk = 1;
+            int Fk_1 = 1;
+            int lo = 0;
+            int hi = lo + Fk;
 
+            while (lo <= hi)
+            {
+                int Fk_2 = Fk - Fk_1;
+                if (a[lo + Fk_2] < key)
+                {
+                    lo = lo + Fk_2;
+                }
+                else if (a[lo + Fk_2] > key)
+                {
+                    hi = lo + Fk_2;
+                }
+                else
+                {
+                    return lo + Fk_2;
+                }
+
+            }
         }
     }
 }

@@ -1,5 +1,13 @@
 # Update Notes
 
+Day69	August 7, 2017
+
+Progress
+
+1. 1.4.22 half done.
+
+
+
 ## Day68	August 6, 2017
 
 ### Progress

@@ -1,10 +1,20 @@
 # Update Notes
 
-Day69	August 7, 2017
+## Day70	August 8, 2017
 
-Progress
+### Progress
+
+1. 1.4.22~1.4.23 Finished.
+
+
+
+## Day69	August 7, 2017
+
+### Progress
 
 1. 1.4.22 half done.
+
+
 
 
 
@@ -13,6 +23,8 @@ Progress
 ### Progress
 
 1. 1.4.22, now solution has been found.
+
+
 
 
 

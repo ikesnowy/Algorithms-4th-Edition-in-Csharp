@@ -20,7 +20,11 @@ namespace _1._4._22
     {
         static void Main(string[] args)
         {
-
+            int[] a = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            for (int i = -1; i < 11; ++i)
+            {
+                Console.WriteLine(rank(a, i));
+            }
         }
 
         //使用斐波那契数列作为缩减范围的依据
@@ -28,26 +32,36 @@ namespace _1._4._22
         {
             int Fk = 1;
             int Fk_1 = 1;
-            int lo = 0;
-            int hi = lo + Fk;
+            int Fk_2 = 0;
 
-            while (lo <= hi)
+            //获得 Fk，Fk需要大于等于数组的大小，复杂度 lgN
+            while (Fk < a.Length)
             {
-                int Fk_2 = Fk - Fk_1;
-                if (a[lo + Fk_2] < key)
+                Fk = Fk + Fk_1;
+                Fk_1 = Fk_1 + Fk_2;
+                Fk_2 = Fk - Fk_1;
+            }
+
+            int lo = 0;
+
+            //按照斐波那契数列缩减查找范围，复杂度 lgN
+            while (Fk_2 >= 0)
+            {
+                int i = lo + Fk_2 > a.Length - 1 ? a.Length - 1 : lo + Fk_2;
+                if (a[i] < key)
                 {
                     lo = lo + Fk_2;
                 }
-                else if (a[lo + Fk_2] > key)
+                else if (a[i] == key)
                 {
-                    hi = lo + Fk_2;
+                    return i;
                 }
-                else
-                {
-                    return lo + Fk_2;
-                }
-
+                Fk = Fk_1;
+                Fk_1 = Fk_2;
+                Fk_2 = Fk - Fk_1;
             }
+
+            return -1;
         }
     }
 }

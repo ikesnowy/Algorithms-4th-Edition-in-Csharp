@@ -6,7 +6,9 @@
 
 1. 1.4.24 Finished.
 
-## Day70	August 8, 2017
+2. 1.4.25 Started.
+
+  ## Day70August 8, 2017
 
 ### Progress
 

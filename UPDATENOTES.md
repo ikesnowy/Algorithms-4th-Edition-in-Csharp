@@ -1,19 +1,31 @@
 # Update Notes
 
+## Day72	August 10, 2017
+
+### Progress
+
+1. 1.4.25 Half Done.
+2. Fix format issue.
+
+
+
 ## Day71	August 9, 2017
 
 ### Progress
 
 1. 1.4.24 Finished.
-
 2. 1.4.25 Started.
 
-  ## Day70August 8, 2017
+
+
+## Day70	August 8, 2017
 
 ### Progress
 
 1. 1.4.22~1.4.23 Finished.
 2. 1.4.24 Started.
+
+
 
 
 

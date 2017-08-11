@@ -38,7 +38,7 @@ namespace _1._4._25
             Console.WriteLine($"Plan A: F={A.F}, Broken Eggs={A.BrokenEggs}, Throw Times={A.ThrowTimes}");
 
             //第二问：按照第 1, 3, 6, 10,..., 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
-            //随后在 [1/2k^2 - k, 1/2k^2] 范围中二分查找。
+            //随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
             testResult B = PlanB(building);
             Console.WriteLine($"Plan B: F={B.F}, Broken Eggs={B.BrokenEggs}, Throw Times={B.ThrowTimes}");
         }
@@ -61,8 +61,7 @@ namespace _1._4._25
         static testResult PlanA(int[] a)
         {
             int lo = 0;
-            int hi = 0;
-            int mid = 0;
+            int hi = 0; 
             int eggs = 0;
             int throwTimes = 0;
             testResult result = new testResult();
@@ -82,11 +81,7 @@ namespace _1._4._25
 
             while (lo <= hi)
             {
-                if (ThrowEgg(lo))
-                {
-                    lo = mid + 1;
-                }
-                else
+                if (!ThrowEgg(lo))
                 {
                     eggs++;
                     break;
@@ -110,7 +105,6 @@ namespace _1._4._25
         {
             int lo = 0;
             int hi = 0;
-            int mid = 0;
             int eggs = 0;
             int throwTimes = 0;
             testResult result = new testResult();
@@ -130,24 +124,19 @@ namespace _1._4._25
 
             while (lo <= hi)
             {
-                mid = lo + (hi - lo) / 2;
-                if (ThrowEgg(mid))
-                {
-                    lo = mid + 1;
-                }
-                else
+                if (!ThrowEgg(lo))
                 {
                     eggs++;
-                    hi = mid - 1;
+                    break;
                 }
+                lo++;
                 throwTimes++;
             }
 
             result.BrokenEggs = eggs;
-            result.F = hi;
+            result.F = lo - 1;
             result.ThrowTimes = throwTimes;
             return result;
         }
     }
-}
 }

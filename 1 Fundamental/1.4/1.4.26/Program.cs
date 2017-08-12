@@ -19,6 +19,9 @@ namespace _1._4._26
         static void Main(string[] args)
         {
             //证明 (a, a^3) (b, b^3) (c, c^3) 当且仅当 a + b + c = 0 时共线。
+            //
+            //若 (a, a^3) (b, b^3) (c, c^3) 共线，则
+            //
         }
     }
 }

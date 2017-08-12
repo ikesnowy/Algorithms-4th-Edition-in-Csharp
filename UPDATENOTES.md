@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day74	August 12, 2017
+
+### Progress
+
+1. Change the number expression in 1.1.1 to the exact expression in book.
+
+
+
 ## Day73	August 11, 2017
 
 ### Progress

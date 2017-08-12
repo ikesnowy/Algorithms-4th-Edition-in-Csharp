@@ -15,7 +15,7 @@ namespace _1._1._1
         static void Main(string[] args)
         {
             int a = (0 + 15) / 2;
-            double b = Math.Pow(2.0, -6) * 100000000.1; //Math.Pow(double x, double y) 求x的y次方
+            double b = 2.0e-6 * 100000000.1;
             bool c = true && false || true && true;
 
             //Console.WriteLine 向控制台窗口输出一行

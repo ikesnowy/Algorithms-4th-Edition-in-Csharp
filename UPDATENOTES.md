@@ -1,10 +1,23 @@
 # Update Notes
 
+## Day76	August 14, 2017
+
+### Progress
+
+1. 1.4.27 Finished.
+2. Now 1.4.26 has a more detailed proof.
+
+
+
+
+
 ## Day75	August 13, 2017
 
 ### Progress
 
 1. 1.4.26 Finished.
+
+
 
 
 

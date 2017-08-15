@@ -4,7 +4,11 @@
 
 ### Progress
 
-1. 1.4.28 Finished.
+1. 1.4.28 ~ 1.4.29 Finished.
+
+
+
+
 
 ## Day76	August 14, 2017
 

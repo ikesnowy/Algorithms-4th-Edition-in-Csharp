@@ -17,7 +17,7 @@ namespace _1._4._31
         /// </summary>
         public Deque()
         {
-            left = new Stack<Item>();
+            this.left = new Stack<Item>();
             middle = new Stack<Item>();
             right = new Stack<Item>();
         }

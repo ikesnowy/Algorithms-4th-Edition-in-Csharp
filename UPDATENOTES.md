@@ -1,5 +1,16 @@
 # Update Notes
 
+## Day78	August 16, 2017
+
+### Progress
+
+1. 1.4.30 ~ 1.4.31 Finished.
+2. 1.4.32 Started.
+
+
+
+
+
 ## Day77	August 15, 2017
 
 ### Progress

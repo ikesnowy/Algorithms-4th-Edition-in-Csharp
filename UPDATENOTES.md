@@ -4,7 +4,7 @@
 
 ### Progress
 
-1. 1.4.30 Finished.
+1. 1.4.30 ~ 1.4.31 Finished.
 
 
 

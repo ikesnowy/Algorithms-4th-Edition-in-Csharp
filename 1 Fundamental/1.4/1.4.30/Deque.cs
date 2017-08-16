@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1._4._30
+{
+    class Deque<Item>
+    {
+        Stack<Item> stack;//代表队列尾部
+        Steque<Item> steque;//代表队列头部
+
+        /// <summary>
+        /// 创建一条空的双向队列。
+        /// </summary>
+        public Deque()
+        {
+            stack = new Stack<Item>();
+            steque = new Steque<Item>();
+        }
+
+        /// <summary>
+        /// 在左侧插入一个新元素。
+        /// </summary>
+        /// <param name="item">要插入的元素。</param>
+        public void PushLeft(Item item)
+        {
+            steque.Push(item);
+        }
+
+        /// <summary>
+        /// 将栈中的内容移动到 Steque 中。
+        /// </summary>
+        private void StackToSteque()
+        {
+            while (!stack.IsEmpty())
+            {
+                steque.Push(stack.Pop());
+            }
+        }
+
+        /// <summary>
+        /// 将 Steque 中的内容移动到栈中。
+        /// </summary>
+        private void StequeToStack()
+        {
+            while (!steque.IsEmpty())
+            {
+                stack.Push(steque.Pop());
+            }
+        }
+
+        /// <summary>
+        /// 从双向队列左侧弹出一个元素。
+        /// </summary>
+        /// <returns></returns>
+        public Item PopLeft()
+        {
+            if (steque.IsEmpty())
+            {
+                StackToSteque();
+            }
+            return steque.Pop();
+        }
+
+        /// <summary>
+        /// 向双向队列右侧添加一个元素。
+        /// </summary>
+        /// <param name="item">要插入的元素。</param>
+        public void PushRight(Item item)
+        {
+            stack.Push(item);
+        }
+
+        /// <summary>
+        /// 从双向队列右侧弹出一个元素。
+        /// </summary>
+        /// <returns></returns>
+        public Item PopRight()
+        {
+            if (stack.IsEmpty())
+            {
+                StequeToStack();
+            }
+            return stack.Pop();
+        }
+
+        /// <summary>
+        /// 判断队列是否为空。
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmpty()
+        {
+            return stack.IsEmpty() && steque.IsEmpty();
+        }
+
+        /// <summary>
+        /// 返回队列中元素的数量。
+        /// </summary>
+        /// <returns></returns>
+        public int Size()
+        {
+            return stack.Size() + steque.Size();
+        }
+    }
+}

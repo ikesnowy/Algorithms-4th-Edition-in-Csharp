@@ -4,7 +4,10 @@
 
 ### Fix Issues
 
-1. Add this pointer.
+1. Add "this" pointer.
+2. Add comment in 1.1 & 1.2.
+3. Add space between "//" and comment content.
+4. Add comment between <return></return>.
 
 
 

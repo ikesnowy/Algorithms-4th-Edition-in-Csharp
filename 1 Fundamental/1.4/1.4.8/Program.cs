@@ -23,7 +23,7 @@ namespace _1._4._8
             char[] splits = new char[1] { '\n' };
             string[] testCase = TestCase.Properties.Resources._16Kints.Split(splits, StringSplitOptions.RemoveEmptyEntries);
             int[] testArray = new int[testCase.Length + 2];
-            //样例第一个和最后一个相等
+            // 例第一个和最后一个相等
             testArray[0] = 1;
             testArray[testCase.Length + 1] = 1;
             for (int i = 1; i <= testCase.Length; ++i)

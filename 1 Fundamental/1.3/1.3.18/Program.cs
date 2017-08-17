@@ -13,7 +13,7 @@ namespace _1._3._18
      */
     class Program
     {
-        //删除 x 的后一个结点。
+        // 除 x 的后一个结点。
         static void Main(string[] args)
         {
             Node<string> x = new Node<string>();

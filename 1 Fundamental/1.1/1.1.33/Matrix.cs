@@ -2,6 +2,9 @@
 
 namespace _1._1._33
 {
+    /// <summary>
+    /// 矩阵类。
+    /// </summary>
     public class Matrix
     {
         /// <summary>
@@ -10,16 +13,16 @@ namespace _1._1._33
         /// <param name="x">需要点乘的向量。</param>
         /// <param name="y">需要点乘的另一个向量。</param>
         /// <returns>返回点乘的结果。</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">两向量不等长时抛出异常。</exception>
         public static double Dot(double[] x, double[] y)
         {
-            //确保两向量等长
+            // 保两向量等长
             if (x.Length != y.Length)
             {
                 throw new FormatException("the length of two vectors must be equal");
             }
 
-            //点乘
+            // 乘
             double result = 0;
             for (int i = 0; i < x.Length; ++i)
             {
@@ -35,7 +38,7 @@ namespace _1._1._33
         /// <param name="a">用交错数组表示的 m * p 矩阵。</param>
         /// <param name="b">用交错数组表示的 p * n 矩阵。</param>
         /// <returns>返回 m * n 的矩阵。</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">矩阵无法相乘。</exception>
         /// <example>
         ///     a = {(1,2,3),(4,5,6)}
         ///     b = {(1,4),(2,5),(3,6)}
@@ -59,15 +62,15 @@ namespace _1._1._33
                 double[] resultrow = new double[n];
                 for (int j = 0; j < n; ++j)
                 {
-                    //result[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
+                    // esult[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
                     double[] row = a[i];
                     double[] col = new double[p];
-                    //取得列向量
+                    // 得列向量
                     for (int k = 0; k < p; ++k)
                     {
                         col[k] = b[k][j];
                     }
-                    //点积
+                    // 积
                     resultrow[j] = Dot(row, col);
                 }
                 result[i] = resultrow;
@@ -101,7 +104,7 @@ namespace _1._1._33
         /// <param name="a">左乘的矩阵。</param>
         /// <param name="x">列向量。</param>
         /// <returns>返回一个向量。</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">矩阵的长不等于向量的长。</exception>
         public static double[] Mult(double[][] a, double[] x)
         {
             if (a[0].Length != x.Length)
@@ -125,7 +128,7 @@ namespace _1._1._33
         /// <param name="x">行向量。</param>
         /// <param name="a">矩阵。</param>
         /// <returns>返回一个向量。</returns>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">矩阵的宽不等于行向量的长度。</exception>
         public static double[] Mult(double[] x, double[][] a)
         {
             if (a.GetLength(0) != x.Length)

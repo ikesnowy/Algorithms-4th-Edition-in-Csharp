@@ -7,8 +7,8 @@ namespace _1._4._27
 {
     class StackQueue<Item>
     {
-        Stack<Item> H;//用于保存出队元素
-        Stack<Item> T;//用于保存入队元素
+        Stack<Item> H;// 于保存出队元素
+        Stack<Item> T;// 于保存入队元素
 
         /// <summary>
         /// 构造一个队列。
@@ -36,7 +36,7 @@ namespace _1._4._27
         /// <returns></returns>
         public Item Dequeue()
         {
-            //如果没有足够的出队元素，则将 T 中的元素移动过来
+            // 果没有足够的出队元素，则将 T 中的元素移动过来
             if (this.H.IsEmpty())
             {
                 Reverse();

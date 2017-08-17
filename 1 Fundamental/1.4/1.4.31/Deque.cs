@@ -48,17 +48,17 @@ namespace _1._4._31
         private void Move(Stack<Item> source, Stack<Item> destination) 
         {
             int n = source.Size();
-            //将上半部分元素移动到临时栈 middle
+            // 上半部分元素移动到临时栈 middle
             for (int i = 0; i < n / 2; ++i)
             {
                 this.middle.Push(source.Pop());
             }
-            //将下半部分移动到另一侧栈中
+            // 下半部分移动到另一侧栈中
             while (!source.IsEmpty())
             {
                 destination.Push(source.Pop());
             }
-            //从 middle 取回上半部分元素
+            //  middle 取回上半部分元素
             while (!this.middle.IsEmpty())
             {
                 source.Push(this.middle.Pop());

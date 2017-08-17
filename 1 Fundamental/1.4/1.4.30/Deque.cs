@@ -8,8 +8,8 @@ namespace _1._4._30
 {
     class Deque<Item>
     {
-        Stack<Item> stack;//代表队列尾部
-        Steque<Item> steque;//代表队列头部
+        Stack<Item> stack;// 表队列尾部
+        Steque<Item> steque;// 表队列头部
 
         /// <summary>
         /// 创建一条空的双向队列。

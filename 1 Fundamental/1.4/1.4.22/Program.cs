@@ -27,14 +27,14 @@ namespace _1._4._22
             }
         }
 
-        //使用斐波那契数列作为缩减范围的依据
+        // 用斐波那契数列作为缩减范围的依据
         static int rank(int[] a, int key)
         {
             int Fk = 1;
             int Fk_1 = 1;
             int Fk_2 = 0;
 
-            //获得 Fk，Fk需要大于等于数组的大小，复杂度 lgN
+            // 得 Fk，Fk需要大于等于数组的大小，复杂度 lgN
             while (Fk < a.Length)
             {
                 Fk = Fk + Fk_1;
@@ -44,7 +44,7 @@ namespace _1._4._22
 
             int lo = 0;
 
-            //按照斐波那契数列缩减查找范围，复杂度 lgN
+            // 照斐波那契数列缩减查找范围，复杂度 lgN
             while (Fk_2 >= 0)
             {
                 int i = lo + Fk_2 > a.Length - 1 ? a.Length - 1 : lo + Fk_2;

@@ -16,9 +16,9 @@ namespace _1._1._20
             Console.WriteLine($"{factorialLn(N)}");
         }
 
-        //ln(N!) =
-        //ln(N * (N - 1) * ... * 1) =
-        //ln(N) + ln((N - 1)!)
+        // n(N!) =
+        // n(N * (N - 1) * ... * 1) =
+        // n(N) + ln((N - 1)!)
         public static double factorialLn(int N)
         {
             if (N == 1)

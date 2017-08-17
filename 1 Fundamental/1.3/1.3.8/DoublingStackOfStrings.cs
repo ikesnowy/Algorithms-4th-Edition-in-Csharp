@@ -58,7 +58,7 @@ namespace _1._3._8
                 throw new InvalidOperationException("Stack underflow");
             count--;
 
-            //缩小长度
+            // 小长度
             if (count > 0 && count <= items.Length / 4)
                 Resize(items.Length / 2);
 

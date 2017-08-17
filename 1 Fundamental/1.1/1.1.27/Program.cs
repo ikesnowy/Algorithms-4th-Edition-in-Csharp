@@ -20,8 +20,8 @@ namespace _1._1._27
      */
     class Program
     {
-        static int BinomialCalled = 0;  //计算递归调用次数
-        static double?[,] BinomialCache;    //保存计算结果的数组
+        static int BinomialCalled = 0;  // 算递归调用次数
+        static double?[,] BinomialCache;    // 存计算结果的数组
 
         static void Main(string[] args)
         {

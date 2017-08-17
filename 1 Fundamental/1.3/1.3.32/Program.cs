@@ -13,7 +13,7 @@ namespace _1._3._32
      */
     class Program
     {
-        //见 Steque.cs
+        //  Steque.cs
         static void Main(string[] args)
         {
             Steque<string> steque = new Steque<string>();

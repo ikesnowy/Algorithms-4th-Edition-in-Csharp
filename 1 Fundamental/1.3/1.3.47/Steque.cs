@@ -5,8 +5,8 @@ using System.Text;
 
 namespace _1._3._47
 {
-    //API:
-    //public class Steque<Item> : Ienumerable<Item>
+    // PI:
+    // ublic class Steque<Item> : Ienumerable<Item>
     //    public Steque(); 默认构造函数。
     //    public bool IsEmpty(); 检查 Steque 是否为空。
     //    public int Size(); 返回 Steque 中的元素数量。

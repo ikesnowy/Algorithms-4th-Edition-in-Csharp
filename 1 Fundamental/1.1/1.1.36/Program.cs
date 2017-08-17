@@ -18,24 +18,24 @@ namespace _1._1._36
     {
         static void Main(string[] args)
         {
-            int M = 10;//数组大小
-            int N = 1000;//打乱次数
+            int M = 10;// 组大小
+            int N = 1000;// 乱次数
             int[] a = new int[10];
 
             int[,] result = new int[M, M];
 
             for (int i = 0; i < N; ++i)
             {
-                //初始化
+                // 始化
                 for (int j = 0; j < a.Length; ++j)
                 {
                     a[j] = j;
                 }
 
-                //打乱
+                // 乱
                 Shuffle(a, i);
 
-                //记录
+                // 录
                 for (int j = 0; j < M; ++j)
                 {
                     result[a[j], j]++;
@@ -56,7 +56,7 @@ namespace _1._1._36
             Random random = new Random(seed);
             for (int i = 0; i < N; ++i)
             {
-                int r = i + random.Next(N - i);//等于StdRandom.uniform(N-i)
+                int r = i + random.Next(N - i);// 于StdRandom.uniform(N-i)
                 int temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;

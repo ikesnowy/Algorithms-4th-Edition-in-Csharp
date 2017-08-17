@@ -5,9 +5,9 @@ namespace _1._3._17
 {
     public class Date : IComparable<Date>
     {
-        public int Month { get; }//月
-        public int Day { get; }//日
-        public int Year { get; }//年
+        public int Month { get; }// 
+        public int Day { get; }// 
+        public int Year { get; }// 
 
         /// <summary>
         /// 构造函数。

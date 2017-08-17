@@ -37,7 +37,7 @@
         /// <summary>
         /// 输出形如 “1 counter” 的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回形如 “1 counter” 的字符串。</returns>
         public override string ToString()
         {
             return count + " " + name;

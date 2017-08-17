@@ -22,7 +22,7 @@ namespace _1._4._31
         /// <summary>
         /// 复制构造函数。
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="s">被复制的栈。</param>
         public Stack(Stack<Item> s)
         {
             if (s.first != null)

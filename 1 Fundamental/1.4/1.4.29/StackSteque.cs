@@ -16,8 +16,8 @@ namespace _1._4._29
         /// </summary>
         public StackSteque()
         {
-            H = new Stack<Item>();
-            T = new Stack<Item>();
+            this.H = new Stack<Item>();
+            this.T = new Stack<Item>();
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace _1._4._29
         /// <param name="item"></param>
         public void Push(Item item)
         {
-            H.Push(item);
+            this.H.Push(item);
         }
 
         /// <summary>
@@ -34,9 +34,9 @@ namespace _1._4._29
         /// </summary>
         private void Reverse()
         {
-            while (!T.IsEmpty())
+            while (!this.T.IsEmpty())
             {
-                H.Push(T.Pop());
+                this.H.Push(this.T.Pop());
             }
         }
 
@@ -46,12 +46,12 @@ namespace _1._4._29
         /// <returns></returns>
         public Item Pop()
         {
-            if (H.IsEmpty())
+            if (this.H.IsEmpty())
             {
                 Reverse();
             }
 
-            return H.Pop();
+            return this.H.Pop();
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace _1._4._29
         /// <param name="item"></param>
         public void Enqueue(Item item)
         {
-            T.Push(item);
+            this.T.Push(item);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace _1._4._29
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return H.IsEmpty() && T.IsEmpty();
+            return this.H.IsEmpty() && this.T.IsEmpty();
         }
     }
 }

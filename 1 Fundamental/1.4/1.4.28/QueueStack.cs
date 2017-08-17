@@ -15,7 +15,7 @@ namespace _1._4._28
         /// </summary>
         public QueueStack()
         {
-            queue = new Queue<Item>();
+            this.queue = new Queue<Item>();
         }
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace _1._4._28
         /// <param name="item"></param>
         public void Push(Item item)
         {
-            queue.Enqueue(item);
-            int size = queue.Size();
-            //倒转队列
+            this.queue.Enqueue(item);
+            int size = this.queue.Size();
+            // 转队列
             for (int i = 0; i < size - 1; ++i)
             {
-                queue.Enqueue(queue.Dequeue());
+                this.queue.Enqueue(this.queue.Dequeue());
             }
         }
 
@@ -39,7 +39,7 @@ namespace _1._4._28
         /// <returns></returns>
         public Item Pop()
         {
-            return queue.Dequeue();
+            return this.queue.Dequeue();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace _1._4._28
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return queue.IsEmpty();
+            return this.queue.IsEmpty();
         }
     }
 }

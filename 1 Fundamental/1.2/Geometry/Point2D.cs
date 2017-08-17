@@ -17,6 +17,11 @@ namespace Geometry
         public double Y { get; }
         public int Radius { get; set; }
 
+        /// <summary>
+        /// 构造一个二维点。
+        /// </summary>
+        /// <param name="x">点的 x 值。</param>
+        /// <param name="y">点的 y 值。</param>
         public Point2D(double x, double y)
         {
             if (double.IsInfinity(x) || double.IsInfinity(y))
@@ -37,7 +42,7 @@ namespace Geometry
         /// <summary>
         /// 返回极半径。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回极半径。</returns>
         public double R()
         {
             return Math.Sqrt(X * X + Y * Y);
@@ -46,7 +51,7 @@ namespace Geometry
         /// <summary>
         /// 返回极角。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回极角。</returns>
         public double Theta()
         {
             return Math.Atan2(Y, X);
@@ -56,7 +61,7 @@ namespace Geometry
         /// 返回两个点之间的角度。
         /// </summary>
         /// <param name="that">要计算角度的另一个点。</param>
-        /// <returns></returns>
+        /// <returns>返回两个点之间的角度。</returns>
         private double AngleTo(Point2D that)
         {
             double dx = that.X - this.X;
@@ -70,7 +75,7 @@ namespace Geometry
         /// <param name="a">第一个点。</param>
         /// <param name="b">第二个点。</param>
         /// <param name="c">第三个点。</param>
-        /// <returns></returns>
+        /// <returns>如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}</returns>
         public static int CCW(Point2D a, Point2D b, Point2D c)
         {
             double area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
@@ -87,7 +92,7 @@ namespace Geometry
         /// <param name="a">第一个点。</param>
         /// <param name="b">第二个点。</param>
         /// <param name="c">第三个点。</param>
-        /// <returns></returns>
+        /// <returns>返回 abc 三个点构成的三角形的面积的平方。</returns>
         public static double Area2(Point2D a, Point2D b, Point2D c)
         {
             return (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
@@ -98,7 +103,7 @@ namespace Geometry
         /// 返回当前点到另一个点之间的距离。
         /// </summary>
         /// <param name="that">另一个点。</param>
-        /// <returns></returns>
+        /// <returns>返回当前点到另一个点之间的距离。</returns>
         public double DistanceTo(Point2D that)
         {
             double dx = this.X - that.X;
@@ -111,7 +116,7 @@ namespace Geometry
         /// 返回当前点到另一个点之间的距离的平方。
         /// </summary>
         /// <param name="that">另一个点。</param>
-        /// <returns></returns>
+        /// <returns>返回当前点到另一个点之间的距离的平方。</returns>
         public double DistanceSquareTo(Point2D that)
         {
             double dx = this.X - that.X;
@@ -133,7 +138,7 @@ namespace Geometry
         /// 实现 IComparable 接口。
         /// </summary>
         /// <param name="other">需要比较的另一个对象。</param>
-        /// <returns></returns>
+        /// <returns>大于则返回 1，不然则返回 -1。</returns>
         public int CompareTo(Point2D other)
         {
             if (this.Y < other.Y)

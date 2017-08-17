@@ -16,7 +16,7 @@ namespace _1._1._13
             int N = 3;
             int[,] array = new int[M, N];
 
-            //新建一个二维数组
+            // 建一个二维数组
             for (int i = 0; i < M; i++)
             {
                 for (int j = 0; j < N; j++)
@@ -32,10 +32,10 @@ namespace _1._1._13
             PrintArrayTranspose2D(array, M, N);
         }
 
-        //转置输出
+        // 置输出
         private static void PrintArrayTranspose2D(int[,] array, int rows, int columns)
         {
-            //交换行、列输出顺序
+            // 换行、列输出顺序
             for (int i = 0; i < columns; i++)
             {
                 for (int j = 0; j < rows; j++)
@@ -46,7 +46,7 @@ namespace _1._1._13
             }
         }
 
-        //正常输出
+        // 常输出
         private static void PrintArray2D(int[,] array, int rows, int columns)
         {
             for (int i = 0; i < rows; i++)

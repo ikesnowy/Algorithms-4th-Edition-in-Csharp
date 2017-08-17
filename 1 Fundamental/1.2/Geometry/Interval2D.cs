@@ -25,7 +25,7 @@ namespace Geometry
         /// 判断两个平面是否相交。
         /// </summary>
         /// <param name="that">需要判断的另一个平面。</param>
-        /// <returns></returns>
+        /// <returns>相交则返回 true，不然返回 false。</returns>
         public bool Intersects(Interval2D that)
         {
             if (!this.X.Intersect(that.X))
@@ -45,7 +45,7 @@ namespace Geometry
         /// 判断目标区间是否被本区间包含。
         /// </summary>
         /// <param name="that">需要判断是否被包含的区间。</param>
-        /// <returns></returns>
+        /// <returns>包含则返回 true，不然则返回 false。</returns>
         public bool Contains(Interval2D that)
         {
             return this.X.Contains(that.X) && this.Y.Contains(that.Y);
@@ -55,7 +55,7 @@ namespace Geometry
         /// 判断一个二维点是否在该平面范围内。
         /// </summary>
         /// <param name="p">需要判断的二维点。</param>
-        /// <returns></returns>
+        /// <returns>包含则返回 true，不然返回 false。</returns>
         public bool Contains(Point2D p)
         {
             return (this.X.Contains(p.X) && this.Y.Contains(p.Y));
@@ -64,7 +64,7 @@ namespace Geometry
         /// <summary>
         /// 计算平面范围的面积。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回平面的面积。</returns>
         public double Area()
         {
             return this.X.Length() * this.Y.Length();
@@ -84,7 +84,7 @@ namespace Geometry
         /// <summary>
         /// 返回形如“[xmin, xmax] x [ymin, ymax]”的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回形如“[xmin, xmax] x [ymin, ymax]”的字符串。</returns>
         public override string ToString()
         {
             return X + "x" + Y;
@@ -94,7 +94,7 @@ namespace Geometry
         /// 判断两个二维区间是否相等。
         /// </summary>
         /// <param name="obj">需要比较的另一个区间。</param>
-        /// <returns></returns>
+        /// <returns>相等则返回 true，不然返回 false。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -119,7 +119,7 @@ namespace Geometry
         /// <summary>
         /// 获取哈希值
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回哈希值。</returns>
         public override int GetHashCode()
         {
             int hash1 = this.X.GetHashCode();

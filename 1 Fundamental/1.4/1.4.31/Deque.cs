@@ -18,8 +18,8 @@ namespace _1._4._31
         public Deque()
         {
             this.left = new Stack<Item>();
-            middle = new Stack<Item>();
-            right = new Stack<Item>();
+            this.middle = new Stack<Item>();
+            this.right = new Stack<Item>();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace _1._4._31
         /// <param name="item">要插入的元素。</param>
         public void PushLeft(Item item)
         {
-            left.Push(item);
+            this.left.Push(item);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _1._4._31
         /// <param name="item">要插入的元素。</param>
         public void PushRight(Item item)
         {
-            right.Push(item);
+            this.right.Push(item);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace _1._4._31
             //将上半部分元素移动到临时栈 middle
             for (int i = 0; i < n / 2; ++i)
             {
-                middle.Push(source.Pop());
+                this.middle.Push(source.Pop());
             }
             //将下半部分移动到另一侧栈中
             while (!source.IsEmpty())
@@ -59,9 +59,9 @@ namespace _1._4._31
                 destination.Push(source.Pop());
             }
             //从 middle 取回上半部分元素
-            while (!middle.IsEmpty())
+            while (!this.middle.IsEmpty())
             {
-                source.Push(middle.Pop());
+                source.Push(this.middle.Pop());
             }
         }
 
@@ -71,7 +71,7 @@ namespace _1._4._31
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return right.IsEmpty() && middle.IsEmpty() && left.IsEmpty();
+            return this.right.IsEmpty() && this.middle.IsEmpty() && this.left.IsEmpty();
         }
 
         /// <summary>
@@ -80,12 +80,12 @@ namespace _1._4._31
         /// <returns></returns>
         public Item PopRight()
         {
-            if (right.IsEmpty())
+            if (this.right.IsEmpty())
             {
-                Move(left, right);
+                Move(this.left, this.right);
             }
 
-            return right.Pop();
+            return this.right.Pop();
         }
 
         /// <summary>
@@ -94,12 +94,12 @@ namespace _1._4._31
         /// <returns></returns>
         public Item PopLeft()
         {
-            if (left.IsEmpty())
+            if (this.left.IsEmpty())
             {
-                Move(right, left);
+                Move(this.right, this.left);
             }
 
-            return left.Pop();
+            return this.left.Pop();
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace _1._4._31
         /// <returns></returns>
         public int Size()
         {
-            return left.Size() + middle.Size() + right.Size();
+            return this.left.Size() + this.middle.Size() + this.right.Size();
         }
     }
 }

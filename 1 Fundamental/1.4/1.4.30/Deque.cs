@@ -16,8 +16,8 @@ namespace _1._4._30
         /// </summary>
         public Deque()
         {
-            stack = new Stack<Item>();
-            steque = new Steque<Item>();
+            this.stack = new Stack<Item>();
+            this.steque = new Steque<Item>();
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace _1._4._30
         /// <param name="item">要插入的元素。</param>
         public void PushLeft(Item item)
         {
-            steque.Push(item);
+            this.steque.Push(item);
         }
 
         /// <summary>
@@ -34,9 +34,9 @@ namespace _1._4._30
         /// </summary>
         private void StackToSteque()
         {
-            while (!stack.IsEmpty())
+            while (!this.stack.IsEmpty())
             {
-                steque.Push(stack.Pop());
+                this.steque.Push(stack.Pop());
             }
         }
 
@@ -45,9 +45,9 @@ namespace _1._4._30
         /// </summary>
         private void StequeToStack()
         {
-            while (!steque.IsEmpty())
+            while (!this.steque.IsEmpty())
             {
-                stack.Push(steque.Pop());
+                this.stack.Push(this.steque.Pop());
             }
         }
 
@@ -57,11 +57,11 @@ namespace _1._4._30
         /// <returns></returns>
         public Item PopLeft()
         {
-            if (steque.IsEmpty())
+            if (this.steque.IsEmpty())
             {
                 StackToSteque();
             }
-            return steque.Pop();
+            return this.steque.Pop();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace _1._4._30
         /// <param name="item">要插入的元素。</param>
         public void PushRight(Item item)
         {
-            stack.Push(item);
+            this.stack.Push(item);
         }
 
         /// <summary>
@@ -79,11 +79,11 @@ namespace _1._4._30
         /// <returns></returns>
         public Item PopRight()
         {
-            if (stack.IsEmpty())
+            if (this.stack.IsEmpty())
             {
                 StequeToStack();
             }
-            return stack.Pop();
+            return this.stack.Pop();
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace _1._4._30
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return stack.IsEmpty() && steque.IsEmpty();
+            return this.stack.IsEmpty() && this.steque.IsEmpty();
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace _1._4._30
         /// <returns></returns>
         public int Size()
         {
-            return stack.Size() + steque.Size();
+            return this.stack.Size() + this.steque.Size();
         }
     }
 }

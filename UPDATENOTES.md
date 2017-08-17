@@ -1,5 +1,15 @@
 # Update Notes
 
+## Day79	August 17, 2017
+
+### Fix Issues
+
+1. Add this pointer.
+
+
+
+
+
 ## Day78	August 16, 2017
 
 ### Progress

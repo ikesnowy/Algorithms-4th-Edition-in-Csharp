@@ -15,8 +15,8 @@ namespace _1._4._27
         /// </summary>
         public StackQueue()
         {
-            H = new Stack<Item>();
-            T = new Stack<Item>();
+            this.H = new Stack<Item>();
+            this.T = new Stack<Item>();
         }
 
         /// <summary>
@@ -24,9 +24,9 @@ namespace _1._4._27
         /// </summary>
         private void Reverse()
         {
-            while (!T.IsEmpty())
+            while (!this.T.IsEmpty())
             {
-                H.Push(T.Pop());
+                this.H.Push(this.T.Pop());
             }
         }
 
@@ -37,12 +37,12 @@ namespace _1._4._27
         public Item Dequeue()
         {
             //如果没有足够的出队元素，则将 T 中的元素移动过来
-            if (H.IsEmpty())
+            if (this.H.IsEmpty())
             {
                 Reverse();
             }
 
-            return H.Pop();
+            return this.H.Pop();
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace _1._4._27
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            T.Push(item);
+            this.T.Push(item);
         }
     }
 }

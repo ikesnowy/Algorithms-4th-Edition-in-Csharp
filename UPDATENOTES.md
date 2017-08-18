@@ -1,5 +1,13 @@
 # Update Notes
 
+## Day80 August 18, 2017
+
+### Fix Issues
+
+1. Add comment for 1.3.
+
+
+
 ## Day79	August 17, 2017
 
 ### Fix Issues

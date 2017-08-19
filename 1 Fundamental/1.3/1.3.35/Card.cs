@@ -1,5 +1,8 @@
 ﻿namespace _1._3._35
 {
+    /// <summary>
+    /// 扑克牌类。
+    /// </summary>
     class Card
     {
         Suit suit;
@@ -35,7 +38,7 @@
                 num = this.number.ToString();
             }
 
-            return num + " of the " + suit.ToString();
+            return num + " of the " + this.suit.ToString();
         }
     }
 

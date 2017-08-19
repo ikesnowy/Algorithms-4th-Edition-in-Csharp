@@ -2,6 +2,10 @@
 
 namespace _1._3._38
 {
+    /// <summary>
+    /// 以一维数组为基础的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要保存的元素。</typeparam>
     class ArrayBasedGeneralizeQueue<Item>
     {
         private Item[] queue;
@@ -86,7 +90,7 @@ namespace _1._3._38
                 throw new ArgumentOutOfRangeException();
             }
 
-            if (IsVisited[k - 1] == true)
+            if (this.IsVisited[k - 1] == true)
             {
                 throw new ArgumentException("this node had been already deleted");
             }

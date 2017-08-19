@@ -20,9 +20,9 @@ namespace Commercial
             string[] a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
-            Month = int.Parse(a[0]);
-            Day = int.Parse(a[1]);
-            Year = int.Parse(a[2]);
+            this.Month = int.Parse(a[0]);
+            this.Day = int.Parse(a[1]);
+            this.Year = int.Parse(a[2]);
         }
 
         /// <summary>

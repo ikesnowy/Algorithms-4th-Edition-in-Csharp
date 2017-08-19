@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Measurement
 {
+    /// <summary>
+    /// 用暴力方法查找数组中和为零的二元组。
+    /// </summary>
     public static class TwoSum
     {
         /// <summary>

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Measurement
 {
+    /// <summary>
+    /// ThreeSum 测试类。
+    /// </summary>
     public static class DoubleTest
     {
         private static readonly int MAXIMUM_INTEGER = 1000000;

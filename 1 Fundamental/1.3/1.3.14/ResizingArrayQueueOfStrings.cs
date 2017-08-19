@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._14
 {
+    /// <summary>
+    /// 可变长度的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要存放的元素。</typeparam>
     class ResizingArrayQueueOfStrings<Item> : IEnumerable<Item>
     {
         private Item[] q;
@@ -34,7 +38,7 @@ namespace _1._3._14
             if (capacity < 0)
                 throw new ArgumentException("capacity should be above zero");
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < count; ++i)
+            for (int i = 0; i < this.count; ++i)
             {
                 temp[i] = this.q[(this.first + i) % this.q.Length];
             }
@@ -62,8 +66,8 @@ namespace _1._3._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            Item item = this.q[first];
-            this.q[first] = default(Item);
+            Item item = this.q[this.first];
+            this.q[this.first] = default(Item);
             this.count--;
             this.first++;
             if (this.first == this.q.Length)
@@ -78,7 +82,7 @@ namespace _1._3._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            return this.q[first];
+            return this.q[this.first];
         }
 
         public IEnumerator<Item> GetEnumerator()

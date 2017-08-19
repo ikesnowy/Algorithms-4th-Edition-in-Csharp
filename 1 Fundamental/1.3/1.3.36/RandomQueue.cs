@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._36
 {
+    /// <summary>
+    /// 随机队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要保存的元素。</typeparam>
     public class RandomQueue<Item> : IEnumerable<Item>
     {
         private Item[] queue;

@@ -17,9 +17,9 @@ namespace _1._2._18
         /// <param name="x">要添加的值。</param>
         public void AddDataValue(double x)
         {
-            N++;
-            s = s + 1.0 * (N - 1) / N * (x - m) * (x - m);
-            m = m + (x - m) / N;
+            this.N++;
+            this.s = this.s + 1.0 * (this.N - 1) / this.N * (x - this.m) * (x - this.m);
+            this.m = this.m + (x - this.m) / this.N;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace _1._2._18
         /// <returns>返回平均值。</returns>
         public double Mean()
         {
-            return m;
+            return this.m;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _1._2._18
         /// <returns>返回方差。</returns>
         public double Var()
         {
-            return s / (N - 1);
+            return this.s / (this.N - 1);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace _1._2._18
         }
         public override string ToString()
         {
-            return "Mean (" + N + " values): " + string.Format("{0, 7:F5}", Mean());
+            return "Mean (" + this.N + " values): " + string.Format("{0, 7:F5}", Mean());
         }
     }
 }

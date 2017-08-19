@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace _1._3._1
 {
+    /// <summary>
+    /// 固定大小的字符串栈。
+    /// </summary>
     class FixedCapacityStackOfStrings : IEnumerable<string>
     {
         private string[] a;
@@ -43,7 +46,7 @@ namespace _1._3._1
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(string item)
         {
-            this.a[N] = item;
+            this.a[this.N] = item;
             this.N++;
         }
 
@@ -54,7 +57,7 @@ namespace _1._3._1
         public string Pop()
         {
             this.N--;
-            return this.a[N];
+            return this.a[this.N];
         }
 
         /// <summary>
@@ -63,7 +66,7 @@ namespace _1._3._1
         /// <returns></returns>
         public string Peek()
         {
-            return this.a[N - 1];
+            return this.a[this.N - 1];
         }
 
         public IEnumerator<string> GetEnumerator()
@@ -87,9 +90,9 @@ namespace _1._3._1
                 this.a = a;
             }
 
-            string IEnumerator<string>.Current => a[current];
+            string IEnumerator<string>.Current => this.a[this.current];
 
-            object IEnumerator.Current => a[current];
+            object IEnumerator.Current => this.a[this.current];
 
             void IDisposable.Dispose()
             {
@@ -107,7 +110,7 @@ namespace _1._3._1
 
             void IEnumerator.Reset()
             {
-                this.current = a.Length;
+                this.current = this.a.Length;
             }
         }
     }

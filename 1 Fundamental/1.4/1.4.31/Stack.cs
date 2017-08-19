@@ -5,6 +5,10 @@ using System.Text;
 
 namespace _1._4._31
 {
+    /// <summary>
+    /// 链栈。
+    /// </summary>
+    /// <typeparam name="Item">链栈中保存的元素。</typeparam>
     public class Stack<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
@@ -164,9 +168,9 @@ namespace _1._4._31
                 this.first = this.current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {

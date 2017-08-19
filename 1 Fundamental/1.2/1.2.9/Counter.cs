@@ -22,7 +22,7 @@
         /// </summary>
         public void Increment()
         {
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@
         /// <returns></returns>
         public int Tally()
         {
-            return count;
+            return this.count;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         /// <returns>返回形如 “1 counter” 的字符串。</returns>
         public override string ToString()
         {
-            return count + " " + name;
+            return this.count + " " + this.name;
         }
     }
 }

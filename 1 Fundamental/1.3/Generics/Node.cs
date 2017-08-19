@@ -1,5 +1,9 @@
 ﻿namespace Generics
 {
+    /// <summary>
+    /// 链表结点类。
+    /// </summary>
+    /// <typeparam name="T">结点存放的元素类型。</typeparam>
     public class Node<T>
     {
         public T item;

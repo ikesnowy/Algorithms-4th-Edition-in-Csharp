@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _1._4._31
 {
+    /// <summary>
+    /// 用三个栈模拟的双向队列。
+    /// </summary>
+    /// <typeparam name="Item">双向队列中的元素。</typeparam>
     class Deque<Item>
     {
         Stack<Item> left;

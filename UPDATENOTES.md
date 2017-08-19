@@ -1,10 +1,23 @@
 # Update Notes
 
-## Day80 August 18, 2017
+## Day81	August 19, 2017
+
+### Fix Issues
+
+1. Add comment for 1.3 & 1.4.
+2. Add "this" pointer before the reference to class member.
+
+
+
+
+
+## Day80	August 18, 2017
 
 ### Fix Issues
 
 1. Add comment for 1.3.
+
+
 
 
 

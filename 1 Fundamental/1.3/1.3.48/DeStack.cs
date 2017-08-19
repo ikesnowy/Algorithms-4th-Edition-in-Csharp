@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._48
 {
+    /// <summary>
+    /// 双端栈。
+    /// </summary>
+    /// <typeparam name="Item">栈中所包含的元素。</typeparam>
     public class DeStack<Item> : IEnumerable<Item>
     {
         private class DoubleNode<T>
@@ -192,9 +196,9 @@ namespace _1._3._48
                 this.first = this.current;
             }
 
-            public Item Current => current.item;
+            public Item Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             public void Dispose()
             {

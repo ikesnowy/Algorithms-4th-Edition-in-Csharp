@@ -14,29 +14,29 @@ namespace _1._2._3
         {
             try
             {
-                int N = int.Parse(InputN.Text);
+                int N = int.Parse(this.InputN.Text);
                 if (N <= 0)
                 {
                     throw new FormatException();
                 }
-                double max = double.Parse(InputMax.Text);
-                double min = double.Parse(InputMin.Text);
+                double max = double.Parse(this.InputMax.Text);
+                double min = double.Parse(this.InputMin.Text);
 
                 if (max > 1 || max < 0)
                 {
-                    ErrorLabel.Text = "Max 应大于等于 0 且小于 1";
+                    this.ErrorLabel.Text = "Max 应大于等于 0 且小于 1";
                     return;
                 }
 
                 if (min > 1 || min < 0)
                 {
-                    ErrorLabel.Text = "Min 应大于等于 0 且小于 1";
+                    this.ErrorLabel.Text = "Min 应大于等于 0 且小于 1";
                     return;
                 }
 
                 if (min >= max)
                 {
-                    ErrorLabel.Text = "Min 应小于 Max。";
+                    this.ErrorLabel.Text = "Min 应小于 Max。";
                     return;
                 }
 
@@ -44,15 +44,15 @@ namespace _1._2._3
             }
             catch (ArgumentNullException)
             {
-                ErrorLabel.Text = "输入值不能为空。";
+                this.ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                ErrorLabel.Text = "格式错误，确保输入的是大于零的数字。";
+                this.ErrorLabel.Text = "格式错误，确保输入的是大于零的数字。";
             }
             catch (OverflowException)
             {
-                ErrorLabel.Text = "数据过大。";
+                this.ErrorLabel.Text = "数据过大。";
             }
         }
         

@@ -3,6 +3,10 @@ using System.Text;
 
 namespace _1._3._40
 {
+    /// <summary>
+    /// 前移编码队列。
+    /// </summary>
+    /// <typeparam name="Item">需要前移编码的元素类型。</typeparam>
     class MoveToFront<Item>
     {
         private class Node<T>

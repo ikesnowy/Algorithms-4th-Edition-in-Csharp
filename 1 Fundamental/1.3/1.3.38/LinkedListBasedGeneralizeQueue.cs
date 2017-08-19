@@ -2,6 +2,10 @@
 
 namespace _1._3._38
 {
+    /// <summary>
+    /// 以链表为基础的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要保存的元素。</typeparam>
     class LinkedListBasedGeneralizeQueue<Item>
     {
         private class Node<T>
@@ -56,7 +60,7 @@ namespace _1._3._38
             {
                 oldLast.next = this.last;
             }
-            count++;
+            this.count++;
         }
 
         /// <summary>

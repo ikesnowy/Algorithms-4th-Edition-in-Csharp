@@ -87,7 +87,7 @@ namespace Geometry
         /// <returns>返回形如“[xmin, xmax] x [ymin, ymax]”的字符串。</returns>
         public override string ToString()
         {
-            return X + "x" + Y;
+            return this.X + "x" + this.Y;
         }
 
         /// <summary>

@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Generics
 {
+    /// <summary>
+    /// 队列类。
+    /// </summary>
+    /// <typeparam name="Item">队列存放的元素类型。</typeparam>
     public class Queue<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

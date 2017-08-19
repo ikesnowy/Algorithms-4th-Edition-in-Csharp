@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._33
 {
+    /// <summary>
+    /// 双端队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要存放的元素。</typeparam>
     public class Deque<Item> : IEnumerable<Item>
     {
         private class DoubleNode<T>
@@ -172,9 +176,9 @@ namespace _1._3._33
                 this.first = this.current;
             }
 
-            public Item Current => current.item;
+            public Item Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             public void Dispose()
             {

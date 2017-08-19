@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._33
 {
+    /// <summary>
+    /// 可自动扩容的双端队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要存放的元素。</typeparam>
     public class ResizingArrayDeque<Item> : IEnumerable<Item>
     {
         private Item[] deque;
@@ -50,7 +54,7 @@ namespace _1._3._33
                 throw new ArgumentException();
 
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < count; ++i)
+            for (int i = 0; i < this.count; ++i)
             {
                 temp[i] = this.deque[(this.first + i) % this.deque.Length];
             }
@@ -106,7 +110,7 @@ namespace _1._3._33
             }
             Item temp = this.deque[this.last];
             this.count--;
-            if (this.count > 0 && this.count == deque.Length / 4)
+            if (this.count > 0 && this.count == this.deque.Length / 4)
                 Resize(this.deque.Length / 2);
             return temp;
         }
@@ -119,7 +123,7 @@ namespace _1._3._33
             Item temp = this.deque[this.first];
             this.first = (this.first + 1) % this.deque.Length;
             this.count--;
-            if (this.count > 0 && this.count == deque.Length / 4)
+            if (this.count > 0 && this.count == this.deque.Length / 4)
             {
                 Resize(this.deque.Length / 2);
             }

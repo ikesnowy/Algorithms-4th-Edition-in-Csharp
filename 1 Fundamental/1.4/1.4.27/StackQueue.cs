@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace _1._4._27
 {
+    /// <summary>
+    /// 用两个栈模拟的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中的元素。</typeparam>
     class StackQueue<Item>
     {
         Stack<Item> H;// 于保存出队元素

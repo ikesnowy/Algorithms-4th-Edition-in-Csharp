@@ -5,6 +5,10 @@ using System.Text;
 
 namespace _1._3._29
 {
+    /// <summary>
+    /// 队列类。
+    /// </summary>
+    /// <typeparam name="Item">队列中存放的元素。</typeparam>
     public class Queue<Item> : IEnumerable<Item>
     {
         private Node<Item> last;
@@ -64,7 +68,7 @@ namespace _1._3._29
                 this.last.next = oldLast.next;
                 oldLast.next = this.last;
             }
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -128,7 +132,7 @@ namespace _1._3._29
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == first.next)
+                if (this.current.next == this.first.next)
                     return false;
                 this.current = this.current.next;
                 return true;

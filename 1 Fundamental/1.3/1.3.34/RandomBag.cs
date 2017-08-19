@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._34
 {
+    /// <summary>
+    /// 随即背包。
+    /// </summary>
+    /// <typeparam name="Item">背包中要存放的元素。</typeparam>
     public class RandomBag<Item> : IEnumerable<Item>
     {
         private Item[] bag;
@@ -47,8 +51,8 @@ namespace _1._3._34
                 Resize(this.count * 2);
             }
 
-            this.bag[count] = item;
-            count++;
+            this.bag[this.count] = item;
+            this.count++;
         }
 
         /// <summary>
@@ -94,7 +98,7 @@ namespace _1._3._34
                 {
                     this.sequence[i] = i;
                 }
-                Shuffle(sequence, DateTime.Now.Millisecond);
+                Shuffle(this.sequence, DateTime.Now.Millisecond);
             }
 
             /// <summary>

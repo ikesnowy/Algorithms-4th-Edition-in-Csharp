@@ -5,8 +5,8 @@ using System.Text;
 
 namespace _1._4._30
 {
-    // PI:
-    // ublic class Steque<Item> : Ienumerable<Item>
+    // API:
+    // public class Steque<Item> : Ienumerable<Item>
     //    public Steque(); 默认构造函数。
     //    public bool IsEmpty(); 检查 Steque 是否为空。
     //    public int Size(); 返回 Steque 中的元素数量。
@@ -15,6 +15,10 @@ namespace _1._4._30
     //    public void Peek(); 返回栈顶元素（但不弹出它）。
     //    public void Enqueue(Item item); 将一个元素添加入 Steque 中。
 
+    /// <summary>
+    /// Steque。
+    /// </summary>
+    /// <typeparam name="Item">Steque 中保存的元素。</typeparam>
     public class Steque<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
@@ -42,7 +46,7 @@ namespace _1._4._30
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return count == 0;
+            return this.count == 0;
         }
 
         /// <summary>
@@ -60,7 +64,7 @@ namespace _1._4._30
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = first;
+            Node<Item> oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
@@ -69,7 +73,7 @@ namespace _1._4._30
             {
                 this.last = this.first;
             }
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -80,10 +84,10 @@ namespace _1._4._30
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            Item item = first.item;
-            first = first.next;
-            count--;
-            if (count == 0)
+            Item item = this.first.item;
+            this.first = this.first.next;
+            this.count--;
+            if (this.count == 0)
             {
                 this.last = null;
             }
@@ -104,7 +108,7 @@ namespace _1._4._30
                 this.first = this.last;
             else
                 oldLast.next = this.last;
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -115,7 +119,7 @@ namespace _1._4._30
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return first.item;
+            return this.first.item;
         }
 
         public override string ToString()
@@ -151,9 +155,9 @@ namespace _1._4._30
                 this.first = this.current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {

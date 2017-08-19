@@ -2,6 +2,9 @@
 
 namespace _1._3._44
 {
+    /// <summary>
+    /// 文本缓冲区。
+    /// </summary>
     class Buffer
     {
         private Stack<char> leftside;
@@ -73,12 +76,12 @@ namespace _1._3._44
         /// <returns></returns>
         public string Getstring()
         {
-            while (!leftside.IsEmpty())
+            while (!this.leftside.IsEmpty())
             {
                 this.rightside.Push(this.leftside.Pop());
             }
 
-            return rightside.ToString();
+            return this.rightside.ToString();
         }
     }
 }

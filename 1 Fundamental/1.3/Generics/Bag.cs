@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace Generics
 {
+    /// <summary>
+    /// 背包类。
+    /// </summary>
+    /// <typeparam name="Item">背包中存放的元素类型。</typeparam>
     public class Bag<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
@@ -64,15 +68,15 @@ namespace Generics
             private Node<Item> current;
             private Node<Item> first;
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             public BagEnumerator(Node<Item> first)
             {
                 this.current = new Node<Item>();
                 this.current.next = first;
-                this.first = current;
+                this.first = this.current;
             }
 
             void IDisposable.Dispose()

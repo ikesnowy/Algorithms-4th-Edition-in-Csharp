@@ -20,6 +20,10 @@ namespace _1._3._31
      * 删除指定结点。
      * 
      */
+     /// <summary>
+     /// 双向链表。
+     /// </summary>
+     /// <typeparam name="Item">链表中要存放的元素。</typeparam>
     public class DoubleLinkList<Item> : IEnumerable<Item>
     {
         private class DoubleNode<T>
@@ -48,7 +52,7 @@ namespace _1._3._31
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return count == 0;
+            return this.count == 0;
         }
 
         /// <summary>
@@ -94,7 +98,7 @@ namespace _1._3._31
             {
                 item = item,
                 next = null,
-                prev = last
+                prev = this.last
             };
             if (this.last != null)
             {
@@ -115,7 +119,7 @@ namespace _1._3._31
         /// <returns></returns>
         public Item At(int index)
         {
-            if (index >= count || index < 0)
+            if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = this.first;
@@ -133,7 +137,7 @@ namespace _1._3._31
         /// <returns></returns>
         private DoubleNode<Item> Find(int index)
         {
-            if (index >= count || index < 0)
+            if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = this.first;
@@ -157,7 +161,7 @@ namespace _1._3._31
                 return;
             }
 
-            if (index >= count || index < 0)
+            if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = Find(index);
@@ -179,13 +183,13 @@ namespace _1._3._31
         /// <param name="index">查找元素的下标。</param>
         public void InsertAfter(Item item, int index)
         {
-            if (index == count - 1)
+            if (index == this.count - 1)
             {
                 InsertRear(item);
                 return;
             }
 
-            if (index >= count || index < 0)
+            if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = Find(index);
@@ -257,7 +261,7 @@ namespace _1._3._31
                 return DeleteFront();
             }
 
-            if (index == count - 1)
+            if (index == this.count - 1)
             {
                 return DeleteRear();
             }
@@ -266,7 +270,7 @@ namespace _1._3._31
             Item temp = current.item;
             current.prev.next = current.next;
             current.next.prev = current.prev;
-            count--;
+            this.count--;
             return temp;
         }
 
@@ -302,12 +306,12 @@ namespace _1._3._31
             {
                 this.current = new DoubleNode<Item>();
                 this.current.next = first;
-                this.first = current;
+                this.first = this.current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {

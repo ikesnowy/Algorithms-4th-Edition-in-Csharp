@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _1._4._28
 {
+    /// <summary>
+    /// 用一条队列模拟的栈。
+    /// </summary>
+    /// <typeparam name="Item">栈中保存的元素。</typeparam>
     class QueueStack<Item>
     {
         Queue<Item> queue;

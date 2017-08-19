@@ -3,6 +3,9 @@ using System.IO;
 
 namespace _1._3._16
 {
+    /// <summary>
+    /// 日期类。
+    /// </summary>
     public class Date : IComparable<Date>
     {
         public int Month { get; }// 
@@ -19,9 +22,9 @@ namespace _1._3._16
             string[] a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
-            Month = int.Parse(a[0]);
-            Day = int.Parse(a[1]);
-            Year = int.Parse(a[2]);
+            this.Month = int.Parse(a[0]);
+            this.Day = int.Parse(a[1]);
+            this.Year = int.Parse(a[2]);
         }
 
         /// <summary>

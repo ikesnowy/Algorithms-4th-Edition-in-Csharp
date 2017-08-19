@@ -2,6 +2,10 @@
 
 namespace _1._3._39
 {
+    /// <summary>
+    /// 环形缓冲区。
+    /// </summary>
+    /// <typeparam name="Item">缓冲区包含的元素类型。</typeparam>
     class RingBuffer<Item>
     {
         private Item[] buffer;

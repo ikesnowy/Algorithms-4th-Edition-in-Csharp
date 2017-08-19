@@ -11,33 +11,33 @@ namespace _1._2._10
         public Form2(int N, int max)
         {
             InitializeComponent();
-            counter = new VisualCounter("count", max, N);
-            graphics = this.PaintArea.CreateGraphics();
+            this.counter = new VisualCounter("count", max, N);
+            this.graphics = this.PaintArea.CreateGraphics();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!counter.Increment())
+            if (!this.counter.Increment())
             {
                 this.ErrorLabel.Text = "操作数不足";
             }
             else
             {
                 this.ErrorLabel.Text = "";
-                counter.Draw(graphics,this.PaintArea.Width, this.PaintArea.Height, this.Font);
+                this.counter.Draw(this.graphics,this.PaintArea.Width, this.PaintArea.Height, this.Font);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!counter.Decreasement())
+            if (!this.counter.Decreasement())
             {
                 this.ErrorLabel.Text = "操作数不足";
             }
             else
             {
                 this.ErrorLabel.Text = "";
-                counter.Draw(graphics, this.PaintArea.Width, this.PaintArea.Height, this.Font);
+                this.counter.Draw(this.graphics, this.PaintArea.Width, this.PaintArea.Height, this.Font);
             }
         }
     }

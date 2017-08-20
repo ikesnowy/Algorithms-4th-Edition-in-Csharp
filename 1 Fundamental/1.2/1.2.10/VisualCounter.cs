@@ -88,7 +88,7 @@ namespace _1._2._10
             RectangleF headPart = new RectangleF(0, 0, width, height / 3);
             Rectangle bodyPart = new Rectangle(0, height / 3, (height * 2) / 3, (height * 2) / 3);
 
-            // 图
+            //绘图
             g.DrawString($"计数：{this.count} 剩余操作数：{this.operatorTimes} 最大值：{this.max}", font, Brushes.Black, headPart);
             g.FillPie(Brushes.Blue, bodyPart, 0, 360 * (float)this.count / this.max);
         }

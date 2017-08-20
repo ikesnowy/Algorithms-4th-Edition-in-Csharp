@@ -28,7 +28,7 @@ namespace _1._1._32
                 {
                     // 择文件
                     openfiledialog.OpenFile();
-                    // 改路径框显示
+                    //修改路径框显示
                     this.InputFilePath.Text = openfiledialog.FileName;
                 }
                 catch (Exception ex)
@@ -42,9 +42,9 @@ namespace _1._1._32
         {
             try
             {
-                // 开文件并读取全部数字
+                //打开文件并读取全部数字
                 string[] stringNums = File.ReadAllLines(this.InputFilePath.Text);
-                // 立 double 数组
+                //建立 double 数组
                 double[] Numbers = new double[stringNums.Length];
                 // 数字从 string 转换为 double
                 for (int i = 0; i < stringNums.Length; ++i)

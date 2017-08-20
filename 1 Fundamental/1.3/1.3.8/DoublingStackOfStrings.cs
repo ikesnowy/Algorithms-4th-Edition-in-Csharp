@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace _1._3._8
 {
+    /// <summary>
+    /// 容量自动加倍的字符串栈。
+    /// </summary>
     class DoublingStackOfStrings : IEnumerable<string>
     {
         private string[] items;

@@ -5,6 +5,10 @@ using System.Text;
 
 namespace _1._4._29
 {
+    /// <summary>
+    /// 链栈。
+    /// </summary>
+    /// <typeparam name="Item">链栈中保存的元素。</typeparam>
     public class Stack<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace _1._4._30
 {
-    //API:
-    //public class Steque<Item> : Ienumerable<Item>
+    // API:
+    // public class Steque<Item> : Ienumerable<Item>
     //    public Steque(); 默认构造函数。
     //    public bool IsEmpty(); 检查 Steque 是否为空。
     //    public int Size(); 返回 Steque 中的元素数量。
@@ -15,6 +15,10 @@ namespace _1._4._30
     //    public void Peek(); 返回栈顶元素（但不弹出它）。
     //    public void Enqueue(Item item); 将一个元素添加入 Steque 中。
 
+    /// <summary>
+    /// Steque。
+    /// </summary>
+    /// <typeparam name="Item">Steque 中保存的元素。</typeparam>
     public class Steque<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

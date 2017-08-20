@@ -28,11 +28,11 @@ namespace _1._4._23
                 j++;
             }
 
-            Console.WriteLine(BinarySearch(a, 7.0 / 8.0));//7
-            Console.WriteLine(BinarySearch(a, 5.0 / 8.0));//-1
+            Console.WriteLine(BinarySearch(a, 7.0 / 8.0));// 
+            Console.WriteLine(BinarySearch(a, 5.0 / 8.0));// 1
         }
 
-        //将二分查找中的相等判定条件修改为差值小于 x，其中 x = 1/N^2
+        // 二分查找中的相等判定条件修改为差值小于 x，其中 x = 1/N^2
         static int BinarySearch(double[] a, double key)
         {
             int lo = 0;

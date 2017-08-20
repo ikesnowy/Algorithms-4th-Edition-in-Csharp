@@ -19,7 +19,7 @@ namespace TestCase.Properties {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -117,15 +117,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _16Kints {
             get {
@@ -190,15 +182,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _1Kints {
             get {
@@ -263,15 +247,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _1Mints {
             get {
@@ -336,15 +312,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _2Kints {
             get {
@@ -409,15 +377,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _32Kints {
             get {
@@ -482,15 +442,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _4Kints {
             get {
@@ -555,15 +507,7 @@ namespace TestCase.Properties {
         /// 325398
         /// 279751
         /// 592222
-        /// 309723
-        ///  52921
-        /// 600291
-        /// 799037
-        /// 836049
-        ///-190454
-        ///  13962
-        ///-714343
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// 309723        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string _8Kints {
             get {

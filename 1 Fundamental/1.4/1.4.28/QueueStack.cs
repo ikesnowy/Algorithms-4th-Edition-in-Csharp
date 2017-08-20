@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _1._4._28
 {
+    /// <summary>
+    /// 用一条队列模拟的栈。
+    /// </summary>
+    /// <typeparam name="Item">栈中保存的元素。</typeparam>
     class QueueStack<Item>
     {
         Queue<Item> queue;
@@ -26,7 +30,7 @@ namespace _1._4._28
         {
             this.queue.Enqueue(item);
             int size = this.queue.Size();
-            //倒转队列
+            // 转队列
             for (int i = 0; i < size - 1; ++i)
             {
                 this.queue.Enqueue(this.queue.Dequeue());

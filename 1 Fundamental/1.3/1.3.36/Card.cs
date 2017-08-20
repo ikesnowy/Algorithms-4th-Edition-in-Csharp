@@ -1,5 +1,8 @@
 ﻿namespace _1._3._36
 {
+    /// <summary>
+    /// 扑克牌类。
+    /// </summary>
     class Card
     {
         Suit suit;

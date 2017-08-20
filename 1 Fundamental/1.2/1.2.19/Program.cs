@@ -16,7 +16,7 @@ namespace _1._2._19
      */
     class Program
     {
-        //见 Commercial 库中的 Date.cs 和 Transaction.cs
+        //  Commercial 库中的 Date.cs 和 Transaction.cs
         static void Main(string[] args)
         {
             Date d = new Date("5/22/1939");

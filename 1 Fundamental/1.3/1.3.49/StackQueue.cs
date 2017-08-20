@@ -2,6 +2,10 @@
 
 namespace _1._3._49
 {
+    /// <summary>
+    /// 用六个栈模拟的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中保存的元素。</typeparam>
     class StackQueue<Item>
     {
         Stack<Item> H;

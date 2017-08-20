@@ -2,6 +2,9 @@
 
 namespace _1._3._44
 {
+    /// <summary>
+    /// 文本缓冲区。
+    /// </summary>
     class Buffer
     {
         private Stack<char> leftside;

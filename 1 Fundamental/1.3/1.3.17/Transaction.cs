@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace _1._3._17
 {
+    /// <summary>
+    /// 交易记录类。
+    /// </summary>
     public class Transaction : IComparable<Transaction>
     {
         public string Who { get; }

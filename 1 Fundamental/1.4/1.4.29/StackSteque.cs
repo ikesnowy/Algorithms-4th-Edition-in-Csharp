@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _1._4._29
 {
+    /// <summary>
+    /// 用两个栈模拟的 Steque。
+    /// </summary>
+    /// <typeparam name="Item">Steque 中的元素类型。</typeparam>
     class StackSteque<Item>
     {
         Stack<Item> H;

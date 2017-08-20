@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._33
 {
+    /// <summary>
+    /// 可自动扩容的双端队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要存放的元素。</typeparam>
     public class ResizingArrayDeque<Item> : IEnumerable<Item>
     {
         private Item[] deque;

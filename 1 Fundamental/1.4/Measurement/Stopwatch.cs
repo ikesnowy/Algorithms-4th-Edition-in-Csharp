@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Measurement
 {
+    /// <summary>
+    /// 计时器类。
+    /// </summary>
     public class Stopwatch
     {
         private readonly DateTime start;

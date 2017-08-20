@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace Generics
 {
+    /// <summary>
+    /// 背包类。
+    /// </summary>
+    /// <typeparam name="Item">背包中存放的元素类型。</typeparam>
     public class Bag<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

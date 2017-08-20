@@ -2,12 +2,16 @@
 
 namespace _1._3._39
 {
+    /// <summary>
+    /// 环形缓冲区。
+    /// </summary>
+    /// <typeparam name="Item">缓冲区包含的元素类型。</typeparam>
     class RingBuffer<Item>
     {
         private Item[] buffer;
         private int count;
-        private int first;  //读指针
-        private int last;   //写指针
+        private int first;  // 指针
+        private int last;   // 指针
 
         /// <summary>
         /// 建立一个缓冲区。

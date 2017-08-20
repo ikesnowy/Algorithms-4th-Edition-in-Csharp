@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Generics
 {
+    /// <summary>
+    /// 栈类。
+    /// </summary>
+    /// <typeparam name="Item">栈中存放的元素类型。</typeparam>
     public class Stack<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

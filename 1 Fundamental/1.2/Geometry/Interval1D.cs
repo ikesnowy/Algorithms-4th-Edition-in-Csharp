@@ -56,7 +56,7 @@ namespace Geometry
         /// 判断目标区间是否被本区间包含。
         /// </summary>
         /// <param name="that">需要判断是否被包含的区间。</param>
-        /// <returns></returns>
+        /// <returns>包含则返回 true，否则返回 false。</returns>
         public bool Contains(Interval1D that)
         {
             return this.Min < that.Min && this.Max > that.Max;
@@ -66,7 +66,7 @@ namespace Geometry
         /// 目标值是否处在区域内。如果目标值在区域内则返回 True，否则返回 False。
         /// </summary>
         /// <param name="x">需要判断的值。</param>
-        /// <returns></returns>
+        /// <returns>包含则返回 true，不然则返回 false。</returns>
         public bool Contains(double x)
         {
             return x >= this.Min && x <= this.Max;
@@ -100,7 +100,7 @@ namespace Geometry
         /// <summary>
         /// 将区域转换为 string，返回形如 "[lo, hi]" 的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回形如 "[lo, hi]" 的字符串。</returns>
         public override string ToString()
         {
             string s = "[" + this.Min + ", " + this.Max + "]";
@@ -111,7 +111,7 @@ namespace Geometry
         /// 判断两个区间是否相等。
         /// </summary>
         /// <param name="obj">相比较的区间。</param>
-        /// <returns></returns>
+        /// <returns>相同则返回 true，不然返回 false。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -133,7 +133,7 @@ namespace Geometry
         /// <summary>
         /// 返回区间的哈希代码。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回哈希值。</returns>
         public override int GetHashCode()
         {
             int hash1 = this.Min.GetHashCode();

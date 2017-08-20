@@ -2,6 +2,10 @@
 
 namespace _1._3._38
 {
+    /// <summary>
+    /// 以一维数组为基础的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要保存的元素。</typeparam>
     class ArrayBasedGeneralizeQueue<Item>
     {
         private Item[] queue;

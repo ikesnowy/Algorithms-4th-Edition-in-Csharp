@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._14
 {
+    /// <summary>
+    /// 可变长度的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要存放的元素。</typeparam>
     class ResizingArrayQueueOfStrings<Item> : IEnumerable<Item>
     {
         private Item[] q;

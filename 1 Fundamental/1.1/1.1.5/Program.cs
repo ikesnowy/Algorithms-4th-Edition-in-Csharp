@@ -14,7 +14,7 @@ namespace _1._1._5
     {
         static void Main(string[] args)
         {
-            //修改这两个值进行测试
+            // 改这两个值进行测试
             double x = 0.05;
             double y = 0.01;
 

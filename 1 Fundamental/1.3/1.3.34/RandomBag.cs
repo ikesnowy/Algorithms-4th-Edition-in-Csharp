@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace _1._3._34
 {
+    /// <summary>
+    /// 随即背包。
+    /// </summary>
+    /// <typeparam name="Item">背包中要存放的元素。</typeparam>
     public class RandomBag<Item> : IEnumerable<Item>
     {
         private Item[] bag;

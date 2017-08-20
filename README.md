@@ -38,7 +38,7 @@
    例如，下载了 1.3.26 和 Generics 文件夹。打开 1.3.26 文件夹下的项目文件之后（后缀为 .csproj 的文件），Visual Studio 会自动生成一个解决方案。 
    之后点击左上角 “文件”——“添加”——“现有项目”，找到 Generics 文件夹下的项目文件并添加，之后就可以编译并运行 1.3.26 的程序了。  
 3. 直接在 Github 上查看、复制源代码。  
-4. 去 [我的博客](http://www.cnblogs.com/ikesnowy/) 上查看相关代码和解释。  
+4. 去 [我的博客](http:// ww.cnblogs.com/ikesnowy/) 上查看相关代码和解释。  
 
 ### 文件说明：
 
@@ -67,8 +67,8 @@ OS: Windows10 15063
 
 官方MOOC课程： 
 
-https://www.coursera.org/learn/algorithms-part1
+https:// ww.coursera.org/learn/algorithms-part1
 
 官方资料站 (English):
 
-http://algs4.cs.princeton.edu/
+http:// lgs4.cs.princeton.edu/

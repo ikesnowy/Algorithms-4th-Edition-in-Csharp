@@ -1,10 +1,34 @@
 # Update Notes
 
+## Day81	August 19, 2017
+
+### Fix Issues
+
+1. Add comment for 1.3 & 1.4.
+2. Add "this" pointer before the reference to class member.
+
+
+
+
+
+## Day80	August 18, 2017
+
+### Fix Issues
+
+1. Add comment for 1.3.
+
+
+
+
+
 ## Day79	August 17, 2017
 
 ### Fix Issues
 
-1. Add this pointer.
+1. Add "this" pointer.
+2. Add comment in 1.1 & 1.2.
+3. Add space between "//" and comment content.
+4. Add comment between <return></return>.
 
 
 

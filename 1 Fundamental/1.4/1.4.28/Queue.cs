@@ -5,6 +5,10 @@ using System.Text;
 
 namespace _1._4._28
 {
+    /// <summary>
+    /// 链队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中保存的元素。</typeparam>
     public class Queue<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

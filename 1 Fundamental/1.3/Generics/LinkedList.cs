@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Generics
 {
+    /// <summary>
+    /// 链表类。
+    /// </summary>
+    /// <typeparam name="Item">链表存放的元素类型。</typeparam>
     public class LinkedList<Item> : IEnumerable<Item>
     {
         private Node<Item> first;

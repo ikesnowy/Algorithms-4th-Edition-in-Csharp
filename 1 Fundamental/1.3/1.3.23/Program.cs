@@ -11,9 +11,9 @@ namespace _1._3._23
      */
     class Program
     {
-        //x.next = t        x 的下一个是 t
-        //t.next = x.next   t 的下一个和 x 的下一个相同（也就是 t）
-        //于是 t.next = t, 遍历会出现死循环。
+        // .next = t        x 的下一个是 t
+        // .next = x.next   t 的下一个和 x 的下一个相同（也就是 t）
+        // 是 t.next = t, 遍历会出现死循环。
         static void Main(string[] args)
         {
             Node<string> first = new Node<string>();

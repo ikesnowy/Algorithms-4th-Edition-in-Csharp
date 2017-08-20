@@ -2,6 +2,10 @@
 
 namespace _1._3._38
 {
+    /// <summary>
+    /// 以链表为基础的队列。
+    /// </summary>
+    /// <typeparam name="Item">队列中要保存的元素。</typeparam>
     class LinkedListBasedGeneralizeQueue<Item>
     {
         private class Node<T>
@@ -73,7 +77,7 @@ namespace _1._3._38
 
             k--;
 
-            //找到目标结点
+            // 到目标结点
             Node<Item> current = this.first;
             for (int i = 0; i < k; ++i)
             {

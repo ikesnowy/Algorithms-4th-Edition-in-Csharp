@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace _1._3._1
 {
+    /// <summary>
+    /// 固定大小的字符串栈。
+    /// </summary>
     class FixedCapacityStackOfStrings : IEnumerable<string>
     {
         private string[] a;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Measurement
 {
+    /// <summary>
+    /// 有序数组，能够快速查找并自动维护其中的顺序。
+    /// </summary>
     public class StaticSETofInts
     {
         private int[] a;
@@ -47,6 +50,13 @@ namespace Measurement
             return HowMany(key, lo, hi);
         }
 
+        /// <summary>
+        /// 返回某个元素在数组中存在的数量。
+        /// </summary>
+        /// <param name="key">关键值。</param>
+        /// <param name="lo">查找起始下标。</param>
+        /// <param name="hi">查找结束下标。</param>
+        /// <returns></returns>
         private int HowMany(int key, int lo, int hi)
         {
             int mid = Rank(key, lo, hi);

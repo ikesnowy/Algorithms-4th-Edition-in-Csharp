@@ -2,11 +2,14 @@
 
 namespace Commercial
 {
+    /// <summary>
+    /// 日期类。
+    /// </summary>
     public class Date : IComparable<Date>
     {
-        public int Month { get; }//月
-        public int Day { get; }//日
-        public int Year { get; }//年
+        public int Month { get; }// 
+        public int Day { get; }// 
+        public int Year { get; }// 
 
         /// <summary>
         /// 构造函数。
@@ -38,7 +41,7 @@ namespace Commercial
         /// <summary>
         /// 返回形如 05/22/2017 的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回形如 05/22/2017 的字符串。</returns>
         public override string ToString()
         {
             return this.Month + "/" + this.Day + "/" + this.Year;
@@ -48,7 +51,7 @@ namespace Commercial
         /// 比较两个日期是否相同。
         /// </summary>
         /// <param name="obj">需要比较的另一个对象。</param>
-        /// <returns></returns>
+        /// <returns>相同返回 true，不相同返回 false。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -64,7 +67,7 @@ namespace Commercial
         /// <summary>
         /// 获取日期的哈希值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回一个哈希值。</returns>
         public override int GetHashCode()
         {
             int hash = 17;
@@ -78,7 +81,7 @@ namespace Commercial
         /// 比较两个日期的先后。
         /// </summary>
         /// <param name="other">另一个日期。</param>
-        /// <returns></returns>
+        /// <returns>本日期在后则返回 1，在前返回 -1，相等返回 0。</returns>
         public int CompareTo(Date other)
         {
             if (this.Year > other.Year)

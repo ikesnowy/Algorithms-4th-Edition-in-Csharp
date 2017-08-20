@@ -2,15 +2,24 @@
 
 namespace _1._2._11
 {
+    /// <summary>
+    /// 智能日期类。
+    /// </summary>
     class SmartDate
     {
-        public int Month { get; }//月
-        public int Day { get; }//日
-        public int Year { get; }//年
+        public int Month { get; }// 
+        public int Day { get; }// 
+        public int Year { get; }// 
 
-        //每个月对应的天数，第 0 位空出来
+        // 个月对应的天数，第 0 位空出来
         static private int[] dayOfMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+        /// <summary>
+        /// 建立一个 SmartDate 对象。
+        /// </summary>
+        /// <param name="m">月。</param>
+        /// <param name="d">日。</param>
+        /// <param name="y">年。</param>
         public SmartDate(int m, int d, int y)
         {
             if (Vaildation(m, d, y) == false)
@@ -20,6 +29,13 @@ namespace _1._2._11
             this.Year = y;
         }
 
+        /// <summary>
+        /// 验证日期是否合法。
+        /// </summary>
+        /// <param name="m">月。</param>
+        /// <param name="d">日。</param>
+        /// <param name="y">年。</param>
+        /// <returns>合法返回 true，否则返回 false。</returns>
         private bool Vaildation(int m, int d, int y)
         {
             if (y < 0)
@@ -39,6 +55,11 @@ namespace _1._2._11
             return true;
         }
 
+        /// <summary>
+        /// 检查是否是闰年。
+        /// </summary>
+        /// <param name="y">年。</param>
+        /// <returns>是闰年则返回 true，否则返回 false。</returns>
         private bool IsLeapYear(int y)
         {
             if (y % 400 == 0)
@@ -49,6 +70,10 @@ namespace _1._2._11
             return false;
         }
 
+        /// <summary>
+        /// 返回形如 "01/31/2017" 格式的日期。
+        /// </summary>
+        /// <returns>返回形如 "01/31/2017" 格式的日期。</returns>
         public override string ToString()
         {
             return this.Month + "/" + this.Day + "/" + this.Year;

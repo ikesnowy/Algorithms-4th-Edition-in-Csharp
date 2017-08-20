@@ -11,7 +11,7 @@ namespace _1._2._13
      */
     class Program
     {
-        //见 Commercial.Transaction
+        //  Commercial.Transaction
         static void Main(string[] args)
         {
             Transaction[] a = new Transaction[4];

@@ -58,16 +58,16 @@ namespace _1._2._10
         /// <summary>
         /// 获取当前计数值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回计数值。</returns>
         public int Tally()
         {
             return this.count;
         }
 
         /// <summary>
-        /// 输出形如 “1 counter” 的字符串。
+        /// 返回形如 “1 counter” 的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回形如 “1 counter” 的字符串。</returns>
         public override string ToString()
         {
             return this.count + " " + this.name;
@@ -82,9 +82,9 @@ namespace _1._2._10
         /// <param name="font">显示的字体。</param>
         public void Draw(Graphics g, int width, int height, Font font)
         {
-            //清空画布
+            // 空画布
             g.Clear(SystemColors.Control);
-            //将画布分为上 1/3 和下 2/3
+            // 画布分为上 1/3 和下 2/3
             RectangleF headPart = new RectangleF(0, 0, width, height / 3);
             Rectangle bodyPart = new Rectangle(0, height / 3, (height * 2) / 3, (height * 2) / 3);
 

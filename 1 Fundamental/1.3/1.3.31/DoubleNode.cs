@@ -20,6 +20,10 @@ namespace _1._3._31
      * 删除指定结点。
      * 
      */
+     /// <summary>
+     /// 双向链表。
+     /// </summary>
+     /// <typeparam name="Item">链表中要存放的元素。</typeparam>
     public class DoubleLinkList<Item> : IEnumerable<Item>
     {
         private class DoubleNode<T>

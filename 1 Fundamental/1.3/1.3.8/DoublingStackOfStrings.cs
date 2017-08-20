@@ -56,13 +56,13 @@ namespace _1._3._8
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            count--;
+            this.count--;
 
             //缩小长度
-            if (count > 0 && count <= items.Length / 4)
-                Resize(items.Length / 2);
+            if (this.count > 0 && this.count <= this.items.Length / 4)
+                Resize(this.items.Length / 2);
 
-            return items[count];
+            return this.items[this.count];
 
         }
 
@@ -74,7 +74,7 @@ namespace _1._3._8
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            return items[count - 1];
+            return this.items[this.count - 1];
         }
 
         /// <summary>
@@ -87,10 +87,10 @@ namespace _1._3._8
             
             for (int i = 0; i < this.count; ++i)
             {
-                temp[i] = items[i];
+                temp[i] = this.items[i];
             }
 
-            items = temp;
+            this.items = temp;
         }
 
         public IEnumerator<string> GetEnumerator()
@@ -111,7 +111,7 @@ namespace _1._3._8
             public StackEnumerator(string[] items)
             {
                 this.items = items;
-                current = -1;
+                this.current = -1;
             }
 
             string IEnumerator<string>.Current => this.items[this.current];
@@ -126,7 +126,7 @@ namespace _1._3._8
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == items.Length - 1)
+                if (this.current == this.items.Length - 1)
                     return false;
                 this.current++;
                 return true;

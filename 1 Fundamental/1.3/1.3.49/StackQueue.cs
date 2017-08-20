@@ -31,11 +31,11 @@ namespace _1._3._49
         {
             if (this.isRecopying)
             {
-                return h.Peek();
+                return this.h.Peek();
             }
             else
             {
-                return H.Peek();
+                return this.H.Peek();
             }
         }
 

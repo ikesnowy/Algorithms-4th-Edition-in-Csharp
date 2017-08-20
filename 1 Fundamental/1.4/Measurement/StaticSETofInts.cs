@@ -19,9 +19,9 @@ namespace Measurement
             this.a = new int[keys.Length];
             for (int i = 0; i < keys.Length; ++i)
             {
-                a[i] = keys[i];
+                this.a[i] = keys[i];
             }
-            Array.Sort(a);
+            Array.Sort(this.a);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Measurement
         /// <returns></returns>
         public bool Contains(int key)
         {
-            return Rank(key, 0, a.Length - 1) != -1;
+            return Rank(key, 0, this.a.Length - 1) != -1;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Measurement
         /// <returns></returns>
         public int HowMany(int key)
         {
-            int hi = a.Length - 1;
+            int hi = this.a.Length - 1;
             int lo = 0;
             
             return HowMany(key, lo, hi);
@@ -70,9 +70,9 @@ namespace Measurement
             while (lo <= hi)
             {
                 int mid = (hi - lo) / 2 + lo;
-                if (key < a[mid])
+                if (key < this.a[mid])
                     hi = mid - 1;
-                else if (key > a[mid])
+                else if (key > this.a[mid])
                     lo = mid + 1;
                 else
                     return mid;

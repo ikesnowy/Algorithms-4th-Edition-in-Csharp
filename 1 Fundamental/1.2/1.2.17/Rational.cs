@@ -21,17 +21,17 @@ namespace _1._2._17
 
             if (numerator < 0 && denominator < 0)
             {
-                isNagative = false;
+                this.isNagative = false;
                 numerator = -numerator;
                 denominator = -denominator;
             }
             else if (numerator < 0 || denominator < 0)
             {
-                isNagative = true;
+                this.isNagative = true;
             }
             else
             {
-                isNagative = false;
+                this.isNagative = false;
             }
 
             long gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
@@ -138,7 +138,7 @@ namespace _1._2._17
         public override string ToString()
         {
             string result = "";
-            if (isNagative)
+            if (this.isNagative)
                 result += "-";
             result += Math.Abs(this.Numerator) + "/" + Math.Abs(this.Denominator);
             return result;

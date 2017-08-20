@@ -87,7 +87,7 @@ namespace Geometry
         /// <returns></returns>
         public override string ToString()
         {
-            return X + "x" + Y;
+            return this.X + "x" + this.Y;
         }
 
         /// <summary>

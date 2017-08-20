@@ -64,15 +64,15 @@ namespace Generics
             private Node<Item> current;
             private Node<Item> first;
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             public BagEnumerator(Node<Item> first)
             {
                 this.current = new Node<Item>();
                 this.current.next = first;
-                this.first = current;
+                this.first = this.current;
             }
 
             void IDisposable.Dispose()

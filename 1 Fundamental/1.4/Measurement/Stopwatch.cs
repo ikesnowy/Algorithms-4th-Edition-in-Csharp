@@ -25,7 +25,7 @@ namespace Measurement
         public double ElapsedTime()
         {
             DateTime now = DateTime.Now;
-            return (now - start).TotalMilliseconds / 1000.0;
+            return (now - this.start).TotalMilliseconds / 1000.0;
         }
     }
 }

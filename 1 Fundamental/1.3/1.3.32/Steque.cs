@@ -42,7 +42,7 @@ namespace _1._3._32
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return count == 0;
+            return this.count == 0;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace _1._3._32
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = first;
+            Node<Item> oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
@@ -69,7 +69,7 @@ namespace _1._3._32
             {
                 this.last = this.first;
             }
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -80,10 +80,10 @@ namespace _1._3._32
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            Item item = first.item;
-            first = first.next;
-            count--;
-            if (count == 0)
+            Item item = this.first.item;
+            this.first = this.first.next;
+            this.count--;
+            if (this.count == 0)
             {
                 this.last = null;
             }
@@ -104,7 +104,7 @@ namespace _1._3._32
                 this.first = this.last;
             else
                 oldLast.next = this.last;
-            count++;
+            this.count++;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace _1._3._32
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return first.item;
+            return this.first.item;
         }
 
         public override string ToString()
@@ -151,9 +151,9 @@ namespace _1._3._32
                 this.first = this.current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {

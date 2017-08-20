@@ -36,7 +36,7 @@ namespace _1._4._30
         {
             while (!this.stack.IsEmpty())
             {
-                this.steque.Push(stack.Pop());
+                this.steque.Push(this.stack.Pop());
             }
         }
 

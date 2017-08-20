@@ -63,7 +63,7 @@ namespace _1._3._50
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = first;
+            Node<Item> oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
@@ -94,7 +94,7 @@ namespace _1._3._50
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return first.item;
+            return this.first.item;
         }
 
         /// <summary>
@@ -172,9 +172,9 @@ namespace _1._3._50
                 this.pushcount = s.pushcount;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {
@@ -184,7 +184,7 @@ namespace _1._3._50
 
             bool IEnumerator.MoveNext()
             {
-                if (s.popcount != this.popcount || s.pushcount != this.pushcount)
+                if (this.s.popcount != this.popcount || this.s.pushcount != this.pushcount)
                     throw new InvalidOperationException("Stack has been modified");
 
                 if (this.current.next == null)

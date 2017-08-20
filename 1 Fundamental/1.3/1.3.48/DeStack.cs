@@ -192,9 +192,9 @@ namespace _1._3._48
                 this.first = this.current;
             }
 
-            public Item Current => current.item;
+            public Item Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             public void Dispose()
             {

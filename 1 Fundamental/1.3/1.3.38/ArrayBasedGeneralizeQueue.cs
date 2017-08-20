@@ -86,7 +86,7 @@ namespace _1._3._38
                 throw new ArgumentOutOfRangeException();
             }
 
-            if (IsVisited[k - 1] == true)
+            if (this.IsVisited[k - 1] == true)
             {
                 throw new ArgumentException("this node had been already deleted");
             }

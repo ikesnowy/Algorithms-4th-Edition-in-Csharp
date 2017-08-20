@@ -73,12 +73,12 @@ namespace _1._3._44
         /// <returns></returns>
         public string Getstring()
         {
-            while (!leftside.IsEmpty())
+            while (!this.leftside.IsEmpty())
             {
                 this.rightside.Push(this.leftside.Pop());
             }
 
-            return rightside.ToString();
+            return this.rightside.ToString();
         }
     }
 }

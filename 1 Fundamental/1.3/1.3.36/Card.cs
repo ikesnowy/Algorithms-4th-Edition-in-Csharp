@@ -35,7 +35,7 @@
                 num = this.number.ToString();
             }
 
-            return num + " of the " + suit.ToString();
+            return num + " of the " + this.suit.ToString();
         }
     }
 

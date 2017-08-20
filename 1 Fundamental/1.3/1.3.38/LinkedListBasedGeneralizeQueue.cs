@@ -56,7 +56,7 @@ namespace _1._3._38
             {
                 oldLast.next = this.last;
             }
-            count++;
+            this.count++;
         }
 
         /// <summary>

@@ -169,12 +169,12 @@ namespace Generics
             {
                 this.current = new Node<Item>();
                 this.current.next = first;
-                this.first = current;
+                this.first = this.current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            Item IEnumerator<Item>.Current => this.current.item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => this.current.item;
 
             void IDisposable.Dispose()
             {
@@ -192,7 +192,7 @@ namespace Generics
 
             void IEnumerator.Reset()
             {
-                this.current = first;
+                this.current = this.first;
             }
         }
     }

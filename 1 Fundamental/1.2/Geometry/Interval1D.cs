@@ -92,8 +92,8 @@ namespace Geometry
         /// <param name="y">绘制一维区间的 y轴 坐标。</param>
         public void Draw(Graphics g, int y)
         {
-            Point A = new Point((int)Min, y);
-            Point B = new Point((int)Max, y);
+            Point A = new Point((int)this.Min, y);
+            Point B = new Point((int)this.Max, y);
             g.DrawLine(Pens.Black, A, B);
         }
 
@@ -136,8 +136,8 @@ namespace Geometry
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash1 = Min.GetHashCode();
-            int hash2 = Max.GetHashCode();
+            int hash1 = this.Min.GetHashCode();
+            int hash2 = this.Max.GetHashCode();
             return 31 * hash1 + hash2;
         }
 

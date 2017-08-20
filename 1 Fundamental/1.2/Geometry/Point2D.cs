@@ -40,7 +40,7 @@ namespace Geometry
         /// <returns></returns>
         public double R()
         {
-            return Math.Sqrt(X * X + Y * Y);
+            return Math.Sqrt(this.X * this.X + this.Y * this.Y);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Geometry
         /// <returns></returns>
         public double Theta()
         {
-            return Math.Atan2(Y, X);
+            return Math.Atan2(this.Y, this.X);
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Geometry
         /// <param name="g">原点在左下方，y轴向上，x轴向右的画布。</param>
         public void Draw(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, (int)X, (int)Y, Radius, Radius);
+            g.FillEllipse(Brushes.Black, (int)this.X, (int)this.Y, this.Radius, this.Radius);
         }
 
         /// <summary>
@@ -224,8 +224,8 @@ namespace Geometry
             }
             public override int Compare(Point2D x, Point2D y)
             {
-                double angle1 = parent.AngleTo(x);
-                double angle2 = parent.AngleTo(y);
+                double angle1 = this.parent.AngleTo(x);
+                double angle2 = this.parent.AngleTo(y);
                 if (angle1 < angle2)
                 {
                     return -1;
@@ -254,10 +254,10 @@ namespace Geometry
             }
             public override int Compare(Point2D q1, Point2D q2)
             {
-                double dx1 = q1.X - parent.X;
-                double dy1 = q1.Y - parent.Y;
-                double dx2 = q2.X - parent.X;
-                double dy2 = q2.Y - parent.Y;
+                double dx1 = q1.X - this.parent.X;
+                double dy1 = q1.Y - this.parent.Y;
+                double dx2 = q2.X - this.parent.X;
+                double dy2 = q2.Y - this.parent.Y;
 
                 if (dy2 >= 0 && dy2 < 0)
                 {
@@ -302,8 +302,8 @@ namespace Geometry
             }
             public override int Compare(Point2D p, Point2D q)
             {
-                double dist1 = parent.DistanceSquareTo(p);
-                double dist2 = parent.DistanceSquareTo(q);
+                double dist1 = this.parent.DistanceSquareTo(p);
+                double dist2 = this.parent.DistanceSquareTo(q);
 
                 if (dist1 < dist2)
                 {
@@ -355,13 +355,13 @@ namespace Geometry
 
         public override string ToString()
         {
-            return "(" + X + ", " + Y + ")";
+            return "(" + this.X + ", " + this.Y + ")";
         }
 
         public override int GetHashCode()
         {
-            int hashX = X.GetHashCode();
-            int hashY = Y.GetHashCode();
+            int hashX = this.X.GetHashCode();
+            int hashY = this.Y.GetHashCode();
             return 31 * hashX + hashY;
         }
     }

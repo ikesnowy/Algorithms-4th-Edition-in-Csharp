@@ -16,9 +16,9 @@ namespace Commercial
         public Transaction(string transaction)
         {
             string[] a = transaction.Split(' ');
-            Who = a[0];
-            When = new Date(a[1]);
-            Amount = double.Parse(a[2]);
+            this.Who = a[0];
+            this.When = new Date(a[1]);
+            this.Amount = double.Parse(a[2]);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Commercial
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("{0, -10} {1, 10} {2, 8:F2}", Who, When, Amount);
+            return string.Format("{0, -10} {1, 10} {2, 8:F2}", this.Who, this.When, this.Amount);
         }
 
         /// <summary>
@@ -122,9 +122,9 @@ namespace Commercial
         public override int GetHashCode()
         {
             int hash = 1;
-            hash = 31 * hash + Who.GetHashCode();
-            hash = 31 * hash + When.GetHashCode();
-            hash = 31 * hash + Amount.GetHashCode();
+            hash = 31 * hash + this.Who.GetHashCode();
+            hash = 31 * hash + this.When.GetHashCode();
+            hash = 31 * hash + this.Amount.GetHashCode();
             return hash;
         }
     }

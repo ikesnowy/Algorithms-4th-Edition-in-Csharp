@@ -11,7 +11,7 @@ namespace _1._3._6
      */
     class Program
     {
-        // 队列反序
+        //将队列反序
         static void Main(string[] args)
         {
             Queue<string> q = new Queue<string>();

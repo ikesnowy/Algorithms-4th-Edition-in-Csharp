@@ -18,7 +18,7 @@ namespace _1._4._25
      */
     class Program
     {
-        static int F = 100;// 要寻找的 F 值
+        static int F = 100;//需要寻找的 F 值
         struct testResult
         {
             public int F;
@@ -32,13 +32,13 @@ namespace _1._4._25
             {
                 building[i] = i;
             }
-            // 一问：第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),..., √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)
-            // -1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
+            //第一问：第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),..., √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)
+            //k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
             testResult A = PlanA(building);
             Console.WriteLine($"Plan A: F={A.F}, Broken Eggs={A.BrokenEggs}, Throw Times={A.ThrowTimes}");
 
-            // 二问：按照第 1, 3, 6, 10,..., 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
-            // 后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
+            //第二问：按照第 1, 3, 6, 10,..., 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
+            //随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
             testResult B = PlanB(building);
             Console.WriteLine($"Plan B: F={B.F}, Broken Eggs={B.BrokenEggs}, Throw Times={B.ThrowTimes}");
         }

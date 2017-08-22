@@ -14,7 +14,7 @@ namespace _1._1._23
     {
         static void Main(string[] args)
         {
-            // largeW.txt中读取数据
+            //从largeW.txt中读取数据
             string[] whiteList = File.ReadAllLines("largeW.txt");
             int[] WhiteList = new int[whiteList.Length];
 
@@ -26,7 +26,7 @@ namespace _1._1._23
             Array.Sort<int>(WhiteList);
 
             Console.WriteLine("Type the numbers you want to query: ");
-            // 入样例：5 824524 478510 387221
+            //输入样例：5 824524 478510 387221
             string input = Console.ReadLine();
             int[] Query = new int[input.Split(' ').Length];
             for (int i = 0; i < Query.Length; ++i)

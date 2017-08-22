@@ -12,10 +12,10 @@ namespace _1._3._2
      */
     class Program
     {
-        // as best times of the was the it (1 left on stack) 
+        //was best times of the was the it (1 left on stack) 
         static void Main(string[] args)
         {
-            // 下是书中给出的 Stack 类中的 Main() 方法
+            //以下是书中给出的 Stack 类中的 Main() 方法
             Stack<string> stack = new Stack<string>();
             string input = "it was - the best - of times - - - it was - the - -";
             string[] s = input.Split(' ');

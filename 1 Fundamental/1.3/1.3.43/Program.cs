@@ -17,11 +17,11 @@ namespace _1._3._43
     {
         static void Main(string[] args)
         {
-            // 取当前目录
+            //获取当前目录
             string path = Directory.GetCurrentDirectory();
             path = Directory.GetParent(path).FullName;
             path = Directory.GetParent(path).FullName;
-            // 取文件
+            //获取文件
             Console.WriteLine(path + "中的所有文件");
             Search(path, 0);
         }

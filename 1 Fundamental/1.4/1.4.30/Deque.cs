@@ -12,8 +12,8 @@ namespace _1._4._30
     /// <typeparam name="Item">双向队列中保存的元素类型。</typeparam>
     class Deque<Item>
     {
-        Stack<Item> stack;// 表队列尾部
-        Steque<Item> steque;// 表队列头部
+        Stack<Item> stack;//代表队列尾部
+        Steque<Item> steque;//代表队列头部
 
         /// <summary>
         /// 创建一条空的双向队列。

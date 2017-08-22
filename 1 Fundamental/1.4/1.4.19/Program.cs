@@ -18,8 +18,8 @@ namespace _1._4._19
      */
     class Program
     {
-        // 查找 N/2 行中的最小元素，并令其与上下元素比较，
-        // 果不满足题意，则向相邻的最小元素靠近再次查找
+        //先查找 N/2 行中的最小元素，并令其与上下元素比较，
+        //如果不满足题意，则向相邻的最小元素靠近再次查找
         static void Main(string[] args)
         {
             int[,] matrix = new int[5, 5] 
@@ -40,7 +40,7 @@ namespace _1._4._19
                 return int.MaxValue;
             int mid = rowStart + rowLength / 2;
             int minCol = 0;
-            // 取矩阵中间行的最小值
+            //获取矩阵中间行的最小值
             for (int i = 0; i < colLength; ++i)
             {
                 if (min > matrix[mid, colStart + i])
@@ -49,12 +49,12 @@ namespace _1._4._19
                     minCol = i;
                 }
             }
-            // 查是否满足条件
+            //检查是否满足条件
             if (matrix[mid, minCol] < matrix[mid - 1, minCol] && matrix[mid, minCol] < matrix[mid + 1, minCol])
             {
                 return matrix[mid, minCol];
             }
-            // 果不满足则向较小一侧移动
+            //如果不满足则向较小一侧移动
             if (matrix[mid - 1, minCol] > matrix[mid + 1, minCol])
             {
                 return MinimumCol(matrix, rowStart, rowLength, mid + 1, colLength / 2 + 1);
@@ -72,7 +72,7 @@ namespace _1._4._19
             int mid = n / 2;
             int minRow = 0;
 
-            // 取矩阵中间列最小值
+            //获取矩阵中间列最小值
             for (int i = 0; i < n; ++i)
             {
                 if (min > matrix[i, mid])
@@ -81,12 +81,12 @@ namespace _1._4._19
                     minRow = i;
                 }
             }
-            // 查是否满足条件
+            //检查是否满足条件
             if (matrix[minRow, mid] < matrix[minRow, mid - 1] && matrix[minRow, mid] < matrix[minRow, mid + 1])
             {
                 return matrix[minRow, mid];
             }
-            // 果不满足则向较小一侧移动
+            //如果不满足则向较小一侧移动
             if (matrix[minRow, mid - 1] > matrix[minRow, mid + 1])
             {
                 return MinimumRow(matrix, mid + 1, rowLength / 2 + 1, colStart, colLength);

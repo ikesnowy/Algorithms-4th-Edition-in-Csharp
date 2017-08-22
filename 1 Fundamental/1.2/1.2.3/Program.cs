@@ -37,12 +37,12 @@ namespace _1._2._3
             Interval2D[] list = new Interval2D[N];
             Random random = new Random();
 
-            // 始绘图
+            //开始绘图
             Form2 drawPad = new Form2();
             drawPad.Show();
             Graphics graphics = drawPad.CreateGraphics();
 
-            // 成随机二维间隔
+            //生成随机二维间隔
             for (int i = 0; i < N; ++i)
             {
                 double x = random.NextDouble() * (Max - Min) + Min;
@@ -72,7 +72,7 @@ namespace _1._2._3
                 list[i] = new Interval2D(tempx, tempy);
             }
 
-            // 算相交和包含的数量
+            //计算相交和包含的数量
             int intersectNum = 0;
             for (int i = 0; i < N; ++i)
             {
@@ -100,20 +100,20 @@ namespace _1._2._3
                 }
             }
 
-            // 动原点至左下方，翻转坐标系
+            //移动原点至左下方，翻转坐标系
             graphics.TranslateTransform(0, drawPad.ClientRectangle.Height);
             graphics.ScaleTransform(1, -1);
 
-            // 制所有区间
+            //绘制所有区间
             foreach (Interval2D n in list)
             {
                 n.Draw(graphics);
             }
 
-            // 建一个窗口，显示计算结果
+            //新建一个窗口，显示计算结果
             MessageBox.Show($"相交的区间数：{intersectNum}, 包含的区间数：{containsNum}");
 
-            // 理资源
+            //清理资源
             graphics.Dispose();
         }
     }

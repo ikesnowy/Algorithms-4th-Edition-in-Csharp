@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 namespace Commercial
 {
-    /// <summary>
-    /// 交易记录类。
-    /// </summary>
     public class Transaction : IComparable<Transaction>
     {
         public string Who { get; }
@@ -44,7 +41,7 @@ namespace Commercial
         /// <summary>
         /// 返回字符串形式的交易信息。
         /// </summary>
-        /// <returns>返回字符串形式的交易信息。</returns>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("{0, -10} {1, 10} {2, 8:F2}", this.Who, this.When, this.Amount);
@@ -54,7 +51,7 @@ namespace Commercial
         /// 默认按照交易金额升序比较。
         /// </summary>
         /// <param name="other">比较的另一个对象。</param>
-        /// <returns>本金额较小则返回 -1，较大则返回 1。</returns>
+        /// <returns></returns>
         public int CompareTo(Transaction other)
         {
             if (this.Amount < other.Amount)
@@ -101,7 +98,7 @@ namespace Commercial
         /// 比较两笔交易是否相同。
         /// </summary>
         /// <param name="obj">另一个对象。</param>
-        /// <returns>相等则返回 true，不相同则返回 false。</returns>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -121,7 +118,7 @@ namespace Commercial
         /// <summary>
         /// 返回交易信息的哈希值。
         /// </summary>
-        /// <returns>返回哈希值。</returns>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             int hash = 1;

@@ -12,7 +12,7 @@ namespace _1._3._17
     {
         static void Main(string[] args)
         {
-            //  Ctrl + Z 标记结束输入
+            //用 Ctrl + Z 标记结束输入
             Transaction[] t = Transaction.ReadTransactions();
 
             foreach (Transaction n in t)

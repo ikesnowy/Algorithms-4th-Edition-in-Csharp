@@ -13,31 +13,31 @@ namespace _1._1._37
      */
     class Program
     {
-        // 用 0~N-1 的随机数会导致每次交换的数字可能相同
-        // 如：
-        // 数组： 1 2 3 4
-        // 一次： 2 1 3 4 random = 1，第 0 个和第 1 个交换
-        // 二次： 1 2 3 4 random = 0，第 1 个和第 0 个交换
+        //使用 0~N-1 的随机数会导致每次交换的数字可能相同
+        //例如：
+        //原数组： 1 2 3 4
+        //第一次： 2 1 3 4 random = 1，第 0 个和第 1 个交换
+        //第二次： 1 2 3 4 random = 0，第 1 个和第 0 个交换
         static void Main(string[] args)
         {
-            int M = 10;// 组大小
-            int N = 100000;// 乱次数
+            int M = 10;//数组大小
+            int N = 100000;//打乱次数
             int[] a = new int[10];
 
             int[,] result = new int[M, M];
 
             for (int i = 0; i < N; ++i)
             {
-                // 始化
+                //初始化
                 for (int j = 0; j < a.Length; ++j)
                 {
                     a[j] = j;
                 }
 
-                // 乱
+                //打乱
                 Shuffle(a, i);
 
-                // 录
+                //记录
                 for (int j = 0; j < M; ++j)
                 {
                     result[a[j], j]++;
@@ -58,8 +58,8 @@ namespace _1._1._37
             Random random = new Random(seed);
             for (int i = 0; i < N; ++i)
             {
-                // nt r = i + random.Next(N - i);
-                int r = random.Next(N); // 回的是 0 ~ N-1 之间的随机整数
+                //int r = i + random.Next(N - i);
+                int r = random.Next(N); //返回的是 0 ~ N-1 之间的随机整数
                 int temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;

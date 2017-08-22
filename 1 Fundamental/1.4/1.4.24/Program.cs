@@ -18,7 +18,7 @@ namespace _1._4._24
      */
     class Program
     {
-        static int F = 100;// 要寻找的 F 值
+        static int F = 100;//需要寻找的 F 值
         struct testResult
         {
             public int F;
@@ -31,12 +31,12 @@ namespace _1._4._24
             {
                 building[i] = i;
             }
-            // 一问：二分查找即可
+            //第一问：二分查找即可
             testResult A = PlanA(building);
             Console.WriteLine($"Plan A: F={A.F}, Broken Eggs={A.BrokenEggs}");
 
-            // 二问：按照第 1, 2, 4, 8,..., 2^k 层顺序查找，一直到 2^k > F，
-            // 后在 [2^(k - 1), 2^k] 范围中二分查找。
+            //第二问：按照第 1, 2, 4, 8,..., 2^k 层顺序查找，一直到 2^k > F，
+            //随后在 [2^(k - 1), 2^k] 范围中二分查找。
             testResult B = PlanB(building);
             Console.WriteLine($"Plan B: F={B.F}, Broken Eggs={B.BrokenEggs}");
         }

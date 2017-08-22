@@ -18,7 +18,7 @@ namespace _1._1._7
             {
                 t = (9.0 / t + t) / 2.0;
             }
-            Console.Write($"{t:N5}\n");// N5代表保留5位小数，同理可使用N1、N2……
+            Console.Write($"{t:N5}\n");//:N5代表保留5位小数，同理可使用N1、N2……
         }
 
         private static void b()
@@ -51,13 +51,13 @@ namespace _1._1._7
 
         static void Main(string[] args)
         {
-            //  double 计算存在误差
+            //a double 计算存在误差
             a();
 
-            //  1000+999+998……
+            //b 1000+999+998……
             b();
 
-            //  由于2^10 = 1024 > 1000，最终sum = 1000 * 10 = 10000
+            //c 由于2^10 = 1024 > 1000，最终sum = 1000 * 10 = 10000
             c();
         }
     }

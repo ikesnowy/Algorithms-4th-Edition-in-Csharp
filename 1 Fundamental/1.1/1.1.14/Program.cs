@@ -17,7 +17,7 @@ namespace _1._1._14
             Console.WriteLine($"{ lg(N)}");
         }
 
-        // 用循环逼近 N，得到 log2(N) 的值
+        //利用循环逼近 N，得到 log2(N) 的值
         static int lg(int N)
         {
             int baseNumber = 2;

@@ -15,15 +15,15 @@ namespace _1._1._2
     {
         static void Main(string[] args)
         {
-            // ar 变量名 = 初始值  根据初始值自动判断变量类型
+            //var 变量名 = 初始值  根据初始值自动判断变量类型
             var a = (1 + 2.236) / 2;
             var b = 1 + 2 + 3 + 4.0;
             var c = 4.1 >= 4;
             var d = 1 + 2 + "3";
 
-            // onsole.WriteLine 向控制台输出一行
-            // 量名.GetType() 返回变量类型
-            // ype.ToString() 将类型名转换为字符串
+            //Console.WriteLine 向控制台输出一行
+            //变量名.GetType() 返回变量类型
+            //Type.ToString() 将类型名转换为字符串
 
             Console.WriteLine("\tName\tType     \tValue");
             Console.WriteLine($"\ta\t{a.GetType().ToString()}\t{a}");

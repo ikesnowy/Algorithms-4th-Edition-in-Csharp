@@ -11,7 +11,7 @@ namespace _1._3._22
      */
     class Program
     {
-        //  t 插入到 x 之后
+        //将 t 插入到 x 之后
         static void Main(string[] args)
         {
             Node<string> first = new Node<string>();

@@ -16,8 +16,8 @@ namespace _1._4._2
      */
     class Program
     {
-        //  a[i] + a[j] + a[k] 改为 (long)a[i] + a[j] + a[k] 即可。
-        // 时整个式子将按照精度最高（也就是 long）的标准计算。
+        //将 a[i] + a[j] + a[k] 改为 (long)a[i] + a[j] + a[k] 即可。
+        //此时整个式子将按照精度最高（也就是 long）的标准计算。
         static void Main(string[] args)
         {
             int[] a = new int[4];
@@ -26,7 +26,7 @@ namespace _1._4._2
             a[2] = int.MinValue;
             a[3] = 1;
 
-            Console.WriteLine(ThreeSum.Count(a));// 
+            Console.WriteLine(ThreeSum.Count(a));//2
         }
     }
 }

@@ -10,8 +10,8 @@ namespace _1._3._39
     {
         private Item[] buffer;
         private int count;
-        private int first;  // 指针
-        private int last;   // 指针
+        private int first;  //读指针
+        private int last;   //写指针
 
         /// <summary>
         /// 建立一个缓冲区。

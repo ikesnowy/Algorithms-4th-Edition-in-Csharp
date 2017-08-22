@@ -15,8 +15,8 @@ namespace _1._1._28
     {
         static void Main(string[] args)
         {
-            // largeW.txt中读取数据
-            //  HashSet 的不可重复性去除重复
+            //从largeW.txt中读取数据
+            //用 HashSet 的不可重复性去除重复
             HashSet<string> h = new HashSet<string>(File.ReadAllLines("largeW.txt"));
             string[] whiteList = new string[h.Count];
             h.CopyTo(whiteList);
@@ -30,7 +30,7 @@ namespace _1._1._28
             Array.Sort<int>(WhiteList);
 
             Console.WriteLine("Type the numbers you want to query: ");
-            // 入样例：5 824524 478510 387221
+            //输入样例：5 824524 478510 387221
             string input = Console.ReadLine();
             int[] Query = new int[input.Split(' ').Length];
             for (int i = 0; i < Query.Length; ++i)

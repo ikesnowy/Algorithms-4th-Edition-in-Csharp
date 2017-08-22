@@ -28,8 +28,8 @@ namespace _1._4._21
                 a[i] = int.Parse(input[i]);
             }
             StaticSETofInts array = new StaticSETofInts(a);
-            Console.WriteLine(array.Contains(10000000));// alse
-            Console.WriteLine(array.Contains(-174307));// rue
+            Console.WriteLine(array.Contains(10000000));//False
+            Console.WriteLine(array.Contains(-174307));//True
         }
     }
 }

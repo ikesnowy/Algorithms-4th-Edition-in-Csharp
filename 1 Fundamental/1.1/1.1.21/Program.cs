@@ -26,11 +26,11 @@ namespace _1._1._21
         static void Main(string[] args)
         {
             int columns = 2;
-            int rows = int.Parse(Console.ReadLine());   // 号
+            int rows = int.Parse(Console.ReadLine());   //行号
 
-            string[] names = new string[rows];          // 名
-            int[,] array = new int[rows, columns];      // 入的两个整数
-            double[] results = new double[rows];        // 算结果
+            string[] names = new string[rows];          //姓名
+            int[,] array = new int[rows, columns];      //输入的两个整数
+            double[] results = new double[rows];        //计算结果
 
             for (int i = 0; i < rows; ++i)
             {
@@ -48,8 +48,8 @@ namespace _1._1._21
 
         static void PrintArray2D(string[] names, int[,] array, double[] results)
         {
-            int rows = array.GetLength(0);// 取行数
-            int columns = array.GetLength(1);// 取列数
+            int rows = array.GetLength(0);//获取行数
+            int columns = array.GetLength(1);//获取列数
 
             for (int i = 0; i < rows; i++)
             {
@@ -59,7 +59,7 @@ namespace _1._1._21
                     Console.Write($"\t{array[i, j]}");
                 }
                 Console.Write($"\t{array[i, columns - 1]}");
-                Console.Write($"\t{results[i]:N3}");    // 量名:N3 保留三位小数
+                Console.Write($"\t{results[i]:N3}");    //变量名:N3 保留三位小数
                 Console.Write("\n");
             }
         }

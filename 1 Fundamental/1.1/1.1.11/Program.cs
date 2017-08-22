@@ -20,15 +20,15 @@ namespace _1._1._11
                 { true, false }
             };
 
-            PrintArray2D(array);// 印二维数组
+            PrintArray2D(array);//打印二维数组
         }
 
         static void PrintArray2D(bool[,] array)
         {
-            int rows = array.GetLength(0);// 取行数
-            int columns = array.GetLength(1);// 取列数
+            int rows = array.GetLength(0);//获取行数
+            int columns = array.GetLength(1);//获取列数
 
-            // 出列号
+            //输出列号
             for (int i = 0; i < columns; i++)
             {
                 Console.Write($"\t{i + 1}");
@@ -38,7 +38,7 @@ namespace _1._1._11
 
             for (int i = 0; i < rows; i++)
             {
-                // 出行号
+                //输出行号
                 Console.Write($"{i + 1}");
                 for (int j = 0; j < columns; j++)
                 {

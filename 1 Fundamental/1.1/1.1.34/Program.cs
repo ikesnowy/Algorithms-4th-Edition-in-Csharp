@@ -64,11 +64,11 @@ namespace _1._1._34
         /// <param name="input">输入流。</param>
         static void MinAndMax(int[] input)
         {
-            // 用到了两个变量
+            //只用到了两个变量
             int min = input[0];
             int max = input[0];
 
-            // 对输入值正向遍历一遍，不需要保存
+            //只对输入值正向遍历一遍，不需要保存
             for (int i = 1; i < input.Length; ++i)
             {
                 if (input[i] > max)
@@ -93,7 +93,7 @@ namespace _1._1._34
         /// <returns></returns>
         static int MidNumber(int[] input)
         {
-            // 要对输入值进行去重 & 排序，故需要保存
+            //需要对输入值进行去重 & 排序，故需要保存
             List<int> DistinctNumbers = new List<int>(input.Distinct());
             DistinctNumbers.Sort();
             Console.WriteLine("MidNumber:");
@@ -112,7 +112,7 @@ namespace _1._1._34
         {
             int[] temp = new int[101];
 
-            // 正向遍历一遍，不需要保存
+            //只正向遍历一遍，不需要保存
             for (int i = 0; i < input.Length; ++i)
             {
                 if (i < 100)
@@ -140,7 +140,7 @@ namespace _1._1._34
         static long SquareSum(int[] input)
         {
             long sum = 0;
-            // 正向遍历一遍，不需要保存
+            //只正向遍历一遍，不需要保存
             for (int i = 0; i < input.Length; ++i)
             {
                 sum += input[i] * input[i];
@@ -161,7 +161,7 @@ namespace _1._1._34
         {
             long sum = 0;
 
-            // 遍历一遍，且不保存整个数组
+            //只遍历一遍，且不保存整个数组
             for (int i = 0; i < input.Length; ++i)
             {
                 sum += input[i];

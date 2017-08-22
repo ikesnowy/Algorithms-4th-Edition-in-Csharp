@@ -77,7 +77,7 @@ namespace _1._3._38
 
             k--;
 
-            // 到目标结点
+            //找到目标结点
             Node<Item> current = this.first;
             for (int i = 0; i < k; ++i)
             {

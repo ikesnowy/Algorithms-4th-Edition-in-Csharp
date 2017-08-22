@@ -23,12 +23,12 @@ namespace _1._1._35
      */
     class Program
     {
-        // 序运行大概需要十几秒时间（也可能更长，看运气）
-        // 的数据：
-        // 4098 44448 37776 44401 32541
+        //程序运行大概需要十几秒时间（也可能更长，看运气）
+        //我的数据：
+        //24098 44448 37776 44401 32541
         static void Main(string[] args)
         {
-            // 中给出的程序
+            //书中给出的程序
             int SIDES = 6;
             double[] dist = new double[2 * SIDES + 1];
             for (int i = 1; i <= SIDES; i++)
@@ -38,7 +38,7 @@ namespace _1._1._35
             for (int k = 2; k <= 2 * SIDES; k++)
                 dist[k] /= 36.0;
 
-            // 断进行模拟，直至误差小于 0.001
+            //不断进行模拟，直至误差小于 0.001
             int N = 36;
             bool isAccepted = false;
             double[] disttemp = null;
@@ -74,7 +74,7 @@ namespace _1._1._35
             int SIDES = 6;
             double[] dist = new double[2 * SIDES + 1];
 
-            //  N 次
+            //掷 N 次
             int sumtemp = 0;
             for (int i = 0; i < N; ++i)
             {
@@ -82,7 +82,7 @@ namespace _1._1._35
                 dist[sumtemp]++;
             }
 
-            // 算概率
+            //计算概率
             for (int i = 0; i < dist.Length; ++i)
             {
                 dist[i] /= N;

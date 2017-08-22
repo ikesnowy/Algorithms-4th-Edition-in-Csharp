@@ -17,7 +17,7 @@ namespace _1._4._9
     {
         static void Main(string[] args)
         {
-            // (N) = (N/N0 - 1) * 2^b * T
+            //T(N) = (N/N0 - 1) * 2^b * T
         }
     }
 }

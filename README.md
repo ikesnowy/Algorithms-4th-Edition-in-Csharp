@@ -67,8 +67,8 @@ OS: Windows10 15063
 
 官方MOOC课程： 
 
-https:// ww.coursera.org/learn/algorithms-part1
+https://www.coursera.org/learn/algorithms-part1
 
 官方资料站 (English):
 
-http:// lgs4.cs.princeton.edu/
+http://algs4.cs.princeton.edu/

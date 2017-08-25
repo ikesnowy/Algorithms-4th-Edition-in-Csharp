@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoubleTest.cs" />
+    <Compile Include="FixedCapacityStack.cs" />
     <Compile Include="FixedCapacityStackOfInts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

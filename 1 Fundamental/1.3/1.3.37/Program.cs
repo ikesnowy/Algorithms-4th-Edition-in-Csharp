@@ -1,7 +1,7 @@
 ﻿using System;
 using Generics;
 
-namespace _1._3._37
+namespace _1._3._1
 {
     /*
      * 1.3.37

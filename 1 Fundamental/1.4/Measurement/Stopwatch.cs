@@ -30,5 +30,15 @@ namespace Measurement
             DateTime now = DateTime.Now;
             return (now - this.start).TotalMilliseconds / 1000.0;
         }
+
+        /// <summary>
+        /// 获取自计时器创建以来所过去的时间（毫秒）。
+        /// </summary>
+        /// <returns></returns>
+        public double ElapsedTimeMillionSeconds()
+        {
+            DateTime now = DateTime.Now;
+            return (now - this.start).TotalMilliseconds;
+        }
     }
 }

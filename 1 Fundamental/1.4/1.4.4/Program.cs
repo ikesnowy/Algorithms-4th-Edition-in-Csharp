@@ -45,5 +45,10 @@ namespace _1._4._4
         //(N^2/2)t1
         //增长的数量级
         //N^2
+
+        public static void Main(string[] args)
+        {
+
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace _1._4._38
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("数据量\t3-sum初级算法(\tThreeSum\t比值");
+            Console.WriteLine("数据量\t3-sum初级算法（秒）\tThreeSum（秒）\t比值");
 
             for (int n = 125; true; n += n)
             {

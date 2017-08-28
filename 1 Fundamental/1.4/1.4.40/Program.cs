@@ -19,6 +19,7 @@ namespace _1._4._40
     {
         static void Main(string[] args)
         {
+            // -M 到 M 之间和为零的三元组数量为 N^3/16M 个。
         }
     }
 }

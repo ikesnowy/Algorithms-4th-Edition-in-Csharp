@@ -11,7 +11,7 @@ namespace Measurement
     /// </summary>
     public class Stopwatch
     {
-        private readonly DateTime start;
+        private DateTime start;
 
         /// <summary>
         /// 新建并开始一个计时器。
@@ -22,7 +22,15 @@ namespace Measurement
         }
 
         /// <summary>
-        /// 获取自计时器创建以来所过去的时间（秒）。
+        /// 重置计时器。
+        /// </summary>
+        public void Restart()
+        {
+            this.start = DateTime.Now;
+        }
+
+        /// <summary>
+        /// 获取计时器的计数值（秒）。
         /// </summary>
         /// <returns></returns>
         public double ElapsedTime()
@@ -32,7 +40,7 @@ namespace Measurement
         }
 
         /// <summary>
-        /// 获取自计时器创建以来所过去的时间（毫秒）。
+        /// 获取计时器的计数值（毫秒）。
         /// </summary>
         /// <returns></returns>
         public double ElapsedTimeMillionSeconds()

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Measurement;
 
-namespace _1._4._41
+namespace _1._4._43
 {
     public delegate int Count(int[] a);
     static class DoublingRatio

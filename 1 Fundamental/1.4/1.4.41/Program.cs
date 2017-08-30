@@ -18,43 +18,49 @@ namespace _1._4._41
     {
         static void Main(string[] args)
         {
-            int[] a = new int[62500];
+            int[] a = new int[977];
             Random random = new Random();
-            for (int i = 0; i < 62500; ++i)
+            for (int i = 0; i < 977; ++i)
             {
-                a[i] = random.Next(31250) - 31250;
+                a[i] = random.Next(977) - 489;
             }
 
             // ThreeSum
             Console.WriteLine("ThreeSum");
-            double time62500 = ThreeSum.Count(a);
-            Console.WriteLine($"数据量：62500 耗时：{time62500}");
-            double doubleRatio = DoublingRatio.ThreeSumTest();
-            Console.WriteLine($"数据量：1000000 估计耗时：{time62500 * doubleRatio * 16}");
+            double time = DoublingRatio.TimeTrial(ThreeSum.Count, a);
+            Console.WriteLine($"数据量：977 耗时：{time / 1000}");
+            double doubleRatio = DoublingRatio.Test(ThreeSum.Count);
+            Console.WriteLine($"数据量：1000000 估计耗时：{time * doubleRatio * 1024 / 1000}");
             Console.WriteLine();
 
-            // ThreeSumFast
+            //// ThreeSumFast
             Console.WriteLine("ThreeSumFast");
-            time62500 = ThreeSumFast.Count(a);
-            doubleRatio = DoublingRatio.ThreeSumFastTest();
-            Console.WriteLine($"数据量：62500 耗时：{time62500}");
-            Console.WriteLine($"数据量：1000000 估计耗时：{time62500 * doubleRatio * 16}");
+            time = DoublingRatio.TimeTrial(ThreeSumFast.Count, a);
+            doubleRatio = DoublingRatio.Test(ThreeSumFast.Count);
+            Console.WriteLine($"数据量：977 耗时：{time / 1000}");
+            Console.WriteLine($"数据量：1000000 估计耗时：{time * doubleRatio * 1024 / 1000}");
             Console.WriteLine();
 
-            // TwoSum
-            Console.WriteLine("TwoSumFast");
-            time62500 = TwoSum.Count(a);
-            doubleRatio = DoublingRatio.TwoSumTest();
-            Console.WriteLine($"数据量：62500 耗时：{time62500}");
-            Console.WriteLine($"数据量：1000000 估计耗时：{time62500 * doubleRatio * 16}");
+            //// TwoSum
+            Console.WriteLine("TwoSum");
+            time = DoublingRatio.TimeTrial(TwoSum.Count, a);
+            doubleRatio = DoublingRatio.Test(TwoSum.Count);
+            Console.WriteLine($"数据量：977 耗时：{time / 1000}");
+            Console.WriteLine($"数据量：1000000 估计耗时：{time * doubleRatio * 1024 / 1000}");
             Console.WriteLine();
 
             // TwoSumFast
+            // 速度太快，加大数据量
+            a = new int[62500];
+            for (int i = 0; i < 977; ++i)
+            {
+                a[i] = random.Next(62500) - 31250;
+            }
             Console.WriteLine("TwoSumFast");
-            time62500 = TwoSumFast.Count(a);
-            doubleRatio = DoublingRatio.TwoSumFastTest();
-            Console.WriteLine($"数据量：62500 耗时：{time62500}");
-            Console.WriteLine($"数据量：1000000 估计耗时：{time62500 * doubleRatio * 16}");
+            time = DoublingRatio.TimeTrial(TwoSumFast.Count, a);
+            doubleRatio = DoublingRatio.TestTwoSumFast(TwoSumFast.Count);
+            Console.WriteLine($"数据量：62500 耗时：{time / 1000}");
+            Console.WriteLine($"数据量：1000000 估计耗时：{time * doubleRatio * 16 / 1000}");
             Console.WriteLine();
         }
     }

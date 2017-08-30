@@ -41,7 +41,7 @@ namespace Measurement
             int count = 0;
             for (int i = 0; i < n; ++i)
             {
-                int j = Array.BinarySearch(a, a[i]);
+                int j = Array.BinarySearch(a, -a[i]);
                 if (i < j)
                 {
                     count++;

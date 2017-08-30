@@ -7,6 +7,7 @@ using Measurement;
 
 namespace _1._4._41
 {
+    public delegate int Count(int[] a);
     static class DoublingRatio
     {
         /// <summary>
@@ -27,211 +28,119 @@ namespace _1._4._41
         }
 
         /// <summary>
-        /// 测试 ThreeSum 随数据量倍增耗时的比率。
+        /// 使用给定的数组进行一次测试，返回耗时（毫秒）。
         /// </summary>
-        /// <returns>返回 ThreeSum 随数据量倍增耗时的比率。</returns>
-        public static double ThreeSumTest()
+        /// <param name="Count">要测试的方法。</param>
+        /// <param name="a">测试用的数组。</param>
+        /// <returns>耗时（秒）。</returns>
+        public static double TimeTrial(Count Count, int[] a)
         {
-            double ratio = 0;
-
-            // 1K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = ThreeSum.Count(a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime}\t");
-
-            // 2K
-            a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = ThreeSum.Count(a);
-            Console.WriteLine($"2000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 4K
-            a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = ThreeSum.Count(a);
-            Console.WriteLine($"4000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 8K
-            a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = ThreeSum.Count(a);
-            Console.WriteLine($"8000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 16K
-            a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            time = ThreeSum.Count(a);
-            Console.WriteLine($"16000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 32K
-            a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = ThreeSum.Count(a);
-            Console.WriteLine($"32000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            return ratio / 5;
+            Stopwatch timer = new Stopwatch();
+            Count(a);
+            return timer.ElapsedTimeMillionSeconds();
         }
 
         /// <summary>
-        /// 测试 ThreeSumFast 随数据量倍增耗时的比率。
+        /// 对 TwoSum、TwoSumFast、ThreeSum 或 ThreeSumFast 的 Count 方法做测试。
         /// </summary>
-        /// <returns>返回 ThreeSumFast 随数据量倍增耗时的比率。</returns>
-        public static double ThreeSumFastTest()
+        /// <param name="Count">相应类的 Count 方法</param>
+        /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
+        public static double Test(Count Count)
         {
             double ratio = 0;
+            double times = 3;
 
             // 1K
             int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = ThreeSumFast.Count(a);
+            double prevTime = TimeTrial(Count, a);
             Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime}\t");
+            Console.WriteLine($"1000\t{prevTime / 1000}\t");
 
             // 2K
             a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = ThreeSumFast.Count(a);
-            Console.WriteLine($"2000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
+            double time = TimeTrial(Count, a);
+            Console.WriteLine($"2000\t{time / 1000}\t{time / prevTime}");
+            if (prevTime != 0)
+            {
+                ratio += time / prevTime;
+            }
+            else
+            {
+                times--;
+            }
             prevTime = time;
 
             // 4K
             a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = ThreeSumFast.Count(a);
-            Console.WriteLine($"4000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
+            time = TimeTrial(Count, a);
+            Console.WriteLine($"4000\t{time / 1000}\t{time / prevTime}");
+            if (prevTime != 0)
+            {
+                ratio += time / prevTime;
+            }
+            else
+            {
+                times--;
+            }
             prevTime = time;
 
             // 8K
             a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = ThreeSumFast.Count(a);
-            Console.WriteLine($"8000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
+            time = TimeTrial(Count, a);
+            Console.WriteLine($"8000\t{time / 1000}\t{time / prevTime}");
+            if (prevTime != 0)
+            {
+                ratio += time / prevTime;
+            }
+            else
+            {
+                times--;
+            }
             prevTime = time;
 
-            // 16K
-            a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            time = ThreeSumFast.Count(a);
-            Console.WriteLine($"16000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 32K
-            a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = ThreeSumFast.Count(a);
-            Console.WriteLine($"32000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            return ratio / 5;
+            return ratio / times;
         }
 
-        /// <summary>
-        /// 测试 TwoSum 随数据量倍增耗时的比率。
-        /// </summary>
-        /// <returns>返回 TwoSum 随数据量倍增耗时的比率。</returns>
-        public static double TwoSumTest()
+        public static double TestTwoSumFast(Count Count)
         {
             double ratio = 0;
-
-            // 1K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = TwoSum.Count(a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime}\t");
-
-            // 2K
-            a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = TwoSum.Count(a);
-            Console.WriteLine($"2000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 4K
-            a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = TwoSum.Count(a);
-            Console.WriteLine($"4000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
+            double times = 2;
 
             // 8K
-            a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = TwoSum.Count(a);
-            Console.WriteLine($"8000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
+            int[] a = ReadAllInts(TestCase.Properties.Resources._8Kints);
+            double prevTime = TimeTrial(Count, a);
+            Console.WriteLine("数据量\t耗时\t比值");
+            Console.WriteLine($"8000\t{prevTime / 1000}\t");
 
             // 16K
             a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            time = TwoSum.Count(a);
-            Console.WriteLine($"16000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
+            double time = TimeTrial(Count, a);
+            Console.WriteLine($"16000\t{time / 1000}\t{time / prevTime}");
+            if (prevTime != 0)
+            {
+                ratio += time / prevTime;
+            }
+            else
+            {
+                times--;
+            }
             prevTime = time;
 
             // 32K
             a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = TwoSum.Count(a);
-            Console.WriteLine($"32000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
+            time = TimeTrial(Count, a);
+            Console.WriteLine($"32000\t{time / 1000}\t{time / prevTime}");
+            if (prevTime != 0)
+            {
+                ratio += time / prevTime;
+            }
+            else
+            {
+                times--;
+            }
             prevTime = time;
 
-            return ratio / 5;
-        }
-
-        /// <summary>
-        /// 测试 TwoSumFast 随数据量倍增耗时的比率。
-        /// </summary>
-        /// <returns>返回 TwoSumFast 随数据量倍增耗时的比率。</returns>
-        public static double TwoSumFastTest()
-        {
-            double ratio = 0;
-
-            // 1K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = TwoSumFast.Count(a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime}\t");
-
-            // 2K
-            a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = TwoSumFast.Count(a);
-            Console.WriteLine($"2000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 4K
-            a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = TwoSumFast.Count(a);
-            Console.WriteLine($"4000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 8K
-            a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = TwoSumFast.Count(a);
-            Console.WriteLine($"8000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 16K
-            a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            time = TwoSumFast.Count(a);
-            Console.WriteLine($"16000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            // 32K
-            a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = TwoSumFast.Count(a);
-            Console.WriteLine($"32000\t{time}\t{time / prevTime}");
-            ratio += time / prevTime;
-            prevTime = time;
-
-            return ratio / 5;
+            return ratio / times;
         }
     }
 }

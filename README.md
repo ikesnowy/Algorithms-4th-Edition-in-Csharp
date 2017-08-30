@@ -66,7 +66,7 @@ OS: Windows10 15063
 
 ## 相关资料  
 
-官方MOOC课程： 
+官方 MOOC 课程： 
 
 https://www.coursera.org/learn/algorithms-part1
 

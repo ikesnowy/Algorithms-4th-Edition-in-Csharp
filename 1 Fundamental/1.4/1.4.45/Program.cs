@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1._4._45
 {
@@ -46,6 +42,11 @@ namespace _1._4._45
             Console.WriteLine($"\nNHN={N * HarmonicSum(N)}，平均生成{randomSize / times}个数字后所有可能都出现");
         }
 
+        /// <summary>
+        /// 计算 N 阶调和级数的和。
+        /// </summary>
+        /// <param name="N">调和级数的 N 值</param>
+        /// <returns>N 阶调和级数的和。</returns>
         static double HarmonicSum(int N)
         {
             double sum = 0;
@@ -56,6 +57,11 @@ namespace _1._4._45
             return sum;
         }
 
+        /// <summary>
+        /// 检查所有数字是否都生成过了。
+        /// </summary>
+        /// <param name="a">布尔数组。</param>
+        /// <returns>全都生成则返回 true，否则返回 false。</returns>
         static bool IsAllGenerated(bool[] a)
         {
             foreach (bool i in a)

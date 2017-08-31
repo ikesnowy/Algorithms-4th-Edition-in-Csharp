@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._4._43
+﻿namespace _1._4._43
 {
     /*
      * 1.4.43
@@ -18,6 +12,7 @@ namespace _1._4._43
     {
         static void Main(string[] args)
         {
+            DoublingRatio.Test();
         }
     }
 }

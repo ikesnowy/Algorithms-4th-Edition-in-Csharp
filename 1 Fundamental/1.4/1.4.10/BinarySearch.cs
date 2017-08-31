@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._4._10
+﻿namespace _1._4._10
 {
     /// <summary>
     /// 二分查找。

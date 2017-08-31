@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._4._31
+﻿namespace _1._4._31
 {
     /// <summary>
     /// 用三个栈模拟的双向队列。

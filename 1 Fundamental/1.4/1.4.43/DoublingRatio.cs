@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Measurement;
 
 namespace _1._4._43
 {
-    public delegate int Count(int[] a);
     static class DoublingRatio
     {
         /// <summary>
@@ -28,119 +23,72 @@ namespace _1._4._43
         }
 
         /// <summary>
-        /// 使用给定的数组进行一次测试，返回耗时（毫秒）。
+        /// 使用给定的数组对链栈进行一次测试，返回耗时（毫秒）。
         /// </summary>
-        /// <param name="Count">要测试的方法。</param>
         /// <param name="a">测试用的数组。</param>
-        /// <returns>耗时（秒）。</returns>
-        public static double TimeTrial(Count Count, int[] a)
+        /// <returns>耗时（毫秒）。</returns>
+        public static double TimeTrialLinkedStack(int[] a)
         {
+            LinkedStack<int> stack = new LinkedStack<int>();
+            int n = a.Length;
             Stopwatch timer = new Stopwatch();
-            Count(a);
+            for (int i = 0; i < n; ++i)
+            {
+                stack.Push(a[i]);
+            }
+            for (int i = 0; i < n; ++i)
+            {
+                stack.Pop();
+            }
             return timer.ElapsedTimeMillionSeconds();
         }
 
         /// <summary>
-        /// 对 TwoSum、TwoSumFast、ThreeSum 或 ThreeSumFast 的 Count 方法做测试。
+        /// 使用给定的数组对数组栈进行一次测试，返回耗时（毫秒）。
         /// </summary>
-        /// <param name="Count">相应类的 Count 方法</param>
-        /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
-        public static double Test(Count Count)
+        /// <param name="a">测试用的数组。</param>
+        /// <returns>耗时（毫秒）。</returns>
+        public static double TimeTrialDoublingStack(int[] a)
         {
-            double ratio = 0;
-            double times = 3;
-
-            // 1K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = TimeTrial(Count, a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime / 1000}\t");
-
-            // 2K
-            a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = TimeTrial(Count, a);
-            Console.WriteLine($"2000\t{time / 1000}\t{time / prevTime}");
-            if (prevTime != 0)
+            DoublingStack<int> stack = new DoublingStack<int>();
+            int n = a.Length;
+            Stopwatch timer = new Stopwatch();
+            for (int i = 0; i < n; ++i)
             {
-                ratio += time / prevTime;
+                stack.Push(a[i]);
             }
-            else
+            for (int i = 0; i < n; ++i)
             {
-                times--;
+                stack.Pop();
             }
-            prevTime = time;
-
-            // 4K
-            a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"4000\t{time / 1000}\t{time / prevTime}");
-            if (prevTime != 0)
-            {
-                ratio += time / prevTime;
-            }
-            else
-            {
-                times--;
-            }
-            prevTime = time;
-
-            // 8K
-            a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"8000\t{time / 1000}\t{time / prevTime}");
-            if (prevTime != 0)
-            {
-                ratio += time / prevTime;
-            }
-            else
-            {
-                times--;
-            }
-            prevTime = time;
-
-            return ratio / times;
+            return timer.ElapsedTimeMillionSeconds();
         }
 
-        public static double TestTwoSumFast(Count Count)
+        /// <summary>
+        /// 对链栈和基于大小可变的数组栈做测试。
+        /// </summary>
+        public static void Test()
         {
-            double ratio = 0;
-            double times = 2;
-
-            // 8K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            double prevTime = TimeTrial(Count, a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"8000\t{prevTime / 1000}\t");
-
+            double linkedTime = 0;
+            double arrayTime = 0;
+            Console.WriteLine("数据量\t链栈\t数组\t比值\t单位：毫秒");
             // 16K
-            a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            double time = TimeTrial(Count, a);
-            Console.WriteLine($"16000\t{time / 1000}\t{time / prevTime}");
-            if (prevTime != 0)
-            {
-                ratio += time / prevTime;
-            }
-            else
-            {
-                times--;
-            }
-            prevTime = time;
+            int[] a = ReadAllInts(TestCase.Properties.Resources._16Kints);
+            linkedTime = TimeTrialLinkedStack(a);
+            arrayTime = TimeTrialDoublingStack(a);
+            Console.WriteLine($"16000\t{linkedTime}\t{arrayTime}\t{linkedTime / arrayTime}");
 
             // 32K
             a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"32000\t{time / 1000}\t{time / prevTime}");
-            if (prevTime != 0)
-            {
-                ratio += time / prevTime;
-            }
-            else
-            {
-                times--;
-            }
-            prevTime = time;
+            linkedTime = TimeTrialLinkedStack(a);
+            arrayTime = TimeTrialDoublingStack(a);
+            Console.WriteLine($"32000\t{linkedTime}\t{arrayTime}\t{linkedTime / arrayTime}");
 
-            return ratio / times;
+            // 1M
+            a = ReadAllInts(TestCase.Properties.Resources._1Mints);
+            linkedTime = TimeTrialLinkedStack(a);
+            arrayTime = TimeTrialDoublingStack(a);
+            Console.WriteLine($"1000000\t{linkedTime}\t{arrayTime}\t{linkedTime / arrayTime}");
         }
     }
 }

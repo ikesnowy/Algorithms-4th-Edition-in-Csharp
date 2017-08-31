@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._4._30
+﻿namespace _1._4._30
 {
     /// <summary>
     /// 用一个栈和一个 Steque 模拟的双向队列。

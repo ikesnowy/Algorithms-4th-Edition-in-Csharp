@@ -17,7 +17,7 @@ namespace _1._4._43
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public Stack()
+        public LinkedStack()
         {
             this.first = null;
             this.count = 0;
@@ -27,7 +27,7 @@ namespace _1._4._43
         /// 复制构造函数。
         /// </summary>
         /// <param name="s"></param>
-        public Stack(Stack<Item> s)
+        public LinkedStack(LinkedStack<Item> s)
         {
             if (s.first != null)
             {
@@ -102,7 +102,7 @@ namespace _1._4._43
         /// <param name="s1">第一个栈。</param>
         /// <param name="s2">第二个栈（将被删除）。</param>
         /// <returns></returns>
-        public static Stack<Item> Catenation(Stack<Item> s1, Stack<Item> s2)
+        public static LinkedStack<Item> Catenation(LinkedStack<Item> s1, LinkedStack<Item> s2)
         {
             if (s1.IsEmpty())
             {
@@ -127,9 +127,9 @@ namespace _1._4._43
         /// 创建栈的浅表副本。
         /// </summary>
         /// <returns></returns>
-        public Stack<Item> Copy()
+        public LinkedStack<Item> Copy()
         {
-            Stack<Item> temp = new Stack<Item>();
+            LinkedStack<Item> temp = new LinkedStack<Item>();
             temp.first = this.first;
             temp.count = this.count;
             return temp;

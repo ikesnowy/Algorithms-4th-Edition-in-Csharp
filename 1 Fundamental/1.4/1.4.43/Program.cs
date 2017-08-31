@@ -18,6 +18,7 @@ namespace _1._4._43
     {
         static void Main(string[] args)
         {
+            DoublingRatio.Test();
         }
     }
 }

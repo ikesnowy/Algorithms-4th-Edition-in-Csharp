@@ -11,12 +11,12 @@
      *         sum++;
      * b.
      * int sum = 0;
-     * for (int i = 1; i < N; n *= 2)
+     * for (int i = 1; i < N; i *= 2)
      *     for (int j = 0; j < i; j++)
      *         sum++;
      * c.
      * int sum = 0;
-     * for (int i = 1; i < N; n *= 2)
+     * for (int i = 1; i < N; i *= 2)
      *     for (int j = 0; j < N; j++)
      *         sum++;
      *         

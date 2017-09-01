@@ -16,22 +16,22 @@ namespace _1._4._17
         static void Main(string[] args)
         {
             double[] a = new double[5] { 0.1, 0.3, 0.6, 0.8, 0 };
-            int i = 0;
-            double maxDiff = 0;
-            double A = 0;
-            double B = 0;
-            while (i < a.Length - 1)
+            double min = int.MaxValue;
+            double max = int.MinValue;
+            
+            for (int i = 0; i < a.Length; ++i)
             {
-                if (Math.Abs(a[i] - a[i + 1]) > maxDiff)
+                if (a[i] > max)
                 {
-                    maxDiff = Math.Abs(a[i] - a[i + 1]);
-                    A = a[i];
-                    B = a[i + 1];
+                    max = a[i];
                 }
-                i++;
+                if (a[i] < min)
+                {
+                    min = a[i];
+                }
             }
 
-            Console.WriteLine($"MaxDiff Pair: {A} {B}, Max Difference: {maxDiff}");
+            Console.WriteLine($"MaxDiff Pair: {min} {max}, Max Difference: {Math.Abs(max - min)}");
         }
     }
 }

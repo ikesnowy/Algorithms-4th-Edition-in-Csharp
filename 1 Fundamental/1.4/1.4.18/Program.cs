@@ -15,18 +15,15 @@ namespace _1._4._18
     {
         static void Main(string[] args)
         {
-            char[] spliter = new char[] { '\n' };
-            string[] temp = TestCase.Properties.Resources._2Kints.Split(spliter, StringSplitOptions.RemoveEmptyEntries);
-            int[] testcases = new int[temp.Length];
-            for (int i = 0; i < temp.Length; ++i)
-            {
-                testcases[i] = int.Parse(temp[i]);
-            }
-
             int[] a = new int[5] { 5, 6, 5, 3, 5 };
             Console.WriteLine(LocalMinimum(a));
         }
 
+        /// <summary>
+        /// 寻找数组的局部最小元素。
+        /// </summary>
+        /// <param name="testcases">寻找范围。</param>
+        /// <returns>局部最小元素的值。</returns>
         static int LocalMinimum(int[] testcases)
         {
             int lo = 0;

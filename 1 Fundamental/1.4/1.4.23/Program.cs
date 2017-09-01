@@ -28,7 +28,13 @@ namespace _1._4._23
             Console.WriteLine(BinarySearch(a, 5.0 / 8.0));//-1
         }
 
-        //将二分查找中的相等判定条件修改为差值小于 x，其中 x = 1/N^2
+        // 将二分查找中的相等判定条件修改为差值小于 x，其中 x = 1/N^2。
+        /// <summary>
+        /// 二分查找。
+        /// </summary>
+        /// <param name="a">查找范围。</param>
+        /// <param name="key">关键字。</param>
+        /// <returns>结果的下标，没有结果时返回 -1。</returns>
         static int BinarySearch(double[] a, double key)
         {
             int lo = 0;

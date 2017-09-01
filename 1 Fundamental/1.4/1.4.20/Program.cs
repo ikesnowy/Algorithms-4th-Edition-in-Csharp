@@ -35,6 +35,14 @@ namespace _1._4._20
             }
         }
 
+        /// <summary>
+        /// 对升序数组的二分查找。
+        /// </summary>
+        /// <param name="a">升序数组。</param>
+        /// <param name="key">关键值。</param>
+        /// <param name="lo">查找的左边界。</param>
+        /// <param name="hi">查找的右边界。</param>
+        /// <returns>返回找到关键值的下标，如果没有找到则返回 -1。</returns>
         static int BinarySearchAscending(int[] a, int key, int lo, int hi)
         {
             while (lo <= hi)
@@ -58,6 +66,14 @@ namespace _1._4._20
             return -1;
         }
 
+        /// <summary>
+        /// 对降序数组的二分查找。
+        /// </summary>
+        /// <param name="a">升序数组。</param>
+        /// <param name="key">关键值。</param>
+        /// <param name="lo">查找的左边界。</param>
+        /// <param name="hi">查找的右边界。</param>
+        /// <returns>返回找到关键值的下标，如果没有找到则返回 -1。</returns>
         static int BinarySearchDescending(int[] a, int key, int lo, int hi)
         {
             while (lo < hi)

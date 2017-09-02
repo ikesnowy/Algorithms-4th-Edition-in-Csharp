@@ -24,17 +24,29 @@
         /// <param name="item"></param>
         public void Push(Item item)
         {
+            ReverseT();
             this.H.Push(item);
         }
 
         /// <summary>
         /// 将 T 中的元素弹出并压入到 H 中。
         /// </summary>
-        private void Reverse()
+        private void ReverseT()
         {
             while (!this.T.IsEmpty())
             {
                 this.H.Push(this.T.Pop());
+            }
+        }
+
+        /// <summary>
+        /// 将 H 中的元素弹出并压入到 T 中。
+        /// </summary>
+        private void ReverseH()
+        {
+            while (!this.H.IsEmpty())
+            {
+                this.T.Push(this.H.Pop());
             }
         }
 
@@ -44,11 +56,7 @@
         /// <returns></returns>
         public Item Pop()
         {
-            if (this.H.IsEmpty())
-            {
-                Reverse();
-            }
-
+            ReverseT();
             return this.H.Pop();
         }
 
@@ -58,6 +66,7 @@
         /// <param name="item"></param>
         public void Enqueue(Item item)
         {
+            ReverseH();
             this.T.Push(item);
         }
 

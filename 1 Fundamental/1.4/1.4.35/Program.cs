@@ -20,7 +20,7 @@
     {
         static void Main(string[] args)
         {
-            // 1. 一个 Node 对象包含一个 int(泛型 Item) 的引用和下一个 Node 对象的引用。
+            // 1. 一个 Node 对象包含一个 int(泛型 Item) 的引用和下一个 Node 对象的引用。push 操作创建 Node 对象时会创建一个引用。
             // 因此对于第一种情况，压入 n 个 int 类型的元素创建了 N 个 Node 对象，创建了 2N 个引用。
             // 2. 比起上一种情况，每个 Node 对象多包含了一个指向 Integer 的引用。
             // 因此对于第二中情况，压入 n 个 int 类型的元素创建了 N 个 Node 对象和 N 个 Integer 对象，比起第一种情况多创建了 N 个引用。

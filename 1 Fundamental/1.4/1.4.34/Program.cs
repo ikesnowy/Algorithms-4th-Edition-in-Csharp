@@ -19,8 +19,8 @@ namespace _1._4._34
         /// </summary>
         struct TestResult
         {
-            public int SecretNumber;
-            public int TryTimes;
+            public int SecretNumber;// 猜测到的数字。
+            public int TryTimes;// 尝试次数。
         }
 
         static void Main(string[] args)
@@ -87,7 +87,7 @@ namespace _1._4._34
         }
 
         /// <summary>
-        /// 方案二，根据 (lastGuess + nowGuess) = (lo + hi) / 2 确定每次猜测的值。
+        /// 方案二，根据 (lastGuess + nowGuess)/2 = (lo + hi) / 2 确定每次猜测的值。
         /// </summary>
         /// <param name="game">用于猜测的游戏对象。</param>
         /// <returns>返回测试结果，包含猜测结果和尝试次数。</returns>
@@ -133,7 +133,6 @@ namespace _1._4._34
                     {
                         hi = mid;
                     }
-
                 }
                 else
                 {

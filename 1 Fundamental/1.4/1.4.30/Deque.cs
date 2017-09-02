@@ -6,8 +6,8 @@
     /// <typeparam name="Item">双向队列中保存的元素类型。</typeparam>
     class Deque<Item>
     {
-        Stack<Item> stack;//代表队列尾部
-        Steque<Item> steque;//代表队列头部
+        Stack<Item> stack;// 代表队列尾部
+        Steque<Item> steque;// 代表队列头部
 
         /// <summary>
         /// 创建一条空的双向队列。
@@ -68,7 +68,14 @@
         /// <param name="item">要插入的元素。</param>
         public void PushRight(Item item)
         {
-            this.stack.Push(item);
+            if (this.stack.IsEmpty())
+            {
+                this.steque.Enqueue(item);
+            }
+            else
+            {
+                this.stack.Push(item);
+            }
         }
 
         /// <summary>

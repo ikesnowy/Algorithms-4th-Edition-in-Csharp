@@ -39,7 +39,7 @@ namespace _1._4._41
         /// <summary>
         /// 对 TwoSum、TwoSumFast、ThreeSum 或 ThreeSumFast 的 Count 方法做测试。
         /// </summary>
-        /// <param name="Count">相应类的 Count 方法</param>
+        /// <param name="Count">相应类的 Count 方法。</param>
         /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
         public static double Test(Count Count)
         {
@@ -97,6 +97,11 @@ namespace _1._4._41
             return ratio / times;
         }
 
+        /// <summary>
+        /// 对 TwoSumFast 的 Count 方法做测试。
+        /// </summary>
+        /// <param name="Count">TwoSumFast 的 Count 方法</param>
+        /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
         public static double TestTwoSumFast(Count Count)
         {
             double ratio = 0;

@@ -380,7 +380,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.4.45", "1 Fundamental\1.4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5 案例研究：union-find 算法", "1.5 案例研究：union-find 算法", "{0C93E014-DE80-4CE0-88CC-EBC33F8A8EBE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-类库", "0-类库", "{075C95AC-13CA-4A54-8B0D-49676AB89E89}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-类库、数据", "0-类库、数据", "{075C95AC-13CA-4A54-8B0D-49676AB89E89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-练习（1.5.1~1.5.11）", "1-练习（1.5.1~1.5.11）", "{0099DFE8-E1A9-431A-8C83-D83D4C18D63D}"
 EndProject
@@ -389,6 +389,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-实验题（1.5.21~1.5.26）", "3-实验题（1.5.21~1.5.26）", "{56C1C845-F9F0-4F9D-BBD1-174A704B1022}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionFind", "1 Fundamental\1.5\UnionFind\UnionFind.csproj", "{B18B7737-DFDD-4319-AB4F-DB6AC3352A3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据", "数据", "{92ADAEFC-75BB-4F29-9578-ED959DBAD112}"
+	ProjectSection(SolutionItems) = preProject
+		1 Fundamental\1.5\TestCase\largeUF.txt = 1 Fundamental\1.5\TestCase\largeUF.txt
+		1 Fundamental\1.5\TestCase\mediumUF.txt = 1 Fundamental\1.5\TestCase\mediumUF.txt
+		1 Fundamental\1.5\TestCase\tinyUF.txt = 1 Fundamental\1.5\TestCase\tinyUF.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCase", "1 Fundamental\1.5\TestCase\TestCase.csproj", "{0A116D2E-0DA8-4F18-9607-A9F2A4648227}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1036,6 +1045,10 @@ Global
 		{B18B7737-DFDD-4319-AB4F-DB6AC3352A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B18B7737-DFDD-4319-AB4F-DB6AC3352A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B18B7737-DFDD-4319-AB4F-DB6AC3352A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A116D2E-0DA8-4F18-9607-A9F2A4648227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A116D2E-0DA8-4F18-9607-A9F2A4648227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A116D2E-0DA8-4F18-9607-A9F2A4648227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A116D2E-0DA8-4F18-9607-A9F2A4648227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1226,6 +1239,8 @@ Global
 		{247FF615-6D9F-44A3-9AAE-B0BFDEF4B115} = {0C93E014-DE80-4CE0-88CC-EBC33F8A8EBE}
 		{56C1C845-F9F0-4F9D-BBD1-174A704B1022} = {0C93E014-DE80-4CE0-88CC-EBC33F8A8EBE}
 		{B18B7737-DFDD-4319-AB4F-DB6AC3352A3D} = {075C95AC-13CA-4A54-8B0D-49676AB89E89}
+		{92ADAEFC-75BB-4F29-9578-ED959DBAD112} = {075C95AC-13CA-4A54-8B0D-49676AB89E89}
+		{0A116D2E-0DA8-4F18-9607-A9F2A4648227} = {075C95AC-13CA-4A54-8B0D-49676AB89E89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE55CF8D-6F35-464D-B95B-ED85644AE41C}

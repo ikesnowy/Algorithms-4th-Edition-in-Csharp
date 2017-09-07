@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuickFindUF.cs" />
+    <Compile Include="QuickUnionUF.cs" />
     <Compile Include="UF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

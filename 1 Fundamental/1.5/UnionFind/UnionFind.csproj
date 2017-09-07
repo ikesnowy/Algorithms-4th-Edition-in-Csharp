@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuickFindUF.cs" />
+    <Compile Include="QuickUnionUF.cs" />
     <Compile Include="UF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeightedQuickUnionUF.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

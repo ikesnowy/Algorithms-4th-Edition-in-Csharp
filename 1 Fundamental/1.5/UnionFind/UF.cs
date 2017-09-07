@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 并查集。
+    /// </summary>
     public class UF
     {
         private int[] parent; // 记录各个结点的父级。

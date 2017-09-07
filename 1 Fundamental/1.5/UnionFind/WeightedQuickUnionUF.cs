@@ -7,25 +7,28 @@ using System.Threading.Tasks;
 namespace UnionFind
 {
     /// <summary>
-    /// 用 QuickUnion 算法实现的并查集。
+    /// 使用加权 quick-union 算法的并查集。
     /// </summary>
-    public class QuickUnionUF
+    public class WeightedQuickUnionUF
     {
-        private int[] parent; // 记录各结点的上一级结点
-        private int count; // 连通分量的数目。
+        private int[] parent; // 记录各结点的上一级结点。
+        private int[] size; // 记录各个树的大小。
+        private int count; // 记录连通分量的数目。
 
         /// <summary>
-        /// 建立使用 QuickUnion 的并查集。
+        /// 建立使用加权 quick-union 的并查集。
         /// </summary>
         /// <param name="n">并查集的大小。</param>
-        public QuickUnionUF(int n)
+        public WeightedQuickUnionUF(int n)
         {
+            this.count = n;
             this.parent = new int[n];
+            this.size = new int[n];
             for (int i = 0; i < n; ++i)
             {
                 this.parent[i] = i;
+                this.size[i] = 1;
             }
-            this.count = n;
         }
 
         /// <summary>
@@ -77,7 +80,16 @@ namespace UnionFind
                 return;
             }
 
-            this.parent[rootP] = rootQ;
+            if (this.size[rootP] < this.size[rootQ])
+            {
+                this.parent[rootP] = rootQ;
+                this.size[rootQ] += this.size[rootP];
+            }
+            else
+            {
+                this.parent[rootQ] = rootP;
+                this.size[rootP] += this.size[rootQ];
+            }
             this.count--;
         }
 
@@ -88,11 +100,10 @@ namespace UnionFind
         private void Validate(int p)
         {
             int n = this.parent.Length;
-            if (p < 0 || p > n)
+            if (p < 0 || p >= n)
             {
-                throw new ArgumentException("index " + p + "is not between 0 and " + (n - 1));
+                throw new ArgumentException("index " + p + " is not between 0 and " + (n - 1));
             }
         }
     }
-
 }

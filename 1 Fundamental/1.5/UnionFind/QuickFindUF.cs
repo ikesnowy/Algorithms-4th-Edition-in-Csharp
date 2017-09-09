@@ -66,27 +66,41 @@ namespace UnionFind
         /// </summary>
         /// <param name="p">需要合并的结点。</param>
         /// <param name="q">需要合并的另一个结点。</param>
-        public void Union(int p, int q)
+        /// <returns>返回访问数组的次数。</returns>
+        public int Union(int p, int q)
         {
             Validate(p);
             Validate(q);
             int pID = this.id[p];
             int qID = this.id[q];
+            int arrayVisit = 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
             if (pID == qID)
             {
-                return;
+                return arrayVisit;
             }
 
             for (int i = 0; i < this.id.Length; ++i)
             {
+                arrayVisit++;
                 if (this.id[i] == pID)
                 {
                     this.id[i] = qID;
+                    arrayVisit++;
                 }
             }
             this.count--;
+            return arrayVisit;
+        }
+
+        /// <summary>
+        /// 获得 id 数组。
+        /// </summary>
+        /// <returns>id 数组。</returns>
+        public int[] GetID()
+        {
+            return this.id;
         }
 
         /// <summary>

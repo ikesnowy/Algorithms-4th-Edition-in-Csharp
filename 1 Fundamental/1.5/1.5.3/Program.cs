@@ -18,7 +18,7 @@ namespace _1._5._3
         static void Main(string[] args)
         {
             string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
-            WeightedQuickUnionUF weightedQuickUnion = new WeightedQuickUnionUF(10);
+            var weightedQuickUnion = new WeightedQuickUnionUF(10);
 
             foreach (string s in input)
             {

@@ -19,7 +19,7 @@ namespace _1._5._1
         static void Main(string[] args)
         {
             string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
-            QuickFindUF quickFind = new QuickFindUF(10);
+            var quickFind = new QuickFindUF(10);
 
             foreach (string s in input)
             {

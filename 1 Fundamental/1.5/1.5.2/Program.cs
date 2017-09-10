@@ -19,7 +19,7 @@ namespace _1._5._2
         static void Main(string[] args)
         {
             string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
-            QuickUnionUF quickUnion = new QuickUnionUF(10);
+            var quickUnion = new QuickUnionUF(10);
 
             foreach (string s in input)
             {

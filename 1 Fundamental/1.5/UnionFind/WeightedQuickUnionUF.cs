@@ -15,6 +15,8 @@ namespace UnionFind
         private int[] size; // 记录各个树的大小。
         private int count; // 记录连通分量的数目。
 
+        public int ArrayVisitCount { get; private set; } // 记录数组的访问次数。
+
         /// <summary>
         /// 建立使用加权 quick-union 的并查集。
         /// </summary>
@@ -29,6 +31,23 @@ namespace UnionFind
                 this.parent[i] = i;
                 this.size[i] = 1;
             }
+        }
+
+        /// <summary>
+        /// 清零数组访问计数。
+        /// </summary>
+        public void ResetArrayCount()
+        {
+            this.ArrayVisitCount = 0;
+        }
+
+        /// <summary>
+        /// 获得 parent 数组。
+        /// </summary>
+        /// <returns>返回 parent 数组。</returns>
+        public int[] GetParent()
+        {
+            return this.parent;
         }
 
         /// <summary>
@@ -51,7 +70,9 @@ namespace UnionFind
             while (p != this.parent[p])
             {
                 p = this.parent[p];
+                this.ArrayVisitCount += 2;
             }
+            this.ArrayVisitCount++;
             return p;
         }
 
@@ -90,6 +111,7 @@ namespace UnionFind
                 this.parent[rootQ] = rootP;
                 this.size[rootP] += this.size[rootQ];
             }
+            this.ArrayVisitCount++;
             this.count--;
         }
 

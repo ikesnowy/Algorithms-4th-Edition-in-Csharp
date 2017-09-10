@@ -23,18 +23,19 @@ namespace _1._5._1
 
             foreach (string s in input)
             {
-                int totalArrayVisit = 0;
+                quickFind.ResetArrayCount();
+
                 string[] numbers = s.Split('-');
                 int p = int.Parse(numbers[0]);
                 int q = int.Parse(numbers[1]);
 
-                totalArrayVisit += quickFind.Union(p, q);
                 int[] id = quickFind.GetID();
+                quickFind.Union(p, q);
                 foreach (int root in id)
                 {
                     Console.Write(root + " ");
                 }
-                Console.WriteLine("数组访问：" + totalArrayVisit);
+                Console.WriteLine("数组访问：" + quickFind.ArrayVisitCount);
             }
         }
     }

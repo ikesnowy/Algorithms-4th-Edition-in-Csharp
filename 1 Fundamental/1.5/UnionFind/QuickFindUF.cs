@@ -14,6 +14,8 @@ namespace UnionFind
         private int[] id; // 记录每个结点的连通分量。
         private int count;// 连通分量总数。
 
+        public int ArrayVisitCount { get; private set; } //记录数组访问的次数。
+
         /// <summary>
         /// 新建一个使用 quick-find 实现的并查集。
         /// </summary>
@@ -26,6 +28,14 @@ namespace UnionFind
             {
                 this.id[i] = i;
             }
+        }
+
+        /// <summary>
+        /// 重置数组访问计数。
+        /// </summary>
+        public void ResetArrayCount()
+        {
+            this.ArrayVisitCount = 0;
         }
 
         /// <summary>
@@ -45,6 +55,7 @@ namespace UnionFind
         public int Find(int p)
         {
             Validate(p);
+            this.ArrayVisitCount++;
             return this.id[p];
         }
 
@@ -58,6 +69,7 @@ namespace UnionFind
         {
             Validate(p);
             Validate(q);
+            this.ArrayVisitCount += 2;
             return this.id[p] == this.id[q];
         }
 
@@ -66,32 +78,32 @@ namespace UnionFind
         /// </summary>
         /// <param name="p">需要合并的结点。</param>
         /// <param name="q">需要合并的另一个结点。</param>
-        /// <returns>返回访问数组的次数。</returns>
-        public int Union(int p, int q)
+        public void Union(int p, int q)
         {
             Validate(p);
             Validate(q);
             int pID = this.id[p];
             int qID = this.id[q];
-            int arrayVisit = 2;
+            this.ArrayVisitCount += 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
             if (pID == qID)
             {
-                return arrayVisit;
+                return;
             }
 
             for (int i = 0; i < this.id.Length; ++i)
             {
-                arrayVisit++;
                 if (this.id[i] == pID)
                 {
                     this.id[i] = qID;
-                    arrayVisit++;
+                    this.ArrayVisitCount++;
                 }
             }
+
+            this.ArrayVisitCount += this.id.Length;
             this.count--;
-            return arrayVisit;
+            return;
         }
 
         /// <summary>

@@ -14,6 +14,8 @@ namespace UnionFind
         private int[] parent; // 记录各结点的上一级结点
         private int count; // 连通分量的数目。
 
+        public int ArrayVisitCount { get; private set; } //记录数组访问的次数。
+
         /// <summary>
         /// 建立使用 QuickUnion 的并查集。
         /// </summary>
@@ -26,6 +28,23 @@ namespace UnionFind
                 this.parent[i] = i;
             }
             this.count = n;
+        }
+
+        /// <summary>
+        /// 重置数组访问计数。
+        /// </summary>
+        public void ResetArrayCount()
+        {
+            this.ArrayVisitCount = 0;
+        }
+
+        /// <summary>
+        /// 获得 parent 数组。
+        /// </summary>
+        /// <returns>返回 parent 数组。</returns>
+        public int[] GetParent()
+        {
+            return this.parent;
         }
 
         /// <summary>
@@ -48,6 +67,7 @@ namespace UnionFind
             while (p != this.parent[p])
             {
                 p = this.parent[p];
+                this.ArrayVisitCount += 2;
             }
             return p;
         }
@@ -78,6 +98,7 @@ namespace UnionFind
             }
 
             this.parent[rootP] = rootQ;
+            this.ArrayVisitCount++;
             this.count--;
         }
 

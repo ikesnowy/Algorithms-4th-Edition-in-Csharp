@@ -19,22 +19,23 @@ namespace _1._5._1
         static void Main(string[] args)
         {
             string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
-            QuickFindUF quickFind = new QuickFindUF(10);
+            var quickFind = new QuickFindUF(10);
 
             foreach (string s in input)
             {
-                int totalArrayVisit = 0;
+                quickFind.ResetArrayCount();
+
                 string[] numbers = s.Split('-');
                 int p = int.Parse(numbers[0]);
                 int q = int.Parse(numbers[1]);
 
-                totalArrayVisit += quickFind.Union(p, q);
                 int[] id = quickFind.GetID();
+                quickFind.Union(p, q);
                 foreach (int root in id)
                 {
                     Console.Write(root + " ");
                 }
-                Console.WriteLine("数组访问：" + totalArrayVisit);
+                Console.WriteLine("数组访问：" + quickFind.ArrayVisitCount);
             }
         }
     }

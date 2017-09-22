@@ -63,8 +63,10 @@ namespace _1._5._4
                     Console.Write(m + " ");
                 }
                 Console.WriteLine();
-                Console.WriteLine("visit count:" + weightedQuickUnion.ArrayVisitCount);
+                Console.WriteLine("parent visit count:" + weightedQuickUnion.ArrayParentVisitCount);
+                Console.WriteLine("size visit count:" + weightedQuickUnion.ArraySizeVisitCount);
                 Console.WriteLine();
+                weightedQuickUnion.ResetArrayCount();
             }
         }
     }

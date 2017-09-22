@@ -43,7 +43,7 @@ namespace _1._5._3
                         }
                     }
                 }
-                Console.WriteLine("数组访问：" + weightedQuickUnion.ArrayVisitCount);
+                Console.WriteLine("数组访问：" + weightedQuickUnion.ArrayParentVisitCount);
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "第一章 基础", "第一章 基础", "{344FB20B-6315-477C-B032-B4E217E8A2DD}"
 EndProject
@@ -395,6 +395,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据", "数据", "{92ADAE
 		1 Fundamental\1.5\TestCase\largeUF.txt = 1 Fundamental\1.5\TestCase\largeUF.txt
 		1 Fundamental\1.5\TestCase\mediumUF.txt = 1 Fundamental\1.5\TestCase\mediumUF.txt
 		1 Fundamental\1.5\TestCase\tinyUF.txt = 1 Fundamental\1.5\TestCase\tinyUF.txt
+		worstUF.txt = worstUF.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCase", "1 Fundamental\1.5\TestCase\TestCase.csproj", "{0A116D2E-0DA8-4F18-9607-A9F2A4648227}"

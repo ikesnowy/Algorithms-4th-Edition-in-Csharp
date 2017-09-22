@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestCase\TestCase.csproj">
+      <Project>{0a116d2e-0da8-4f18-9607-a9f2a4648227}</Project>
+      <Name>TestCase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnionFind\UnionFind.csproj">
       <Project>{b18b7737-dfdd-4319-ab4f-db6ac3352a3d}</Project>
       <Name>UnionFind</Name>

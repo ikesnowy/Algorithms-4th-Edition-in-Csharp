@@ -42,6 +42,15 @@ namespace UnionFind
         }
 
         /// <summary>
+        /// 获取 size 数组。
+        /// </summary>
+        /// <returns>返回 size 数组。</returns>
+        public int[] GetSize()
+        {
+            return this.size;
+        }
+
+        /// <summary>
         /// 获得 parent 数组。
         /// </summary>
         /// <returns>返回 parent 数组。</returns>

@@ -29,7 +29,7 @@ namespace _1._5._12
                 UF.Union(i, i + 1);
             }
 
-            int[] id = UF.GetId();
+            int[] id = UF.GetParent();
             for (int i = 0; i < id.Length; ++i)
             {
                 Console.Write(id[i]);

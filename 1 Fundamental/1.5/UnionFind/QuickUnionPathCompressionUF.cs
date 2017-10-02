@@ -9,41 +9,21 @@ namespace UnionFind
     /// <summary>
     /// 使用路径压缩的 quick-union 并查集。
     /// </summary>
-    public class QuickUnionPathCompressionUF
+    public class QuickUnionPathCompressionUF : UF
     {
-        private int[] id;   // 记录各结点的上一级结点。
-        private int count;  // 记录并查集中独立的连通分量总数。
-
         /// <summary>
         /// 新建一个大小为 n 的并查集。
         /// </summary>
         /// <param name="n">新建并查集的大小。</param>
-        public QuickUnionPathCompressionUF(int n)
-        {
-            this.id = new int[n];
-            this.count = n;
-            for (int i = 0; i < n; ++i)
-            {
-                this.id[i] = i;
-            }
-        }
+        public QuickUnionPathCompressionUF(int n) : base(n) { }
 
         /// <summary>
-        /// 返回并查集连通分量的数目。
+        /// 获得 parent 数组。
         /// </summary>
-        /// <returns>并查集连通分量的数目。</returns>
-        public int Count()
+        /// <returns>返回 parent 数组。</returns>
+        public int[] GetParent()
         {
-            return this.count;
-        }
-
-        /// <summary>
-        /// 获得 id 数组。
-        /// </summary>
-        /// <returns>返回 id 数组。</returns>
-        public int[] GetId()
-        {
-            return this.id;
+            return this.parent;
         }
 
         /// <summary>
@@ -51,31 +31,20 @@ namespace UnionFind
         /// </summary>
         /// <param name="p">需要寻找的结点。</param>
         /// <returns>结点所属的连通分量。</returns>
-        public int Find(int p)
+        public override int Find(int p)
         {
             int root = p;
-            while (root != this.id[root])
+            while (root != this.parent[root])
             {
-                root = this.id[root];
+                root = this.parent[root];
             }
             while (p != root)
             {
-                int newp = this.id[p];
-                this.id[p] = root;
+                int newp = this.parent[p];
+                this.parent[p] = root;
                 p = newp;
             }
             return p;
-        }
-
-        /// <summary>
-        /// 检查两个结点是否同属于一个连通分量。
-        /// </summary>
-        /// <param name="p">需要检查的结点。</param>
-        /// <param name="q">需要检查的另一个结点。</param>
-        /// <returns>如果同属于一个连通分量，返回 true，否则返回 false。</returns>
-        public bool IsConnected(int p, int q)
-        {
-            return Find(p) == Find(q);
         }
 
         /// <summary>
@@ -83,7 +52,7 @@ namespace UnionFind
         /// </summary>
         /// <param name="p">需要合并的第一个结点。</param>
         /// <param name="q">需要合并的第二个结点。</param>
-        public void Union(int p, int q)
+        public override void Union(int p, int q)
         {
             int rootP = Find(p);
             int rootQ = Find(q);
@@ -91,7 +60,7 @@ namespace UnionFind
             {
                 return;
             }
-            this.id[rootP] = rootQ;
+            this.parent[rootP] = rootQ;
             this.count--;
         }
     }

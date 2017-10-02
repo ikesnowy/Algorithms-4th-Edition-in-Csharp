@@ -29,7 +29,7 @@ namespace _1._5._1
                 int p = int.Parse(numbers[0]);
                 int q = int.Parse(numbers[1]);
 
-                int[] id = quickFind.GetID();
+                int[] id = quickFind.GetParent();
                 quickFind.Union(p, q);
                 foreach (int root in id)
                 {

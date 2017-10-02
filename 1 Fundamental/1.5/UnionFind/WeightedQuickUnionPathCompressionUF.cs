@@ -9,7 +9,7 @@ namespace UnionFind
     /// <summary>
     /// 使用路径压缩的加权 quick-union 并查集。
     /// </summary>
-    public class WeightedQuickUnionPathCompressionUF : UF
+    public class WeightedQuickUnionPathCompressionUF : WeightedQuickUnionUF
     {
         private int[] size;     // 记录连接至该结点的节点数量。
 
@@ -27,15 +27,26 @@ namespace UnionFind
             }
         }
 
-
+        /// <summary>
+        /// 寻找一个结点所在的连通分量。
+        /// </summary>
+        /// <param name="p">需要寻找的结点。</param>
+        /// <returns>该结点所属的连通分量。</returns>
         public override int Find(int p)
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Union(int p, int q)
-        {
-            throw new NotImplementedException();
+            Validate(p);
+            int root = p;
+            while (root != this.parent[p])
+            {
+                root = this.parent[p];
+            }
+            while (p != root)
+            {
+                int newP = this.parent[p];
+                this.parent[p] = root;
+                p = newP;
+            }
+            return root;
         }
     }
 }

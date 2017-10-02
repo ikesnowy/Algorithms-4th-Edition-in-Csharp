@@ -9,7 +9,7 @@ namespace UnionFind
     /// <summary>
     /// 使用加权 quick-union 算法的并查集。
     /// </summary>
-    public class WeightedQuickUnionUF : UF
+    public class WeightedQuickUnionUF : QuickUnionUF
     {
         private int[] size; // 记录各个树的大小。
 
@@ -34,7 +34,7 @@ namespace UnionFind
         /// <summary>
         /// 清零数组访问计数。
         /// </summary>
-        public void ResetArrayCount()
+        public override void ResetArrayCount()
         {
             this.ArrayParentVisitCount = 0;
             this.ArraySizeVisitCount = 0;
@@ -47,15 +47,6 @@ namespace UnionFind
         public int[] GetSize()
         {
             return this.size;
-        }
-
-        /// <summary>
-        /// 获得 parent 数组。
-        /// </summary>
-        /// <returns>返回 parent 数组。</returns>
-        public int[] GetParent()
-        {
-            return this.parent;
         }
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace UnionFind
         /// <summary>
         /// 重置数组访问计数。
         /// </summary>
-        public void ResetArrayCount()
+        public virtual void ResetArrayCount()
         {
             this.ArrayVisitCount = 0;
         }

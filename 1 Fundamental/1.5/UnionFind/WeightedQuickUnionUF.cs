@@ -11,7 +11,7 @@ namespace UnionFind
     /// </summary>
     public class WeightedQuickUnionUF : QuickUnionUF
     {
-        private int[] size; // 记录各个树的大小。
+        protected int[] size; // 记录各个树的大小。
 
         public int ArrayParentVisitCount { get; private set; } // 记录 parent 数组的访问次数。
         public int ArraySizeVisitCount { get; private set; } //记录 size 数组的访问次数。

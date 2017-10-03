@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnionFind\UnionFind.csproj">
+      <Project>{b18b7737-dfdd-4319-ab4f-db6ac3352a3d}</Project>
+      <Name>UnionFind</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

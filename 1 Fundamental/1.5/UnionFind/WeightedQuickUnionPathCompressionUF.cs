@@ -11,8 +11,6 @@ namespace UnionFind
     /// </summary>
     public class WeightedQuickUnionPathCompressionUF : WeightedQuickUnionUF
     {
-        private int[] size;     // 记录连接至该结点的节点数量。
-
         /// <summary>
         /// 新建一个大小为 n 的并查集。
         /// </summary>

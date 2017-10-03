@@ -35,7 +35,7 @@ namespace _1._5._4
             int[] parent = weightedQuickUnion.GetParent();
             int[] size = weightedQuickUnion.GetSize();
 
-            for (int i = 1; i <= n; ++i)
+            for (int i = 1; i < input.Length; ++i)
             {
                 string[] unit = input[i].Split(' ');
                 int p = int.Parse(unit[0]);

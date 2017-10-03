@@ -34,17 +34,27 @@ namespace _1._5._2
                 {
                     if (parent[i] == i)
                     {
-                        Console.WriteLine(i);
-                        for (int j = 0; j < parent.Length; ++j)
-                        {
-                            if (parent[j] == i && j != i)
-                            {
-                                Console.WriteLine("  |---- " + j);
-                            }
-                        }
+                        Console.WriteLine("|---- " + i);
+                        DFS(parent, i, 1);
                     }
                 }
                 Console.WriteLine("数组访问：" + quickUnion.ArrayVisitCount);
+            }
+        }
+
+        static void DFS(int[] parent, int root, int level)
+        {
+            for (int i = 0; i < parent.Length; ++i)
+            {
+                if (parent[i] == root && i != root)
+                {
+                    for (int j = 0; j < level; ++j)
+                    {
+                        Console.Write("    ");
+                    }
+                    Console.WriteLine("|---- " + i);
+                    DFS(parent, i, level + 1);
+                }
             }
         }
     }

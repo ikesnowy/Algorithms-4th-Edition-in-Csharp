@@ -6,18 +6,25 @@ using System.Windows.Forms;
 using System.Drawing;
 using UnionFind;
 
-namespace _1._5._16
+namespace _1._5._26
 {
     /*
-    * 1.5.16
-    * 
-    * 均摊成本的图像。
-    * 修改你为练习 1.5.7 给出的实现，
-    * 绘出如正文所示的均摊成本的图像。
-    * 
-    */
+     * 1.5.26
+     * 
+     * Erdös-Renyi 模型的均摊成本图像。
+     * 开发一个用例，
+     * 从命令行接受一个 int 值 N，在 0 到 N-1 之间产生随机整数对，
+     * 调用 connected() 判断它们是否相连，
+     * 如果不是则用 union() 方法（和我们的开发用例一样）。
+     * 不断循环直到所有触点互通。
+     * 按照正文的样式将所有操作的均摊成本绘制成图像。
+     * 
+     */
     static class Program
     {
+        /// <summary>
+        /// 应用程序的主入口点。
+        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -29,36 +36,39 @@ namespace _1._5._16
 
         static void Compute()
         {
-            char[] split = { '\n', '\r' };
-            string[] input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int size = int.Parse(input[0]);
+            int size = 200;
             QuickFindUF quickFind = new QuickFindUF(size);
             QuickUnionUF quickUnion = new QuickUnionUF(size);
+            WeightedQuickUnionUF weightedQuickUnion = new WeightedQuickUnionUF(size);
+            Connection[] connections = ErdosRenyi.Generate(size);
 
-            string[] pair;
-            int p, q;
             int[] quickFindResult = new int[size];
             int[] quickUnionResult = new int[size];
-            for (int i = 1; i < size; ++i)
+            int[] weightedQuickUnionResult = new int[size];
+            int p, q;
+            for (int i = 0; i < size; ++i)
             {
-                pair = input[i].Split(' ');
-                p = int.Parse(pair[0]);
-                q = int.Parse(pair[1]);
+                p = connections[i].P;
+                q = connections[i].Q;
 
                 quickFind.Union(p, q);
                 quickUnion.Union(p, q);
-                quickFindResult[i - 1] = quickFind.ArrayVisitCount;
-                quickUnionResult[i - 1] = quickUnion.ArrayVisitCount;
+                weightedQuickUnion.Union(p, q);
+                quickFindResult[i] = quickFind.ArrayVisitCount;
+                quickUnionResult[i] = quickUnion.ArrayVisitCount;
+                weightedQuickUnionResult[i] = weightedQuickUnion.ArrayParentVisitCount + weightedQuickUnion.ArraySizeVisitCount;
 
                 quickFind.ResetArrayCount();
                 quickUnion.ResetArrayCount();
+                weightedQuickUnion.ResetArrayCount();
             }
 
-            Draw(quickFindResult);
-            Draw(quickUnionResult);
+            Draw(quickFindResult, "Quick-Find");
+            Draw(quickUnionResult, "Quick-Union");
+            Draw(weightedQuickUnionResult, "Weighted Quick-Union");
         }
 
-        static void Draw(int[] cost)
+        static void Draw(int[] cost, string title)
         {
             // 构建 total 数组。
             int[] total = new int[cost.Length];
@@ -73,6 +83,7 @@ namespace _1._5._16
 
             // 新建绘图窗口。
             Form2 plot = new Form2();
+            plot.Text = title;
             plot.Show();
             Graphics graphics = plot.CreateGraphics();
 
@@ -83,7 +94,7 @@ namespace _1._5._16
 
             // 添加 10% 边距作为文字区域。
             RectangleF center = new RectangleF
-                (rect.X + unitX, rect.Y + unitY, 
+                (rect.X + unitX, rect.Y + unitY,
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
             // 绘制坐标系。
@@ -108,8 +119,8 @@ namespace _1._5._16
             // 绘制点。
             for (int i = 0; i < cost.Length; ++i)
             {
-                graphics.DrawEllipse(Pens.Gray, new RectangleF(grayPoints[i], new SizeF(2, 2)));
-                graphics.DrawEllipse(Pens.Red, new RectangleF(redPoints[i], new SizeF(2, 2)));
+                graphics.FillEllipse(Brushes.Gray, new RectangleF(grayPoints[i], new SizeF(5, 5)));
+                graphics.FillEllipse(Brushes.Red, new RectangleF(redPoints[i], new SizeF(5, 5)));
             }
 
             graphics.Dispose();

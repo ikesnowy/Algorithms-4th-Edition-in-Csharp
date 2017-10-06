@@ -22,7 +22,7 @@ namespace TestCase.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TestCase.Properties {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestCase.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace TestCase.Properties {
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -96,11 +96,9 @@ namespace TestCase.Properties {
         ///759235 691066
         ///923788 334896
         ///442703 249149
-        ///718529 729473
-        ///465869 687428
-        ///176437 8 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///7 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
-        internal static string largeUF {
+        public static string largeUF {
             get {
                 return ResourceManager.GetString("largeUF", resourceCulture);
             }
@@ -166,17 +164,9 @@ namespace TestCase.Properties {
         ///248 273
         ///34 9
         ///480 479
-        ///198 173
-        ///463 488
-        ///111 86
-        ///524 499
-        ///28 27
-        ///323 324
-        ///198 199
-        ///146 147
-        ///133 1 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///198 173 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
-        internal static string mediumUF {
+        public static string mediumUF {
             get {
                 return ResourceManager.GetString("mediumUF", resourceCulture);
             }
@@ -197,9 +187,28 @@ namespace TestCase.Properties {
         ///6 7
         /// 的本地化字符串。
         /// </summary>
-        internal static string tinyUF {
+        public static string tinyUF {
             get {
                 return ResourceManager.GetString("tinyUF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 10
+        ///0 1
+        ///0 2
+        ///0 3
+        ///0 4
+        ///0 5
+        ///0 6
+        ///0 7
+        ///0 8
+        ///0 9
+        /// 的本地化字符串。
+        /// </summary>
+        public static string worstUF {
+            get {
+                return ResourceManager.GetString("worstUF", resourceCulture);
             }
         }
     }

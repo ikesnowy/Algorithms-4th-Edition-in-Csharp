@@ -40,10 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
+    <Compile Include="ErdosRenyi.cs" />
     <Compile Include="QuickFindUF.cs" />
+    <Compile Include="QuickUnionPathCompressionUF.cs" />
     <Compile Include="QuickUnionUF.cs" />
+    <Compile Include="RandomBag.cs" />
+    <Compile Include="RandomGrid.cs" />
     <Compile Include="UF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeightedQuickUnionByHeightUF.cs" />
+    <Compile Include="WeightedQuickUnionPathCompressionUF.cs" />
     <Compile Include="WeightedQuickUnionUF.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

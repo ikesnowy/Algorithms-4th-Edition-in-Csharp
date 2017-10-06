@@ -2,7 +2,7 @@
 
 算法（第4版）习题题解 C# 版
 
-当前已经完成到 1.4
+当前第一章已经完成（共 179 题）。
 
 ## 目录
 
@@ -24,6 +24,12 @@
     [1.4 类库 Measurement (Stopwatch.cs DoubleTest.cs TwoSum.cs ThreeSum.cs FourSum.cs StaticSETofInts.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/Measurement)
 
     [1.4 类库 TestCase (1Kint.txt ~ 1Mint.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/TestCase)
+
+  - [1.5 案例研究：union-find 算法](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5)
+
+    [1.5 类库 UnionFind (QuickFindUF.cs QuickUnionUF.cs WeightedQuickUnionUF.cs ......)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/UnionFind)
+
+    [1.5 类库 TestCase (tinyUF.txt mediumUF.txt largeUF.txt worstUF.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/TestCase)
 
     ​
 

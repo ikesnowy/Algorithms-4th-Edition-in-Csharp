@@ -9,24 +9,27 @@ namespace UnionFind
     /// <summary>
     /// 并查集 API。
     /// </summary>
-    public abstract class UF
+    public class UF
     {
         protected int[] parent;   // 记录各个结点的父级。
         protected int count;      // 分量数目。
+        private byte[] rank;      // 各结点的深度。
 
         /// <summary>
         /// 新建一个大小为 n 的并查集。
         /// </summary>
         /// <param name="n">并查集的大小。</param>
-        protected UF(int n)
+        public UF(int n)
         {
             if (n < 0)
                 throw new ArgumentException();
             this.count = n;
             this.parent = new int[n];
+            this.rank = new byte[n];
             for (int i = 0; i < n; ++i)
             {
                 this.parent[i] = i;
+                this.rank[i] = 0;
             }
         }
 
@@ -35,14 +38,41 @@ namespace UnionFind
         /// </summary>
         /// <param name="p">需要寻找的结点。</param>
         /// <returns>p 所在的连通分量。</returns>
-        public abstract int Find(int p);
+        public virtual int Find(int p)
+        {
+            Validate(p);
+            while (p != this.parent[p])
+            {
+                this.parent[p] = this.parent[this.parent[p]];
+                p = this.parent[p];
+            }
+            return p;
+        }
 
         /// <summary>
         /// 合并两个结点所在的连通分量。
         /// </summary>
         /// <param name="p">需要合并的结点。</param>
         /// <param name="q">需要合并的另一个结点。</param>
-        public abstract void Union(int p, int q);
+        public virtual void Union(int p, int q)
+        {
+            int rootP = Find(p);
+            int rootQ = Find(q);
+
+            if (rootP == rootQ)
+                return;
+
+            if (this.rank[rootP] < this.rank[rootQ])
+                this.parent[rootP] = rootQ;
+            else if (this.rank[rootP] > this.rank[rootQ])
+                this.parent[rootQ] = rootP;
+            else
+            {
+                this.parent[rootQ] = rootP;
+                this.rank[rootP]++;
+            }
+            this.count--;
+        }
 
         /// <summary>
         /// 返回分量的数目。

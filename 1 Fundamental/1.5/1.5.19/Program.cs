@@ -101,6 +101,7 @@ namespace _1._5._19
             {
                 timer.Stop();
                 logBox.AppendText("\r\n绘制结束");
+                count = 0;
             }
         }
 

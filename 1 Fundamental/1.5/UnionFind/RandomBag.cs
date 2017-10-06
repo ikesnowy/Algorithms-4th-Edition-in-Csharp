@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace _1._5._19
+namespace UnionFind
 {
     /// <summary>
-    /// 随即背包。
+    /// 随机背包。
     /// </summary>
     /// <typeparam name="Item">背包中要存放的元素。</typeparam>
     public class RandomBag<Item> : IEnumerable<Item>
@@ -20,16 +20,6 @@ namespace _1._5._19
         {
             this.bag = new Item[2];
             this.count = 0;
-        }
-
-        /// <summary>
-        /// 获得指定索引处的元素。
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns>相应元素。</returns>
-        public Item At(int index)
-        {
-            return this.bag[index];
         }
 
         /// <summary>

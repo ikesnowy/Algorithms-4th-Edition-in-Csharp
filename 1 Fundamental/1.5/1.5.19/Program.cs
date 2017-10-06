@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UnionFind;
 
 namespace _1._5._19
 {
@@ -46,7 +47,7 @@ namespace _1._5._19
 
             // 生成路径。
             log.AppendText("\r\n开始生成连接……");
-            bag = Generate(n);
+            bag = RandomGrid.Generate(n);
             log.AppendText("\r\n生成连接完成");
 
             // 新建画布窗口。
@@ -95,107 +96,14 @@ namespace _1._5._19
         {
             Connection c = connections[count];
             count++;
-            graphics.DrawLine(Pens.Black, points[c.GetP()], points[c.GetQ()]);
-            logBox.AppendText("\r\n绘制" + "(" + c.GetP() + ", " + c.GetQ() + ")");
+            graphics.DrawLine(Pens.Black, points[c.P], points[c.Q]);
+            logBox.AppendText("\r\n绘制" + "(" + c.P + ", " + c.Q + ")");
             if (count == bag.Size())
             {
                 timer.Stop();
                 logBox.AppendText("\r\n绘制结束");
                 count = 0;
             }
-        }
-
-        /// <summary>
-        /// 表示一条连接。
-        /// </summary>
-        private class Connection
-        {
-            int p;  // 起点
-            int q;  // 终点
-
-            /// <summary>
-            /// 新建一条连接。
-            /// </summary>
-            /// <param name="p">连接起点。</param>
-            /// <param name="q">连接终点。</param>
-            public Connection(int p, int q)
-            {
-                this.p = p;
-                this.q = q;
-            }
-
-            /// <summary>
-            /// 获得起点 p。
-            /// </summary>
-            /// <returns>起点 p。</returns>
-            public int GetP()
-            {
-                return this.p;
-            }
-
-            /// <summary>
-            /// 获得终点 q。
-            /// </summary>
-            /// <returns>终点 q。</returns>
-            public int GetQ()
-            {
-                return this.q;
-            }
-
-            /// <summary>
-            /// 获得散列（哈希）值。
-            /// </summary>
-            /// <returns>散列（哈希）值。</returns>
-            public override int GetHashCode()
-            {
-                return 31 * this.p + this.q;
-            }
-        }
-
-        /// <summary>
-        /// 随机生成 n × n 网格中的所有连接。
-        /// </summary>
-        /// <param name="n">网格边长。</param>
-        /// <returns>随机排序的连接。</returns>
-        static RandomBag<Connection> Generate(int n)
-        {
-            var result = new RandomBag<Connection>();
-            var random = new Random();
-
-            // 建立横向连接
-            for (int i = 0; i < n; ++i)
-            {
-                for (int j = 0; j < n - 1; ++j)
-                {
-                    if (random.Next(10) > 4)
-                    {
-                        result.Add(new Connection(i * n + j, (i * n) + j + 1));
-                    }
-                    else
-                    {
-                        result.Add(new Connection((i * n) + j + 1, i * n + j));
-                    }
-                }
-            }
-
-
-            // 建立纵向连接
-            for (int j = 0; j < n; ++j)
-            {
-                for (int i = 0; i < n - 1; ++i)
-                {
-                    if (random.Next(10) > 4)
-                    {
-                        result.Add(new Connection(i * n + j, ((i + 1) * n) + j));
-                    }
-                    else
-                    {
-                        result.Add(new Connection(((i + 1) * n) + j, i * n + j));
-                    }
-                }
-            }
-
-            return result;
         }
     }
 }

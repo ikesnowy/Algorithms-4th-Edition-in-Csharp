@@ -34,108 +34,13 @@ namespace _1._5._18
      */
     class Program
     {
-        /// <summary>
-        /// 表示一条连接。
-        /// </summary>
-        private class Connection
-        {
-            int p;  // 起点
-            int q;  // 终点
-
-            /// <summary>
-            /// 新建一条连接。
-            /// </summary>
-            /// <param name="p">连接起点。</param>
-            /// <param name="q">连接终点。</param>
-            public Connection(int p, int q)
-            {
-                this.p = p;
-                this.q = q;
-            }
-
-            /// <summary>
-            /// 获得起点 p。
-            /// </summary>
-            /// <returns>起点 p。</returns>
-            public int GetP()
-            {
-                return this.p;
-            }
-
-            /// <summary>
-            /// 获得终点 q。
-            /// </summary>
-            /// <returns>终点 q。</returns>
-            public int GetQ()
-            {
-                return this.q;
-            }
-
-            /// <summary>
-            /// 获得散列（哈希）值。
-            /// </summary>
-            /// <returns>散列（哈希）值。</returns>
-            public override int GetHashCode()
-            {
-                return 31 * this.p + this.q;
-            }
-        }
-
         static void Main(string[] args)
         {
-            var result = Generate(5);
+            var result = RandomGrid.Generate(5);
             foreach (var i in result)
             {
-                Console.WriteLine($"({i.GetP()}, {i.GetQ()})");
+                Console.WriteLine($"({i.P}, {i.Q})");
             }
-        }
-
-        /// <summary>
-        /// 随机生成 n × n 网格中的所有连接。
-        /// </summary>
-        /// <param name="n">网格边长。</param>
-        /// <returns>随机排序的连接。</returns>
-        static RandomBag<Connection> Generate(int n)
-        {
-            var result = new RandomBag<Connection>();
-            var random = new Random();
-            
-            // 建立横向连接
-            for (int i = 0; i < n; ++i)
-            {
-                for (int j = 0; j < n - 1; ++j)
-                {
-                    if (random.Next(10) > 4)
-                    {
-                        result.Add(new Connection(i * n + j, (i * n) + j + 1));
-                    }
-                    else
-                    {
-                        result.Add(new Connection((i * n) + j + 1, i * n + j));
-                    }
-                }
-            }
-
-
-            // 建立纵向连接
-            for (int j = 0; j < n; ++j)
-            {
-                for (int i = 0; i < n - 1; ++i)
-                {
-                    if (random.Next(10) > 4)
-                    {
-                        result.Add(new Connection(i * n + j, ((i + 1) * n) + j));
-                    }
-                    else
-                    {
-                        result.Add(new Connection(((i + 1) * n) + j, i * n + j));
-                    }
-                }
-            }
-
-
-
-            return result;
         }
     }
 }

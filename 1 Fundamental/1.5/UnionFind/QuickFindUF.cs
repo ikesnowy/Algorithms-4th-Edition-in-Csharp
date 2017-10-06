@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnionFind
+﻿namespace UnionFind
 {
     /// <summary>
     /// 用 QuickFind 算法实现的并查集。

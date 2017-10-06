@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnionFind
+﻿namespace UnionFind
 {
     /// <summary>
     /// 使用路径压缩的 quick-union 并查集。

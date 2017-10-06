@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1._5._9
+﻿namespace _1._5._9
 {
     /*
      * 1.5.9

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 using UnionFind;
 
@@ -32,7 +28,7 @@ namespace _1._5._25
     {
         static void Main(string[] args)
         {
-            int n = 10;
+            int n = 20;
             int t = 5;
 
             // quick-find
@@ -60,7 +56,7 @@ namespace _1._5._25
 
             // quick-union
             Console.WriteLine("Quick-Union");
-            n = 10;
+            n = 20;
             for (int i = 0; i < t; ++i, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
@@ -82,7 +78,7 @@ namespace _1._5._25
 
             // 加权 quick-union
             Console.WriteLine("Quick-Union");
-            n = 10;
+            n = 20;
             for (int i = 0; i < t; ++i, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
@@ -112,7 +108,7 @@ namespace _1._5._25
         static long RunTest(UF uf, Connection[] connections)
         {
             Stopwatch timer = new Stopwatch();
-            int repeatTime = 5;
+            long repeatTime = 5;
             timer.Start();
             for (int i = 0; i < repeatTime; ++i)
             {

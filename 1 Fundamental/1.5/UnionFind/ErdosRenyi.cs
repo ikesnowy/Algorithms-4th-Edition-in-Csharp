@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 提供一系列对并查集进行随机测试的静态方法。
+    /// </summary>
     public class ErdosRenyi
     {
         /// <summary>

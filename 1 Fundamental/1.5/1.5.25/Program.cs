@@ -28,8 +28,8 @@ namespace _1._5._25
     {
         static void Main(string[] args)
         {
-            int n = 20;
-            int t = 5;
+            int n = 40;
+            int t = 4;
 
             // quick-find
             Console.WriteLine("Quick-Find");
@@ -56,7 +56,7 @@ namespace _1._5._25
 
             // quick-union
             Console.WriteLine("Quick-Union");
-            n = 20;
+            n = 40;
             for (int i = 0; i < t; ++i, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
@@ -77,8 +77,8 @@ namespace _1._5._25
             }
 
             // 加权 quick-union
-            Console.WriteLine("Quick-Union");
-            n = 20;
+            Console.WriteLine("Weighted Quick-Union");
+            n = 40;
             for (int i = 0; i < t; ++i, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
@@ -108,7 +108,7 @@ namespace _1._5._25
         static long RunTest(UF uf, Connection[] connections)
         {
             Stopwatch timer = new Stopwatch();
-            long repeatTime = 5;
+            long repeatTime = 3;
             timer.Start();
             for (int i = 0; i < repeatTime; ++i)
             {

@@ -19,7 +19,7 @@ namespace _1._5._23
     {
         static void Main(string[] args)
         {
-            int n = 1000;
+            int n = 2000;
             for (int t = 0; t < 5; ++t)
             {
                 Connection[] input = ErdosRenyi.Generate(n);

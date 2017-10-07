@@ -16,7 +16,7 @@ namespace _1._5._24
     {
         static void Main(string[] args)
         {
-            int n = 5000;
+            int n = 10000;
             for (int t = 0; t < 5; ++t)
             {
                 var input = ErdosRenyi.Generate(n);

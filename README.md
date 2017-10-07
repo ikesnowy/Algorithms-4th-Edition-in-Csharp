@@ -9,29 +9,16 @@
 - [1.基础 Fundamental](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental)
   - [1.1 基础编程模型 Programming Model](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)  
 
-  - [1.2 数据抽象 Data Abstraction](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2) 
-
-    [1.2 类库 Geometry (Point2D.cs Interval1D.cs Interval2D.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Geometry) 
-
-    [1.2 类库 Commercial (Date.cs Transaction.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Commercial)  
+  - [1.2 数据抽象 Data Abstraction](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2)   
 
   - [1.3 背包、队列和栈 Bags, Queues, and Stacks](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3)
 
-    [1.3 类库 Generics (Bag.cs LinkedList.cs Node.cs Queue.cs Stack.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3/Generics)
+    [](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3/Generics)
 
   - [1.4 算法分析 Analysis of Algorithms](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4)
 
-    [1.4 类库 Measurement (Stopwatch.cs DoubleTest.cs TwoSum.cs ThreeSum.cs FourSum.cs StaticSETofInts.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/Measurement)
+  - [1.5 案例研究：union-find 算法](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5)​
 
-    [1.4 类库 TestCase (1Kint.txt ~ 1Mint.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/TestCase)
-
-  - [1.5 案例研究：union-find 算法](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5)
-
-    [1.5 类库 UnionFind (QuickFindUF.cs QuickUnionUF.cs WeightedQuickUnionUF.cs ......)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/UnionFind)
-
-    [1.5 类库 TestCase (tinyUF.txt mediumUF.txt largeUF.txt worstUF.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/TestCase)
-
-    ​
 
 ## 使用方法 & 测试环境
 

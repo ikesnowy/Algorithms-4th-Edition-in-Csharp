@@ -29,7 +29,7 @@ namespace _1._3._35
         {
             RandomQueue<Card> queue = new RandomQueue<Card>();
 
-            //建立牌组
+            // 建立牌组
             for (int i = 0; i < 4; ++i)
             {
                 for (int j = 1; j <= 13; ++j)
@@ -39,7 +39,7 @@ namespace _1._3._35
                 }
             }
 
-            //发牌
+            // 发牌
             for (int i = 1; i <= 4; ++i)
             {
                 Console.WriteLine("Player " + i);

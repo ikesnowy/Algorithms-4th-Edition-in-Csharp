@@ -27,7 +27,7 @@ namespace _1._2._1
                 return;
             }
 
-            //random.NextDouble() 返回一个 0~1 之间的 double 值
+            // random.NextDouble() 返回一个 0~1 之间的 double 值
             for (int i = 0; i < N; ++i)
             {
                 double x = random.NextDouble();

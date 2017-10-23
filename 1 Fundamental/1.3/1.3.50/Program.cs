@@ -29,7 +29,7 @@ namespace _1._3._50
             foreach (string s in stack)
             {
                 Console.Write(s + " ");
-                stack.Pop();//抛出异常
+                stack.Pop();// 抛出异常
             }
         }
     }

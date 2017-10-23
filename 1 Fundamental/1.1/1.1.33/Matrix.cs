@@ -13,13 +13,13 @@ namespace _1._1._33
         /// <exception cref="FormatException"></exception>
         public static double Dot(double[] x, double[] y)
         {
-            //确保两向量等长
+            // 确保两向量等长
             if (x.Length != y.Length)
             {
                 throw new FormatException("the length of two vectors must be equal");
             }
 
-            //点乘
+            // 点乘
             double result = 0;
             for (int i = 0; i < x.Length; ++i)
             {
@@ -59,15 +59,15 @@ namespace _1._1._33
                 double[] resultrow = new double[n];
                 for (int j = 0; j < n; ++j)
                 {
-                    //result[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
+                    // result[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
                     double[] row = a[i];
                     double[] col = new double[p];
-                    //取得列向量
+                    // 取得列向量
                     for (int k = 0; k < p; ++k)
                     {
                         col[k] = b[k][j];
                     }
-                    //点积
+                    // 点积
                     resultrow[j] = Dot(row, col);
                 }
                 result[i] = resultrow;

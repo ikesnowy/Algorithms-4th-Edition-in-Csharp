@@ -6,7 +6,7 @@
     /// <typeparam name="Item">双向队列中保存的元素类型。</typeparam>
     class Deque<Item>
     {
-        Stack<Item> stack;// 代表队列尾部
+        Stack<Item> stack;  // 代表队列尾部
         Steque<Item> steque;// 代表队列头部
 
         /// <summary>

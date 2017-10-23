@@ -15,7 +15,7 @@ namespace _1._1._39
      */
     class Program
     {
-        //需要 6 秒左右的运算时间
+        // 需要 6 秒左右的运算时间
         static void Main(string[] args)
         {
             Random r = new Random();
@@ -69,13 +69,13 @@ namespace _1._1._39
             return count;
         }
 
-        //重载方法，用于启动二分查找
+        // 重载方法，用于启动二分查找
         public static int rank(int key, int[] a)
         {
             return rank(key, a, 0, a.Length - 1, 1);
         }
 
-        //二分查找
+        // 二分查找
         public static int rank(int key, int[] a, int lo, int hi, int number)
         {
             if (lo > hi)

@@ -20,7 +20,7 @@ namespace _1._4._34
         struct TestResult
         {
             public int SecretNumber;// 猜测到的数字。
-            public int TryTimes;// 尝试次数。
+            public int TryTimes;    // 尝试次数。
         }
 
         static void Main(string[] args)

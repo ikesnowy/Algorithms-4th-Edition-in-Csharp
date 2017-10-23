@@ -4,14 +4,14 @@ namespace _1._2._12
 {
     class SmartDate
     {
-        public int Month { get; }//月
-        public int Day { get; }//日
-        public int Year { get; }//年
+        public int Month { get; }   // 月
+        public int Day { get; }     // 日
+        public int Year { get; }    // 年
 
-        //每个月对应的天数，第 0 位空出来
-        static private int[] dayOfMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        //每星期对应的名称。
-        static private string[] dayOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        // 每个月对应的天数，第 0 位空出来
+        private static int[] dayOfMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        // 每星期对应的名称。
+        private static string[] dayOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
         public SmartDate(int m, int d, int y)
         {
@@ -38,7 +38,7 @@ namespace _1._2._12
                 y--;
             }
 
-            //使用蔡勒公式计算，参见 http://www.cnblogs.com/mq0036/p/3534314.html
+            // 使用蔡勒公式计算，参见 http://www.cnblogs.com/mq0036/p/3534314.html
             int w = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
 
             return dayOfWeek[w];

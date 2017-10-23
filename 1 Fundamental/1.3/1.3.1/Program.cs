@@ -15,9 +15,9 @@ namespace _1._3._1
             FixedCapacityStackOfStrings fixedStack = new FixedCapacityStackOfStrings(2);
 
             fixedStack.Push("lol");
-            Console.WriteLine(fixedStack.IsFull()); //false
+            Console.WriteLine(fixedStack.IsFull()); // false
             fixedStack.Push("lol2");
-            Console.WriteLine(fixedStack.IsFull()); //true
+            Console.WriteLine(fixedStack.IsFull()); // true
         }
     }
 }

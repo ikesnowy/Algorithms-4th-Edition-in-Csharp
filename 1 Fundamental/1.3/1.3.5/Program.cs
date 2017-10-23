@@ -12,7 +12,7 @@ namespace _1._3._5
      */
     class Program
     {
-        //将十进制数 N 转换为二进制数。
+        // 将十进制数 N 转换为二进制数。
         static void Main(string[] args)
         {
             int N = 50;

@@ -36,21 +36,21 @@ namespace _1._1._32
         /// <param name="r">直方图 x 轴范围的上界。</param>
         public static void StartDrawing(double[] array, int N, double l, double r)
         {
-            //创建并显示绘图窗口
+            // 创建并显示绘图窗口
             Form2 DrawPad = new Form2();
             DrawPad.Show();
 
-            //新建画布
+            // 新建画布
             Graphics graphics = DrawPad.CreateGraphics();
             
-            //翻转默认坐标系
+            // 翻转默认坐标系
             graphics.TranslateTransform(0, DrawPad.Height);
             graphics.ScaleTransform(1, -1);
 
-            //对原始数组排序
+            // 对原始数组排序
             Array.Sort(array);
 
-            //计算各区域的值
+            // 计算各区域的值
             int[] counts = new int[N];
             int index = 0;
             for (int i = 0; i < N; ++i)
@@ -69,11 +69,11 @@ namespace _1._1._32
                 }
             }
 
-            //获取最大值
+            // 获取最大值
             double max = counts.Max();
-            //计算间距
+            // 计算间距
             double unit = DrawPad.Width / (3.0 * N + 1);
-            //计算直方图的矩形
+            // 计算直方图的矩形
             Rectangle[] rects = new Rectangle[N];
             rects[0].X = (int)unit;
             rects[0].Y = 0;
@@ -87,10 +87,10 @@ namespace _1._1._32
                 rects[i].Height = (int)((counts[i] / (max + 1)) * DrawPad.Height);
             }
 
-            //绘图
+            // 绘图
             graphics.FillRectangles(Brushes.Black, rects);
 
-            //释放资源
+            // 释放资源
             graphics.Dispose();
         }
     }

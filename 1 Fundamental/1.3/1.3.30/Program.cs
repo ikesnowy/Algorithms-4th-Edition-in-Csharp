@@ -47,7 +47,7 @@ namespace _1._3._30
             }
         }
 
-        //使用书中的递归方式实现
+        // 使用书中的递归方式实现
         static Node<Item> Reverse<Item>(Node<Item> first)
         {
             if (first == null)

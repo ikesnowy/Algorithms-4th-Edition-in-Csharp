@@ -61,7 +61,7 @@ namespace _1._4._43
                 throw new InvalidOperationException("Stack underflow");
             this.count--;
 
-            //缩小长度
+            // 缩小长度
             if (this.count > 0 && this.count <= this.items.Length / 4)
                 Resize(this.items.Length / 2);
 

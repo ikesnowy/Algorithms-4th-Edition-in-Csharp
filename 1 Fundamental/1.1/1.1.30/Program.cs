@@ -12,7 +12,7 @@ namespace _1._1._30
      */
     class Program
     {
-        //互质 = 最大公约数为 1 = gcd(i, j) == 1
+        // 互质 = 最大公约数为 1 = gcd(i, j) == 1
         static void Main(string[] args)
         {
             int N = int.Parse(Console.ReadLine());

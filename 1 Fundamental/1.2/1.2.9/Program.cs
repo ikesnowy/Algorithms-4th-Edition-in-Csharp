@@ -13,12 +13,12 @@ namespace _1._2._9
      */
     class Program
     {
-        //参考 1.1.10 节的代码
+        // 参考 1.1.10 节的代码
         static void Main(string[] args)
         {
             Counter count = new Counter("BinarySearch");
 
-            //读取白名单
+            // 读取白名单
             string[] whiteListString = File.ReadAllLines("tinyW.txt");
             int[] whiteList = new int[whiteListString.Length];
             
@@ -28,7 +28,7 @@ namespace _1._2._9
             }
             Array.Sort(whiteList);
 
-            //读取查询值
+            // 读取查询值
             string[] inputListString = File.ReadAllLines("tinyT.txt");
             int[] inputList = new int[inputListString.Length];
 
@@ -37,11 +37,11 @@ namespace _1._2._9
                 inputList[i] = int.Parse(inputListString[i]);
             }
 
-            //对每一个查询值进行二分查找
+            // 对每一个查询值进行二分查找
             foreach (int n in inputList)
             {
                 int result = rank(n, whiteList, count);
-                //将不在白名单上的数据输出
+                // 将不在白名单上的数据输出
                 if (result == -1)
                 {
                     Console.WriteLine(n);
@@ -49,7 +49,7 @@ namespace _1._2._9
             }
             Console.WriteLine();
 
-            //输出查询数目
+            // 输出查询数目
             Console.WriteLine(count.Tally());
         }
 

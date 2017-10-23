@@ -47,17 +47,51 @@ Program.cs 是程序的运行代码。
 
 实现主要逻辑的代码都放在 Program.cs 文件中，窗体的源文件仅包含格式校验等次要功能的代码。  
 
-### 目标平台 & 测试环境：  
+### 测试环境：  
 
-Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
-
-#### 测试环境（部分题目要求测试运算时间）  
+硬件环境：
 
 Surface Pro3
 
 CPU: i7 4650U @1.70GHz
 
-OS: Windows10 15063
+软件环境：
+
+第一章：Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
+
+第二章及以后：Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7  
+
+## 代码规范：
+
+主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
+
+1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
+
+   ```c#
+   // 这是一行 C# 注释内容。
+   ```
+
+2. 类/方法/变量前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/index)。
+
+   ```c#
+   new
+   public/protected/internal/private
+   static
+   virtual
+   sealed
+   override
+   abstract
+   ```
+
+   例子：
+
+   ```c#
+   public abstract class BubbleSort extends Sort
+   {
+     public static abstract void Sort (Comparable[] a);
+     private static override void Show();
+   }
+   ```
 
 ## 相关资料  
 

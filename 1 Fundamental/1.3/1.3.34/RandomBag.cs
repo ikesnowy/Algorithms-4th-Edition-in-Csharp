@@ -64,7 +64,7 @@ namespace _1._3._34
             if (capacity <= 0)
                 throw new ArgumentException();
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.bag[i];
             }
@@ -94,7 +94,7 @@ namespace _1._3._34
                 this.current = -1;
                 this.count = count;
                 this.sequence = new int[count];
-                for (int i = 0; i < this.count; ++i)
+                for (int i = 0; i < this.count; i++)
                 {
                     this.sequence[i] = i;
                 }
@@ -110,7 +110,7 @@ namespace _1._3._34
             {
                 int N = a.Length;
                 Random random = new Random(seed);
-                for (int i = 0; i < N; ++i)
+                for (int i = 0; i < N; i++)
                 {
                     int r = i + random.Next(N - i);
                     int temp = a[i];

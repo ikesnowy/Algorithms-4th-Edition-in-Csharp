@@ -21,7 +21,7 @@ namespace _1._5._20
             string[] input = TestCase.Properties.Resources.tinyUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
             int size = int.Parse(input[0]);
 
-            for (int i = 0; i < size; ++i)
+            for (int i = 0; i < size; i++)
             {
                 if (uf.NewSite() != i)
                 {
@@ -32,7 +32,7 @@ namespace _1._5._20
 
             string[] pair;
             int p, q;
-            for (int i = 1; i < input.Length; ++i)
+            for (int i = 1; i < input.Length; i++)
             {
                 pair = input[i].Split(' ');
                 p = int.Parse(pair[0]);

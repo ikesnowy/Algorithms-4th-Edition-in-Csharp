@@ -27,7 +27,7 @@ namespace _1._2._2
 
             // 读取并建立间隔数组
             Console.WriteLine("Type the data, make sure there is a space between two numbers.\nExample: 0.5 1");
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 string temp = Console.ReadLine();
                 double lo = double.Parse(temp.Split(' ')[0]);
@@ -44,9 +44,9 @@ namespace _1._2._2
             }
 
             // 判断是否相交并输出
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; ++j)
+                for (int j = i + 1; j < N; j++)
                 {
                     if (intervalList[i].Intersect(intervalList[j]))
                     {

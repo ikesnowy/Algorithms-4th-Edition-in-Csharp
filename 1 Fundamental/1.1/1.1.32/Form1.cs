@@ -47,7 +47,7 @@ namespace _1._1._32
                 //建立 double 数组
                 double[] Numbers = new double[stringNums.Length];
                 //将数字从 string 转换为 double
-                for (int i = 0; i < stringNums.Length; ++i)
+                for (int i = 0; i < stringNums.Length; i++)
                 {
                     Numbers[i] = double.Parse(stringNums[i]);
                 }

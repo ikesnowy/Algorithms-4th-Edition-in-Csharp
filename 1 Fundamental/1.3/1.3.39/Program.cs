@@ -21,7 +21,7 @@ namespace _1._3._39
 
             try
             {
-                for (int i = 0; i < 6; ++i)     //引发 OutOfMemory 异常
+                for (int i = 0; i < 6; i++)     //引发 OutOfMemory 异常
                 {
                     buffer.Write(i.ToString());
                 }

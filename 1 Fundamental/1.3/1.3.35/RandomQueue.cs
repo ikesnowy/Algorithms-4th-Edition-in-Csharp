@@ -41,7 +41,7 @@ namespace _1._3._35
             }
 
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }

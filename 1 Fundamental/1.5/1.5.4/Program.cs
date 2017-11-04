@@ -31,7 +31,7 @@ namespace _1._5._4
             int[] parent = weightedQuickUnion.GetParent();
             int[] size = weightedQuickUnion.GetSize();
 
-            for (int i = 1; i < input.Length; ++i)
+            for (int i = 1; i < input.Length; i++)
             {
                 string[] unit = input[i].Split(' ');
                 int p = int.Parse(unit[0]);
@@ -41,7 +41,7 @@ namespace _1._5._4
                 weightedQuickUnion.Union(p, q);
 
                 Console.Write("index:\t");
-                for (int j = 0; j < 10; ++j)
+                for (int j = 0; j < 10; j++)
                 {
                     Console.Write(j + " ");
                 }

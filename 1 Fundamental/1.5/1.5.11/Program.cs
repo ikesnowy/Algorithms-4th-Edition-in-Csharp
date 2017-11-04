@@ -23,7 +23,7 @@ namespace _1._5._11
 
             int p, q;
             string[] pair;
-            for (int i = 1; i < size; ++i)
+            for (int i = 1; i < size; i++)
             {
                 pair = input[i].Split(' ');
                 p = int.Parse(pair[0]);

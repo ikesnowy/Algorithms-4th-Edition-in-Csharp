@@ -32,11 +32,11 @@ namespace _1._1._21
             int[,] array = new int[rows, columns];      // 输入的两个整数
             double[] results = new double[rows];        // 计算结果
 
-            for (int i = 0; i < rows; ++i)
+            for (int i = 0; i < rows; i++)
             {
                 string temp = Console.ReadLine();
                 names[i] = temp.Split(' ')[0];
-                for (int j = 0; j < columns; ++j)
+                for (int j = 0; j < columns; j++)
                 {
                     array[i, j] = int.Parse(temp.Split(' ')[j + 1]);
                 }

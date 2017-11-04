@@ -57,7 +57,7 @@ namespace Generics
             n.item = item;
 
             Node<Item> front = this.first;
-            for (int i = 1; i < position; ++i)
+            for (int i = 1; i < position; i++)
             {
                 front = front.next;
             }
@@ -80,7 +80,7 @@ namespace Generics
             }
 
             Node<Item> current = this.first;
-            for (int i = 0; i < index; ++i)
+            for (int i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -108,7 +108,7 @@ namespace Generics
                 return temp;
             }
 
-            for (int i = 1; i < index; ++i)
+            for (int i = 1; i < index; i++)
             {
                 front = front.next;
             }

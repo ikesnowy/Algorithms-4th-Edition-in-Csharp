@@ -11,7 +11,7 @@
         public WeightedQuickUnionByHeightUF(int n) : base(n)
         {
             this.height = new int[n];
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 this.height[i] = 0;
             }

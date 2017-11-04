@@ -16,7 +16,7 @@ namespace Measurement
         public StaticSETofInts(int[] keys)
         {
             this.a = new int[keys.Length];
-            for (int i = 0; i < keys.Length; ++i)
+            for (int i = 0; i < keys.Length; i++)
             {
                 this.a[i] = keys[i];
             }

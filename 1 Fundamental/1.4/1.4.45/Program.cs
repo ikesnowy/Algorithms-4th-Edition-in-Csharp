@@ -21,13 +21,13 @@ namespace _1._4._45
             bool[] a = new bool[N];
             int randomSize = 0;
             int times = 0;
-            for (times = 0; times < 20; ++times)
+            for (times = 0; times < 20; times++)
             {
-                for (int i = 0; i < N; ++i)
+                for (int i = 0; i < N; i++)
                 {
                     a[i] = false;
                 }
-                for(int i = 0; true; ++i)
+                for(int i = 0; true; i++)
                 {
                     int now = random.Next(N);
                     a[now] = true;
@@ -50,7 +50,7 @@ namespace _1._4._45
         static double HarmonicSum(int N)
         {
             double sum = 0;
-            for (int i = 1; i <= N; ++i)
+            for (int i = 1; i <= N; i++)
             {
                 sum += 1.0 / i;
             }

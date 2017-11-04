@@ -15,7 +15,7 @@ namespace _1._4._3
             double[] testResult = Program.Test();
             Program.PaintLinear(testResult);
             double[] testResultLog = new double[testResult.Length];
-            for (int i = 0; i < testResult.Length; ++i)
+            for (int i = 0; i < testResult.Length; i++)
             {
                 testResultLog[i] = Math.Log10(testResult[i]);
             }

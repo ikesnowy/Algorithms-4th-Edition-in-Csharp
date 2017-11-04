@@ -26,7 +26,7 @@ namespace _1._2._15
             string[] allLines = File.ReadAllLines(path);
             int[] result = new int[allLines.Length];
             
-            for (int i = 0; i < allLines.Length; ++i)
+            for (int i = 0; i < allLines.Length; i++)
             {
                 result[i] = int.Parse(allLines[i]);
             }

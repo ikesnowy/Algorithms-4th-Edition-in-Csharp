@@ -18,7 +18,7 @@ namespace _1._1._23
             string[] whiteList = File.ReadAllLines("largeW.txt");
             int[] WhiteList = new int[whiteList.Length];
 
-            for (int i = 0; i < whiteList.Length; ++i)
+            for (int i = 0; i < whiteList.Length; i++)
             {
                 WhiteList[i] = int.Parse(whiteList[i]);
             }
@@ -29,7 +29,7 @@ namespace _1._1._23
             // 输入样例：5 824524 478510 387221
             string input = Console.ReadLine();
             int[] Query = new int[input.Split(' ').Length];
-            for (int i = 0; i < Query.Length; ++i)
+            for (int i = 0; i < Query.Length; i++)
             {
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }

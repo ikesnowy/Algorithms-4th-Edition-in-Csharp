@@ -36,7 +36,7 @@ namespace _1._3._9
             Stack<Number> numbers = new Stack<Number>();
             int[] leftBrackets = new int[input.Length];
             
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] == ' ')
                     continue;
@@ -79,7 +79,7 @@ namespace _1._3._9
                 }
             }
 
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 while (leftBrackets[i] != 0)
                 {

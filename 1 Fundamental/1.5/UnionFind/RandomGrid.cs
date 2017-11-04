@@ -16,9 +16,9 @@ namespace UnionFind
             var random = new Random();
 
             // 建立横向连接
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n - 1; ++j)
+                for (int j = 0; j < n - 1; j++)
                 {
                     if (random.Next(10) > 4)
                     {
@@ -32,9 +32,9 @@ namespace UnionFind
             }
 
             // 建立纵向连接
-            for (int j = 0; j < n; ++j)
+            for (int j = 0; j < n; j++)
             {
-                for (int i = 0; i < n - 1; ++i)
+                for (int i = 0; i < n - 1; i++)
                 {
                     if (random.Next(10) > 4)
                     {

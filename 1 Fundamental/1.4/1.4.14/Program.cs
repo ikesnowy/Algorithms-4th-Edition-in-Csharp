@@ -18,7 +18,7 @@ namespace _1._4._14
             // char[] split = new char[1] { '\n' };
             // string[] testcases = TestCase.Properties.Resources._1Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
             // long[] a = new long[testcases.Length];
-            // for (int i = 0; i < testcases.Length; ++i)
+            // for (int i = 0; i < testcases.Length; i++)
             // {
             //     a[i] = long.Parse(testcases[i]);
             // }

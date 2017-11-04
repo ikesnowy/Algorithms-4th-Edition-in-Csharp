@@ -30,7 +30,7 @@ namespace _1._4._15
             char[] split = new char[1] { '\n' };
             string[] testCases = TestCase.Properties.Resources._1Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
             int[] a = new int[testCases.Length];
-            for (int i = 0; i < testCases.Length; ++i)
+            for (int i = 0; i < testCases.Length; i++)
             {
                 a[i] = int.Parse(testCases[i]);
             }
@@ -79,7 +79,7 @@ namespace _1._4._15
         static int ThreeSumFaster(int[] a)
         {
             int count = 0;
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 int lo = i + 1;
                 int hi = a.Length - 1;

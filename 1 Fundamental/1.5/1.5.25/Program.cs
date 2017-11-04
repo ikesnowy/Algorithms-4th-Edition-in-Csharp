@@ -35,7 +35,7 @@ namespace _1._5._25
             Console.WriteLine("Quick-Find");
             long last = 0;
             long now = 0;
-            for (int i = 0; i < t; ++i, n *= 2)
+            for (int i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
@@ -57,7 +57,7 @@ namespace _1._5._25
             // quick-union
             Console.WriteLine("Quick-Union");
             n = 40;
-            for (int i = 0; i < t; ++i, n *= 2)
+            for (int i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
@@ -79,7 +79,7 @@ namespace _1._5._25
             // 加权 quick-union
             Console.WriteLine("Weighted Quick-Union");
             n = 40;
-            for (int i = 0; i < t; ++i, n *= 2)
+            for (int i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
@@ -110,7 +110,7 @@ namespace _1._5._25
             Stopwatch timer = new Stopwatch();
             long repeatTime = 3;
             timer.Start();
-            for (int i = 0; i < repeatTime; ++i)
+            for (int i = 0; i < repeatTime; i++)
             {
                 ErdosRenyi.Count(uf, connections);
             }

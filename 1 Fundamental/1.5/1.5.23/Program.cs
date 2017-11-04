@@ -20,7 +20,7 @@ namespace _1._5._23
         static void Main(string[] args)
         {
             int n = 2000;
-            for (int t = 0; t < 5; ++t)
+            for (int t = 0; t < 5; t++)
             {
                 Connection[] input = ErdosRenyi.Generate(n);
                 QuickFindUF quickFind = new QuickFindUF(n);
@@ -51,7 +51,7 @@ namespace _1._5._23
             Stopwatch timer = new Stopwatch();
             int repeatTime = 5;
             timer.Start();
-            for (int i = 0; i < repeatTime; ++i)
+            for (int i = 0; i < repeatTime; i++)
             {
                 ErdosRenyi.Count(uf, connections);
             }

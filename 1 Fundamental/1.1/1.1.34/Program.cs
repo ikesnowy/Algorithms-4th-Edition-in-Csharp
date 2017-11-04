@@ -31,7 +31,7 @@ namespace _1._1._34
             int N = AllNumbers.Length;
             int[] input = new int[N];
 
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 input[i] = int.Parse(AllNumbers[i]);
             }
@@ -69,7 +69,7 @@ namespace _1._1._34
             int max = input[0];
 
             // 只对输入值正向遍历一遍，不需要保存
-            for (int i = 1; i < input.Length; ++i)
+            for (int i = 1; i < input.Length; i++)
             {
                 if (input[i] > max)
                 {
@@ -113,7 +113,7 @@ namespace _1._1._34
             int[] temp = new int[101];
 
             // 只正向遍历一遍，不需要保存
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 if (i < 100)
                 {
@@ -141,7 +141,7 @@ namespace _1._1._34
         {
             long sum = 0;
             // 只正向遍历一遍，不需要保存
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 sum += input[i] * input[i];
             }
@@ -162,7 +162,7 @@ namespace _1._1._34
             long sum = 0;
 
             // 只遍历一遍，且不保存整个数组
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 sum += input[i];
             }
@@ -186,7 +186,7 @@ namespace _1._1._34
             Console.WriteLine();
             double count = 0;
 
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] > ave)
                 {
@@ -209,7 +209,7 @@ namespace _1._1._34
             Array.Sort(input);
 
             Console.WriteLine("Ascending:");
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 Console.Write($" {input[i]}");
             }
@@ -228,7 +228,7 @@ namespace _1._1._34
             int temp = 0;
 
             Console.WriteLine("Shuffle:");
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 temp = random.Next(0, All.Count - 1);
                 Console.Write($" {All[temp]}");

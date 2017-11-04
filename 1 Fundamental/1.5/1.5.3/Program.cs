@@ -25,7 +25,7 @@ namespace _1._5._3
 
                 weightedQuickUnion.Union(p, q);
                 int[] parent = weightedQuickUnion.GetParent();
-                for (int i = 0; i < parent.Length; ++i)
+                for (int i = 0; i < parent.Length; i++)
                 {
                     Console.Write(parent[i] + " ");
                 }

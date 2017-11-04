@@ -18,7 +18,7 @@ namespace _1._4._21
             char[] split = new char[1] { '\n' };
             string[] input = TestCase.Properties.Resources._2Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
             int[] a = new int[input.Length];
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 a[i] = int.Parse(input[i]);
             }

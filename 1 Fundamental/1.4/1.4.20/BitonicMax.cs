@@ -17,7 +17,7 @@ namespace _1._4._20
             Random random = new Random();
             int mid = random.Next(N);
             int[] a = new int[N];
-            for (int i = 1; i < mid; ++i)
+            for (int i = 1; i < mid; i++)
             {
                 a[i] = a[i - 1] + 1 + random.Next(9);
             }
@@ -27,7 +27,7 @@ namespace _1._4._20
                 a[mid] = a[mid - 1] + random.Next(10) - 5;
             }
 
-            for (int i = mid + 1; i < N; ++i)
+            for (int i = mid + 1; i < N; i++)
             {
                 a[i] = a[i - 1] - 1 - random.Next(9);
             }

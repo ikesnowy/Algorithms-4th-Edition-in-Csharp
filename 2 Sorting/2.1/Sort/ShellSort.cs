@@ -51,7 +51,7 @@ namespace Sort
         /// <returns>是否有序。</returns>
         private bool IsHSorted(IComparable[] a, int h)
         {
-            for (int i = h; i < a.Length; ++i)
+            for (int i = h; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - h]))
                 {

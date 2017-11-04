@@ -44,7 +44,7 @@ namespace _1._5._26
             int[] quickUnionResult = new int[size];
             int[] weightedQuickUnionResult = new int[size];
             int p, q;
-            for (int i = 0; i < size; ++i)
+            for (int i = 0; i < size; i++)
             {
                 p = connections[i].P;
                 q = connections[i].Q;
@@ -71,7 +71,7 @@ namespace _1._5._26
             // 构建 total 数组。
             int[] total = new int[cost.Length];
             total[0] = cost[0];
-            for (int i = 1; i < cost.Length; ++i)
+            for (int i = 1; i < cost.Length; i++)
             {
                 total[i] = total[i - 1] + cost[i];
             }
@@ -108,14 +108,14 @@ namespace _1._5._26
             unitX = center.Width / cost.Length;
             unitY = center.Width / costMax;
 
-            for (int i = 0; i < cost.Length; ++i)
+            for (int i = 0; i < cost.Length; i++)
             {
                 grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (cost[i] * unitY));
                 redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - ((total[i] / (i + 1)) * unitY));
             }
 
             // 绘制点。
-            for (int i = 0; i < cost.Length; ++i)
+            for (int i = 0; i < cost.Length; i++)
             {
                 graphics.FillEllipse(Brushes.Gray, new RectangleF(grayPoints[i], new SizeF(5, 5)));
                 graphics.FillEllipse(Brushes.Red, new RectangleF(redPoints[i], new SizeF(5, 5)));

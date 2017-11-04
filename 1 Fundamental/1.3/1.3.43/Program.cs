@@ -33,7 +33,7 @@ namespace _1._3._43
 
             foreach (string p in dirs)
             {
-                for (int i = 0; i < tabs; ++i)
+                for (int i = 0; i < tabs; i++)
                 {
                     Console.Write("  ");
                 }
@@ -44,7 +44,7 @@ namespace _1._3._43
 
             foreach (string f in files)
             {
-                for (int i = 0; i < tabs; ++i)
+                for (int i = 0; i < tabs; i++)
                 {
                     Console.Write("  ");
                 }

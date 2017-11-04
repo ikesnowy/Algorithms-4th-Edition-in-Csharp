@@ -88,7 +88,7 @@ namespace _1._4._43
         {
             Item[] temp = new Item[capcity];
             
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.items[i];
             }

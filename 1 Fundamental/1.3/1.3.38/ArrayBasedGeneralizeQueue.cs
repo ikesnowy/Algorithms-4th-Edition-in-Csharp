@@ -42,14 +42,14 @@ namespace _1._3._38
         private void Resize(int capacity)
         {
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }
             this.queue = temp;
 
             bool[] t = new bool[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 t[i] = this.IsVisited[i];
             }

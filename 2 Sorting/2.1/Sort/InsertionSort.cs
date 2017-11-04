@@ -24,7 +24,7 @@ namespace Sort
         public override void Sort(IComparable[] a)
         {
             int n = a.Length;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
                 {
@@ -44,7 +44,7 @@ namespace Sort
         public void Sort<T>(T[] a, Comparer<T> c)
         {
             int n = a.Length;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 for (int j = i; j > 0 && Less(a[j], a[j - 1], c); --j)
                 {

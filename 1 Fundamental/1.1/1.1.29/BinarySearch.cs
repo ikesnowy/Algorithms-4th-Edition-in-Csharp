@@ -26,7 +26,7 @@ namespace _1._1._29
             Console.WriteLine("Type the numbers you want to query: ");
             string input = Console.ReadLine();
             int[] Query = new int[input.Split(' ').Length];
-            for (int i = 0; i < Query.Length; ++i)
+            for (int i = 0; i < Query.Length; i++)
             {
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }

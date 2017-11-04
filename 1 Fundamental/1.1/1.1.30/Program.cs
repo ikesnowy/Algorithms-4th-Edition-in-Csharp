@@ -19,9 +19,9 @@ namespace _1._1._30
 
             bool[,] a = new bool[N, N];
 
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = 0; j < N; ++j)
+                for (int j = 0; j < N; j++)
                 {
                     a[i, j] = (gcd(i, j) == 1);
                 }

@@ -20,9 +20,9 @@ namespace _1._4._44
             int[] a = new int[N];
             int dupNum = 0;
             int times = 0;
-            for (times = 0; times < 500; ++times)
+            for (times = 0; times < 500; times++)
             {
-                for (int i = 0; i < N; ++i)
+                for (int i = 0; i < N; i++)
                 {
                     a[i] = random.Next(N);
                     if (IsDuplicated(a, i))
@@ -44,7 +44,7 @@ namespace _1._4._44
         /// <returns>有重复则返回 true，否则返回 false。</returns>
         static bool IsDuplicated(int[] a, int i)
         {
-            for (int j = 0; j < i; ++j)
+            for (int j = 0; j < i; j++)
             {
                 if (a[j] == a[i])
                 {

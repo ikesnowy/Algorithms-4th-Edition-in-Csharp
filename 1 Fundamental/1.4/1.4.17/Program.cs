@@ -19,7 +19,7 @@ namespace _1._4._17
             double min = int.MaxValue;
             double max = int.MinValue;
             
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] > max)
                 {

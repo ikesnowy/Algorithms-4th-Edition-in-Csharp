@@ -46,7 +46,7 @@ namespace _1._4._19
             int mid = rowStart + rowLength / 2;
             int minCol = 0;
             // 获取矩阵中间行的最小值
-            for (int i = 0; i < colLength; ++i)
+            for (int i = 0; i < colLength; i++)
             {
                 if (min > matrix[mid, colStart + i])
                 {
@@ -87,7 +87,7 @@ namespace _1._4._19
             int minRow = 0;
 
             // 获取矩阵中间列最小值
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 if (min > matrix[i, mid])
                 {

@@ -22,7 +22,7 @@ namespace UnionFind
             this.count = n;
             this.parent = new int[n];
             this.rank = new byte[n];
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 this.parent[i] = i;
                 this.rank[i] = 0;

@@ -36,7 +36,7 @@ namespace Sort
         }
 
         /// <summary>
-        /// 利用插入排序将数组按排序。（使用指定比较器）
+        /// 利用插入排序将数组排序。（使用指定比较器）
         /// </summary>
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">需要排序的数组。</param>

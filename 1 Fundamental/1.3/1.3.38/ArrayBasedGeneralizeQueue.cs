@@ -11,7 +11,6 @@ namespace _1._3._38
         private Item[] queue;
         private bool[] IsVisited;
         private int count;
-        private int first;
         private int last;
 
         /// <summary>
@@ -21,7 +20,6 @@ namespace _1._3._38
         {
             this.queue = new Item[2];
             this.IsVisited = new bool[2];
-            this.first = 0;
             this.last = 0;
             this.count = 0;
         }

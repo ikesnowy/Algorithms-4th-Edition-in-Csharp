@@ -40,11 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseSort.cs" />
     <Compile Include="InsertionSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectionSort.cs" />
     <Compile Include="ShellSort.cs" />
     <Compile Include="Sort.cs" />
+    <Compile Include="SortCompare.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,18 +10,18 @@ namespace Sort
     /// <summary>
     /// 选择排序类。
     /// </summary>
-    public class SelectionSort : Sort
+    public class SelectionSort : BaseSort
     {
         /// <summary>
-        /// 这个类不应该被初始化。
+        /// 默认构造函数。
         /// </summary>
-        private SelectionSort() { }
+        public SelectionSort() { }
 
         /// <summary>
         /// 利用选择排序将数组按升序排序。
         /// </summary>
         /// <param name="a">需要排序的数组。</param>
-        public static void Sort(IComparable[] a)
+        public override void Sort(IComparable[] a)
         {
             int n = a.Length;
             for (int i = 0; i < n; ++i)
@@ -44,7 +44,7 @@ namespace Sort
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">需要排序的数组。</param>
         /// <param name="c">比较器。</param>
-        public static void Sort<T>(T[] a, Comparer<T> c)
+        public void Sort<T>(T[] a, Comparer<T> c)
         {
             int n = a.Length;
             for (int i = 0; i < n; ++i)

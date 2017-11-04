@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Sort
 {
-    public class ShellSort : Sort
+    public class ShellSort : BaseSort
     {
         /// <summary>
-        /// 这个类不应该被初始化。
+        /// 默认构造函数。
         /// </summary>
-        private ShellSort() { }
+        public ShellSort() { }
 
         /// <summary>
         /// 利用希尔排序将数组按升序排序。
         /// </summary>
         /// <param name="a">需要排序的数组。</param>
-        public static void Sort(IComparable[] a)
+        public override void Sort(IComparable[] a)
         {
             int n = a.Length;
 
@@ -49,7 +49,7 @@ namespace Sort
         /// <param name="a">排序后的数组。</param>
         /// <param name="h">子数组间隔。</param>
         /// <returns>是否有序。</returns>
-        private static bool IsHSorted(IComparable[] a, int h)
+        private bool IsHSorted(IComparable[] a, int h)
         {
             for (int i = h; i < a.Length; ++i)
             {

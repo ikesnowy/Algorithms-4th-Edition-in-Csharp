@@ -59,7 +59,7 @@ CPU: i7 4650U @1.70GHz
 
 第一章：Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
 
-第二章及以后：Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7  
+第二章及以后：Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7 
 
 ## 代码规范：
 

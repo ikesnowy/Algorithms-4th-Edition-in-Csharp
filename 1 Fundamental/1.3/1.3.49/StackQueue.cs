@@ -78,7 +78,7 @@ namespace _1._3._49
             else if (!this.isRecopying && Lendiff() == 0)
             {
                 Item temp = this.H.Pop();
-                this.HH = this.H;
+                this.h = this.H;
                 this.isRecopying = true;
                 OneStep(OneStep(this));
                 return temp;

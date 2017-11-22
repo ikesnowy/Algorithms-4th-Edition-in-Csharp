@@ -29,7 +29,7 @@ namespace Sort
                 int min = i;
                 for (int j = i + 1; j < n; j++)
                 {
-                    if (Less(a[j], a[i]))
+                    if (Less(a[j], a[min]))
                         min = j;
                 }
                 Exch(a, i, min);
@@ -52,7 +52,7 @@ namespace Sort
                 int min = i;
                 for (int j = i + 1; j < n; j++)
                 {
-                    if (Less(a[j], a[i], c))
+                    if (Less(a[j], a[min], c))
                         min = j;
                 }
                 Exch(a, i, min);

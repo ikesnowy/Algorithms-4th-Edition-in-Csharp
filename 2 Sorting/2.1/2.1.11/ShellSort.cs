@@ -19,7 +19,7 @@ namespace _2._1._11
         /// 利用希尔排序将数组按升序排序。
         /// </summary>
         /// <param name="a">需要排序的数组。</param>
-        public override void Sort(IComparable[] a)
+        public override void Sort<T>(T[] a)
         {
             int n = a.Length;
             int[] h = new int[2];   // 预先准备好的 h 值数组
@@ -60,7 +60,7 @@ namespace _2._1._11
         /// <param name="a">排序后的数组。</param>
         /// <param name="h">子数组间隔。</param>
         /// <returns>是否有序。</returns>
-        private bool IsHSorted(IComparable[] a, int h)
+        private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
         {
             for (int i = h; i < a.Length; i++)
             {

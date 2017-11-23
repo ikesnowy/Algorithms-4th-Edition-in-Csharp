@@ -15,7 +15,7 @@ namespace Sort
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="a">用于测试的数据。</param>
         /// <returns>排序的耗时。</returns>
-        public static double Time(BaseSort sort, IComparable[] a)
+        public static double Time<T>(BaseSort sort, T[] a) where T : IComparable<T>
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
             sort.Sort(a);
@@ -32,7 +32,7 @@ namespace Sort
         public static double TimeRandomInput(BaseSort sort, int n, int trials)
         {
             double total = 0.0;
-            IComparable[] a = new IComparable[n];
+            double[] a = new double[n];
             Random random = new Random();
             for (int t = 0; t < trials; t++)
             {
@@ -55,7 +55,7 @@ namespace Sort
         public static double TimeSortedInput(BaseSort sort, int n, int trials)
         {
             double total = 0.0;
-            IComparable[] a = new IComparable[n];
+            double[] a = new double[n];
             for (int t = 0; t < trials; t++)
             {
                 for (int i = 0; i < n; i++)

@@ -10,8 +10,8 @@ namespace SortUnionTest
         [TestMethod]
         public void SelectionSortTest()
         {
-            IComparable[] unsorted = GetUnsortedData();
-            IComparable[] sorted = GetSortedData();
+            int[] unsorted = GetUnsortedData();
+            int[] sorted = GetSortedData();
 
             SelectionSort sort = new SelectionSort();
             sort.Sort(unsorted);
@@ -24,8 +24,8 @@ namespace SortUnionTest
         [TestMethod]
         public void InsertionSortTest()
         {
-            IComparable[] unsorted = GetUnsortedData();
-            IComparable[] sorted = GetSortedData();
+            int[] unsorted = GetUnsortedData();
+            int[] sorted = GetSortedData();
 
             InsertionSort sort = new InsertionSort();
             sort.Sort(unsorted);
@@ -38,8 +38,8 @@ namespace SortUnionTest
         [TestMethod]
         public void ShellSortTest()
         {
-            IComparable[] unsorted = GetUnsortedData();
-            IComparable[] sorted = GetSortedData();
+            int[] unsorted = GetUnsortedData();
+            int[] sorted = GetSortedData();
 
             ShellSort sort = new ShellSort();
             sort.Sort(unsorted);
@@ -50,11 +50,11 @@ namespace SortUnionTest
         }
 
 
-        public IComparable[] GetUnsortedData()
+        public int[] GetUnsortedData()
         {
             char[] split = new char[2] { '\n', '\r' };
             string[] unsortedString = Properties.Resources._32Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            IComparable[] unsorted = new IComparable[unsortedString.Length];
+            int[] unsorted = new int[unsortedString.Length];
             for (int i = 0; i < unsortedString.Length; i++)
             {
                 unsorted[i] = int.Parse(unsortedString[i]);
@@ -62,11 +62,11 @@ namespace SortUnionTest
             return unsorted;
         }
 
-        public IComparable[] GetSortedData()
+        public int[] GetSortedData()
         {
             char[] split = new char[2] { '\n', '\r' };
             string[] sortedString = Properties.Resources._32Kints_Sorted.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            IComparable[] sorted = new IComparable[sortedString.Length];
+            int[] sorted = new int[sortedString.Length];
             for (int i = 0; i < sortedString.Length; i++)
             {
                 sorted[i] = int.Parse(sortedString[i]);

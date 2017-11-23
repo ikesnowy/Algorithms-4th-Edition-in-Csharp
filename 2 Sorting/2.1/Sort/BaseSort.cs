@@ -11,7 +11,7 @@ namespace Sort
     /// </summary>
     public abstract class BaseSort
     {
-        public abstract void Sort(IComparable[] a);
+        public abstract void Sort<T>(T[] a) where T : IComparable<T>;
 
         /// <summary>
         /// 比较第一个参数是否小于第二个参数。
@@ -20,7 +20,7 @@ namespace Sort
         /// <param name="w">第二个参数。</param>
         /// <returns>如果第一个参数小于第二个参数则返回 true，
         /// 否则返回 false。</returns>
-        protected bool Less(IComparable v, IComparable w)
+        protected bool Less<T>(T v, T w) where T :IComparable<T>
         {
             return v.CompareTo(w) < 0;
         }
@@ -41,19 +41,6 @@ namespace Sort
         /// <summary>
         /// 交换数组中下标为 i, j 的两个元素。
         /// </summary>
-        /// <param name="a">元素所在的数组。</param>
-        /// <param name="i">需要交换的第一个元素。</param>
-        /// <param name="j">需要交换的第二个元素。</param>
-        protected void Exch(IComparable[] a, int i, int j)
-        {
-            IComparable t = a[i];
-            a[i] = a[j];
-            a[j] = t;
-        }
-
-        /// <summary>
-        /// 交换数组中下标为 i, j 的两个元素。
-        /// </summary>
         /// <typeparam name="T">元素的类型。</typeparam>
         /// <param name="a">元素所在的数组。</param>
         /// <param name="i">需要交换的第一个元素。</param>
@@ -69,7 +56,7 @@ namespace Sort
         /// 将数组的内容打印在一行中。
         /// </summary>
         /// <param name="a">需要打印的数组。</param>
-        protected void Show(IComparable[] a)
+        protected void Show<T>(T[] a) where T : IComparable<T>
         {
             for (int i = 0; i < a.Length; i++)
             {
@@ -83,7 +70,7 @@ namespace Sort
         /// </summary>
         /// <param name="a">需要检查的数组。</param>
         /// <returns>有序则返回 true，否则返回 false。</returns>
-        public bool IsSorted(IComparable[] a)
+        public bool IsSorted<T>(T[] a) where T : IComparable<T>
         {
             for (int i = 1; i < a.Length; i++)
             {
@@ -116,7 +103,7 @@ namespace Sort
         /// <param name="lo">检查范围的下界。</param>
         /// <param name="hi">检查范围的上界。</param>
         /// <returns>有序则返回 true，否则返回 false。</returns>
-        public bool IsSorted(IComparable[] a, int lo, int hi)
+        public bool IsSorted<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             for (int i = lo + 1; i <= hi; i++)
             {

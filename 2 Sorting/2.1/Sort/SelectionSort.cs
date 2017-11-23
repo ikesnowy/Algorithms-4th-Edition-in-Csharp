@@ -21,7 +21,7 @@ namespace Sort
         /// 利用选择排序将数组按升序排序。
         /// </summary>
         /// <param name="a">需要排序的数组。</param>
-        public override void Sort(IComparable[] a)
+        public override void Sort<T>(T[] a)
         {
             int n = a.Length;
             for (int i = 0; i < n; i++)

@@ -55,11 +55,16 @@
     </Compile>
     <Compile Include="SortTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProblemClassTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\2.1.11\2.1.11.csproj">
+      <Project>{eb27f423-f8e4-44af-a4af-62e75e189617}</Project>
+      <Name>2.1.11</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sort\Sort.csproj">
       <Project>{98883e39-656a-4887-8cba-963c7e8d4a02}</Project>
       <Name>Sort</Name>

@@ -65,6 +65,14 @@
       <Project>{eb27f423-f8e4-44af-a4af-62e75e189617}</Project>
       <Name>2.1.11</Name>
     </ProjectReference>
+    <ProjectReference Include="..\2.1.12\2.1.12.csproj">
+      <Project>{787202f8-efe8-4c22-8bc1-b3b9a4945ad7}</Project>
+      <Name>2.1.12</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2.1.16\2.1.16.csproj">
+      <Project>{a9d503d3-9e04-4581-b322-f2141524fdc9}</Project>
+      <Name>2.1.16</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sort\Sort.csproj">
       <Project>{98883e39-656a-4887-8cba-963c7e8d4a02}</Project>
       <Name>Sort</Name>

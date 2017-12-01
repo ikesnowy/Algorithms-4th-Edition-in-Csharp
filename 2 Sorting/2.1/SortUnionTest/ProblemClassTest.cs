@@ -35,6 +35,20 @@ namespace SortUnionTest
         }
 
         [TestMethod]
+        public void ShellSort19Test()
+        {
+            int[] unsorted = GetUnsortedData();
+            int[] sorted = GetSortedData();
+
+            _2._1._19.ShellSort sort = new _2._1._19.ShellSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+        }
+
+        [TestMethod]
         public void SelectionSort16Test()
         {
             int[] unsorted = GetUnsortedData();

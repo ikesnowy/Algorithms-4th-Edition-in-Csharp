@@ -47,6 +47,8 @@ namespace _2._1._19
             ShellSort sort = new ShellSort();
             sort.Sort(b);
 
+            b = ShellSortWorstCase.GetWorst(p, 100);
+            sort.Sort(b);
         }
     }
 }

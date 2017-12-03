@@ -36,8 +36,8 @@ namespace _2._1._19
                 {
                     for (int j = i; j >= h && Less(a[j], a[j - h]); j -= h)
                     {
-                        compareTime++;
                         Exch(a, j, j - h);
+                        compareTime++;
                     }
                 }
                 Debug.Assert(IsHSorted(a, h));

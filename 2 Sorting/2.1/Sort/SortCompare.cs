@@ -7,7 +7,10 @@ using System.Diagnostics;
 
 namespace Sort
 {
-    public class SortCompare
+    /// <summary>
+    /// 静态类，提供一系列用于测试排序算法的方法。
+    /// </summary>
+    public static class SortCompare
     {
         /// <summary>
         /// 对相应排序算法执行一次耗时测试。

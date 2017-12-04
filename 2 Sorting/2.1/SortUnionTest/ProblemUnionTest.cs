@@ -1,16 +1,18 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Sort;
+using SortData;
 
 namespace SortUnionTest
 {
     [TestClass]
-    public class ProblemClassTest
+    public class ProblemUnionTest
     {
         [TestMethod]
         public void ShellSort11Test()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             _2._1._11.ShellSort sort = new _2._1._11.ShellSort();
             sort.Sort(unsorted);
@@ -23,8 +25,8 @@ namespace SortUnionTest
         [TestMethod]
         public void ShellSort12Test()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             _2._1._12.ShellSort sort = new _2._1._12.ShellSort();
             sort.Sort(unsorted);
@@ -37,8 +39,8 @@ namespace SortUnionTest
         [TestMethod]
         public void ShellSort19Test()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             _2._1._19.ShellSort sort = new _2._1._19.ShellSort();
             sort.Sort(unsorted);
@@ -51,7 +53,7 @@ namespace SortUnionTest
         [TestMethod]
         public void SelectionSort16Test()
         {
-            int[] unsorted = GetUnsortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
             int testSize = 1000;
             string[] unsortedString = new string[testSize];
             string[] sortedString = new string[testSize];
@@ -71,28 +73,32 @@ namespace SortUnionTest
             }
         }
 
-        public int[] GetUnsortedData()
+        [TestMethod]
+        public void InsertionSort24Test()
         {
-            char[] split = new char[2] { '\n', '\r' };
-            string[] unsortedString = Properties.Resources._32Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] unsorted = new int[unsortedString.Length];
-            for (int i = 0; i < unsortedString.Length; i++)
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
+
+            _2._1._24.InsertionSort sort = new _2._1._24.InsertionSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
             {
-                unsorted[i] = int.Parse(unsortedString[i]);
+                Assert.AreEqual(unsorted[i], sorted[i]);
             }
-            return unsorted;
         }
 
-        public int[] GetSortedData()
+        [TestMethod]
+        public void InsertionSort25Test()
         {
-            char[] split = new char[2] { '\n', '\r' };
-            string[] sortedString = Properties.Resources._32Kints_Sorted.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] sorted = new int[sortedString.Length];
-            for (int i = 0; i < sortedString.Length; i++)
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
+
+            _2._1._25.InsertionSort sort = new _2._1._25.InsertionSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
             {
-                sorted[i] = int.Parse(sortedString[i]);
+                Assert.AreEqual(unsorted[i], sorted[i]);
             }
-            return sorted;
         }
     }
 }

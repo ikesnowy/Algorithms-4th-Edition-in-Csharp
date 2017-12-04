@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Sort;
 
-namespace _2._1._24
+namespace _2._1._25
 {
     /// <summary>
     /// 插入排序类。
@@ -27,7 +27,7 @@ namespace _2._1._24
             int n = a.Length;
             int exchanges = 0;
 
-            for (int i = n - 1; i > 0; i--)
+            for (int i = n - 1; i > 0 ; i--)
             {
                 if (Less(a[i], a[i - 1]))
                 {
@@ -38,12 +38,16 @@ namespace _2._1._24
             if (exchanges == 0)
                 return;
 
-            for (int i = 1; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
-                for (int j = i; Less(a[j], a[j - 1]); --j)
+                int j = i;
+                T v = a[i];
+                while (Less(v, a[j - 1]))
                 {
-                    Exch(a, j, j - 1);
+                    a[j] = a[j - 1];
+                    j--;
                 }
+                a[j] = v;
                 Debug.Assert(IsSorted(a, 0, i));
             }
             Debug.Assert(IsSorted(a));
@@ -71,12 +75,16 @@ namespace _2._1._24
             if (exchanges == 0)
                 return;
 
-            for (int i = 1; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
-                for (int j = i; Less(a[j], a[j - 1], c); --j)
+                int j = i;
+                T v = a[i];
+                while (Less(v, a[j - 1], c))
                 {
-                    Exch(a, j, j - 1);
+                    a[j] = a[j - 1];
+                    j--;
                 }
+                a[j] = v;
                 Debug.Assert(IsSorted(a, 0, i, c));
             }
             Debug.Assert(IsSorted(a, c));

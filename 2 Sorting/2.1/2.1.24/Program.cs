@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sort;
-using SortUnionTest;
+using SortData;
 
 namespace _2._1._24
 {
@@ -23,7 +23,7 @@ namespace _2._1._24
     {
         static void Main(string[] args)
         {
-            int[] a = new SortTest().GetUnsortedData();
+            int[] a = DataManager.GetUnsortedData();
             // 耗时 9 秒（@Surface Pro 3 i7 512G）
             Console.WriteLine(SortCompare.Time(new InsertionSort(), a));
             // 耗时 5 秒（@Surface Pro 3 i7 512G）

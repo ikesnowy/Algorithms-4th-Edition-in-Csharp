@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Sort;
+using SortData;
 
 namespace SortUnionTest
 {
@@ -10,8 +11,8 @@ namespace SortUnionTest
         [TestMethod]
         public void SelectionSortTest()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             SelectionSort sort = new SelectionSort();
             sort.Sort(unsorted);
@@ -24,8 +25,8 @@ namespace SortUnionTest
         [TestMethod]
         public void InsertionSortTest()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             InsertionSort sort = new InsertionSort();
             sort.Sort(unsorted);
@@ -38,8 +39,8 @@ namespace SortUnionTest
         [TestMethod]
         public void ShellSortTest()
         {
-            int[] unsorted = GetUnsortedData();
-            int[] sorted = GetSortedData();
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
 
             ShellSort sort = new ShellSort();
             sort.Sort(unsorted);
@@ -47,31 +48,6 @@ namespace SortUnionTest
             {
                 Assert.AreEqual(unsorted[i], sorted[i]);
             }
-        }
-
-
-        public int[] GetUnsortedData()
-        {
-            char[] split = new char[2] { '\n', '\r' };
-            string[] unsortedString = Properties.Resources._32Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] unsorted = new int[unsortedString.Length];
-            for (int i = 0; i < unsortedString.Length; i++)
-            {
-                unsorted[i] = int.Parse(unsortedString[i]);
-            }
-            return unsorted;
-        }
-
-        public int[] GetSortedData()
-        {
-            char[] split = new char[2] { '\n', '\r' };
-            string[] sortedString = Properties.Resources._32Kints_Sorted.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] sorted = new int[sortedString.Length];
-            for (int i = 0; i < sortedString.Length; i++)
-            {
-                sorted[i] = int.Parse(sortedString[i]);
-            }
-            return sorted;
         }
     }
 }

@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProblemUnionTest.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -55,7 +56,6 @@
     </Compile>
     <Compile Include="SortTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProblemClassTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -76,6 +76,18 @@
     <ProjectReference Include="..\2.1.19\2.1.19.csproj">
       <Project>{e7442c0c-178f-4648-b5c0-561412a223cc}</Project>
       <Name>2.1.19</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2.1.24\2.1.24.csproj">
+      <Project>{97b86d54-35b1-446e-893c-86a3d1d3b5fb}</Project>
+      <Name>2.1.24</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2.1.25\2.1.25.csproj">
+      <Project>{cc64c1a3-acb5-4ab8-bce2-4a3f16685c9f}</Project>
+      <Name>2.1.25</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SortData\SortData.csproj">
+      <Project>{513ea35b-323e-4a3c-b499-c4e70f2c0c47}</Project>
+      <Name>SortData</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sort\Sort.csproj">
       <Project>{98883e39-656a-4887-8cba-963c7e8d4a02}</Project>

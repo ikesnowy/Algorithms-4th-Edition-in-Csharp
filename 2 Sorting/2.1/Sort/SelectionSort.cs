@@ -44,7 +44,7 @@ namespace Sort
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">需要排序的数组。</param>
         /// <param name="c">比较器。</param>
-        public void Sort<T>(T[] a, Comparer<T> c)
+        public void Sort<T>(T[] a, IComparer<T> c)
         {
             int n = a.Length;
             for (int i = 0; i < n; i++)

@@ -33,7 +33,7 @@ namespace Sort
         /// <param name="w">比较的第二个元素</param>
         /// <param name="c">比较器。</param>
         /// <returns></returns>
-        protected bool Less<T>(T v, T w, Comparer<T> c)
+        protected bool Less<T>(T v, T w, IComparer<T> c)
         {
             return c.Compare(v, w) < 0;
         }
@@ -86,7 +86,7 @@ namespace Sort
         /// <param name="a">需要检查的数组。</param>
         /// <param name="c">比较器。</param>
         /// <returns>有序则返回 true，否则返回 false。</returns>
-        public bool IsSorted<T>(T[] a, Comparer<T> c)
+        public bool IsSorted<T>(T[] a, IComparer<T> c)
         {
             for (int i = 1; i < a.Length; i++)
             {
@@ -122,7 +122,7 @@ namespace Sort
         /// <param name="hi">检查范围的上界。</param>
         /// <param name="c">比较器。</param>
         /// <returns>有序则返回 true，否则返回 false。</returns>
-        public bool IsSorted<T>(T[] a, int lo, int hi, Comparer<T> c)
+        public bool IsSorted<T>(T[] a, int lo, int hi, IComparer<T> c)
         {
             for (int i = lo + 1; i <= hi; i++)
             {

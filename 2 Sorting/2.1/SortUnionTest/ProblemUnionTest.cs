@@ -100,5 +100,19 @@ namespace SortUnionTest
                 Assert.AreEqual(unsorted[i], sorted[i]);
             }
         }
+
+        [TestMethod]
+        public void InsertionSort26Test()
+        {
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
+
+            _2._1._26.InsertionSort sort = new _2._1._26.InsertionSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+        }
     }
 }

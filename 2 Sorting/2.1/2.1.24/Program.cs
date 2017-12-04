@@ -24,10 +24,11 @@ namespace _2._1._24
         static void Main(string[] args)
         {
             int[] a = DataManager.GetUnsortedData();
+            int[] b = DataManager.GetUnsortedData();
             // 耗时 9 秒（@Surface Pro 3 i7 512G）
             Console.WriteLine(SortCompare.Time(new InsertionSort(), a));
             // 耗时 5 秒（@Surface Pro 3 i7 512G）
-            Console.WriteLine(SortCompare.Time(new Sort.InsertionSort(), a));
+            Console.WriteLine(SortCompare.Time(new Sort.InsertionSort(), b));
         }
     }
 }

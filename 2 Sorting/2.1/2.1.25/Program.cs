@@ -22,10 +22,11 @@ namespace _2._1._25
         static void Main(string[] args)
         {
             int[] a = DataManager.GetUnsortedData();// 获得 32 K 数据
-            // 耗时 8101 毫秒（@Surface Pro 3 i7 512G）
+            int[] b = DataManager.GetUnsortedData();
+            // 耗时 12354 毫秒（@Surface Pro 3 i7 512G）
             Console.WriteLine(SortCompare.Time(new InsertionSort(), a));
-            // 耗时 5623 毫秒（@Surface Pro 3 i7 512G）
-            Console.WriteLine(SortCompare.Time(new Sort.InsertionSort(), a));
+            // 耗时 15034 毫秒（@Surface Pro 3 i7 512G）
+            Console.WriteLine(SortCompare.Time(new Sort.InsertionSort(), b));
         }
     }
 }

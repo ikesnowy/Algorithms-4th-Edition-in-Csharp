@@ -39,6 +39,7 @@ namespace _2._1._19
                         Exch(a, j, j - h);
                         compareTime++;
                     }
+                    compareTime++;
                 }
                 Debug.Assert(IsHSorted(a, h));
                 h /= 3;

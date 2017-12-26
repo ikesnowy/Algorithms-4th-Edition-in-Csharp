@@ -57,9 +57,10 @@ namespace _2._1._29
             int[] h = new int[2];   // 预先准备好的 h 值数组
 
             int hTemp = 1;
-            for (int i = 0; hTemp < n; i++)
+            int sequenceSize = 0;
+            for (sequenceSize = 0; hTemp < n; sequenceSize++)
             {
-                if (i >= h.Length)  // 如果数组不够大则双倍扩容
+                if (sequenceSize >= h.Length)  // 如果数组不够大则双倍扩容
                 {
                     int[] expand = new int[h.Length * 2];
                     for (int j = 0; j < h.Length; j++)
@@ -68,11 +69,11 @@ namespace _2._1._29
                     }
                     h = expand;
                 }
-                h[i] = hTemp;
+                h[sequenceSize] = hTemp;
                 hTemp = hTemp * 3 + 1;
             }
 
-            for (int t = h.Length - 1; t >= 0; t--)
+            for (int t = sequenceSize - 1; t >= 0; t--)
             {
                 for (int i = h[t]; i < n; i++)
                 {

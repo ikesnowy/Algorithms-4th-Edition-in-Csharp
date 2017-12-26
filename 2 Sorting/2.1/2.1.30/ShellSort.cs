@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sort;
 
-namespace _2._1._11
+namespace _2._1._30
 {
     public class ShellSort : BaseSort
     {
@@ -14,6 +14,36 @@ namespace _2._1._11
         /// 默认构造函数。
         /// </summary>
         public ShellSort() { }
+
+        /// <summary>
+        /// 利用希尔排序将数组按升序排序，使用几何级数序列。
+        /// </summary>
+        /// <typeparam name="T">待排序的元素类型。</typeparam>
+        /// <param name="a">待排序的数组。</param>
+        /// <param name="t">几何级数的底数。</param>
+        public void Sort<T>(T[] a, int t) where T : IComparable<T>
+        {
+            int n = a.Length;
+            int h = 1;
+            while (h <= a.Length)
+            {
+                h *= t;
+            }
+
+            while (h >= 1)
+            {
+                for (int i = h; i < n; i++)
+                {
+                    for (int j = i; j >= h && Less(a[j], a[j - h]); j -= h)
+                    {
+                        Exch(a, j, j - h);
+                    }
+                }
+                Debug.Assert(IsHSorted(a, h));
+                h /= t;
+            }
+            Debug.Assert(IsSorted(a));
+        }
 
         /// <summary>
         /// 利用希尔排序将数组按升序排序。
@@ -25,10 +55,9 @@ namespace _2._1._11
             int[] h = new int[2];   // 预先准备好的 h 值数组
 
             int hTemp = 1;
-            int sequenceSize = 0;
-            for (sequenceSize = 0; hTemp < n; sequenceSize++)
+            for (int i = 0; hTemp < n; i++)
             {
-                if (sequenceSize >= h.Length)  // 如果数组不够大则双倍扩容
+                if (i >= h.Length)  // 如果数组不够大则双倍扩容
                 {
                     int[] expand = new int[h.Length * 2];
                     for (int j = 0; j < h.Length; j++)
@@ -37,11 +66,11 @@ namespace _2._1._11
                     }
                     h = expand;
                 }
-                h[sequenceSize] = hTemp;
+                h[i] = hTemp;
                 hTemp = hTemp * 3 + 1;
             }
 
-            for (int t = sequenceSize - 1; t >= 0; t--)
+            for (int t = h.Length - 1; t >= 0; t--)
             {
                 for (int i = h[t]; i < n; i++)
                 {

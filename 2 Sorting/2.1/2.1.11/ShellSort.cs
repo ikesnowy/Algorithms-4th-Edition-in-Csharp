@@ -40,7 +40,7 @@ namespace _2._1._11
                 hTemp = hTemp * 3 + 1;
             }
 
-            for (int t = 0; t < h.Length; t++)
+            for (int t = h.Length - 1; t >= 0; t--)
             {
                 for (int i = h[t]; i < n; i++)
                 {

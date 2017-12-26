@@ -51,6 +51,49 @@ namespace SortUnionTest
         }
 
         [TestMethod]
+        public void ShellSort29Test()
+        {
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
+
+            // ShellSort that use h = 3^n / 2
+            _2._1._29.ShellSort sort = new _2._1._29.ShellSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+
+            // ShellSort that use offered h sequence
+            unsorted = DataManager.GetUnsortedData();
+
+            int n = unsorted.Length;
+            int[] h = new int[2];   // 预先准备好的 h 值数组
+
+            int hTemp = 1;
+            for (int i = 0; hTemp < n; i++)
+            {
+                if (i >= h.Length)  // 如果数组不够大则双倍扩容
+                {
+                    int[] expand = new int[h.Length * 2];
+                    for (int j = 0; j < h.Length; j++)
+                    {
+                        expand[j] = h[j];
+                    }
+                    h = expand;
+                }
+                h[i] = hTemp;
+                hTemp = hTemp * 3 + 1;
+            }
+
+            sort.Sort(unsorted, h);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+        }
+
+        [TestMethod]
         public void SelectionSort16Test()
         {
             int[] unsorted = DataManager.GetUnsortedData();

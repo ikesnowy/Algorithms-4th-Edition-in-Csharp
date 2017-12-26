@@ -89,6 +89,10 @@
       <Project>{9483df13-23a9-4da7-935c-b029c5de85b3}</Project>
       <Name>2.1.26</Name>
     </ProjectReference>
+    <ProjectReference Include="..\2.1.29\2.1.29.csproj">
+      <Project>{ceb8fd08-9e24-4e93-9e17-77310c867ecf}</Project>
+      <Name>2.1.29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SortData\SortData.csproj">
       <Project>{513ea35b-323e-4a3c-b499-c4e70f2c0c47}</Project>
       <Name>SortData</Name>

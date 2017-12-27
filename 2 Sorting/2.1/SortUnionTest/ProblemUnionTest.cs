@@ -94,6 +94,29 @@ namespace SortUnionTest
         }
 
         [TestMethod]
+        public void ShellSort30Test()
+        {
+            int[] unsorted = DataManager.GetUnsortedData();
+            int[] sorted = DataManager.GetSortedData();
+
+            // Normal shell sort
+            _2._1._30.ShellSort sort = new _2._1._30.ShellSort();
+            sort.Sort(unsorted);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+
+            // Shell sort that use geometric progression
+            unsorted = DataManager.GetUnsortedData();
+            sort.Sort(unsorted, 2);
+            for (int i = 0; i < unsorted.Length; i++)
+            {
+                Assert.AreEqual(unsorted[i], sorted[i]);
+            }
+        }
+
+        [TestMethod]
         public void SelectionSort16Test()
         {
             int[] unsorted = DataManager.GetUnsortedData();

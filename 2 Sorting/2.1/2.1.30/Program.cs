@@ -24,6 +24,7 @@ namespace _2._1._30
      */
     class Program
     {
+        // t = 2, 3, 4
         static void Main(string[] args)
         {
             int[] array = SortCompare.GetRandomArray(1000000);
@@ -42,19 +43,20 @@ namespace _2._1._30
             long nowTime = 0;
             ShellSort shellSort = new ShellSort();
 
-            for (int t = 100; t <= 100000; t++)
+            for (int t = 2; t <= 1000000; t++)
             {
                 Console.WriteLine(t);
+                
+                timer.Restart();
+                shellSort.Sort(array, t);
+                nowTime = timer.ElapsedMilliseconds;
+                timer.Stop();
+                Console.WriteLine("Elapsed Time:" + nowTime);
                 for (int i = 0; i < bestTimes.Length; i++)
                 {
                     Console.Write("t:" + bestTs[i]);
                     Console.WriteLine("\tTime:" + bestTimes[i]);
                 }
-                timer.Restart();
-                shellSort.Sort(array, t);
-                nowTime = timer.ElapsedMilliseconds;
-                timer.Stop();
-
                 if (bestTimes[2] > nowTime)
                 {
                     bestTimes[2] = nowTime;

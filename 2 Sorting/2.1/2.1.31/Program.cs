@@ -35,7 +35,7 @@ namespace _2._1._31
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine("N:" + N);
-                int[] array = SortCompare.GetRandomArray(N);
+                int[] array = SortCompare.GetRandomArrayInt(N);
                 int[] arrayBak = new int[N];
                 array.CopyTo(arrayBak, 0);
 

@@ -27,7 +27,7 @@ namespace _2._1._30
         // t = 2, 3, 4
         static void Main(string[] args)
         {
-            int[] array = SortCompare.GetRandomArray(1000000);
+            int[] array = SortCompare.GetRandomArrayInt(1000000);
             int[] array2 = new int[array.Length];
             array.CopyTo(array2, 0);
             Stopwatch timer = new Stopwatch();

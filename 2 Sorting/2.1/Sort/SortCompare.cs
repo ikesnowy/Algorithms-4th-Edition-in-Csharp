@@ -75,13 +75,29 @@ namespace Sort
         /// </summary>
         /// <param name="n">数组的大小。</param>
         /// <returns>大小为 n 的随机整数数组。</returns>
-        public static int[] GetRandomArray(int n)
+        public static int[] GetRandomArrayInt(int n)
         {
             Random random = new Random();
             int[] array = new int[n];
             for (int i = 0; i < n; i++)
             {
                 array[i] = random.Next();
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 获取大小为 n 的随机 double 数组。
+        /// </summary>
+        /// <param name="n">随机数组的大小。</param>
+        /// <returns>大小为 n 的随机 double 数组。</returns>
+        public static double[] GetRandomArrayDouble(int n)
+        {
+            Random random = new Random();
+            double[] array = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = random.NextDouble() * double.MaxValue;
             }
             return array;
         }

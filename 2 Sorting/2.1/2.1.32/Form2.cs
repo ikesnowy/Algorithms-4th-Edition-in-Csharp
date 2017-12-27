@@ -16,6 +16,12 @@ namespace _2._1._32
         BaseSort sort;
         int n;
         double[] result;
+
+        /// <summary>
+        /// 构造一个绘图结果窗口。
+        /// </summary>
+        /// <param name="sort">用于做测试的排序算法。</param>
+        /// <param name="n">用于测试的初始数据量。</param>
         public Form2(BaseSort sort, int n)
         {
             InitializeComponent();
@@ -26,6 +32,11 @@ namespace _2._1._32
             this.timer1.Start();
         }
 
+        /// <summary>
+        /// 执行八次耗时测试，每次数据量翻倍。
+        /// </summary>
+        /// <param name="n">初始数据量。</param>
+        /// <returns>测试结果数据。</returns>
         public double[] Test(int n)
         {
             double[] result = new double[8];

@@ -21,6 +21,11 @@ namespace _2._1._33
         BaseSort sort;
         int n;
 
+        /// <summary>
+        /// 构造一个绘制结果窗口。
+        /// </summary>
+        /// <param name="sort">用于测试的排序算法。</param>
+        /// <param name="n">测试算法是生成的数据量。</param>
         public Form2(BaseSort sort, int n)
         {
             InitializeComponent();
@@ -34,6 +39,9 @@ namespace _2._1._33
             this.timer1.Start();
         }
 
+        /// <summary>
+        /// 执行一次测试并绘制图像。
+        /// </summary>
         public void Test()
         {
             Random random = new Random();
@@ -44,6 +52,11 @@ namespace _2._1._33
             DrawPanel(this.resultList.ToArray(), this.resultYList.ToArray());
         }
 
+        /// <summary>
+        /// 根据已有的数据绘制图像。
+        /// </summary>
+        /// <param name="result">耗时数据（X 轴）</param>
+        /// <param name="resultY">Y 轴数据</param>
         public void DrawPanel(double[] result, float[] resultY)
         {
             Graphics graphics = this.CreateGraphics();

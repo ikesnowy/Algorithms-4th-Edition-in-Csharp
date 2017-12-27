@@ -59,6 +59,11 @@ namespace _2._1._29
             }
         }
 
+        /// <summary>
+        /// 获取一个随机整数数组。
+        /// </summary>
+        /// <param name="n">随机整数数组的大小。</param>
+        /// <returns>随机整数数组。</returns>
         static int[] GetRandomInput(int n)
         {
             Random random = new Random();

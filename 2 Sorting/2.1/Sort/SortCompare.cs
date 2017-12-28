@@ -101,5 +101,68 @@ namespace Sort
             }
             return array;
         }
+
+        /// <summary>
+        /// 获取符合标准正态分布的 double 数组。
+        /// </summary>
+        /// <param name="n">数组大小。</param>
+        /// <returns>符合标准正态分布的 double 数组。</returns>
+        public static double[] GetNormalDistributionArray(int n)
+        {
+            double[] array = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = SortUtil.Normal(0, 1);
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 产生符合泊松分布的随机数组。
+        /// </summary>
+        /// <param name="n">随机数组的大小。</param>
+        /// <returns>符合泊松分布的数组。</returns>
+        public static double[] GetPossionDistributionArray(int n)
+        {
+            double[] array = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = SortUtil.Poission(n / 2);
+            }
+            return array;
+        }
+
+
+        /// <summary>
+        /// 产生符合几何分布的随机数组。
+        /// </summary>
+        /// <param name="n">随机数组的大小。</param>
+        /// <param name="p">几何分布的概率。</param>
+        /// <returns>符合几何分布的随机数组。</returns>
+        public static double[] GetGeometricDistributionArray(int n, double p)
+        {
+            double[] array = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = SortUtil.Geometry(p);
+            }
+            return array;
+        }
+
+        /// <summary>
+        /// 产生符合指定概率的离散分布的随机数组。
+        /// </summary>
+        /// <param name="n">随机数组的大小。</param>
+        /// <param name="probabilities">各取值的概率数组。</param>
+        /// <returns>符合指定概率的离散分布的随机数组。</returns>
+        public static double[] GetDiscretDistributionArray(int n, double[] probabilities)
+        {
+            double[] array = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = SortUtil.Discrete(probabilities);
+            }
+            return array;
+        }
     }
 }

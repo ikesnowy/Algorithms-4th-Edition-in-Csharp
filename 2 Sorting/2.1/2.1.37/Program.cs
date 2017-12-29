@@ -34,7 +34,6 @@ namespace _2._1._37
             int[] shellArray = new int[n];
 
             // 完全随机的对照
-
             Console.WriteLine("totally random");
             Console.WriteLine("Selection Sort:" + SortCompare.TimeRandomInput(selectionSort, n, 1));
             Console.WriteLine("Insertion Sort:" + SortCompare.TimeRandomInput(insertionSort, n, 1));

@@ -26,7 +26,7 @@ namespace Sort
         }
 
         /// <summary>
-        /// 对相应排序算法做多次随机数据测试。
+        /// 对相应排序算法做多次随机数据测试，返回总耗时。
         /// </summary>
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="n">每次测试的数据量。</param>
@@ -49,7 +49,7 @@ namespace Sort
         }
 
         /// <summary>
-        /// 对相应排序算法做多次有序数据测试。
+        /// 对相应排序算法做多次有序数据测试，返回总耗时。
         /// </summary>
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="n">每次测试的数据量。</param>

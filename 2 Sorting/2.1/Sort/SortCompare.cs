@@ -127,7 +127,7 @@ namespace Sort
             double[] array = new double[n];
             for (int i = 0; i < n; i++)
             {
-                array[i] = SortUtil.Poission(n / 2);
+                array[i] = SortUtil.Poission(20);
             }
             return array;
         }

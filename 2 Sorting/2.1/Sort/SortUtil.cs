@@ -11,6 +11,9 @@ namespace Sort
     /// </summary>
     public static class SortUtil
     {
+
+        public static Random UniformGenerator = new Random();
+
         /// <summary>
         /// 产生符合正态分布的随机数。
         /// </summary>
@@ -19,13 +22,12 @@ namespace Sort
         /// <returns>符合正态分布的随机数。</returns>
         public static double Normal(double average, double standardDeviation)
         {
-            Random random = new Random();
-            double randomNum = average + standardDeviation * (
-                Math.Sqrt(
-                    -2.0 *
-                    Math.Log(1.0 - random.NextDouble()) *
-                    Math.Sin(Math.PI * 2 * random.NextDouble())));
-            return randomNum;
+            double u1 = UniformGenerator.NextDouble();
+            double u2 = UniformGenerator.NextDouble();
+
+            double z0 = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(Math.PI * 2 * u2);
+            
+            return z0 * standardDeviation + average;
         }
 
         /// <summary>
@@ -38,8 +40,7 @@ namespace Sort
             double x = 0;
             double p = Math.Pow(Math.E, -average);
             double s = p;
-            Random random = new Random();
-            double u = random.NextDouble();
+            double u = UniformGenerator.NextDouble();
             do
             {
                 x++;
@@ -62,9 +63,8 @@ namespace Sort
                 throw new ArgumentOutOfRangeException("p", "概率不能大于 1");
             }
 
-            Random random = new Random();
             double result;
-            result = Math.Ceiling(Math.Log(1 - random.NextDouble()) / Math.Log(1 - p));
+            result = Math.Ceiling(Math.Log(1 - UniformGenerator.NextDouble()) / Math.Log(1 - p));
 
             return result;
         }
@@ -76,7 +76,6 @@ namespace Sort
         /// <returns>符合随机分布的随机整数。</returns>
         public static double Discrete(double[] probabilities)
         {
-            Random random = new Random();
             if (probabilities == null)
             {
                 throw new ArgumentNullException("Argument array is null");
@@ -94,14 +93,14 @@ namespace Sort
                 sum += probabilities[i];
             }
 
-            if (sum > 100 + EPSION || sum < 100 - EPSION)
+            if (sum > 1.0 + EPSION || sum < 1.0 - EPSION)
             {
                 throw new ArgumentException("sum of array entries does not equal 1.0:" + sum);
             }
 
             while (true)
             {
-                double r = random.NextDouble();
+                double r = UniformGenerator.NextDouble();
                 sum = 0.0;
                 for (int i = 0; i < probabilities.Length; i++)
                 {

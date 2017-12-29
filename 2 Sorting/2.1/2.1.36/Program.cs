@@ -23,5 +23,39 @@ namespace _2._1._36
         static void Main(string[] args)
         {
         }
+
+        /// <summary>
+        /// 获取一半是 0 一半是 1 的随机 <see cref="int"/> 数组。
+        /// </summary>
+        /// <param name="n">数组大小。</param>
+        /// <returns>一半是 0 一半是 1 的 <see cref="int"/>数组。</returns>
+        static int[] HalfZeroHalfOne(int n)
+        {
+            int[] result = new int[n];
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                if (random.NextDouble() >= 0.5)
+                {
+                    result[i] = 0;
+                }
+                else
+                {
+                    result[i] = 1;
+                }
+            }
+            return result;
+        }
+
+        static int[] HalfAndHalf(int start, int number, int length, int[] array)
+        {
+            if (length == 0)
+                return array;
+
+            for (int i = 0; i < length; i++)
+            {
+
+            }
+        }
     }
 }

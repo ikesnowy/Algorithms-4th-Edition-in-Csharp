@@ -23,14 +23,14 @@ namespace _1._3._1
             int callForDeath = 2;
 
             Queue<int> queue = new Queue<int>();
-            for (int i = 0; i < numOfPeople; ++i)
+            for (int i = 0; i < numOfPeople; i++)
             {
                 queue.Enqueue(i);
             }
 
             while (!queue.IsEmpty())
             {
-                for (int i = 0; i < callForDeath - 1; ++i)
+                for (int i = 0; i < callForDeath - 1; i++)
                 {
                     queue.Enqueue(queue.Dequeue());
                 }

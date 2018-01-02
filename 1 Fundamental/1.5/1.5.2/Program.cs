@@ -26,7 +26,7 @@ namespace _1._5._2
 
                 quickUnion.Union(p, q);
                 int[] parent = quickUnion.GetParent();
-                for (int i = 0; i < parent.Length; ++i)
+                for (int i = 0; i < parent.Length; i++)
                 {
                     if (parent[i] == i)
                     {
@@ -40,11 +40,11 @@ namespace _1._5._2
 
         static void DFS(int[] parent, int root, int level)
         {
-            for (int i = 0; i < parent.Length; ++i)
+            for (int i = 0; i < parent.Length; i++)
             {
                 if (parent[i] == root && i != root)
                 {
-                    for (int j = 0; j < level; ++j)
+                    for (int j = 0; j < level; j++)
                     {
                         Console.Write("    ");
                     }

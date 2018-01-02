@@ -24,7 +24,7 @@ namespace _1._4._25
         static void Main(string[] args)
         {
             int[] building = new int[100000];
-            for (int i = 0; i < 100000; ++i)
+            for (int i = 0; i < 100000; i++)
             {
                 building[i] = i;
             }
@@ -105,7 +105,7 @@ namespace _1._4._25
             int throwTimes = 0;
             testResult result = new testResult();
 
-            for (int i = 0; ThrowEgg(hi); ++i)
+            for (int i = 0; ThrowEgg(hi); i++)
             {
                 throwTimes++;
                 lo = hi;

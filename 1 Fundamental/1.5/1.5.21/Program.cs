@@ -18,7 +18,7 @@ namespace _1._5._21
             for (int n = 10; n < 10000; n *= 2)
             {
                 int total = 0;
-                for (int i = 0; i < 100; ++i)
+                for (int i = 0; i < 100; i++)
                 {
                     UF uf = new UF(n);
                     total += ErdosRenyi.Count(uf);

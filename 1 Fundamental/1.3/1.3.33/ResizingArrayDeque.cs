@@ -54,7 +54,7 @@ namespace _1._3._33
                 throw new ArgumentException();
 
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.deque[(this.first + i) % this.deque.Length];
             }

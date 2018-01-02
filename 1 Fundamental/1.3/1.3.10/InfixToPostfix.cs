@@ -18,7 +18,7 @@ namespace _1._3._10
         static void Main(string[] args)
         {
             Stack<string> stack = new Stack<string>();
-            string[] input = "( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )".Split(' ');
+            string[] input = "( 1 + ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) ) )".Split(' ');
             foreach (string n in input)
             {
                 if (n == " ")

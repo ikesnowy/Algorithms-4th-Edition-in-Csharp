@@ -2,36 +2,25 @@
 
 算法（第4版）习题题解 C# 版
 
-当前第一章已经完成（共 179 题）。
+当前已经完成到 2.1。
 
 ## 目录
 
 - [1.基础 Fundamental](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental)
-  - [1.1 基础编程模型 Programming Model](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)  
+  - [1.1 基础编程模型 Programming Model](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.1)
 
-  - [1.2 数据抽象 Data Abstraction](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2) 
-
-    [1.2 类库 Geometry (Point2D.cs Interval1D.cs Interval2D.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Geometry) 
-
-    [1.2 类库 Commercial (Date.cs Transaction.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2/Commercial)  
+  - [1.2 数据抽象 Data Abstraction](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.2)
 
   - [1.3 背包、队列和栈 Bags, Queues, and Stacks](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3)
 
-    [1.3 类库 Generics (Bag.cs LinkedList.cs Node.cs Queue.cs Stack.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.3/Generics)
-
   - [1.4 算法分析 Analysis of Algorithms](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4)
 
-    [1.4 类库 Measurement (Stopwatch.cs DoubleTest.cs TwoSum.cs ThreeSum.cs FourSum.cs StaticSETofInts.cs)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/Measurement)
+  - [1.5 案例研究：union-find 算法 CaseStudy: UnionFind](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5)
 
-    [1.4 类库 TestCase (1Kint.txt ~ 1Mint.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.4/TestCase)
+- [2.排序 Sorting](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting)
 
-  - [1.5 案例研究：union-find 算法](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5)
+  - [2.1 初级排序算法 Elementary Sorts](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.1)
 
-    [1.5 类库 UnionFind (QuickFindUF.cs QuickUnionUF.cs WeightedQuickUnionUF.cs ......)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/UnionFind)
-
-    [1.5 类库 TestCase (tinyUF.txt mediumUF.txt largeUF.txt worstUF.txt)](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/TestCase)
-
-    ​
 
 ## 使用方法 & 测试环境
 
@@ -54,19 +43,53 @@ Program.cs 是程序的运行代码。
 
 #### Windows 窗体应用程序
 
-实现主要逻辑的代码都放在 Program.cs 文件中，窗体的源文件仅包含格式校验等次要功能的代码。  
+题目说明位于 Program.cs 文件中，绘图和逻辑部分代码可能在窗体文件，也可能在 Program.cs 中。  
 
-### 目标平台 & 测试环境：  
+### 测试环境：  
 
-Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
-
-#### 测试环境（部分题目要求测试运算时间）  
+硬件环境：
 
 Surface Pro3
 
 CPU: i7 4650U @1.70GHz
 
-OS: Windows10 15063
+软件环境：
+
+第一章：Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
+
+第二章及以后：Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7 
+
+## 代码规范：
+
+主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
+
+1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
+
+   ```c#
+   // 这是一行 C# 注释内容。
+   ```
+
+2. 类/方法/变量前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/index)。
+
+   ```c#
+   new
+   public/protected/internal/private
+   static
+   virtual
+   sealed
+   override
+   abstract
+   ```
+
+   例子：
+
+   ```c#
+   public abstract class BubbleSort extends Sort
+   {
+     public static abstract void Sort (Comparable[] a);
+     private static override void Show();
+   }
+   ```
 
 ## 相关资料  
 

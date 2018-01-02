@@ -50,7 +50,7 @@ namespace _1._3._16
             string[] input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
             Date[] d = new Date[input.Length];
 
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 d[i] = new Date(input[i]);
             }
@@ -68,7 +68,7 @@ namespace _1._3._16
             string[] allStrings = File.ReadAllLines(path);
             Date[] d = new Date[allStrings.Length];
 
-            for (int i = 0; i < allStrings.Length; ++i)
+            for (int i = 0; i < allStrings.Length; i++)
             {
                 d[i] = new Date(allStrings[i]);
             }

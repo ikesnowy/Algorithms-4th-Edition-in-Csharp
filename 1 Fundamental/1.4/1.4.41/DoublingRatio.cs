@@ -16,7 +16,7 @@ namespace _1._4._41
             char[] split = new char[1] { '\n' };
             string[] input = inputString.Split(split, StringSplitOptions.RemoveEmptyEntries);
             int[] a = new int[input.Length];
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 a[i] = int.Parse(input[i]);
             }

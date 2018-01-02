@@ -69,7 +69,7 @@ namespace _1._4._3
             double Unit = center.Height / testResult[3];
             // 标记
             PointF[] result = new PointF[4];
-            for (int i = 0, j = 1; i < 4 && j <= 8; ++i, j += j)
+            for (int i = 0, j = 1; i < 4 && j <= 8; i++, j += j)
             {
                 result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + Unit * testResult[i]));
             }
@@ -111,7 +111,7 @@ namespace _1._4._3
             double Unit = center.Height / testResult[3];
             // 标记
             PointF[] result = new PointF[4];
-            for (int i = 0, j = 1; i < 4 && j <= 8; ++i, j += j)
+            for (int i = 0, j = 1; i < 4 && j <= 8; i++, j += j)
             {
                 result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + Unit * testResult[i]));
             }

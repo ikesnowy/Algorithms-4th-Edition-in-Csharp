@@ -21,7 +21,7 @@ namespace _1._2._13
             a[3] = new Transaction("Dijkstra 8/22/2007 2678.40");
 
             Console.WriteLine("Unsorted");
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 Console.WriteLine(a[i]);
             }

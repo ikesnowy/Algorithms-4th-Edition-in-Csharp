@@ -15,7 +15,7 @@ namespace Measurement
         {
             int n = a.Length;
             Array.Sort(a);
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 int j = Array.BinarySearch(a, -a[i]);
                 if (j > i)
@@ -35,7 +35,7 @@ namespace Measurement
             int n = a.Length;
             Array.Sort(a);
             int count = 0;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 int j = Array.BinarySearch(a, -a[i]);
                 if (i < j)

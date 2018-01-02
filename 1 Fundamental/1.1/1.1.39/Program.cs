@@ -26,11 +26,11 @@ namespace _1._1._39
 
             double[,] Matrix = new double[M, 2];
 
-            for (int i = 0; i < M; ++i)
+            for (int i = 0; i < M; i++)
             {
                 int N = (int)Math.Pow(baseNum, powNum + i);
                 double sum = 0;
-                for (int j = 0; j < T; ++j)
+                for (int j = 0; j < T; j++)
                 {
                     sum += Test(N, r.Next());
                 }
@@ -54,13 +54,13 @@ namespace _1._1._39
             int[] b = new int[N];
             int count = 0;
 
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 a[i] = random.Next(100000, 1000000);
                 b[i] = random.Next(100000, 1000000);
             }
 
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 if (rank(a[i], b) != -1)
                     count++;
@@ -105,9 +105,9 @@ namespace _1._1._39
         /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(double[,] a)
         {
-            for (int i = 0; i < a.GetLength(0); ++i)
+            for (int i = 0; i < a.GetLength(0); i++)
             {
-                for (int j = 0; j < a.GetLength(1); ++j)
+                for (int j = 0; j < a.GetLength(1); j++)
                 {
                     Console.Write($"\t{a[i, j]}");
                 }

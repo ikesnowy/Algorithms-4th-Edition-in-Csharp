@@ -22,7 +22,7 @@ namespace _1._2._9
             string[] whiteListString = File.ReadAllLines("tinyW.txt");
             int[] whiteList = new int[whiteListString.Length];
             
-            for (int i = 0; i < whiteListString.Length; ++i)
+            for (int i = 0; i < whiteListString.Length; i++)
             {
                 whiteList[i] = int.Parse(whiteListString[i]);
             }
@@ -32,7 +32,7 @@ namespace _1._2._9
             string[] inputListString = File.ReadAllLines("tinyT.txt");
             int[] inputList = new int[inputListString.Length];
 
-            for (int i = 0; i < inputListString.Length; ++i)
+            for (int i = 0; i < inputListString.Length; i++)
             {
                 inputList[i] = int.Parse(inputListString[i]);
             }

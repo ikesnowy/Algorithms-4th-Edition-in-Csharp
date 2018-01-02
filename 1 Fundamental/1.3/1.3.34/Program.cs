@@ -37,7 +37,7 @@ namespace _1._3._34
             double[] times = new double[6];
             int count = 100000;
 
-            for (int i = 0; i < count; ++i)
+            for (int i = 0; i < count; i++)
             {
                 int current = 0;
                 foreach(int n in bag)
@@ -47,7 +47,7 @@ namespace _1._3._34
                 }
             }
 
-            for (int i = 0; i < 6; ++i)
+            for (int i = 0; i < 6; i++)
             {
                 times[i] /= (double)count;
             }

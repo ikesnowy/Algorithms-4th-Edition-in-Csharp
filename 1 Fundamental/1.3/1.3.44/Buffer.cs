@@ -43,7 +43,7 @@ namespace _1._3._44
         /// <param name="k">光标移动的距离。</param>
         public void Left(int k)
         {
-            for (int i = 0; i < k; ++i)
+            for (int i = 0; i < k; i++)
             {
                 this.rightside.Push(this.leftside.Pop());
             }
@@ -55,7 +55,7 @@ namespace _1._3._44
         /// <param name="k">光标移动的距离。</param>
         public void Right(int k)
         {
-            for (int i = 0; i < k; ++i)
+            for (int i = 0; i < k; i++)
             {
                 this.leftside.Push(this.rightside.Pop());
             }

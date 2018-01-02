@@ -18,7 +18,7 @@ namespace Measurement
         {
             int[] a = new int[n];
             Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }

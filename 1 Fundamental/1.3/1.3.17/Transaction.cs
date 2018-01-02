@@ -51,7 +51,7 @@ namespace _1._3._17
             string[] input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
             Transaction[] t = new Transaction[input.Length];
 
-            for (int i = 0; i < input.Length; ++i)
+            for (int i = 0; i < input.Length; i++)
             {
                 t[i] = new Transaction(input[i]);
             }

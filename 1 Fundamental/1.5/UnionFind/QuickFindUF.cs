@@ -66,7 +66,7 @@
                 return;
             }
 
-            for (int i = 0; i < this.parent.Length; ++i)
+            for (int i = 0; i < this.parent.Length; i++)
             {
                 if (this.parent[i] == pID)
                 {

@@ -18,7 +18,7 @@ namespace _1._1._38
         {
             string[] largeWString = File.ReadAllLines("largeW.txt");
             int[] largeW = new int[largeWString.Length];
-            for (int i = 0; i < largeW.Length; ++i)
+            for (int i = 0; i < largeW.Length; i++)
             {
                 largeW[i] = int.Parse(largeWString[i]);
             }
@@ -32,7 +32,7 @@ namespace _1._1._38
 
             string[] largeTString = File.ReadAllLines("largeT.txt");
             int[] largeT = new int[largeTString.Length];
-            for (int i = 0; i < largeW.Length; ++i)
+            for (int i = 0; i < largeW.Length; i++)
             {
                 largeT[i] = int.Parse(largeTString[i]);
             }
@@ -54,7 +54,7 @@ namespace _1._1._38
         /// <returns></returns>
         public static int BruteForceSearch(int key, int[] a)
         {
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] == key)
                     return i;

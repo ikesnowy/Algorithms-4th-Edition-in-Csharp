@@ -14,11 +14,11 @@ namespace _1._4._38
         public static void PrintAll(int[] a)
         {
             int n = a.Length;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; ++j)
+                for (int j = 0; j < n; j++)
                 {
-                    for (int k = 0; k < n; ++k)
+                    for (int k = 0; k < n; k++)
                     {
                         if (i < j && j < k)
                         {
@@ -41,11 +41,11 @@ namespace _1._4._38
         {
             int n = a.Length;
             int count = 0;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; ++j)
+                for (int j = 0; j < n; j++)
                 {
-                    for (int k = 0; k < n; ++k)
+                    for (int k = 0; k < n; k++)
                     {
                         if (i < j && j < k)
                         {

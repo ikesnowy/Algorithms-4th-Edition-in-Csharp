@@ -16,7 +16,7 @@ namespace _1._4._41
         {
             int[] a = new int[977];
             Random random = new Random();
-            for (int i = 0; i < 977; ++i)
+            for (int i = 0; i < 977; i++)
             {
                 a[i] = random.Next(977) - 489;
             }
@@ -48,7 +48,7 @@ namespace _1._4._41
             // TwoSumFast
             // 速度太快，加大数据量
             a = new int[62500];
-            for (int i = 0; i < 977; ++i)
+            for (int i = 0; i < 977; i++)
             {
                 a[i] = random.Next(62500) - 31250;
             }

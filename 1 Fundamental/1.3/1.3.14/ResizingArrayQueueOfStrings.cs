@@ -38,7 +38,7 @@ namespace _1._3._14
             if (capacity < 0)
                 throw new ArgumentException("capacity should be above zero");
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.q[(this.first + i) % this.q.Length];
             }

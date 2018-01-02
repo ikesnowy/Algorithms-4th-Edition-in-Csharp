@@ -22,7 +22,7 @@ namespace _1._5._11
             this.count = n;
             this.id = new int[n];
             this.size = new int[n];
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 this.id[i] = i;
                 this.size[i] = 1;
@@ -109,7 +109,7 @@ namespace _1._5._11
 
             // 将较小的连通分量连接到较大的连通分量上，
             // 这会减少赋值语句的执行次数，略微减少数组访问。
-            for (int i = 0; i < this.id.Length; ++i)
+            for (int i = 0; i < this.id.Length; i++)
             {
                 if (this.id[i] == smaller)
                 {

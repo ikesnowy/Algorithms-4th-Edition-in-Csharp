@@ -123,7 +123,7 @@ namespace _1._3._31
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; ++i)
+            for (int i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -141,7 +141,7 @@ namespace _1._3._31
                 throw new IndexOutOfRangeException();
 
             DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; ++i)
+            for (int i = 0; i < index; i++)
             {
                 current = current.next;
             }

@@ -24,7 +24,7 @@ namespace _1._1._14
             int pow = 1;
             int sum = 2;
 
-            for (pow = 1; sum < N; ++pow)
+            for (pow = 1; sum < N; pow++)
             {
                 sum *= baseNumber;
             }

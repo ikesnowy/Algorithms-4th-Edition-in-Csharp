@@ -65,9 +65,9 @@ namespace _1._5._19
             // 绘制点。
             log.AppendText("\r\n绘制点……");
             points = new PointF[n * n];
-            for (int row = 0; row < n; ++row)
+            for (int row = 0; row < n; row++)
             {
-                for (int col = 0; col < n; ++col)
+                for (int col = 0; col < n; col++)
                 {
                     points[row * n + col] = new PointF(unitX * (col + 1), unitY * (row + 1));
                     graphics.FillEllipse(Brushes.Black, unitX * (col + 1), unitY * (row + 1), 5, 5);

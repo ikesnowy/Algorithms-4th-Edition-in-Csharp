@@ -53,9 +53,9 @@ namespace _1._1._32
             // 计算各区域的值
             int[] counts = new int[N];
             int index = 0;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = index; j < array.Length; ++j)
+                for (int j = index; j < array.Length; j++)
                 {
                     if (array[j] <= (r - l) * (i + 1) / N)
                     {
@@ -79,7 +79,7 @@ namespace _1._1._32
             rects[0].Y = 0;
             rects[0].Width = (int)(2 * unit);
             rects[0].Height = (int)((counts[0] / max) * DrawPad.Height);
-            for (int i = 1; i < N; ++i)
+            for (int i = 1; i < N; i++)
             {
                 rects[i].X = (int)(rects[i - 1].X + 3 * unit);
                 rects[i].Y = 0;

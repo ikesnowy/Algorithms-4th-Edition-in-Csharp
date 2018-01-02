@@ -28,7 +28,7 @@ namespace _1._2._18
             int T = 100000;
             Random random = new Random();
             Accumulator a = new Accumulator();
-            for (int t = 0; t < T; ++t)
+            for (int t = 0; t < T; t++)
             {
                 a.AddDataValue(random.NextDouble() + 1000000000);
             }

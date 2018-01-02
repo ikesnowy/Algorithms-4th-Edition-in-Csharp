@@ -21,7 +21,7 @@ namespace _1._4._16
             double minDiff = double.MaxValue;
             double minA = 0;
             double minB = 0;
-            for (int i = 0; i < a.Length - 1; ++i)//N
+            for (int i = 0; i < a.Length - 1; i++)//N
             {
                 if (a[i + 1] - a[i] < minDiff)
                 {

@@ -47,7 +47,7 @@ namespace _1._1._35
             {
                 disttemp = PlayDice(N);
                 isAccepted = true;
-                for (int i = 0; i < disttemp.Length; ++i)
+                for (int i = 0; i < disttemp.Length; i++)
                 {
                     if (Math.Abs(disttemp[i] - dist[i]) >= error)
                         isAccepted = false;
@@ -56,7 +56,7 @@ namespace _1._1._35
             }
 
             Console.WriteLine($"N:{N}\n");
-            for (int i = 0; i < dist.Length; ++i)
+            for (int i = 0; i < dist.Length; i++)
             {
                 Console.WriteLine($"{i}:\n Standerd:{dist[i]}\nSimulated:{disttemp[i]}\nOffset:{Math.Abs(disttemp[i] - dist[i])}");
             }
@@ -76,14 +76,14 @@ namespace _1._1._35
 
             // 掷 N 次
             int sumtemp = 0;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 sumtemp = random.Next(1, 7) + random.Next(1, 7);
                 dist[sumtemp]++;
             }
 
             // 计算概率
-            for (int i = 0; i < dist.Length; ++i)
+            for (int i = 0; i < dist.Length; i++)
             {
                 dist[i] /= N;
             }

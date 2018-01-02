@@ -88,7 +88,7 @@ namespace _1._3._8
         {
             string[] temp = new string[capcity];
             
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.items[i];
             }

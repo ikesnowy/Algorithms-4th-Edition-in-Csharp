@@ -42,7 +42,7 @@ namespace _1._1._22
         public  static int rank(int key, int[] a, int lo, int hi, int number)
         {
 
-            for (int i = 0; i < number; ++i)
+            for (int i = 0; i < number; i++)
             {
                 Console.Write(" ");
             }

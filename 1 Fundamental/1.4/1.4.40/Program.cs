@@ -35,7 +35,7 @@ namespace _1._4._40
             {
                 Random random = new Random();
                 int[] a = new int[n];
-                for (int i = 0; i < n; ++i)
+                for (int i = 0; i < n; i++)
                 {
                     a[i] = random.Next(2 * M) - M;
                 }

@@ -20,16 +20,16 @@ namespace _1._4._37
             int[] a = new int[n];
             FixedCapacityStackOfInts stack = new FixedCapacityStackOfInts(n);
             Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
             Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Pop();
             }
@@ -46,16 +46,16 @@ namespace _1._4._37
             int[] a = new int[n];
             FixedCapacityStack<int> stack = new FixedCapacityStack<int>(n);
             Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
             Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Pop();
             }

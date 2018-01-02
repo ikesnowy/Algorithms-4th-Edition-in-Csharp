@@ -21,7 +21,7 @@ namespace _1._4._8
             // 样例第一个和最后一个相等
             testArray[0] = 1;
             testArray[testCase.Length + 1] = 1;
-            for (int i = 1; i <= testCase.Length; ++i)
+            for (int i = 1; i <= testCase.Length; i++)
             {
                 testArray[i] = int.Parse(testCase[i - 1]);
             }
@@ -42,9 +42,9 @@ namespace _1._4._8
         {
             int n = a.Length;
             int count = 0;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = i + 1; j < n; ++j)
+                for (int j = i + 1; j < n; j++)
                 {
                     if (a[i] == a[j])
                         count++;
@@ -64,7 +64,7 @@ namespace _1._4._8
             int n = a.Length;
             int count = 0;
             Array.Sort(a);
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 if (BinarySearch.Rank(a[i], a, i + 1, a.Length - 1) != -1)
                 {

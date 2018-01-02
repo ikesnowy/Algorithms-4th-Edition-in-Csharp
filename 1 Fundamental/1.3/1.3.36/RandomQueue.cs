@@ -43,7 +43,7 @@ namespace _1._3._36
             }
 
             Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; ++i)
+            for (int i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }
@@ -135,7 +135,7 @@ namespace _1._3._36
                 this.current = -1;
 
                 this.sequence = new int[this.count];
-                for (int i = 0; i < this.count; ++i)
+                for (int i = 0; i < this.count; i++)
                 {
                     this.sequence[i] = i;
                 }
@@ -152,7 +152,7 @@ namespace _1._3._36
             {
                 int N = a.Length;
                 Random random = new Random(seed);
-                for (int i = 0; i < N; ++i)
+                for (int i = 0; i < N; i++)
                 {
                     int r = i + random.Next(N - i);
                     int temp = a[i];

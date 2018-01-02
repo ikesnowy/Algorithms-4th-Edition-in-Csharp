@@ -59,7 +59,7 @@ namespace _1._1._31
             points[0].X = rect.Left + rect.Width / 2;
             points[0].Y = rect.Top;
 
-            for (int i = 1; i < N; ++i)
+            for (int i = 1; i < N; i++)
             {
                 points[i] = Rotate(Center, points[i - 1], rotateDgree);
             }
@@ -72,9 +72,9 @@ namespace _1._1._31
 
             // 按照概率绘制直线
             Random random = new Random();
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; ++j)
+                for (int j = i + 1; j < N; j++)
                 {
                     // 举例：输入概率为 0.6，精度为 1000
                     // 在 0~1000 范围内等概率取值，如果小于等于 600 则视为事件发生

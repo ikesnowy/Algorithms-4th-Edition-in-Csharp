@@ -43,7 +43,7 @@ namespace _1._2._3
             Graphics graphics = drawPad.CreateGraphics();
 
             // 生成随机二维间隔
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
                 double x = random.NextDouble() * (Max - Min) + Min;
                 double y = random.NextDouble() * (Max - Min) + Min;
@@ -74,9 +74,9 @@ namespace _1._2._3
 
             // 计算相交和包含的数量
             int intersectNum = 0;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; ++j)
+                for (int j = i + 1; j < N; j++)
                 {
                     if (list[i].Intersects(list[j]))
                     {
@@ -86,9 +86,9 @@ namespace _1._2._3
             }
 
             int containsNum = 0;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = 0; j < N; ++j)
+                for (int j = 0; j < N; j++)
                 {
                     if (i == j)
                         continue;

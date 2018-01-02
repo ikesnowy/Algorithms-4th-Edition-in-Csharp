@@ -14,13 +14,13 @@ namespace Measurement
         public static void PrintAll(long[] a)
         {
             int N = a.Length;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; ++j)
+                for (int j = i + 1; j < N; j++)
                 {
-                    for (int k = j + 1; k < N; ++k)
+                    for (int k = j + 1; k < N; k++)
                     {
-                        for (int l = k + 1; l < N; ++l)
+                        for (int l = k + 1; l < N; l++)
                         {
                             if (a[i] + a[j] + a[k] + a[l] == 0)
                             {
@@ -42,13 +42,13 @@ namespace Measurement
             int N = a.Length;
             int cnt = 0;
 
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; ++j)
+                for (int j = i + 1; j < N; j++)
                 {
-                    for (int k = j + 1; k < N; ++k)
+                    for (int k = j + 1; k < N; k++)
                     {
-                        for (int l = k + 1; l < N; ++l)
+                        for (int l = k + 1; l < N; l++)
                         {
                             if (a[i] + a[j] + a[k] + a[l] == 0)
                             {

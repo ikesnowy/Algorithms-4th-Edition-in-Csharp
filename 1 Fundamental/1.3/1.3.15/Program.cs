@@ -24,7 +24,7 @@ namespace _1._3._15
             }
 
             int count = queue.Size() - k;
-            for(int i = 0; i < count; ++i)
+            for(int i = 0; i < count; i++)
             {
                 queue.Dequeue();
             }

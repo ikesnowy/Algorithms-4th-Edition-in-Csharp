@@ -15,7 +15,7 @@ namespace _1._4._43
             char[] split = new char[1] { '\n' };
             string[] input = inputString.Split(split, StringSplitOptions.RemoveEmptyEntries);
             int[] a = new int[input.Length];
-            for (int i = 0; i < a.Length; ++i)
+            for (int i = 0; i < a.Length; i++)
             {
                 a[i] = int.Parse(input[i]);
             }
@@ -32,11 +32,11 @@ namespace _1._4._43
             LinkedStack<int> stack = new LinkedStack<int>();
             int n = a.Length;
             Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Pop();
             }
@@ -53,11 +53,11 @@ namespace _1._4._43
             DoublingStack<int> stack = new DoublingStack<int>();
             int n = a.Length;
             Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 stack.Pop();
             }

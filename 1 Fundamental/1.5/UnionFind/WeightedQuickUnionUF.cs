@@ -17,7 +17,7 @@
         public WeightedQuickUnionUF(int n) : base(n)
         {
             this.size = new int[n];
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; i++)
             {
                 this.size[i] = 1;
             }

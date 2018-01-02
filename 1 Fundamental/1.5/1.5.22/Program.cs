@@ -99,7 +99,7 @@ namespace _1._5._22
             int total = 0;
             int repeatTime = 10;
             timer.Start();
-            for (int i = 0; i < repeatTime; ++i)
+            for (int i = 0; i < repeatTime; i++)
             {
                 total += ErdosRenyi.Count(uf);
             }

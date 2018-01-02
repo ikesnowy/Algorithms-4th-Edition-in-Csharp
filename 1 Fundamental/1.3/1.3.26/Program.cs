@@ -28,7 +28,7 @@ namespace _1._3._26
 
         static void Remove(LinkedList<string> link, string key)
         {
-            for (int i = 0; i < link.Size(); ++i)
+            for (int i = 0; i < link.Size(); i++)
             {
                 if (link.Find(i) == key)
                 {

@@ -84,7 +84,7 @@ CPU: i7 4650U @1.70GHz
    例子：
 
    ```c#
-   public abstract class BubbleSort extends Sort
+   public abstract class BubbleSort : Sort
    {
      public static abstract void Sort (Comparable[] a);
      private static override void Show();

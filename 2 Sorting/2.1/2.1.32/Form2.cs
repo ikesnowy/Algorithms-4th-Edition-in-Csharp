@@ -43,6 +43,10 @@ namespace _2._1._32
             return result;
         }
 
+        /// <summary>
+        /// 绘制曲线图。
+        /// </summary>
+        /// <param name="result">结果数组。</param>
         public void DrawPanel(double[] result)
         {
             Graphics graphics = this.CreateGraphics();

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Threading;
 
@@ -23,6 +22,9 @@ namespace _2._1._18
             }
         }
 
+        /// <summary>
+        /// 插入排序。
+        /// </summary>
         private void InsertionSort()
         {
             for (this.sortI = 0; this.sortI < this.randomDoubles.Length; this.sortI++)
@@ -38,6 +40,9 @@ namespace _2._1._18
             }
         }
 
+        /// <summary>
+        /// 绘制柱形图。
+        /// </summary>
         private void drawPanel()
         {
             Graphics graphics = this.CreateGraphics();
@@ -79,9 +84,6 @@ namespace _2._1._18
                     graphics.FillRectangle(Brushes.Gray, bars[i]);
                 }
             }
-            Bitmap bitmap = Image.FromHbitmap(graphics.GetHdc());
-            bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "screenshot" + this.n + ".bmp", ImageFormat.Bmp);
-            this.n++;
             graphics.Dispose();
         }
 

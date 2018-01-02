@@ -18,10 +18,9 @@ namespace _2._1._19
         // 本例共 793 次
         static void Main(string[] args)
         {
-            int[] p = new int[5] { 121, 40, 13, 4, 1 };
             int[] b;
             ShellSort sort = new ShellSort();
-            b = ShellSortWorstCase.GetWorst(p, 100);
+            b = ShellSortWorstCase.GetWorst(100);
             for (int i = 0; i < b.Length; i++)
             {
                 Console.Write(b[i] + " ");

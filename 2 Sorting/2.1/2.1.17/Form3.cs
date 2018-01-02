@@ -22,11 +22,14 @@ namespace _2._1._17
             this.timer1.Interval = 60;
             this.timer1.Start();
 
-            Thread thread = new Thread(new ThreadStart(InsertionSort));
+            Thread thread = new Thread(new ThreadStart(this.InsertionSort));
             thread.IsBackground = true;
             thread.Start();
         }
 
+        /// <summary>
+        /// 插入排序。
+        /// </summary>
         private void InsertionSort()
         {
             for (int i = 0; i < this.randomDoubles.Length; i++)
@@ -41,6 +44,9 @@ namespace _2._1._17
             }
         }
 
+        /// <summary>
+        /// 在屏幕上用柱形图绘制数组。
+        /// </summary>
         private void drawPanel()
         {
             Graphics graphics = this.CreateGraphics();

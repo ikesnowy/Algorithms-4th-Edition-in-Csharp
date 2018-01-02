@@ -43,6 +43,7 @@
             this.ClientSize = new System.Drawing.Size(776, 736);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "选择排序";
             this.ResumeLayout(false);
 

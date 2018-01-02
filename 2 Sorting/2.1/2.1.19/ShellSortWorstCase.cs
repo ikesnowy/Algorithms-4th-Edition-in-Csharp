@@ -2,7 +2,12 @@
 {
     class ShellSortWorstCase
     {
-        public static int[] GetWorst(int[] p, int n)
+        /// <summary>
+        /// 获得最坏情况的数组。
+        /// </summary>
+        /// <param name="n">数组大小。</param>
+        /// <returns>希尔排序最坏情况的数组。</returns>
+        public static int[] GetWorst(int n)
         {
             int l = 0;
             int?[] a = new int?[n + 1];
@@ -35,37 +40,12 @@
             return b;
         }
 
-        public static int FindP()
-        {
-            int r = 2;
-            int s = 2;
-            int a = 0;
-            int b = 1;
-
-            for (int i = 1; i < 100; i++)
-            {
-                if (P(i) >= r * (P(i + 1)-b) - a)
-                {
-                    if (P(i) <= s * (P(i + 1) + a) + b)
-                    {
-                        return P(i);
-                    }
-                }
-            }
-
-            return 0;
-        }
-
-        public static int P(int n)
-        {
-            int p = 1;
-            for (int i = 0; i < n; i++)
-            {
-                p *= 3;
-            }
-            return (p - 1) / 2;
-        }
-
+        /// <summary>
+        /// 确认 j - i 是不是在排序样板（Sorting Template）上。
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public static bool IsVisible(int i, int j)
         {
             int k = 0;

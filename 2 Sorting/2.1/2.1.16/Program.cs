@@ -23,6 +23,11 @@ namespace _2._1._16
             Console.WriteLine(CheckSelectionSort(test));
         }
 
+        /// <summary>
+        /// 测试 Array.Sort() 方法。
+        /// </summary>
+        /// <param name="a">用于测试的数组。</param>
+        /// <returns>如果数组对象没有改变，返回 true，否则返回 false。</returns>
         static bool CheckArraySort(string[] a)
         {
             string[] backup = new string[a.Length];
@@ -50,6 +55,11 @@ namespace _2._1._16
             return true;
         }
 
+        /// <summary>
+        /// 测试选择排序。
+        /// </summary>
+        /// <param name="a">用于测试的数组。</param>
+        /// <returns>如果数组对象没有改变，返回 true，否则返回 false。</returns>
         static bool CheckSelectionSort(string[] a)
         {
             string[] backup = new string[a.Length];
@@ -77,6 +87,10 @@ namespace _2._1._16
             return true;
         }
 
+        /// <summary>
+        /// 选择排序，其中的交换部分使用新建对象并复制的方法。
+        /// </summary>
+        /// <param name="s">用于排序的数组。</param>
         public static void SelectionSort(string[] s)
         {
             for (int i = 0; i < s.Length; i++)

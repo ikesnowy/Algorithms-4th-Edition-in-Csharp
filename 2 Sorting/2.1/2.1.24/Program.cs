@@ -19,12 +19,10 @@ namespace _2._1._24
     {
         static void Main(string[] args)
         {
-            int[] a = DataManager.GetUnsortedData();
-            int[] b = DataManager.GetUnsortedData();
-            // 耗时 9 秒（@Surface Pro 3 i7 512G）
-            Console.WriteLine(SortCompare.Time(new InsertionSort(), a));
-            // 耗时 5 秒（@Surface Pro 3 i7 512G）
-            Console.WriteLine(SortCompare.Time(new Sort.InsertionSort(), b));
+            // 耗时 1019ms（@Surface Pro 3 i7 512G）
+            Console.WriteLine(SortCompare.TimeRandomInput(new InsertionSort(), 10000, 3) / 3.0);
+            // 耗时 925ms（@Surface Pro 3 i7 512G）
+            Console.WriteLine(SortCompare.TimeRandomInput(new Sort.InsertionSort(), 10000, 3) / 3.0);
         }
     }
 }

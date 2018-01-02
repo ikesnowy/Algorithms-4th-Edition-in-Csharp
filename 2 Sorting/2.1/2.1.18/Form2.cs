@@ -22,6 +22,9 @@ namespace _2._1._18
             }
         }
 
+        /// <summary>
+        /// 选择排序。
+        /// </summary>
         private void SelectionSort()
         {
             for (this.sortI = 0; this.sortI < this.randomDoubles.Length; this.sortI++)
@@ -42,6 +45,9 @@ namespace _2._1._18
             }
         }
 
+        /// <summary>
+        /// 绘制柱形图。
+        /// </summary>
         private void drawPanel()
         {
             Graphics graphics = this.CreateGraphics();

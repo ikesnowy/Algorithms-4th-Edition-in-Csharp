@@ -48,24 +48,24 @@ namespace _1._4._15
         /// <returns>数组中和为零的整数对数量。</returns>
         static int TwoSumFaster(int[] a)
         {
-            int i = 0;
-            int j = a.Length - 1;
+            int lo = 0;
+            int hi = a.Length - 1;
             int count = 0;
-            while (i != j)
+            while (lo < hi)
             {
-                if (a[i] + a[j] == 0)
+                if (a[lo] + a[hi] == 0)
                 {
                     count++;
-                    i++;
-                    j--;
+                    lo++;
+                    hi--;
                 }
-                else if (a[i] + a[j] < 0)
+                else if (a[lo] + a[hi] < 0)
                 {
-                    i++;
+                    lo++;
                 }
                 else
                 {
-                    j--;
+                    hi--;
                 }
             }
             return count;

@@ -111,7 +111,7 @@ namespace _1._2._3
             }
 
             // 新建一个窗口，显示计算结果
-            MessageBox.Show($"相交的区间数：{intersectNum}, 包含的区间数：{containsNum}");
+            MessageBox.Show($"相交的区间对数：{intersectNum}, 包含的区间对数：{containsNum}");
 
             // 清理资源
             graphics.Dispose();

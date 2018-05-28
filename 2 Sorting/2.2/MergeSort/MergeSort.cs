@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace MergeSort
+namespace Merge
 {
     /// <summary>
     /// 归并排序类。

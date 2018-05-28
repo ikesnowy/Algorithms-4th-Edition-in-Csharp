@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MergeSort
+namespace Merge
 {
     /// <summary>
     /// 自底向上的归并排序法。

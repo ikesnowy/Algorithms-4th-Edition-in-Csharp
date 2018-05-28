@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MergeSort
+namespace Merge
 {
     /// <summary>
     /// 排序算法类模板。

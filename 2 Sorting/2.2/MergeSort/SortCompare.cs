@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace MergeSort
+namespace Merge
 {
     /// <summary>
     /// 静态类，提供一系列用于测试排序算法的方法。

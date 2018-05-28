@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MergeSort
+namespace Merge
 {
     /// <summary>
     /// 静态类，包含用于生成排序算法测试数据的方法。

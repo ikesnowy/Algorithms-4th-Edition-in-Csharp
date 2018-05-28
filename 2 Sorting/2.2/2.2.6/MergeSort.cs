@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using MergeSort;
+using Merge;
 
 namespace _2._2._6
 {

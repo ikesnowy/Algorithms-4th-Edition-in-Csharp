@@ -73,9 +73,19 @@ CPU: i7 4650U @1.70GHz
    // 这是一行 C# 注释内容。
    ```
 
-2. 类/方法/变量前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/index)。
+2. 类前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/classes#class-declarations)。
 
-   ```c#
+   ```csharp
+   new
+   public/protected/internal/private
+   abstract
+   sealed
+   static
+   ```
+
+3. 方法前的修饰符参照如下顺序排列。
+
+   ```csharp
    new
    public/protected/internal/private
    static
@@ -83,11 +93,36 @@ CPU: i7 4650U @1.70GHz
    sealed
    override
    abstract
+   extern
+   async
+   ```
+
+4. 字段前的修饰符按照如下顺序排列。
+
+   ```csharp
+   new
+   public/protected/internal/private
+   static
+   readonly
+   volatile
+   ```
+
+5. 属性前的修饰符按如下顺序排列。
+
+   ```csharp
+   new
+   public/protected/internal/private
+   static
+   virtual
+   sealed
+   override
+   abstract
+   extern
    ```
 
    例子：
 
-   ```c#
+   ```csharp
    public abstract class BubbleSort : Sort
    {
      public static abstract void Sort (Comparable[] a);

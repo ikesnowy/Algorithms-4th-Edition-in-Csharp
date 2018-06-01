@@ -52,13 +52,9 @@ namespace _2._2._14
             while (!a.IsEmpty() && !b.IsEmpty())
             {
                 if (a.Peek().CompareTo(b.Peek()) < 0)
-                {
                     sortedQueue.Enqueue(a.Dequeue());
-                }
                 else
-                {
                     sortedQueue.Enqueue(b.Dequeue());
-                }
             }
 
             while (!a.IsEmpty())

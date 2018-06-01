@@ -26,8 +26,48 @@ namespace Merge
         {
             T[] aux = new T[a.Length];
 
-            Queue<int> blockPairs = new Queue<int>();
+            // 首先找到一个有序数组
+            int lo, mid, hi;
+            lo = 0;
+            mid = 0;
+            while (mid < a.Length - 1)
+            {
+                if (Less(a[mid], a[mid + 1]) || a[mid].Equals(a[mid + 1]))
+                    mid++;
+                else
+                    break;
+            }
 
+            hi = mid + 1;
+            while (hi < a.Length - 1)
+            {
+                // 找到下一个有序数组
+                while (hi < a.Length - 1)
+                {
+                    if (Less(a[hi], a[hi + 1]) || a[hi].Equals(a[hi + 1]))
+                        hi++;
+                    else
+                        break;
+                }
+                // 归并
+                Merge(lo, mid, hi, a, aux);
+                // 修改值
+                mid = hi;
+                hi = mid + 1;
+            }
+
+            Debug.Assert(IsSorted(a));
+        }
+
+        /// <summary>
+        /// 利用自然的归并排序进行自底向上的排序。利用队列进行了优化。
+        /// </summary>
+        /// <typeparam name="T">用于排序的元素类型。</typeparam>
+        /// <param name="a">需要排序的数组。</param>
+        public void SortX<T>(T[] a) where T : IComparable<T>
+        {
+            T[] aux = new T[a.Length];
+            Queue<int> blockPairs = new Queue<int>();
             blockPairs.Enqueue(0);
             for (int i = 1; i < a.Length; i++)
             {
@@ -38,28 +78,24 @@ namespace Merge
                 }
             }
             blockPairs.Enqueue(a.Length - 1);
-
             while (blockPairs.Count >= 4)
             {
                 int lo = blockPairs.Dequeue();
                 int mid = blockPairs.Dequeue();
 
                 // 如果总共的块数是单数的话，最后会多出一个块
-                if (mid > blockPairs.Peek())        
+                if (mid > blockPairs.Peek())
                 {
                     blockPairs.Enqueue(lo);
                     blockPairs.Enqueue(mid);
                     continue;
                 }
-
                 blockPairs.Dequeue();
                 int hi = blockPairs.Dequeue();
                 Merge(lo, mid, hi, a, aux);
-
                 blockPairs.Enqueue(lo);
                 blockPairs.Enqueue(hi);
             }
-
             Debug.Assert(IsSorted(a));
         }
 

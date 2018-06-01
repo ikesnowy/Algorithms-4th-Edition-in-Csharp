@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _2._2._15
 {
+    /// <summary>
+    /// 利用队列归并实现的自底向上的归并排序。
+    /// </summary>
     class MergeSortQueue
     {
         /// <summary>

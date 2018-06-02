@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{49343F2D-6788-4C86-ACEA-E9F743CE350C}</ProjectGuid>
+    <ProjectGuid>{5CECB69A-D66F-48C2-A250-5AAEA3148847}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_2._2._12</RootNamespace>
-    <AssemblyName>2.2.12</AssemblyName>
+    <RootNamespace>_2._2._17</RootNamespace>
+    <AssemblyName>2.2.17</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MergeSort.cs" />
+    <Compile Include="LinkedList.cs" />
+    <Compile Include="MergeSortNatural.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectionSort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

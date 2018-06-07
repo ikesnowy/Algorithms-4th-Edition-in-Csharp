@@ -42,11 +42,11 @@ namespace Merge
         {
             for (int i = lo; i <= hi; i++)
             {
-                for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
+                for (int j = i; j > lo && Less(a[j], a[j - 1]); --j)
                 {
                     Exch(a, j, j - 1);
                 }
-                Debug.Assert(IsSorted(a, 0, i));
+                Debug.Assert(IsSorted(a, lo, i));
             }
         }
 

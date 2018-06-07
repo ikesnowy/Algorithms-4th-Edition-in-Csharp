@@ -45,7 +45,6 @@ namespace Merge
                 else
                     dst[k] = src[i++];
             }
-            Debug.Assert(IsSorted(dst, lo, hi));
         }
 
         /// <summary>
@@ -87,9 +86,8 @@ namespace Merge
         {
             T[] aux = new T[a.Length];
             a.CopyTo(aux, 0);
-            Sort(a, aux, 0, a.Length - 1);
-            Debug.Assert(IsSorted(a));
+            // aux 和 a 需要交换
+            Sort(aux, a, 0, a.Length - 1);
         }
-
     }
 }

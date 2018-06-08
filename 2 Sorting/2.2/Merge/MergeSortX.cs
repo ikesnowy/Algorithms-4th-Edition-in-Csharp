@@ -15,12 +15,14 @@ namespace Merge
         /// <summary>
         /// 对小于 CUTOFF 的数组使用插入排序。
         /// </summary>
-        private static readonly int CUTOFF = 7;
+        private static int CUTOFF = 10;
 
         /// <summary>
         /// 默认构造函数。
         /// </summary>
         public MergeSortX() { }
+
+        public void SetCutOff(int cutoff) => CUTOFF = cutoff;
 
         /// <summary>
         /// 将指定范围内的元素归并。

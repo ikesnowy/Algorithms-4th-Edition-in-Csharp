@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Merge;
 
-namespace Merge
+namespace _2._2._24
 {
     /// <summary>
     /// 优化后的归并排序类。
@@ -18,6 +19,11 @@ namespace Merge
         private static int CUTOFF = 7;
 
         /// <summary>
+        /// a[mid] ≤ a[mid + 1] 语句的命中次数
+        /// </summary>
+        private int hitTimes = 0;
+
+        /// <summary>
         /// 默认构造函数。
         /// </summary>
         public MergeSortX() { }
@@ -27,6 +33,17 @@ namespace Merge
         /// </summary>
         /// <param name="cutoff">新的阈值。</param>
         public void SetCutOff(int cutoff) => CUTOFF = cutoff;
+
+        /// <summary>
+        /// 重置语句命中次数。
+        /// </summary>
+        public void ResetHitTime() => this.hitTimes = 0;
+
+        /// <summary>
+        /// 获取语句命中次数。
+        /// </summary>
+        /// <returns></returns>
+        public int GetHitTime() => this.hitTimes;
 
         /// <summary>
         /// 将指定范围内的元素归并。
@@ -77,6 +94,7 @@ namespace Merge
             // 已排序的数组直接合并
             if (!Less(src[mid + 1], src[mid]))
             {
+                this.hitTimes++; // 累加命中次数
                 Array.Copy(src, lo, dst, lo, hi - lo + 1);
                 return;
             }

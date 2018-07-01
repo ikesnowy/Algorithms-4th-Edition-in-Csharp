@@ -1,6 +1,5 @@
 ﻿using System;
 using Sort;
-using SortData;
 
 namespace _2._1._24
 {

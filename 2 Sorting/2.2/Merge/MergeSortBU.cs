@@ -9,7 +9,7 @@ namespace Merge
     /// <summary>
     /// 自底向上的归并排序法。
     /// </summary>
-    class MergeSortBU : BaseSort
+    public class MergeSortBU : BaseSort
     {
         /// <summary>
         /// 默认构造函数。

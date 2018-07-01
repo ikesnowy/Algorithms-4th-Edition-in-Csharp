@@ -8,6 +8,11 @@ namespace Merge
     /// </summary>
     public abstract class BaseSort
     {
+        /// <summary>
+        /// 对数组 a 进行排序，用各种不同的方式进行实现。
+        /// </summary>
+        /// <typeparam name="T">用于排序的类型。</typeparam>
+        /// <param name="a">需要排序的数组。</param>
         public abstract void Sort<T>(T[] a) where T : IComparable<T>;
 
         /// <summary>

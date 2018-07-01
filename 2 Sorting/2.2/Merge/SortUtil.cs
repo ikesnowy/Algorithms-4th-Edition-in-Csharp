@@ -8,6 +8,9 @@ namespace Merge
     public static class SortUtil
     {
 
+        /// <summary>
+        /// 随机数发生器，所有对象共享同一个随机数发生器。
+        /// </summary>
         public static Random UniformGenerator = new Random();
 
         /// <summary>

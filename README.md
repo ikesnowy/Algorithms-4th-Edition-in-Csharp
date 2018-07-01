@@ -2,7 +2,9 @@
 
 算法（第4版）习题题解 C# 版
 
-当前已经完成到 2.1。
+当前已经完成到 2.2。
+
+可以在这个网站搜索题解：https://ikesnowy.github.io/Alg4-Solutions/
 
 ## 目录
 
@@ -20,6 +22,8 @@
 - [2.排序 Sorting](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting)
 
   - [2.1 初级排序算法 Elementary Sorts](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.1)
+
+  - [2.2 归并排序 Mergesort](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.2)
 
 
 ## 使用方法 & 测试环境
@@ -69,9 +73,19 @@ CPU: i7 4650U @1.70GHz
    // 这是一行 C# 注释内容。
    ```
 
-2. 类/方法/变量前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/index)。
+2. 类前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/classes#class-declarations)。
 
-   ```c#
+   ```csharp
+   new
+   public/protected/internal/private
+   abstract
+   sealed
+   static
+   ```
+
+3. 方法前的修饰符参照如下顺序排列。
+
+   ```csharp
    new
    public/protected/internal/private
    static
@@ -79,11 +93,36 @@ CPU: i7 4650U @1.70GHz
    sealed
    override
    abstract
+   extern
+   async
+   ```
+
+4. 字段前的修饰符按照如下顺序排列。
+
+   ```csharp
+   new
+   public/protected/internal/private
+   static
+   readonly
+   volatile
+   ```
+
+5. 属性前的修饰符按如下顺序排列。
+
+   ```csharp
+   new
+   public/protected/internal/private
+   static
+   virtual
+   sealed
+   override
+   abstract
+   extern
    ```
 
    例子：
 
-   ```c#
+   ```csharp
    public abstract class BubbleSort : Sort
    {
      public static abstract void Sort (Comparable[] a);

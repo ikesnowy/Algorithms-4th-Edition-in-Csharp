@@ -19,11 +19,11 @@ namespace _2._2._28
     {
         static void Main(string[] args)
         {
-            int n = 100;
+            int n = 1000;
             MergeSort topBottomMergeSort = new MergeSort();
             MergeSortBU bottomUpMergeSort = new MergeSortBU();
-            int trialTimes = 10;
-            for (int i = 0; i < 6; i++)
+            int trialTimes = 100;
+            for (int i = 0; i < 4; i++)
             {
                 Console.Write("数组大小：" + n + "\t");
                 int time1 = 0, time2 = 0;

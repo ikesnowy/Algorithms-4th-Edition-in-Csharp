@@ -3,7 +3,7 @@
 namespace _2._2._18
 {
     /// <summary>
-    /// 归并排序类。
+    /// 分治法打乱链表。
     /// </summary>
     public class MergeShuffle
     {

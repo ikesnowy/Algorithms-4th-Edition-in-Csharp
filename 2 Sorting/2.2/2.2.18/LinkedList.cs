@@ -120,27 +120,18 @@ namespace _2._2._18
         }
 
         /// <summary>
-        /// 将链表对半拆分。
+        /// 获得链表的中间元素。
         /// </summary>
-        /// <param name="A">左半部分。</param>
-        /// <param name="B">右半部分。</param>
-        public void SplitInHalf(out LinkedList<Item> A, out LinkedList<Item> B)
+        /// <returns>链表的中间元素。</returns>
+        public Node<Item> GetMiddle()
         {
+            Node<Item> middle = this.first;
             int mid = this.count / 2;
-            A = new LinkedList<Item>();
-            B = new LinkedList<Item>();
-            A.first = this.first;
-            A.count = mid;
-            B.first = this.first;
-            B.count = this.count - mid;
-            
             for (int i = 0; i < mid - 1; i++)
             {
-                B.first = B.first.next;
+                middle = middle.next;
             }
-            Node<Item> temp = B.first;
-            B.first = B.first.next;
-            temp.next = null;
+            return middle;
         }
 
         /// <summary>

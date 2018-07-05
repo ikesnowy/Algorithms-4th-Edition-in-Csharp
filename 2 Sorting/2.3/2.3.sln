@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-基础题（2.3.1~2.3.14）", "1-基础题（2.3.1~2.3.14）", "{70D79B29-6263-4137-A094-75EDE650959B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-提高题（2.3.15~2.3.24）", "2-提高题（2.3.15~2.3.24）", "{7FC73184-7437-434A-9339-C190965ADC9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-实验题（2.3.25~2.3.31）", "3-实验题（2.3.25~2.3.31）", "{2D8A0264-3D6B-4523-94BE-1E396CDB077C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-类库", "0-类库", "{E15F04CF-E19C-46F1-BDAC-26332BAEB27A}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29E25F11-448B-4B17-AB6A-44A24B4A3ED4}
+	EndGlobalSection
+EndGlobal

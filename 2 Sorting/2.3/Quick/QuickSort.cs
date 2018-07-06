@@ -38,7 +38,7 @@ namespace Quick
         /// <param name="hi">排序范围的结束下标。</param>
         private void Sort<T>(T[] a, int lo, int hi) where T: IComparable<T>
         {
-            if (hi < lo)
+            if (hi <= lo)                   // 别越界
                 return;
             int j = partition(a, lo, hi);
             Sort(a, lo, j - 1);

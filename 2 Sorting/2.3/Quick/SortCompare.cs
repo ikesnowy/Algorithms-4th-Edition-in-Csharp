@@ -9,6 +9,23 @@ namespace Quick
     public static class SortCompare
     {
         /// <summary>
+        /// 打乱数组。
+        /// </summary>
+        /// <typeparam name="T">需要打乱的数组类型。</typeparam>
+        /// <param name="a">需要打乱的数组。</param>
+        public static void Shuffle<T>(T[] a)
+        {
+            Random random = new Random();
+            for (int i = 0; i < a.Length; i++)
+            {
+                int r = i + random.Next(a.Length - i);
+                T temp = a[i];
+                a[i] = a[r];
+                a[r] = temp;
+            }
+        }
+
+        /// <summary>
         /// 对相应排序算法执行一次耗时测试。
         /// </summary>
         /// <param name="sort">用于测试的排序算法。</param>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Quick
+﻿namespace Quick
 {
     /// <summary>
     /// 用于将只有两种元素的数组排序。

@@ -25,7 +25,7 @@ namespace Quick
         {
             int lt = 0, gt = a.Length - 1;
             int i = 0;
-            while (i < gt)
+            while (i <= gt)
             {
                 int cmp = a[i].CompareTo(a[lt]);
                 if (cmp < 0)

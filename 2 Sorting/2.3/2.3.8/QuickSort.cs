@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Diagnostics;
+using Quick;
 
-namespace Quick
+namespace _2._3._8
 {
     /// <summary>
     /// 快速排序类。
     /// </summary>
     public class QuickSort : BaseSort
     {
+        /// <summary>
+        /// 比较次数。
+        /// </summary>
+        public int CN { get; set; }
+
         /// <summary>
         /// 默认构造函数。
         /// </summary>
@@ -20,6 +26,7 @@ namespace Quick
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
+            this.CN = 0;
             Shuffle(a);
             Sort(a, 0, a.Length - 1);
             Debug.Assert(IsSorted(a));
@@ -56,11 +63,16 @@ namespace Quick
             while (true)
             {
                 while (Less(a[++i], v))
+                {
                     if (i == hi)
                         break;
+                }
                 while (Less(v, a[--j]))
+                {
                     if (j == lo)
                         break;
+                }
+
                 if (i >= j)
                     break;
                 Exch(a, i, j);
@@ -84,6 +96,19 @@ namespace Quick
                 a[i] = a[r];
                 a[r] = temp;
             }
+        }
+
+        /// <summary>
+        /// 比较第一个元素是否小于第二个元素。
+        /// </summary>
+        /// <typeparam name="T">要比较的元素类型。</typeparam>
+        /// <param name="a">第一个元素。</param>
+        /// <param name="b">第二个元素。</param>
+        /// <returns></returns>
+        new protected bool Less<T>(T a, T b) where T : IComparable<T>
+        {
+            this.CN++;
+            return a.CompareTo(b) < 0;
         }
     }
 }

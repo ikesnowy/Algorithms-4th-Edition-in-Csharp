@@ -60,7 +60,7 @@ namespace _2._3._7
 
             if (hi <= lo)                   // 别越界
                 return;
-            int j = partition(a, lo, hi);
+            int j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }
@@ -73,7 +73,7 @@ namespace _2._3._7
         /// <param name="lo">切分的起始点。</param>
         /// <param name="hi">切分的末尾点。</param>
         /// <returns>枢轴下标。</returns>
-        private int partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
+        private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
             T v = a[lo];

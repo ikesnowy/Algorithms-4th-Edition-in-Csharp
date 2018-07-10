@@ -43,7 +43,7 @@ namespace _2._3._6
         {
             if (hi <= lo)                   // 别越界
                 return;
-            int j = partition(a, lo, hi);
+            int j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }
@@ -56,7 +56,7 @@ namespace _2._3._6
         /// <param name="lo">切分的起始点。</param>
         /// <param name="hi">切分的末尾点。</param>
         /// <returns>枢轴下标。</returns>
-        private int partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
+        private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
             T v = a[lo];
@@ -64,13 +64,11 @@ namespace _2._3._6
             {
                 while (Less(a[++i], v))
                 {
-                    this.CN++;
                     if (i == hi)
                         break;
                 }
                 while (Less(v, a[--j]))
                 {
-                    this.CN++;
                     if (j == lo)
                         break;
                 }
@@ -99,6 +97,19 @@ namespace _2._3._6
                 a[i] = a[r];
                 a[r] = temp;
             }
+        }
+
+        /// <summary>
+        /// 比较第一个元素是否小于第二个元素。
+        /// </summary>
+        /// <typeparam name="T">要比较的元素类型。</typeparam>
+        /// <param name="a">第一个元素。</param>
+        /// <param name="b">第二个元素。</param>
+        /// <returns></returns>
+        new protected bool Less<T>(T a, T b) where T : IComparable<T>
+        {
+            this.CN++;
+            return a.CompareTo(b) < 0;
         }
     }
 }

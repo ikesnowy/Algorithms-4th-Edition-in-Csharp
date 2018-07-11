@@ -10,7 +10,7 @@ namespace _2._1._18
         double[] randomDoubles;
         int sortI;
         int sortJ;
-        int n = 0;
+
         public Form3(int N)
         {
             InitializeComponent();

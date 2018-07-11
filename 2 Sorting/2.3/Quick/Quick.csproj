@@ -43,6 +43,7 @@
     <Compile Include="BaseSort.cs" />
     <Compile Include="QuickSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickSortAnalyze.cs" />
     <Compile Include="Sort2Distinct.cs" />
     <Compile Include="SortCompare.cs" />
     <Compile Include="SortUtil.cs" />

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{601FC4EB-6B24-4EF5-835D-9940A8EC6621}</ProjectGuid>
+    <ProjectGuid>{49630892-92E5-42A0-A76B-5A84BFACBB59}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_2._3._6</RootNamespace>
-    <AssemblyName>2.3.6</AssemblyName>
+    <RootNamespace>_2._3._9</RootNamespace>
+    <AssemblyName>2.3.9</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,12 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Quick\Quick.csproj">
-      <Project>{f5fb1710-8260-4d0b-a366-eff40e64381f}</Project>
-      <Name>Quick</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

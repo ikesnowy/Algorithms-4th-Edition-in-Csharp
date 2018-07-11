@@ -1,23 +1,49 @@
 ﻿using System;
 using System.Diagnostics;
-using Quick;
 
-namespace _2._3._6
+namespace Quick
 {
     /// <summary>
-    /// 快速排序类。
+    /// 自动记录比较次数以及子数组数量的快速排序类。
     /// </summary>
-    public class QuickSort : BaseSort
+    public class QuickSortAnalyze : BaseSort
     {
         /// <summary>
         /// 比较次数。
         /// </summary>
-        public int CN { get; set; }
+        public int CompareCount { get; set; }
+
+        /// <summary>
+        /// 是否启用打乱。
+        /// </summary>
+        public bool NeedShuffle { get; set; }
+
+        /// <summary>
+        /// 大小为 0 的子数组数量。
+        /// </summary>
+        public int Array0Num { get; set; }
+
+        /// <summary>
+        /// 大小为 1 的子数组数量。
+        /// </summary>
+        public int Array1Num { get; set; }
+
+        /// <summary>
+        /// 大小为 2 的子数组数量。
+        /// </summary>
+        public int Array2Num { get; set; }
 
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public QuickSort() { }
+        public QuickSortAnalyze()
+        {
+            this.CompareCount = 0;
+            this.NeedShuffle = true;
+            this.Array0Num = 0;
+            this.Array1Num = 0;
+            this.Array2Num = 0;
+        }
 
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
@@ -26,8 +52,12 @@ namespace _2._3._6
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            this.CN = 0;
-            Shuffle(a);
+            this.Array0Num = 0;
+            this.Array1Num = 0;
+            this.Array2Num = 0;
+            this.CompareCount = 0;
+            if (this.NeedShuffle)
+                Shuffle(a);
             Sort(a, 0, a.Length - 1);
             Debug.Assert(IsSorted(a));
         }
@@ -39,8 +69,15 @@ namespace _2._3._6
         /// <param name="a">需要排序的数组。</param>
         /// <param name="lo">排序范围的起始下标。</param>
         /// <param name="hi">排序范围的结束下标。</param>
-        private void Sort<T>(T[] a, int lo, int hi) where T: IComparable<T>
+        private void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
+            if (hi - lo == 1)
+                this.Array2Num++;
+            else if (hi == lo)
+                this.Array1Num++;
+            else if (hi < lo)
+                this.Array0Num++;
+
             if (hi <= lo)                   // 别越界
                 return;
             int j = Partition(a, lo, hi);
@@ -63,19 +100,13 @@ namespace _2._3._6
             while (true)
             {
                 while (Less(a[++i], v))
-                {
                     if (i == hi)
                         break;
-                }
                 while (Less(v, a[--j]))
-                {
                     if (j == lo)
                         break;
-                }
-
                 if (i >= j)
                     break;
-
                 Exch(a, i, j);
             }
             Exch(a, lo, j);
@@ -108,7 +139,7 @@ namespace _2._3._6
         /// <returns></returns>
         new protected bool Less<T>(T a, T b) where T : IComparable<T>
         {
-            this.CN++;
+            this.CompareCount++;
             return a.CompareTo(b) < 0;
         }
     }

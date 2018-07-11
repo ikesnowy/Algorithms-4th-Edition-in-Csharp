@@ -45,7 +45,7 @@ namespace _2._3._7
             // 结论
             // C0(n)=C1(n)=(n+1)/3, C2(n)=(n+1)/6
             int n = 1000;
-            QuickSort sort = new QuickSort();
+            QuickSortAnalyze sort = new QuickSortAnalyze();
             Console.WriteLine("n\t0\t1\t2");
             for (int i = 0; i < 5; i++)
             {

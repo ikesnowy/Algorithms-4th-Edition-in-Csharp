@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _2._3._11
+﻿namespace _2._3._11
 {
     /*
      * 2.3.11

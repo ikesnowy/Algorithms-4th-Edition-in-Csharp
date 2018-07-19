@@ -19,6 +19,11 @@ namespace Quick
         public bool NeedShuffle { get; set; }
 
         /// <summary>
+        /// 是否显示轨迹。
+        /// </summary>
+        public bool NeedPath { get; set; }
+
+        /// <summary>
         /// 大小为 0 的子数组数量。
         /// </summary>
         public int Array0Num { get; set; }
@@ -40,6 +45,7 @@ namespace Quick
         {
             this.CompareCount = 0;
             this.NeedShuffle = true;
+            this.NeedPath = false;
             this.Array0Num = 0;
             this.Array1Num = 0;
             this.Array2Num = 0;
@@ -58,6 +64,14 @@ namespace Quick
             this.CompareCount = 0;
             if (this.NeedShuffle)
                 Shuffle(a);
+            if (this.NeedPath)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    Console.Write("  ");
+                }
+                Console.WriteLine("\tlo\tj\thi");
+            }
             Sort(a, 0, a.Length - 1);
             Debug.Assert(IsSorted(a));
         }
@@ -81,6 +95,14 @@ namespace Quick
             if (hi <= lo)                   // 别越界
                 return;
             int j = Partition(a, lo, hi);
+            if (this.NeedPath)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    Console.Write(a[i] + " ");
+                }
+                Console.WriteLine("\t" + lo + "\t" + j + "\t" + hi);
+            }
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }

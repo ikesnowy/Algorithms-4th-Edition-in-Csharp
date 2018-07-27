@@ -16,13 +16,10 @@ namespace _2._3._18
         static void Main(string[] args)
         {
             QuickSort quickNormal = new QuickSort();
-            QuickSortMedian quickMedian = new QuickSortMedian
-            {
-                SampleArraySize = PivotArraySize.MedianOf3  //三取样切分。
-            };
-            int arraySize = 10000;                          // 初始数组大小。
-            const int trialTimes = 5;                       // 每次实验的重复次数。
-            const int trialLevel = 10;                      // 双倍递增的次数。
+            QuickSortMedian3 quickMedian = new QuickSortMedian3();
+            int arraySize = 200000;                         // 初始数组大小。
+            const int trialTimes = 4;                       // 每次实验的重复次数。
+            const int trialLevel = 5;                       // 双倍递增的次数。
 
             Console.WriteLine("n\tmedian\tnormal\tratio");
             for (int i = 0; i < trialLevel; i++)

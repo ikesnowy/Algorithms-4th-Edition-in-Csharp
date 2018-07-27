@@ -5,32 +5,14 @@ using Quick;
 namespace _2._3._18
 {
     /// <summary>
-    /// 枢轴选取的数组大小。
+    /// 三取样快速排序
     /// </summary>
-    public enum PivotArraySize
+    public class QuickSortMedian3 : BaseSort
     {
-        MedianOf3,
-        MedianOf5
-    }
-
-    /// <summary>
-    /// 快速排序类。
-    /// </summary>
-    public class QuickSortMedian : BaseSort
-    {
-        /// <summary>
-        /// 取样数组大小。
-        /// </summary>
-        public PivotArraySize SampleArraySize { get; set; }
-
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public QuickSortMedian()
-        {
-            // 默认三取样
-            this.SampleArraySize = PivotArraySize.MedianOf3;
-        }
+        public QuickSortMedian3() {}
 
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
@@ -55,6 +37,16 @@ namespace _2._3._18
         {
             if (hi <= lo)                   // 别越界
                 return;
+
+            // 只有两个元素的数组直接排序
+            if (hi == lo + 1)
+            {
+                if (Less(a[hi], a[lo]))
+                    Exch(a, lo, hi);
+
+                return;
+            }
+
             int j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
@@ -71,52 +63,21 @@ namespace _2._3._18
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
+            
+            if (Less(a[lo + 1], a[lo]))
+                Exch(a, lo + 1, lo);
+            if (Less(a[lo + 2], a[lo]))
+                Exch(a, lo + 2, lo);
+            if (Less(a[lo + 2], a[lo + 1]))
+                Exch(a, lo + 1, lo + 2);
 
-            if (this.SampleArraySize == PivotArraySize.MedianOf3 && hi - lo >= 3)
-            {
-                if (Less(a[lo + 1], a[lo]))
-                    Exch(a, lo + 1, lo);
-                if (Less(a[lo + 2], a[lo]))
-                    Exch(a, lo + 2, lo);
-                if (Less(a[lo + 2], a[lo + 1]))
-                    Exch(a, lo + 1, lo + 2);
-                Exch(a, lo, lo + 1);
-            }
-            else if (this.SampleArraySize == PivotArraySize.MedianOf5 && hi - lo >= 5)
-            {
-                if (Less(a[lo], a[lo + 1]))
-                    Exch(a, lo, lo + 1);
-                if (Less(a[lo + 2], a[lo + 3]))
-                    Exch(a, lo + 2, lo + 3);
-                if (Less(a[lo], a[lo + 2]))
-                {
-                    Exch(a, lo, lo + 2);
-                    Exch(a, lo + 1, lo + 3);
-                }
-                if (Less(lo + 1, lo + 4))
-                    Exch(a, lo + 1, lo + 4);
-                if (Less(a[lo + 2], a[lo + 1]))
-                {
-                    if (Less(a[lo + 4], a[lo + 2]))
-                        Exch(a, lo, lo + 2);
-                    else
-                        Exch(a, lo, lo + 4);
-                }
-                else
-                {
-                    if (Less(a[lo + 3], a[lo + 1]))
-                        Exch(a, lo, lo + 1);
-                    else
-                        Exch(a, lo, lo + 3);
-                }
-            }
+            Exch(a, lo, lo + 1);        // 中位数放最左侧
+            Exch(a, hi, lo + 2);        // 较大的值放最右侧作为哨兵
 
             T v = a[lo];
             while (true)
             {
-                while (Less(a[++i], v))
-                    if (i == hi)
-                        break;
+                while (Less(a[++i], v)) ;
                 while (Less(v, a[--j])) ;
                 if (i >= j)
                     break;

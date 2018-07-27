@@ -78,7 +78,7 @@ namespace _2._3._18
                     Exch(a, lo + 1, lo);
                 if (Less(a[lo + 2], a[lo]))
                     Exch(a, lo + 2, lo);
-                if (Less(a[lo + 1], a[lo + 2]))
+                if (Less(a[lo + 2], a[lo + 1]))
                     Exch(a, lo + 1, lo + 2);
                 Exch(a, lo, lo + 1);
             }

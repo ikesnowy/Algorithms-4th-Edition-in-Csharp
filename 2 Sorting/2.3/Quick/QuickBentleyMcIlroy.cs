@@ -71,9 +71,7 @@ namespace Quick
             T v = a[lo];
             while (true)
             {
-                while (Less(a[++i], v))
-                    if (i == hi)
-                        break;
+                while (Less(a[++i], v)) ;
                 while (Less(v, a[--j]))
                     if (j == lo)
                         break;

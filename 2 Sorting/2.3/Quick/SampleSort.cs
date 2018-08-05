@@ -36,7 +36,7 @@ namespace Quick
             }
 
             Shuffle(a);
-            int samplehi = (int)Math.Pow(2, this.K) - 1;
+            int samplehi = (int)Math.Pow(2, this.K) - 2;
             // 利用快速排序对取样数组进行排序
             base.Sort(a, 0, samplehi);
             // 找到取样数组的中位数

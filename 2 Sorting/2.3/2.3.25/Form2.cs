@@ -20,12 +20,22 @@ namespace _2._3._25
             this.N = n;
         }
 
+        /// <summary>
+        /// 启动页面时启动后台测试。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
             this.Text = "正在绘图";
             this.backgroundWorker1.RunWorkerAsync();
         }
 
+        /// <summary>
+        /// 后台测试方法。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -41,11 +51,21 @@ namespace _2._3._25
             e.Result = timeRecord;
         }
 
+        /// <summary>
+        /// 更新后台进度方法。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
         }
 
+        /// <summary>
+        /// 测试完毕，进行绘图的方法。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Error != null)

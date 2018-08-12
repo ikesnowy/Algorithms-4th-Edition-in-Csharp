@@ -15,6 +15,12 @@ namespace _2._4._3
     {
         static void Main(string[] args)
         {
+            // | 实现    | insert() | delMax() |
+            // | ------- | -------- | -------- |
+            // | 有序数组 |    N     |     1    |
+            // | 有序链表 |    N     |     1    |
+            // | 无序数组 |    1     |     N    |
+            // | 无序链表 |    1     |     N    |
             test(new OrderedArrayMaxPQ<string>(10));
             test(new UnorderedArrayMaxPQ<string>(10));
             test(new OrderedLinkedMaxPQ<string>());

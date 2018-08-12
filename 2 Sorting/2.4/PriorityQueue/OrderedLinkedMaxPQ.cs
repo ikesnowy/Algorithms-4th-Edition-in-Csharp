@@ -3,29 +3,22 @@
 namespace PriorityQueue
 {
     /// <summary>
-    /// 元素保持输入顺序的优先队列。（基于数组）
+    /// 元素保持输入顺序的优先队列。（基于链表）
     /// </summary>
     /// <typeparam name="Key">优先队列中的元素类型。</typeparam>
-    public class OrderedArrayMaxPQ<Key> : IMaxPQ<Key> where Key : IComparable<Key>
+    public class OrderedLinkedMaxPQ<Key> : IMaxPQ<Key> where Key : IComparable<Key>
     {
         /// <summary>
-        /// 保存元素的数组。
+        /// 用于保存元素的链表。
         /// </summary>
-        private readonly Key[] pq;
-
-        /// <summary>
-        /// 队列中的元素数量。
-        /// </summary>
-        private int n = 0;
+        private readonly LinkedList<Key> pq;
 
         /// <summary>
         /// 默认构造函数，建立一条优先队列。
         /// </summary>
-        /// <param name="capacity">优先队列的初始容量。</param>
-        public OrderedArrayMaxPQ(int capacity)
+        public OrderedLinkedMaxPQ()
         {
-            this.pq = new Key[capacity];
-            this.n = 0;
+            this.pq = new LinkedList<Key>();
         }
 
         /// <summary>
@@ -34,39 +27,35 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            int i = this.n - 1;
-            while (i >= 0 && Less(v, this.pq[i]))
-            {
-                this.pq[i + 1] = this.pq[i];
+            int i = this.pq.Size() - 1;
+            while (i >= 0 && Less(v, this.pq.Find(i)))
                 i--;
-            }
-            this.pq[i + 1] = v;
-            this.n++;
+            this.pq.Insert(v, i + 1);
         }
 
         /// <summary>
         /// 返回并删除优先队列中的最大值。
         /// </summary>
         /// <returns></returns>
-        public Key DelMax() => this.pq[--this.n];
-        
+        public Key DelMax() => this.pq.Delete(this.pq.Size() - 1);
+
         /// <summary>
         /// 检查优先队列是否为空。
         /// </summary>
         /// <returns></returns>
-        public bool IsEmpty() => this.n == 0;
-
-        /// <summary>
-        /// 检查优先队列中含有的元素数量。
-        /// </summary>
-        /// <returns></returns>
-        public int Size() => this.n;
+        public bool IsEmpty() => this.pq.IsEmpty();
 
         /// <summary>
         /// 获得（但不删除）优先队列中的最大元素。
         /// </summary>
         /// <returns></returns>
-        public Key Max() => this.pq[this.n - 1];
+        public Key Max() => this.pq.Find(this.pq.Size() - 1);
+
+        /// <summary>
+        /// 检查优先队列中含有的元素数量。
+        /// </summary>
+        /// <returns></returns>
+        public int Size() => this.pq.Size();
 
         /// <summary>
         /// 比较第一个元素是否小于第二个元素。

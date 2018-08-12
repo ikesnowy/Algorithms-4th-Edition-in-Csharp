@@ -6,7 +6,7 @@ namespace PriorityQueue
     /// 实现优先队列 API 的接口。
     /// </summary>
     /// <typeparam name="Key">优先队列容纳的元素。</typeparam>
-    interface IMaxPQ<Key> where Key : IComparable<Key>
+    public interface IMaxPQ<Key> where Key : IComparable<Key>
     {
         /// <summary>
         /// 向优先队列中插入一个元素。

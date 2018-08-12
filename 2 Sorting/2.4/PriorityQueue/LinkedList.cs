@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Generics
+namespace PriorityQueue
 {
     /// <summary>
     /// 链表类。
     /// </summary>
     /// <typeparam name="Item">链表存放的元素类型。</typeparam>
-    public class LinkedList<Item> : IEnumerable<Item>
+    internal class LinkedList<Item> : IEnumerable<Item>
     {
         private Node<Item> first;
         private int count;

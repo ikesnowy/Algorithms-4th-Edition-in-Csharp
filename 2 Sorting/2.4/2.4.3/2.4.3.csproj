@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E040340E-EBB2-4650-8E19-EE46EB684E14}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PriorityQueue</RootNamespace>
-    <AssemblyName>PriorityQueue</AssemblyName>
+    <ProjectGuid>{D80A4B1E-1812-4123-817D-29BB8956F0BC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>_2._4._3</RootNamespace>
+    <AssemblyName>2.4.3</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMaxPQ.cs" />
-    <Compile Include="LinkedList.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="OrderedArrayMaxPQ.cs" />
-    <Compile Include="OrderedLinkedMaxPQ.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnorderedArrayMaxPQ.cs" />
-    <Compile Include="UnorderedLinkedMaxPQ.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PriorityQueue\PriorityQueue.csproj">
+      <Project>{e040340e-ebb2-4650-8e19-ee46eb684e14}</Project>
+      <Name>PriorityQueue</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

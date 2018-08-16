@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _2._4._5
+﻿namespace _2._4._5
 {
     /*
      * 2.4.5

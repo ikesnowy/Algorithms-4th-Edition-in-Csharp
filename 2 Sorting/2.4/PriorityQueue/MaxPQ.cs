@@ -141,7 +141,7 @@ namespace PriorityQueue
             while (k * 2 <= this.n)
             {
                 int j = 2 * k;
-                if (j < this.n && Less(j, j + 1))
+                if (Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
                     break;

@@ -43,7 +43,7 @@ namespace _2._4._6
             //    
 
             MaxPQ<char> pq = new MaxPQ<char>();
-            string input = "E D A B C";
+            string input = "P R I O * R * * I * T * Y * * * Q U E * * * U * E";
             foreach (char c in input)
             {
                 if (c == ' ')

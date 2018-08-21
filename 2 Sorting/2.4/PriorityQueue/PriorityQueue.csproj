@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMaxPQ.cs" />
+    <Compile Include="IMinPQ.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="MaxPQ.cs" />
+    <Compile Include="MinPQ.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="OrderedArrayMaxPQ.cs" />
     <Compile Include="OrderedLinkedMaxPQ.cs" />

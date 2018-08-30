@@ -45,29 +45,11 @@ Program.cs 是程序的运行代码。
 
 题目说明位于 Program.cs 文件中，绘图和逻辑部分代码可能在窗体文件，也可能在 Program.cs 中。  
 
-### 测试环境：  
+### 开发环境： 
 
-硬件环境：
+Visual Studio 2017 + .NET Framework 4.7  
 
-Surface Pro3
-
-CPU: i7 4650U @1.70GHz
-
-软件环境：
-
-第一章：Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
-
-第二章：
-
-2.1 Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7
-
-2.2 Windows10 17134 + Visual Studio 2017 + .NET Framework 4.7
-
-2.3 Windows10 17134 + Visual Studio 2017 + .NET Framework 4.7
-
-2.4 Windows10 17134 + Visual Studio 2017 + .NET Framework 4.7
-
-## 代码规范：
+## 代码规范
 
 主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
 

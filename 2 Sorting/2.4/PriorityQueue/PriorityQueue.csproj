@@ -44,6 +44,7 @@
     <Compile Include="IMaxPQ.cs" />
     <Compile Include="IMinPQ.cs" />
     <Compile Include="LinkedList.cs" />
+    <Compile Include="MaxPQAnalysis.cs" />
     <Compile Include="MaxPQ.cs" />
     <Compile Include="MinPQ.cs" />
     <Compile Include="Node.cs" />

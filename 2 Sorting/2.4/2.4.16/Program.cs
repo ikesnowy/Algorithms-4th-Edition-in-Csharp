@@ -16,6 +16,11 @@ namespace _2._4._16
     {
         static void Main(string[] args)
         {
+            // 最好情况
+            // 比较简单，键值完全相同的数组即可。
+            // 最坏情况
+            // 
+
             int[] a = { 11, 8, 7, 6, 5, 4, 3, 2, 1 };
             PriorityQueue.Heap.Sort(a);
             foreach (int i in a)

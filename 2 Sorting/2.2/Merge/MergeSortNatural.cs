@@ -35,7 +35,7 @@ namespace Merge
                     int hi = FindBlock(mid + 1, a) + mid;
                     Merge(lo, mid, hi, a, aux);
                     lo = hi + 1;
-                    mid = FindBlock(lo, a) + lo;
+                    mid = FindBlock(lo, a) + lo - 1;
                 }
             }
             Debug.Assert(IsSorted(a));

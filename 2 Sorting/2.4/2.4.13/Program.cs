@@ -11,7 +11,7 @@
         static void Main(string[] args)
         {
             // 在官方实现的基础上删去 j<n 的语句。
-            // 随后令 pq[n+1] = pq[1] 即可。
+            // 随后在 Sink(1) 之前令 pq[n+1] = pq[1] 即可。
             // 在 DelMax 方法中，
             // 最大元素先被放到了最后，然后 n 减小 1
             // 这一步保证了 pq[n] <= pq[n+1]

@@ -55,6 +55,7 @@ namespace PriorityQueue
 
             int max = this.pq[1];
             Exch(1, this.n--);
+            this.pq[this.n + 1] = this.pq[1];
             Sink(1);
             this.pq[this.n + 1] = default(int);
             if ((this.n > 0) && (this.n == this.pq.Length / 4))
@@ -236,6 +237,72 @@ namespace PriorityQueue
             this.pq[this.n] = PullDown(1, i);
             this.pq[1] = this.n;
             return this;
+        }
+
+        public int[] Par(int l)
+        {
+            int n = (int)Math.Pow(2, l) - 1;
+            int[] s7 = { 0, 1, 2, 3, 4, 4, 5 };
+            int[] strategy = new int[n];
+            for (int i = 0; i < Math.Min(n, 7); i++)
+            {
+                strategy[i] = s7[i];
+            }
+
+            if (n <= 7)
+                return strategy;
+
+            for (int lev = 3; lev < l; lev++)
+            {
+                int i = (int)Math.Pow(2, lev) - 1;
+                strategy[i] = i;
+                strategy[i + 1] = i - 1;
+                strategy[i + 2] = i + 1;
+                strategy[i + 3] = i + 2;
+                strategy[i + 4] = i + 4;
+                strategy[i + 5] = i + 3;
+                for (int k = i + 6; k <= 2 * i; k++)
+                {
+                    strategy[k] = k - 1;
+                }
+            }
+            return strategy;
+        }
+
+        public int[] Win(int n)
+        {
+            int[] strategy = new int[n];
+            int[] s = Par((int)Math.Floor(Math.Log10(n)) + 1);
+            for (int i = 1; i <= n - 1; i++)
+            {
+                strategy[i] = s[i];
+            }
+            int I = (int)Math.Pow(2, Math.Floor(Math.Log10(n + 1))) - 1;
+            if ((n == I) || (n <= 7))
+                return strategy;
+            strategy[I] = I;
+            if (n == I + 1)
+                return strategy;
+            strategy[I + 1] = (I + 1) / 2;
+            if (n == I + 2)
+                return strategy;
+            for (int i = I + 2; i <= n - 1; i++)
+            {
+                if (i == 2 * I - 2)
+                    strategy[i] = i;
+                else
+                    strategy[i] = i - 1;
+            }
+            return strategy;
+        }
+
+        public void MakeWorst(int n)
+        {
+            int[] strategy = Win(n);
+            for (int i = 0; i < strategy.Length; i++)
+            {
+                
+            }
         }
     }
 }

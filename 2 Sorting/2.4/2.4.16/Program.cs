@@ -22,6 +22,7 @@ namespace _2._4._16
             // 最坏情况
             // 参考论文：https://arxiv.org/abs/1504.01459
             // 下面的代码能够生成最好和最坏情况并输出序列和比较次数。
+
             int size = 31;
             int[] bestCase = new int[size];
             for (int i = 0; i < size; i++)
@@ -35,7 +36,6 @@ namespace _2._4._16
             Console.WriteLine(HeapAnalysis.Sort(bestCase));
 
             Console.WriteLine();
-
 
             MaxPQWorstCase pq = new MaxPQWorstCase(size);
             int[] worstCase = pq.MakeWorst(size);

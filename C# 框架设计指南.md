@@ -1,6 +1,7 @@
 # C# 框架设计指南
 
 原文链接：https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/
+
 只根据自身使用情况进行了翻译，内容并不完全，仅供参考。
 
 ## 命名风格指南

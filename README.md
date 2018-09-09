@@ -51,7 +51,7 @@ Visual Studio 2017 + .NET Framework 4.7
 
 ## 代码规范
 
-主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
+主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)（本人翻译的版本） 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
 
 1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
 

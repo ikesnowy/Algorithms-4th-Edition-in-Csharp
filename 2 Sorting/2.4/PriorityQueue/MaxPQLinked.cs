@@ -50,13 +50,13 @@ namespace PriorityQueue
                 return result;
             }
 
-            // 获得前一个结点
+            // 获得前一个结点。
             TreeNode<Key> newLast = this.last;
             if (newLast == this.last.Prev.Right)
                 newLast = this.last.Prev.Left;
             else
             {
-                // 找到上一棵子树
+                // 找到上一棵子树。
                 while (newLast != this.root)
                 {
                     if (newLast != newLast.Prev.Left)
@@ -75,13 +75,13 @@ namespace PriorityQueue
                 else
                 {
                     // 向左子树移动，再一路向右。
-                    newLast = newLast.Left;
+                    newLast = newLast.Prev.Left;
                     while (newLast.Right != null)
                         newLast = newLast.Right;
                 }
             }
 
-            // 删除最后一个结点
+            // 删除最后一个结点。
             if (this.last.Prev.Left == this.last)
                 this.last.Prev.Left = null;
             else
@@ -89,7 +89,7 @@ namespace PriorityQueue
 
             Sink(this.root);
 
-            // 指向新的最后一个结点
+            // 指向新的最后一个结点。
             this.last = newLast;
             this.nodesCount--;
             return result;
@@ -156,7 +156,7 @@ namespace PriorityQueue
                 else
                 {
                     // 向右子树移动，再一路向左。
-                    prev = prev.Right;
+                    prev = prev.Prev.Right;
                     while (prev.Left != null)
                         prev = prev.Left;
 

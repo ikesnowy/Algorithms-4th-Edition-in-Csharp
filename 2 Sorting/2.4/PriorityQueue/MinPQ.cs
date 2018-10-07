@@ -55,12 +55,13 @@ namespace PriorityQueue
 
             Key min = this.pq[1];
             Exch(1, this.n--);
+            this.pq[this.n + 1] = this.pq[1];
             Sink(1);
             this.pq[this.n + 1] = default(Key);
             if ((this.n > 0) && (this.n == this.pq.Length / 4))
                 Resize(this.pq.Length / 2);
 
-            // Debug.Assert(IsMaxHeap());
+            //Debug.Assert(IsMinHeap());
             return min;
         }
 
@@ -75,7 +76,7 @@ namespace PriorityQueue
 
             this.pq[++this.n] = v;
             Swim(this.n);
-            // Debug.Assert(IsMaxHeap());
+            //Debug.Assert(IsMinHeap());
         }
 
         /// <summary>

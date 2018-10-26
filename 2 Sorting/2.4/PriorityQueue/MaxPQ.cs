@@ -95,10 +95,9 @@ namespace PriorityQueue
                 this.pq[this.n--] = default(Key);
                 return;
             }
-            Exch(1, k);
-            Exch(1, this.n--);
-            Exch(1, k);
+            Exch(k, this.n--);
             this.pq[this.n + 1] = default(Key);
+            Swim(k);
             Sink(k);
         }
 

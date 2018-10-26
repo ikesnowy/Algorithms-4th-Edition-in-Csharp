@@ -11,8 +11,8 @@ namespace PriorityQueue
     /// <typeparam name="Key">最大堆中保存的元素类型。</typeparam>
     public class MaxPQ<Key> : IMaxPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        private Key[] pq;               // 保存元素的数组。
-        private int n;                  // 堆中的元素数量。
+        protected Key[] pq;               // 保存元素的数组。
+        protected int n;                  // 堆中的元素数量。
 
         /// <summary>
         /// 默认构造函数。
@@ -55,7 +55,6 @@ namespace PriorityQueue
 
             Key max = this.pq[1];
             Exch(1, this.n--);
-            this.pq[this.n + 1] = this.pq[1];
             Sink(1);
             this.pq[this.n + 1] = default(Key);
             if ((this.n > 0) && (this.n == this.pq.Length / 4))
@@ -77,6 +76,30 @@ namespace PriorityQueue
             this.pq[++this.n] = v;
             Swim(this.n);
             // Debug.Assert(IsMaxHeap());
+        }
+
+        /// <summary>
+        /// 删除一个结点。
+        /// </summary>
+        /// <param name="k">结点下标。</param>
+        internal void Remove(int k)
+        {
+            if (k == this.n)
+            {
+                this.pq[this.n--] = default(Key);
+                return;
+            }
+            else if (this.n <= 2)
+            {
+                Exch(1, k);
+                this.pq[this.n--] = default(Key);
+                return;
+            }
+            Exch(1, k);
+            Exch(1, this.n--);
+            Exch(1, k);
+            this.pq[this.n + 1] = default(Key);
+            Sink(k);
         }
 
         /// <summary>
@@ -142,7 +165,7 @@ namespace PriorityQueue
             while (k * 2 <= this.n)
             {
                 int j = 2 * k;
-                if (Less(j, j + 1))
+                if (j < this.n && Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
                     break;
@@ -179,7 +202,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="i">要交换的第一个元素下标。</param>
         /// <param name="j">要交换的第二个元素下标。</param>
-        private void Exch(int i, int j)
+        protected virtual void Exch(int i, int j)
         {
             Key swap = this.pq[i];
             this.pq[i] = this.pq[j];

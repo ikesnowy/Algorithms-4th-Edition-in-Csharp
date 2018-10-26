@@ -62,17 +62,21 @@ namespace _2._4._28
             }
 
             Stopwatch sw = new Stopwatch();
-            sw.Start();
+            sw.Start();// 开始计时
             for (int i = 0; i < m; i++)
             {
+                // 先插入 m 个记录
                 pq.Insert(new EuclideanDistance3D(x[i], y[i], z[i]));
             }
             for (int i = m; i < n; i++)
             {
+                // 插入剩余 n-m 个记录
                 pq.DelMin();
                 pq.Insert(new EuclideanDistance3D(x[i], y[i], z[i]));
             }
-            sw.Stop();
+            while (pq.IsEmpty())
+                pq.DelMin();
+            sw.Stop();// 停止计时
             return sw.ElapsedMilliseconds;
         }
     }

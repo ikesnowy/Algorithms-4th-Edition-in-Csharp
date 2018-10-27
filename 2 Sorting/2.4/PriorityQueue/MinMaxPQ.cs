@@ -91,7 +91,7 @@ namespace PriorityQueue
         }
 
         /// <summary>
-        /// 偏特化的最大堆。
+        /// 偏特化的最小堆。
         /// </summary>
         private sealed class MinPQ : MinPQ<MinMaxNode>
         {

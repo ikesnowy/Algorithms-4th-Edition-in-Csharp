@@ -1,32 +1,22 @@
 ﻿using System;
 using PriorityQueue;
 
-namespace _2._4._33
+namespace _2._4._34
 {
     /*
-     * 2.4.33
+     * 2.4.34
      * 
-     * 索引优先队列的实现。
-     * 按照 2.4.4.6 节的描述
-     * 修改算法 2.6 来实现索引优先队列 API 中的基本操作：
-     * 使用 pq[] 保存索引，添加一个数组 keys[] 来保存元素，
-     * 再添加一个数组 qp[] 来保存 pq[] 的逆序——
-     * qp[i] 的值是 i 在 pq[] 中的位置
-     * （即索引 j，pq[j]=i）。
-     * 修改算法 2.6 的代码来维护这些数据结构。
-     * 若 i 不在队列之中，
-     * 则总是令 qp[i] = -1 并添加一个方法 contains() 来检测这种情况。
-     * 你需要修改辅助函数 exch() 和 less()，
-     * 但不需要修改 sink() 和 swim()。
+     * 索引优先队列的实现（附加操作）。
+     * 向练习 2.4.33 的实现中添加 minIndex()、change() 和 delete() 方法。
      * 
      */
     class Program
     {
-        // 书中算法 2.6 给出的是最大堆，但本题自带的部分解答是最小堆形式的。
-        // 这里和官网保持一致，实现最大堆。
-        // 官网答案：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
+        // 同上题，这里选择和官网保持一致使用最大堆
+        // 官方实现：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
         static void Main(string[] args)
         {
+            // 2.4.33 中已经实现这些操作
             string[] input = new string[] { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
 
             IndexMaxPQ<string> pq = new IndexMaxPQ<string>(input.Length);

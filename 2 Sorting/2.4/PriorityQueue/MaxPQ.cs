@@ -60,7 +60,7 @@ namespace PriorityQueue
             if ((this.n > 0) && (this.n == this.pq.Length / 4))
                 Resize(this.pq.Length / 2);
 
-            Debug.Assert(IsMaxHeap());
+            // Debug.Assert(IsMaxHeap());
             return max;
         }
 

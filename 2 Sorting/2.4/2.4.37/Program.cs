@@ -21,9 +21,10 @@ namespace _2._4._37
 
         static void Main(string[] args)
         {
+            int doubleTime = 6;
             int repeatTime = 6;
             int n = 1000000;
-            for (int i = 0; i < repeatTime; i++)
+            for (int i = 0; i < doubleTime; i++)
             {
                 int totalDelCount = 0;
                 Console.WriteLine("n=" + n);

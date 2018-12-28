@@ -20,20 +20,24 @@ namespace _2._4._36
 
         static void Main(string[] args)
         {
+            int doubleTime = 5;
             int repeatTime = 5;
             int n = 100000;
 
-            long totalTime = 0;
-            for (int i = 0; i < repeatTime; i++)
+            for (int i = 0; i < doubleTime; i++)
             {
-                Console.Write("n=" + n + "\t");
-                MaxPQ<int> pq = new MaxPQ<int>(n);
-                long time = Test(pq, n);
-                Console.WriteLine("第" + (i + 1) + "次测试的用时为" + time);
-                totalTime += time;
+                long totalTime = 0;
+                Console.WriteLine("n=" + n);
+                for (int j = 0; j < repeatTime; j++)
+                {
+                    MaxPQ<int> pq = new MaxPQ<int>(n);
+                    long time = Test(pq, n);
+                    Console.Write(time + "\t");
+                    totalTime += time;
+                }
+                Console.WriteLine("平均用时：" + totalTime / repeatTime + "毫秒");
                 n *= 2;
             }
-            Console.WriteLine("平均用时：" + totalTime / repeatTime);
         }
 
         static long Test(MaxPQ<int> pq, int n)

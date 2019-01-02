@@ -105,6 +105,7 @@ namespace Generics
             if (index == 0)
             {
                 this.first = this.first.next;
+                this.count--;
                 return temp;
             }
 

@@ -105,6 +105,7 @@ namespace _2._2._17
             if (index == 0)
             {
                 this.first = this.first.next;
+                this.count--;
                 return temp;
             }
 

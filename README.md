@@ -2,7 +2,7 @@
 
 算法（第4版）习题题解 C# 版
 
-当前已经完成到 2.3。
+当前已经完成到 2.4。
 
 可以在这个网站搜索题解：https://ikesnowy.github.io/Alg4-Solutions/
 
@@ -19,19 +19,16 @@
   - [2.1 初级排序算法 Elementary Sorts](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.1)
   - [2.2 归并排序 Mergesort](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.2)
   - [2.3 快速排序 Quicksort](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3)
+  - [2.4 优先队列 Priority Queues](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4)
 
 
-## 使用方法 & 测试环境
+## 使用方法 & 开发环境
 
 ### 使用方法：  
 
-1. 下载整个解决方案（可能会非常大），打开 Algorithms 4th Edition.sln 文件，右击需要的项目--设为启动项目，运行。  
-2. 下载对应章节文件夹（例如文件夹 1.3），打开包含在其中的解决方案（例如 1.3.sln）文件，右击需要的项目--设为启动项目，运行。
-3. 下载你需要的项目文件和库文件（库文件一般位于相应章节文件夹下），添加到 Visual Studio 中运行。 
-   例如，下载了 1.3.26 和 Generics 文件夹。打开 1.3.26 文件夹下的项目文件之后（后缀为 .csproj 的文件），Visual Studio 会自动生成一个解决方案。 
-   之后点击左上角 “文件”——“添加”——“现有项目”，找到 Generics 文件夹下的项目文件并添加，之后就可以编译并运行 1.3.26 的程序了。  
-4. 直接在 Github 上查看、复制源代码。  
-5. 去 [我的博客](http://www.cnblogs.com/ikesnowy/) 上查看相关代码和解释。  
+配置运行题解代码的详细教程见：[如何运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
+
+获取图文版解答可以参考 [我的博客](http://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
 
 ### 文件说明：
 
@@ -44,29 +41,13 @@ Program.cs 是程序的运行代码。
 
 题目说明位于 Program.cs 文件中，绘图和逻辑部分代码可能在窗体文件，也可能在 Program.cs 中。  
 
-### 测试环境：  
+### 开发环境： 
 
-硬件环境：
+Visual Studio 2017 + .NET Framework 4.7  
 
-Surface Pro3
+## 代码规范
 
-CPU: i7 4650U @1.70GHz
-
-软件环境：
-
-第一章：Windows10 15063 + Visual Studio 2017 + .NET Framework 4.7  
-
-第二章：
-
-2.1 Windows10 16299 + Visual Studio 2017 + .NET Framework 4.7
-
-2.2 Windows10 17134 + Visual Studio 2017 + .NET Framework 4.7
-
-2.3 Windows10 17134 + Visual Studio 2017 + .NET Framework 4.7
-
-## 代码规范：
-
-主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
+主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)（本人翻译的 [版本](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/C%23%20框架设计指南.md)） 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
 
 1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
 
@@ -126,7 +107,7 @@ CPU: i7 4650U @1.70GHz
    ```csharp
    public abstract class BubbleSort : Sort
    {
-     public static abstract void Sort (Comparable[] a);
+     public static abstract void Sort (IComparable[] a);
      private static override void Show();
    }
    ```

@@ -125,6 +125,7 @@ namespace _1._5._20
             Item temp = this.first.item;
             if (index == 0)
             {
+                this.count--;
                 this.first = this.first.next;
                 return temp;
             }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Quick
+namespace SortApplication
 {
     /// <summary>
     /// 快速排序类。
@@ -32,7 +32,7 @@ namespace Quick
         /// <param name="a">需要排序的数组。</param>
         /// <param name="lo">排序范围的起始下标。</param>
         /// <param name="hi">排序范围的结束下标。</param>
-        protected void Sort<T>(T[] a, int lo, int hi) where T: IComparable<T>
+        protected void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             if (hi <= lo)                   // 别越界
                 return;

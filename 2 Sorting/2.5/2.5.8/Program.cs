@@ -15,8 +15,8 @@ namespace _2._5._8
     {
         class Record : IComparable<Record>
         {
-            public string Key { get; set; }
-            public int Value { get; set; }
+            public string Key { get; set; }     // 单词
+            public int Value { get; set; }      // 频率
 
             public Record(string key, int value)
             {
@@ -35,7 +35,7 @@ namespace _2._5._8
             // 官方解答见：https://algs4.cs.princeton.edu/25applications/Frequency.java.html
             string filename = "tale.txt";
             StreamReader sr = new StreamReader(File.OpenRead(filename));
-            string[] a = sr.ReadToEnd().Split(new char[] { ' ', '\n', '\r' });
+            string[] a = sr.ReadToEnd().Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
             Array.Sort(a);
 
             Record[] records = new Record[a.Length];

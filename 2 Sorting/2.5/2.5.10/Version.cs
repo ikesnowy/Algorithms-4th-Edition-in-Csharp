@@ -2,6 +2,9 @@
 
 namespace _2._5._10
 {
+    /// <summary>
+    /// 版本号。
+    /// </summary>
     class Version : IComparable<Version>
     {
         private int[] versionNumber;

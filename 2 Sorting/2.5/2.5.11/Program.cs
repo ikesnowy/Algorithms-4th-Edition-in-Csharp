@@ -51,7 +51,12 @@ namespace _2._5._11
             Test(new MergeSort(), 7, 1);
             // 快速排序
             Console.WriteLine("Quick Sort");
-            Test(new QuickSort(), 7, 1);
+            QuickSortAnalyze quick = new QuickSortAnalyze
+            {
+                NeedShuffle = false,
+                NeedPath = false
+            };
+            Test(quick, 7, 1);
             // 堆排序
             Console.WriteLine("Heap Sort");
             Item<int>[] array = new Item<int>[7];

@@ -56,7 +56,7 @@ namespace _1._4._8
         }
 
         /// <summary>
-        /// 利用二分查找进行优化的查找相等整数对算法。
+        /// 利用 Array.Sort 进行优化的查找相等整数对算法。
         /// </summary>
         /// <param name="a">需要查找的数组。</param>
         /// <returns></returns>

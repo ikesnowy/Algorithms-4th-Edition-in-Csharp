@@ -1,6 +1,6 @@
 # Algorithms-4th-Edition
 
-算法（第4版）习题题解 C# 版
+算法（第4版）习题题解 C# 版，勘误感谢名单：[THANKS.md](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/THANKS.md)
 
 当前已经完成到 2.4。
 

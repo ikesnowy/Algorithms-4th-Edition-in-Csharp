@@ -25,6 +25,7 @@ namespace _1._4._8
             {
                 testArray[i] = int.Parse(testCase[i - 1]);
             }
+
             Stopwatch timer = new Stopwatch();
             Console.WriteLine($"Count:{CountEqual(testArray)}");
             Console.WriteLine($"Time:{timer.ElapsedTime()} seconds");
@@ -64,12 +65,16 @@ namespace _1._4._8
             int n = a.Length;
             int count = 0;
             Array.Sort(a);
-            for (int i = 0; i < n; i++)
+            int dup = 0; // dup = 重复元素数量-1
+            for (int i = 1; i < n; i++)
             {
-                if (BinarySearch.Rank(a[i], a, i + 1, a.Length - 1) != -1)
+                while (a[i - 1] == a[i])
                 {
-                    count++;
+                    dup++;
+                    i++;
                 }
+                count += dup * (dup + 1) / 2;
+                dup = 0;
             }
             return count;
         }

@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{4972DB
 		C# 框架设计指南.md = C# 框架设计指南.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		THANKS.md = THANKS.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-提高题（1.1.26~1.1.34）", "2-提高题（1.1.26~1.1.34）", "{002EC4CB-C2EB-42C4-BA8F-6F6C2B62172C}"

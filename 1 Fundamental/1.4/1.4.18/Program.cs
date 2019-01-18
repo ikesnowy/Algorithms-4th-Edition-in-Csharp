@@ -28,25 +28,15 @@ namespace _1._4._18
         {
             int lo = 0;
             int hi = testcases.Length - 1;
-            int mid = (hi - lo) / 2 + lo;
-            while (lo < hi)
+            while (lo <= hi)
             {
-                mid = (hi - lo) / 2 + lo;
+                int mid = (hi - lo) / 2 + lo;
                 if (testcases[mid] < testcases[mid - 1] && testcases[mid] < testcases[mid + 1])
-                {
                     return mid;
-                }
+                if (testcases[mid - 1] < testcases[mid + 1])
+                    hi = mid - 1;
                 else
-                {
-                    if (testcases[mid - 1] < testcases[mid + 1])
-                    {
-                        hi = mid - 1;
-                    }
-                    else
-                    {
-                        lo = mid + 1;
-                    }
-                }
+                    lo = mid + 1;
             }
             return -1;
         }

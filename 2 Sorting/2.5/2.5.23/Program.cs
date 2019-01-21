@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace _2._5._23
 {
@@ -15,16 +12,41 @@ namespace _2._5._23
      */
     class Program
     {
+        // 使用 Floyd–Rivest 方法进行优化。
         static void Main(string[] args)
         {
-            int[] a = { 2, 4, 1, 3, 5, 7, 9, 6 };
-            int t = Select(a, 2);
-            for (int i = 0; i < a.Length; i++)
+            const int n = 1000000;                  // 数组大小
+            const int repeatTime = 50;              // 重复次数
+            const int toFind = (int)(n * 0.8);      // 需要寻找的 k 值
+
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+                a[i] = i;
+            Shuffle(a);
+
+            Stopwatch sw = new Stopwatch();
+            Console.WriteLine("Normal:");
+            for (int i = 0; i < repeatTime; i++)
             {
-                Console.Write(a[i] + " ");
+                sw.Start();
+                int result = Select(a, toFind);
+                sw.Stop();
+
+                Shuffle(a);
             }
-            Console.WriteLine();
-            Console.WriteLine(t);
+            Console.WriteLine(sw.ElapsedMilliseconds / repeatTime);
+
+            Console.WriteLine("Sampled:");
+            sw.Reset();
+            for (int i = 0; i < repeatTime; i++)
+            {
+                sw.Start();
+                int result = Select(a, 0, a.Length - 1, toFind);
+                sw.Stop();
+
+                Shuffle(a);
+            }
+            Console.WriteLine(sw.ElapsedMilliseconds / repeatTime);
         }
 
         /// <summary>
@@ -34,11 +56,10 @@ namespace _2._5._23
         /// <param name="a">需要排序的数组。</param>
         /// <param name="k">序号</param>
         /// <returns></returns>
-        static T Select<T>(T[] a, int k) where T : IComparable<T>
+        public static T Select<T>(T[] a, int k) where T : IComparable<T>
         {
             if (k < 0 || k > a.Length)
                 throw new IndexOutOfRangeException("Select elements out of bounds");
-            Shuffle(a);
             int lo = 0, hi = a.Length - 1;
             while (hi > lo)
             {
@@ -49,6 +70,44 @@ namespace _2._5._23
                     lo = i + 1;
                 else
                     return a[i];
+            }
+            return a[lo];
+        }
+
+        /// <summary>
+        /// Floyd–Rivest 方法优化，令 a[k] 变成第 k 小的元素。
+        /// </summary>
+        /// <typeparam name="T">元素类型。</typeparam>
+        /// <param name="a">需要排序的数组。</param>
+        /// <param name="k">序号</param>
+        /// <returns></returns>
+        static T Select<T>(T[] a, int lo, int hi, int k) where T : IComparable<T>
+        {
+            if (k < 0 || k > a.Length)
+                throw new IndexOutOfRangeException("Select elements out of bounds");          
+            while (hi > lo)
+            {
+                if (hi - lo > 600)
+                {
+                    int n = hi - lo + 1;
+                    int i = k - lo + 1;
+                    int z = (int)Math.Log(n);
+                    int s = (int)(Math.Exp(2 * z / 3) / 2);
+                    int sd = (int)Math.Sqrt(z * s * (n - s) / n) * Math.Sign(i - n / 2) / 2;
+                    int newLo = Math.Max(lo, k - i * s / n + sd);
+                    int newHi = Math.Min(hi, k + (n - i) * s / n + sd);
+                    Select(a, newLo, newHi, k);
+                }
+                Exch(a, lo, k);
+                if (Less(a[lo], a[hi]))
+                    Exch(a, lo, hi);
+                int j = Partition(a, lo, hi);
+                if (j > k)
+                    hi = j - 1;
+                else if (j < k)
+                    lo = j + 1;
+                else
+                    return a[j];
             }
             return a[lo];
         }

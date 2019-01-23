@@ -99,8 +99,6 @@ namespace _2._5._23
                     Select(a, newLo, newHi, k);
                 }
                 Exch(a, lo, k);
-                if (Less(a[lo], a[hi]))
-                    Exch(a, lo, hi);
                 int j = Partition(a, lo, hi);
                 if (j > k)
                     hi = j - 1;

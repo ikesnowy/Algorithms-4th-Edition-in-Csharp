@@ -41,6 +41,27 @@ namespace _2._5._29
             }
         }
 
+        static void InsertionSort<T>(T[] keys, Comparer<T>[] comparers)
+        {
+            for (int i = 0; i < keys.Length; i++)
+                for (int j = i; j > 0 && Less(keys, j, j - 1, comparers); j--)
+                {
+                    T temp = keys[j];
+                    keys[j] = keys[j - 1];
+                    keys[j - 1] = temp;
+                }
+        }
+
+        static bool Less<T>(T[] keys, int x, int y, Comparer<T>[] comparables)
+        {
+            int cmp = 0;
+            for (int i = 0; i < comparables.Length && cmp == 0; i++)
+            {
+                cmp = comparables[i].Compare(keys[x], keys[y]);
+            }
+            return cmp < 0;
+        }
+
         static void Main(string[] args)
         {
             string[] arguments = Console.ReadLine().Split(' ');
@@ -49,19 +70,25 @@ namespace _2._5._29
             FileInfo[] fileInfos = new FileInfo[filenames.Length];
             for (int i = 0; i < filenames.Length; i++)
                 fileInfos[i] = new FileInfo(filenames[i]);
-            string command = arguments[1];
-            switch (command)
+
+            List<Comparer<FileInfo>> comparers = new List<Comparer<FileInfo>>();
+            for (int i = 1; i < arguments.Length; i++)
             {
-                case "-t":
-                    Array.Sort(fileInfos, new FileTimeStampComparer());
-                    break;
-                case "-s":
-                    Array.Sort(fileInfos, new FileSizeComparer());
-                    break;
-                case "-n":
-                    Array.Sort(fileInfos, new FileNameComparer());
-                    break;
+                string command = arguments[i];
+                switch (command)
+                {
+                    case "-t":
+                        comparers.Add(new FileTimeStampComparer());
+                        break;
+                    case "-s":
+                        comparers.Add(new FileSizeComparer());
+                        break;
+                    case "-n":
+                        comparers.Add(new FileNameComparer());
+                        break;
+                }
             }
+            InsertionSort(fileInfos, comparers.ToArray());
             for (int i = 0; i < fileInfos.Length; i++)
             {
                 Console.WriteLine(fileInfos[i].Name + "\t" + fileInfos[i].Length + "\t" + fileInfos[i].LastWriteTime);

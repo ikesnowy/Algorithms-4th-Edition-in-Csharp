@@ -12,6 +12,7 @@ namespace _2._5._24
      */
     class Program
     {
+        // 官方解答：https://algs4.cs.princeton.edu/25applications/StableMinPQ.java.html
         class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T> 
         {
             public T Value;

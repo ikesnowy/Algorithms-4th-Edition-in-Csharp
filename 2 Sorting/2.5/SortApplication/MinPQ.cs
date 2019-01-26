@@ -11,20 +11,43 @@ namespace SortApplication
     /// <typeparam name="Key">最小堆中保存的元素类型。</typeparam>
     public class MinPQ<Key> : IMinPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        protected Key[] pq;               // 保存元素的数组。
-        protected int n;                  // 堆中的元素数量。
+        protected IEqualityComparer<Key> equalityComparer;  // 相等比较器。
+        protected IComparer<Key> comparer;                  // 排序比较器。
+        protected Key[] pq;                                 // 保存元素的数组。
+        protected int n;                                    // 堆中的元素数量。
 
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public MinPQ() : this(1) { }
+        public MinPQ() : this(1, null, null) { }
+
+        /// <summary>
+        /// 以指定大小构建最小堆。
+        /// </summary>
+        /// <param name="capacity">最小堆大小。</param>
+        public MinPQ(int capacity) : this(capacity, null, null) { }
+
+        /// <summary>
+        /// 根据指定比较器进行排序和相等判断。
+        /// </summary>
+        /// <param name="comparer">排序比较器。</param>
+        public MinPQ(IComparer<Key> comparer) : this(1, comparer, null) { }
+
+        /// <summary>
+        /// 根据指定的比较器排序，并用指定比较器判断相等。
+        /// </summary>
+        /// <param name="comparer">排序比较器。</param>
+        /// <param name="equality">相等比较器。</param>
+        public MinPQ(IComparer<Key> comparer, IEqualityComparer<Key> equality) : this(1, comparer, equality) { }
 
         /// <summary>
         /// 建立指定容量的最小堆。
         /// </summary>
         /// <param name="capacity">最小堆的容量。</param>
-        public MinPQ(int capacity)
+        public MinPQ(int capacity, IComparer<Key> comparer, IEqualityComparer<Key> equality)
         {
+            this.equalityComparer = equality;
+            this.comparer = comparer;
             this.pq = new Key[capacity + 1];
             this.n = 0;
         }
@@ -45,6 +68,19 @@ namespace SortApplication
         }
 
         /// <summary>
+        /// 检查是否存在指定元素。
+        /// </summary>
+        /// <param name="key">需要查找的元素。</param>
+        /// <returns></returns>
+        public bool Contains(Key key)
+        {
+            for (int i = 1; i <= this.n; i++)
+                if (Equal(this.pq[i], key))
+                    return true;
+            return false;
+        }
+
+        /// <summary>
         /// 删除并返回最小元素。
         /// </summary>
         /// <returns></returns>
@@ -60,7 +96,7 @@ namespace SortApplication
             if ((this.n > 0) && (this.n == this.pq.Length / 4))
                 Resize(this.pq.Length / 2);
 
-            //Debug.Assert(IsMinHeap());
+            // Debug.Assert(IsMinHeap());
             return min;
         }
 
@@ -98,7 +134,7 @@ namespace SortApplication
 
             this.pq[++this.n] = v;
             Swim(this.n);
-            //Debug.Assert(IsMinHeap());
+            // Debug.Assert(IsMinHeap());
         }
 
         /// <summary>
@@ -120,21 +156,21 @@ namespace SortApplication
         public int Size() => this.n;
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
         /// <returns></returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQ<Key> copy = new MaxPQ<Key>(this.n);
+            MinPQ<Key> copy = new MinPQ<Key>(this.n);
             for (int i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
-                yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
+                yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
         }
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
         /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
@@ -194,7 +230,30 @@ namespace SortApplication
         /// <param name="j">判断是否较小的元素。</param>
         /// <returns></returns>
         private bool Greater(int i, int j)
-            => this.pq[i].CompareTo(this.pq[j]) > 0;
+        {
+            if (this.comparer == null)
+                return this.pq[i].CompareTo(this.pq[j]) > 0;
+            else
+                return this.comparer.Compare(this.pq[i], this.pq[j]) > 0;
+        }
+
+
+        /// <summary>
+        /// 判断两个元素是否相等。
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        private bool Equal(Key x, Key y)
+        {
+            if (this.equalityComparer == null)
+                if (this.comparer == null)
+                    return x.CompareTo(y) == 0;
+                else
+                    return this.comparer.Compare(x, y) == 0;
+            else
+                return this.equalityComparer.Equals(x, y);
+        }
 
         /// <summary>
         /// 交换堆中的两个元素。

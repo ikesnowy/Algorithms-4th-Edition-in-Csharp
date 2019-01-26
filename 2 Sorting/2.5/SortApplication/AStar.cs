@@ -102,10 +102,7 @@ namespace SortApplication
 
                     // 新状态
                     if (!openSet.Contains(neighbor))
-                    {
                         openSet.Insert(neighbor);
-                    }
-
                     else if (gScoreTentative >= gScore[neighbor])
                         continue;
 

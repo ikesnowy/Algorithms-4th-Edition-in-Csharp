@@ -22,6 +22,8 @@
   - [2.4 优先队列 Priority Queues](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4)
   - [2.5 应用 Sorting Applications](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5)
 
+- [3.查找 Searching](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching)
+  - [3.1 符号表 Elementary Symbol Tables](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching/3.1)
 
 ## 使用方法 & 开发环境
 

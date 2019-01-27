@@ -55,7 +55,7 @@ namespace _2._5._33
                 stopwatch.Restart();
                 Heap.Sort(testCase);
                 stopwatch.Stop();
-                Console.WriteLine("Shell Sort: " + stopwatch.ElapsedMilliseconds + " ms");
+                Console.WriteLine("Heap Sort: " + stopwatch.ElapsedMilliseconds + " ms");
 
                 n *= 10;
             }

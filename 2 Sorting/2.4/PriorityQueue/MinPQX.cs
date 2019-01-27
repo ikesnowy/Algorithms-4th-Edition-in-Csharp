@@ -119,21 +119,21 @@ namespace PriorityQueue
         public int Size() => this.n;
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
         /// <returns></returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQ<Key> copy = new MaxPQ<Key>(this.n);
+            MinPQ<Key> copy = new MinPQ<Key>(this.n);
             for (int i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
-                yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
+                yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
         }
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
         /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()

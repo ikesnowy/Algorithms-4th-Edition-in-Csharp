@@ -70,6 +70,32 @@ namespace Quick
         }
 
         /// <summary>
+        /// 令 a[k] 变成第 k 小的元素。
+        /// </summary>
+        /// <typeparam name="T">元素类型。</typeparam>
+        /// <param name="a">需要排序的数组。</param>
+        /// <param name="k">序号</param>
+        /// <returns></returns>
+        public T Select<T>(T[] a, int k) where T : IComparable<T>
+        {
+            if (k < 0 || k > a.Length)
+                throw new IndexOutOfRangeException("Select elements out of bounds");
+            Shuffle(a);
+            int lo = 0, hi = a.Length - 1;
+            while (hi > lo)
+            {
+                int i = Partition(a, lo, hi);
+                if (i > k)
+                    hi = i - 1;
+                else if (i < k)
+                    lo = i + 1;
+                else
+                    return a[i];
+            }
+            return a[lo];
+        }
+
+        /// <summary>
         /// 打乱数组。
         /// </summary>
         /// <typeparam name="T">需要打乱的数组类型。</typeparam>

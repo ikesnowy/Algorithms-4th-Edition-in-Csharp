@@ -1,8 +1,8 @@
 # Algorithms-4th-Edition
 
-算法（第4版）习题题解 C# 版
+算法（第4版）习题题解 C# 版，勘误感谢名单：[THANKS.md](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/THANKS.md)
 
-当前已经完成到 2.4。
+当前已经完成到 2.5。
 
 可以在这个网站搜索题解：https://ikesnowy.github.io/Alg4-Solutions/
 
@@ -20,6 +20,7 @@
   - [2.2 归并排序 Mergesort](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.2)
   - [2.3 快速排序 Quicksort](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3)
   - [2.4 优先队列 Priority Queues](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4)
+  - [2.5 应用 Sorting Applications](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5)
 
 
 ## 使用方法 & 开发环境

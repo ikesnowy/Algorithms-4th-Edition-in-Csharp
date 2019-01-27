@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace SortApplication
 {
@@ -22,7 +21,7 @@ namespace SortApplication
         {
             Shuffle(a);
             Sort(a, 0, a.Length - 1);
-            Debug.Assert(IsSorted(a));
+            // Debug.Assert(IsSorted(a));
         }
 
         /// <summary>

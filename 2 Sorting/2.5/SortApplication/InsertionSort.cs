@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace SortApplication
 {
@@ -26,9 +25,9 @@ namespace SortApplication
                 {
                     Exch(a, j, j - 1);
                 }
-                Debug.Assert(IsSorted(a, 0, i));
+                // Debug.Assert(IsSorted(a, 0, i));
             }
-            Debug.Assert(IsSorted(a));
+            // Debug.Assert(IsSorted(a));
         }
 
         /// <summary>
@@ -46,9 +45,9 @@ namespace SortApplication
                 {
                     Exch(a, j, j - 1);
                 }
-                Debug.Assert(IsSorted(a, 0, i, c));
+                // Debug.Assert(IsSorted(a, 0, i, c));
             }
-            Debug.Assert(IsSorted(a, c));
+            // Debug.Assert(IsSorted(a, c));
         }
     }
 }

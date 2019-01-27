@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace SortApplication
 {
@@ -33,10 +32,10 @@ namespace SortApplication
                         Exch(a, j, j - h);
                     }
                 }
-                Debug.Assert(IsHSorted(a, h));
+                // Debug.Assert(IsHSorted(a, h));
                 h /= 3;
             }
-            Debug.Assert(IsSorted(a));
+            // Debug.Assert(IsSorted(a));
         }
 
         /// <summary>

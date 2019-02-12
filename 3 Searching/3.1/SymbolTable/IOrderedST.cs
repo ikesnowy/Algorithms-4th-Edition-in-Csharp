@@ -7,7 +7,7 @@ namespace SymbolTable
     /// </summary>
     /// <typeparam name="Key">键类型。</typeparam>
     /// <typeparam name="Value">值类型。</typeparam>
-    interface IOrderedST<Key, Value>
+    public interface IOrderedST<Key, Value>
     {
         /// <summary>
         /// 向符号表插入键值对。
@@ -49,6 +49,14 @@ namespace SymbolTable
         int Size();
 
         /// <summary>
+        /// [<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。
+        /// </summary>
+        /// <param name="lo">范围起点。</param>
+        /// <param name="hi">范围终点。</param>
+        /// <returns></returns>
+        int Size(Key lo, Key hi);
+
+        /// <summary>
         /// 获得符号表中所有键的集合。
         /// </summary>
         /// <returns></returns>
@@ -78,19 +86,19 @@ namespace SymbolTable
         /// 小于等于 Key 的最大值。
         /// </summary>
         /// <returns></returns>
-        Key Floor();
+        Key Floor(Key key);
 
         /// <summary>
         /// 大于等于 key 的最小值。
         /// </summary>
         /// <returns></returns>
-        Key Ceil();
+        Key Ceiling(Key key);
 
         /// <summary>
         /// 小于 Key 的键的数量。
         /// </summary>
         /// <returns></returns>
-        int Rank();
+        int Rank(Key key);
 
         /// <summary>
         /// 排名为 k 的键。
@@ -108,13 +116,5 @@ namespace SymbolTable
         /// 删除最大的键。
         /// </summary>
         void DeleteMax();
-
-        /// <summary>
-        /// [<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。
-        /// </summary>
-        /// <param name="lo">范围起点。</param>
-        /// <param name="hi">范围终点。</param>
-        /// <returns></returns>
-        int Size(Key lo, Key hi);
     }
 }

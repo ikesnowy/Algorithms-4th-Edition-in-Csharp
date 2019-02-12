@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SymbolTable\SymbolTable.csproj">
+      <Project>{3b220d25-5761-4853-9428-a4595d71eb60}</Project>
+      <Name>SymbolTable</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

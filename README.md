@@ -123,6 +123,4 @@ Part1 https://www.coursera.org/learn/algorithms-part1
 
 Part2 https://www.coursera.org/learn/algorithms-part2
 
-官方资料站 (English):
-
-http://algs4.cs.princeton.edu/
+官方资料站 (English): http://algs4.cs.princeton.edu/

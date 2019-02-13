@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SymbolTable
 {
@@ -40,9 +37,9 @@ namespace SymbolTable
         /// <returns></returns>
         public Key Ceiling(Key key)
         {
-            Node pointer = this.tail;
-            while (pointer != null && Greater(key, pointer.Key))
-                pointer = pointer.Prev;
+            Node pointer = this.first;
+            while (pointer != null && Less(pointer.Key, key))
+                pointer = pointer.Next;
             return pointer == null ? default(Key) : pointer.Key;
         }
 
@@ -111,9 +108,9 @@ namespace SymbolTable
         /// <returns></returns>
         public Key Floor(Key key)
         {
-            Node pointer = this.first;
-            while (pointer != null && Less(key, pointer.Key))
-                pointer = pointer.Next;
+            Node pointer = this.tail;
+            while (pointer != null && Greater(pointer.Key, key))
+                pointer = pointer.Prev;
             return pointer == null ? default(Key) : pointer.Key;
         }
 

@@ -10,7 +10,7 @@
           "exclude": [
             "**/obj/**",
             "**/bin/**",
-            "_site/**",
+            "docs/**",
             "API Docs.csproj"
           ]
         }
@@ -35,7 +35,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+          "docs/**"
         ]
       }
     ],
@@ -46,7 +46,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+          "docs/**"
         ]
       }
     ],
@@ -57,13 +57,16 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+          "docs/**"
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "docs",
     "template": [
-      "statictoc", "default(zh-cn)"
+      "default",
+      "statictoc",
+      "template/ike-default",
+      "default(zh-cn)"
     ]
   }
 }

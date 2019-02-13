@@ -67,9 +67,5 @@
     <Error Condition="!Exists('packages\docfx.console.2.40.10\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\docfx.console.2.40.10\build\docfx.console.targets'))" />
   </Target>
   <Import Project="packages\docfx.console.2.40.10\build\docfx.console.targets" Condition="Exists('packages\docfx.console.2.40.10\build\docfx.console.targets')" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties docfx_1json__JSONSchema="" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
 </Project>

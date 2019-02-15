@@ -4,7 +4,9 @@
 
 当前已经完成到 3.1。
 
-可以在这个网站搜索题解：https://ikesnowy.github.io/Alg4-Solutions/
+可以在这个网站搜索题解：https://alg4.ikesnowy.com/
+
+章节类库的 API 文档：https://alg4.ikesnowy.com/docs/api/index.html
 
 ## 目录
 

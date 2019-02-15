@@ -24,9 +24,9 @@ namespace SymbolTable
         Value Get(Key key);
 
         /// <summary>
-        /// 从表中删去键 <paramref name="key"/> 对应的值。
+        /// 从表中删去键 <paramref name="key"/> 及其对应的值。
         /// </summary>
-        /// <param name="key">键。</param>
+        /// <param name="key">要删除的键。</param>
         void Delete(Key key);
 
         /// <summary>

@@ -30,6 +30,14 @@ namespace PriorityQueue
             }
         }
 
+        /// <summary>
+        /// 递归获得堆的最后一个元素。
+        /// </summary>
+        /// <typeparam name="T">堆中元素类型。</typeparam>
+        /// <param name="pq">堆的前序遍历数组。</param>
+        /// <param name="p">当前位置。</param>
+        /// <param name="n">堆的元素数目。</param>
+        /// <returns>最后一个元素的下标。</returns>
         private static int GetTail<T>(T[] pq, int p, int n)
         {
             if (n <= 1)
@@ -134,7 +142,7 @@ namespace PriorityQueue
         /// <param name="pq">元素所在的数组。</param>
         /// <param name="a">需要比较是否较小的结点序号。</param>
         /// <param name="b">需要比较是否较大的结点序号。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="a"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private static bool Less<T>(T[] pq, int a, int b) where T : IComparable<T> => pq[a].CompareTo(pq[b]) < 0;
 
         /// <summary>

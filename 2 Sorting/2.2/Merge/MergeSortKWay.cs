@@ -11,6 +11,7 @@ namespace Merge
         /// <summary>
         /// 同时归并的数组数目。
         /// </summary>
+        /// <value>同时归并的数组数目。</value>
         public int K { get; set; }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace PriorityQueue
         /// <summary>
         /// 建立指定大小的面向索引的最大堆。
         /// </summary>
-        /// <param name="capacity"></param>
+        /// <param name="capacity">最大堆的容量。</param>
         public IndexMaxPQ(int capacity)
         {
             if (capacity < 0)
@@ -61,7 +61,7 @@ namespace PriorityQueue
         /// 确认堆包含某个索引 <paramref name="i"/>。
         /// </summary>
         /// <param name="i">要查询的索引。</param>
-        /// <returns></returns>
+        /// <returns>包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(int i) => this.qp[i] != -1;
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并获得最大元素所在的索引。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大元素所在的索引。</returns>
         public int DelMax()
         {
             if (this.n == 0)
@@ -149,14 +149,15 @@ namespace PriorityQueue
         /// <summary>
         /// 堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得与索引 <paramref name="i"/> 关联的元素。
         /// </summary>
         /// <param name="i">索引。</param>
-        /// <returns></returns>
+        /// <returns>与索引 <paramref name="i"/> 关联的元素。</returns>
+        /// <exception cref="ArgumentNullException">当队列中没有 <paramref name="i"/> 时抛出该异常。</exception>
         public Key KeyOf(int i)
         {
             if (!Contains(i))
@@ -167,7 +168,8 @@ namespace PriorityQueue
         /// <summary>
         /// 返回最大元素对应的索引。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大元素对应的索引。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">当优先队列为空时抛出该异常。</exception>
         public int MaxIndex()
         {
             if (this.n == 0)
@@ -178,7 +180,8 @@ namespace PriorityQueue
         /// <summary>
         /// 获得最大元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大的元素。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">当优先队列为空时抛出该异常。</exception>
         public Key MaxKey()
         {
             if (this.n == 0)
@@ -189,7 +192,7 @@ namespace PriorityQueue
         /// <summary>
         /// 返回堆的元素数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆的元素数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
@@ -197,7 +200,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="i">第一个元素。</param>
         /// <param name="j">第二个元素。</param>
-        /// <returns></returns>
+        /// <returns>如果堆中索引为 <paramref name="i"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(int i, int j) 
             => this.keys[this.pq[i]].CompareTo(this.keys[this.pq[j]]) < 0;
 
@@ -249,7 +252,7 @@ namespace PriorityQueue
         /// <summary>
         /// 获取迭代器。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<int> GetEnumerator()
         {
             IndexMaxPQ<Key> copy = new IndexMaxPQ<Key>(this.n);
@@ -263,7 +266,8 @@ namespace PriorityQueue
         /// <summary>
         /// 获取迭代器。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>迭代器。</returns>
+        /// <remarks>该方法实际调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

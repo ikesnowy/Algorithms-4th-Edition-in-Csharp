@@ -10,9 +10,21 @@ namespace SymbolTable
     /// <typeparam name="Value">值类型。</typeparam>
     public class ArrayST<Key, Value> : IST<Key, Value> 
     {
-        private Key[] keys;             // 键数组
-        private Value[] values;         // 值数组
-        private int n = 0;              // 键值对数目
+        /// <summary>
+        /// 键数组。
+        /// </summary>
+        /// <value>键数组。</value>
+        private Key[] keys;
+        /// <summary>
+        /// 值数组。
+        /// </summary>
+        /// <value>值数组。</value>
+        private Value[] values;
+        /// <summary>
+        /// 键值对数目。
+        /// </summary>
+        /// <value>键值对数目。</value>
+        private int n = 0;
 
         /// <summary>
         /// 建立基于数组实现的符号表。
@@ -33,7 +45,7 @@ namespace SymbolTable
         /// 检查键 <typeparamref name="Key"/> 是否存在。
         /// </summary>
         /// <param name="key">需要检查是否存在的键。</param>
-        /// <returns></returns>
+        /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Key key) => Get(key).Equals(default(Key));
 
         /// <summary>
@@ -62,7 +74,7 @@ namespace SymbolTable
         /// 获取键对应的值，若键不存在则返回 null。
         /// </summary>
         /// <param name="key">需要查找的键。</param>
-        /// <returns></returns>
+        /// <returns>找到的值，不存在则返回 <c>default(Value)</c></returns>
         public Value Get(Key key)
         {
             for (int i = 0; i < this.n; i++)
@@ -74,13 +86,13 @@ namespace SymbolTable
         /// <summary>
         /// 检查符号表是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得包含全部键的集合。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>全部键的集合。</returns>
         public IEnumerable<Key> Keys()
         {
             Key[] result = new Key[this.n];

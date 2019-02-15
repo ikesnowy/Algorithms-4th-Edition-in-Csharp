@@ -30,7 +30,7 @@ namespace Measurement
         /// 计算数组中和为零的整数对数量。
         /// </summary>
         /// <param name="a">查找范围。</param>
-        /// <returns></returns>
+        /// <returns>数组中和为零的整数对数量。</returns>
         public static int Count(int[] a)
         {
             int n = a.Length;

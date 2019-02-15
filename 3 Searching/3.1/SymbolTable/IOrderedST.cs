@@ -3,7 +3,7 @@
 namespace SymbolTable
 {
     /// <summary>
-    /// 有序符号表接口。
+    /// 有序符号表 API。
     /// </summary>
     /// <typeparam name="Key">键类型。</typeparam>
     /// <typeparam name="Value">值类型。</typeparam>
@@ -20,7 +20,7 @@ namespace SymbolTable
         /// 获取键 <paramref name="key"/> 对应的值，不存在则返回 null。
         /// </summary>
         /// <param name="key">键。</param>
-        /// <returns></returns>
+        /// <returns><typeparamref name="Key"/> 对应的值。</returns>
         Value Get(Key key);
 
         /// <summary>
@@ -33,19 +33,19 @@ namespace SymbolTable
         /// 键 <paramref name="key"/> 在表中是否存在对应的值。
         /// </summary>
         /// <param name="key">键。</param>
-        /// <returns></returns>
+        /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         bool Contains(Key key);
 
         /// <summary>
         /// 符号表是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         bool IsEmpty();
 
         /// <summary>
         /// 获得符号表中键值对的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>键值对数量。</returns>
         int Size();
 
         /// <summary>
@@ -53,13 +53,13 @@ namespace SymbolTable
         /// </summary>
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
-        /// <returns></returns>
+        /// <returns>[<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。</returns>
         int Size(Key lo, Key hi);
 
         /// <summary>
         /// 获得符号表中所有键的集合。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>全部键的集合。</returns>
         IEnumerable<Key> Keys();
 
         /// <summary>
@@ -67,44 +67,44 @@ namespace SymbolTable
         /// </summary>
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
-        /// <returns></returns>
+        /// <returns>符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。</returns>
         IEnumerable<Key> Keys(Key lo, Key hi);
 
         /// <summary>
         /// 最小的键。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小的键。</returns>
         Key Min();
 
         /// <summary>
         /// 最大的键。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大的键。</returns>
         Key Max();
 
         /// <summary>
-        /// 小于等于 Key 的最大值。
+        /// 小于等于 <paramref name="key"/> 的最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
         Key Floor(Key key);
 
         /// <summary>
-        /// 大于等于 key 的最小值。
+        /// 大于等于 <paramref name="key"/> 的最小值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>大于等于 <paramref name="key"/> 的最小值。</returns>
         Key Ceiling(Key key);
 
         /// <summary>
-        /// 小于 Key 的键的数量。
+        /// 小于 <paramref name="key"/> 的键的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>小于 <paramref name="key"/> 的键的数量。</returns>
         int Rank(Key key);
 
         /// <summary>
-        /// 排名为 k 的键。
+        /// 获得排名为 k 的键。
         /// </summary>
-        /// <param name="k"></param>
-        /// <returns></returns>
+        /// <param name="k">需要获得的键的排名。</param>
+        /// <returns>排名为 k 的键。</returns>
         Key Select(int k);
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace SortApplication
     /// <summary>
     /// A* 搜索器。
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">A* 的状态类型。</typeparam>
     public abstract class AStar<T> where T : IComparable<T>
     {
         /// <summary>
@@ -71,7 +71,7 @@ namespace SortApplication
         /// </summary>
         /// <param name="start">起始状态。</param>
         /// <param name="goal">终止状态。</param>
-        /// <returns></returns>
+        /// <returns><paramref name="start"/> 至 <paramref name="goal"/> 之间的最短路径。</returns>
         public T[] GetPath(T start, T goal)
         {
             Dictionary<T, T> comeFrom = new Dictionary<T, T>(this.equalityComparer);
@@ -122,7 +122,7 @@ namespace SortApplication
         /// <param name="status">包含所有状态的数组。</param>
         /// <param name="from">记载了状态之间顺序的数组。</param>
         /// <param name="current">当前状态位置。</param>
-        /// <returns></returns>
+        /// <returns>重建之后的最短路径。</returns>
         private T[] ReconstructPath(Dictionary<T, T> comeFrom, T current)
         {
             Stack<T> pathReverse = new Stack<T>();
@@ -144,7 +144,7 @@ namespace SortApplication
         /// </summary>
         /// <param name="start">初始状态。</param>
         /// <param name="goal">目标状态。</param>
-        /// <returns></returns>
+        /// <returns>估计距离。</returns>
         protected abstract int HeuristicDistance(T start, T goal);
 
         /// <summary>
@@ -152,14 +152,14 @@ namespace SortApplication
         /// </summary>
         /// <param name="start">初始状态。</param>
         /// <param name="goal">目标状态。</param>
-        /// <returns></returns>
+        /// <returns>实际距离。</returns>
         protected abstract int ActualDistance(T start, T goal);
 
         /// <summary>
         /// 获得当前状态的周围状态。
         /// </summary>
         /// <param name="current">当前状态。</param>
-        /// <returns></returns>
+        /// <returns>保存周围状态的数组。</returns>
         protected abstract T[] GetNeighbors(T current);
     }
 }

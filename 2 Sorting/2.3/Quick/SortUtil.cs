@@ -53,7 +53,7 @@ namespace Quick
         /// 生成符合几何分布的随机数。
         /// </summary>
         /// <param name="p">几何分布的概率 p，这应该是一个小于 1 的非负数。</param>
-        /// <exception cref="ArgumentOutOfRangeException">概率不能大于 1.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">概率不能大于 1。</exception>
         /// <returns>符合几何分布的随机数。</returns>
         public static double Geometry(double p)
         {
@@ -73,6 +73,8 @@ namespace Quick
         /// </summary>
         /// <param name="probabilities">各取值的可能性。</param>
         /// <returns>符合随机分布的随机整数。</returns>
+        /// <exception cref="ArgumentNullException">当 <paramref name="probabilities"/> 为 <c>null</c> 时抛出该异常。</exception>
+        /// <exception cref="ArgumentException">当 <paramref name="probabilities"/> 中存在负数或大于 1 的数，或者总和不为 1 时抛出该异常。</exception>
         public static double Discrete(double[] probabilities)
         {
             if (probabilities == null)

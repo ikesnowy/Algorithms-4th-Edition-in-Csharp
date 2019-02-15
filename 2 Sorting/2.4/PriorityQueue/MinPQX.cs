@@ -10,8 +10,16 @@ namespace PriorityQueue
     /// </summary>
     public class MinPQX<Key> : IMinPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        protected Key[] pq;               // 保存元素的数组。
-        protected int n;                  // 堆中的元素数量。
+        /// <summary>
+        /// 保存元素的数组。
+        /// </summary>
+        /// <value>保存元素的数组。</value>
+        protected Key[] pq;
+        /// <summary>
+        /// 堆中元素的数量。
+        /// </summary>
+        /// <value>堆中元素的数量。</value>
+        protected int n;
 
         /// <summary>
         /// 默认构造函数。

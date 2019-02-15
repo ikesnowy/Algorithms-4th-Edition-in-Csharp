@@ -28,7 +28,7 @@ namespace Measurement
         /// <summary>
         /// 获取计时器的计数值（秒）。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>计时器的计数值（秒）。</returns>
         public double ElapsedTime()
         {
             DateTime now = DateTime.Now;
@@ -38,7 +38,7 @@ namespace Measurement
         /// <summary>
         /// 获取计时器的计数值（毫秒）。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>计时器的计数值（毫秒）。</returns>
         public double ElapsedTimeMillionSeconds()
         {
             DateTime now = DateTime.Now;

@@ -14,7 +14,7 @@
         /// 对数组 a 进行排序。
         /// </summary>
         /// <typeparam name="T">数组 a 的元素类型。</typeparam>
-        /// <param name="a"></param>
+        /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
             int lt = 0, gt = a.Length - 1;

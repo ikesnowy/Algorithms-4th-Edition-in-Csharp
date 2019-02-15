@@ -2,16 +2,32 @@
 
 namespace SortApplication
 {
+    /// <summary>
+    /// 日期类。
+    /// </summary>
     public class Date : IComparable<Date>
     {
-        public int Month { get; }   // 月
-        public int Day { get; }     // 日
-        public int Year { get; }    // 年
+        /// <summary>
+        /// 月份。
+        /// </summary>
+        /// <value>月份数据。</value>
+        public int Month { get; }
+        /// <summary>
+        /// 日期。
+        /// </summary>
+        /// <value>日期数据。</value>
+        public int Day { get; }
+        /// <summary>
+        /// 年份。
+        /// </summary>
+        /// <value>年份数据。</value>
+        public int Year { get; }
 
         /// <summary>
         /// 构造函数。
         /// </summary>
         /// <param name="date">形如 "05/31/2017" 的字符串。</param>
+        /// <exception cref="ArgumentException">输入日期格式不正确时抛出异常。</exception>
         public Date(string date)
         {
             string[] a = date.Split('/');
@@ -36,9 +52,9 @@ namespace SortApplication
         }
 
         /// <summary>
-        /// 返回形如 05/22/2017 的字符串。
+        /// 将日期转换成字符串，格式为 dd/mm/yyyy。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>形如 05/22/2017 的字符串。</returns>
         public override string ToString()
         {
             return this.Month + "/" + this.Day + "/" + this.Year;
@@ -48,7 +64,7 @@ namespace SortApplication
         /// 比较两个日期是否相同。
         /// </summary>
         /// <param name="obj">需要比较的另一个对象。</param>
-        /// <returns></returns>
+        /// <returns>相等返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -64,7 +80,7 @@ namespace SortApplication
         /// <summary>
         /// 获取日期的哈希值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>日期的哈希值。</returns>
         public override int GetHashCode()
         {
             int hash = 17;
@@ -78,7 +94,7 @@ namespace SortApplication
         /// 比较两个日期的先后。
         /// </summary>
         /// <param name="other">另一个日期。</param>
-        /// <returns></returns>
+        /// <returns><paramref name="other"/> 较后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
         public int CompareTo(Date other)
         {
             if (this.Year > other.Year)

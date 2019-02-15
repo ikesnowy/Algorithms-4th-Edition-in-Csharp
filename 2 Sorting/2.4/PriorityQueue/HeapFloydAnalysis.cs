@@ -3,7 +3,7 @@
 namespace PriorityQueue
 {
     /// <summary>
-    /// 堆排序类，提供 Floyd 优化的堆排序的静态方法。
+    /// 堆排序类，提供 Floyd 优化的堆排序的静态方法，同时记录比较次数。
     /// </summary>
     /// <typeparam name="T">需要排序的元素类型。</typeparam>
     public static class HeapFloydAnalysis
@@ -91,7 +91,7 @@ namespace PriorityQueue
         /// <param name="pq">元素所在的数组。</param>
         /// <param name="a">需要比较是否较小的结点序号。</param>
         /// <param name="b">需要比较是否较大的结点序号。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="a"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private static bool Less<T>(T[] pq, int a, int b) where T : IComparable<T>
         {
             compareCount++;

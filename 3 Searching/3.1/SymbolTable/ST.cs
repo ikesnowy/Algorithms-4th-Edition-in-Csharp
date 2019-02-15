@@ -21,7 +21,7 @@ namespace SymbolTable
         /// 检查符号表中是否存在与键 <paramref name="key"/> 对应的值。
         /// </summary>
         /// <param name="key">要检查是否存在的键。</param>
-        /// <returns></returns>
+        /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public virtual bool Contains(Key key) => this.st.ContainsKey(key);
 
         /// <summary>
@@ -34,25 +34,25 @@ namespace SymbolTable
         /// 获取键 <paramref name="key"/> 对应的值，不存在时返回 null。
         /// </summary>
         /// <param name="key">要查找的键。</param>
-        /// <returns></returns>
+        /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
         public virtual Value Get(Key key) => this.st[key];
 
         /// <summary>
         /// 获取枚举器。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>符号表的枚举器。</returns>
         public IEnumerator<Key> GetEnumerator() => this.st.Keys.GetEnumerator();
 
         /// <summary>
         /// 检查符号表是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果符号表为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public virtual bool IsEmpty() => this.st.Count == 0;
 
         /// <summary>
         /// 获得符号表中所有键的集合。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>包含符号表中所有键的集合。</returns>
         public virtual IEnumerable<Key> Keys() => this.st.Keys;
 
         /// <summary>
@@ -65,13 +65,14 @@ namespace SymbolTable
         /// <summary>
         /// 获取符号表中键值对的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>符号表中键值对的数量。</returns>
         public virtual int Size() => this.st.Count;
 
         /// <summary>
         /// 获取枚举器。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>符号表的枚举器。</returns>
+        /// <remarks>实际上调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

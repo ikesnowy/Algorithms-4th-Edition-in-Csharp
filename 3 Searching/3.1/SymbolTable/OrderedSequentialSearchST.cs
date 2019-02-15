@@ -34,7 +34,7 @@ namespace SymbolTable
         /// <summary>
         /// 大于等于 key 的最小值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>大于等于 key 的最小值，不存在则返回 <c>default(Key)</c>。</returns>
         public Key Ceiling(Key key)
         {
             Node pointer = this.first;
@@ -47,7 +47,7 @@ namespace SymbolTable
         /// 键 <paramref name="key"/> 在表中是否存在对应的值。
         /// </summary>
         /// <param name="key">键。</param>
-        /// <returns></returns>
+        /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Key key) => Floor(key).Equals(key);
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace SymbolTable
         /// <summary>
         /// 小于等于 Key 的最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
         public Key Floor(Key key)
         {
             Node pointer = this.tail;
@@ -118,7 +118,7 @@ namespace SymbolTable
         /// 获取键 <paramref name="key"/> 对应的值，不存在则返回 null。
         /// </summary>
         /// <param name="key">键。</param>
-        /// <returns></returns>
+        /// <returns><typeparamref name="Key"/> 对应的值。</returns>
         public Value Get(Key key)
         {
             Node pointer = this.first;
@@ -136,13 +136,13 @@ namespace SymbolTable
         /// <summary>
         /// 符号表是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得符号表中所有键的集合。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>符号表中所有键的集合。</returns>
         public IEnumerable<Key> Keys() => this.n == 0 ? new List<Key>() : Keys(this.first.Key, this.tail.Key);
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace SymbolTable
         /// </summary>
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
-        /// <returns></returns>
+        /// <returns>符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。</returns>
         public IEnumerable<Key> Keys(Key lo, Key hi)
         {
             List<Key> list = new List<Key>();
@@ -170,13 +170,13 @@ namespace SymbolTable
         /// <summary>
         /// 最大的键。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大的键，不存在则返回 <c>default(Key)</c>。</returns>
         public Key Max() => this.tail == null ? default(Key) : this.tail.Key;
 
         /// <summary>
         /// 最小的键。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小的键，不存在则返回 <c>default(Key)</c>。</returns>
         public Key Min() => this.first == null ? default(Key) : this.first.Key;
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace SymbolTable
         /// <summary>
         /// 小于 Key 的键的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>小于 Key 的键的数量。</returns>
         public int Rank(Key key)
         {
             int counter = 0;
@@ -232,7 +232,7 @@ namespace SymbolTable
         /// 获得排名为 k 的键（从 0 开始）。
         /// </summary>
         /// <param name="k">排名</param>
-        /// <returns></returns>
+        /// <returns>获得排名为 k 的键（从 0 开始）。</returns>
         public Key Select(int k)
         {
             if (k >= this.n)
@@ -247,7 +247,7 @@ namespace SymbolTable
         /// <summary>
         /// 获得符号表中键值对的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>符号表中键值对的数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
@@ -255,7 +255,7 @@ namespace SymbolTable
         /// </summary>
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
-        /// <returns></returns>
+        /// <returns>[<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。</returns>
         public int Size(Key lo, Key hi)
         {
             int counter = 0;
@@ -275,7 +275,7 @@ namespace SymbolTable
         /// </summary>
         /// <param name="a">检查是否较小的键。</param>
         /// <param name="b">检查是否较大的键。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(Key a, Key b) => a.CompareTo(b) < 0;
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace SymbolTable
         /// </summary>
         /// <param name="a">检查是否较大的键。</param>
         /// <param name="b">检查是否较小的键。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="a"/> 较大则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Greater(Key a, Key b) => a.CompareTo(b) > 0;
 
         /// <summary>

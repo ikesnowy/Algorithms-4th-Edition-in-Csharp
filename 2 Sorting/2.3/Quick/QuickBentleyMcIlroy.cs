@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 namespace Quick
 {
+    /// <summary>
+    /// 利用 Bentley-McIlroy 方法优化的快速排序。
+    /// </summary>
     public class QuickBentleyMcIlroy : BaseSort
     {
         /// <summary>
@@ -136,7 +139,7 @@ namespace Quick
         /// <param name="i">第一个待选元素的下标。</param>
         /// <param name="j">第二个待选元素的下标。</param>
         /// <param name="k">第三个待选元素的下标。</param>
-        /// <returns></returns>
+        /// <returns>下标为 <paramref name="i"/>，<paramref name="j"/>，<paramref name="k"/> 的元素中的中位数下标。</returns>
         private int Median3<T>(T[] a, int i, int j, int k) where T : IComparable<T>
         {
             return

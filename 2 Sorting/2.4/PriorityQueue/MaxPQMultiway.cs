@@ -10,9 +10,21 @@ namespace PriorityQueue
     /// </summary>
     public class MaxPQMultiway<Key> : IMaxPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        private readonly int d;           // 堆的分叉数
-        protected Key[] pq;               // 保存元素的数组。
-        protected int n;                  // 堆中的元素数量。
+        /// <summary>
+        /// 堆的分叉数。
+        /// </summary>
+        /// <value>分叉数。</value>
+        private readonly int d;
+        /// <summary>
+        /// 保存元素的数组。
+        /// </summary>
+        /// <value>保存元素的数组。</value>
+        protected Key[] pq;
+        /// <summary>
+        /// 堆中的元素数量。
+        /// </summary>
+        /// <value>堆中的元素数量。</value>
+        protected int n;                 
 
         /// <summary>
         /// 默认构造函数。
@@ -52,7 +64,9 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并返回最大元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中的最大元素。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">如果堆为空则抛出该异常。</exception>
+        /// <remarks>如果希望获得最大元素而不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
             if (IsEmpty())
@@ -109,25 +123,26 @@ namespace PriorityQueue
         /// <summary>
         /// 检查堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得堆中最大元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中最大的元素。</returns>
+        /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max() => this.pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中元素数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
         /// 获取堆的迭代器，元素以降序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
             MaxPQ<Key> copy = new MaxPQ<Key>(this.n);
@@ -141,7 +156,8 @@ namespace PriorityQueue
         /// <summary>
         /// 获取堆的迭代器，元素以降序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆的迭代器。</returns>
+        /// <remarks>该方法实际调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -200,7 +216,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="i">判断是否较小的元素。</param>
         /// <param name="j">判断是否较大的元素。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="i"/> 的元素更小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(int i, int j)
             => this.pq[i].CompareTo(this.pq[j]) < 0;
 
@@ -219,14 +235,14 @@ namespace PriorityQueue
         /// <summary>
         /// 检查当前二叉树是不是一个最大堆。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMaxHeap() => IsMaxHeap(1);
 
         /// <summary>
         /// 确定以 k 为根节点的二叉树是不是一个最大堆。
         /// </summary>
         /// <param name="k">需要检查的二叉树根节点。</param>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMaxHeap(int k)
         {
             if (k > this.n)

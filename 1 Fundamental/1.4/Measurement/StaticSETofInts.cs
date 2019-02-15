@@ -27,7 +27,7 @@ namespace Measurement
         /// 检查数组中是否存在指定元素。
         /// </summary>
         /// <param name="key">要查找的值。</param>
-        /// <returns>存在则返回 true，否则返回 false。</returns>
+        /// <returns>存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(int key)
         {
             return Rank(key, 0, this.a.Length - 1) != -1;
@@ -37,7 +37,7 @@ namespace Measurement
         /// 返回某个元素在数组中存在的数量。
         /// </summary>
         /// <param name="key">关键值。</param>
-        /// <returns>返回某个元素在数组中存在的数量。</returns>
+        /// <returns><paramref name="key"/> 在数组中存在的数量。</returns>
         public int HowMany(int key)
         {
             int hi = this.a.Length - 1;
@@ -47,12 +47,12 @@ namespace Measurement
         }
 
         /// <summary>
-        /// 返回某个元素在数组中存在的数量。
+        /// 返回某个元素在数组某个范围中存在的数量。
         /// </summary>
         /// <param name="key">关键值。</param>
         /// <param name="lo">查找起始下标。</param>
         /// <param name="hi">查找结束下标。</param>
-        /// <returns>返回某个元素在数组中存在的数量。</returns>
+        /// <returns><paramref name="key"/> 在数组中存在的数量。</returns>
         private int HowMany(int key, int lo, int hi)
         {
             int mid = Rank(key, lo, hi);

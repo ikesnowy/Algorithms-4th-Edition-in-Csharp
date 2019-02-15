@@ -16,14 +16,17 @@ namespace PriorityQueue
             /// <summary>
             /// 结点的值。
             /// </summary>
+            /// <value>结点的值。</value>
             public Key Key { get; set; }
             /// <summary>
             /// 结点在当前数组中的下标。
             /// </summary>
+            /// <value>结点在当前数组中的下标。</value>
             public readonly int Index;
             /// <summary>
             /// 指向孪生结点的引用。
             /// </summary>
+            /// <value>指向孪生结点的引用。</value>
             public MinMaxNode Pair { get; set; }
 
             /// <summary>
@@ -53,7 +56,7 @@ namespace PriorityQueue
             /// 比较两个元素的大小。
             /// </summary>
             /// <param name="other">需要与之比较的另一个元素。</param>
-            /// <returns></returns>
+            /// <returns>如果 <paramref name="other"/> 比较小则返回正数，否则返回负数。</returns>
             public int CompareTo(MinMaxNode other)
             {
                 return this.Key.CompareTo(other.Key);
@@ -61,12 +64,23 @@ namespace PriorityQueue
         }
 
         /// <summary>
-        /// 偏特化的最大堆。
+        /// 对 <see cref="MinMaxNode"/> 偏特化的最大堆。
         /// </summary>
         private sealed class MaxPQ : MaxPQ<MinMaxNode>
         {
+            /// <summary>
+            /// 默认无参构造函数。
+            /// </summary>
             public MaxPQ() : base() { }
+            /// <summary>
+            /// 建立指定大小的最大堆。
+            /// </summary>
+            /// <param name="capacity">最大堆的容量。</param>
             public MaxPQ(int capacity) : base(capacity) { }
+            /// <summary>
+            /// 利用指定的结点建立最大堆。
+            /// </summary>
+            /// <param name="nodes">用于建立最大堆的结点。</param>
             public MaxPQ(MinMaxNode[] nodes) : base(nodes) { }
 
             /// <summary>
@@ -91,12 +105,23 @@ namespace PriorityQueue
         }
 
         /// <summary>
-        /// 偏特化的最小堆。
+        /// 对 <see cref="MinMaxNode"/> 偏特化的最小堆。
         /// </summary>
         private sealed class MinPQ : MinPQ<MinMaxNode>
         {
+            /// <summary>
+            /// 默认无参构造函数。
+            /// </summary>
             public MinPQ() : base() { }
+            /// <summary>
+            /// 建立指定大小的最小堆。
+            /// </summary>
+            /// <param name="capacity">最小堆的容量。</param>
             public MinPQ(int capacity) : base(capacity) { }
+            /// <summary>
+            /// 利用指定的结点建立最小堆。
+            /// </summary>
+            /// <param name="nodes">用于建立最小堆的结点。</param>
             public MinPQ(MinMaxNode[] nodes) : base(nodes) { }
 
             /// <summary>
@@ -123,14 +148,17 @@ namespace PriorityQueue
         /// <summary>
         /// 最小堆。
         /// </summary>
+        /// <value>最小堆。</value>
         private MinPQ minPQ;
         /// <summary>
         /// 最大堆。
         /// </summary>
+        /// <value>最大堆。</value>
         private MaxPQ maxPQ;
         /// <summary>
         /// 堆的大小。
         /// </summary>
+        /// <value>堆的大小。</value>
         private int n;
 
         /// <summary>
@@ -169,7 +197,7 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并返回最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最大元素。</returns>
         public Key DelMax()
         {
             // ⬇ 不可以交换操作顺序 ⬇
@@ -184,7 +212,7 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并返回最小值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小值。</returns>
         public Key DelMin()
         {
             // ⬇ 不可以交换操作顺序 ⬇
@@ -211,25 +239,25 @@ namespace PriorityQueue
         /// <summary>
         /// 判断堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>若堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得堆中的最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆的最大值。</returns>
         public Key Max() => this.maxPQ.Max().Key;
 
         /// <summary>
         /// 获得堆中的最小值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆的最小值。</returns>
         public Key Min() => this.minPQ.Min().Key;
 
         /// <summary>
         /// 获得堆的大小。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆的大小。</returns>
         public int Size() => this.n;
     }
 }

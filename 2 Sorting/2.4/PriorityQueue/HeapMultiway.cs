@@ -60,7 +60,7 @@ namespace PriorityQueue
         /// <param name="pq">元素所在的数组。</param>
         /// <param name="a">需要比较是否较小的结点序号。</param>
         /// <param name="b">需要比较是否较大的结点序号。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="a"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private static bool Less<T>(T[] pq, int a, int b) where T : IComparable<T> => pq[a - 1].CompareTo(pq[b - 1]) < 0;
 
         /// <summary>

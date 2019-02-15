@@ -34,6 +34,14 @@ namespace PriorityQueue
             return compareTimes;
         }
 
+        /// <summary>
+        /// 递归获得堆的最后一个元素。
+        /// </summary>
+        /// <typeparam name="T">堆中元素类型。</typeparam>
+        /// <param name="pq">堆的前序遍历数组。</param>
+        /// <param name="p">当前位置。</param>
+        /// <param name="n">堆的元素数目。</param>
+        /// <returns>最后一个元素的下标。</returns>
         private static int GetTail<T>(T[] pq, int p, int n)
         {
             if (n <= 1)

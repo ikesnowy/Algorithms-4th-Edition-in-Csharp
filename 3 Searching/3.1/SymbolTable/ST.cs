@@ -60,8 +60,13 @@ namespace SymbolTable
         /// </summary>
         /// <param name="key">要插入的键。</param>
         /// <param name="value">对应的值。</param>
-        public virtual void Put(Key key, Value value) => this.st.Add(key, value);
-
+        public virtual void Put(Key key, Value value)
+        {
+            if (this.st.ContainsKey(key))
+                this.st[key] = value;
+            else
+                this.st.Add(key, value);
+        }
         /// <summary>
         /// 获取符号表中键值对的数量。
         /// </summary>

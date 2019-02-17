@@ -56,5 +56,23 @@ namespace SymbolTable
 
             return max;
         }
+
+        /// <summary>
+        /// 计算数组中不重复元素的数量。
+        /// </summary>
+        /// <typeparam name="TKey">数组元素的类型。</typeparam>
+        /// <param name="keys">包含重复元素的数组。</param>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <returns><paramref name="keys"/> 中的不重复元素数量。</returns>
+        public static int CountDistinct<TKey>(TKey[] keys, IST<TKey, int> st)
+        {
+            int distinct = 0;
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (!st.Contains(keys[i]))
+                    st.Put(keys[i], distinct++);
+            }
+            return distinct;
+        }
     }
 }

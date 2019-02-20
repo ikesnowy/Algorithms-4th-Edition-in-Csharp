@@ -6,18 +6,18 @@ namespace SymbolTable
     /// <summary>
     /// 基于有序链表的有序符号表实现。
     /// </summary>
-    /// <typeparam name="Key">符号表键类型。</typeparam>
-    /// <typeparam name="Value">符号表值类型。</typeparam>
-    public class OrderedSequentialSearchST<Key, Value> : IST<Key, Value>, IOrderedST<Key, Value> 
-        where Key : IComparable<Key>
+    /// <typeparam name="TKey">符号表键类型。</typeparam>
+    /// <typeparam name="TValue">符号表值类型。</typeparam>
+    public class OrderedSequentialSearchST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue> 
+        where TKey : IComparable<TKey>
     {
         /// <summary>
         /// 符号表结点。
         /// </summary>
         private class Node
         {
-            public Key Key { get; set; }        // 键。
-            public Value Value { get; set; }    // 值。
+            public TKey Key { get; set; }        // 键。
+            public TValue Value { get; set; }    // 值。
             public Node Next { get; set; }      // 后继。
             public Node Prev { get; set; }      // 前驱。
         }
@@ -35,12 +35,12 @@ namespace SymbolTable
         /// 大于等于 key 的最小值。
         /// </summary>
         /// <returns>大于等于 key 的最小值，不存在则返回 <c>default(Key)</c>。</returns>
-        public Key Ceiling(Key key)
+        public TKey Ceiling(TKey key)
         {
             Node pointer = this.first;
             while (pointer != null && Less(pointer.Key, key))
                 pointer = pointer.Next;
-            return pointer == null ? default(Key) : pointer.Key;
+            return pointer == null ? default(TKey) : pointer.Key;
         }
 
         /// <summary>
@@ -48,13 +48,13 @@ namespace SymbolTable
         /// </summary>
         /// <param name="key">键。</param>
         /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool Contains(Key key) => Floor(key).Equals(key);
+        public bool Contains(TKey key) => Floor(key).Equals(key);
 
         /// <summary>
         /// 从表中删去键 <paramref name="key"/> 对应的值。
         /// </summary>
         /// <param name="key">键。</param>
-        public void Delete(Key key)
+        public void Delete(TKey key)
         {
             Node pointer = this.first;
             while (pointer != null && !pointer.Key.Equals(key))
@@ -106,31 +106,31 @@ namespace SymbolTable
         /// 小于等于 Key 的最大值。
         /// </summary>
         /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
-        public Key Floor(Key key)
+        public TKey Floor(TKey key)
         {
             Node pointer = this.tail;
             while (pointer != null && Greater(pointer.Key, key))
                 pointer = pointer.Prev;
-            return pointer == null ? default(Key) : pointer.Key;
+            return pointer == null ? default(TKey) : pointer.Key;
         }
 
         /// <summary>
         /// 获取键 <paramref name="key"/> 对应的值，不存在则返回 null。
         /// </summary>
         /// <param name="key">键。</param>
-        /// <returns><typeparamref name="Key"/> 对应的值。</returns>
-        public Value Get(Key key)
+        /// <returns><typeparamref name="TKey"/> 对应的值。</returns>
+        public TValue Get(TKey key)
         {
             Node pointer = this.first;
             while (pointer != null && Greater(key, pointer.Key))
                 pointer = pointer.Next;
 
             if (pointer == null)
-                return default(Value);
+                return default(TValue);
             else if (pointer.Key.Equals(key))
                 return pointer.Value;
             else
-                return default(Value);
+                return default(TValue);
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace SymbolTable
         /// 获得符号表中所有键的集合。
         /// </summary>
         /// <returns>符号表中所有键的集合。</returns>
-        public IEnumerable<Key> Keys() => this.n == 0 ? new List<Key>() : Keys(this.first.Key, this.tail.Key);
+        public IEnumerable<TKey> Keys() => this.n == 0 ? new List<TKey>() : Keys(this.first.Key, this.tail.Key);
 
         /// <summary>
         /// 获得符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。
@@ -151,9 +151,9 @@ namespace SymbolTable
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
         /// <returns>符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。</returns>
-        public IEnumerable<Key> Keys(Key lo, Key hi)
+        public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
-            List<Key> list = new List<Key>();
+            List<TKey> list = new List<TKey>();
             Node pointer = this.first;
             while (pointer != null && Less(pointer.Key, lo))
                 pointer = pointer.Next;
@@ -171,20 +171,20 @@ namespace SymbolTable
         /// 最大的键。
         /// </summary>
         /// <returns>最大的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public Key Max() => this.tail == null ? default(Key) : this.tail.Key;
+        public TKey Max() => this.tail == null ? default(TKey) : this.tail.Key;
 
         /// <summary>
         /// 最小的键。
         /// </summary>
         /// <returns>最小的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public Key Min() => this.first == null ? default(Key) : this.first.Key;
+        public TKey Min() => this.first == null ? default(TKey) : this.first.Key;
 
         /// <summary>
         /// 向符号表插入键值对，重复值将被替换。
         /// </summary>
         /// <param name="key">键。</param>
         /// <param name="value">值。</param>
-        public void Put(Key key, Value value)
+        public void Put(TKey key, TValue value)
         {
             Delete(key);
 
@@ -216,7 +216,7 @@ namespace SymbolTable
         /// 小于 Key 的键的数量。
         /// </summary>
         /// <returns>小于 Key 的键的数量。</returns>
-        public int Rank(Key key)
+        public int Rank(TKey key)
         {
             int counter = 0;
             Node pointer = this.first;
@@ -233,7 +233,7 @@ namespace SymbolTable
         /// </summary>
         /// <param name="k">排名</param>
         /// <returns>获得排名为 k 的键（从 0 开始）。</returns>
-        public Key Select(int k)
+        public TKey Select(int k)
         {
             if (k >= this.n)
                 throw new Exception("k must less than ST size!");
@@ -256,7 +256,7 @@ namespace SymbolTable
         /// <param name="lo">范围起点。</param>
         /// <param name="hi">范围终点。</param>
         /// <returns>[<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。</returns>
-        public int Size(Key lo, Key hi)
+        public int Size(TKey lo, TKey hi)
         {
             int counter = 0;
             Node pointer = this.first;
@@ -276,7 +276,7 @@ namespace SymbolTable
         /// <param name="a">检查是否较小的键。</param>
         /// <param name="b">检查是否较大的键。</param>
         /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        private bool Less(Key a, Key b) => a.CompareTo(b) < 0;
+        private bool Less(TKey a, TKey b) => a.CompareTo(b) < 0;
 
         /// <summary>
         /// 键 <paramref name="a"/> 是否大于 <paramref name="b"/>。
@@ -284,7 +284,7 @@ namespace SymbolTable
         /// <param name="a">检查是否较大的键。</param>
         /// <param name="b">检查是否较小的键。</param>
         /// <returns>如果 <paramref name="a"/> 较大则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        private bool Greater(Key a, Key b) => a.CompareTo(b) > 0;
+        private bool Greater(TKey a, TKey b) => a.CompareTo(b) > 0;
 
         /// <summary>
         /// 将结点 <paramref name="k"/> 插入到 <paramref name="left"/> 和 <paramref name="right"/> 之间。

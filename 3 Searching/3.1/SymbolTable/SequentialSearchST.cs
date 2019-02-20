@@ -6,9 +6,9 @@ namespace SymbolTable
     /// <summary>
     /// 基于无序链表的符号表。
     /// </summary>
-    /// <typeparam name="Key">键类型。</typeparam>
-    /// <typeparam name="Value">值类型。</typeparam>
-    public class SequentialSearchST<Key, Value> : IST<Key, Value>
+    /// <typeparam name="TKey">键类型。</typeparam>
+    /// <typeparam name="TValue">值类型。</typeparam>
+    public class SequentialSearchST<TKey, TValue> : IST<TKey, TValue>
     {
         /// <summary>
         /// 符号表中的元素个数。
@@ -26,11 +26,11 @@ namespace SymbolTable
         /// </summary>
         private class Node
         {
-            public Key Key;
-            public Value Value;
+            public TKey Key;
+            public TValue Value;
             public Node Next;
 
-            public Node(Key key, Value value, Node next)
+            public Node(TKey key, TValue value, Node next)
             {
                 this.Key = key;
                 this.Value = value;
@@ -49,7 +49,7 @@ namespace SymbolTable
         /// <param name="key">需要检查的键。</param>
         /// <returns>如果 <paramref name="key"/> 已被包含在符号表中则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-        public bool Contains(Key key)
+        public bool Contains(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("argument to contains() can't be null!");
@@ -63,7 +63,7 @@ namespace SymbolTable
         /// 从表中删去键 <paramref name="key"/> 及其对应的值。
         /// </summary>
         /// <param name="key">要删除的键。</param>
-        public void Delete(Key key)
+        public void Delete(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("key can't be null");
@@ -100,14 +100,14 @@ namespace SymbolTable
         /// </summary>
         /// <param name="key">键。</param>
         /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
-        public Value Get(Key key)
+        public TValue Get(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("key can't be null");
             for (Node pointer = this.first; pointer != null; pointer = pointer.Next)
                 if (pointer.Key.Equals(key))
                     return pointer.Value;
-            return default(Value);
+            return default(TValue);
         }
 
         /// <summary>
@@ -120,9 +120,9 @@ namespace SymbolTable
         /// 获得所有的键。
         /// </summary>
         /// <returns>包含所有键的集合。</returns>
-        public IEnumerable<Key> Keys()
+        public IEnumerable<TKey> Keys()
         {
-            Key[] keys = new Key[this.n];
+            TKey[] keys = new TKey[this.n];
             Node pointer = this.first;
             for (int i = 0; i < this.n; i++)
             {
@@ -138,7 +138,7 @@ namespace SymbolTable
         /// <param name="key">新的键。</param>
         /// <param name="value">新的值。</param>
         /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-        public void Put(Key key, Value value)
+        public void Put(TKey key, TValue value)
         {
             if (key == null)
                 throw new ArgumentNullException("key can't be null!");

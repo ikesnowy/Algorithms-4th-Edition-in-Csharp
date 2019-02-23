@@ -44,6 +44,10 @@ namespace SymbolTable
             this.n = 0;
         }
 
+        /// <summary>
+        /// 根据已有的键值对构造一个符号表。
+        /// </summary>
+        /// <param name="items">已有的键值对。</param>
         public ItemBinarySearchST(Item<TKey, TValue>[] items)
         {
             this.items = new Item<TKey, TValue>[items.Length];

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace SymbolTable
@@ -55,6 +56,60 @@ namespace SymbolTable
                     max = s;
 
             return max;
+        }
+
+        /// <summary>
+        /// 获得指定文本文档中出现频率最高的所有字符串。
+        /// </summary>
+        /// <param name="filename">文件名。</param>
+        /// <param name="minLength">字符串最小长度。</param>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <returns>文本文档出现频率最高的字符串数组。</returns>
+        public static string[] MostFrequentlyWords(string filename, int minLength, IST<string, int> st)
+        {
+            int distinct = 0, words = 0;
+            StreamReader sr = new StreamReader(File.OpenRead(filename));
+
+            string[] inputs =
+                sr
+                .ReadToEnd()
+                .Split(new char[] { ' ', '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string s in inputs)
+            {
+                if (s.Length < minLength)
+                    continue;
+                words++;
+                if (st.Contains(s))
+                {
+                    st.Put(s, st.Get(s) + 1);
+                }
+                else
+                {
+                    st.Put(s, 1);
+                    distinct++;
+                }
+            }
+
+            string max = "";
+            Queue<string> queue = new Queue<string>();
+            st.Put(max, 0);
+            foreach (string s in st.Keys())
+            {
+                if (st.Get(s) > st.Get(max))
+                {
+                    max = s;
+                    queue.Clear();
+                    queue.Enqueue(s);
+                }
+                else if (st.Get(s) == st.Get(max))
+                {
+                    queue.Enqueue(s);
+                }
+            }
+
+            return queue.ToArray();
         }
 
         /// <summary>

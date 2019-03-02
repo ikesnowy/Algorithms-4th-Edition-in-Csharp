@@ -129,5 +129,30 @@ namespace SymbolTable
             }
             return distinct;
         }
+
+        /// <summary>
+        /// 获得指定键中出现频率最高的键。
+        /// </summary>
+        /// <typeparam name="TKey">键类型。</typeparam>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <param name="keys">所有的键。</param>
+        /// <returns><paramref name="keys"/> 中出现频率最高的键。</returns>
+        public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys)
+        {
+            foreach (TKey s in keys)
+            {
+                if (st.Contains(s))
+                    st.Put(s, st.Get(s) + 1);
+                else
+                    st.Put(s, 1);
+            }
+
+            TKey max = keys[0];
+            foreach (TKey s in st.Keys())
+                if (st.Get(s) > st.Get(max))
+                    max = s;
+
+            return max;
+        }
     }
 }

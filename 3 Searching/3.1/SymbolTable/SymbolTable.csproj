@@ -44,6 +44,7 @@
     <Compile Include="ArrayST.cs" />
     <Compile Include="BinarySearchST.cs" />
     <Compile Include="FrequencyCounter.cs" />
+    <Compile Include="InterpolationSearchST.cs" />
     <Compile Include="IOrderedST.cs" />
     <Compile Include="IST.cs" />
     <Compile Include="Item.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="MoveToFrontArrayST.cs" />
     <Compile Include="OrderedSequentialSearchST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchCompare.cs" />
     <Compile Include="SequentialSearchST.cs" />
     <Compile Include="ST.cs" />
   </ItemGroup>

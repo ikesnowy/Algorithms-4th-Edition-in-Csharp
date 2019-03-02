@@ -29,9 +29,12 @@
 
 ## 使用方法 & 开发环境
 
-### 使用方法：  
+### 使用方法：
 
-配置运行题解代码的详细教程见：[如何运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
+有时题目标号文件夹下只有用例（即 Main 方法），实际编写的类位于章节对应的类库中。
+有关章节类库和 API 文档的说明请见：[如何：查找 API 说明](https://alg4.ikesnowy.com/如何：查找-API-说明/)
+
+配置运行题解代码的详细教程见：[如何：运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
 
 获取图文版解答可以参考 [我的博客](http://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
 

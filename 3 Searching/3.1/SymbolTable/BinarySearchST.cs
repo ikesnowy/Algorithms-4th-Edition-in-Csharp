@@ -74,7 +74,7 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("key can't be null");
-            return !Get(key).Equals(default(TKey));
+            return !Get(key).Equals(default(TValue));
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace SymbolTable
             this.values[this.n] = default(TValue);
 
             if (this.n > 0 && this.n == this.keys.Length / 4)
-                Resize(this.n / 2);
+                Resize(this.keys.Length / 2);
         }
 
         /// <summary>

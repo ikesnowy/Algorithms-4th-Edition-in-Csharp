@@ -198,12 +198,6 @@ namespace SymbolTable
         /// <param name="value">要插入的值。</param>
         public void Put(double key, int value)
         {
-            if (value == null)
-            {
-                Delete(key);
-                return;
-            }
-
             int i = Rank(key);
 
             if (i < this.n && this.keys[i].CompareTo(key) == 0)

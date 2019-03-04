@@ -42,7 +42,7 @@ namespace SymbolTable
             for (char i = 'A'; i <= 'Z'; i++)
             {
                 string s = i + "";
-                Console.WriteLine($"{0} {1} {2} {3}", s, st.Rank(s), st.Floor(s), st.Ceiling(s));
+                Console.WriteLine($"{s} {st.Rank(s)} {st.Floor(s)} {st.Ceiling(s)}");
             }
             Console.WriteLine();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace SymbolTable
 {
@@ -106,6 +107,8 @@ namespace SymbolTable
 
             if (this.n > 0 && this.n == this.keys.Length / 4)
                 Resize(this.keys.Length / 2);
+
+            // Debug.Assert(Check());
         }
 
         /// <summary>
@@ -249,6 +252,8 @@ namespace SymbolTable
             this.keys[i] = key;
             this.values[i] = value;
             this.n++;
+
+            // Debug.Assert(Check());
         }
 
         /// <summary>
@@ -334,6 +339,39 @@ namespace SymbolTable
             }
             this.keys = tempKeys;
             this.values = tempValues;
+        }
+
+        /// <summary>
+        /// 检查符号表结构是否有效。
+        /// </summary>
+        /// <returns>检查通过则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        private bool Check() => IsSorted() && RankCheck();
+
+        /// <summary>
+        /// 检查 <see cref="keys"/> 数组是否有序。
+        /// </summary>
+        /// <returns>如果 <see cref="keys"/> 有序则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        private bool IsSorted()
+        {
+            for (int i = 1; i < Size(); i++)
+                if (this.keys[i].CompareTo(this.keys[i - 1]) < 0)
+                    return false;
+            return true;
+        }
+
+        /// <summary>
+        /// 检查 Rank(Select(i)) = i 是否成立。
+        /// </summary>
+        /// <returns>成立则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        private bool RankCheck()
+        {
+            for (int i = 0; i < Size(); i++)
+                if (i != Rank(Select(i)))
+                    return false;
+            for (int i = 0; i < Size(); i++)
+                if (keys[i].CompareTo(Select(Rank(this.keys[i]))) != 0)
+                    return false;
+            return true;
         }
     }
 }

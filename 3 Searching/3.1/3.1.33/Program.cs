@@ -23,7 +23,7 @@ namespace _3._1._33
         static void Main(string[] args)
         {
             int n = 1000;
-            int multiplyBy10 = 3;
+            int multiplyBy10 = 4;
             for (int i = 0; i < multiplyBy10; i++)
             {
                 Console.WriteLine("n=" + n);
@@ -73,6 +73,7 @@ namespace _3._1._33
 
                 n *= 10;
             }
+            Console.ReadLine();
         }
 
         static void Shuffle<T>(T[] data)

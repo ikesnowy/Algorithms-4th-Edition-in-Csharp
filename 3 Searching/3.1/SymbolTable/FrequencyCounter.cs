@@ -162,6 +162,53 @@ namespace SymbolTable
         }
 
         /// <summary>
+        /// 获得指定文本文档中出现频率最高的字符串。
+        /// </summary>
+        /// <param name="filename">文件名。</param>
+        /// <param name="counts">从文件读入的单词数目。</param>
+        /// <param name="minLength">字符串最小长度。</param>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <returns>文本文档出现频率最高的字符串。</returns>
+        public static string MostFrequentlyWord(string filename, int counts, int minLength, IST<string, int> st)
+        {
+            int distinct = 0, words = 0;
+            StreamReader sr = new StreamReader(File.OpenRead(filename));
+
+            string[] inputs =
+                sr
+                .ReadToEnd()
+                .Split(new char[] { ' ', '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < counts && i < inputs.Length; i++)
+            {
+                if (inputs[i].Length < minLength)
+                {
+                    counts++;
+                    continue;
+                }
+                words++;
+                if (st.Contains(inputs[i]))
+                {
+                    st.Put(inputs[i], st.Get(inputs[i]) + 1);
+                }
+                else
+                {
+                    st.Put(inputs[i], 1);
+                    distinct++;
+                }
+            }
+
+            string max = "";
+            st.Put(max, 0);
+            foreach (string s in st.Keys())
+                if (st.Get(s) > st.Get(max))
+                    max = s;
+
+            return max;
+        }
+
+        /// <summary>
         /// 获得指定文本文档中出现频率最高的所有字符串。
         /// </summary>
         /// <param name="filename">文件名。</param>

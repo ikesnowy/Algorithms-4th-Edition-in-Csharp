@@ -73,7 +73,6 @@ namespace _3._1._33
 
                 n *= 10;
             }
-            Console.ReadLine();
         }
 
         static void Shuffle<T>(T[] data)

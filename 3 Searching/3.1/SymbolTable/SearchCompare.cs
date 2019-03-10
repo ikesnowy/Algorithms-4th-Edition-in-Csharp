@@ -58,6 +58,22 @@ namespace SymbolTable
         }
 
         /// <summary>
+        /// 生成包含 <paramref name="n"/> 个元素的随机整数数组，
+        /// 整数范围为 [<paramref name="min"/>, <paramref name="max"/>)。
+        /// </summary>
+        /// <param name="n">生成的数组长度。</param>
+        /// <param name="min">生成的整数的包含下限。</param>
+        /// <param name="max">生成的整数的上限。</param>
+        /// <returns>包含 <paramref name="n"/> 个元素的随机整数数组。</returns>
+        public static long[] GetRandomArrayLong(int n, long min, long max)
+        {
+            long[] result = new long[n];
+            for (int i = 0; i < n; i++)
+                result[i] = min + (long)(random.NextDouble() * (max - min));
+            return result;
+        }
+
+        /// <summary>
         /// 生成非负 <see cref="double"/> 数组。
         /// </summary>
         /// <param name="n">数组大小。</param>

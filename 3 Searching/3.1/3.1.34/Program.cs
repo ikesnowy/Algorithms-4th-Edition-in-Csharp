@@ -29,7 +29,7 @@ namespace _3._1._34
             harmonicNumber[0] = 1;
             for (int i = 1; i < harmonicNumber.Length; i++)
             {
-                harmonicNumber[i] = harmonicNumber[i - 1] + Math.Pow(0.5, i);
+                harmonicNumber[i] = harmonicNumber[i - 1] + 1 / (i + 1);
             }
 
             for (int i = 0; i < multiplyBy10; i++)

@@ -5,11 +5,11 @@ using System.Diagnostics;
 namespace SymbolTable
 {
     /// <summary>
-    /// 符号表，基于有序表并应用了二分查找优化。
+    /// 符号表，基于有序表并应用了二分查找优化，提供了计算比较次数的属性。
     /// </summary>
     /// <typeparam name="TKey">键类型。</typeparam>
     /// <typeparam name="TValue">值类型。</typeparam>
-    public class BinarySearchSTAnalysis<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
+    public class BinarySearchSTAnalysis<TKey, TValue> : IST<TKey, TValue>, ISTAnalysis<TKey, TValue>, IOrderedST<TKey, TValue>
         where TKey : IComparable<TKey>
     {
         /// <summary>
@@ -45,6 +45,11 @@ namespace SymbolTable
         public Stopwatch PutTimer { get; set; }
 
         /// <summary>
+        /// 上一次 <see cref="Put(TKey, TValue)"/> 的数组访问次数。
+        /// </summary>
+        public int ArrayVisit { get; set; }
+
+        /// <summary>
         /// 构造一个空的符号表。
         /// </summary>
         public BinarySearchSTAnalysis() : this(INIT_CAPACITY) { }
@@ -60,6 +65,7 @@ namespace SymbolTable
             this.n = 0;
             this.PutTimer = new Stopwatch();
             this.GetTimer = new Stopwatch();
+            this.ArrayVisit = 0;
         }
 
         /// <summary>
@@ -244,6 +250,7 @@ namespace SymbolTable
         /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出。</exception>
         public void Put(TKey key, TValue value)
         {
+            this.ArrayVisit = 0;
             PutTimer.Start();
             if (key == null)
                 throw new ArgumentNullException("first argument to Put() is null");
@@ -256,6 +263,7 @@ namespace SymbolTable
 
             int i = Rank(key);
 
+            ArrayVisit++;
             if (i < this.n && this.keys[i].CompareTo(key) == 0)
             {
                 this.values[i] = value;
@@ -270,6 +278,7 @@ namespace SymbolTable
             {
                 this.keys[j] = this.keys[j - 1];
                 this.values[j] = this.values[j - 1];
+                this.ArrayVisit++;
             }
             this.keys[i] = key;
             this.values[i] = value;
@@ -293,6 +302,7 @@ namespace SymbolTable
             {
                 int mid = lo + (hi - lo) / 2;
                 int compare = this.keys[mid].CompareTo(key);
+                ArrayVisit++;
                 if (compare > 0)
                     hi = mid - 1;
                 else if (compare < 0)

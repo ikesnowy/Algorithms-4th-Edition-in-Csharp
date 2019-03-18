@@ -209,6 +209,50 @@ namespace SymbolTable
         }
 
         /// <summary>
+        /// 计算指定文本文档中出现频率最高的字符串，
+        /// 返回每次 <see cref="IST{TKey, TValue}.Put(TKey, TValue)"/> 的代价。
+        /// </summary>
+        /// <param name="filename">文件名。</param>
+        /// <param name="minLength">字符串最小长度。</param>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <returns>每次 put 的代价。</returns>
+        public static int[] MostFrequentlyWordAnalysis(string filename, int minLength, ISTAnalysis<string, int> st)
+        {
+            int distinct = 0, words = 0;
+            StreamReader sr = new StreamReader(File.OpenRead(filename));
+
+            string[] inputs =
+                sr
+                .ReadToEnd()
+                .Split(new char[] { ' ', '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            List<int> compares = new List<int>();
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                if (inputs[i].Length < minLength)
+                    continue;
+                words++;
+                if (st.Contains(inputs[i]))
+                    st.Put(inputs[i], st.Get(inputs[i]) + 1);
+                else
+                {
+                    st.Put(inputs[i], 1);
+                    distinct++;
+                }
+                compares.Add(st.ArrayVisit);
+            }            
+
+            string max = "";
+            st.Put(max, 0);
+            foreach (string s in st.Keys())
+                if (st.Get(s) > st.Get(max))
+                    max = s;
+
+            return compares.ToArray();
+        }
+
+        /// <summary>
         /// 获得指定文本文档中出现频率最高的所有字符串。
         /// </summary>
         /// <param name="filename">文件名。</param>

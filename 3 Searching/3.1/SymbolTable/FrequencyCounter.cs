@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace SymbolTable
@@ -250,6 +251,73 @@ namespace SymbolTable
                     max = s;
 
             return compares.ToArray();
+        }
+
+        /// <summary>
+        /// 计算指定文本文档中出现频率最高的字符串，
+        /// 保存 <see cref="IST{TKey, TValue}.Get(TKey)"/> 
+        /// 和 <see cref="IST{TKey, TValue}.Put(TKey, TValue)"/>
+        /// 的调用次数以及对应的耗时。
+        /// </summary>
+        /// <param name="filename">文件名。</param>
+        /// <param name="minLength">字符串最小长度。</param>
+        /// <param name="st">用于计算的符号表。</param>
+        /// <param name="callIndex">调用次数。</param>
+        /// <param name="timeRecord">对应耗时。</param>
+        public static void MostFrequentlyWordAnalysis(string filename, int minLength, IST<string, int> st, out int[] callIndex, out long[] timeRecord)
+        {
+            List<int> call = new List<int>();
+            List<long> time = new List<long>();
+            Stopwatch sw = Stopwatch.StartNew();
+
+            int callTime = 0;
+            int distinct = 0, words = 0;
+            StreamReader sr = new StreamReader(File.OpenRead(filename));
+
+            string[] inputs =
+                sr
+                .ReadToEnd()
+                .Split(new char[] { ' ', '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                if (inputs[i].Length < minLength)
+                    continue;
+                words++;
+                if (st.Contains(inputs[i]))
+                {
+                    st.Put(inputs[i], st.Get(inputs[i]) + 1);
+                    callTime += 2;
+                    time.Add(sw.ElapsedMilliseconds);
+                    call.Add(callTime);
+                }
+                else
+                {
+                    st.Put(inputs[i], 1);
+                    callTime++;
+                    time.Add(sw.ElapsedMilliseconds);
+                    call.Add(callTime);
+                    distinct++;
+                }
+            }
+
+            string max = "";
+            st.Put(max, 0);
+            callTime++;
+            time.Add(sw.ElapsedMilliseconds);
+            call.Add(callTime);
+            foreach (string s in st.Keys())
+            {
+                if (st.Get(s) > st.Get(max))
+                    max = s;
+                callTime += 2;
+                time.Add(sw.ElapsedMilliseconds);
+                call.Add(callTime);
+            }
+
+            callIndex = call.ToArray();
+            timeRecord = time.ToArray();
         }
 
         /// <summary>

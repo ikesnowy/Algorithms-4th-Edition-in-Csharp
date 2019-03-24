@@ -6,7 +6,7 @@ using System.Text;
 namespace Generics
 {
     /// <summary>
-    /// 队列类。
+    /// 队列类（链表实现）。
     /// </summary>
     /// <typeparam name="Item">队列存放的元素类型。</typeparam>
     public class Queue<Item> : IEnumerable<Item>
@@ -28,7 +28,7 @@ namespace Generics
         /// <summary>
         /// 复制构造函数。
         /// </summary>
-        /// <param name="r"></param>
+        /// <param name="r">要复制的队列。</param>
         public Queue(Queue<Item> r)
         {
             foreach (Item i in r)
@@ -40,7 +40,7 @@ namespace Generics
         /// <summary>
         /// 检查队列是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果队列为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty()
         {
             return this.first == null;
@@ -49,7 +49,7 @@ namespace Generics
         /// <summary>
         /// 返回队列中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>队列中元素的数量。</returns>
         public int Size()
         {
             return this.count;
@@ -58,7 +58,9 @@ namespace Generics
         /// <summary>
         /// 返回队列中的第一个元素（但不让它出队）。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>队列中的第一个元素。</returns>
+        /// <exception cref="InvalidOperationException">当队列为空时抛出此异常。</exception>
+        /// <remarks>若要删除并返回第一个元素，请使用 <see cref="Dequeue"/>。</remarks>
         public Item Peek()
         {
             if (IsEmpty())
@@ -86,7 +88,9 @@ namespace Generics
         /// <summary>
         /// 将队列中的第一个元素出队并返回它。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>队列中的第一个元素。</returns>
+        /// <exception cref="InvalidOperationException">当队列为空时抛出此异常。</exception>
+        /// <remarks>若不希望第一个元素被删除，请使用 <see cref="Peek"/>。</remarks>
         public Item Dequeue()
         {
             if (IsEmpty())
@@ -104,6 +108,7 @@ namespace Generics
         /// </summary>
         /// <param name="q1">需要被附加的队列。</param>
         /// <param name="q2">需要附加的队列（将被删除）。</param>
+        /// <remarks>运行此方法后，<paramref name="q2"/> 将被置为 <c>null</c>。</remarks>
         public static Queue<Item> Catenation(Queue<Item> q1, Queue<Item> q2)
         {
             if (q1.IsEmpty())
@@ -123,6 +128,10 @@ namespace Generics
             return q1;
         }
 
+        /// <summary>
+        /// 将队列中的元素转变为字符串并输出，各元素以空格分隔。
+        /// </summary>
+        /// <returns>形如 "1 2 3 4 5 " 字符串。</returns>
         public override string ToString()
         {
             StringBuilder s = new StringBuilder();
@@ -134,11 +143,20 @@ namespace Generics
             return s.ToString();
         }
 
+        /// <summary>
+        /// 获得队列枚举器。
+        /// </summary>
+        /// <returns>队列枚举器。</returns>
         public IEnumerator<Item> GetEnumerator()
         {
             return new QueueEnumerator(this.first);
         }
 
+        /// <summary>
+        /// 获得队列枚举器。
+        /// </summary>
+        /// <returns>队列枚举器。</returns>
+        /// <remarks>此方法实际上调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

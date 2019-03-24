@@ -33,7 +33,7 @@ namespace Measurement
         /// 计算和为零的三元组的数量。
         /// </summary>
         /// <param name="a">输入数组。</param>
-        /// <returns></returns>
+        /// <returns>和为零的三元组的数量。</returns>
         public static int Count(int[] a)
         {
             int n = a.Length;

@@ -3,7 +3,7 @@
 namespace Merge
 {
     /// <summary>
-    /// 优化后的归并排序类。
+    /// 优化后的归并排序。
     /// </summary>
     public class MergeSortX : BaseSort
     {

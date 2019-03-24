@@ -1,5 +1,8 @@
 ﻿namespace UnionFind
 {
+    /// <summary>
+    /// 按照高度加权的 Quick-Union 并查集。
+    /// </summary>
     public class WeightedQuickUnionByHeightUF : QuickUnionUF
     {
         private int[] height;

@@ -25,16 +25,16 @@ namespace Generics
         /// <summary>
         /// 背包是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty()
         {
             return this.first == null;
         }
 
         /// <summary>
-        /// 返回背包中元素的数量。
+        /// 获得背包中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>背包中元素的数量。</returns>
         public int Size()
         {
             return this.count;
@@ -53,17 +53,29 @@ namespace Generics
             this.count++;
         }
 
+        /// <summary>
+        /// 获得枚举器。
+        /// </summary>
+        /// <returns>返回枚举器对象。</returns>
         public IEnumerator<Item> GetEnumerator()
         {
             return new BagEnumerator(this.first);
         }
 
+        /// <summary>
+        /// 获得枚举器。
+        /// </summary>
+        /// <returns>背包枚举器对象。</returns>
+        /// <remarks>这个方法实际上调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        public class BagEnumerator : IEnumerator<Item>
+        /// <summary>
+        /// 背包枚举器类。
+        /// </summary>
+        private class BagEnumerator : IEnumerator<Item>
         {
             private Node<Item> current;
             private Node<Item> first;
@@ -72,6 +84,10 @@ namespace Generics
 
             object IEnumerator.Current => this.current.item;
 
+            /// <summary>
+            /// 构造一个背包枚举器。
+            /// </summary>
+            /// <param name="first">背包的第一个结点。</param>
             public BagEnumerator(Node<Item> first)
             {
                 this.current = new Node<Item>();

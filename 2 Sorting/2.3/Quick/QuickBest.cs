@@ -14,7 +14,7 @@
         /// 构造适用于快速排序的最佳数组。
         /// </summary>
         /// <param name="n">数组长度。</param>
-        /// <returns></returns>
+        /// <returns>适用于快速排序的最佳情况数组。</returns>
         public static int[] Best(int n)
         {
             int[] a = new int[n];

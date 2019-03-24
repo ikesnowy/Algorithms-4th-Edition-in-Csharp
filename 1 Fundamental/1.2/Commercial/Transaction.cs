@@ -3,10 +3,26 @@ using System.Collections.Generic;
 
 namespace Commercial
 {
+    /// <summary>
+    /// 交易记录类。
+    /// </summary>
     public class Transaction : IComparable<Transaction>
     {
+        /// <summary>
+        /// 客户姓名。
+        /// </summary>
+        /// <value>客户姓名。</value>
         public string Who { get; }
+        /// <summary>
+        /// 交易日期。
+        /// </summary>
+        /// <value>交易日期。</value>
+        /// <seealso cref="Date"/>
         public Date When { get; }
+        /// <summary>
+        /// 交易金额。
+        /// </summary>
+        /// <value>交易金额。</value>
         public double Amount { get; }
 
         /// <summary>
@@ -66,6 +82,12 @@ namespace Commercial
         /// </summary>
         public class WhoOrder : IComparer<Transaction>
         {
+            /// <summary>
+            /// 比较两个 <see cref="Transaction"/> 的姓名。
+            /// </summary>
+            /// <param name="x">需要比较的第一个记录。</param>
+            /// <param name="y">需要比较的第二个记录。</param>
+            /// <returns><paramref name="x"/> 姓名靠后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
             int IComparer<Transaction>.Compare(Transaction x, Transaction y)
             {
                 return x.Who.CompareTo(y.Who);
@@ -77,6 +99,12 @@ namespace Commercial
         /// </summary>
         public class WhenOrder : IComparer<Transaction>
         {
+            /// <summary>
+            /// 比较两个 <see cref="Transaction"/> 的交易时间。
+            /// </summary>
+            /// <param name="x">需要比较的第一个记录。</param>
+            /// <param name="y">需要比较的第二个记录。</param>
+            /// <returns><paramref name="x"/> 时间靠后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
             int IComparer<Transaction>.Compare(Transaction x, Transaction y)
             {
                 return x.When.CompareTo(y.When);
@@ -88,6 +116,12 @@ namespace Commercial
         /// </summary>
         public class HowMuchOrder : IComparer<Transaction>
         {
+            /// <summary>
+            /// 比较两个 <see cref="Transaction"/> 的交易金额。
+            /// </summary>
+            /// <param name="x">需要比较的第一个记录。</param>
+            /// <param name="y">需要比较的第二个记录。</param>
+            /// <returns><paramref name="x"/> 金额较大时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
             int IComparer<Transaction>.Compare(Transaction x, Transaction y)
             {
                 return x.Amount.CompareTo(y.Amount);
@@ -118,7 +152,7 @@ namespace Commercial
         /// <summary>
         /// 返回交易信息的哈希值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>交易信息的哈希值。</returns>
         public override int GetHashCode()
         {
             int hash = 1;

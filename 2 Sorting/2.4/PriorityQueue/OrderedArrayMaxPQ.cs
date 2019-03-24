@@ -11,11 +11,13 @@ namespace PriorityQueue
         /// <summary>
         /// 保存元素的数组。
         /// </summary>
+        /// <value>保存元素的数组。</value>
         private readonly Key[] pq;
 
         /// <summary>
         /// 队列中的元素数量。
         /// </summary>
+        /// <value>队列中的元素数量。</value>
         private int n = 0;
 
         /// <summary>
@@ -47,25 +49,27 @@ namespace PriorityQueue
         /// <summary>
         /// 返回并删除优先队列中的最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>优先队列中的最大值。</returns>
+        /// <remarks>如果希望获得但不删除最大值，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax() => this.pq[--this.n];
         
         /// <summary>
         /// 检查优先队列是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>若为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 检查优先队列中含有的元素数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>优先队列中的元素数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
         /// 获得（但不删除）优先队列中的最大元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>优先队列中的最大元素。</returns>
+        /// <remarks>如果希望删除并返回优先队列中的最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max() => this.pq[this.n - 1];
 
         /// <summary>
@@ -73,7 +77,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="a">第一个元素。</param>
         /// <param name="b">第二个元素。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(Key a, Key b) => a.CompareTo(b) < 0;
     }
 }

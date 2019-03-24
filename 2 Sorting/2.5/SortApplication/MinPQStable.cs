@@ -10,9 +10,25 @@ namespace SortApplication
     /// <typeparam name="Key">最小堆中保存的元素类型。</typeparam>
     public class MinPQStable<Key> : IMinPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        protected Key[] pq;               // 保存元素的数组。
-        protected int n;                  // 堆中的元素数量。
-        private long[] time;              // 元素的插入次序。
+        /// <summary>
+        /// 保存元素的数组。
+        /// </summary>
+        /// <value>保存元素的数组。</value>
+        protected Key[] pq;
+        /// <summary>
+        /// 堆中元素的数量。
+        /// </summary>
+        /// <value>堆中元素的数量。</value>
+        protected int n;
+        /// <summary>
+        /// 元素的插入次序。
+        /// </summary>
+        /// <value>元素的插入次序。</value>
+        private long[] time;
+        /// <summary>
+        /// 元素的插入次序计数器。
+        /// </summary>
+        /// <value>元素的插入次序计数器。</value>
         private long timeStamp = 1;       // 元素插入次序计数器。
 
         /// <summary>
@@ -34,7 +50,9 @@ namespace SortApplication
         /// <summary>
         /// 删除并返回最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小元素。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">如果堆为空则抛出该异常。</exception>
+        /// <remarks>如果希望获得最小值但不删除它，请使用 <see cref="Min"/>。</remarks>
         public Key DelMin()
         {
             if (IsEmpty())
@@ -70,39 +88,41 @@ namespace SortApplication
         /// <summary>
         /// 检查堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得堆中最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中最小元素。</returns>
+        /// <remarks>如果希望获得并删除最小元素，请使用 <see cref="DelMin"/>。</remarks>
         public Key Min() => this.pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中元素的数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQ<Key> copy = new MaxPQ<Key>(this.n);
+            MinPQStable<Key> copy = new MinPQStable<Key>(this.n);
             for (int i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
-                yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
+                yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
         }
 
         /// <summary>
-        /// 获取堆的迭代器，元素以降序排列。
+        /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小堆的迭代器。</returns>
+        /// <remarks>该方法实际调用的是 <see cref="GetEnumerator"/> 方法。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -161,7 +181,7 @@ namespace SortApplication
         /// </summary>
         /// <param name="i">判断是否较大的元素。</param>
         /// <param name="j">判断是否较小的元素。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="i"/> 的元素较大，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Greater(int i, int j)
         {
             int cmp = this.pq[i].CompareTo(this.pq[j]);
@@ -170,7 +190,6 @@ namespace SortApplication
             return cmp > 0;
         }
             
-
         /// <summary>
         /// 交换堆中的两个元素。
         /// </summary>
@@ -190,14 +209,14 @@ namespace SortApplication
         /// <summary>
         /// 检查当前二叉树是不是一个最小堆。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMinHeap() => IsMinHeap(1);
 
         /// <summary>
         /// 确定以 k 为根节点的二叉树是不是一个最小堆。
         /// </summary>
         /// <param name="k">需要检查的二叉树根节点。</param>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMinHeap(int k)
         {
             if (k > this.n)

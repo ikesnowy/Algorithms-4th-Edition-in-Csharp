@@ -3,6 +3,9 @@ using System.Diagnostics;
 
 namespace Sort
 {
+    /// <summary>
+    /// 希尔排序类。
+    /// </summary>
     public class ShellSort : BaseSort
     {
         /// <summary>

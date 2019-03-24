@@ -5,10 +5,22 @@
     /// </summary>
     public class WeightedQuickUnionUF : QuickUnionUF
     {
-        protected int[] size; // 记录各个树的大小。
+        /// <summary>
+        /// 记录各个树大小的数组。
+        /// </summary>
+        /// <value>记录各个树大小的数组。</value>
+        protected int[] size;
 
-        public int ArrayParentVisitCount { get; private set; } // 记录 parent 数组的访问次数。
-        public int ArraySizeVisitCount { get; private set; } //记录 size 数组的访问次数。
+        /// <summary>
+        /// 记录 parent 数组的访问次数的计数器。
+        /// </summary>
+        /// <value>parent 数组的访问次数。</value>
+        public int ArrayParentVisitCount { get; private set; }
+        /// <summary>
+        /// 记录 size 数组的访问次数的计数器。
+        /// </summary>
+        /// <value>size 数组的访问次数。</value>
+        public int ArraySizeVisitCount { get; private set; }
 
         /// <summary>
         /// 建立使用加权 quick-union 的并查集。

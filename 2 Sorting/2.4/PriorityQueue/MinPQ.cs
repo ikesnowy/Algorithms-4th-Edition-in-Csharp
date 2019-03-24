@@ -11,8 +11,16 @@ namespace PriorityQueue
     /// <typeparam name="Key">最小堆中保存的元素类型。</typeparam>
     public class MinPQ<Key> : IMinPQ<Key>, IEnumerable<Key> where Key : IComparable<Key>
     {
-        protected Key[] pq;               // 保存元素的数组。
-        protected int n;                  // 堆中的元素数量。
+        /// <summary>
+        /// 保存元素的数组。
+        /// </summary>
+        /// <value>保存元素的数组。</value>
+        protected Key[] pq;
+        /// <summary>
+        /// 堆中元素的数量。
+        /// </summary>
+        /// <value>堆中元素的数量。</value>
+        protected int n;
 
         /// <summary>
         /// 默认构造函数。
@@ -47,7 +55,9 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并返回最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小元素。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">如果堆为空则抛出该异常。</exception>
+        /// <remarks>如果希望获得最小值但不删除它，请使用 <see cref="Min"/>。</remarks>
         public Key DelMin()
         {
             if (IsEmpty())
@@ -104,25 +114,26 @@ namespace PriorityQueue
         /// <summary>
         /// 检查堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>
         /// 获得堆中最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中最小元素。</returns>
+        /// <remarks>如果希望获得并删除最小元素，请使用 <see cref="DelMin"/>。</remarks>
         public Key Min() => this.pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中元素的数量。</returns>
         public int Size() => this.n;
 
         /// <summary>
         /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
             MinPQ<Key> copy = new MinPQ<Key>(this.n);
@@ -136,7 +147,8 @@ namespace PriorityQueue
         /// <summary>
         /// 获取堆的迭代器，元素以升序排列。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小堆的迭代器。</returns>
+        /// <remarks>该方法实际调用的是 <see cref="GetEnumerator"/> 方法。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -192,7 +204,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="i">判断是否较大的元素。</param>
         /// <param name="j">判断是否较小的元素。</param>
-        /// <returns></returns>
+        /// <returns>如果下标为 <paramref name="i"/> 的元素较大，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Greater(int i, int j)
             => this.pq[i].CompareTo(this.pq[j]) > 0;
 
@@ -211,14 +223,14 @@ namespace PriorityQueue
         /// <summary>
         /// 检查当前二叉树是不是一个最小堆。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMinHeap() => IsMinHeap(1);
 
         /// <summary>
         /// 确定以 k 为根节点的二叉树是不是一个最小堆。
         /// </summary>
         /// <param name="k">需要检查的二叉树根节点。</param>
-        /// <returns></returns>
+        /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMinHeap(int k)
         {
             if (k > this.n)

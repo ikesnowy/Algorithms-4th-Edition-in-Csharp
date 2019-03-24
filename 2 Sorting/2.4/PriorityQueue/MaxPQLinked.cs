@@ -30,6 +30,7 @@ namespace PriorityQueue
         /// 删除并返回最大值。
         /// </summary>
         /// <returns>最大值。</returns>
+        /// <remarks>如果希望获得最大值而不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
             Key result = this.root.Value;
@@ -174,19 +175,20 @@ namespace PriorityQueue
         /// <summary>
         /// 返回二叉堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>如果为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.root == null;
 
         /// <summary>
         /// 返回二叉堆中的最大值。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中的最大值。</returns>
+        /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max() => this.root.Value;
 
         /// <summary>
         /// 返回二叉堆中的元素个数。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>堆中元素数量。</returns>
         public int Size() => this.nodesCount;
 
         /// <summary>
@@ -248,7 +250,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="a">判断是否较小的结点。</param>
         /// <param name="b">判断是否较大的结点。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(TreeNode<Key> a, TreeNode<Key> b)
             => a.Value.CompareTo(b.Value) < 0;
     }

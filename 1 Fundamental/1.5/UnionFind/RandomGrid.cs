@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 随机网格类。
+    /// </summary>
     public class RandomGrid
     {
         /// <summary>

@@ -7,7 +7,6 @@ namespace Merge
     /// </summary>
     public static class SortUtil
     {
-
         /// <summary>
         /// 随机数发生器，所有对象共享同一个随机数发生器。
         /// </summary>
@@ -53,7 +52,7 @@ namespace Merge
         /// 生成符合几何分布的随机数。
         /// </summary>
         /// <param name="p">几何分布的概率 p，这应该是一个小于 1 的非负数。</param>
-        /// <exception cref="ArgumentOutOfRangeException">概率不能大于 1.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">概率不能大于 1。</exception>
         /// <returns>符合几何分布的随机数。</returns>
         public static double Geometry(double p)
         {
@@ -72,6 +71,8 @@ namespace Merge
         /// 根据指定的几率数组产生符合离散分布的随机数。
         /// </summary>
         /// <param name="probabilities">各取值的可能性。</param>
+        /// <exception cref="ArgumentNullException"><paramref name="probabilities"/> 为 <c>null</c> 时抛出。</exception>
+        /// <exception cref="ArgumentException"><paramref name="probabilities"/> 中存在大于 1 或 小于 0 的数，或者总和不为 1 时抛出。</exception>
         /// <returns>符合随机分布的随机整数。</returns>
         public static double Discrete(double[] probabilities)
         {

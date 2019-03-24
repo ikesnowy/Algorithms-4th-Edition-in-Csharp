@@ -11,6 +11,7 @@ namespace SortApplication
         /// <summary>
         /// 取样数组长度 2^k - 1 的阶数。
         /// </summary>
+        /// <value>取样数组长度的阶数。</value>
         public int K { get; set; }
 
         /// <summary>

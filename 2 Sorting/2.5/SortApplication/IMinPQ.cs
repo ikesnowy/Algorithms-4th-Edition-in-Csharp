@@ -17,25 +17,25 @@ namespace SortApplication
         /// <summary>
         /// 返回最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小的元素。</returns>
         Key Min();
 
         /// <summary>
         /// 删除并返回最小元素。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>最小的元素。</returns>
         Key DelMin();
 
         /// <summary>
         /// 返回队列是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         bool IsEmpty();
 
         /// <summary>
         /// 返回队列中的元素个数。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>队列中的元素个数。</returns>
         int Size();
     }
 }

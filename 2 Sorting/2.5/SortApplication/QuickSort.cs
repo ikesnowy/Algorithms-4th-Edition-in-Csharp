@@ -74,7 +74,8 @@ namespace SortApplication
         /// <typeparam name="T">元素类型。</typeparam>
         /// <param name="a">需要排序的数组。</param>
         /// <param name="k">序号</param>
-        /// <returns></returns>
+        /// <returns>第 <paramref name="k"/> 小的元素。</returns>
+        /// <exception cref="IndexOutOfRangeException">当序号超出数组范围时抛出此异常。</exception>
         public T Select<T>(T[] a, int k) where T : IComparable<T>
         {
             if (k < 0 || k > a.Length)

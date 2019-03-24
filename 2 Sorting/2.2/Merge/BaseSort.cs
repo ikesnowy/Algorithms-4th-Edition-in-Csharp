@@ -34,7 +34,7 @@ namespace Merge
         /// <param name="v">比较的第一个元素。</param>
         /// <param name="w">比较的第二个元素</param>
         /// <param name="c">比较器。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="v"/> 小于 <paramref name="w"/> 返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         protected bool Less<T>(T v, T w, IComparer<T> c)
         {
             return c.Compare(v, w) < 0;

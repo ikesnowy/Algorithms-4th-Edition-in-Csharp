@@ -5,7 +5,11 @@
     /// </summary>
     public class QuickUnionUF : UF
     {
-        public int ArrayVisitCount { get; private set; } //记录数组访问的次数。
+        /// <summary>
+        /// 数组访问次数的计数器。
+        /// </summary>
+        /// <value>当前数组访问次数。</value>
+        public int ArrayVisitCount { get; private set; }
 
         /// <summary>
         /// 建立使用 QuickUnion 的并查集。

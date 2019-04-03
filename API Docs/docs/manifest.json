@@ -1,0 +1,1603 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/ike/Source/Repos/ikesnowy/Algorithms-4th-Edition-in-Csharp/API Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "yNeHhptsXRQ6Q84SbIIRRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.Bag-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.Bag-1.html",
+          "hash": "5rDZSf21AuZfrzwNGy9Nmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.LinkedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.LinkedList-1.html",
+          "hash": "/9eRSaV2ic4eafwPAArR3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.Node-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.Node-1.html",
+          "hash": "OPXwSXUBuQlKICHno8pjKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.Queue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.Queue-1.html",
+          "hash": "qYc4jYYbnEv+n/+FG+cw0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.Stack-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.Stack-1.html",
+          "hash": "h9ILnFnEyLhBaLtiLgSXrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Generics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Generics.html",
+          "hash": "R7jowmXznjf1eFfey7GxMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.DoubleTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.DoubleTest.html",
+          "hash": "GhOrH0uGzl54Cc5PsWCylQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.FourSum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.FourSum.html",
+          "hash": "5G8tVkU6KhyWHqhpFoFeww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.StaticSETofInts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.StaticSETofInts.html",
+          "hash": "j/u+EmZksPMx5anBYxuALg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.Stopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.Stopwatch.html",
+          "hash": "nYPQl6mf2EYF2B4877nD5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.ThreeSum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.ThreeSum.html",
+          "hash": "Zo4R/hMed/+loPOnfPc/OA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.ThreeSumFast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.ThreeSumFast.html",
+          "hash": "nCGhdLZJdhf4yK9j5TdJKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.TwoSum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.TwoSum.html",
+          "hash": "+tlP7SU8VoVwxJh87Cknxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.TwoSumFast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.TwoSumFast.html",
+          "hash": "HtTUCvkK1/owbNi54aDcmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Measurement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Measurement.html",
+          "hash": "cHolzCuDyLD/yR9Hs3UgBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.BaseSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.BaseSort.html",
+          "hash": "6ZJH5kq157eQbfY6Jrh/Mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.InsertionSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.InsertionSort.html",
+          "hash": "IvD0rroEXWrvE2hnQ7ixOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSort.html",
+          "hash": "G7RVATTr0/Lkt/q/Q9T2ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortBU.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortBU.html",
+          "hash": "wr4PdLO3ySgWpoGgn5Y3TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortKWay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortKWay.html",
+          "hash": "8UmdHhbYeb0/pr+rIVrHrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortNatural.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortNatural.html",
+          "hash": "ZkJOozlNvH2zAYNuWrGxww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortThreeWay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortThreeWay.html",
+          "hash": "tFxK8t4XmIq6feRnFc+nOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortUnstable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortUnstable.html",
+          "hash": "BOsk9uzxRDwtWHilR+6+/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.MergeSortX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.MergeSortX.html",
+          "hash": "YkJiFIWA+c2WYdCUmktiUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.SortCompare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.SortCompare.html",
+          "hash": "a/tZeETr1M2yRvxGS+G6mA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.SortUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.SortUtil.html",
+          "hash": "AUOkxbthyiB/NDXsW/8BSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Merge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Merge.html",
+          "hash": "gu0BOajWUo/SdO23FGTLCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.Heap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.Heap.html",
+          "hash": "+FbbX2wCQg+mF0k73FwlSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapAnalysis.html",
+          "hash": "CspBFjkO7fsxIwNNw2BTNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapFloyd.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapFloyd.html",
+          "hash": "qyCrbjGoVBio0QpY0C0X8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapFloydAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapFloydAnalysis.html",
+          "hash": "FOBmdrtnLluhIPOO+yo0xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapMultiway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapMultiway.html",
+          "hash": "VDhoG/2vfP7WZcqZbMKeQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapMultiwayAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapMultiwayAnalysis.html",
+          "hash": "RxC9h69duZY0dm3rpoj1/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapPreorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapPreorder.html",
+          "hash": "lNyvwPrPyWz9XiHyx9PbOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.HeapPreorderAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.HeapPreorderAnalysis.html",
+          "hash": "iMTmAADgC+OdDSlGIuO55w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.IMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.IMaxPQ-1.html",
+          "hash": "pxQIre8Hn4RTiJJnn6poUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.IMinPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.IMinPQ-1.html",
+          "hash": "WdIcndOYFolOavdxsq2+gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.IndexMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.IndexMaxPQ-1.html",
+          "hash": "rI00oZ5yUY+XSq0y3HDoPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQ-1.html",
+          "hash": "EWn/9ufIVMxJfj+LfRMp+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQLinked-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQLinked-1.html",
+          "hash": "y4yU58MMpz9/adNUYu62OQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQMultiway-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQMultiway-1.html",
+          "hash": "EN9Rg1JLbtDbACNR6bWK5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQNoExch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQNoExch-1.html",
+          "hash": "ct5lO00cgEX8fcODcTD5bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQWithMin-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQWithMin-1.html",
+          "hash": "bETrZckKV0WDOz2oC2yroA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MaxPQWorstCase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MaxPQWorstCase.html",
+          "hash": "FxCdzlBXIhMOUZ4QoiK79A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MedianPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MedianPQ-1.html",
+          "hash": "SP+LIXCuWNxHZvgWITONGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MinMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MinMaxPQ-1.html",
+          "hash": "LcA51AbVyM2uMsGw0b+PTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MinPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MinPQ-1.html",
+          "hash": "1Fs+xpMLfWGUnto0Rxhilw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.MinPQX-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.MinPQX-1.html",
+          "hash": "mjvG430JymAr1MIJUy9zGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.OrderedArrayMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.OrderedArrayMaxPQ-1.html",
+          "hash": "OQlQ+fLBXt/n2Xlj5GcMLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.OrderedLinkedMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.OrderedLinkedMaxPQ-1.html",
+          "hash": "lBb0pt7c+Cxh5iEolNVHCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.UnorderedArrayMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.UnorderedArrayMaxPQ-1.html",
+          "hash": "09jHeDpIYuYWQnk00s2u7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.UnorderedLinkedMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.UnorderedLinkedMaxPQ-1.html",
+          "hash": "mHe95wQp1/vyOj5+6J9mmw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/PriorityQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PriorityQueue.html",
+          "hash": "ybHsfzu0GrOkjSn6gkZXuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.BaseSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.BaseSort.html",
+          "hash": "HZb1ZnucvmjScvh+1vWCBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.Quick3Way.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.Quick3Way.html",
+          "hash": "k6FWBClpGFSrbDczN9iecg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.QuickBentleyMcIlroy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.QuickBentleyMcIlroy.html",
+          "hash": "mmX292JAyHJQ2wVWYkztcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.QuickBest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.QuickBest.html",
+          "hash": "6DBdLk7QSkS4dFnRNygHpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.QuickSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.QuickSort.html",
+          "hash": "XXF8l7pBkgfeXhH2O6h9HA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.QuickSortAnalyze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.QuickSortAnalyze.html",
+          "hash": "XGDcs9rfO/+J96gQVITFAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.SampleSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.SampleSort.html",
+          "hash": "tQB8hID1UGhzOBWcxiX2Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.Sort2Distinct.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.Sort2Distinct.html",
+          "hash": "pBvuZQ+8u4ZT5IRjNL9APw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.SortCompare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.SortCompare.html",
+          "hash": "3Tn8NJ1Ds4gfFlkf+mJ70w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.SortUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.SortUtil.html",
+          "hash": "L4KeIyZ9LNqw2Ni40eLkag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Quick.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quick.html",
+          "hash": "MiCOj3qJXHfCxeyeyGMg7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.BaseSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.BaseSort.html",
+          "hash": "kbD8SzOZAfKGvXC8bcdHdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.InsertionSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.InsertionSort.html",
+          "hash": "O+OKPBvqxfRl5x8z1Ne0sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.SelectionSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.SelectionSort.html",
+          "hash": "wmLYIHSgLaxrdNcXhbf2/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.ShellSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.ShellSort.html",
+          "hash": "MOJk9myIc9Y3A1kDZ3/zVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.SortCompare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.SortCompare.html",
+          "hash": "eL1hjdQ87h/i2pUlenZDSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.SortUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.SortUtil.html",
+          "hash": "YNLbvWm8ETTtDjJad2iApw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sort.html",
+          "hash": "Q64rEghhNmhvQfsoejtJIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.AStar-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.AStar-1.html",
+          "hash": "tSWOQTkttv9xGt6da5SwBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.BaseSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.BaseSort.html",
+          "hash": "Cv8ghADaZi5TAIjrmXRc8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Date.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Date.html",
+          "hash": "p3u7qqLjSX6YtHcwkHmweA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Heap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Heap.html",
+          "hash": "+3AWgwitCutlXB1iq3PhTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.IMaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.IMaxPQ-1.html",
+          "hash": "pB0mG0HCoegfgl9KO3eTxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.IMinPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.IMinPQ-1.html",
+          "hash": "gBq8zsINxWohNhtWTaQ2DQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.InsertionSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.InsertionSort.html",
+          "hash": "jvorAV9KqFprmp1i3wvl9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.MaxPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.MaxPQ-1.html",
+          "hash": "F7q4bml1zmq5IXbl4AHPxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.MergeSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.MergeSort.html",
+          "hash": "49+nLK1fnuwI0ypPAsmz7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.MinPQ-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.MinPQ-1.html",
+          "hash": "DWjOyTIgAXMX2s7Ui1UYRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.MinPQStable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.MinPQStable-1.html",
+          "hash": "WrZRSEkl/Q/cExddDzVKag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Point2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Point2D.html",
+          "hash": "+TDahyf4f1lkmoE96RqEZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.QuickSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.QuickSort.html",
+          "hash": "EYTRwfKaFRzrncvmmmcJcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.QuickSortAnalyze.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.QuickSortAnalyze.html",
+          "hash": "7wGvoXgljMxikvnUgFpUUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.SampleSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.SampleSort.html",
+          "hash": "0/wZh1U0Gpye0folK7lRTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.SelectionSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.SelectionSort.html",
+          "hash": "U4mfVmsFGE8puDk03t1MEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.ShellSort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.ShellSort.html",
+          "hash": "Usp2v511SAwvhsXaUF+WPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Transaction.HowMuchOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Transaction.HowMuchOrder.html",
+          "hash": "Rr7WFzQsupG5DhlTWlO58w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Transaction.WhenOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Transaction.WhenOrder.html",
+          "hash": "y2LDoh4eNRFDU7PWZYMfXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Transaction.WhoOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Transaction.WhoOrder.html",
+          "hash": "DVuu6Vli/tMhUI8Q5IyFyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.Transaction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.Transaction.html",
+          "hash": "UjjEWw6SRPtCslMDrliVpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SortApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SortApplication.html",
+          "hash": "8BC5wexvaTFT9JoQkmLYnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.ArrayST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.ArrayST-2.html",
+          "hash": "TUiQI3oT05CxQ//pZZko1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.BinarySearchST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.BinarySearchST-2.html",
+          "hash": "S5FlnTj84KXRKHiwu8eD4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.BinarySearchSTAnalysis-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.BinarySearchSTAnalysis-2.html",
+          "hash": "TF8tB4AQ8LhEVkBpsKcZxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.BinarySearchSTCached-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.BinarySearchSTCached-2.html",
+          "hash": "yWKbNxZmcZ3uJ9RungKF0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.BinarySearchSTOrderedInsertion-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.BinarySearchSTOrderedInsertion-2.html",
+          "hash": "jVQJYO/2HSe5ybUv0TZs8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.FrequencyCounter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.FrequencyCounter.html",
+          "hash": "vdHCr9ua/ux3CE2uNsuYgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.IOrderedST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.IOrderedST-2.html",
+          "hash": "+hxn5LwONu8MQ36gor7Wkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.IST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.IST-2.html",
+          "hash": "BpM+h86V5UBJ4PdDsD+37g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.ISTAnalysis-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.ISTAnalysis-2.html",
+          "hash": "Q7jmIpe0VLH1isM2oPSmOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.InterpolationSearchST.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.InterpolationSearchST.html",
+          "hash": "iJZGGK59EYOpbINi+WAAmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.Item-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.Item-2.html",
+          "hash": "9DqwpBd4COxwj/4B/WfJ8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.ItemBinarySearchST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.ItemBinarySearchST-2.html",
+          "hash": "D8Nmxd5jZX372roPZoivSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.MoveToFrontArrayST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.MoveToFrontArrayST-2.html",
+          "hash": "mt4CCQsuLC4J/OGVcb/f2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.OrderedSequentialSearchST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.OrderedSequentialSearchST-2.html",
+          "hash": "BE389MuVgeEBoU0DBkeMTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.ST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.ST-2.html",
+          "hash": "GLNGo79MNRo+TyruHsc30A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.SearchCompare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.SearchCompare.html",
+          "hash": "c+n53RQVyg/fx0i2TZqVLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.SequentialSearchST-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.SequentialSearchST-2.html",
+          "hash": "xWNgZPzNmRvMQs/GYXnpXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.SequentialSearchSTAnalysis-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.SequentialSearchSTAnalysis-2.html",
+          "hash": "B8DyZPxJzDe7CPPcd3qWVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.SequentialSearchSTCached-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.SequentialSearchSTCached-2.html",
+          "hash": "t3aggHZJpw5hy9fza+Olgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.TestBinarySearchST.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.TestBinarySearchST.html",
+          "hash": "lXm2ujso5aFzwiAwov3XJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SymbolTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SymbolTable.html",
+          "hash": "UHyw3sWwLjb5z0hAEMotew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.Connection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.Connection.html",
+          "hash": "tx6WROy9oYaG8d3kHV5ZEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.ErdosRenyi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.ErdosRenyi.html",
+          "hash": "DqT1OS0J3qywo/1uxTWijA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.QuickFindUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.QuickFindUF.html",
+          "hash": "cidb2zGzL5R9pVKOrjKsvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.QuickUnionPathCompressionUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.QuickUnionPathCompressionUF.html",
+          "hash": "qrfCpPjQEyYvldLOTN8IBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.QuickUnionUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.QuickUnionUF.html",
+          "hash": "OS6puugEb/wRQnRJpwwZtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.RandomBag-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.RandomBag-1.html",
+          "hash": "0pDqqTkP9Gmgo/RVMddJiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.RandomGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.RandomGrid.html",
+          "hash": "W8Cu1CApI9EPi62TuGcTmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.UF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.UF.html",
+          "hash": "zmWNn0QZBlQ5JWLrLLRf5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.WeightedQuickUnionByHeightUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.WeightedQuickUnionByHeightUF.html",
+          "hash": "x+eHTdmOAoPQSZ7xwf0UFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.WeightedQuickUnionPathCompressionUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.WeightedQuickUnionPathCompressionUF.html",
+          "hash": "hftrE1hUnOLiUrz5hzwDKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.WeightedQuickUnionUF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.WeightedQuickUnionUF.html",
+          "hash": "hgwzDEblYvxbGNIcHI05eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/UnionFind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnionFind.html",
+          "hash": "GB7gcQirC6yeKkfMFkXtcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "5PNWvaTSEdr4uyATCXtFEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "69sYQn0/35i6qdpF9NoUfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 126,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,934 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-121852990-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-121852990-1');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Transaction 类
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Transaction 类
+   ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../api/index.html" title="API &#25991;&#26723;">API &#25991;&#26723;</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Commercial.html" title="Commercial" class="">Commercial</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Commercial.Date.html" title="Date" class="">Date</a>
+                          </li>
+                          <li class="active">
+                            <a href="Commercial.Transaction.html" title="Transaction" class="active">Transaction</a>
+                          </li>
+                          <li class="">
+                            <a href="Commercial.Transaction.HowMuchOrder.html" title="Transaction.HowMuchOrder" class="">Transaction.HowMuchOrder</a>
+                          </li>
+                          <li class="">
+                            <a href="Commercial.Transaction.WhenOrder.html" title="Transaction.WhenOrder" class="">Transaction.WhenOrder</a>
+                          </li>
+                          <li class="">
+                            <a href="Commercial.Transaction.WhoOrder.html" title="Transaction.WhoOrder" class="">Transaction.WhoOrder</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Generics.html" title="Generics" class="">Generics</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Generics.Bag-1.html" title="Bag&lt;Item&gt;" class="">Bag&lt;Item&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Generics.LinkedList-1.html" title="LinkedList&lt;Item&gt;" class="">LinkedList&lt;Item&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Generics.Node-1.html" title="Node&lt;T&gt;" class="">Node&lt;T&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Generics.Queue-1.html" title="Queue&lt;Item&gt;" class="">Queue&lt;Item&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Generics.Stack-1.html" title="Stack&lt;Item&gt;" class="">Stack&lt;Item&gt;</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Geometry.html" title="Geometry" class="">Geometry</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Geometry.Interval1D.html" title="Interval1D" class="">Interval1D</a>
+                          </li>
+                          <li class="">
+                            <a href="Geometry.Interval2D.html" title="Interval2D" class="">Interval2D</a>
+                          </li>
+                          <li class="">
+                            <a href="Geometry.Point2D.html" title="Point2D" class="">Point2D</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Measurement.html" title="Measurement" class="">Measurement</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Measurement.DoubleTest.html" title="DoubleTest" class="">DoubleTest</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.FourSum.html" title="FourSum" class="">FourSum</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.StaticSETofInts.html" title="StaticSETofInts" class="">StaticSETofInts</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.Stopwatch.html" title="Stopwatch" class="">Stopwatch</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.ThreeSum.html" title="ThreeSum" class="">ThreeSum</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.ThreeSumFast.html" title="ThreeSumFast" class="">ThreeSumFast</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.TwoSum.html" title="TwoSum" class="">TwoSum</a>
+                          </li>
+                          <li class="">
+                            <a href="Measurement.TwoSumFast.html" title="TwoSumFast" class="">TwoSumFast</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Merge.html" title="Merge" class="">Merge</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Merge.BaseSort.html" title="BaseSort" class="">BaseSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.InsertionSort.html" title="InsertionSort" class="">InsertionSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSort.html" title="MergeSort" class="">MergeSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortBU.html" title="MergeSortBU" class="">MergeSortBU</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortKWay.html" title="MergeSortKWay" class="">MergeSortKWay</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortNatural.html" title="MergeSortNatural" class="">MergeSortNatural</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortThreeWay.html" title="MergeSortThreeWay" class="">MergeSortThreeWay</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortUnstable.html" title="MergeSortUnstable" class="">MergeSortUnstable</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.MergeSortX.html" title="MergeSortX" class="">MergeSortX</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.SortCompare.html" title="SortCompare" class="">SortCompare</a>
+                          </li>
+                          <li class="">
+                            <a href="Merge.SortUtil.html" title="SortUtil" class="">SortUtil</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="PriorityQueue.html" title="PriorityQueue" class="">PriorityQueue</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="PriorityQueue.Heap.html" title="Heap" class="">Heap</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapAnalysis.html" title="HeapAnalysis" class="">HeapAnalysis</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapFloyd.html" title="HeapFloyd" class="">HeapFloyd</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapFloydAnalysis.html" title="HeapFloydAnalysis" class="">HeapFloydAnalysis</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapMultiway.html" title="HeapMultiway" class="">HeapMultiway</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapMultiwayAnalysis.html" title="HeapMultiwayAnalysis" class="">HeapMultiwayAnalysis</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapPreorder.html" title="HeapPreorder" class="">HeapPreorder</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.HeapPreorderAnalysis.html" title="HeapPreorderAnalysis" class="">HeapPreorderAnalysis</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.IMaxPQ-1.html" title="IMaxPQ&lt;Key&gt;" class="">IMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.IMinPQ-1.html" title="IMinPQ&lt;Key&gt;" class="">IMinPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.IndexMaxPQ-1.html" title="IndexMaxPQ&lt;Key&gt;" class="">IndexMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQ-1.html" title="MaxPQ&lt;Key&gt;" class="">MaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQLinked-1.html" title="MaxPQLinked&lt;Key&gt;" class="">MaxPQLinked&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQMultiway-1.html" title="MaxPQMultiway&lt;Key&gt;" class="">MaxPQMultiway&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQNoExch-1.html" title="MaxPQNoExch&lt;Key&gt;" class="">MaxPQNoExch&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQWithMin-1.html" title="MaxPQWithMin&lt;Key&gt;" class="">MaxPQWithMin&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MaxPQWorstCase.html" title="MaxPQWorstCase" class="">MaxPQWorstCase</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MedianPQ-1.html" title="MedianPQ&lt;Key&gt;" class="">MedianPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MinMaxPQ-1.html" title="MinMaxPQ&lt;Key&gt;" class="">MinMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MinPQ-1.html" title="MinPQ&lt;Key&gt;" class="">MinPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.MinPQX-1.html" title="MinPQX&lt;Key&gt;" class="">MinPQX&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.OrderedArrayMaxPQ-1.html" title="OrderedArrayMaxPQ&lt;Key&gt;" class="">OrderedArrayMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.OrderedLinkedMaxPQ-1.html" title="OrderedLinkedMaxPQ&lt;Key&gt;" class="">OrderedLinkedMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.UnorderedArrayMaxPQ-1.html" title="UnorderedArrayMaxPQ&lt;Key&gt;" class="">UnorderedArrayMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="PriorityQueue.UnorderedLinkedMaxPQ-1.html" title="UnorderedLinkedMaxPQ&lt;Key&gt;" class="">UnorderedLinkedMaxPQ&lt;Key&gt;</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Quick.html" title="Quick" class="">Quick</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Quick.BaseSort.html" title="BaseSort" class="">BaseSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.Quick3Way.html" title="Quick3Way" class="">Quick3Way</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.QuickBentleyMcIlroy.html" title="QuickBentleyMcIlroy" class="">QuickBentleyMcIlroy</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.QuickBest.html" title="QuickBest" class="">QuickBest</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.QuickSort.html" title="QuickSort" class="">QuickSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.QuickSortAnalyze.html" title="QuickSortAnalyze" class="">QuickSortAnalyze</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.SampleSort.html" title="SampleSort" class="">SampleSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.Sort2Distinct.html" title="Sort2Distinct" class="">Sort2Distinct</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.SortCompare.html" title="SortCompare" class="">SortCompare</a>
+                          </li>
+                          <li class="">
+                            <a href="Quick.SortUtil.html" title="SortUtil" class="">SortUtil</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Sort.html" title="Sort" class="">Sort</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Sort.BaseSort.html" title="BaseSort" class="">BaseSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Sort.InsertionSort.html" title="InsertionSort" class="">InsertionSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Sort.SelectionSort.html" title="SelectionSort" class="">SelectionSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Sort.ShellSort.html" title="ShellSort" class="">ShellSort</a>
+                          </li>
+                          <li class="">
+                            <a href="Sort.SortCompare.html" title="SortCompare" class="">SortCompare</a>
+                          </li>
+                          <li class="">
+                            <a href="Sort.SortUtil.html" title="SortUtil" class="">SortUtil</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="SortApplication.html" title="SortApplication" class="">SortApplication</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="SortApplication.AStar-1.html" title="AStar&lt;T&gt;" class="">AStar&lt;T&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.BaseSort.html" title="BaseSort" class="">BaseSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Date.html" title="Date" class="">Date</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Heap.html" title="Heap" class="">Heap</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.IMaxPQ-1.html" title="IMaxPQ&lt;Key&gt;" class="">IMaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.IMinPQ-1.html" title="IMinPQ&lt;Key&gt;" class="">IMinPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.InsertionSort.html" title="InsertionSort" class="">InsertionSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.MaxPQ-1.html" title="MaxPQ&lt;Key&gt;" class="">MaxPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.MergeSort.html" title="MergeSort" class="">MergeSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.MinPQ-1.html" title="MinPQ&lt;Key&gt;" class="">MinPQ&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.MinPQStable-1.html" title="MinPQStable&lt;Key&gt;" class="">MinPQStable&lt;Key&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Point2D.html" title="Point2D" class="">Point2D</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.QuickSort.html" title="QuickSort" class="">QuickSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.QuickSortAnalyze.html" title="QuickSortAnalyze" class="">QuickSortAnalyze</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.SampleSort.html" title="SampleSort" class="">SampleSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.SelectionSort.html" title="SelectionSort" class="">SelectionSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.ShellSort.html" title="ShellSort" class="">ShellSort</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Transaction.html" title="Transaction" class="">Transaction</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Transaction.HowMuchOrder.html" title="Transaction.HowMuchOrder" class="">Transaction.HowMuchOrder</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Transaction.WhenOrder.html" title="Transaction.WhenOrder" class="">Transaction.WhenOrder</a>
+                          </li>
+                          <li class="">
+                            <a href="SortApplication.Transaction.WhoOrder.html" title="Transaction.WhoOrder" class="">Transaction.WhoOrder</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="SymbolTable.html" title="SymbolTable" class="">SymbolTable</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="SymbolTable.ArrayST-2.html" title="ArrayST&lt;TKey, TValue&gt;" class="">ArrayST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.BinarySearchST-2.html" title="BinarySearchST&lt;TKey, TValue&gt;" class="">BinarySearchST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.BinarySearchSTAnalysis-2.html" title="BinarySearchSTAnalysis&lt;TKey, TValue&gt;" class="">BinarySearchSTAnalysis&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.BinarySearchSTCached-2.html" title="BinarySearchSTCached&lt;TKey, TValue&gt;" class="">BinarySearchSTCached&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.BinarySearchSTOrderedInsertion-2.html" title="BinarySearchSTOrderedInsertion&lt;TKey, TValue&gt;" class="">BinarySearchSTOrderedInsertion&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.FrequencyCounter.html" title="FrequencyCounter" class="">FrequencyCounter</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.InterpolationSearchST.html" title="InterpolationSearchST" class="">InterpolationSearchST</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.IOrderedST-2.html" title="IOrderedST&lt;TKey, TValue&gt;" class="">IOrderedST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.IST-2.html" title="IST&lt;TKey, TValue&gt;" class="">IST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.ISTAnalysis-2.html" title="ISTAnalysis&lt;TKey, TValue&gt;" class="">ISTAnalysis&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.Item-2.html" title="Item&lt;TKey, TValue&gt;" class="">Item&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.ItemBinarySearchST-2.html" title="ItemBinarySearchST&lt;TKey, TValue&gt;" class="">ItemBinarySearchST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.MoveToFrontArrayST-2.html" title="MoveToFrontArrayST&lt;TKey, TValue&gt;" class="">MoveToFrontArrayST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.OrderedSequentialSearchST-2.html" title="OrderedSequentialSearchST&lt;TKey, TValue&gt;" class="">OrderedSequentialSearchST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.SearchCompare.html" title="SearchCompare" class="">SearchCompare</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.SequentialSearchST-2.html" title="SequentialSearchST&lt;TKey, TValue&gt;" class="">SequentialSearchST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.SequentialSearchSTAnalysis-2.html" title="SequentialSearchSTAnalysis&lt;TKey, TValue&gt;" class="">SequentialSearchSTAnalysis&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.SequentialSearchSTCached-2.html" title="SequentialSearchSTCached&lt;TKey, TValue&gt;" class="">SequentialSearchSTCached&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.ST-2.html" title="ST&lt;TKey, TValue&gt;" class="">ST&lt;TKey, TValue&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="SymbolTable.TestBinarySearchST.html" title="TestBinarySearchST" class="">TestBinarySearchST</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="UnionFind.html" title="UnionFind" class="">UnionFind</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="UnionFind.Connection.html" title="Connection" class="">Connection</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.ErdosRenyi.html" title="ErdosRenyi" class="">ErdosRenyi</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.QuickFindUF.html" title="QuickFindUF" class="">QuickFindUF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.QuickUnionPathCompressionUF.html" title="QuickUnionPathCompressionUF" class="">QuickUnionPathCompressionUF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.QuickUnionUF.html" title="QuickUnionUF" class="">QuickUnionUF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.RandomBag-1.html" title="RandomBag&lt;Item&gt;" class="">RandomBag&lt;Item&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.RandomGrid.html" title="RandomGrid" class="">RandomGrid</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.UF.html" title="UF" class="">UF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.WeightedQuickUnionByHeightUF.html" title="WeightedQuickUnionByHeightUF" class="">WeightedQuickUnionByHeightUF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.WeightedQuickUnionPathCompressionUF.html" title="WeightedQuickUnionPathCompressionUF" class="">WeightedQuickUnionPathCompressionUF</a>
+                          </li>
+                          <li class="">
+                            <a href="UnionFind.WeightedQuickUnionUF.html" title="WeightedQuickUnionUF" class="">WeightedQuickUnionUF</a>
+                          </li>
+                        </ul>  </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Commercial.Transaction">
+  
+  
+  <h1 id="Commercial_Transaction" data-uid="Commercial.Transaction" class="text-break">Transaction 类
+  </h1>
+  <div class="markdown level0 summary"><p>交易记录类。</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>&#32487;&#25215;</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Transaction</span></div>
+  </div>
+  <div classs="implements">
+    <h5>&#23454;&#29616;</h5>
+    <div><span class="xref">System.IComparable</span>&lt;<a class="xref" href="Commercial.Transaction.html">Transaction</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>&#32487;&#25215;&#25104;&#21592;</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>&#21629;&#21517;&#31354;&#38388;</strong>: <a class="xref" href="Commercial.html">Commercial</a></h6>
+  <h6><strong>&#31243;&#24207;&#38598;</strong>: Commercial.dll</h6>
+  <h5 id="Commercial_Transaction_syntax">&#35821;&#27861;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Transaction : IComparable&lt;Transaction&gt;</code></pre>
+  </div>
+  <h3 id="constructors">&#26500;&#36896;&#20989;&#25968;
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L32">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction__ctor_" data-uid="Commercial.Transaction.#ctor*"></a>
+  <h4 id="Commercial_Transaction__ctor_System_String_" data-uid="Commercial.Transaction.#ctor(System.String)">Transaction(String)</h4>
+  <div class="markdown level1 summary"><p>构造函数。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transaction(string transaction)</code></pre>
+  </div>
+  <h5 class="parameters">&#21442;&#25968;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#21517;&#31216;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">transaction</span></td>
+        <td><p>用空格隔开的形如 “姓名 日期 金额” 的字符串。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L46">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction__ctor_" data-uid="Commercial.Transaction.#ctor*"></a>
+  <h4 id="Commercial_Transaction__ctor_System_String_Commercial_Date_System_Double_" data-uid="Commercial.Transaction.#ctor(System.String,Commercial.Date,System.Double)">Transaction(String, Date, Double)</h4>
+  <div class="markdown level1 summary"><p>构造函数。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transaction(string who, Date when, double amount)</code></pre>
+  </div>
+  <h5 class="parameters">&#21442;&#25968;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#21517;&#31216;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">who</span></td>
+        <td><p>客户姓名。</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Commercial.Date.html">Date</a></td>
+        <td><span class="parametername">when</span></td>
+        <td><p>交易日期。</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td><p>交易金额。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">&#23646;&#24615;
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L26">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_Amount_" data-uid="Commercial.Transaction.Amount*"></a>
+  <h4 id="Commercial_Transaction_Amount" data-uid="Commercial.Transaction.Amount">Amount</h4>
+  <div class="markdown level1 summary"><p>交易金额。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Amount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">&#23646;&#24615;&#20540;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>交易金额。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L21">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_When_" data-uid="Commercial.Transaction.When*"></a>
+  <h4 id="Commercial_Transaction_When" data-uid="Commercial.Transaction.When">When</h4>
+  <div class="markdown level1 summary"><p>交易日期。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Date When { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">&#23646;&#24615;&#20540;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Commercial.Date.html">Date</a></td>
+        <td><p>交易日期。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Commercial_Transaction_When_seealso">&#35831;&#21442;&#38405;</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Commercial.Date.html">Date</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L15">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_Who_" data-uid="Commercial.Transaction.Who*"></a>
+  <h4 id="Commercial_Transaction_Who" data-uid="Commercial.Transaction.Who">Who</h4>
+  <div class="markdown level1 summary"><p>客户姓名。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Who { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">&#23646;&#24615;&#20540;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>客户姓名。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">&#26041;&#27861;
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L71">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_CompareTo_" data-uid="Commercial.Transaction.CompareTo*"></a>
+  <h4 id="Commercial_Transaction_CompareTo_Commercial_Transaction_" data-uid="Commercial.Transaction.CompareTo(Commercial.Transaction)">CompareTo(Transaction)</h4>
+  <div class="markdown level1 summary"><p>默认按照交易金额升序比较。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(Transaction other)</code></pre>
+  </div>
+  <h5 class="parameters">&#21442;&#25968;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#21517;&#31216;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Commercial.Transaction.html">Transaction</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>比较的另一个对象。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">&#36820;&#22238;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L136">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_Equals_" data-uid="Commercial.Transaction.Equals*"></a>
+  <h4 id="Commercial_Transaction_Equals_System_Object_" data-uid="Commercial.Transaction.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>比较两笔交易是否相同。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">&#21442;&#25968;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#21517;&#31216;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>另一个对象。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">&#36820;&#22238;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">&#37325;&#20889;</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L156">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_GetHashCode_" data-uid="Commercial.Transaction.GetHashCode*"></a>
+  <h4 id="Commercial_Transaction_GetHashCode" data-uid="Commercial.Transaction.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>返回交易信息的哈希值。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">&#36820;&#22238;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>交易信息的哈希值。</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">&#37325;&#20889;</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L61">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+  </span>
+  <a id="Commercial_Transaction_ToString_" data-uid="Commercial.Transaction.ToString*"></a>
+  <h4 id="Commercial_Transaction_ToString" data-uid="Commercial.Transaction.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>返回字符串形式的交易信息。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">&#22768;&#26126;</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">&#36820;&#22238;</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>&#31867;&#22411;</th>
+        <th>&#25551;&#36848;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">&#37325;&#20889;</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="implements">&#23454;&#29616;</h3>
+  <div>
+      <span class="xref">System.IComparable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/dev/1 Fundamental/1.2/Commercial/Transaction.cs/#L9" class="contribution-link">&#26597;&#30475;&#28304;&#20195;&#30721;</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

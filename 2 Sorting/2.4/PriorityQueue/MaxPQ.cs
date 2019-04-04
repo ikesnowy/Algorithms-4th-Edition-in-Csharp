@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 
 namespace PriorityQueue
 {
@@ -129,6 +130,18 @@ namespace PriorityQueue
         /// </summary>
         /// <returns>堆中元素数量。</returns>
         public int Size() => this.n;
+
+        /// <summary>
+        /// 输出最大堆中的元素，元素之间用空格分隔。
+        /// </summary>
+        /// <returns>形如 A B C D 的字符串。</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 1; i < pq.Length; i++)
+                sb.Append(pq[i] + " ");
+            return sb.ToString();
+        }
 
         /// <summary>
         /// 获取堆的迭代器，元素以降序排列。

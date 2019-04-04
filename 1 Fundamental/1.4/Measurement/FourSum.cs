@@ -36,7 +36,7 @@ namespace Measurement
         /// 计算和为零的四元组的数量。
         /// </summary>
         /// <param name="a">包含所有元素的数组。</param>
-        /// <returns></returns>
+        /// <returns>和为零的四元组的数量。</returns>
         public static int Count(long[] a)
         {
             int N = a.Length;

@@ -5,7 +5,11 @@
     /// </summary>
     public class QuickFindUF : UF
     {
-        public int ArrayVisitCount { get; private set; } //记录数组访问的次数。
+        /// <summary>
+        /// 记录数组访问次数的计数器。
+        /// </summary>
+        /// <value>记录数组访问的计数器。</value>
+        public int ArrayVisitCount { get; private set; }
 
         /// <summary>
         /// 新建一个使用 quick-find 实现的并查集。
@@ -25,7 +29,7 @@
         /// 寻找 p 所在的连通分量。
         /// </summary>
         /// <param name="p">需要寻找的结点。</param>
-        /// <returns>返回 p 所在的连通分量。</returns>
+        /// <returns><paramref name="p"/> 所在的连通分量。</returns>
         public override int Find(int p)
         {
             Validate(p);
@@ -38,7 +42,7 @@
         /// </summary>
         /// <param name="p">需要判断的结点。</param>
         /// <param name="q">需要判断的另一个结点。</param>
-        /// <returns>如果属于同一个连通分量则返回 true，否则返回 false。</returns>
+        /// <returns>如果属于同一个连通分量则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public override bool IsConnected(int p, int q)
         {
             Validate(p);
@@ -83,7 +87,7 @@
         /// <summary>
         /// 获得 parent 数组。
         /// </summary>
-        /// <returns>id 数组。</returns>
+        /// <returns>parent 数组。</returns>
         public int[] GetParent()
         {
             return this.parent;

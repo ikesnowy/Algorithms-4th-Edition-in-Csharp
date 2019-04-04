@@ -10,18 +10,22 @@ namespace PriorityQueue
         /// <summary>
         /// 最大堆（保存前半段元素）。
         /// </summary>
+        /// <value>最大堆（保存前半段元素）。</value>
         private MaxPQ<Key> maxPQ;
         /// <summary>
         /// 最小堆（保存后半段元素）。
         /// </summary>
+        /// <value>最小堆（保存后半段元素）。</value>
         private MinPQ<Key> minPQ;
         /// <summary>
         /// 中位数。
         /// </summary>
+        /// <value>中位数。</value>
         private Key median;
         /// <summary>
-        /// 堆的大小
+        /// 堆的大小。
         /// </summary>
+        /// <value>堆的大小。</value>
         private int n;
 
         /// <summary>
@@ -101,7 +105,9 @@ namespace PriorityQueue
         /// <summary>
         /// 删除并返回中位数。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>中位数。</returns>
+        /// <exception cref="ArgumentOutOfRangeException">当堆为空时抛出该异常。</exception>
+        /// <remarks>如果希望获得中位数但不将其删除，请使用 <see cref="Median"/>。</remarks>
         public Key DelMedian()
         {
             if (IsEmpty())
@@ -128,13 +134,14 @@ namespace PriorityQueue
         /// <summary>
         /// 获得中位数。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>中位数。</returns>
+        /// <remarks>如果希望删除并返回中位数，请使用 <see cref="DelMedian"/>。</remarks>
         public Key Median() => this.median;
 
         /// <summary>
         /// 判断堆是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>若堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty() => this.n == 0;
 
         /// <summary>

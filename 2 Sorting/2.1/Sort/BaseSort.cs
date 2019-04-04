@@ -8,6 +8,11 @@ namespace Sort
     /// </summary>
     public abstract class BaseSort
     {
+        /// <summary>
+        /// 对数组 a 进行排序，用各种不同的方式进行实现。
+        /// </summary>
+        /// <typeparam name="T">用于排序的类型。</typeparam>
+        /// <param name="a">需要排序的数组。</param>
         public abstract void Sort<T>(T[] a) where T : IComparable<T>;
 
         /// <summary>
@@ -29,7 +34,7 @@ namespace Sort
         /// <param name="v">比较的第一个元素。</param>
         /// <param name="w">比较的第二个元素</param>
         /// <param name="c">比较器。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="v"/> 小于 <paramref name="w"/> 返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         protected bool Less<T>(T v, T w, IComparer<T> c)
         {
             return c.Compare(v, w) < 0;

@@ -11,31 +11,47 @@ namespace Quick
         /// <summary>
         /// 比较次数。
         /// </summary>
+        /// <value>排序用的比较次数。</value>
         public int CompareCount { get; set; }
 
         /// <summary>
         /// 是否启用打乱。
         /// </summary>
+        /// <value>
+        /// <list type="bullet">
+        /// <item><c>true</c>: 启用排序前打乱。</item>
+        /// <item><c>false</c>: 禁用排序前打乱。</item>
+        /// </list>
+        /// </value>
         public bool NeedShuffle { get; set; }
 
         /// <summary>
         /// 是否显示轨迹。
         /// </summary>
+        /// <value>
+        /// <list type="bullet">
+        /// <item><c>true</c>: 输出排序轨迹。</item>
+        /// <item><c>false</c>: 不输出排序轨迹。</item>
+        /// </list>
+        /// </value>
         public bool NeedPath { get; set; }
 
         /// <summary>
         /// 大小为 0 的子数组数量。
         /// </summary>
+        /// <value>大小为 0 的子数组数量。</value>
         public int Array0Num { get; set; }
 
         /// <summary>
         /// 大小为 1 的子数组数量。
         /// </summary>
+        /// <value>大小为 1 的子数组数量。</value>
         public int Array1Num { get; set; }
 
         /// <summary>
         /// 大小为 2 的子数组数量。
         /// </summary>
+        /// <value>大小为 2 的子数组数量。</value>
         public int Array2Num { get; set; }
 
         /// <summary>
@@ -158,7 +174,7 @@ namespace Quick
         /// <typeparam name="T">要比较的元素类型。</typeparam>
         /// <param name="a">第一个元素。</param>
         /// <param name="b">第二个元素。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         new protected bool Less<T>(T a, T b) where T : IComparable<T>
         {
             this.CompareCount++;

@@ -9,14 +9,45 @@ namespace Geometry
     /// </summary>
     public sealed class Point2D : IComparable<Point2D>
     {
+        /// <summary>
+        /// 以 X 坐标升序排序。
+        /// </summary>
+        /// <value>以 X 坐标升序排序的静态比较器。</value>
         public readonly static Comparer<Point2D> X_Order = new XOrder();
+        /// <summary>
+        /// 以 Y 坐标升序排序。
+        /// </summary>
+        /// <value>以 Y 坐标升序排序的静态比较器。</value>
         public readonly static Comparer<Point2D> Y_Order = new YOrder();
+        /// <summary>
+        /// 以极半径升序排序。
+        /// </summary>
+        /// <value>以极半径升序排序的静态比较器。</value>
         public readonly static Comparer<Point2D> R_Order = new ROrder();
 
+        /// <summary>
+        /// 二维点的 X 坐标。
+        /// </summary>
+        /// <value>X 坐标。</value>
         public double X { get; }
+        /// <summary>
+        /// 二维坐标的 Y 坐标。
+        /// </summary>
+        /// <value>Y 坐标。</value>
         public double Y { get; }
+        /// <summary>
+        /// 绘制时点的半径，以像素为单位，默认值为 2。
+        /// </summary>
+        /// <value>点的半径，以像素为单位。</value>
         public int Radius { get; set; }
 
+        /// <summary>
+        /// 构造一个二维点。
+        /// </summary>
+        /// <param name="x">点的 X 轴坐标。</param>
+        /// <param name="y">点的 Y 轴坐标。</param>
+        /// <exception cref="ArgumentException">当 <paramref name="x"/> 或 <paramref name="y"/> 为±无穷时抛出此异常。</exception>
+        /// <exception cref="ArgumentNullException">当 <paramref name="x"/> 或 <paramref name="y"/> 为 <see cref="double.NaN"/> 时抛出。</exception>
         public Point2D(double x, double y)
         {
             if (double.IsInfinity(x) || double.IsInfinity(y))
@@ -37,7 +68,7 @@ namespace Geometry
         /// <summary>
         /// 返回极半径。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>极半径。</returns>
         public double R()
         {
             return Math.Sqrt(this.X * this.X + this.Y * this.Y);
@@ -46,7 +77,7 @@ namespace Geometry
         /// <summary>
         /// 返回极角。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>极角。</returns>
         public double Theta()
         {
             return Math.Atan2(this.Y, this.X);
@@ -56,7 +87,7 @@ namespace Geometry
         /// 返回两个点之间的角度。
         /// </summary>
         /// <param name="that">要计算角度的另一个点。</param>
-        /// <returns></returns>
+        /// <returns>返回与点 <paramref name="that"/> 构成的角度。</returns>
         private double AngleTo(Point2D that)
         {
             double dx = that.X - this.X;
@@ -70,7 +101,7 @@ namespace Geometry
         /// <param name="a">第一个点。</param>
         /// <param name="b">第二个点。</param>
         /// <param name="c">第三个点。</param>
-        /// <returns></returns>
+        /// <returns>如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}</returns>
         public static int CCW(Point2D a, Point2D b, Point2D c)
         {
             double area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
@@ -87,7 +118,7 @@ namespace Geometry
         /// <param name="a">第一个点。</param>
         /// <param name="b">第二个点。</param>
         /// <param name="c">第三个点。</param>
-        /// <returns></returns>
+        /// <returns><paramref name="a"/> 和 <paramref name="b"/> 和 <paramref name="c"/> 构成的三角形的面积的平方。</returns>
         public static double Area2(Point2D a, Point2D b, Point2D c)
         {
             return (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
@@ -98,7 +129,7 @@ namespace Geometry
         /// 返回当前点到另一个点之间的距离。
         /// </summary>
         /// <param name="that">另一个点。</param>
-        /// <returns></returns>
+        /// <returns>返回到 <paramref name="that"/> 的距离。</returns>
         public double DistanceTo(Point2D that)
         {
             double dx = this.X - that.X;
@@ -111,7 +142,7 @@ namespace Geometry
         /// 返回当前点到另一个点之间的距离的平方。
         /// </summary>
         /// <param name="that">另一个点。</param>
-        /// <returns></returns>
+        /// <returns>到 <paramref name="that"/> 距离的平方。</returns>
         public double DistanceSquareTo(Point2D that)
         {
             double dx = this.X - that.X;
@@ -130,10 +161,10 @@ namespace Geometry
         }
 
         /// <summary>
-        /// 实现 IComparable 接口。
+        /// 优先按照 <see cref="Y"/> 比较，相同时再按照 <see cref="X"/> 比较。
         /// </summary>
         /// <param name="other">需要比较的另一个对象。</param>
-        /// <returns></returns>
+        /// <returns>如果 <paramref name="other"/> 较小则返回 -1，反之返回 1，相等返回 0。</returns>
         public int CompareTo(Point2D other)
         {
             if (this.Y < other.Y)
@@ -320,21 +351,38 @@ namespace Geometry
             }
         }
 
+        /// <summary>
+        /// 构造一个以到当前点的极角为关键字的升序比较器。
+        /// </summary>
+        /// <returns>以到当前点的极角为关键字的升序比较器。</returns>
         public Comparer<Point2D> Polor_Order()
         {
             return new PolorOrder(this);
         }
 
+        /// <summary>
+        /// 构造一个以到当前点的 Atan2 为关键字的升序比较器。
+        /// </summary>
+        /// <returns>以到当前点的 Atan2 为关键字的升序比较器。</returns>
         public Comparer<Point2D> Atan2_Order()
         {
             return new Atan2Order(this);
         }
 
+        /// <summary>
+        /// 构造一个以到当前点的距离为关键字的升序比较器。
+        /// </summary>
+        /// <returns>以到当前点的距离为关键字的升序比较器。</returns>
         public Comparer<Point2D> DistanceTo_Order()
         {
             return new DistanceToOrder(this);
         }
 
+        /// <summary>
+        /// 比较 <paramref name="obj"/> 是否与自身相等。
+        /// </summary>
+        /// <param name="obj">要判别相等的另一个对象，</param>
+        /// <returns>相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -353,11 +401,19 @@ namespace Geometry
             return this.X == that.X && this.Y == that.Y;
         }
 
+        /// <summary>
+        /// 获取点的坐标字符串。
+        /// </summary>
+        /// <returns>形如 "(<see cref="X"/>, <see cref="Y"/>)" 的字符串。</returns>
         public override string ToString()
         {
             return "(" + this.X + ", " + this.Y + ")";
         }
 
+        /// <summary>
+        /// 获得二维点的哈希值。
+        /// </summary>
+        /// <returns>哈希值。</returns>
         public override int GetHashCode()
         {
             int hashX = this.X.GetHashCode();

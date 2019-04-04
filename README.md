@@ -2,9 +2,11 @@
 
 算法（第4版）习题题解 C# 版，勘误感谢名单：[THANKS.md](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/THANKS.md)
 
-当前已经完成到 2.5。
+当前已经完成到 3.1。
 
-可以在这个网站搜索题解：https://ikesnowy.github.io/Alg4-Solutions/
+可以在这个网站搜索题解：https://alg4.ikesnowy.com/
+
+章节类库的 API 文档：https://alg4.ikesnowy.com/docs/api/index.html
 
 ## 目录
 
@@ -22,12 +24,18 @@
   - [2.4 优先队列 Priority Queues](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4)
   - [2.5 应用 Sorting Applications](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5)
 
+- [3.查找 Searching](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching)
+  - [3.1 符号表 Elementary Symbol Tables](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching/3.1)
 
 ## 使用方法 & 开发环境
 
-### 使用方法：  
+### 使用方法：
 
-配置运行题解代码的详细教程见：[如何运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
+有时题目标号文件夹下只有用例（即 Main 方法），实际编写的类位于章节对应的类库中。
+
+有关章节类库和 API 文档的说明请见：[如何：查找 API 说明](https://alg4.ikesnowy.com/如何：查找-API-说明/)
+
+配置运行题解代码的详细教程见：[如何：运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
 
 获取图文版解答可以参考 [我的博客](http://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
 
@@ -36,6 +44,7 @@
 #### 控制台应用程序  
 
 Program.cs 是程序的运行代码。 
+
 需要实现的类会位于其他源文件中，例如实现有理数类的代码就会在同项目下的 Rational.cs 文件中。  
 
 #### Windows 窗体应用程序
@@ -48,7 +57,7 @@ Visual Studio 2017 + .NET Framework 4.7
 
 ## 代码规范
 
-主要参照 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)（本人翻译的 [版本](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/C%23%20框架设计指南.md)） 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
+主要参照 [Framework Design Guidelines](https://docs.microsoft.com/zh-cn/dotnet/standard/design-guidelines/)（本人翻译的 [版本](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/C%23%20框架设计指南.md)） 和 [C# 编程指南](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/index) ，以及以下几条附加内容。
 
 1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
 
@@ -121,6 +130,4 @@ Part1 https://www.coursera.org/learn/algorithms-part1
 
 Part2 https://www.coursera.org/learn/algorithms-part2
 
-官方资料站 (English):
-
-http://algs4.cs.princeton.edu/
+官方资料站 (English): http://algs4.cs.princeton.edu/

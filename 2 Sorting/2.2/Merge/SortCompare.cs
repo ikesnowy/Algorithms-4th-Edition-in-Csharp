@@ -13,7 +13,7 @@ namespace Merge
         /// </summary>
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="a">用于测试的数据。</param>
-        /// <returns>排序的耗时。</returns>
+        /// <returns>排序的耗时，单位为毫秒。</returns>
         public static double Time<T>(BaseSort sort, T[] a) where T : IComparable<T>
         {
             Stopwatch stopwatch = Stopwatch.StartNew();

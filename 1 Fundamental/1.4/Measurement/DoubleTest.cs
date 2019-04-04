@@ -13,7 +13,7 @@ namespace Measurement
         /// 返回对 n 个随机整数的数组进行一次 ThreeSum 所需的时间。
         /// </summary>
         /// <param name="n">随机数组的长度。</param>
-        /// <returns></returns>
+        /// <returns>运行时间，单位为毫秒。</returns>
         public static double TimeTrial(int n)
         {
             int[] a = new int[n];

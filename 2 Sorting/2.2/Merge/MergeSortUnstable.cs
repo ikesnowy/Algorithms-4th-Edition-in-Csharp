@@ -3,7 +3,7 @@
 namespace Merge
 {
     /// <summary>
-    /// 归并排序类。
+    /// 不稳定的归并排序。
     /// </summary>
     public class MergeSortUnstable : BaseSort
     {

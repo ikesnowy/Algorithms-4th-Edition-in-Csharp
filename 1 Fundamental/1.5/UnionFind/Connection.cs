@@ -5,8 +5,16 @@
     /// </summary>
     public class Connection
     {
-        public int P { get; set; }      // 连接起点。
-        public int Q { get; set; }      // 连接终点。
+        /// <summary>
+        /// 链接起点。
+        /// </summary>
+        /// <value>链接起点。</value>
+        public int P { get; set; }
+        /// <summary>
+        /// 链接终点。
+        /// </summary>
+        /// <value>链接终点。</value>
+        public int Q { get; set; }
 
         /// <summary>
         /// 构造一条连接。

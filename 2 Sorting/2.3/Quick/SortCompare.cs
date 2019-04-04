@@ -30,7 +30,7 @@ namespace Quick
         /// </summary>
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="a">用于测试的数据。</param>
-        /// <returns>排序的耗时。</returns>
+        /// <returns>排序的耗时，单位为毫秒。</returns>
         public static double Time<T>(BaseSort sort, T[] a) where T : IComparable<T>
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
@@ -44,7 +44,7 @@ namespace Quick
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="n">每次测试的数据量。</param>
         /// <param name="trials">测试次数。</param>
-        /// <returns>多次排序的总耗时。</returns>
+        /// <returns>多次排序的总耗时，单位为毫秒。</returns>
         public static double TimeRandomInput(BaseSort sort, int n, int trials)
         {
             double total = 0.0;
@@ -67,7 +67,7 @@ namespace Quick
         /// <param name="sort">用于测试的排序算法。</param>
         /// <param name="n">每次测试的数据量。</param>
         /// <param name="trials">测试次数。</param>
-        /// <returns>多次排序的总耗时。</returns>
+        /// <returns>多次排序的总耗时，单位为毫秒。</returns>
         public static double TimeSortedInput(BaseSort sort, int n, int trials)
         {
             double total = 0.0;

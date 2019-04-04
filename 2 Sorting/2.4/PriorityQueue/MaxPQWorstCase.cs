@@ -7,8 +7,16 @@ namespace PriorityQueue
     /// </summary>
     public class MaxPQWorstCase
     {
-        private int[] pq;               // 保存元素的数组。
-        private int n;                  // 堆中的元素数量。
+        /// <summary>
+        /// 保存元素的数组。
+        /// </summary>
+        /// <value>保存元素的数组。</value>
+        private int[] pq;              
+        /// <summary>
+        /// 堆中的元素数量。
+        /// </summary>
+        /// <value>堆中的元素数量。</value>
+        private int n;                 
 
         /// <summary>
         /// 建立指定容量的最大堆。

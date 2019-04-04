@@ -9,11 +9,33 @@ namespace Geometry
     /// </summary>
     public class Interval1D
     {
+        /// <summary>
+        /// 优先以起点升序排序，起点相同时按照终点升序排序。
+        /// </summary>
+        /// <value>优先以起点升序排序，起点相同时按照终点升序排序。</value>
         public static readonly Comparer<Interval1D> Min_Order = new MinEndpointComparer();
+        /// <summary>
+        /// 优先以终点升序排序，起点相同时按照起点升序排序。
+        /// </summary>
+        /// <value>优先以终点升序排序，起点相同时按照起点升序排序。</value>
         public static readonly Comparer<Interval1D> Max_Order = new MaxEndpointComparer();
+        /// <summary>
+        /// 以区间长度升序排序。
+        /// </summary>
+        /// <value>以区间长度升序排序。</value>
         public static readonly Comparer<Interval1D> Length_Order = new LengthComparer();
 
+        /// <summary>
+        /// 区间起点。
+        /// </summary>
+        /// <value>区间起点。</value>
+        /// <remarks>这个属性是只读的。</remarks>
         public double Min { get; }
+        /// <summary>
+        /// 区间终点。
+        /// </summary>
+        /// <value>区间终点。</value>
+        /// <remarks>这个属性是只读的。</remarks>
         public double Max { get; }
 
         /// <summary>
@@ -56,7 +78,7 @@ namespace Geometry
         /// 判断目标区间是否被本区间包含。
         /// </summary>
         /// <param name="that">需要判断是否被包含的区间。</param>
-        /// <returns></returns>
+        /// <returns>若 <paramref name="that"/> 被本区间包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Interval1D that)
         {
             return this.Min < that.Min && this.Max > that.Max;
@@ -66,7 +88,7 @@ namespace Geometry
         /// 目标值是否处在区域内。如果目标值在区域内则返回 True，否则返回 False。
         /// </summary>
         /// <param name="x">需要判断的值。</param>
-        /// <returns></returns>
+        /// <returns>若 <paramref name="x"/> 被本区间包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(double x)
         {
             return x >= this.Min && x <= this.Max;
@@ -100,7 +122,7 @@ namespace Geometry
         /// <summary>
         /// 将区域转换为 string，返回形如 "[lo, hi]" 的字符串。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>形如 "[<see cref="Min"/>, <see cref="Max"/>]" 的字符串。</returns>
         public override string ToString()
         {
             string s = "[" + this.Min + ", " + this.Max + "]";
@@ -111,7 +133,7 @@ namespace Geometry
         /// 判断两个区间是否相等。
         /// </summary>
         /// <param name="obj">相比较的区间。</param>
-        /// <returns></returns>
+        /// <returns>如果区间相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public override bool Equals(object obj)
         {
             if (obj == this)
@@ -133,7 +155,7 @@ namespace Geometry
         /// <summary>
         /// 返回区间的哈希代码。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>返回区间的哈希代码。</returns>
         public override int GetHashCode()
         {
             int hash1 = this.Min.GetHashCode();

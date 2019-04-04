@@ -2,6 +2,9 @@
 
 namespace SortApplication
 {
+    /// <summary>
+    /// 希尔排序类。
+    /// </summary>
     public class ShellSort : BaseSort
     {
         /// <summary>

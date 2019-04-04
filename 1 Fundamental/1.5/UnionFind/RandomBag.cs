@@ -25,7 +25,7 @@ namespace UnionFind
         /// <summary>
         /// 检查背包是否为空。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty()
         {
             return this.count == 0;
@@ -34,7 +34,7 @@ namespace UnionFind
         /// <summary>
         /// 返回背包中元素的数量。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>背包中元素的数量。</returns>
         public int Size()
         {
             return this.count;
@@ -58,7 +58,8 @@ namespace UnionFind
         /// <summary>
         /// 重新为背包分配内存空间。
         /// </summary>
-        /// <param name="capacity"></param>
+        /// <param name="capacity">背包的新大小。</param>
+        /// <exception cref="ArgumentException">当 <paramref name="capacity"/> 小于 0 时抛出。</exception>
         private void Resize(int capacity)
         {
             if (capacity <= 0)
@@ -71,11 +72,20 @@ namespace UnionFind
             this.bag = temp;
         }
 
+        /// <summary>
+        /// 获得随即背包的迭代器。
+        /// </summary>
+        /// <returns>随机背包迭代器。</returns>
         public IEnumerator<Item> GetEnumerator()
         {
             return new RandomBagEnumerator(this.bag, this.count);
         }
 
+        /// <summary>
+        /// 获得随机背包的迭代器。
+        /// </summary>
+        /// <returns>随机背包迭代器。</returns>
+        /// <remarks>实际上调用的是 <see cref="GetEnumerator"/>。</remarks>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

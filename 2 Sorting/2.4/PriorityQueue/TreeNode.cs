@@ -11,24 +11,28 @@ namespace PriorityQueue
         /// <summary>
         /// 父结点引用。
         /// </summary>
+        /// <value>父节点引用。</value>
         public TreeNode<T> Prev { get; set; }
         /// <summary>
         /// 左子树的引用。
         /// </summary>
+        /// <value>左子结点的引用。</value>
         public TreeNode<T> Left { get; set; }
         /// <summary>
         /// 右子树的引用。
         /// </summary>
+        /// <value>右子结点的引用。</value>
         public TreeNode<T> Right { get; set; }
         /// <summary>
         /// 当前结点的值。
         /// </summary>
+        /// <value>当前结点的值。</value>
         public T Value { get; set; }
         
         /// <summary>
         /// 构造器，建立一个引用全部为 null 的结点。
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">结点的值。</param>
         public TreeNode(T value)
         {
             this.Value = value;

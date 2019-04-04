@@ -7,9 +7,21 @@ namespace UnionFind
     /// </summary>
     public class UF
     {
-        protected int[] parent;   // 记录各个结点的父级。
-        protected int count;      // 分量数目。
-        private byte[] rank;      // 各结点的深度。
+        /// <summary>
+        /// 记录各个结点的父级的数组。
+        /// </summary>
+        /// <value>记录了各个结点的父级。</value>
+        protected int[] parent;
+        /// <summary>
+        /// 连通分量的数目。
+        /// </summary>
+        /// <value>连通分量的数目。</value>
+        protected int count;
+        /// <summary>
+        /// 各结点的深度。
+        /// </summary>
+        /// <value>各结点的深度。</value>
+        private byte[] rank;
 
         /// <summary>
         /// 新建一个大小为 n 的并查集。
@@ -94,6 +106,7 @@ namespace UnionFind
         /// 检查输入的 p 是否符合条件。
         /// </summary>
         /// <param name="p">输入的 p 值。</param>
+        /// <exception cref="ArgumentException">当 <paramref name="p"/> 不在索引范围内时抛出。</exception>
         protected void Validate(int p)
         {
             int n = this.parent.Length;

@@ -3,10 +3,22 @@ using System.Collections.Generic;
 
 namespace SortApplication
 {
+    /// <summary>
+    /// 交易记录类。
+    /// </summary>
     public class Transaction : IComparable<Transaction>
     {
+        /// <summary>
+        /// 客户姓名。
+        /// </summary>
         public string Who { get; }
+        /// <summary>
+        /// 交易时间。
+        /// </summary>
         public Date When { get; }
+        /// <summary>
+        /// 交易金额。
+        /// </summary>
         public double Amount { get; }
 
         /// <summary>

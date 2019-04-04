@@ -13,3 +13,5 @@
 [@wssb](https://www.zhihu.com/people/wssb/activities)，2.2.16，2.4.13。
 
 [@张越](https://www.zhihu.com/people/zyecho/activities)，1.4.19。
+
+[@miyuexingchen](https://github.com/miyuexingchen)，2.4.6 [#521](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/521)。

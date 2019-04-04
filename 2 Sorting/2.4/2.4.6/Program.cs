@@ -52,10 +52,8 @@ namespace _2._4._6
                     pq.DelMax();
                 else
                     pq.Insert(c);
-
-                foreach (char n in pq)
-                    Console.Write(n + " ");
-                Console.WriteLine();
+                
+                Console.WriteLine(pq);
             }
         }
     }

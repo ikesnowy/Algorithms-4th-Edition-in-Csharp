@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-基础", "1-基础", "{344FB20B-6315-477C-B032-B4E217E8A2DD}"
 EndProject
@@ -971,6 +971,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-提高题（3.2.25~3.2.38）", "2-提高题（3.2.25~3.2.38）", "{136F3860-08E9-4C37-BC04-679085D442B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-实验题（3.2.39~3.2.47）", "3-实验题（3.2.39~3.2.47）", "{69512490-D514-490D-9088-D514FC5C770A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "3 Searching\3.2\BinarySearchTree\BinarySearchTree.csproj", "{7735D249-58C0-4489-9577-0AD1FEF14A40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -5890,6 +5892,18 @@ Global
 		{EE46F91D-3EB8-4E6C-B71F-10B3AF7CAB97}.Release|x64.Build.0 = Release|Any CPU
 		{EE46F91D-3EB8-4E6C-B71F-10B3AF7CAB97}.Release|x86.ActiveCfg = Release|Any CPU
 		{EE46F91D-3EB8-4E6C-B71F-10B3AF7CAB97}.Release|x86.Build.0 = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|x64.Build.0 = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|x86.Build.0 = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|x64.ActiveCfg = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|x64.Build.0 = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|x86.ActiveCfg = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -6365,6 +6379,7 @@ Global
 		{6931D4A3-859B-464C-B895-94A05B19FBCB} = {EC078CA5-19FC-40B4-B93E-FC9DEF2580C3}
 		{136F3860-08E9-4C37-BC04-679085D442B4} = {EC078CA5-19FC-40B4-B93E-FC9DEF2580C3}
 		{69512490-D514-490D-9088-D514FC5C770A} = {EC078CA5-19FC-40B4-B93E-FC9DEF2580C3}
+		{7735D249-58C0-4489-9577-0AD1FEF14A40} = {33A363B4-0238-4E17-96F4-CF1140FB37FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE55CF8D-6F35-464D-B95B-ED85644AE41C}

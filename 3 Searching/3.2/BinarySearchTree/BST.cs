@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
@@ -101,7 +99,7 @@ namespace BinarySearchTree
         {
             if (x == null)
                 return new Node(key, value, 1);
-            int cmp = key.CompareTo(key);
+            int cmp = key.CompareTo(x.Key);
             if (cmp < 0)
                 x.Left = Put(x.Left, key, value);
             else if (cmp > 0)
@@ -528,6 +526,98 @@ namespace BinarySearchTree
             x.Right = DeleteMax(x.Right);
             x.Size = 1 + Size(x.Left) + Size(x.Right);
             return x;
+        }
+
+        /// <summary>
+        /// 将二叉树按照树形输出。
+        /// </summary>
+        /// <returns>二叉查找树输出的字符串。</returns>
+        public override string ToString()
+        {
+            if (IsEmpty())
+                return string.Empty;
+
+            int maxDepth = Depth(this.root);
+            int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
+
+            //BST
+            StringBuilder sb = new StringBuilder();
+            Queue<Node> nowLayer = new Queue<Node>();
+            Queue<Node> nextLayer = new Queue<Node>();
+            nextLayer.Enqueue(this.root);
+
+            while (layer != maxDepth)
+            {
+                int unitSize = bottomLine / (int)Math.Pow(2, layer);
+                Queue<Node> temp = nowLayer;
+                nowLayer = nextLayer;
+                nextLayer = temp;
+
+                while (nowLayer.Count != 0)
+                {
+                    Node x = nowLayer.Dequeue();
+
+                    if (x != null)
+                    {
+                        nextLayer.Enqueue(x.Left);
+                        nextLayer.Enqueue(x.Right);
+                    }
+                    else
+                    {
+                        nextLayer.Enqueue(null);
+                        nextLayer.Enqueue(null);
+                    }
+
+                    if (x != null && x.Left != null)
+                    {
+                        for (int i = 0; i < unitSize / 4; i++)
+                            sb.Append(" ");
+                        sb.Append("|");
+                        for (int i = 1; i < unitSize / 4; i++)
+                            sb.Append("-");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < unitSize / 2; i++)
+                            sb.Append(" ");
+                    }
+
+                    if (x == null)
+                        sb.Append(" ");
+                    else
+                        sb.Append(x.Key);
+
+                    if (x != null && x.Right != null)
+                    {
+                        for (int i = 1; i < unitSize / 4; i++)
+                            sb.Append("-");
+                        sb.Append("|");
+                        for (int i = 1; i < unitSize / 4; i++)
+                            sb.Append(" ");
+                    }
+                    else
+                    {
+                        for (int i = 1; i < unitSize / 2; i++)
+                            sb.Append(" ");
+                    }
+                }
+                sb.AppendLine();
+                layer++;
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 获取二叉树的最大深度。
+        /// </summary>
+        /// <param name="x">二叉树的根结点。</param>
+        /// <returns>二叉树的最大深度。</returns>
+        private int Depth(Node x)
+        {
+            if (x == null)
+                return 0;
+            return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Docs", "API Docs.csproj", "{4EE0A9F6-DF99-4786-9349-2CFBDC289BE3}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortApplication", "..\2 Sorting\2.5\SortApplication\SortApplication.csproj", "{121D6B05-A47F-4C1C-BAD8-EE4E5A245C8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymbolTable", "..\3 Searching\3.1\SymbolTable\SymbolTable.csproj", "{3B220D25-5761-4853-9428-A4595D71EB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "..\3 Searching\3.2\BinarySearchTree\BinarySearchTree.csproj", "{7735D249-58C0-4489-9577-0AD1FEF14A40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{3B220D25-5761-4853-9428-A4595D71EB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B220D25-5761-4853-9428-A4595D71EB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B220D25-5761-4853-9428-A4595D71EB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7735D249-58C0-4489-9577-0AD1FEF14A40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

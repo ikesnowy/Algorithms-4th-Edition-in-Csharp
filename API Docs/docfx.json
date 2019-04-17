@@ -8,8 +8,7 @@
           ],
           "cwd": ".",
           "exclude": [
-            "**/obj/**",
-            "**/bin/**",
+            "**/objbin/**",
             "docs/**",
             "API Docs.csproj"
           ]

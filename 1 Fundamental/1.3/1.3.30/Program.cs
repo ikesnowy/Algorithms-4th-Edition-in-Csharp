@@ -3,13 +3,7 @@ using Generics;
 
 namespace _1._3._30
 {
-    /*
-     * 1.3.30
-     * 
-     * 编写一个函数，接受一条链表的首结点作为参数，
-     * （破坏性地）将链表反转并返回链表的首结点。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -1,11 +1,6 @@
 ﻿namespace _2._1._6
 {
-    /*
-     * 2.1.6
-     * 
-     * 在所有主键都相同时，选择排序和插入排序谁更快？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

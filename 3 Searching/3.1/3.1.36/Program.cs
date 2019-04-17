@@ -4,15 +4,7 @@ using SymbolTable;
 
 namespace _3._1._36
 {
-    /*
-     * 3.1.36
-     * 
-     * 性能验证 Ⅱ。
-     * 解释 FrequencyCounter 
-     * 在使用 BinarySearchST 时比
-     * 使用 SequentialSearchST 时的性能提高程度好于预期的原因。
-     * 
-     */
+    
     class Program
     {
         // 绝大部分单词都位于符号表的中部，因此二分查找所需的时间较少。

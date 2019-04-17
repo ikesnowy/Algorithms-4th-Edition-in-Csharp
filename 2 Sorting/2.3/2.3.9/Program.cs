@@ -1,12 +1,6 @@
 ﻿namespace _2._3._9
 {
-    /*
-     * 2.3.9
-     * 
-     * 请说明 Quick.sort() 在处理只有两种主键值时的行为，
-     * 以及在处理只有三种主键值的数组时的行为。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

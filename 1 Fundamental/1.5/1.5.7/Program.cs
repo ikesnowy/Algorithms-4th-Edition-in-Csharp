@@ -2,12 +2,7 @@
 
 namespace _1._5._7
 {
-    /*
-     * 1.5.7
-     * 
-     * 分别为 quick-find 算法和 quick-union 算法实现 QuickFindUF 类和 QuickUnionUF 类。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

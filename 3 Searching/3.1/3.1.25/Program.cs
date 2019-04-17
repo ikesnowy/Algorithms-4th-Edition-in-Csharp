@@ -4,17 +4,7 @@ using SymbolTable;
 
 namespace _3._1._25
 {
-    /*
-     * 3.1.25
-     * 
-     * 缓存。因为默认的 contains() 的实现中调用了 get()，所以 FrequencyCounter 的内循环会将同一个键查找两三遍：
-     * if (!st.contains(word)) st.put(word, 1);
-     * else st.put(word, st.get(word) + 1);
-     * 为了能够提高这样的用例代码的效率，我们可以用一种叫做缓存的技术手段，
-     * 即将访问最频繁的键的位置保存在一个变量中。
-     * 修改 SequentialSearchST 和 BinarySearchST 来实现这个点子。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

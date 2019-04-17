@@ -4,12 +4,7 @@ using System.Collections.Generic;
 
 namespace _2._5._9
 {
-    /*
-     * 2.5.9
-     * 
-     * 为将右侧所示的数据排序编写一个新的数据类型。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -2,14 +2,7 @@
 
 namespace _2._5._19
 {
-    /*
-     * 2.5.19
-     * 
-     * Kendall tau 距离。
-     * 编写一段程序 KendallTau.java ，
-     * 在线性对数时间内计算两组排列之间的 Kendall tau 距离。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

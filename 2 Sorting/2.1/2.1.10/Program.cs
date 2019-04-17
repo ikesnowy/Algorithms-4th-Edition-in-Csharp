@@ -1,11 +1,6 @@
 ﻿namespace _2._1._10
 {
-    /*
-     * 2.1.10
-     * 
-     * 在希尔排序中为什么在实现 h 有序时不使用选择排序？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

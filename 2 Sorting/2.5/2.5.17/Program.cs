@@ -3,17 +3,7 @@ using SortApplication;
 
 namespace _2._5._17
 {
-    /*
-     * 2.5.17
-     * 
-     * 检测稳定性。
-     * 扩展练习 2.1.16 中的 check() 方法，
-     * 对指定数组调用 sort()，
-     * 如果排序结果是稳定的则返回 true，
-     * 否则返回 false。
-     * 不要假设 sort() 只会使用 exch() 移动数据。
-     * 
-     */
+    
     class Program
     {
         class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>

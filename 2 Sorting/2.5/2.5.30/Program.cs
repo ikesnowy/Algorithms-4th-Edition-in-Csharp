@@ -1,15 +1,6 @@
 ﻿namespace _2._5._30
 {
-    /*
-     * 2.5.30
-     * 
-     * Boerner 定理。
-     * 真假判断：
-     * 如果你先将一个矩阵的每一列排序，再将矩阵的每一行排序，
-     * 所有的列仍然是有序的。
-     * 证明你的结论。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

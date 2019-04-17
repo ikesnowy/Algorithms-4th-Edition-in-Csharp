@@ -3,14 +3,7 @@ using System.IO;
 
 namespace _1._2._9
 {
-    /*
-     * 1.2.9
-     * 
-     * 修改 BinarySearch（请见 1.1.10.1 节中的二分查找代码），
-     * 使用 Counter 统计在有查找中被检查的键的总数并在查找全部结束后打印该值。
-     * 提示：在 main() 中创建一个 Counter 对象并将它作为参数传递给 rank()
-     * 
-     */
+    
     class Program
     {
         // 参考 1.1.10 节的代码

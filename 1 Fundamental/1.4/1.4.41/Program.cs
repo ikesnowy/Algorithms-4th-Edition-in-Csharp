@@ -3,13 +3,7 @@ using Measurement;
 
 namespace _1._4._41
 {
-    /*
-     * 1.4.41
-     * 
-     * 运行时间。
-     * 使用 DoublingRatio 估计在你的计算机上用 TwoSumFast、TwoSum、ThreeSumFast 以及 ThreeSum 处理一个含有 100 万个整数的文件所需的时间。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

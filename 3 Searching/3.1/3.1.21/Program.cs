@@ -1,14 +1,6 @@
 ﻿namespace _3._1._21
 {
-    /*
-     * 3.1.21
-     * 
-     * 内存使用。基于 1.4 节中的假设，
-     * 对于 N 对键值比较 BinarySearchST 和 SequentialSearchST 的内存使用情况。
-     * 不需要记录键值本身占用的内存，只统计它们的引用。
-     * 对于BinarySearchST，假设数组大小可以动态调整，数组中被占用的空间比例为 25%~100%。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

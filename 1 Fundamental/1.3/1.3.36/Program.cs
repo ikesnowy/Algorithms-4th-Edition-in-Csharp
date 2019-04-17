@@ -2,12 +2,7 @@
 
 namespace _1._3._36
 {
-    /*
-     * 
-     * 随机迭代器。
-     * 为上一题中的 RandomQueue<Card> 编写一个迭代器，随机返回队列中的所有元素。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

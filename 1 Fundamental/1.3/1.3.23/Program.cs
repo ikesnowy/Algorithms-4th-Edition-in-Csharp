@@ -3,12 +3,7 @@ using Generics;
 
 namespace _1._3._23
 {
-    /*
-     * 1.3.23
-     * 
-     * 为什么下面这段代码和上一题中的代码效果不同？
-     * 
-     */
+    
     class Program
     {
         // x.next = t        x 的下一个是 t

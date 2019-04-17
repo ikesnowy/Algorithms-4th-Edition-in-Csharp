@@ -2,15 +2,7 @@
 
 namespace _2._2._20
 {
-    /*
-     * 2.2.20
-     * 
-     * 间接排序。
-     * 编写一个不改变数组的归并排序，
-     * 它返回一个 int[] 数组 perm，
-     * 其中 perm[i] 的值是原数组中第 i 小的元素的位置。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

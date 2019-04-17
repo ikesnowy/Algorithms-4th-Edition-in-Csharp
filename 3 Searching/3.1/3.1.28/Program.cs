@@ -4,14 +4,7 @@ using SymbolTable;
 
 namespace _3._1._28
 {
-    /*
-     * 3.1.28
-     * 
-     * 有序的插入。
-     * 修改 BinarySearchST，使得插入一个比当前所有键都大的键只需要常数时间
-     * （这样在构造符号表时有序的使用 put() 插入键值对就只需要线性时间了）。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

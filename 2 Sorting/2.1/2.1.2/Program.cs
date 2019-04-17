@@ -1,12 +1,6 @@
 ﻿namespace _2._1._2
 {
-    /*
-     * 2.1.2
-     * 
-     * 在选择排序中，一个元素最多可能会被交换多少次？
-     * 平均可能会被交换多少次？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

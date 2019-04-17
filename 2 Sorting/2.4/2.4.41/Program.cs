@@ -4,15 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._41
 {
-    /*
-     * 2.4.41
-     * 
-     * Multiway 堆。
-     * 根据正文中的描述实现基于完全堆有序的三叉树和四叉树的堆排序。
-     * 对于 N=10^3、10^6 和 10^9 大小的随机不重复数组，
-     * 记录你的程序所使用的比较次数和标准实现所使用的比较次数。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

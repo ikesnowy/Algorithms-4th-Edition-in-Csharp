@@ -3,12 +3,7 @@ using Generics;
 
 namespace _1._3._6
 {
-    /*
-     * 1.3.6
-     * 
-     * 下面这段代码对队列 q 进行了什么操作？
-     * 
-     */
+    
     class Program
     {
         // 将队列反序

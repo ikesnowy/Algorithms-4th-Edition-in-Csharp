@@ -3,12 +3,7 @@ using SymbolTable;
 
 namespace _3._1._8
 {
-    /*
-     * 3.1.8
-     * 
-     * 在《双城记》中，使用频率最高的长度大于等于 10 的单词是什么？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

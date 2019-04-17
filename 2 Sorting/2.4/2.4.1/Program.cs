@@ -1,14 +1,6 @@
 ﻿namespace _2._4._1
 {
-    /*
-     * 2.4.1
-     * 
-     * 用序列 P R I O * R * * I * T * Y * * * Q U E * * * U * E 
-     * （字母表示插入元素，星号表示删除最大元素）
-     * 操作一个初始为空的优先队列。
-     * 给出每次删除最大元素返回的字符。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

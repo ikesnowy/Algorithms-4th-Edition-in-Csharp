@@ -2,13 +2,7 @@
 
 namespace _2._5._1
 {
-    /*
-     * 2.5.1
-     * 
-     * 在下面这段 String 类型的 compareTo() 方法的实现中，
-     * 第三行对提高运行效率有何帮助？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

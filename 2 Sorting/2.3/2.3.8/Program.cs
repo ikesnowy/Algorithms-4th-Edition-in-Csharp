@@ -3,12 +3,7 @@ using Quick;
 
 namespace _2._3._8
 {
-    /*
-     * 2.3.8
-     * 
-     * Quick.sort() 在处理 N 个全部重复的元素时大约需要多少次比较？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,14 +3,7 @@ using System.IO;
 
 namespace _2._5._8
 {
-    /*
-     * 2.5.8
-     * 
-     * 编写一段程序 Frequency，
-     * 从标准输入读取一列字符串，
-     * 并按照字符串出现频率由高到低的顺序打印出每个字符串及其出现次数。
-     * 
-     */
+    
     class Program
     {
         class Record : IComparable<Record>

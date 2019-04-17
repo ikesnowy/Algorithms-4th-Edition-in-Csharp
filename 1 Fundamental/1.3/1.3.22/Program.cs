@@ -3,12 +3,7 @@ using Generics;
 
 namespace _1._3._22
 {
-    /*
-     * 1.3.22
-     * 
-     * 假设 x 是一条链表中的某个结点，下面这段代码做了什么？
-     * 
-     */
+    
     class Program
     {
         // 将 t 插入到 x 之后

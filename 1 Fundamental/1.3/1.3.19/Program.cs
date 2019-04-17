@@ -3,12 +3,7 @@ using Generics;
 
 namespace _1._3._19
 {
-    /*
-     * 1.3.19
-     * 
-     * 给出一段代码，删除链表的尾结点，其中链表的首结点为 first。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

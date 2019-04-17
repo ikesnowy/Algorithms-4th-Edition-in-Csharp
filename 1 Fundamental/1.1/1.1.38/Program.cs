@@ -4,14 +4,7 @@ using System.IO;
 
 namespace _1._1._38
 {
-    /*
-     * 1.1.38
-     * 
-     * 二分查找与暴力查找。
-     * 根据 1.1.10.4 节给出的暴力查找法编写一个程序 BruteForceSearch，
-     * 在你的计算机上比较它和 BinarySearch 处理 largeW.txt 和 largeT.txt 所需的时间。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

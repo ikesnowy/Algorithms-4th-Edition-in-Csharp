@@ -1,12 +1,6 @@
 ﻿namespace _2._2._1
 {
-    /*
-     * 2.2.1
-     * 
-     * 按照本书开头所示轨迹的格式给出原地归并排序的抽象 merge() 方法是如何将
-     * 数组 A E Q S U Y E I N O S T 排序的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

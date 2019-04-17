@@ -3,14 +3,7 @@ using System.Diagnostics;
 
 namespace _3._1._40
 {
-    /*
-     * 3.1.40
-     * 
-     * 二分查找的临界点。
-     * 找出使用二分查找比顺序查找要快 10000 倍和 1000 倍的 N 值。
-     * 分析并预测 N 的大小并通过实验验证它。
-     * 
-     */
+    
     class Program
     {
         static long binarySearchCompare = 0;

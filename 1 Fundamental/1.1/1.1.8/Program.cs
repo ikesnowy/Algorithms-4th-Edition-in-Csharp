@@ -2,12 +2,7 @@
 
 namespace _1._1._8
 {
-    /*
-     * 1.1.8
-     * 
-     * 下列语句会打印出什么结果？给出解释。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

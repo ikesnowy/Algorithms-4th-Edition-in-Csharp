@@ -5,15 +5,7 @@ using PriorityQueue;
 
 namespace _2._4._38
 {
-    /*
-     * 2.4.38
-     * 
-     * 练习测试。
-     * 编写一个练习用例，
-     * 用算法 2.6 中实现的优先队列的接口方法处理实际应用中可能出现的高难度或是极端情况。
-     * 例如，元素已经有序、元素全部逆序、元素全部相同或是所有元素只有两个值。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

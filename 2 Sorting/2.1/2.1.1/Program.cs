@@ -1,11 +1,6 @@
 ﻿namespace _2._1._1
 {
-    /*
-     * 2.1.1
-     * 
-     * 按照算法 2.1 所示轨迹的格式给出选择排序是如何将数组 E A S Y Q U E S T I O N 排序的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

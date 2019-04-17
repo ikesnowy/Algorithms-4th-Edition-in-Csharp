@@ -2,12 +2,7 @@
 
 namespace _1._1._16
 {
-    /*
-     * 1.1.16
-     * 
-     * 给出 exR1(6) 的返回值
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

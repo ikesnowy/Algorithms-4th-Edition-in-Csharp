@@ -1,12 +1,6 @@
 ﻿namespace _3._1._6
 {
-    /*
-     * 3.1.6
-     * 
-     * 用输入中的单词总数 W 和不同单词总数 D 的函数给出 
-     * FrequencyCounter 调用的 put() 和 get() 方法的次数。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -1,11 +1,5 @@
 ﻿namespace _1._5._6
 {
-    /*
-     * 1.5.6
-     * 
-     * 使用加权 quick-union 算法完成练习 1.5.5 。
-     * 
-     */
     class Program
     {
         static void Main(string[] args)

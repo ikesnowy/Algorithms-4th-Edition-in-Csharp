@@ -2,19 +2,7 @@
 
 namespace _1._1._29
 {
-    /*
-     * 1.1.29
-     * 
-     * 等值键。
-     * 为 BinarySearch 类添加一个静态方法 rank()，
-     * 它接受一个键和一个整型有序数组（可能存在重复值）作为参数
-     * 并返回数组中小于该键的元素数量，
-     * 以及一个类似的方法 count() 来返回数组中等于该键的元素数量。
-     * 注意：
-     * 如果 i 和 j 分别是 rank(key, a) 和 count(key, a) 的返回值，
-     * 那么 a[i..i + j - 1] 就是数组中所有和 key 相等的元素。
-     * 
-     */
+    
     class BinarySearch
     {
         static void Main(string[] args)

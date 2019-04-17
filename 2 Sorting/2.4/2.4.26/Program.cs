@@ -4,15 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._26
 {
-    /*
-     * 2.4.26
-     * 
-     * 无需交换的堆。
-     * 因为 sink() 和 swim() 中都用到了初级函数 exch()，
-     * 所以所有元素都被多加载并存储了一次。
-     * 回避这种低效的方式，用插入排序给出新的实现（请见练习 2.1.25）。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -1,13 +1,6 @@
 ﻿namespace _1._5._10
 {
-    /*
-     * 1.5.10
-     * 
-     * 在加权 quick-union 算法中，
-     * 假设我们将 id[find(p)] 的值设为 q 而非 id[find[q]]，所得的算法是正确的吗？
-     * 答：是，但这会增加树的高度，因此无法保证同样的性能。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

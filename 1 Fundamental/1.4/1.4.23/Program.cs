@@ -2,14 +2,7 @@
 
 namespace _1._4._23
 {
-    /*
-     * 1.4.23
-     * 
-     * 分数的二分查找。
-     * 设计一个算法，使用对数级别的比较次数找出有理数 p/q，其中 0<p<q<N，
-     * 比较形式为给定的数是否小于 x?
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

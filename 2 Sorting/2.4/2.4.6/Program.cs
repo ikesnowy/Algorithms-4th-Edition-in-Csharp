@@ -3,14 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._6
 {
-    /*
-     * 2.4.6
-     * 
-     * 按照练习 2.4.1 的规则，
-     * 用序列 P R I O * R * * I * T * Y * * * Q U E * * * U * E 
-     * 操作一个初始空间为空的面向最大元素的堆，给出每次操作后堆的内容。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

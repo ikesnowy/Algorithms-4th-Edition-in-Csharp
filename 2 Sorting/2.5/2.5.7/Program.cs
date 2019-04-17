@@ -3,12 +3,7 @@ using SortApplication;
 
 namespace _2._5._7
 {
-    /*
-     * 2.5.7
-     * 
-     * 用 select() 找出 N 个元素中的最小值平均大约需要多少次比较？
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

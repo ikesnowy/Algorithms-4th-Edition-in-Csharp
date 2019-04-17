@@ -4,16 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._28
 {
-    /*
-     * 2.4.28
-     * 
-     * 选择过滤。
-     * 编写一个 TopM 的用例，
-     * 从标准输入读入坐标 (x, y, z)，从命令行得到值 M，
-     * 然后打印出距离原点的欧几里得距离最小的 M 个点。
-     * 在 N=10^8 且 M=10^4 时，预计程序的运行时间。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

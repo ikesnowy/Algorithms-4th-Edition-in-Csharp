@@ -5,13 +5,7 @@ using Measurement;
 
 namespace _1._4._3
 {
-    /*
-     * 1.4.3
-     * 
-     * 修改 DoublingTest，使用 StdDraw 产生类似于正文中的标准图像和对数图像，
-     * 根据需要调整比例使图像总能够充满窗口的大部分区域。
-     * 
-     */
+    
     static class Program
     {
         /// <summary>

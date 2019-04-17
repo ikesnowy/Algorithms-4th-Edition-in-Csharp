@@ -3,12 +3,7 @@ using SymbolTable;
 
 namespace _3._1._2
 {
-    /*
-     * 3.1.2
-     * 
-     * 开发一个符号表的实现 ArrayST，使用（无序）数组来实现我们的基本 API。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

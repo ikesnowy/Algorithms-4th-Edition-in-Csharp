@@ -3,15 +3,7 @@ using Sort;
 
 namespace _2._1._28
 {
-    /*
-     * 2.1.28
-     * 
-     * 相等的主键。
-     * 对于主键仅可能取两种值的数组，
-     * 评估和验证插入排序和选择排序的性能，
-     * 假设两种主键值出现的概率相同。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -1,12 +1,6 @@
 ﻿namespace _2._3._12
 {
-    /*
-     * 2.3.12
-     * 
-     * 按照代码所示轨迹的格式给出信息量最佳的快速排序第一次是如何切分数组 
-     * B A B A B A B A C A D A B R A 的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

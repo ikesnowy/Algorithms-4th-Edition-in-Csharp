@@ -2,15 +2,7 @@
 
 namespace _2._5._10
 {
-    /*
-     * 2.5.10
-     * 
-     * 创建一个数据类型 Version 来表示软件的版本，
-     * 例如 155.1.1、155.10.1、155.10.2。
-     * 为它实现 Comparable 接口，
-     * 其中 115.1.1 的版本低于 115.10.1。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

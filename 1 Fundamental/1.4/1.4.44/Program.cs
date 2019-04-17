@@ -2,15 +2,7 @@
 
 namespace _1._4._44
 {
-    /*
-     * 1.4.44
-     * 
-     * 生日问题。
-     * 编写一个程序，
-     * 从命令行接受一个整数 N 作为参数并使用 StdRandom.uniform() 生成一系列 0 到 N-1 之间的随机整数。
-     * 通过实验验证产生第一个重复的随机数之前生成的整数数量为 ~√(πN/2)。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

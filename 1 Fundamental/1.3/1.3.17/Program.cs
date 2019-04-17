@@ -2,12 +2,7 @@
 
 namespace _1._3._17
 {
-    /*
-     * 1.3.17
-     * 
-     * 为 Transaction 类完成练习 1.3.16
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

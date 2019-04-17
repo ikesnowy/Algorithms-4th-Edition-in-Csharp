@@ -28,8 +28,6 @@ namespace MarkdownBuilder
             {
                 sb.AppendLine(section + "." + i)
                   .AppendLine()
-                  .AppendLine("##### 题目")
-                  .AppendLine()
                   .AppendLine("##### 解答")
                   .AppendLine()
                   .AppendLine("##### 代码")

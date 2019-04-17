@@ -2,15 +2,7 @@
 
 namespace _1._5._14
 {
-    /*
-     * 1.5.14
-     * 
-     * 根据高度加权的 quick-union 算法。
-     * 给出 UF 的一个实现，使用和加权 quick-union 算法相同的策略，
-     * 但记录的是树的高度并总是将较矮的树连接到较高的树上。
-     * 用算法证明 N 个触点的树的高度不会超过其大小的对数级别。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

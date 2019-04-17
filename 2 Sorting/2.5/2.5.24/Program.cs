@@ -3,13 +3,7 @@ using SortApplication;
 
 namespace _2._5._24
 {
-    /*
-     * 2.5.24
-     * 
-     * 稳定的优先队列。
-     * 实现一个稳定的优先队列（将重复的元素按照它们被插入的顺序返回）。
-     * 
-     */
+    
     class Program
     {
         // 官方解答：https://algs4.cs.princeton.edu/25applications/StableMinPQ.java.html

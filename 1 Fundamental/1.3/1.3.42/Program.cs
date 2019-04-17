@@ -3,15 +3,7 @@ using Generics;
 
 namespace _1._3._42
 {
-    /*
-     * 1.3.42
-     * 
-     * 复制栈。
-     * 为基于链表实现的栈编写一个新的构造函数，使以下代码
-     * Stack t = new Stack(s);
-     * 得到的 t 指向栈 s 的一个新的独立的副本。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -1,12 +1,6 @@
 ﻿namespace _2._1._20
 {
-    /*
-     * 2.1.20
-     * 
-     * 希尔排序的最好情况。
-     * 最好情况是什么？证明你的结论。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

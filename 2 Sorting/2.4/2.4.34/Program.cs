@@ -3,13 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._34
 {
-    /*
-     * 2.4.34
-     * 
-     * 索引优先队列的实现（附加操作）。
-     * 向练习 2.4.33 的实现中添加 minIndex()、change() 和 delete() 方法。
-     * 
-     */
+    
     class Program
     {
         // 同上题，这里选择和官网保持一致使用最大堆

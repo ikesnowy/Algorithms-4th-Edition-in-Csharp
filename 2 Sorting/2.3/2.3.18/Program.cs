@@ -3,14 +3,7 @@ using Quick;
 
 namespace _2._3._18
 {
-    /*
-     * 2.3.18
-     * 
-     * 三取样切分。
-     * 为快速排序实现正文所述的三取样切分（参见 2.3.3.2 节）。
-     * 运行双倍测试来确认这项改动的效果。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

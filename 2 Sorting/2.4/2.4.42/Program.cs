@@ -4,16 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._42
 {
-    /*
-     * 2.4.42
-     * 
-     * 堆的前序表示。
-     * 用前序法而非级别表示一棵堆有序的树，
-     * 并基于此实现堆排序。
-     * 对于 N=10^3、10^6 和 10^9 大小的随机不重复数组，
-     * 记录你的程序所使用的比较次数和标准实现所使用的比较次数。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

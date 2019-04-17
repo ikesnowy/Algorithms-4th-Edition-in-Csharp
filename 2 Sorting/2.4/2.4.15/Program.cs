@@ -1,11 +1,6 @@
 ﻿namespace _2._4._15
 {
-    /*
-     * 2.4.15
-     * 
-     * 设计一个程序，在线性时间内检测数组 pq[] 是否是一个面向最小元素的堆。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

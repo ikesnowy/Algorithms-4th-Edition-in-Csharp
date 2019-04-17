@@ -3,15 +3,7 @@ using SortApplication;
 
 namespace _2._5._18
 {
-    /*
-     * 2.5.18
-     * 
-     * 强制稳定。
-     * 编写一段能够将任意排序方法变得稳定的封装代码，
-     * 创建一种新的数据类型作为键，将键的原始索引保存在其中，
-     * 并在调用 sort() 之后再恢复原始的键。
-     * 
-     */
+    
     class Program
     {
         class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>

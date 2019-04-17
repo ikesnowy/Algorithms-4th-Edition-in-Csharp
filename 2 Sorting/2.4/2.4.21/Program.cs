@@ -1,12 +1,6 @@
 ﻿namespace _2._4._21
 {
-    /*
-     * 2.4.21
-     * 
-     * 基础数据结构。
-     * 说明如何使用优先队列实现第一章中的栈、队列和随机队列这几种数据结构。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

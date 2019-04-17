@@ -3,12 +3,7 @@ using Quick;
 
 namespace _2._3._5
 {
-    /*
-     * 2.3.5
-     * 
-     * 给出一段代码将已知只有两种主键值的数组排序。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

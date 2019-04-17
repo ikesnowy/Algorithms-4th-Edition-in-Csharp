@@ -2,13 +2,7 @@
 
 namespace _2._5._4
 {
-    /*
-     * 2.5.4
-     * 
-     * 实现一个方法 String[] dedup(String[] a)，
-     * 返回一个有序的 a[]，并删去其中的重复元素。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

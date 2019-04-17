@@ -3,14 +3,7 @@ using System.Diagnostics;
 
 namespace _2._4._39
 {
-    /*
-     * 2.4.39
-     * 
-     * 构造函数的代价。
-     * 对于 N=10^3、10^6 和 10^9，
-     * 根据经验判断堆排序时构造堆所占总耗时的比例。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

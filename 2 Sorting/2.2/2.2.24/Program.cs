@@ -3,15 +3,7 @@ using Merge;
 
 namespace _2._2._24
 {
-    /*
-     * 2.2.24
-     * 
-     * 改进的有序测试。
-     * 在实验中用大型随机数组评估练习 2.2.8 所做的修改的效果。
-     * 根据经验用 N（被排序的原始数组的大小）的函数描述条件语句
-     * （a[mid] <= a[mid + 1]）成立（无论数组是否有序）的次数。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

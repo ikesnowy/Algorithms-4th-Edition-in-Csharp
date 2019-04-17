@@ -3,14 +3,7 @@ using System.Collections.Generic;
 
 namespace _2._5._2
 {
-    /*
-     * 2.5.2
-     * 
-     * 编写一段程序，从标准输入读入一列单词并打印出其中所有由两个单词组成的组合词。
-     * 例如，如果输入的单词为 after、thought 和 afterthought，
-     * 那么 afterthought 就是一个组合词。
-     * 
-     */
+    
     class Program
     {
         /// <summary>

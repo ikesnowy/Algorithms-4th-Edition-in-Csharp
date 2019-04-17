@@ -2,15 +2,7 @@
 
 namespace _2._2._19
 {
-    /*
-     * 2.2.19
-     * 
-     * 倒置。
-     * 编写一个线性对数级别的算法统计给定数组中「倒置」数量
-     * （即插入排序所需的交换次数，请见 2.1 节）。
-     * 这个数量和 Kendall tau 距离有关，请见 2.5 节。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

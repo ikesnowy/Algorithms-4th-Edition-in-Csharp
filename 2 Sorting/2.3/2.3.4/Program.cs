@@ -3,13 +3,7 @@ using Quick;
 
 namespace _2._3._4
 {
-    /*
-     * 2.3.4
-     * 
-     * 假如跳过开头打乱数组的操作，给出六个含有 10 个元素的数组，
-     * 使得 Quick.sort() 所需的比较次数达到最坏情况。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

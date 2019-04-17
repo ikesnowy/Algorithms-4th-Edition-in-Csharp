@@ -3,12 +3,7 @@ using SymbolTable;
 
 namespace _3._1._5
 {
-    /*
-     * 3.1.5
-     * 
-     * 实现 SequentialSearchST 中的 size()、delete() 和 keys() 方法。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

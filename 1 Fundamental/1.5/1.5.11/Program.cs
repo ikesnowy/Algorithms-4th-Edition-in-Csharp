@@ -3,13 +3,7 @@ using UnionFind;
 
 namespace _1._5._11
 {
-    /*
-     * 1.5.11
-     * 
-     * 实现加权 quick-find 算法，其中我们总是将较小的分量重命名为较大分量的标识符。
-     * 这种改变会对性能产生怎样的影响？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

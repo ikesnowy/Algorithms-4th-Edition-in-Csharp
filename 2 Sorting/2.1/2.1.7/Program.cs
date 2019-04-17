@@ -1,11 +1,6 @@
 ﻿namespace _2._1._7
 {
-    /*
-     * 2.1.7
-     * 
-     * 对于逆序数组，选择排序和插入排序谁更快？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

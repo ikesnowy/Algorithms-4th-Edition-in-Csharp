@@ -3,14 +3,7 @@ using Merge;
 
 namespace _2._2._28
 {
-    /*
-     * 2.2.28
-     * 
-     * 自顶向下和自底向上。
-     * 对于 N=10^3、10^4、10^5 和 10^6，
-     * 使用 SortCompare 比较自顶向下和自底向上的归并排序的性能。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

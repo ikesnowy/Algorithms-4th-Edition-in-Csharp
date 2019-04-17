@@ -3,13 +3,7 @@ using System.Diagnostics;
 
 namespace _2._5._23
 {
-    /*
-     * 2.5.23
-     * 
-     * 选择的取样：实验使用取样来改进 select() 函数的想法。
-     * 提示：使用中位数可能并不总是有效。
-     * 
-     */
+    
     class Program
     {
         // 使用 Floyd–Rivest 方法进行优化。

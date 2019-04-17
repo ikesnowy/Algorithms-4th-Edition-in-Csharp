@@ -3,17 +3,7 @@ using SortApplication;
 
 namespace _2._5._25
 {
-    /*
-     * 2.5.25
-     * 
-     * 平面上的点。
-     * 为表 1.2.3 的 Point2D 类型编写三个静态的比较器，
-     * 一个按照 x 坐标比较，一个按照 y 坐标比较，一个按照点到原点的距离进行比较。
-     * 编写两个非静态的比较器，
-     * 一个按照两点到第三点的距离比较，
-     * 一个按照两点相对于第三点的辐角比较。
-     * 
-     */
+    
     class Program
     {
         // 官方解答：https://algs4.cs.princeton.edu/25applications/Point2D.java.html

@@ -3,15 +3,7 @@ using System.Diagnostics;
 
 namespace _3._1._41
 {
-    /*
-     * 3.1.41
-     * 
-     * 插值查找的临界点。
-     * 找出使用插值查找比二分查找要快 1 倍、2 倍和 10 倍的 N 值，
-     * 其中假设所有键为随机的 32 二进位整数（请见练习 3.1.24）。
-     * 分析并预测 N 的大小并通过实验验证它。
-     * 
-     */
+    
     class Program
     {
         static long binarySearchCompare = 0;

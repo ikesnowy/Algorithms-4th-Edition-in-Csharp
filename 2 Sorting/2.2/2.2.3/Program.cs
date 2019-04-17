@@ -1,11 +1,6 @@
 ﻿namespace _2._2._3
 {
-    /*
-     * 2.2.3
-     * 
-     * 用自底向上的归并排序解答练习 2.2.2
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

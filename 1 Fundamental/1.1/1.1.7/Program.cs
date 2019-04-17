@@ -2,12 +2,7 @@
 
 namespace _1._1._7
 {
-    /*
-     * 1.1.7
-     * 
-     * 分别给出以下代码段打印出的值
-     * 
-     */
+    
     class Program
     {
         private static void a()

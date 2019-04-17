@@ -1,12 +1,6 @@
 ﻿namespace _2._2._4
 {
-    /*
-     * 2.2.4
-     * 
-     * 是否当且仅当两个输入的子数组都有序时原地归并的抽象方法才能得到正确的结果？
-     * 证明你的结论，或者给出一个反例。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,13 +3,7 @@ using Measurement;
 
 namespace _1._4._14
 {
-    /*
-     * 1.4.14
-     * 
-     * 4-sum。
-     * 为 4-sum 设计一个算法。
-     * 
-     */
+    
     class Program
     {
         // 见 Measurement.FourSum 类

@@ -4,15 +4,7 @@ using SymbolTable;
 
 namespace _3._1._32
 {
-    /*
-     * 3.1.32
-     * 
-     * 练习。
-     * 编写一段练习程序，
-     * 用困难或者极端但在实际应用中可能出现的情况来测试我们的有序符号表 API。
-     * 一些简单的例子包括有序的键列、逆序的键列、所有键全部相同或者只含有两种不同的值。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

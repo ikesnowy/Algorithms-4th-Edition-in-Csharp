@@ -3,12 +3,7 @@ using UnionFind;
 
 namespace _1._5._3
 {
-    /*
-     * 1.5.3
-     * 
-     * 使用加权 quick-union 算法（请见算法 1.5）完成练习 1.5.1 。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

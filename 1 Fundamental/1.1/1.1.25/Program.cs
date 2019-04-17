@@ -1,11 +1,5 @@
 ﻿namespace _1._1._25
 {
-    /*
-     * 1.1.25
-     * 
-     * 用数学归纳法证明欧几里得算法能够计算出任意一对非负整数 p 和 q 的最大公约数
-     * 
-     */
     class Program
     {
         static void Main(string[] args)

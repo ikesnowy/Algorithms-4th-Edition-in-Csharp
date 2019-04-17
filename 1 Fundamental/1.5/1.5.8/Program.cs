@@ -1,20 +1,5 @@
 ﻿namespace _1._5._8
 {
-    /*
-     * 1.5.8
-     * 
-     * 用一个反例证明 quick-find 算法中的 union() 方法的以下直观实现是错误的：
-     * public void union(int p, int q)
-     * {
-     *     if (connected(p, q)) return;
-     *     for (int i = 0; i < id.length; i++)
-     *     {
-     *         if (id[i] == id[p]) id[i] = id[q];
-     *     }
-     *     count--;
-     * }
-     * 
-     */
     class Program
     {
         static void Main(string[] args)

@@ -2,16 +2,7 @@
 
 namespace _1._5._20
 {
-    /*
-     * 1.5.20
-     * 
-     * 动态生长。
-     * 使用链表或大小可变的数组实现加权 quick-union 算法，
-     * 去掉需要预先知道对象数量的限制。
-     * 为 API 添加一个新方法 newSite()，
-     * 它应该返回一个类型为 int 的标识符。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

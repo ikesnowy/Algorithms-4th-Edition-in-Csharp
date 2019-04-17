@@ -2,12 +2,7 @@
 
 namespace _2._5._6
 {
-    /*
-     * 2.5.6
-     * 
-     * 用递归实现 select()。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

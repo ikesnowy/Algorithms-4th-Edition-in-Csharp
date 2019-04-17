@@ -1,12 +1,6 @@
 ﻿namespace _3._1._20
 {
-    /*
-     * 3.1.20
-     * 
-     * 补全命题 B 的证明（证明 N 的一般情况）。
-     * 提示：先证明 C(N) 的单调性，即对于所有的 N>0，C(N)<=C(N+1)。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

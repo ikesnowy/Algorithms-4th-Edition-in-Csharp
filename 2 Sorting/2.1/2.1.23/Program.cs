@@ -1,13 +1,6 @@
 ﻿namespace _2._1._23
 {
-    /*
-     * 2.1.23
-     * 
-     * 纸牌排序。
-     * 请几位朋友分别将一副扑克牌排序（见练习2.1.13）。
-     * 仔细观察并记录他们所使用的方法。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

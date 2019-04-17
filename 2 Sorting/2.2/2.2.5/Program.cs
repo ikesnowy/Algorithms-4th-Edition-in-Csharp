@@ -1,12 +1,6 @@
 ﻿namespace _2._2._5
 {
-    /*
-     * 2.2.5
-     * 
-     * 当输入数组的大小 N=39 时，
-     * 给出自顶向下和自底向上的归并排序中各次归并子数组的大小及顺序。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

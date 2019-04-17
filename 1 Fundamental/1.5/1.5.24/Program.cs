@@ -4,14 +4,7 @@ using System.Diagnostics;
 
 namespace _1._5._24
 {
-    /*
-     * 1.5.24
-     * 
-     * 适用于 Erdös-Renyi 模型的快速算法。
-     * 在练习1.5.23 的测试中增加加权 quick-union 算法和使用路径压缩的加权 quick-union 算法。
-     * 你能分辨出这两种算法的区别吗？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

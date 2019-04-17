@@ -3,13 +3,7 @@ using Generics;
 
 namespace _1._3._2
 {
-    /*
-     * 1.3.2
-     * 
-     * 给定以下输入，java Stack 的输出会是什么？
-     * it was - the best - of times - - - it was - the - -
-     * 
-     */
+    
     class Program
     {
         // was best times of the was the it (1 left on stack) 

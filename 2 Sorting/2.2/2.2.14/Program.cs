@@ -2,15 +2,7 @@
 
 namespace _2._2._14
 {
-    /*
-     * 2.2.14
-     * 
-     * 归并有序的队列。
-     * 编写一个静态方法，
-     * 将两个有序的队列作为参数，
-     * 返回一个归并后的有序队列。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

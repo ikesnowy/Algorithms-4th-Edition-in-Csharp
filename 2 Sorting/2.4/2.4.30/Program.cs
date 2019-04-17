@@ -3,15 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._30
 {
-    /*
-     * 2.4.30
-     * 
-     * 动态中位数查找。
-     * 设计一个数据类型，支持在对数时间内插入元素，
-     * 常数时间内找到中位数并在对数时间内删除中位数。
-     * 提示：用一个面向最大元素的堆再用一个面向最小元素的堆。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

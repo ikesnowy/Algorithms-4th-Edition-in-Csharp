@@ -2,14 +2,7 @@
 
 namespace _3._1._27
 {
-    /*
-     * 3.1.27
-     * 
-     * 小符号表。
-     * 假设一段 BinarySearchST 的用例插入了 N 个不同的键并会进行 S 次查找。
-     * 当构造表的成本和所有查找的总成本相同时，给出 S 的增长数量级。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

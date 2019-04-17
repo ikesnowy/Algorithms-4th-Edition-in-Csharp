@@ -3,12 +3,7 @@ using SymbolTable;
 
 namespace _3._1._16
 {
-    /*
-     * 3.1.16
-     * 
-     * 为 BinarySearchST 实现 delete() 方法。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

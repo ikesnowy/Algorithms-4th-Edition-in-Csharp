@@ -1,11 +1,6 @@
 ﻿namespace _2._4._20
 {
-    /*
-     * 2.4.20
-     * 
-     * 证明：基于下沉的堆构造方法使用的比较次数小于 2N，交换次数小于 N。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

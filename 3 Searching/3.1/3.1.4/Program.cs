@@ -3,12 +3,7 @@ using SymbolTable;
 
 namespace _3._1._4
 {
-    /*
-     * 3.1.4
-     * 
-     * 开发抽象数据类型 Time 和 Event 来处理表 3.1.5 中的例子中的数据。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

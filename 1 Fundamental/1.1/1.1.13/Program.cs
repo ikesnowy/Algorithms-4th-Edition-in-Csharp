@@ -2,12 +2,7 @@
 
 namespace _1._1._13
 {
-    /*
-     * 1.1.13
-     * 
-     * 编写一段代码，打印出一个 M 行 N 列的二维数组的转置
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

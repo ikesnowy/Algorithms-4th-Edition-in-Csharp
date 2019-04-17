@@ -3,14 +3,7 @@ using Generics;
 
 namespace _1._3._18
 {
-    /*
-     * 1.3.18
-     * 
-     * 假设 x 是一条链表的某个结点且不是尾结点。
-     * 下面这条语句的效果是什么？
-     * x.next = x.next.next;
-     * 
-     */
+    
     class Program
     {
         // 删除 x 的后一个结点。

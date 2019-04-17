@@ -3,14 +3,7 @@ using Measurement;
 
 namespace _1._4._8
 {
-    /*
-     * 1.4.8
-     * 
-     * 编写一个程序，计算输入文件中相等的整数对的数量。
-     * 如果你的第一个程序是平方级别的，
-     * 请继续思考并用 Array.sort() 给出一个线性对数级别的解答。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

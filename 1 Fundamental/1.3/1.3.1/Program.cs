@@ -2,12 +2,7 @@
 
 namespace _1._3._1
 {
-    /*
-     * 1.3.1
-     * 
-     * 为 FixedCapacityStackOfStrings 添加一个方法 isFull()。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

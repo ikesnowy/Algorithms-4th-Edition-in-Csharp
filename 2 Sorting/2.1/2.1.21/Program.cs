@@ -3,15 +3,7 @@ using Sort;
 
 namespace _2._1._21
 {
-    /*
-     * 2.1.21
-     * 
-     * 可比较的交易。
-     * 用我们的 Date 类（请见 2.1.1.4 节）
-     * 作为模板扩展你的 Transaction 类（请见练习 1.2.13），
-     * 实现 Comparable 接口，使交易能够按照金额排序。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

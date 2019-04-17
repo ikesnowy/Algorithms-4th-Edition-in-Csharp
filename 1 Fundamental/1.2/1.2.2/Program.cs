@@ -4,13 +4,7 @@ using Geometry;
 
 namespace _1._2._2
 {
-    /*
-     * 1.2.2
-     * 
-     * 编写一个 Interval1D 的用例，从命令行接受一个整数 N。
-     * 从标准输入中读取 N 个间隔（每个间隔由一对 double 值定义）并打印出所有相交的间隔对。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

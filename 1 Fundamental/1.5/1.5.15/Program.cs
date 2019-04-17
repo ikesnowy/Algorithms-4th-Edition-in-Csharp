@@ -1,14 +1,6 @@
 ﻿namespace _1._5._15
 {
-    /*
-     * 1.5.15
-     * 
-     * 二项树。
-     * 请证明，对于加权 quick-union 算法，
-     * 在最坏情况下树中的每一层的节点数均为二项式系数。
-     * 在这种情况下，计算含有 N=2^n 个节点的树中节点的平均深度。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

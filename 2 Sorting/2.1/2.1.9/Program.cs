@@ -1,12 +1,6 @@
 ﻿namespace _2._1._9
 {
-    /*
-     * 2.1.9
-     * 
-     * 按照算法 2.3 所示轨迹的格式给出希尔排序是如何将数组 
-     * E A S Y S H E L L S O R T Q U E S T I O N 排序的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,13 +3,7 @@ using SymbolTable;
 
 namespace _3._1._7
 {
-    /*
-     * 3.1.7
-     * 
-     * 对于 N=10、10^2、10^3、10^4、10^5 和 10^6，
-     * 在 N 个小于 1000 的随机非负整数中 FrequencyCounter 平均能够找到多少个不同的键？
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

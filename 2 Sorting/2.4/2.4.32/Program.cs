@@ -1,14 +1,6 @@
 ﻿namespace _2._4._32
 {
-    /*
-     * 2.4.32
-     * 
-     * 下界。
-     * 请证明，
-     * 不存在一个基于比较的对 MinPQ 的 API 的实现
-     * 能够使得插入元素和删除最小元素的操作都保证只使用 ~NloglogN 次比较。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

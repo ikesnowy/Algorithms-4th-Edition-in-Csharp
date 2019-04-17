@@ -3,14 +3,7 @@ using Merge;
 
 namespace _2._2._25
 {
-    /*
-     * 2.2.25
-     * 
-     * 多向归并排序。
-     * 实现一个 k 向（相对双向而言）归并排序程序。
-     * 分析你的算法，估计最佳的 k 值并通过实验验证猜想。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

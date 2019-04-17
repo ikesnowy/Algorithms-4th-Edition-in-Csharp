@@ -2,16 +2,7 @@
 
 namespace _1._2._5
 {
-    /*
-     * 1.2.5
-     * 
-     * 以下这段代码会打印出什么？
-     * String s = "Hello World";
-     * s.toUpperCase();
-     * s.substring(6, 11);
-     * StdOut.println(s);
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,12 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._16
 {
-    /*
-     * 2.4.16
-     * 
-     * 对于 N=32，构造数组使得堆排序使用的比较次数最多以及最少。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

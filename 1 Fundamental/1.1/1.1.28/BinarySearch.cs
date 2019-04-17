@@ -4,13 +4,7 @@ using System.IO;
 
 namespace _1._1._28
 {
-    /*
-     * 1.1.28
-     * 
-     * 删除重复元素。
-     * 修改 BinarySearch 类中的测试用例来删去排序之后白名单中的所有重复元素。
-     * 
-     */
+    
     class BinarySearch
     {
         static void Main(string[] args)

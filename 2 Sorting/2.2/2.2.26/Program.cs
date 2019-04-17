@@ -3,14 +3,7 @@ using Merge;
 
 namespace _2._2._26
 {
-    /*
-     * 2.2.26
-     * 
-     * 创建数组。
-     * 使用 SortCompare 粗略比较在你的计算机上
-     * 在 merge() 中和在 sort() 中创建 aux[] 的性能差异。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

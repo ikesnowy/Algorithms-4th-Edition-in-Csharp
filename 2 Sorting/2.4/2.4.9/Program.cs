@@ -1,12 +1,6 @@
 ﻿namespace _2._4._9
 {
-    /*
-     * 2.4.9
-     * 
-     * 给出 A B C D E 五个元素可能构造出来的所有堆，
-     * 然后给出 A A A B B 这五个元素可能构造出来的所有堆。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

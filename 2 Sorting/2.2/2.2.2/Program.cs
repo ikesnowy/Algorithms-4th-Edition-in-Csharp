@@ -1,12 +1,6 @@
 ﻿namespace _2._2._2
 {
-    /*
-     * 2.2.2
-     * 
-     * 按照算法 2.4 所示轨迹的格式给出自顶向下的归并排序是如何
-     * 将数组 E A S Y Q U E S T I O N 排序的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

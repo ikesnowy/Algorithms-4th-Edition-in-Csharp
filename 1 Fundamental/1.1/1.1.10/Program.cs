@@ -1,11 +1,6 @@
 ﻿namespace _1._1._10
 {
-    /*
-     * 1.1.10
-     * 
-     * 下面这段代码有什么问题？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

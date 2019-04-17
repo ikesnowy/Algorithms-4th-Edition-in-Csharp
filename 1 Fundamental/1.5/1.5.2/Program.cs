@@ -3,13 +3,7 @@ using UnionFind;
 
 namespace _1._5._2
 {
-    /*
-     * 1.5.2
-     * 
-     * 使用 quick-union 算法（请见 1.5.2.3 节代码框）完成练习 1.5.1。
-     * 另外，在处理完输入的每对整数之后画出 id[] 数组表示的森林。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

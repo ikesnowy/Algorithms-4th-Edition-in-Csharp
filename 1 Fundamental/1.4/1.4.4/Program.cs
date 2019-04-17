@@ -1,11 +1,6 @@
 ﻿namespace _1._4._4
 {
-    /*
-     * 1.4.4
-     * 
-     * 参照表 1.4.4 为 TwoSum 建立一张类似的表格。
-     * 
-     */
+    
     class Program
     {
         public static int Count(int[] a)

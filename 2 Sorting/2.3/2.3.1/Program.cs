@@ -1,12 +1,6 @@
 ﻿namespace _2._3._1
 {
-    /*
-     * 2.3.1
-     * 
-     * 按照 Partition() 方法的轨迹的格式给出该方法是如何切分数组 
-     * E A S Y Q U E S T I O N 的。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

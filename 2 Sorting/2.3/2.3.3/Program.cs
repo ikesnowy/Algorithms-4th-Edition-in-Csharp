@@ -1,13 +1,6 @@
 ﻿namespace _2._3._3
 {
-    /*
-     * 2.3.3
-     * 
-     * 对于长度为 N 的数组，
-     * 在 Quick.sort() 执行时，
-     * 其最大元素最多会被交换多少次？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

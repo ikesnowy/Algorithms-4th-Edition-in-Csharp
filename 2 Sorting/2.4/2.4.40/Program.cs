@@ -4,15 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._40
 {
-    /*
-     * 2.4.40
-     * 
-     * Floyd 方法。
-     * 根据正文中 Floyd 的先沉后浮思想实现堆排序。
-     * 对于 N=10^3、10^6 和 10^9 大小的随机不重复数组，
-     * 记录你的程序所使用的比较次数和标准实现所使用的比较次数。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

@@ -3,16 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._31
 {
-    /*
-     * 2.4.31
-     * 
-     * 快速插入。
-     * 用基于比较的方式实现 MinPQ 的 API，
-     * 使得插入元素需要 ~loglogN 次比较，
-     * 删除最小元素需要 ~2logN 次比较。
-     * 提示：在 swim() 方法中用二分查找来寻找祖先结点。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

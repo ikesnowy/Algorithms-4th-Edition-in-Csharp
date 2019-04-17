@@ -2,9 +2,4 @@
 ###############
 #    folder   #
 ###############
-/**/DROP/
-/**/TEMP/
-/**/packages/
-/**/bin/
-/**/obj/
-/**/docs
+docs

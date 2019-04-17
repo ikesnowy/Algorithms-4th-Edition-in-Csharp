@@ -2,17 +2,7 @@
 
 namespace _2._5._27
 {
-    /*
-     * 2.5.27
-     * 
-     * 平行数组的排序。
-     * 在将平行数组排序时，可以将索引排序并返回一个 index[] 数组。
-     * 为 Insertion 添加一个 indirectSort 方法，
-     * 接受一个 Comparable 的对象数组 a[] 作为参数，
-     * 但它不会将 a[] 中的元素重新排列，
-     * 而是返回一个整型数组 index[] 使得 a[index[0]] 到 a[index[N-1]] 正好是升序的。
-     * 
-     */
+    
     class Program
     {
         /// <summary>

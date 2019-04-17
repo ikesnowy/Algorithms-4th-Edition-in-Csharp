@@ -1,11 +1,6 @@
 ﻿namespace _2._5._5
 {
-    /*
-     * 2.5.5
-     * 
-     * 说明为何选择排序是不稳定的？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

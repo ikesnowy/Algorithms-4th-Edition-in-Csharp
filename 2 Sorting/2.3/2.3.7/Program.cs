@@ -3,15 +3,7 @@ using Quick;
 
 namespace _2._3._7
 {
-    /*
-     * 2.3.7
-     * 
-     * 在使用快速排序将 N 个不重复的元素排序时，
-     * 计算大小为 0、1 和 2 的子数组的数量。
-     * 如果你喜欢数学，请推导；
-     * 如果你不喜欢，请做一些实验并提出猜想。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

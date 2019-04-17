@@ -2,15 +2,7 @@
 
 namespace _2._3._10
 {
-    /*
-     * 2.3.10
-     * 
-     * Chebyshev 不等式表明，
-     * 一个随机变量的标准差距离均值大于 k 的概率小于 1/k^2 。
-     * 对于 N=100 万，
-     * 用 Chebyshev 不等式计算快速排序所使用的比较次数大于 1000 亿次的概率（0.1N^2）。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

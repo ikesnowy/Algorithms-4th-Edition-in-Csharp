@@ -1,12 +1,6 @@
 ﻿namespace _2._3._14
 {
-    /*
-     * 2.3.14
-     * 
-     * 证明在用快速排序处理大小为 N 的不重复数组时，
-     * 比较第 i 大和第 j 大元素的概率为 2/(j - i + 1)，并用该结论证明命题 K。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

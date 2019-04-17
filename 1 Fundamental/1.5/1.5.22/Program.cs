@@ -4,21 +4,7 @@ using UnionFind;
 
 namespace _1._5._22
 {
-    /*
-     * 1.5.22
-     * 
-     * Erdös-Renyi 的倍率实验。
-     * 开发一个性能测试用例，
-     * 从命令行接受一个 int 值 T 并进行 T 次以下实验：
-     * 使用练习 1.5.17 的用例生成随机连接，
-     * 和我们的开发用例一样使用 UnionFind 来检查触点的连通性，
-     * 不断循环知道所有触点都相互连通。
-     * 对于每个 N，打印出 N 值和平均所需的连接数以及前后两次运行时间的比值。
-     * 使用你的程序验证正文中的猜想：
-     * quick-find 算法和 quick-union 算法的运行时间是平方级别的，
-     * 加权 quick-union 算法则接近线性级别。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

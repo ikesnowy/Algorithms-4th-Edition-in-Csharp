@@ -1,11 +1,5 @@
 ﻿namespace _1._4._7
 {
-    /*
-     * 1.4.7
-     * 
-     * 以统计涉及输入数字的算数操作（和比较）的成本模型分析 ThreeSum。
-     * 
-     */
     class Program
     {
         static void Main(string[] args)

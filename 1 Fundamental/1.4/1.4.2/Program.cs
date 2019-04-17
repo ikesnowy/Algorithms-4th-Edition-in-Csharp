@@ -3,12 +3,7 @@ using Measurement;
 
 namespace _1._4._2
 {
-    /*
-     * 1.4.2
-     * 
-     * 修改 ThreeSum，正确处理两个较大 int 值相加可能溢出的情况。
-     * 
-     */
+    
     class Program
     {
         // 将 a[i] + a[j] + a[k] 改为 (long)a[i] + a[j] + a[k] 即可。

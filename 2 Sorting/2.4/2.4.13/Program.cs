@@ -1,11 +1,6 @@
 ﻿namespace _2._4._13
 {
-    /*
-     * 2.4.13
-     * 
-     * 想办法在 sink() 中避免检查 j<N。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

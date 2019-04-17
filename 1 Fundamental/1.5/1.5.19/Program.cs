@@ -6,14 +6,7 @@ using UnionFind;
 
 namespace _1._5._19
 {
-    /*
-     * 1.5.19
-     * 
-     * 动画。
-     * 编写一个 RandomGrid（请见练习 1.5.18）的用例，
-     * 和我们开发用例一样使用 UnionFind 来检查触点的连通性并在处理时用 StdDraw 将它们绘出。
-     * 
-     */
+    
     static class Program
     {
         static RandomBag<Connection> bag;

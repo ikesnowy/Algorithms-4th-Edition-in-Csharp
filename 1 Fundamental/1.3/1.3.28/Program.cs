@@ -3,12 +3,7 @@ using Generics;
 
 namespace _1._3._28
 {
-    /*
-     * 1.3.28
-     * 
-     * 用递归方法解答上一道练习。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

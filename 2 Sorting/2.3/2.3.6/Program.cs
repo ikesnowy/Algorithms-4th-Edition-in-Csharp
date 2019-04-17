@@ -3,13 +3,7 @@ using Quick;
 
 namespace _2._3._6
 {
-    /*
-     * 2.3.6
-     * 
-     * 编写一段代码来计算 C_N 的准确值，
-     * 在 N=100、1000 和 10 000 的情况下比较准确值和估计值 2NlnN 的差距。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

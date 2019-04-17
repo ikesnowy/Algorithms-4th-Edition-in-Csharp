@@ -3,13 +3,7 @@ using Commercial;
 
 namespace _1._2._14
 {
-    /*
-     * 1.2.14
-     * 
-     * 用我们对 Date 中的 equals() 方法的实现（请见 1.2.5.8 节中的 Date 代码框）作为模板，
-     * 实现 Transaction 中的 equals() 方法。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

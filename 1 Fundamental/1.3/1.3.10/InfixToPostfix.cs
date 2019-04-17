@@ -3,13 +3,7 @@ using Generics;
 
 namespace _1._3._10
 {
-    /*
-     * 1.3.10
-     * 
-     * 编写一个过滤器 InfixToPostfix，
-     * 将算术表达式由中序表达式转为后序表达式。
-     * 
-     */
+    
     class InfixToPostfix
     {
         // 其实就是把右括号换成相应运算符

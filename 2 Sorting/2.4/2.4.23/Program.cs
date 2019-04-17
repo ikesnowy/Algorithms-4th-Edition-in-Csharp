@@ -1,15 +1,6 @@
 ﻿namespace _2._4._23
 {
-    /*
-     * 2.4.23
-     * 
-     * Multiway 的堆。
-     * 只考虑比较的成本且假设找到 t 个元素中的最大者需要 t 次比较，
-     * 在堆排序中使用 t 向堆的情况下找出使比较次数 NlogN 的系数最小的 t 值。
-     * 首先，假设使用的是一个简单通用的 sink() 方法；
-     * 其次，假设 Floyd 方法在内循环中每轮可以节省一次比较。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,14 +3,7 @@ using Generics;
 
 namespace _1._3._25
 {
-    /*
-     * 1.3.25
-     * 
-     * 编写一个方法 insertAfter()，接受两个链表结点作为参数，
-     * 将第二个结点插入链表并使之成为第一个结点的后续结点
-     * （如果两个参数为空则什么也不做）。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

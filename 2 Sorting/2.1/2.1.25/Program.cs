@@ -4,15 +4,7 @@ using SortData;
 
 namespace _2._1._25
 {
-    /*
-     * 2.1.25
-     * 
-     * 不需要交换的插入排序。
-     * 在插入排序的实现中使较大元素右移一位只需要访问一次数组
-     * （而不用使用 exch()）。
-     * 使用 SortCompare 来评估这种做法的效果。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

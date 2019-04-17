@@ -1,12 +1,6 @@
 ﻿namespace _3._1._15
 {
-    /*
-     * 3.1.15
-     * 
-     * 假设在一个 BinarySearchST 的用例程序中，查找操作的次数是插入操作的 1000 倍。
-     * 当分别进行 10^3、10^6 和 10^9 次查找时，请估计插入操作在总耗时中的比例。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -3,16 +3,7 @@ using Quick;
 
 namespace _2._3._23
 {
-    /*
-     * 2.3.23
-     * 
-     * Java 的排序库函数。
-     * 在练习 2.3.22 的代码中使用 Tukey's ninther 方法来找出切分元素——选择三组，
-     * 每组三个元素，分别取三组元素的中位数，
-     * 然后取三个中位数的中位数作为切分元素，
-     * 且在排序小数组时切换到插入排序。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

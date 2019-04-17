@@ -1,12 +1,6 @@
 ﻿namespace _3._1._11
 {
-    /*
-     * 3.1.11
-     * 
-     * 给出用 BinarySearchST 将键 E A S Y Q U E S T I O N 插入一个空符号表的过程的轨迹。
-     * 一共进行了多少次比较？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

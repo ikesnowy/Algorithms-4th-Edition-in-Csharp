@@ -4,15 +4,7 @@ using System.Diagnostics;
 
 namespace _2._1._26
 {
-    /*
-     * 2.1.26
-     * 
-     * 原始数据类型。
-     * 编写一个能够处理 int 值的插入排序的新版本，
-     * 比较它和正文中所给出的实现
-     * （能够隐式地用自动装箱和拆箱转换 Integer 值并排序）的性能。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

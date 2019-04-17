@@ -1,13 +1,6 @@
 ﻿namespace _2._4._22
 {
-    /*
-     * 2.4.22
-     * 
-     * 调整数组大小。
-     * 在 MaxPQ 中加入调整数组大小的代码，
-     * 并和命题 Q 一样证明对于一般性长度为 N 的队列其数组访问的上限。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

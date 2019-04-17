@@ -4,17 +4,7 @@ using UnionFind;
 
 namespace _1._5._23
 {
-    /*
-     * 1.5.23
-     * 
-     * 在 Erdös-Renyi 模型下比较 quick-find 算法和 quick-union 算法。
-     * 开发一个性能测试用例，从命令行接受一个 int 值 T 并进行 T 次以下实验：
-     * 使用练习 1.5.17 的用例生成随机连接。
-     * 保存这些连接并和我们的开发用例一样分别用 quick-find 和 quick-union 算法检查触点的连通性，
-     * 不断循环直到所有触点均相互连通。
-     * 对于每个 N，打印出 N 值和两种算法的运行时间比值。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

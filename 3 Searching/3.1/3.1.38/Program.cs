@@ -3,14 +3,7 @@ using System.Windows.Forms;
 
 namespace _3._1._38
 {
-    /*
-     * 3.1.38
-     * 
-     * 均摊成本图。
-     * 修改 FrequencyCounter 、SequentialSearchST 和 BinarySearchST，
-     * 统计计算中每次 put() 操作的成本并生成类似本节所示的图。
-     * 
-     */
+    
     static class Program
     {
         /// <summary>

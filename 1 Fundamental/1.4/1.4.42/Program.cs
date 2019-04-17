@@ -1,13 +1,6 @@
 ﻿namespace _1._4._42
 {
-    /*
-     * 1.4.42
-     * 
-     * 问题规模。
-     * 设在你的计算机上用 TwoSumFast、TwoSum、ThreeSumFast 以及 ThreeSum 能够处理的问题规模为 2^P × 10^3 个整数。
-     * 使用 DoublingRatio 估计 P 的最大值。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -4,17 +4,7 @@ using SymbolTable;
 
 namespace _3._1._34
 {
-    /*
-     * 3.1.34
-     * 
-     * Zipf 法则。
-     * 用命中第 i 小的键的概率为 1/(iHN) 的分布重新完成上一道练习，
-     * 其中 Hn 为调和级数（请见表 1.4.6）。
-     * 这种分布被称为 Zipf 法则。
-     * 比较前移编码和上一道练习中的在特定分布下的最优安排，
-     * 该安排将所有键按升序排列（即按照它们的期望频率的降序排列）。
-     * 
-     */
+    
     class Program
     {
         static Random random = new Random();

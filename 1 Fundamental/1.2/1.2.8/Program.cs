@@ -3,13 +3,7 @@ using System.IO;
 
 namespace _1._2._8
 {
-    /*
-     * 1.2.8
-     * 
-     * 设 a[] 和 b[] 均为长数百万的整型数组。以下代码的作用是什么？有效吗？
-     * int[] t = a; a = b; b = t;
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

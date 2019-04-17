@@ -3,15 +3,7 @@ using Merge;
 
 namespace _2._2._22
 {
-    /*
-     * 2.2.22
-     * 
-     * 三向归并排序。
-     * 假设每次我们是把数组分成三个部分而不是两个部分并将它们分别排序。
-     * 然后进行三向归并。
-     * 这种算法的运行时间的增长数量级是多少。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

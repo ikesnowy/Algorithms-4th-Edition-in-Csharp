@@ -2,12 +2,7 @@
 
 namespace _1._1._20
 {
-    /*
-     * 1.1.20
-     * 
-     * 编写一个递归的静态方法计算 ln(N!) 的值。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

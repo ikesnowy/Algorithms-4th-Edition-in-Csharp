@@ -1,11 +1,6 @@
 ﻿namespace _3._1._18
 {
-    /*
-     * 3.1.18
-     * 
-     * 证明 BinarySearchST 中 rank() 方法的实现的正确性。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

@@ -2,12 +2,7 @@
 
 namespace _1._1._12
 {
-    /*
-     * 1.1.12
-     * 
-     * 以下代码段会打印出什么结果？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

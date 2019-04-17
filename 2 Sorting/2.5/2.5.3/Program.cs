@@ -1,12 +1,6 @@
 ﻿namespace _2._5._3
 {
-    /*
-     * 2.5.3
-     * 
-     * 找出下面这段账户余额 Balance 类的实现代码的错误。
-     * 为什么 compareTo() 方法对 Comparable 接口的实现有缺陷？
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

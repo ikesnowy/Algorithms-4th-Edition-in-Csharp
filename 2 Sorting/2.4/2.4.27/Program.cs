@@ -3,14 +3,7 @@ using PriorityQueue;
 
 namespace _2._4._27
 {
-    /*
-     * 2.4.27
-     * 
-     * 找出最小元素。
-     * 在 MaxPQ 中加入一个 min() 方法。
-     * 你的实现所需的时间和空间都应该是常数。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

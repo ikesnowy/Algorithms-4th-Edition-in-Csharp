@@ -3,13 +3,7 @@ using Generics;
 
 namespace _1._3._47
 {
-    /*
-     * 1.3.47
-     * 
-     * 可连接的队列、栈或 steque。
-     * 为队列、栈或 steque（见练习 1.3.32）添加一个能够（破坏性地）链接两个同类对象的额外操作 catenation。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

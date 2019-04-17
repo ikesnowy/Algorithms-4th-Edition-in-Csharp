@@ -2,14 +2,7 @@
 
 namespace _2._2._18
 {
-    /*
-     * 2.2.18
-     * 
-     * 打乱链表。
-     * 实现一个分治算法，
-     * 使用线性对数级别的时间和对数级别的额外空间随机打乱一条链表。
-     * 
-     */
+    
     class Program
     {
         static void Main(string[] args)

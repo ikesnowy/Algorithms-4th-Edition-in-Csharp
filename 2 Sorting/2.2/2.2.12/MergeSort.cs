@@ -31,19 +31,19 @@ namespace _2._2._12
         /// <param name="M">分块大小。</param>
         public void Sort<T>(T[] a, int M) where T : IComparable<T>
         {
-            int blockNum = a.Length / M;
+            int blockNum = (a.Length + M - 1) / M;
             SelectionSort selection = new SelectionSort();
             // 对块进行选择排序。
             for (int i = 0; i < blockNum; i++)
             {
                 int lo = i * M;
-                int hi = (i + 1) * M - 1;
+                int hi = Math.Min((i + 1) * M - 1, a.Length - 1);
                 selection.Sort(a, lo, hi);
             }
             // 将各个块合并。
             for (int i = 0; i < blockNum - 1; i++)
             {
-                Merge(a, 0, (i + 1) * M - 1, (i + 2) * M - 1);
+                Merge(a, 0, (i + 1) * M - 1, Math.Min((i + 2) * M - 1, a.Length - 1));
             }
         }
 

@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BinarySearchTree;
 
-namespace BinarySearchTree
+namespace _3._2._6
 {
-    /// <summary>
-    /// 二叉查找树。
-    /// </summary>
-    /// <typeparam name="TKey">键类型。</typeparam>
-    /// <typeparam name="TValue">值类型。</typeparam>
-    public class BST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
+    public class BSTConstant<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
         where TKey : IComparable<TKey>
     {
         /// <summary>
@@ -49,6 +45,10 @@ namespace BinarySearchTree
             /// </summary>
             /// <value>子树的结点数量。</value>
             public int Size { get; set; }
+            /// <summary>
+            /// 当前结点的高度。
+            /// </summary>
+            public int Height { get; set; }
 
             /// <summary>
             /// 构造一个二叉树结点。
@@ -56,11 +56,12 @@ namespace BinarySearchTree
             /// <param name="key">键。</param>
             /// <param name="value">值。</param>
             /// <param name="size">子树大小。</param>
-            public Node(TKey key, TValue value, int size)
+            public Node(TKey key, TValue value, int size, int height)
             {
                 this.Key = key;
                 this.Value = value;
                 this.Size = size;
+                this.Height = height;
                 this.Left = null;
                 this.Right = null;
             }
@@ -69,7 +70,7 @@ namespace BinarySearchTree
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public BST() { }
+        public BSTConstant() { }
 
         /// <summary>
         /// 向二叉查找树中插入一个键值对。
@@ -98,7 +99,7 @@ namespace BinarySearchTree
         private Node Put(Node x, TKey key, TValue value)
         {
             if (x == null)
-                return new Node(key, value, 1);
+                return new Node(key, value, 1, 0);
             int cmp = key.CompareTo(x.Key);
             if (cmp < 0)
                 x.Left = Put(x.Left, key, value);
@@ -107,6 +108,7 @@ namespace BinarySearchTree
             else
                 x.Value = value;
             x.Size = 1 + Size(x.Left) + Size(x.Right);
+            x.Height = 1 + Math.Max(Height(x.Left), Height(x.Right));
             return x;
         }
 
@@ -254,7 +256,9 @@ namespace BinarySearchTree
         /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
         private int Height(Node x)
         {
-            return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
+            if (x == null)
+                return 0;
+            return x.Height;
         }
 
         /// <summary>
@@ -328,7 +332,7 @@ namespace BinarySearchTree
         {
             if (x.Left == null)
                 return x;
-            return Min(x.Left); 
+            return Min(x.Left);
         }
 
         /// <summary>

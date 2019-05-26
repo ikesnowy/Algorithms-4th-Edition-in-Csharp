@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BinarySearchTree;
 
-namespace BinarySearchTree
+namespace _3._2._6
 {
-    /// <summary>
-    /// 二叉查找树。
-    /// </summary>
-    /// <typeparam name="TKey">键类型。</typeparam>
-    /// <typeparam name="TValue">值类型。</typeparam>
-    public class BST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
+    public class BSTRecursive<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
         where TKey : IComparable<TKey>
     {
         /// <summary>
@@ -69,7 +65,7 @@ namespace BinarySearchTree
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public BST() { }
+        public BSTRecursive() { }
 
         /// <summary>
         /// 向二叉查找树中插入一个键值对。
@@ -328,7 +324,7 @@ namespace BinarySearchTree
         {
             if (x.Left == null)
                 return x;
-            return Min(x.Left); 
+            return Min(x.Left);
         }
 
         /// <summary>

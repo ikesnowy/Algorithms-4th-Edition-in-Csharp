@@ -9,6 +9,8 @@ namespace BinarySearchTree
     /// <typeparam name="TValue">值类型。</typeparam>
     public interface IOrderedST<TKey, TValue>
     {
+        #region IST
+
         /// <summary>
         /// 向符号表插入键值对。
         /// </summary>
@@ -69,6 +71,8 @@ namespace BinarySearchTree
         /// <param name="hi">范围终点。</param>
         /// <returns>符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。</returns>
         IEnumerable<TKey> Keys(TKey lo, TKey hi);
+
+        #endregion
 
         /// <summary>
         /// 最小的键。

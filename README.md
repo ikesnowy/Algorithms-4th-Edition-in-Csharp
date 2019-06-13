@@ -1,5 +1,9 @@
 # Algorithms-4th-Edition
 
+| dev                                                          | master                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [![Build Status](https://dev.azure.com/ikesnowy/Algorithms%204th%20Solutions/_apis/build/status/ikesnowy.Algorithms-4th-Edition-in-Csharp%20(1)?branchName=dev)](https://dev.azure.com/ikesnowy/Algorithms%204th%20Solutions/_build/latest?definitionId=3&branchName=dev) | [![Build Status](https://dev.azure.com/ikesnowy/Algorithms%204th%20Solutions/_apis/build/status/ikesnowy.Algorithms-4th-Edition-in-Csharp%20(1)?branchName=master)](https://dev.azure.com/ikesnowy/Algorithms%204th%20Solutions/_build/latest?definitionId=3&branchName=master) |
+
 算法（第4版）习题题解 C# 版，勘误感谢名单：[THANKS.md](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/THANKS.md)
 
 当前已经完成到 3.1。

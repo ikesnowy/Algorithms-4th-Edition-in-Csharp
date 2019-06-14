@@ -50,6 +50,7 @@
     <None Include="articles\intro.md" />
     <None Include="articles\toc.md" />
     <None Include="docfx.json" />
+    <None Include="index.md" />
     <None Include="packages.config" />
     <None Include="toc.yml" />
   </ItemGroup>
@@ -58,14 +59,14 @@
     <Content Include="api\.gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\docfx.console.2.40.10\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.40.10\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\docfx.console.2.40.10\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.40.10\build\docfx.console.targets'))" />
     <Error Condition="!Exists('packages\docfx.console.2.40.10\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\docfx.console.2.40.10\build\docfx.console.targets'))" />
+    <Error Condition="!Exists('..\packages\docfx.console.2.43.1\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.43.1\build\docfx.console.targets'))" />
   </Target>
   <Import Project="packages\docfx.console.2.40.10\build\docfx.console.targets" Condition="Exists('packages\docfx.console.2.40.10\build\docfx.console.targets')" />
   <ProjectExtensions />
+  <Import Project="..\packages\docfx.console.2.43.1\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.43.1\build\docfx.console.targets')" />
 </Project>

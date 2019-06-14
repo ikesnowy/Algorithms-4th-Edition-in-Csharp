@@ -18,7 +18,7 @@ namespace _3._2._8
             var extraNodes = n + 1 - (int)Math.Pow(2, l);
 
             var depthSum =
-                extraNodes * l + 2 * ((l - 2) * (int) Math.Pow(2, l - 1) + 1);
+                extraNodes * l + (l - 2) * (int) Math.Pow(2, l) + 2;
             return depthSum / n + 1;
         }
     }

@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\0 Data\TestCase\TestCase.csproj" />
     <ProjectReference Include="..\Measurement\Measurement.csproj" />
-    <ProjectReference Include="..\TestCase\TestCase.csproj" />
   </ItemGroup>
 
 </Project>

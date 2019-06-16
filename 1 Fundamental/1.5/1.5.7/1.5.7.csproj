@@ -3,12 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>_1._4._15</RootNamespace>
+    <RootNamespace>_1._5._7</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\0 Data\TestCase\TestCase.csproj" />
-    <ProjectReference Include="..\Measurement\Measurement.csproj" />
+    <ProjectReference Include="..\UnionFind\UnionFind.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>_1._2._15</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="tinyT.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="tinyT.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -6,7 +6,7 @@
 
 算法（第4版）习题题解 C# 版，勘误感谢名单：[THANKS.md](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/blob/master/THANKS.md)
 
-当前已经完成到 3.1。
+当前已经完成到 3.2。
 
 可以在这个网站搜索题解：https://alg4.ikesnowy.com/
 
@@ -57,7 +57,7 @@ Program.cs 是程序的运行代码。
 
 ### 开发环境： 
 
-Visual Studio 2017 + .NET Framework 4.7  
+Visual Studio 2019 + .NET Core 3.0
 
 ## 代码规范
 

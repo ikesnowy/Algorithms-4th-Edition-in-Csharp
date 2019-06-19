@@ -17,8 +17,8 @@ namespace _1._3._8
         /// </summary>
         public DoublingStackOfStrings()
         {
-            this.items = new string[2];
-            this.count = 0;
+            items = new string[2];
+            count = 0;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace _1._3._8
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace _1._3._8
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace _1._3._8
         /// <param name="s"></param>
         public void Push(string s)
         {
-            if (this.count == this.items.Length)
-                Resize(this.items.Length * 2);
-            this.items[this.count] = s;
-            this.count++;
+            if (count == items.Length)
+                Resize(items.Length * 2);
+            items[count] = s;
+            count++;
         }
 
         /// <summary>
@@ -59,13 +59,13 @@ namespace _1._3._8
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            this.count--;
+            count--;
 
             // 缩小长度
-            if (this.count > 0 && this.count <= this.items.Length / 4)
-                Resize(this.items.Length / 2);
+            if (count > 0 && count <= items.Length / 4)
+                Resize(items.Length / 2);
 
-            return this.items[this.count];
+            return items[count];
 
         }
 
@@ -77,7 +77,7 @@ namespace _1._3._8
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            return this.items[this.count - 1];
+            return items[count - 1];
         }
 
         /// <summary>
@@ -88,17 +88,17 @@ namespace _1._3._8
         {
             var temp = new string[capcity];
             
-            for (var i = 0; i < this.count; i++)
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.items[i];
+                temp[i] = items[i];
             }
 
-            this.items = temp;
+            items = temp;
         }
 
         public IEnumerator<string> GetEnumerator()
         {
-            return new StackEnumerator(this.items);
+            return new StackEnumerator(items);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -114,30 +114,30 @@ namespace _1._3._8
             public StackEnumerator(string[] items)
             {
                 this.items = items;
-                this.current = -1;
+                current = -1;
             }
 
-            string IEnumerator<string>.Current => this.items[this.current];
+            string IEnumerator<string>.Current => items[current];
 
-            object IEnumerator.Current => this.items[this.current];
+            object IEnumerator.Current => items[current];
 
             void IDisposable.Dispose()
             {
-                this.items = null;
-                this.current = -1;
+                items = null;
+                current = -1;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.items.Length - 1)
+                if (current == items.Length - 1)
                     return false;
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = -1;
+                current = -1;
             }
         }
     }

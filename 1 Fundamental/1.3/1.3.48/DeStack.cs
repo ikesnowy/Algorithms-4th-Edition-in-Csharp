@@ -27,10 +27,10 @@ namespace _1._3._48
         /// </summary>
         public DeStack()
         {
-            this.first = null;
-            this.last = null;
-            this.leftcount = 0;
-            this.rightcount = 0;
+            first = null;
+            last = null;
+            leftcount = 0;
+            rightcount = 0;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace _1._3._48
         /// <returns></returns>
         public bool IsLeftEmpty()
         {
-            return this.leftcount == 0;
+            return leftcount == 0;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace _1._3._48
         /// <returns></returns>
         public bool IsRightEmpty()
         {
-            return this.rightcount == 0;
+            return rightcount == 0;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace _1._3._48
         /// <returns></returns>
         public int LeftSize()
         {
-            return this.leftcount;
+            return leftcount;
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace _1._3._48
         /// <returns></returns>
         public int RightSize()
         {
-            return this.rightcount;
+            return rightcount;
         }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace _1._3._48
         /// <param name="item">要添加的元素。</param>
         public void PushLeft(Item item)
         {
-            var oldFirst = this.first;
-            this.first = new DoubleNode<Item>()
+            var oldFirst = first;
+            first = new DoubleNode<Item>()
             {
                 item = item,
                 prev = null,
@@ -84,13 +84,13 @@ namespace _1._3._48
             };
             if (oldFirst == null)
             {
-                this.last = this.first;
+                last = first;
             }
             else
             {
-                oldFirst.prev = this.first;
+                oldFirst.prev = first;
             }
-            this.leftcount++;
+            leftcount++;
         }
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace _1._3._48
         /// <param name="item">要添加的元素。</param>
         public void PushRight(Item item)
         {
-            var oldLast = this.last;
-            this.last = new DoubleNode<Item>()
+            var oldLast = last;
+            last = new DoubleNode<Item>()
             {
                 item = item,
                 prev = oldLast,
@@ -109,13 +109,13 @@ namespace _1._3._48
 
             if (oldLast == null)
             {
-                this.first = this.last;
+                first = last;
             }
             else
             {
-                oldLast.next = this.last;
+                oldLast.next = last;
             }
-            this.rightcount++;
+            rightcount++;
         }
 
         /// <summary>
@@ -129,18 +129,18 @@ namespace _1._3._48
                 throw new InvalidOperationException();
             }
 
-            var temp = this.last.item;
-            this.last = this.last.prev;
-            this.rightcount--;
+            var temp = last.item;
+            last = last.prev;
+            rightcount--;
 
-            if (this.last == null)
+            if (last == null)
             {
-                this.first = null;
+                first = null;
             }
             else
             {
-                this.last.next.item = default(Item);
-                this.last.next = null;
+                last.next.item = default(Item);
+                last.next = null;
             }
             return temp;
         }
@@ -156,18 +156,18 @@ namespace _1._3._48
                 throw new InvalidOperationException();
             }
 
-            var temp = this.first.item;
-            this.first = this.first.next;
-            this.leftcount--;
+            var temp = first.item;
+            first = first.next;
+            leftcount--;
 
-            if (this.first == null)
+            if (first == null)
             {
-                this.last = null;
+                last = null;
             }
             else
             {
-                this.first.prev.item = default(Item);
-                this.first.prev = null;
+                first.prev.item = default(Item);
+                first.prev = null;
             }
 
             return temp;
@@ -175,7 +175,7 @@ namespace _1._3._48
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new DequeEnumerator(this.first);
+            return new DequeEnumerator(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -190,33 +190,33 @@ namespace _1._3._48
 
             public DequeEnumerator(DoubleNode<Item> first) 
             {
-                this.current = new DoubleNode<Item>();
-                this.current.next = first;
-                this.current.prev = null;
-                this.first = this.current;
+                current = new DoubleNode<Item>();
+                current.next = first;
+                current.prev = null;
+                this.first = current;
             }
 
-            public Item Current => this.current.item;
+            public Item Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             public void Dispose()
             {
-                this.current = null;
-                this.first = null;
+                current = null;
+                first = null;
             }
 
             public bool MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             public void Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

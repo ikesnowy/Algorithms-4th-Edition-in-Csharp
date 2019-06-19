@@ -15,8 +15,8 @@ namespace _2._3._31
         public Form2(int n, int t)
         {
             InitializeComponent();
-            this.N = n;
-            this.T = t;
+            N = n;
+            T = t;
         }
 
         /// <summary>
@@ -26,8 +26,8 @@ namespace _2._3._31
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            this.Text = "正在绘图";
-            this.backgroundWorker1.RunWorkerAsync();
+            Text = "正在绘图";
+            backgroundWorker1.RunWorkerAsync();
         }
 
         /// <summary>
@@ -40,11 +40,11 @@ namespace _2._3._31
             var worker = sender as BackgroundWorker;
             var quick = new QuickSort();
 
-            var percentPerTrial = 100.0 / this.T;
-            var totalTime = new double[this.T];
-            for (var i = 0; i < this.T; i++)
+            var percentPerTrial = 100.0 / T;
+            var totalTime = new double[T];
+            for (var i = 0; i < T; i++)
             {
-                var data = SortCompare.GetRandomArrayDouble(this.N);
+                var data = SortCompare.GetRandomArrayDouble(N);
                 totalTime[i] = SortCompare.Time(quick, data);
                 worker.ReportProgress((int)(percentPerTrial * i));
             }
@@ -59,7 +59,7 @@ namespace _2._3._31
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.Text = "正在测试，已完成 " + e.ProgressPercentage + " %";
+            Text = "正在测试，已完成 " + e.ProgressPercentage + " %";
         }
 
         /// <summary>
@@ -74,10 +74,10 @@ namespace _2._3._31
                 MessageBox.Show(e.Error.Message);
             }
             //新建画布
-            var graphics = this.CreateGraphics();
+            var graphics = CreateGraphics();
 
             //翻转默认坐标系
-            graphics.TranslateTransform(0, this.Height);
+            graphics.TranslateTransform(0, Height);
             graphics.ScaleTransform(1, -1);
 
             var counts = e.Result as double[];
@@ -85,20 +85,20 @@ namespace _2._3._31
             //获取最大值
             var max = counts.Max();
             //计算间距
-            var unit = this.Width / (3.0 * counts.Length + 1);
+            var unit = Width / (3.0 * counts.Length + 1);
             double marginTop = 100;
             //计算直方图的矩形
             var rects = new Rectangle[counts.Length];
             rects[0].X = (int)unit;
             rects[0].Y = 0;
             rects[0].Width = (int)(2 * unit);
-            rects[0].Height = (int)((counts[0] / max) * (this.Height - marginTop));
+            rects[0].Height = (int)((counts[0] / max) * (Height - marginTop));
             for (var i = 1; i < counts.Length; ++i)
             {
                 rects[i].X = (int)(rects[i - 1].X + 3 * unit);
                 rects[i].Y = 0;
                 rects[i].Width = (int)(2 * unit);
-                rects[i].Height = (int)((counts[i] / (max + 1)) * (this.Height - marginTop));
+                rects[i].Height = (int)((counts[i] / (max + 1)) * (Height - marginTop));
             }
 
             //绘图
@@ -107,7 +107,7 @@ namespace _2._3._31
             //释放资源
             graphics.Dispose();
 
-            this.Text = "绘图结果，最高耗时：" + counts.Max() + " 最低耗时：" + counts.Min();
+            Text = "绘图结果，最高耗时：" + counts.Max() + " 最低耗时：" + counts.Min();
         }
     }
 }

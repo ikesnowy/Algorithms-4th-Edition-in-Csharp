@@ -14,21 +14,21 @@ namespace _2._1._17
         {
             try
             {
-                var N = int.Parse(this.InputN.Text);
+                var N = int.Parse(InputN.Text);
                 var selection = new Form2(N);
                 selection.Show();
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = "数据过大";
             }
         }
 
@@ -36,21 +36,21 @@ namespace _2._1._17
         {
             try
             {
-                var N = int.Parse(this.InputN.Text);
+                var N = int.Parse(InputN.Text);
                 var insertion = new Form3(N);
                 insertion.Show();
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = "数据过大";
             }
         }
     }

@@ -14,8 +14,8 @@
         /// </summary>
         public Deque()
         {
-            this.stack = new Stack<Item>();
-            this.steque = new Steque<Item>();
+            stack = new Stack<Item>();
+            steque = new Steque<Item>();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@
         /// <param name="item">要插入的元素。</param>
         public void PushLeft(Item item)
         {
-            this.steque.Push(item);
+            steque.Push(item);
         }
 
         /// <summary>
@@ -32,9 +32,9 @@
         /// </summary>
         private void StackToSteque()
         {
-            while (!this.stack.IsEmpty())
+            while (!stack.IsEmpty())
             {
-                this.steque.Push(this.stack.Pop());
+                steque.Push(stack.Pop());
             }
         }
 
@@ -43,9 +43,9 @@
         /// </summary>
         private void StequeToStack()
         {
-            while (!this.steque.IsEmpty())
+            while (!steque.IsEmpty())
             {
-                this.stack.Push(this.steque.Pop());
+                stack.Push(steque.Pop());
             }
         }
 
@@ -55,11 +55,11 @@
         /// <returns></returns>
         public Item PopLeft()
         {
-            if (this.steque.IsEmpty())
+            if (steque.IsEmpty())
             {
                 StackToSteque();
             }
-            return this.steque.Pop();
+            return steque.Pop();
         }
 
         /// <summary>
@@ -68,13 +68,13 @@
         /// <param name="item">要插入的元素。</param>
         public void PushRight(Item item)
         {
-            if (this.stack.IsEmpty())
+            if (stack.IsEmpty())
             {
-                this.steque.Enqueue(item);
+                steque.Enqueue(item);
             }
             else
             {
-                this.stack.Push(item);
+                stack.Push(item);
             }
         }
 
@@ -84,11 +84,11 @@
         /// <returns></returns>
         public Item PopRight()
         {
-            if (this.stack.IsEmpty())
+            if (stack.IsEmpty())
             {
                 StequeToStack();
             }
-            return this.stack.Pop();
+            return stack.Pop();
         }
 
         /// <summary>
@@ -97,7 +97,7 @@
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.stack.IsEmpty() && this.steque.IsEmpty();
+            return stack.IsEmpty() && steque.IsEmpty();
         }
 
         /// <summary>
@@ -106,7 +106,7 @@
         /// <returns></returns>
         public int Size()
         {
-            return this.stack.Size() + this.steque.Size();
+            return stack.Size() + steque.Size();
         }
     }
 }

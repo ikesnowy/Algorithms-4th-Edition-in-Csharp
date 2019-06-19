@@ -60,9 +60,9 @@ namespace Geometry
                 throw new ArgumentNullException("Coordinate cannot be NaN");
             }
 
-            this.X = x;
-            this.Y = y;
-            this.Radius = 2;
+            X = x;
+            Y = y;
+            Radius = 2;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Geometry
         /// <returns>极半径。</returns>
         public double R()
         {
-            return Math.Sqrt(this.X * this.X + this.Y * this.Y);
+            return Math.Sqrt(X * X + Y * Y);
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Geometry
         /// <returns>极角。</returns>
         public double Theta()
         {
-            return Math.Atan2(this.Y, this.X);
+            return Math.Atan2(Y, X);
         }
 
         /// <summary>
@@ -90,8 +90,8 @@ namespace Geometry
         /// <returns>返回与点 <paramref name="that"/> 构成的角度。</returns>
         private double AngleTo(Point2D that)
         {
-            var dx = that.X - this.X;
-            var dy = that.Y - this.Y;
+            var dx = that.X - X;
+            var dy = that.Y - Y;
             return Math.Atan2(dy, dx);
         }
 
@@ -132,8 +132,8 @@ namespace Geometry
         /// <returns>返回到 <paramref name="that"/> 的距离。</returns>
         public double DistanceTo(Point2D that)
         {
-            var dx = this.X - that.X;
-            var dy = this.Y - that.Y;
+            var dx = X - that.X;
+            var dy = Y - that.Y;
 
             return Math.Sqrt(dx * dx + dy * dy);
         }
@@ -145,8 +145,8 @@ namespace Geometry
         /// <returns>到 <paramref name="that"/> 距离的平方。</returns>
         public double DistanceSquareTo(Point2D that)
         {
-            var dx = this.X - that.X;
-            var dy = this.Y - that.Y;
+            var dx = X - that.X;
+            var dy = Y - that.Y;
 
             return dx * dx + dy * dy;
         }
@@ -157,7 +157,7 @@ namespace Geometry
         /// <param name="g">原点在左下方，y轴向上，x轴向右的画布。</param>
         public void Draw(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, (int)this.X, (int)this.Y, this.Radius, this.Radius);
+            g.FillEllipse(Brushes.Black, (int)X, (int)Y, Radius, Radius);
         }
 
         /// <summary>
@@ -167,13 +167,13 @@ namespace Geometry
         /// <returns>如果 <paramref name="other"/> 较小则返回 -1，反之返回 1，相等返回 0。</returns>
         public int CompareTo(Point2D other)
         {
-            if (this.Y < other.Y)
+            if (Y < other.Y)
                 return -1;
-            if (this.Y > other.Y)
+            if (Y > other.Y)
                 return 1;
-            if (this.X < other.X)
+            if (X < other.X)
                 return -1;
-            if (this.X > other.X)
+            if (X > other.X)
                 return 1;
 
             return 0;
@@ -255,8 +255,8 @@ namespace Geometry
             }
             public override int Compare(Point2D x, Point2D y)
             {
-                double angle1 = this.parent.AngleTo(x);
-                double angle2 = this.parent.AngleTo(y);
+                double angle1 = parent.AngleTo(x);
+                double angle2 = parent.AngleTo(y);
                 if (angle1 < angle2)
                 {
                     return -1;
@@ -285,10 +285,10 @@ namespace Geometry
             }
             public override int Compare(Point2D q1, Point2D q2)
             {
-                var dx1 = q1.X - this.parent.X;
-                var dy1 = q1.Y - this.parent.Y;
-                var dx2 = q2.X - this.parent.X;
-                var dy2 = q2.Y - this.parent.Y;
+                var dx1 = q1.X - parent.X;
+                var dy1 = q1.Y - parent.Y;
+                var dx2 = q2.X - parent.X;
+                var dy2 = q2.Y - parent.Y;
 
                 if (dy2 >= 0 && dy2 < 0)
                 {
@@ -315,7 +315,7 @@ namespace Geometry
                 }
                 else
                 {
-                    return -CCW(this.parent, q1, q2);
+                    return -CCW(parent, q1, q2);
                 }
             }
         }
@@ -333,8 +333,8 @@ namespace Geometry
             }
             public override int Compare(Point2D p, Point2D q)
             {
-                double dist1 = this.parent.DistanceSquareTo(p);
-                double dist2 = this.parent.DistanceSquareTo(q);
+                double dist1 = parent.DistanceSquareTo(p);
+                double dist2 = parent.DistanceSquareTo(q);
 
                 if (dist1 < dist2)
                 {
@@ -393,12 +393,12 @@ namespace Geometry
             {
                 return false;
             }
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
             {
                 return false;
             }
             var that = (Point2D)obj;
-            return this.X == that.X && this.Y == that.Y;
+            return X == that.X && Y == that.Y;
         }
 
         /// <summary>
@@ -407,7 +407,7 @@ namespace Geometry
         /// <returns>形如 "(<see cref="X"/>, <see cref="Y"/>)" 的字符串。</returns>
         public override string ToString()
         {
-            return "(" + this.X + ", " + this.Y + ")";
+            return "(" + X + ", " + Y + ")";
         }
 
         /// <summary>
@@ -416,8 +416,8 @@ namespace Geometry
         /// <returns>哈希值。</returns>
         public override int GetHashCode()
         {
-            var hashX = this.X.GetHashCode();
-            var hashY = this.Y.GetHashCode();
+            var hashX = X.GetHashCode();
+            var hashY = Y.GetHashCode();
             return 31 * hashX + hashY;
         }
     }

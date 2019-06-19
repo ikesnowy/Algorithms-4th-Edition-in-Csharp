@@ -58,12 +58,12 @@ namespace _3._2._7
             /// <param name="depth">结点的深度。</param>
             public Node(TKey key, TValue value, int size, int depth)
             {
-                this.Key = key;
-                this.Value = value;
-                this.Size = size;
-                this.DepthSum = depth;
-                this.Left = null;
-                this.Right = null;
+                Key = key;
+                Value = value;
+                Size = size;
+                DepthSum = depth;
+                Left = null;
+                Right = null;
             }
         }
 
@@ -156,7 +156,7 @@ namespace _3._2._7
         {
             if (key == null)
                 throw new InvalidOperationException("Symbol Table Underflow");
-            this.root = Delete(this.root, key);
+            root = Delete(root, key);
         }
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace _3._2._7
                 throw new ArgumentNullException("second argument to keys() is null");
 
             var queue = new Queue<TKey>();
-            Keys(this.root, queue, lo, hi);
+            Keys(root, queue, lo, hi);
             return queue;
         }
 
@@ -306,7 +306,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            return Min(this.root).Key;
+            return Min(root).Key;
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            return Max(this.root).Key;
+            return Max(root).Key;
         }
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace _3._2._7
                 throw new ArgumentNullException("argument to floor is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls floor with empty symbol table");
-            var x = Floor(this.root, key);
+            var x = Floor(root, key);
             if (x == null)
                 return default;
             else
@@ -396,7 +396,7 @@ namespace _3._2._7
                 throw new ArgumentNullException("argument to ceiling is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls ceiling with empty symbol table");
-            var x = Ceiling(this.root, key);
+            var x = Ceiling(root, key);
             if (x == null)
                 return default;
             return x.Key;
@@ -434,7 +434,7 @@ namespace _3._2._7
         {
             if (key == null)
                 throw new ArgumentNullException("argument to rank() is null");
-            return Rank(this.root, key);
+            return Rank(root, key);
         }
 
         /// <summary>
@@ -465,7 +465,7 @@ namespace _3._2._7
         {
             if (k < 0 || k >= Size())
                 throw new ArgumentException("argument to select() is invaild: " + k);
-            var x = Select(this.root, k);
+            var x = Select(root, k);
             return x.Key;
         }
 
@@ -495,7 +495,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol table underflow");
-            this.root = DeleteMin(this.root);
+            root = DeleteMin(root);
         }
 
         /// <summary>
@@ -520,7 +520,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            this.root = DeleteMax(this.root);
+            root = DeleteMax(root);
         }
 
         /// <summary>
@@ -546,14 +546,14 @@ namespace _3._2._7
             if (IsEmpty())
                 return string.Empty;
 
-            var maxDepth = Depth(this.root);
+            var maxDepth = Depth(root);
             int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
 
             //BST
             var sb = new StringBuilder();
             var nowLayer = new Queue<Node>();
             var nextLayer = new Queue<Node>();
-            nextLayer.Enqueue(this.root);
+            nextLayer.Enqueue(root);
 
             while (layer != maxDepth)
             {

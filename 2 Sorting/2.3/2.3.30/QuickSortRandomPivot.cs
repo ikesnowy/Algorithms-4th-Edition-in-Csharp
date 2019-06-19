@@ -24,7 +24,7 @@ namespace _2._3._30
         /// </summary>
         public QuickSortRandomPivot()
         {
-            this.M = 10;
+            M = 10;
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace _2._3._30
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
                 // 调用插入排序
                 for (var i = lo; i <= hi; i++)
@@ -73,7 +73,7 @@ namespace _2._3._30
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            var pivot = this.RandomGenerator.Next(hi - lo) + lo;
+            var pivot = RandomGenerator.Next(hi - lo) + lo;
             Exch(a, pivot, lo);
             var v = a[lo];
             while (true)

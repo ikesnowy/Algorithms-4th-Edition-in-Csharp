@@ -12,13 +12,13 @@ namespace _2._5._8
 
             public Record(string key, int value)
             {
-                this.Key = key;
-                this.Value = value;
+                Key = key;
+                Value = value;
             }
 
             public int CompareTo(Record other)
             {
-                return this.Value.CompareTo(other.Value);
+                return Value.CompareTo(other.Value);
             }
         }
 

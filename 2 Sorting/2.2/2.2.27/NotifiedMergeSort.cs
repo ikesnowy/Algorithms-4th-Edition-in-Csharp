@@ -16,8 +16,8 @@ namespace _2._2._27
         /// </summary>
         public NotifiedMergeSort(int arraySize)
         {
-            this.NArraySize = new double[arraySize];
-            this.NArraySizeTime = new double[arraySize];
+            NArraySize = new double[arraySize];
+            NArraySizeTime = new double[arraySize];
         }
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace _2._2._27
 
             for (var i = 0; i < a.Length; i++)
             {
-                this.NArraySize[i] = 0;
-                this.NArraySizeTime[i] = 0;
+                NArraySize[i] = 0;
+                NArraySizeTime[i] = 0;
             }
             Sort(a, aux, 0, a.Length - 1);
         }
@@ -79,9 +79,9 @@ namespace _2._2._27
                 {
                     if (firstExhausts)
                     {
-                        this.NArraySize[hi - lo] += hi - j;                        
+                        NArraySize[hi - lo] += hi - j;                        
                         firstExhausts = false;
-                        this.NArraySizeTime[hi - lo]++;
+                        NArraySizeTime[hi - lo]++;
                     }
                     a[k] = aux[j];
                     j++;
@@ -90,9 +90,9 @@ namespace _2._2._27
                 {
                     if (firstExhausts)
                     {
-                        this.NArraySize[hi - lo] += mid - i;
+                        NArraySize[hi - lo] += mid - i;
                         firstExhausts = false;
-                        this.NArraySizeTime[hi - lo]++;
+                        NArraySizeTime[hi - lo]++;
                     }
                     a[k] = aux[i];
                     i++;

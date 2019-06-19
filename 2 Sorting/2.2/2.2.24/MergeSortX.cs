@@ -32,13 +32,13 @@ namespace _2._2._24
         /// <summary>
         /// 重置语句命中次数。
         /// </summary>
-        public void ResetHitTime() => this.hitTimes = 0;
+        public void ResetHitTime() => hitTimes = 0;
 
         /// <summary>
         /// 获取语句命中次数。
         /// </summary>
         /// <returns></returns>
-        public int GetHitTime() => this.hitTimes;
+        public int GetHitTime() => hitTimes;
 
         /// <summary>
         /// 将指定范围内的元素归并。
@@ -89,7 +89,7 @@ namespace _2._2._24
             // 已排序的数组直接合并
             if (!Less(src[mid + 1], src[mid]))
             {
-                this.hitTimes++; // 累加命中次数
+                hitTimes++; // 累加命中次数
                 Array.Copy(src, lo, dst, lo, hi - lo + 1);
                 return;
             }

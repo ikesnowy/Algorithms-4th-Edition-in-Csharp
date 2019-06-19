@@ -33,10 +33,10 @@ namespace PriorityQueue
         /// </summary>
         public MedianPQ()
         {
-            this.maxPQ = new MaxPQ<Key>();
-            this.minPQ = new MinPQ<Key>();
-            this.median = default(Key);
-            this.n = 0;
+            maxPQ = new MaxPQ<Key>();
+            minPQ = new MinPQ<Key>();
+            median = default(Key);
+            n = 0;
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace PriorityQueue
         /// <param name="capacity">初始容量。</param>
         public MedianPQ(int capacity)
         {
-            this.maxPQ = new MaxPQ<Key>((capacity - 1) / 2);
-            this.minPQ = new MinPQ<Key>((capacity - 1) / 2);
-            this.n = 0;
-            this.median = default(Key);
+            maxPQ = new MaxPQ<Key>((capacity - 1) / 2);
+            minPQ = new MinPQ<Key>((capacity - 1) / 2);
+            n = 0;
+            median = default(Key);
         }
 
         /// <summary>
@@ -57,24 +57,24 @@ namespace PriorityQueue
         /// <param name="keys">初始数组。</param>
         public MedianPQ(Key[] keys)
         {
-            this.minPQ = new MinPQ<Key>();
-            this.maxPQ = new MaxPQ<Key>();
+            minPQ = new MinPQ<Key>();
+            maxPQ = new MaxPQ<Key>();
 
             if (keys.Length == 0)
             {
-                this.n = 0;
-                this.median = default(Key);
+                n = 0;
+                median = default(Key);
                 return;
             }
 
-            this.n = keys.Length;
-            this.median = keys[0];
+            n = keys.Length;
+            median = keys[0];
             for (var i = 1; i < keys.Length; i++)
             {
-                if (this.median.CompareTo(keys[i]) < 0)
-                    this.minPQ.Insert(keys[i]);
+                if (median.CompareTo(keys[i]) < 0)
+                    minPQ.Insert(keys[i]);
                 else
-                    this.maxPQ.Insert(keys[i]);
+                    maxPQ.Insert(keys[i]);
             }
 
             UpdateMedian();
@@ -86,19 +86,19 @@ namespace PriorityQueue
         /// <param name="key">需要插入的元素。</param>
         public void Insert(Key key)
         {
-            if (this.n == 0)
+            if (n == 0)
             {
-                this.n++;
-                this.median = key;
+                n++;
+                median = key;
                 return;
             }
 
-            if (key.CompareTo(this.median) < 0)
-                this.maxPQ.Insert(key);
+            if (key.CompareTo(median) < 0)
+                maxPQ.Insert(key);
             else
-                this.minPQ.Insert(key);
+                minPQ.Insert(key);
 
-            this.n++;
+            n++;
             UpdateMedian();
         }
 
@@ -114,20 +114,20 @@ namespace PriorityQueue
                 throw new ArgumentOutOfRangeException("MedianPQ underflow!");
             var median = this.median;
 
-            if (this.n == 1)
+            if (n == 1)
             {
-                this.n--;
+                n--;
                 this.median = default(Key);
                 return median;
             }
 
             // 从较大的一侧堆中取元素作为新的中位数。
-            if (this.minPQ.Size() > this.maxPQ.Size())
-                this.median = this.minPQ.DelMin();
+            if (minPQ.Size() > maxPQ.Size())
+                this.median = minPQ.DelMin();
             else
-                this.median = this.maxPQ.DelMax();
+                this.median = maxPQ.DelMax();
 
-            this.n--;
+            n--;
             return median;
         }
 
@@ -136,13 +136,13 @@ namespace PriorityQueue
         /// </summary>
         /// <returns>中位数。</returns>
         /// <remarks>如果希望删除并返回中位数，请使用 <see cref="DelMedian"/>。</remarks>
-        public Key Median() => this.median;
+        public Key Median() => median;
 
         /// <summary>
         /// 判断堆是否为空。
         /// </summary>
         /// <returns>若堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 更新中位数的值。
@@ -150,15 +150,15 @@ namespace PriorityQueue
         private void UpdateMedian()
         {
             // 根据两个堆的大小调整中位数
-            while (this.maxPQ.Size() - this.minPQ.Size() > 1)
+            while (maxPQ.Size() - minPQ.Size() > 1)
             {
-                this.minPQ.Insert(this.median);
-                this.median = this.maxPQ.DelMax();
+                minPQ.Insert(median);
+                median = maxPQ.DelMax();
             }
-            while (this.minPQ.Size() - this.maxPQ.Size() > 1)
+            while (minPQ.Size() - maxPQ.Size() > 1)
             {
-                this.maxPQ.Insert(this.median);
-                this.median = this.minPQ.DelMin();
+                maxPQ.Insert(median);
+                median = minPQ.DelMin();
             }
         }
     }

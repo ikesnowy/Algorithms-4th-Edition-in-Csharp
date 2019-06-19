@@ -17,8 +17,8 @@ namespace _1._5._20
         /// <param name="n">并查集的大小。</param>
         public WeightedQuickUnionUF()
         {
-            this.parent = new LinkedList<int>();
-            this.size = new LinkedList<int>();
+            parent = new LinkedList<int>();
+            size = new LinkedList<int>();
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace _1._5._20
         /// <returns>parent 数组。</returns>
         public LinkedList<int> GetParent()
         {
-            return this.parent;
+            return parent;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace _1._5._20
         /// <returns>返回 size 数组。</returns>
         public LinkedList<int> GetSize()
         {
-            return this.size;
+            return size;
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace _1._5._20
         /// <returns>新结点的下标。</returns>
         public int NewSite()
         {
-            this.parent.Insert(this.parent.Size(), this.parent.Size());
-            this.size.Insert(1, this.size.Size());
-            this.count++;
-            return this.parent.Size() - 1;
+            parent.Insert(parent.Size(), parent.Size());
+            size.Insert(1, size.Size());
+            count++;
+            return parent.Size() - 1;
         }
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace _1._5._20
         public int Find(int p)
         {
             Validate(p);
-            while (p != this.parent.Find(p))
+            while (p != parent.Find(p))
             {
-                p = this.parent.Find(p);
+                p = parent.Find(p);
             }
             return p;
         }
@@ -80,17 +80,17 @@ namespace _1._5._20
                 return;
             }
 
-            if (this.size.Find(rootP) < this.size.Find(rootQ))
+            if (size.Find(rootP) < size.Find(rootQ))
             {
-                this.parent.Motify(rootP, rootQ);
-                this.size.Motify(rootQ, this.size.Find(rootQ) + this.size.Find(rootP));
+                parent.Motify(rootP, rootQ);
+                size.Motify(rootQ, size.Find(rootQ) + size.Find(rootP));
             }
             else
             {
-                this.parent.Motify(rootQ, rootP);
-                this.size.Motify(rootP, this.size.Find(rootQ) + this.size.Find(rootP));
+                parent.Motify(rootQ, rootP);
+                size.Motify(rootP, size.Find(rootQ) + size.Find(rootP));
             }
-            this.count--;
+            count--;
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace _1._5._20
         /// <param name="p">输入的 p 值。</param>
         protected void Validate(int p)
         {
-            var n = this.parent.Size();
+            var n = parent.Size();
             if (p < 0 || p >= n)
             {
                 throw new ArgumentException("index" + p + " is not between 0 and " + (n - 1));

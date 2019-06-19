@@ -27,7 +27,7 @@ namespace _2._4._25
         /// <param name="j">立方和的第二个数。</param>
         public CubeSum(long i, long j)
         {
-            this.sum = i * i * i + j * j * j;
+            sum = i * i * i + j * j * j;
             this.i = i;
             this.j = j;
         }
@@ -39,7 +39,7 @@ namespace _2._4._25
         /// <returns></returns>
         public int CompareTo(CubeSum other)
         {
-            return this.sum.CompareTo(other.sum);
+            return sum.CompareTo(other.sum);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace _2._4._25
         /// <returns></returns>
         public override string ToString()
         {
-            return this.sum + " = " + this.i + "^3 + " + this.j + "^3";
+            return sum + " = " + i + "^3 + " + j + "^3";
         }
     }
 }

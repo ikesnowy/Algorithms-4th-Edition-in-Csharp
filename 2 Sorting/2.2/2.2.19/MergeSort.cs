@@ -76,7 +76,7 @@ namespace _2._2._19
                 else if (Less(aux[j], aux[i]))
                 {
                     a[k] = aux[j];
-                    this.Counter += mid - i + 1;    // 统计逆序对数
+                    Counter += mid - i + 1;    // 统计逆序对数
                     j++;
                 }
                 else

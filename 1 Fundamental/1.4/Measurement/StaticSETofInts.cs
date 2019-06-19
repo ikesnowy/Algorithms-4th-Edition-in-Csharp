@@ -15,12 +15,12 @@ namespace Measurement
         /// <param name="keys">源数组。</param>
         public StaticSETofInts(int[] keys)
         {
-            this.a = new int[keys.Length];
+            a = new int[keys.Length];
             for (var i = 0; i < keys.Length; i++)
             {
-                this.a[i] = keys[i];
+                a[i] = keys[i];
             }
-            Array.Sort(this.a);
+            Array.Sort(a);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Measurement
         /// <returns>存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(int key)
         {
-            return Rank(key, 0, this.a.Length - 1) != -1;
+            return Rank(key, 0, a.Length - 1) != -1;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Measurement
         /// <returns><paramref name="key"/> 在数组中存在的数量。</returns>
         public int HowMany(int key)
         {
-            var hi = this.a.Length - 1;
+            var hi = a.Length - 1;
             var lo = 0;
             
             return HowMany(key, lo, hi);
@@ -76,9 +76,9 @@ namespace Measurement
             while (lo <= hi)
             {
                 var mid = (hi - lo) / 2 + lo;
-                if (key < this.a[mid])
+                if (key < a[mid])
                     hi = mid - 1;
-                else if (key > this.a[mid])
+                else if (key > a[mid])
                     lo = mid + 1;
                 else
                     return mid;

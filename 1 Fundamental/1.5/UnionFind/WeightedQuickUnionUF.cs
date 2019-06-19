@@ -28,13 +28,13 @@
         /// <param name="n">并查集的大小。</param>
         public WeightedQuickUnionUF(int n) : base(n)
         {
-            this.size = new int[n];
+            size = new int[n];
             for (var i = 0; i < n; i++)
             {
-                this.size[i] = 1;
+                size[i] = 1;
             }
-            this.ArrayParentVisitCount = 0;
-            this.ArraySizeVisitCount = 0;
+            ArrayParentVisitCount = 0;
+            ArraySizeVisitCount = 0;
         }
 
         /// <summary>
@@ -42,8 +42,8 @@
         /// </summary>
         public override void ResetArrayCount()
         {
-            this.ArrayParentVisitCount = 0;
-            this.ArraySizeVisitCount = 0;
+            ArrayParentVisitCount = 0;
+            ArraySizeVisitCount = 0;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@
         /// <returns>返回 size 数组。</returns>
         public int[] GetSize()
         {
-            return this.size;
+            return size;
         }
 
         /// <summary>
@@ -63,12 +63,12 @@
         public override int Find(int p)
         {
             Validate(p);
-            while (p != this.parent[p])
+            while (p != parent[p])
             {
-                p = this.parent[p];
-                this.ArrayParentVisitCount += 2;
+                p = parent[p];
+                ArrayParentVisitCount += 2;
             }
-            this.ArrayParentVisitCount++;
+            ArrayParentVisitCount++;
             return p;
         }
 
@@ -86,19 +86,19 @@
                 return;
             }
 
-            if (this.size[rootP] < this.size[rootQ])
+            if (size[rootP] < size[rootQ])
             {
-                this.parent[rootP] = rootQ;
-                this.size[rootQ] += this.size[rootP];
+                parent[rootP] = rootQ;
+                size[rootQ] += size[rootP];
             }
             else
             {
-                this.parent[rootQ] = rootP;
-                this.size[rootP] += this.size[rootQ];
+                parent[rootQ] = rootP;
+                size[rootP] += size[rootQ];
             }
-            this.ArrayParentVisitCount++;
-            this.ArraySizeVisitCount += 4;
-            this.count--;
+            ArrayParentVisitCount++;
+            ArraySizeVisitCount += 4;
+            count--;
         }
     }
 }

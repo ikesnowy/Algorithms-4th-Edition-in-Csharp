@@ -37,9 +37,9 @@ namespace SymbolTable
 
             public Node(TKey key, TValue value, Node next)
             {
-                this.Key = key;
-                this.Value = value;
-                this.Next = next;
+                Key = key;
+                Value = value;
+                Next = next;
             }
         }
 
@@ -58,7 +58,7 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("argument to contains() can't be null!");
-            for (var pointer = this.first; pointer != null; pointer = pointer.Next)
+            for (var pointer = first; pointer != null; pointer = pointer.Next)
                 if (pointer.Key.Equals(key))
                     return true;
             return false;
@@ -72,14 +72,14 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("key can't be null");
-            Node before = null, target = this.first;
+            Node before = null, target = first;
             while (target != null && !target.Key.Equals(key))
             {
                 before = target;
                 target = target.Next;
             }
-            if (target == this.cache)           // 删除缓存
-                this.cache = null;
+            if (target == cache)           // 删除缓存
+                cache = null;
             if (target != null)
                 Delete(before, target);
         }
@@ -96,10 +96,10 @@ namespace SymbolTable
                 throw new ArgumentNullException("target can't be null");
 
             if (before == null)
-                this.first = target.Next;
+                first = target.Next;
             else
                 before.Next = target.Next;
-            this.n--;
+            n--;
         }
 
         /// <summary>
@@ -112,13 +112,13 @@ namespace SymbolTable
             if (key == null)
                 throw new ArgumentNullException("key can't be null");
 
-            if (this.cache != null && this.cache.Key.Equals(key)) // 检查缓存
-                return this.cache.Value;
-            for (var pointer = this.first; pointer != null; pointer = pointer.Next)
+            if (cache != null && cache.Key.Equals(key)) // 检查缓存
+                return cache.Value;
+            for (var pointer = first; pointer != null; pointer = pointer.Next)
             {
                 if (pointer.Key.Equals(key))
                 {
-                    this.cache = pointer;                         // 更新缓存
+                    cache = pointer;                         // 更新缓存
                     return pointer.Value;
                 }
             }
@@ -129,7 +129,7 @@ namespace SymbolTable
         /// 符号表是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得所有的键。
@@ -137,9 +137,9 @@ namespace SymbolTable
         /// <returns>包含所有键的集合。</returns>
         public IEnumerable<TKey> Keys()
         {
-            var keys = new TKey[this.n];
-            var pointer = this.first;
-            for (var i = 0; i < this.n; i++)
+            var keys = new TKey[n];
+            var pointer = first;
+            for (var i = 0; i < n; i++)
             {
                 keys[i] = pointer.Key;
                 pointer = pointer.Next;
@@ -162,7 +162,7 @@ namespace SymbolTable
                 Delete(key);
                 return;
             }
-            for (var pointer = this.first; pointer != null; pointer = pointer.Next)
+            for (var pointer = first; pointer != null; pointer = pointer.Next)
             {
                 if (pointer.Key.Equals(key))
                 {
@@ -171,14 +171,14 @@ namespace SymbolTable
                 }
             }
 
-            this.first = new Node(key, value, this.first);
-            this.n++;
+            first = new Node(key, value, first);
+            n++;
         }
 
         /// <summary>
         /// 获取符号表中的键值对数量。
         /// </summary>
         /// <returns>当前符号表中的键值对数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
     }
 }

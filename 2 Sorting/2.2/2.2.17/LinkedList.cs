@@ -19,8 +19,8 @@ namespace _2._2._17
         /// </summary>
         public LinkedList()
         {
-            this.first = null;
-            this.count = 0;
+            first = null;
+            count = 0;
         }
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace _2._2._17
         {
             var n = new Node<Item>();
             n.item = item;
-            n.next = this.first;
-            this.first = n;
-            this.count++;
+            n.next = first;
+            first = n;
+            count++;
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace _2._2._17
         /// <param name="position">要插入的位置。（从 0 开始）</param>
         public void Insert(Item item, int position)
         {
-            if (position > this.count)
+            if (position > count)
             {
                 throw new IndexOutOfRangeException();
             }
@@ -56,7 +56,7 @@ namespace _2._2._17
             var n = new Node<Item>();
             n.item = item;
 
-            var front = this.first;
+            var front = first;
             for (var i = 1; i < position; i++)
             {
                 front = front.next;
@@ -64,7 +64,7 @@ namespace _2._2._17
 
             n.next = front.next;
             front.next = n;
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -74,12 +74,12 @@ namespace _2._2._17
         /// <returns></returns>
         public Item Find(int index)
         {
-            if (index >= this.count)
+            if (index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var current = this.first;
+            var current = first;
             for (var i = 0; i < index; i++)
             {
                 current = current.next;
@@ -95,17 +95,17 @@ namespace _2._2._17
         /// <returns></returns>
         public Item Delete(int index)
         {
-            if (index >= this.count)
+            if (index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var front = this.first;
-            var temp = this.first.item;
+            var front = first;
+            var temp = first.item;
             if (index == 0)
             {
-                this.first = this.first.next;
-                this.count--;
+                first = first.next;
+                count--;
                 return temp;
             }
 
@@ -116,7 +116,7 @@ namespace _2._2._17
 
             temp = front.next.item;
             front.next = front.next.next;
-            this.count--;
+            count--;
             return temp;
         }
 
@@ -126,7 +126,7 @@ namespace _2._2._17
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace _2._2._17
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace _2._2._17
         /// 获得表头结点。
         /// </summary>
         /// <returns>表头结点</returns>
-        public Node<Item> GetFirst() => this.first;
+        public Node<Item> GetFirst() => first;
 
         /// <summary>
         /// 设置表头结点。
@@ -169,7 +169,7 @@ namespace _2._2._17
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new LinkedListEnumerator(this.first);
+            return new LinkedListEnumerator(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -184,32 +184,32 @@ namespace _2._2._17
 
             public LinkedListEnumerator(Node<Item> first)
             {
-                this.current = new Node<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                current = new Node<Item>();
+                current.next = first;
+                this.first = current;
             }
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             void IDisposable.Dispose()
             {
-                this.first = null;
-                this.current = null;
+                first = null;
+                current = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

@@ -17,7 +17,7 @@ namespace Merge
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public MergeSortKWay() { this.K = 2; }
+        public MergeSortKWay() { K = 2; }
 
         /// <summary>
         /// 用 k 向归并排序对数组 a 进行排序。
@@ -27,7 +27,7 @@ namespace Merge
         /// <exception cref="ArgumentOutOfRangeException">数组长度小于 K 值时抛出异常。</exception>
         public override void Sort<T>(T[] a)
         {
-            if (this.K > a.Length)
+            if (K > a.Length)
                 throw new ArgumentOutOfRangeException("数组长度不能小于 K 值！");
 
             var aux = new T[a.Length];
@@ -47,10 +47,10 @@ namespace Merge
         {
             if (hi <= lo)       // 小于或等于一个元素
                 return;
-            var mids = new int[this.K - 1];
-            var steps = (hi - lo) / this.K;
+            var mids = new int[K - 1];
+            var steps = (hi - lo) / K;
             mids[0] = lo + steps;
-            for (var i = 1; i < this.K - 1; i++)
+            for (var i = 1; i < K - 1; i++)
             {
                 mids[i] = mids[i - 1] + steps;
                 if (mids[i] > hi)               // 防止溢出
@@ -58,11 +58,11 @@ namespace Merge
             }
 
             Sort(a, aux, lo, mids[0]);
-            for (var i = 1; i < this.K - 1; i++)
+            for (var i = 1; i < K - 1; i++)
             {
                 Sort(a, aux, mids[i - 1] + 1, mids[i]);
             }
-            Sort(a, aux, mids[this.K - 2] + 1, hi);
+            Sort(a, aux, mids[K - 2] + 1, hi);
             Merge(a, aux, lo, mids, hi);
         }
 
@@ -82,9 +82,9 @@ namespace Merge
                 aux[l] = a[l];
             }
 
-            var pointers = new int[this.K]; // 标记每个数组的当前归并位置
+            var pointers = new int[K]; // 标记每个数组的当前归并位置
             pointers[0] = lo;                 // 开始时归并位置处于每个子数组的起始
-            for (var i = 1; i < this.K; i++)
+            for (var i = 1; i < K; i++)
             {
                 pointers[i] = mids[i - 1] + 1;
             }
@@ -95,18 +95,18 @@ namespace Merge
                 T min;
                 var minPointerIndex = 0;
                 var isInit = true;
-                if (pointers[this.K - 1] > hi)
+                if (pointers[K - 1] > hi)
                 {
                     min = default(T);                 // 初始化以避免编译错误
                 }
                 else
                 {
-                    min = aux[pointers[this.K - 1]];
-                    minPointerIndex = this.K - 1;
+                    min = aux[pointers[K - 1]];
+                    minPointerIndex = K - 1;
                     isInit = false;
                 }
 
-                for (var j = 0; j < this.K - 1; j++)
+                for (var j = 0; j < K - 1; j++)
                 {
                     if (pointers[j] > mids[j])      // 当前数组已经用完
                         continue;

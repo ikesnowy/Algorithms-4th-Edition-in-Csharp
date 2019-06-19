@@ -14,11 +14,11 @@ namespace _2._1._18
         public Form2(int N)
         {
             InitializeComponent();
-            this.randomDoubles = new double[N];
+            randomDoubles = new double[N];
             var random = new Random();
             for (var i = 0; i < N; i++)
             {
-                this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
+                randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
             }
         }
 
@@ -27,20 +27,20 @@ namespace _2._1._18
         /// </summary>
         private void SelectionSort()
         {
-            for (this.sortI = 0; this.sortI < this.randomDoubles.Length; this.sortI++)
+            for (sortI = 0; sortI < randomDoubles.Length; sortI++)
             {
-                this.sortMin = this.sortI;
-                for (this.sortJ = this.sortI; this.sortJ < this.randomDoubles.Length; this.sortJ++)
+                sortMin = sortI;
+                for (sortJ = sortI; sortJ < randomDoubles.Length; sortJ++)
                 {
-                    if (this.randomDoubles[this.sortMin] > this.randomDoubles[this.sortJ])
+                    if (randomDoubles[sortMin] > randomDoubles[sortJ])
                     {
-                        this.sortMin = this.sortJ;
+                        sortMin = sortJ;
                     }
                 }
                 drawPanel();
-                var temp = this.randomDoubles[this.sortI];
-                this.randomDoubles[this.sortI] = this.randomDoubles[this.sortMin];
-                this.randomDoubles[this.sortMin] = temp;
+                var temp = randomDoubles[sortI];
+                randomDoubles[sortI] = randomDoubles[sortMin];
+                randomDoubles[sortMin] = temp;
                 Thread.Sleep(1000);
             }
         }
@@ -50,37 +50,37 @@ namespace _2._1._18
         /// </summary>
         private void drawPanel()
         {
-            var graphics = this.CreateGraphics();
-            graphics.Clear(this.BackColor);
-            graphics.TranslateTransform(0, this.Height);
+            var graphics = CreateGraphics();
+            graphics.Clear(BackColor);
+            graphics.TranslateTransform(0, Height);
             graphics.ScaleTransform(1, -1);
-            var clientRect = this.ClientRectangle;
+            var clientRect = ClientRectangle;
             var drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
 
-            var barX = new PointF[this.randomDoubles.Length];
-            var unitX = (float)drawRect.Width / this.randomDoubles.Length;
+            var barX = new PointF[randomDoubles.Length];
+            var unitX = (float)drawRect.Width / randomDoubles.Length;
             unitX -= 4;
 
             barX[0] = new PointF(4, drawRect.Top);
-            for (var i = 1; i < this.randomDoubles.Length; i++)
+            for (var i = 1; i < randomDoubles.Length; i++)
             {
                 barX[i] = new PointF(2 + unitX + barX[i - 1].X, drawRect.Top);
             }
 
-            var bars = new RectangleF[this.randomDoubles.Length];
-            for (var i = 0; i < this.randomDoubles.Length; i++)
+            var bars = new RectangleF[randomDoubles.Length];
+            for (var i = 0; i < randomDoubles.Length; i++)
             {
-                var size = new SizeF(unitX, (float)this.randomDoubles[i] * drawRect.Height);
+                var size = new SizeF(unitX, (float)randomDoubles[i] * drawRect.Height);
                 bars[i] = new RectangleF(barX[i], size);
             }
 
             for (var i = 0; i < bars.Length; i++)
             {
-                if (i == this.sortMin)
+                if (i == sortMin)
                 {
                     graphics.FillRectangle(Brushes.Red, bars[i]);
                 }
-                else if (i < this.sortI)
+                else if (i < sortI)
                 {
                     graphics.FillRectangle(Brushes.Gray, bars[i]);
                 }

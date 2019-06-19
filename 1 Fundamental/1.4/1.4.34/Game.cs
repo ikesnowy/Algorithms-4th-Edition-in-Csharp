@@ -30,8 +30,8 @@ namespace _1._4._34
         {
             var random = new Random();
             this.N = N;
-            this.SecretNumber = random.Next(N - 1) + 1;
-            this.LastGuess = -1;
+            SecretNumber = random.Next(N - 1) + 1;
+            LastGuess = -1;
         }
 
         /// <summary>
@@ -41,19 +41,19 @@ namespace _1._4._34
         /// <returns>接近或不变返回 Hot，远离则返回 Cold，猜中返回 Equal。</returns>
         public GuessResult Guess(int guess)
         {
-            if (guess == this.SecretNumber)
+            if (guess == SecretNumber)
             {
                 return GuessResult.Equal;
             }
-            if (this.LastGuess == -1)
+            if (LastGuess == -1)
             {
-                this.LastGuess = guess;
+                LastGuess = guess;
                 return GuessResult.FirstGuess;
             }
 
-            var lastDiff = Math.Abs(this.LastGuess - this.SecretNumber);
-            this.LastGuess = guess;
-            var nowDiff = Math.Abs(guess - this.SecretNumber);
+            var lastDiff = Math.Abs(LastGuess - SecretNumber);
+            LastGuess = guess;
+            var nowDiff = Math.Abs(guess - SecretNumber);
             if (nowDiff > lastDiff)
             {
                 return GuessResult.Cold;
@@ -69,7 +69,7 @@ namespace _1._4._34
         /// </summary>
         public void Restart()
         {
-            this.LastGuess = -1;
+            LastGuess = -1;
         }
     }
 }

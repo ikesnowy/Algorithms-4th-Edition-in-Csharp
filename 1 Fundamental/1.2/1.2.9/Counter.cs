@@ -14,7 +14,7 @@
         /// <param name="id">计数器的名称。</param>
         public Counter(string id)
         {
-            this.name = id;
+            name = id;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@
         /// </summary>
         public void Increment()
         {
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@
         /// <returns></returns>
         public int Tally()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return this.count + " " + this.name;
+            return count + " " + name;
         }
     }
 }

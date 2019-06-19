@@ -24,7 +24,7 @@ namespace _2._3._28
         /// </summary>
         public QuickSortInsertion()
         {
-            this.M = 10;
+            M = 10;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace _2._3._28
         public override void Sort<T>(T[] a)
         {
             Shuffle(a);
-            this.Depth = Sort(a, 0, a.Length - 1, 0);
+            Depth = Sort(a, 0, a.Length - 1, 0);
             Debug.Assert(IsSorted(a));
         }
 
@@ -51,7 +51,7 @@ namespace _2._3._28
         {
             if (hi <= lo)                   // 别越界
                 return depth;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
                 // 调用插入排序
                 for (var i = lo; i <= hi; i++)

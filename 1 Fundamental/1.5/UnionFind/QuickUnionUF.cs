@@ -22,7 +22,7 @@
         /// </summary>
         public virtual void ResetArrayCount()
         {
-            this.ArrayVisitCount = 0;
+            ArrayVisitCount = 0;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@
         /// <returns>返回 parent 数组。</returns>
         public int[] GetParent()
         {
-            return this.parent;
+            return parent;
         }
 
         /// <summary>
@@ -42,10 +42,10 @@
         public override int Find(int p)
         {
             Validate(p);
-            while (p != this.parent[p])
+            while (p != parent[p])
             {
-                p = this.parent[p];
-                this.ArrayVisitCount += 2;
+                p = parent[p];
+                ArrayVisitCount += 2;
             }
             return p;
         }
@@ -64,9 +64,9 @@
                 return;
             }
 
-            this.parent[rootP] = rootQ;
-            this.ArrayVisitCount++;
-            this.count--;
+            parent[rootP] = rootQ;
+            ArrayVisitCount++;
+            count--;
         }
     }
 

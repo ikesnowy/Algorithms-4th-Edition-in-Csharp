@@ -11,13 +11,13 @@ namespace _2._5._12
 
             public Job(string name, double time)
             {
-                this.Name = name;
-                this.Time = time;
+                Name = name;
+                Time = time;
             }
 
             public int CompareTo(Job other)
             {
-                return this.Time.CompareTo(other.Time);
+                return Time.CompareTo(other.Time);
             }
         }
 

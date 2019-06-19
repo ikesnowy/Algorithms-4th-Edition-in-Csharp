@@ -21,10 +21,10 @@ namespace _1._3._50
         /// </summary>
         public Stack()
         {
-            this.first = null;
-            this.popcount = 0;
-            this.pushcount = 0;
-            this.count = 0;
+            first = null;
+            popcount = 0;
+            pushcount = 0;
+            count = 0;
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace _1._3._50
         {
             if (s.first != null)
             {
-                this.first = new Node<Item>(s.first);
-                for (var x = this.first; x.next != null; x = x.next)
+                first = new Node<Item>(s.first);
+                for (var x = first; x.next != null; x = x.next)
                 {
                     x.next = new Node<Item>(x.next);
                 }
@@ -49,7 +49,7 @@ namespace _1._3._50
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return first == null;
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace _1._3._50
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -67,12 +67,12 @@ namespace _1._3._50
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            var oldFirst = this.first;
-            this.first = new Node<Item>();
-            this.first.item = item;
-            this.first.next = oldFirst;
-            this.count++;
-            this.pushcount++;
+            var oldFirst = first;
+            first = new Node<Item>();
+            first.item = item;
+            first.next = oldFirst;
+            count++;
+            pushcount++;
         }
 
         /// <summary>
@@ -83,10 +83,10 @@ namespace _1._3._50
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            var item = this.first.item;
-            this.first = this.first.next;
-            this.count--;
-            this.popcount++;
+            var item = first.item;
+            first = first.next;
+            count--;
+            popcount++;
             return item;
         }
 
@@ -98,7 +98,7 @@ namespace _1._3._50
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return this.first.item;
+            return first.item;
         }
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace _1._3._50
         public Stack<Item> Copy()
         {
             var temp = new Stack<Item>();
-            temp.first = this.first;
-            temp.count = this.count;
+            temp.first = first;
+            temp.count = count;
             return temp;
         }
 
@@ -171,36 +171,36 @@ namespace _1._3._50
             public StackEnumerator(Stack<Item> s)
             {
                 this.s = s;
-                this.current = s.first;
-                this.popcount = s.popcount;
-                this.pushcount = s.pushcount;
+                current = s.first;
+                popcount = s.popcount;
+                pushcount = s.pushcount;
             }
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             void IDisposable.Dispose()
             {
-                this.current = null;
-                this.s = null;
+                current = null;
+                s = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.s.popcount != this.popcount || this.s.pushcount != this.pushcount)
+                if (s.popcount != popcount || s.pushcount != pushcount)
                     throw new InvalidOperationException("Stack has been modified");
 
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
 
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.s.first;
+                current = s.first;
             }
         }
     }

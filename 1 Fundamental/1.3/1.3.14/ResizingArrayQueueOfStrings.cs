@@ -17,20 +17,20 @@ namespace _1._3._14
 
         public ResizingArrayQueueOfStrings()
         {
-            this.q = new Item[2];
-            this.count = 0;
-            this.first = 0;
+            q = new Item[2];
+            count = 0;
+            first = 0;
 
         }
 
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         private void Resize(int capacity)
@@ -38,43 +38,43 @@ namespace _1._3._14
             if (capacity < 0)
                 throw new ArgumentException("capacity should be above zero");
             var temp = new Item[capacity];
-            for (var i = 0; i < this.count; i++)
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.q[(this.first + i) % this.q.Length];
+                temp[i] = q[(first + i) % q.Length];
             }
 
-            this.q = temp;
-            this.first = 0;
-            this.last = this.count;
+            q = temp;
+            first = 0;
+            last = count;
         }
 
         public void Enqueue(Item item)
         {
-            if (this.count == this.q.Length)
+            if (count == q.Length)
             {
-                Resize(this.count * 2);
+                Resize(count * 2);
             }
 
-            this.q[this.last] = item;
-            this.last++;
-            if (this.last == this.q.Length)
-                this.last = 0;
-            this.count++;
+            q[last] = item;
+            last++;
+            if (last == q.Length)
+                last = 0;
+            count++;
         }
 
         public Item Dequeue()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            var item = this.q[this.first];
-            this.q[this.first] = default(Item);
-            this.count--;
-            this.first++;
-            if (this.first == this.q.Length)
-                this.first = 0;
+            var item = q[first];
+            q[first] = default(Item);
+            count--;
+            first++;
+            if (first == q.Length)
+                first = 0;
 
-            if (this.count > 0 && this.count <= this.q.Length / 4)
-                Resize(this.q.Length / 2);
+            if (count > 0 && count <= q.Length / 4)
+                Resize(q.Length / 2);
             return item;
         }
 
@@ -82,12 +82,12 @@ namespace _1._3._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            return this.q[this.first];
+            return q[first];
         }
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new QueueEnumerator(this.q, this.first, this.last);
+            return new QueueEnumerator(q, first, last);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -104,15 +104,15 @@ namespace _1._3._14
 
             public QueueEnumerator(Item[] q, int first, int last)
             {
-                this.current = first - 1;
+                current = first - 1;
                 this.first = first;
                 this.last = last;
                 this.q = q;
             }
 
-            Item IEnumerator<Item>.Current => this.q[this.current];
+            Item IEnumerator<Item>.Current => q[current];
 
-            object IEnumerator.Current => this.q[this.current];
+            object IEnumerator.Current => q[current];
 
             void IDisposable.Dispose()
             {
@@ -121,15 +121,15 @@ namespace _1._3._14
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.last - 1)
+                if (current == last - 1)
                     return false;
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first - 1;
+                current = first - 1;
             }
         }
     }

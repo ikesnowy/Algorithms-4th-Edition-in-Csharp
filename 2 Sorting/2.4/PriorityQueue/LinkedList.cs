@@ -19,8 +19,8 @@ namespace PriorityQueue
         /// </summary>
         public LinkedList()
         {
-            this.first = null;
-            this.count = 0;
+            first = null;
+            count = 0;
         }
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace PriorityQueue
         {
             var n = new Node<Item>();
             n.item = item;
-            n.next = this.first;
-            this.first = n;
-            this.count++;
+            n.next = first;
+            first = n;
+            count++;
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace PriorityQueue
         /// <param name="position">要插入的位置。（从 0 开始）</param>
         public void Insert(Item item, int position)
         {
-            if (position > this.count)
+            if (position > count)
             {
                 throw new IndexOutOfRangeException();
             }
@@ -56,7 +56,7 @@ namespace PriorityQueue
             var n = new Node<Item>();
             n.item = item;
 
-            var front = this.first;
+            var front = first;
             for (var i = 1; i < position; i++)
             {
                 front = front.next;
@@ -64,7 +64,7 @@ namespace PriorityQueue
 
             n.next = front.next;
             front.next = n;
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -75,12 +75,12 @@ namespace PriorityQueue
         /// <exception cref="IndexOutOfRangeException">当下标超出链表长度时抛出该异常。</exception>
         public Item Find(int index)
         {
-            if (index >= this.count)
+            if (index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var current = this.first;
+            var current = first;
             for (var i = 0; i < index; i++)
             {
                 current = current.next;
@@ -97,17 +97,17 @@ namespace PriorityQueue
         /// <exception cref="IndexOutOfRangeException">当 <paramref name="index"/> 大于链表长度时抛出该异常。</exception>
         public Item Delete(int index)
         {
-            if (index >= this.count)
+            if (index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var front = this.first;
-            var temp = this.first.item;
+            var front = first;
+            var temp = first.item;
             if (index == 0)
             {
-                this.first = this.first.next;
-                this.count--;
+                first = first.next;
+                count--;
                 return temp;
             }
 
@@ -118,7 +118,7 @@ namespace PriorityQueue
 
             temp = front.next.item;
             front.next = front.next.next;
-            this.count--;
+            count--;
             return temp;
         }
 
@@ -128,7 +128,7 @@ namespace PriorityQueue
         /// <returns>若链表为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace PriorityQueue
         /// <returns>链表中元素的数量。</returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace PriorityQueue
         /// <returns>链表的迭代器。</returns>
         public IEnumerator<Item> GetEnumerator()
         {
-            return new LinkedListEnumerator(this.first);
+            return new LinkedListEnumerator(first);
         }
 
         /// <summary>
@@ -183,32 +183,32 @@ namespace PriorityQueue
 
             public LinkedListEnumerator(Node<Item> first)
             {
-                this.current = new Node<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                current = new Node<Item>();
+                current.next = first;
+                this.first = current;
             }
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             void IDisposable.Dispose()
             {
-                this.first = null;
-                this.current = null;
+                first = null;
+                current = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

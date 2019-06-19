@@ -14,17 +14,17 @@ namespace _3._1._38
 
         public void Draw(int[] data)
         {
-            var panel = this.CreateGraphics();
-            var unitX = (float)this.ClientRectangle.Width / data.Length;
-            var unitY = (float)this.ClientRectangle.Height / data.Max();
+            var panel = CreateGraphics();
+            var unitX = (float)ClientRectangle.Width / data.Length;
+            var unitY = (float)ClientRectangle.Height / data.Max();
 
             var accumulation = 0;
             for (var i = 0; i < data.Length; i++)
             {
                 // Gray
-                panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, this.ClientRectangle.Bottom - data[i] * unitY, 2, 2);
+                panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, ClientRectangle.Bottom - data[i] * unitY, 2, 2);
                 // Red
-                panel.FillEllipse(Brushes.Red, (i + 1) * unitX, this.ClientRectangle.Bottom - accumulation / (i + 1) * unitY, 2, 2);
+                panel.FillEllipse(Brushes.Red, (i + 1) * unitX, ClientRectangle.Bottom - accumulation / (i + 1) * unitY, 2, 2);
                 accumulation += data[i];
             }
         }

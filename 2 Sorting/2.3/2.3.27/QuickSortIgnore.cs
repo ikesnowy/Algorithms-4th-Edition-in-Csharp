@@ -19,7 +19,7 @@ namespace _2._3._27
         /// </summary>
         public QuickSortIgnore()
         {
-            this.M = 10;
+            M = 10;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace _2._3._27
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
                 return;     // 直接忽略
             }

@@ -34,8 +34,8 @@ namespace PriorityQueue
             /// </summary>
             private MinMaxNode(Key key, int index)
             {
-                this.Key = key;
-                this.Index = index;
+                Key = key;
+                Index = index;
             }
 
             /// <summary>
@@ -59,7 +59,7 @@ namespace PriorityQueue
             /// <returns>如果 <paramref name="other"/> 比较小则返回正数，否则返回负数。</returns>
             public int CompareTo(MinMaxNode other)
             {
-                return this.Key.CompareTo(other.Key);
+                return Key.CompareTo(other.Key);
             }
         }
 
@@ -90,17 +90,17 @@ namespace PriorityQueue
             /// <param name="j">要交换的下标。</param>
             protected override void Exch(int i, int j)
             {
-                this.pq[i].Pair.Pair = this.pq[j];
-                this.pq[j].Pair.Pair = this.pq[i];
+                pq[i].Pair.Pair = pq[j];
+                pq[j].Pair.Pair = pq[i];
 
-                var swapNode = this.pq[i].Pair;
-                var swapKey = this.pq[i].Key;
+                var swapNode = pq[i].Pair;
+                var swapKey = pq[i].Key;
 
-                this.pq[i].Key = this.pq[j].Key;
-                this.pq[i].Pair = this.pq[j].Pair;
+                pq[i].Key = pq[j].Key;
+                pq[i].Pair = pq[j].Pair;
 
-                this.pq[j].Key = swapKey;
-                this.pq[j].Pair = swapNode;
+                pq[j].Key = swapKey;
+                pq[j].Pair = swapNode;
             }
         }
 
@@ -131,17 +131,17 @@ namespace PriorityQueue
             /// <param name="j">要交换的下标。</param>
             protected override void Exch(int i, int j)
             {
-                this.pq[i].Pair.Pair = this.pq[j];
-                this.pq[j].Pair.Pair = this.pq[i];
+                pq[i].Pair.Pair = pq[j];
+                pq[j].Pair.Pair = pq[i];
 
-                MinMaxNode swapNode = this.pq[i].Pair;
-                Key swapKey = this.pq[i].Key;
+                MinMaxNode swapNode = pq[i].Pair;
+                Key swapKey = pq[i].Key;
 
-                this.pq[i].Key = this.pq[j].Key;
-                this.pq[i].Pair = this.pq[j].Pair;
+                pq[i].Key = pq[j].Key;
+                pq[i].Pair = pq[j].Pair;
 
-                this.pq[j].Key = swapKey;
-                this.pq[j].Pair = swapNode;
+                pq[j].Key = swapKey;
+                pq[j].Pair = swapNode;
             }
         }
 
@@ -172,9 +172,9 @@ namespace PriorityQueue
         /// <param name="capacity">堆的大小。</param>
         public MinMaxPQ(int capacity)
         {
-            this.minPQ = new MinPQ(capacity);
-            this.maxPQ = new MaxPQ(capacity);
-            this.n = 0;
+            minPQ = new MinPQ(capacity);
+            maxPQ = new MaxPQ(capacity);
+            n = 0;
         }
 
         /// <summary>
@@ -183,15 +183,15 @@ namespace PriorityQueue
         /// <param name="keys">需要建堆的元素。</param>
         public MinMaxPQ(Key[] keys)
         {
-            this.n = keys.Length;
+            n = keys.Length;
             var minNodes = new MinMaxNode[keys.Length];
             var maxNodes = new MinMaxNode[keys.Length];
-            for (var i = 0; i < this.n; i++)
+            for (var i = 0; i < n; i++)
             {
                 MinMaxNode.GetNodes(keys[i], i + 1, out minNodes[i], out maxNodes[i]);
             }
-            this.minPQ = new MinPQ(minNodes);
-            this.maxPQ = new MaxPQ(maxNodes);
+            minPQ = new MinPQ(minNodes);
+            maxPQ = new MaxPQ(maxNodes);
         }
 
         /// <summary>
@@ -201,11 +201,11 @@ namespace PriorityQueue
         public Key DelMax()
         {
             // ⬇ 不可以交换操作顺序 ⬇
-            this.minPQ.Remove(this.maxPQ.Max().Pair.Index);
-            var key = this.maxPQ.Max().Key;
-            this.maxPQ.DelMax();
+            minPQ.Remove(maxPQ.Max().Pair.Index);
+            var key = maxPQ.Max().Key;
+            maxPQ.DelMax();
             // ⬆ 不可以交换操作顺序 ⬆
-            this.n--;
+            n--;
             return key;
         }
 
@@ -216,11 +216,11 @@ namespace PriorityQueue
         public Key DelMin()
         {
             // ⬇ 不可以交换操作顺序 ⬇
-            this.maxPQ.Remove(this.minPQ.Min().Pair.Index);
-            Key key = this.minPQ.Min().Key;
-            this.minPQ.DelMin();
+            maxPQ.Remove(minPQ.Min().Pair.Index);
+            Key key = minPQ.Min().Key;
+            minPQ.DelMin();
             // ⬆ 不可以交换操作顺序 ⬆
-            this.n--;
+            n--;
             return key;
         }
 
@@ -230,34 +230,34 @@ namespace PriorityQueue
         /// <param name="v">待插入的新值。</param>
         public void Insert(Key v)
         {
-            this.n++;
-            MinMaxNode.GetNodes(v, this.n, out var minNode, out var maxNode);
-            this.maxPQ.Insert(maxNode);
-            this.minPQ.Insert(minNode);
+            n++;
+            MinMaxNode.GetNodes(v, n, out var minNode, out var maxNode);
+            maxPQ.Insert(maxNode);
+            minPQ.Insert(minNode);
         }
 
         /// <summary>
         /// 判断堆是否为空。
         /// </summary>
         /// <returns>若堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得堆中的最大值。
         /// </summary>
         /// <returns>堆的最大值。</returns>
-        public Key Max() => this.maxPQ.Max().Key;
+        public Key Max() => maxPQ.Max().Key;
 
         /// <summary>
         /// 获得堆中的最小值。
         /// </summary>
         /// <returns>堆的最小值。</returns>
-        public Key Min() => this.minPQ.Min().Key;
+        public Key Min() => minPQ.Min().Key;
 
         /// <summary>
         /// 获得堆的大小。
         /// </summary>
         /// <returns>堆的大小。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
     }
 }

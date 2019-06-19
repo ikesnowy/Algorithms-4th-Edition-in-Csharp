@@ -22,7 +22,7 @@ namespace _2._5._19
         /// <param name="a">待排序的数组。</param>
         public void Count<T>(T[] a) where T : IComparable<T>
         {
-            this.Counter = 0;
+            Counter = 0;
             var aux = new T[a.Length];
             Count(a, aux, 0, a.Length - 1);
         }
@@ -77,7 +77,7 @@ namespace _2._5._19
                 else if (Less(aux[j], aux[i]))      // 右侧的小于左侧的，出现逆序
                 {
                     a[k] = aux[j];
-                    this.Counter += mid - i + 1;    // 统计逆序对数
+                    Counter += mid - i + 1;    // 统计逆序对数
                     j++;
                 }
                 else

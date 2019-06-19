@@ -12,13 +12,13 @@ namespace _2._5._9
 
         public DJIA(string date, long vol)
         {
-            this.Date = date;
-            this.Volume = vol;
+            Date = date;
+            Volume = vol;
         }
 
         public int CompareTo(DJIA other)
         {
-            return this.Volume.CompareTo(other.Volume);
+            return Volume.CompareTo(other.Volume);
         }
     }
 }

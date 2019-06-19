@@ -59,12 +59,12 @@ namespace SortApplication
         /// </summary>
         public QuickSortAnalyze()
         {
-            this.CompareCount = 0;
-            this.NeedShuffle = true;
-            this.NeedPath = false;
-            this.Array0Num = 0;
-            this.Array1Num = 0;
-            this.Array2Num = 0;
+            CompareCount = 0;
+            NeedShuffle = true;
+            NeedPath = false;
+            Array0Num = 0;
+            Array1Num = 0;
+            Array2Num = 0;
         }
 
         /// <summary>
@@ -74,13 +74,13 @@ namespace SortApplication
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            this.Array0Num = 0;
-            this.Array1Num = 0;
-            this.Array2Num = 0;
-            this.CompareCount = 0;
-            if (this.NeedShuffle)
+            Array0Num = 0;
+            Array1Num = 0;
+            Array2Num = 0;
+            CompareCount = 0;
+            if (NeedShuffle)
                 Shuffle(a);
-            if (this.NeedPath)
+            if (NeedPath)
             {
                 for (var i = 0; i < a.Length; i++)
                 {
@@ -102,16 +102,16 @@ namespace SortApplication
         private void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             if (hi - lo == 1)
-                this.Array2Num++;
+                Array2Num++;
             else if (hi == lo)
-                this.Array1Num++;
+                Array1Num++;
             else if (hi < lo)
-                this.Array0Num++;
+                Array0Num++;
 
             if (hi <= lo)                   // 别越界
                 return;
             var j = Partition(a, lo, hi);
-            if (this.NeedPath)
+            if (NeedPath)
             {
                 for (var i = 0; i < a.Length; i++)
                 {
@@ -204,7 +204,7 @@ namespace SortApplication
         /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         new protected bool Less<T>(T a, T b) where T : IComparable<T>
         {
-            this.CompareCount++;
+            CompareCount++;
             return a.CompareTo(b) < 0;
         }
     }

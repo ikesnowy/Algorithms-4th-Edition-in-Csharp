@@ -43,9 +43,9 @@ namespace SymbolTable
         /// <param name="capacity">符号表初始容量。</param>
         public BinarySearchST(int capacity)
         {
-            this.keys = new TKey[capacity];
-            this.values = new TValue[capacity];
-            this.n = 0;
+            keys = new TKey[capacity];
+            values = new TValue[capacity];
+            n = 0;
         }
 
         /// <summary>
@@ -59,10 +59,10 @@ namespace SymbolTable
             if (key == null)
                 throw new ArgumentNullException("argument to Ceiling is null");
             var i = Rank(key);
-            if (i == this.n)
+            if (i == n)
                 return default(TKey);
             else
-                return this.keys[i];
+                return keys[i];
         }
 
         /// <summary>
@@ -91,21 +91,21 @@ namespace SymbolTable
 
             var i = Rank(key);
 
-            if (i == this.n && this.keys[i].CompareTo(key) != 0)
+            if (i == n && keys[i].CompareTo(key) != 0)
                 return;
 
-            for (var j = i; j < this.n - 1; j++)
+            for (var j = i; j < n - 1; j++)
             {
-                this.keys[j] = this.keys[j + 1];
-                this.values[j] = this.values[j + 1];
+                keys[j] = keys[j + 1];
+                values[j] = values[j + 1];
             }
 
-            this.n--;
-            this.keys[this.n] = default(TKey);
-            this.values[this.n] = default(TValue);
+            n--;
+            keys[n] = default(TKey);
+            values[n] = default(TValue);
 
-            if (this.n > 0 && this.n == this.keys.Length / 4)
-                Resize(this.keys.Length / 2);
+            if (n > 0 && n == keys.Length / 4)
+                Resize(keys.Length / 2);
 
             // Debug.Assert(Check());
         }
@@ -131,12 +131,12 @@ namespace SymbolTable
             if (key == null)
                 throw new ArgumentNullException("argument to Floor() is null");
             var i = Rank(key);
-            if (i < this.n && this.keys[i].CompareTo(key) == 0)
-                return this.keys[i];
+            if (i < n && keys[i].CompareTo(key) == 0)
+                return keys[i];
             if (i == 0)
                 return default(TKey);
             else
-                return this.keys[i - 1];
+                return keys[i - 1];
         }
 
         /// <summary>
@@ -152,8 +152,8 @@ namespace SymbolTable
             if (IsEmpty())
                 return default(TValue);
             var rank = Rank(key);
-            if (rank < this.n && this.keys[rank].Equals(key))
-                return this.values[rank];
+            if (rank < n && keys[rank].Equals(key))
+                return values[rank];
             return default(TValue);
         }
 
@@ -161,7 +161,7 @@ namespace SymbolTable
         /// 符号表是否为空。
         /// </summary>
         /// <returns>如果符号表为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得全部键的集合。
@@ -186,9 +186,9 @@ namespace SymbolTable
             if (lo.CompareTo(hi) > 0)
                 return list;
             for (var i = Rank(lo); i < Rank(hi); i++)
-                list.Add(this.keys[i]);
+                list.Add(keys[i]);
             if (Contains(hi))
-                list.Add(this.keys[Rank(hi)]);
+                list.Add(keys[Rank(hi)]);
             return list;
         }
 
@@ -201,7 +201,7 @@ namespace SymbolTable
         {
             if (IsEmpty())
                 throw new InvalidOperationException("called Max() with empty table");
-            return this.keys[this.n - 1];
+            return keys[n - 1];
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace SymbolTable
         {
             if (IsEmpty())
                 throw new InvalidOperationException("called Min() with empty table");
-            return this.keys[0];
+            return keys[0];
         }
 
         /// <summary>
@@ -234,23 +234,23 @@ namespace SymbolTable
 
             var i = Rank(key);
 
-            if (i < this.n && this.keys[i].CompareTo(key) == 0)
+            if (i < n && keys[i].CompareTo(key) == 0)
             {
-                this.values[i] = value;
+                values[i] = value;
                 return;
             }
 
-            if (this.n == this.keys.Length)
-                Resize(this.n * 2);
+            if (n == keys.Length)
+                Resize(n * 2);
 
-            for (var j = this.n; j > i; j--)
+            for (var j = n; j > i; j--)
             {
-                this.keys[j] = this.keys[j - 1];
-                this.values[j] = this.values[j - 1];
+                keys[j] = keys[j - 1];
+                values[j] = values[j - 1];
             }
-            this.keys[i] = key;
-            this.values[i] = value;
-            this.n++;
+            keys[i] = key;
+            values[i] = value;
+            n++;
 
             // Debug.Assert(Check());
         }
@@ -265,11 +265,11 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Rank() is null");
-            int lo = 0, hi = this.n - 1;
+            int lo = 0, hi = n - 1;
             while (lo <= hi)
             {
                 var mid = lo + (hi - lo) / 2;
-                var compare = this.keys[mid].CompareTo(key);
+                var compare = keys[mid].CompareTo(key);
                 if (compare > 0)
                     hi = mid - 1;
                 else if (compare < 0)
@@ -287,16 +287,16 @@ namespace SymbolTable
         /// <returns>第 <paramref name="k"/> 小的键。</returns>
         public TKey Select(int k)
         {
-            if (k < 0 || k >= this.n)
+            if (k < 0 || k >= n)
                 throw new ArgumentOutOfRangeException("called Select() with invaild k: " + k);
-            return this.keys[k];
+            return keys[k];
         }
 
         /// <summary>
         /// 符号表中的键值对数量。
         /// </summary>
         /// <returns>符号表中的键值对数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获得区间 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键的数量。
@@ -327,17 +327,17 @@ namespace SymbolTable
         /// <exception cref="ArgumentOutOfRangeException">当 <paramref name="capacity"/> < <see cref="n"/> 时抛出该异常。</exception>
         private void Resize(int capacity)
         {
-            if (capacity < this.n)
+            if (capacity < n)
                 throw new ArgumentOutOfRangeException("分配容量不能小于表中元素数量。");
             var tempKeys = new TKey[capacity];
             var tempValues = new TValue[capacity];
-            for (var i = 0; i < this.n; i++)
+            for (var i = 0; i < n; i++)
             {
-                tempKeys[i] = this.keys[i];
-                tempValues[i] = this.values[i];
+                tempKeys[i] = keys[i];
+                tempValues[i] = values[i];
             }
-            this.keys = tempKeys;
-            this.values = tempValues;
+            keys = tempKeys;
+            values = tempValues;
         }
 
         /// <summary>
@@ -353,7 +353,7 @@ namespace SymbolTable
         private bool IsSorted()
         {
             for (var i = 1; i < Size(); i++)
-                if (this.keys[i].CompareTo(this.keys[i - 1]) < 0)
+                if (keys[i].CompareTo(keys[i - 1]) < 0)
                     return false;
             return true;
         }
@@ -368,7 +368,7 @@ namespace SymbolTable
                 if (i != Rank(Select(i)))
                     return false;
             for (var i = 0; i < Size(); i++)
-                if (keys[i].CompareTo(Select(Rank(this.keys[i]))) != 0)
+                if (keys[i].CompareTo(Select(Rank(keys[i]))) != 0)
                     return false;
             return true;
         }

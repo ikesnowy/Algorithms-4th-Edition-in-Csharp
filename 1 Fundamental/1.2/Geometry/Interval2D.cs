@@ -17,8 +17,8 @@ namespace Geometry
         /// <param name="y">y 轴上的范围。</param>
         public Interval2D(Interval1D x, Interval1D y)
         {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
 
         /// <summary>
@@ -28,12 +28,12 @@ namespace Geometry
         /// <returns>相交则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Intersects(Interval2D that)
         {
-            if (!this.X.Intersect(that.X))
+            if (!X.Intersect(that.X))
             {
                 return false;
             }
 
-            if (!this.Y.Intersect(that.Y))
+            if (!Y.Intersect(that.Y))
             {
                 return false;
             }
@@ -48,7 +48,7 @@ namespace Geometry
         /// <returns>如果 <paramref name="that"/> 被包含，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Interval2D that)
         {
-            return this.X.Contains(that.X) && this.Y.Contains(that.Y);
+            return X.Contains(that.X) && Y.Contains(that.Y);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Geometry
         /// <returns>如果 <paramref name="p"/> 被包含，则返回 <c>true</c>，否则 <c>false</c>。</returns>
         public bool Contains(Point2D p)
         {
-            return (this.X.Contains(p.X) && this.Y.Contains(p.Y));
+            return (X.Contains(p.X) && Y.Contains(p.Y));
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Geometry
         /// <returns>平面范围的面积。</returns>
         public double Area()
         {
-            return this.X.Length() * this.Y.Length();
+            return X.Length() * Y.Length();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Geometry
         /// <param name="g">原点在左下方，x轴向右，y轴向上的画布。</param>
         public void Draw(Graphics g)
         {
-            var rect = new Rectangle((int)this.X.Min, (int)this.Y.Min, (int)this.X.Length(), (int)this.Y.Length());
+            var rect = new Rectangle((int)X.Min, (int)Y.Min, (int)X.Length(), (int)Y.Length());
             g.DrawRectangle(Pens.White, rect);
             g.FillRectangle(Brushes.Black, rect);
         }
@@ -87,7 +87,7 @@ namespace Geometry
         /// <returns>形如 "[xmin, xmax] x [ymin, ymax]" 的字符串。</returns>
         public override string ToString()
         {
-            return this.X + "x" + this.Y;
+            return X + "x" + Y;
         }
 
         /// <summary>
@@ -106,14 +106,14 @@ namespace Geometry
                 return false;
             }
 
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
             {
                 return false;
             }
 
             var that = (Interval2D)obj;
 
-            return this.X.Equals(that.X) && this.Y.Equals(that.Y);
+            return X.Equals(that.X) && Y.Equals(that.Y);
         }
 
         /// <summary>
@@ -122,8 +122,8 @@ namespace Geometry
         /// <returns>2D 区间的哈希值。</returns>
         public override int GetHashCode()
         {
-            var hash1 = this.X.GetHashCode();
-            var hash2 = this.Y.GetHashCode();
+            var hash1 = X.GetHashCode();
+            var hash2 = Y.GetHashCode();
 
             return 31 * hash1 + hash2;
         }

@@ -19,14 +19,14 @@
         public override int Find(int p)
         {
             var root = p;
-            while (root != this.parent[root])
+            while (root != parent[root])
             {
-                root = this.parent[root];
+                root = parent[root];
             }
             while (p != root)
             {
-                var newp = this.parent[p];
-                this.parent[p] = root;
+                var newp = parent[p];
+                parent[p] = root;
                 p = newp;
             }
             return p;

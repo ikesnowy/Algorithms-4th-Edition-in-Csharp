@@ -16,8 +16,8 @@ namespace _1._3._35
         /// </summary>
         public RandomQueue()
         {
-            this.queue = new Item[2];
-            this.count = 0;
+            queue = new Item[2];
+            count = 0;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace _1._3._35
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -41,12 +41,12 @@ namespace _1._3._35
             }
 
             var temp = new Item[capacity];
-            for (var i = 0; i < this.count; i++)
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.queue[i];
+                temp[i] = queue[i];
             }
 
-            this.queue = temp;
+            queue = temp;
         }
 
         /// <summary>
@@ -55,13 +55,13 @@ namespace _1._3._35
         /// <param name="item">要向队列中添加的元素。</param>
         public void Enqueue(Item item)
         {
-            if (this.queue.Length == this.count)
+            if (queue.Length == count)
             {
-                Resize(this.count * 2);
+                Resize(count * 2);
             }
 
-            this.queue[this.count] = item;
-            this.count++;
+            queue[count] = item;
+            count++;
         }
 
         /// <summary>
@@ -76,17 +76,17 @@ namespace _1._3._35
             }
 
             var random = new Random(DateTime.Now.Millisecond);
-            var index = random.Next(this.count);
+            var index = random.Next(count);
 
-            var temp = this.queue[index];
-            this.queue[index] = this.queue[this.count - 1];
-            this.queue[this.count - 1] = temp;
+            var temp = queue[index];
+            queue[index] = queue[count - 1];
+            queue[count - 1] = temp;
 
-            this.count--;
+            count--;
 
-            if (this.count < this.queue.Length / 4)
+            if (count < queue.Length / 4)
             {
-                Resize(this.queue.Length / 2);
+                Resize(queue.Length / 2);
             }
 
             return temp;
@@ -104,9 +104,9 @@ namespace _1._3._35
             }
 
             var random = new Random();
-            var index = random.Next(this.count);
+            var index = random.Next(count);
 
-            return this.queue[index];
+            return queue[index];
         }
     }
 }

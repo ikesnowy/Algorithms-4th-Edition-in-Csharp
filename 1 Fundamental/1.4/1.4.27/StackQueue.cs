@@ -14,8 +14,8 @@
         /// </summary>
         public StackQueue()
         {
-            this.H = new Stack<Item>();
-            this.T = new Stack<Item>();
+            H = new Stack<Item>();
+            T = new Stack<Item>();
         }
 
         /// <summary>
@@ -23,9 +23,9 @@
         /// </summary>
         private void Reverse()
         {
-            while (!this.T.IsEmpty())
+            while (!T.IsEmpty())
             {
-                this.H.Push(this.T.Pop());
+                H.Push(T.Pop());
             }
         }
 
@@ -36,12 +36,12 @@
         public Item Dequeue()
         {
             // 如果没有足够的出队元素，则将 T 中的元素移动过来
-            if (this.H.IsEmpty())
+            if (H.IsEmpty())
             {
                 Reverse();
             }
 
-            return this.H.Pop();
+            return H.Pop();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            this.T.Push(item);
+            T.Push(item);
         }
     }
 }

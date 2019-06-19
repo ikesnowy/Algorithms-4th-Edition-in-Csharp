@@ -37,7 +37,7 @@ namespace SymbolTable
         /// <returns>大于等于 key 的最小值，不存在则返回 <c>default(Key)</c>。</returns>
         public TKey Ceiling(TKey key)
         {
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && Less(pointer.Key, key))
                 pointer = pointer.Next;
             return pointer == null ? default(TKey) : pointer.Key;
@@ -56,7 +56,7 @@ namespace SymbolTable
         /// <param name="key">键。</param>
         public void Delete(TKey key)
         {
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && !pointer.Key.Equals(key))
                 pointer = pointer.Next;
             if (pointer == null)
@@ -73,13 +73,13 @@ namespace SymbolTable
             var prev = node.Prev;
             var next = node.Next;
             if (prev == null)
-                this.first = next;
+                first = next;
             else
                 prev.Next = next;
 
             if (next == null)
-                this.tail = prev;
-            this.n--;
+                tail = prev;
+            n--;
         }
 
         /// <summary>
@@ -87,9 +87,9 @@ namespace SymbolTable
         /// </summary>
         public void DeleteMax()
         {
-            if (this.n == 0)
+            if (n == 0)
                 throw new Exception("ST Underflow");
-            Delete(this.tail);
+            Delete(tail);
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace SymbolTable
         /// </summary>
         public void DeleteMin()
         {
-            if (this.n == 0)
+            if (n == 0)
                 throw new Exception("ST Underflow");
-            Delete(this.first);
+            Delete(first);
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace SymbolTable
         /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
         public TKey Floor(TKey key)
         {
-            var pointer = this.tail;
+            var pointer = tail;
             while (pointer != null && Greater(pointer.Key, key))
                 pointer = pointer.Prev;
             return pointer == null ? default(TKey) : pointer.Key;
@@ -121,7 +121,7 @@ namespace SymbolTable
         /// <returns><typeparamref name="TKey"/> 对应的值。</returns>
         public TValue Get(TKey key)
         {
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && Greater(key, pointer.Key))
                 pointer = pointer.Next;
 
@@ -137,13 +137,13 @@ namespace SymbolTable
         /// 符号表是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得符号表中所有键的集合。
         /// </summary>
         /// <returns>符号表中所有键的集合。</returns>
-        public IEnumerable<TKey> Keys() => this.n == 0 ? new List<TKey>() : Keys(this.first.Key, this.tail.Key);
+        public IEnumerable<TKey> Keys() => n == 0 ? new List<TKey>() : Keys(first.Key, tail.Key);
 
         /// <summary>
         /// 获得符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。
@@ -154,7 +154,7 @@ namespace SymbolTable
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             var list = new List<TKey>();
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && Less(pointer.Key, lo))
                 pointer = pointer.Next;
             while (pointer != null && Less(pointer.Key, hi))
@@ -171,13 +171,13 @@ namespace SymbolTable
         /// 最大的键。
         /// </summary>
         /// <returns>最大的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public TKey Max() => this.tail == null ? default(TKey) : this.tail.Key;
+        public TKey Max() => tail == null ? default(TKey) : tail.Key;
 
         /// <summary>
         /// 最小的键。
         /// </summary>
         /// <returns>最小的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public TKey Min() => this.first == null ? default(TKey) : this.first.Key;
+        public TKey Min() => first == null ? default(TKey) : first.Key;
 
         /// <summary>
         /// 向符号表插入键值对，重复值将被替换。
@@ -196,7 +196,7 @@ namespace SymbolTable
                 Next = null
             };
 
-            Node left = null, right = this.first;
+            Node left = null, right = first;
             while (right != null && Less(right.Key, temp.Key))
             {
                 left = right;
@@ -206,10 +206,10 @@ namespace SymbolTable
             Insert(left, right, temp);
 
             if (left == null)
-                this.first = temp;
+                first = temp;
             if (right == null)
-                this.tail = temp;
-            this.n++;
+                tail = temp;
+            n++;
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace SymbolTable
         public int Rank(TKey key)
         {
             var counter = 0;
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && Less(pointer.Key, key))
             {
                 pointer = pointer.Next;
@@ -235,10 +235,10 @@ namespace SymbolTable
         /// <returns>获得排名为 k 的键（从 0 开始）。</returns>
         public TKey Select(int k)
         {
-            if (k >= this.n)
+            if (k >= n)
                 throw new Exception("k must less than ST size!");
 
-            var pointer = this.first;
+            var pointer = first;
             for (var i = 0; i < k; i++)
                 pointer = pointer.Next;
             return pointer.Key;
@@ -248,7 +248,7 @@ namespace SymbolTable
         /// 获得符号表中键值对的数量。
         /// </summary>
         /// <returns>符号表中键值对的数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// [<paramref name="lo"/>, <paramref name="hi"/>] 之间键的数量。
@@ -259,7 +259,7 @@ namespace SymbolTable
         public int Size(TKey lo, TKey hi)
         {
             var counter = 0;
-            var pointer = this.first;
+            var pointer = first;
             while (pointer != null && Less(pointer.Key, lo))
                 pointer = pointer.Next;
             while (pointer != null && Less(pointer.Key, hi))

@@ -16,7 +16,7 @@ namespace _2._3._15
         /// 螺母的构造函数。
         /// </summary>
         /// <param name="value">螺母的值。</param>
-        public Nut(T value) => this.Value = value;
+        public Nut(T value) => Value = value;
 
         /// <summary>
         /// 比较方法，螺母只能和螺丝比较。
@@ -25,7 +25,7 @@ namespace _2._3._15
         /// <returns></returns>
         public int CompareTo(Bolt<T> other)
         {
-            return this.Value.CompareTo(other.Value);
+            return Value.CompareTo(other.Value);
         }
     }
 
@@ -43,7 +43,7 @@ namespace _2._3._15
         /// 螺丝的默认构造函数。
         /// </summary>
         /// <param name="value">螺丝的值。</param>
-        public Bolt(T value) => this.Value = value;
+        public Bolt(T value) => Value = value;
 
         /// <summary>
         /// 比较方法，螺丝只能和螺母比较。
@@ -52,7 +52,7 @@ namespace _2._3._15
         /// <returns></returns>
         public int CompareTo(Nut<T> other)
         {
-            return this.Value.CompareTo(other.Value);
+            return Value.CompareTo(other.Value);
         }
     }
 
@@ -171,7 +171,7 @@ namespace _2._3._15
         {
             for (var i = 0; i < a.Length; i++)
             {
-                var r = i + this.random.Next(a.Length - i);
+                var r = i + random.Next(a.Length - i);
                 var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;

@@ -21,7 +21,7 @@ namespace _2._3._26
         /// </summary>
         public QuickSortInsertion()
         {
-            this.M = 8;
+            M = 8;
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace _2._3._26
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            this.Counts = new int[this.M + 1];
-            for (var i = 0; i < this.M + 1; i++)
+            Counts = new int[M + 1];
+            for (var i = 0; i < M + 1; i++)
             {
-                this.Counts[i] = 0;
+                Counts[i] = 0;
             }
             Shuffle(a);
             Sort(a, 0, a.Length - 1);
@@ -52,9 +52,9 @@ namespace _2._3._26
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
-                this.Counts[hi - lo]++;
+                Counts[hi - lo]++;
                 // 调用插入排序
                 for (var i = lo; i <= hi; i++)
                     for (var k = i; k > lo && Less(a[k], a[k - 1]); k--)

@@ -14,7 +14,7 @@ namespace Measurement
         /// </summary>
         public Stopwatch()
         {
-            this.start = DateTime.Now;
+            start = DateTime.Now;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Measurement
         /// </summary>
         public void Restart()
         {
-            this.start = DateTime.Now;
+            start = DateTime.Now;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Measurement
         public double ElapsedTime()
         {
             var now = DateTime.Now;
-            return (now - this.start).TotalMilliseconds / 1000.0;
+            return (now - start).TotalMilliseconds / 1000.0;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Measurement
         public double ElapsedTimeMillionSeconds()
         {
             var now = DateTime.Now;
-            return (now - this.start).TotalMilliseconds;
+            return (now - start).TotalMilliseconds;
         }
     }
 }

@@ -14,8 +14,8 @@
         /// </summary>
         public StackSteque()
         {
-            this.H = new Stack<Item>();
-            this.T = new Stack<Item>();
+            H = new Stack<Item>();
+            T = new Stack<Item>();
         }
 
         /// <summary>
@@ -25,7 +25,7 @@
         public void Push(Item item)
         {
             ReverseT();
-            this.H.Push(item);
+            H.Push(item);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@
         /// </summary>
         private void ReverseT()
         {
-            while (!this.T.IsEmpty())
+            while (!T.IsEmpty())
             {
-                this.H.Push(this.T.Pop());
+                H.Push(T.Pop());
             }
         }
 
@@ -44,9 +44,9 @@
         /// </summary>
         private void ReverseH()
         {
-            while (!this.H.IsEmpty())
+            while (!H.IsEmpty())
             {
-                this.T.Push(this.H.Pop());
+                T.Push(H.Pop());
             }
         }
 
@@ -57,7 +57,7 @@
         public Item Pop()
         {
             ReverseT();
-            return this.H.Pop();
+            return H.Pop();
         }
 
         /// <summary>
@@ -67,7 +67,7 @@
         public void Enqueue(Item item)
         {
             ReverseH();
-            this.T.Push(item);
+            T.Push(item);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.H.IsEmpty() && this.T.IsEmpty();
+            return H.IsEmpty() && T.IsEmpty();
         }
     }
 }

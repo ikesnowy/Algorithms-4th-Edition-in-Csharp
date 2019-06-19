@@ -15,7 +15,7 @@ namespace _2._5._20
 
             public int CompareTo(JobEvent other)
             {
-                return this.Time.CompareTo(other.Time);
+                return Time.CompareTo(other.Time);
             }
         }
 

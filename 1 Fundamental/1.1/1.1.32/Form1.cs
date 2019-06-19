@@ -29,7 +29,7 @@ namespace _1._1._32
                     //选择文件
                     openfiledialog.OpenFile();
                     //修改路径框显示
-                    this.InputFilePath.Text = openfiledialog.FileName;
+                    InputFilePath.Text = openfiledialog.FileName;
                 }
                 catch (Exception ex)
                 {
@@ -43,7 +43,7 @@ namespace _1._1._32
             try
             {
                 //打开文件并读取全部数字
-                var stringNums = File.ReadAllLines(this.InputFilePath.Text);
+                var stringNums = File.ReadAllLines(InputFilePath.Text);
                 //建立 double 数组
                 var Numbers = new double[stringNums.Length];
                 //将数字从 string 转换为 double
@@ -54,23 +54,23 @@ namespace _1._1._32
 
                 try
                 {
-                    var N = int.Parse(this.InputN.Text);
+                    var N = int.Parse(InputN.Text);
                     if (N <= 0)
                     {
-                        this.ErrorLabel.Text = "N 必须大于 0";
+                        ErrorLabel.Text = "N 必须大于 0";
                         return;
                     }
-                    var L = double.Parse(this.InputL.Text);
-                    var R = double.Parse(this.InputR.Text);
+                    var L = double.Parse(InputL.Text);
+                    var R = double.Parse(InputR.Text);
                     Program.StartDrawing(Numbers, N, L, R);
                 }
                 catch (FormatException fex)
                 {
-                    this.ErrorLabel.Text = "格式有误（是否漏填了某项？）" + fex.Message;
+                    ErrorLabel.Text = "格式有误（是否漏填了某项？）" + fex.Message;
                 }
                 catch (OverflowException oex)
                 {
-                    this.ErrorLabel.Text = "数据过大（输入的内容太多）" + oex.Message;
+                    ErrorLabel.Text = "数据过大（输入的内容太多）" + oex.Message;
                 }
             }
             catch (Exception ex)

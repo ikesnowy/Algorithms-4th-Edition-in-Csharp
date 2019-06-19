@@ -14,13 +14,13 @@ namespace _2._5._13
 
             public Job(string name, double time)
             {
-                this.Name = name;
-                this.Time = time;
+                Name = name;
+                Time = time;
             }
 
             public int CompareTo(Job other)
             {
-                return this.Time.CompareTo(other.Time);
+                return Time.CompareTo(other.Time);
             }
         }
 
@@ -33,19 +33,19 @@ namespace _2._5._13
 
             public void Add(Job job)
             {
-                this.jobs.Add(job);
-                this.busyTime += job.Time;
+                jobs.Add(job);
+                busyTime += job.Time;
             }
 
             public int CompareTo(Processor other)
             {
-                return this.busyTime.CompareTo(other.busyTime);
+                return busyTime.CompareTo(other.busyTime);
             }
 
             public override string ToString()
             {
                 var sb = new StringBuilder();
-                var nowList = this.jobs.ToArray();
+                var nowList = jobs.ToArray();
                 for (var i = 0; i < nowList.Length; i++)
                 {
                     sb.AppendLine(nowList[i].Name + " " + nowList[i].Time);

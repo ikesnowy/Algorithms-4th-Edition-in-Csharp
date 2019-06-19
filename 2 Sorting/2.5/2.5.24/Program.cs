@@ -13,13 +13,13 @@ namespace _2._5._24
 
             public Wrapper(T value, int index)
             {
-                this.Value = value;
-                this.Index = index;
+                Value = value;
+                Index = index;
             }
 
             public int CompareTo(Wrapper<T> other)
             {
-                return this.Value.CompareTo(other.Value);
+                return Value.CompareTo(other.Value);
             }
         }
 

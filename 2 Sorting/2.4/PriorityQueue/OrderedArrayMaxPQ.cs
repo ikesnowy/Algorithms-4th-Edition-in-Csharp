@@ -26,8 +26,8 @@ namespace PriorityQueue
         /// <param name="capacity">优先队列的初始容量。</param>
         public OrderedArrayMaxPQ(int capacity)
         {
-            this.pq = new Key[capacity];
-            this.n = 0;
+            pq = new Key[capacity];
+            n = 0;
         }
 
         /// <summary>
@@ -36,14 +36,14 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            var i = this.n - 1;
-            while (i >= 0 && Less(v, this.pq[i]))
+            var i = n - 1;
+            while (i >= 0 && Less(v, pq[i]))
             {
-                this.pq[i + 1] = this.pq[i];
+                pq[i + 1] = pq[i];
                 i--;
             }
-            this.pq[i + 1] = v;
-            this.n++;
+            pq[i + 1] = v;
+            n++;
         }
 
         /// <summary>
@@ -51,26 +51,26 @@ namespace PriorityQueue
         /// </summary>
         /// <returns>优先队列中的最大值。</returns>
         /// <remarks>如果希望获得但不删除最大值，请使用 <see cref="Max"/>。</remarks>
-        public Key DelMax() => this.pq[--this.n];
+        public Key DelMax() => pq[--n];
         
         /// <summary>
         /// 检查优先队列是否为空。
         /// </summary>
         /// <returns>若为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 检查优先队列中含有的元素数量。
         /// </summary>
         /// <returns>优先队列中的元素数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获得（但不删除）优先队列中的最大元素。
         /// </summary>
         /// <returns>优先队列中的最大元素。</returns>
         /// <remarks>如果希望删除并返回优先队列中的最大元素，请使用 <see cref="DelMax"/>。</remarks>
-        public Key Max() => this.pq[this.n - 1];
+        public Key Max() => pq[n - 1];
 
         /// <summary>
         /// 比较第一个元素是否小于第二个元素。

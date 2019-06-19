@@ -12,7 +12,7 @@ namespace _2._5._32
 
         public int CompareTo(SearchNode other)
         {
-            return this.Steps.CompareTo(other.Steps);
+            return Steps.CompareTo(other.Steps);
         }
     }
 }

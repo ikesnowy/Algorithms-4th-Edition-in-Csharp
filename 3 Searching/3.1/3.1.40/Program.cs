@@ -15,7 +15,7 @@ namespace _3._1._40
 
             public int CompareTo(TestNode other)
             {
-                return this.Value.CompareTo(other.Value);
+                return Value.CompareTo(other.Value);
             }
         }
 

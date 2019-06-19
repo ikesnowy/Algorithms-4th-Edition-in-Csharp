@@ -24,7 +24,7 @@ namespace _2._2._6
         /// <returns>数组访问计数值。</returns>
         public int GetArrayVisitCount()
         {
-            return this.arrayVisitCount;
+            return arrayVisitCount;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace _2._2._6
         /// </summary>
         public void ClearArrayVisitCount()
         {
-            this.arrayVisitCount = 0;
+            arrayVisitCount = 0;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace _2._2._6
             for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
-                this.arrayVisitCount++;
+                arrayVisitCount++;
             }
 
             int i = lo, j = mid + 1;
@@ -95,7 +95,7 @@ namespace _2._2._6
                     a[k] = aux[i];
                     i++;
                 }
-                this.arrayVisitCount++;
+                arrayVisitCount++;
             }
         }
     }

@@ -22,9 +22,9 @@ namespace _2._1._32
             InitializeComponent();
             this.sort = sort;
             this.n = n;
-            this.result = Test(n);
-            this.timer1.Interval = 1000;
-            this.timer1.Start();
+            result = Test(n);
+            timer1.Interval = 1000;
+            timer1.Start();
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _2._1._32
             var result = new double[8];
             for (var i = 0; i < result.Length; i++)
             {
-                result[i] = SortCompare.TimeRandomInput(this.sort, n, 3);
+                result[i] = SortCompare.TimeRandomInput(sort, n, 3);
                 n *= 2;
             }
             return result;
@@ -49,10 +49,10 @@ namespace _2._1._32
         /// <param name="result">结果数组。</param>
         public void DrawPanel(double[] result)
         {
-            var graphics = this.CreateGraphics();
-            graphics.TranslateTransform(0, this.ClientRectangle.Height);
+            var graphics = CreateGraphics();
+            graphics.TranslateTransform(0, ClientRectangle.Height);
             graphics.ScaleTransform(1, -1);
-            var clientRect = this.ClientRectangle;
+            var clientRect = ClientRectangle;
             var drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
 
             var dataPoints = new PointF[result.Length];
@@ -69,8 +69,8 @@ namespace _2._1._32
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DrawPanel(this.result);
-            this.timer1.Stop();
+            DrawPanel(result);
+            timer1.Stop();
         }
     }
 }

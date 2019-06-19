@@ -19,7 +19,7 @@ namespace _2._3._25
         /// </summary>
         public QuickSortInsertion()
         {
-            this.M = 8;
+            M = 8;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace _2._3._25
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
                 // 调用插入排序
                 for (var i = lo; i <= hi; i++)

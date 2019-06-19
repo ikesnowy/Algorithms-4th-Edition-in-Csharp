@@ -44,11 +44,11 @@ namespace SortApplication
 
             public int Compare(T x, T y)
             {
-                if (!this.fScore.ContainsKey(x))
-                    this.fScore[x] = int.MaxValue;
-                if (!this.fScore.ContainsKey(y))
-                    this.fScore[y] = int.MaxValue;
-                return this.fScore[x].CompareTo(this.fScore[y]);
+                if (!fScore.ContainsKey(x))
+                    fScore[x] = int.MaxValue;
+                if (!fScore.ContainsKey(y))
+                    fScore[y] = int.MaxValue;
+                return fScore[x].CompareTo(fScore[y]);
             }
         }
 
@@ -74,12 +74,12 @@ namespace SortApplication
         /// <returns><paramref name="start"/> 至 <paramref name="goal"/> 之间的最短路径。</returns>
         public T[] GetPath(T start, T goal)
         {
-            var comeFrom = new Dictionary<T, T>(this.equalityComparer);
-            var gScore = new Dictionary<T, int>(this.equalityComparer);
-            var fScore = new Dictionary<T, int>(this.equalityComparer);
+            var comeFrom = new Dictionary<T, T>(equalityComparer);
+            var gScore = new Dictionary<T, int>(equalityComparer);
+            var fScore = new Dictionary<T, int>(equalityComparer);
 
-            var openSet = new MinPQ<T>(new FScoreComparer(fScore), this.equalityComparer);
-            var closeSet = new HashSet<T>(this.equalityComparer);
+            var openSet = new MinPQ<T>(new FScoreComparer(fScore), equalityComparer);
+            var closeSet = new HashSet<T>(equalityComparer);
 
             openSet.Insert(start);
             gScore.Add(start, 0);
@@ -87,7 +87,7 @@ namespace SortApplication
             while (!openSet.IsEmpty())
             {
                 var current = openSet.DelMin();
-                if (this.equalityComparer.Equals(current, goal))
+                if (equalityComparer.Equals(current, goal))
                     return ReconstructPath(comeFrom, current);
 
                 closeSet.Add(current);

@@ -12,7 +12,7 @@ namespace _2._5._22
 
             public int CompareTo(Ticket other)
             {
-                return this.Price.CompareTo(other.Price);
+                return Price.CompareTo(other.Price);
             }
         }
 

@@ -14,12 +14,12 @@ namespace _1._2._10
         {
             try
             {
-                var N = int.Parse(this.InputN.Text);
-                var max = int.Parse(this.InputMax.Text);
+                var N = int.Parse(InputN.Text);
+                var max = int.Parse(InputMax.Text);
 
                 if (N < 0)
                 {
-                    this.ErrorLabel.Text = "操作数不可小于 0";
+                    ErrorLabel.Text = "操作数不可小于 0";
                     return;
                 }
                 var drawPad = new Form2(N, max);
@@ -27,15 +27,15 @@ namespace _1._2._10
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "不能输入空值";
+                ErrorLabel.Text = "不能输入空值";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "输入值过大";
+                ErrorLabel.Text = "输入值过大";
             }
         }
     }

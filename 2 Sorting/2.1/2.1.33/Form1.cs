@@ -15,35 +15,35 @@ namespace _2._1._33
         {
             try
             {
-                var N = int.Parse(this.InputN.Text);
-                if (this.selectionSortRadio.Checked)
+                var N = int.Parse(InputN.Text);
+                if (selectionSortRadio.Checked)
                 {
                     new Form2(new SelectionSort(), N).Show();
                 }
-                else if (this.insertionSortRadio.Checked)
+                else if (insertionSortRadio.Checked)
                 {
                     new Form2(new InsertionSort(), N).Show();
                 }
-                else if (this.shellSortRadio.Checked)
+                else if (shellSortRadio.Checked)
                 {
                     new Form2(new ShellSort(), N).Show();
                 }
                 else
                 {
-                    this.ErrorLabel.Text = "请至少选择一项排序算法。";
+                    ErrorLabel.Text = "请至少选择一项排序算法。";
                 }
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = "数据过大";
             }
         }
     }

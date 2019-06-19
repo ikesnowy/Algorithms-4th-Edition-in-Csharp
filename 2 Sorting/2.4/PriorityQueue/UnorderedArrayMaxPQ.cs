@@ -24,8 +24,8 @@ namespace PriorityQueue
         /// <param name="capacity">优先队列的初始容量。</param>
         public UnorderedArrayMaxPQ(int capacity)
         {
-            this.pq = new Key[capacity];
-            this.n = 0;
+            pq = new Key[capacity];
+            n = 0;
         }
 
         /// <summary>
@@ -36,10 +36,10 @@ namespace PriorityQueue
         public Key Max()
         {
             var max = 0;
-            for (var i = 1; i < this.n; i++)
-                if (Less(this.pq[max], this.pq[i]))
+            for (var i = 1; i < n; i++)
+                if (Less(pq[max], pq[i]))
                     max = i;
-            return this.pq[max];
+            return pq[max];
         }
 
         /// <summary>
@@ -50,31 +50,31 @@ namespace PriorityQueue
         public Key DelMax()
         {
             var max = 0;
-            for (var i = 1; i < this.n; i++)
-                if (Less(this.pq[max], this.pq[i]))
+            for (var i = 1; i < n; i++)
+                if (Less(pq[max], pq[i]))
                     max = i;
-            Exch(max, this.n - 1);
+            Exch(max, n - 1);
 
-            return this.pq[--this.n];
+            return pq[--n];
         }
 
         /// <summary>
         /// 向优先队列中插入一个元素。
         /// </summary>
         /// <param name="v">需要插入的元素。</param>
-        public void Insert(Key v) => this.pq[this.n++] = v;
+        public void Insert(Key v) => pq[n++] = v;
 
         /// <summary>
         /// 检查优先队列是否为空。
         /// </summary>
         /// <returns>如果为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 检查优先队列中含有的元素数量。
         /// </summary>
         /// <returns>优先队列中含有的元素数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 比较第一个元素是否小于第二个元素。
@@ -91,9 +91,9 @@ namespace PriorityQueue
         /// <param name="b">要交换的第二个元素。</param>
         private void Exch(int a, int b)
         {
-            var temp = this.pq[a];
-            this.pq[a] = this.pq[b];
-            this.pq[b] = temp;
+            var temp = pq[a];
+            pq[a] = pq[b];
+            pq[b] = temp;
         }
     }
 }

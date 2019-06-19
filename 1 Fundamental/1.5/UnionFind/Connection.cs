@@ -23,8 +23,8 @@
         /// <param name="q">连接终点。</param>
         public Connection(int p, int q)
         {
-            this.P = p;
-            this.Q = q;
+            P = p;
+            Q = q;
         }
     }
 }

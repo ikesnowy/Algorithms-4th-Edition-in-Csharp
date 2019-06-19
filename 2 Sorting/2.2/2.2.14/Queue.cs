@@ -20,9 +20,9 @@ namespace _2._2._14
         /// </summary>
         public Queue()
         {
-            this.first = null;
-            this.last = null;
-            this.count = 0;
+            first = null;
+            last = null;
+            count = 0;
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace _2._2._14
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return first == null;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace _2._2._14
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace _2._2._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            return this.first.item;
+            return first.item;
         }
 
         /// <summary>
@@ -72,15 +72,15 @@ namespace _2._2._14
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            var oldLast = this.last;
-            this.last = new Node<Item>();
-            this.last.item = item;
-            this.last.next = null;
+            var oldLast = last;
+            last = new Node<Item>();
+            last.item = item;
+            last.next = null;
             if (IsEmpty())
-                this.first = this.last;
+                first = last;
             else
-                oldLast.next = this.last;
-            this.count++;
+                oldLast.next = last;
+            count++;
         }
 
         /// <summary>
@@ -91,11 +91,11 @@ namespace _2._2._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            var item = this.first.item;
-            this.first = this.first.next;
-            this.count--;
+            var item = first.item;
+            first = first.next;
+            count--;
             if (IsEmpty())
-                this.last = null;
+                last = null;
             return item;
         }
 
@@ -136,7 +136,7 @@ namespace _2._2._14
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new QueueEnumerator(this.first);
+            return new QueueEnumerator(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -151,32 +151,32 @@ namespace _2._2._14
 
             public QueueEnumerator(Node<Item> first)
             {
-                this.current = new Node<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                current = new Node<Item>();
+                current.next = first;
+                this.first = current;
             }
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             void IDisposable.Dispose()
             {
-                this.first = null;
-                this.current = null;
+                first = null;
+                current = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
 

@@ -16,13 +16,13 @@ namespace _2._5._11
 
             public Item(int index, T key)
             {
-                this.Index = index;
-                this.Key = key;
+                Index = index;
+                Key = key;
             }
 
             public int CompareTo(Item<T> other)
             {
-                return this.Key.CompareTo(other.Key);
+                return Key.CompareTo(other.Key);
             }
         }
 

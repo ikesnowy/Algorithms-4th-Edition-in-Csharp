@@ -24,9 +24,9 @@ namespace _1._3._38
         /// </summary>
         public LinkedListBasedGeneralizeQueue()
         {
-            this.first = null;
-            this.last = null;
-            this.count = 0;
+            first = null;
+            last = null;
+            count = 0;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace _1._3._38
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return first == null;
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace _1._3._38
         /// <param name="item">需要插入的元素。</param>
         public void Insert(Item item)
         {
-            var oldLast = this.last;
-            this.last = new Node<Item>()
+            var oldLast = last;
+            last = new Node<Item>()
             {
                 item = item,
                 IsVisited = false,
@@ -54,13 +54,13 @@ namespace _1._3._38
 
             if (oldLast == null)
             {
-                this.first = this.last;
+                first = last;
             }
             else
             {
-                oldLast.next = this.last;
+                oldLast.next = last;
             }
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace _1._3._38
         /// <returns></returns>
         public Item Delete(int k)
         {
-            if (k > this.count || k <= 0)
+            if (k > count || k <= 0)
             {
                 throw new ArgumentOutOfRangeException();
             }
@@ -78,7 +78,7 @@ namespace _1._3._38
             k--;
 
             // 找到目标结点
-            var current = this.first;
+            var current = first;
             for (var i = 0; i < k; i++)
             {
                 current = current.next;

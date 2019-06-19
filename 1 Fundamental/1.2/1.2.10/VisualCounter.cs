@@ -20,7 +20,7 @@ namespace _1._2._10
         /// <param name="operatorTimes">计数器的最大操作数。</param>
         public VisualCounter(string id, int max, int operatorTimes)
         {
-            this.name = id;
+            name = id;
             this.max = max;
             this.operatorTimes = operatorTimes;
         }
@@ -30,12 +30,12 @@ namespace _1._2._10
         /// </summary>
         public bool Increment()
         {
-            if (this.operatorTimes <= 0)
+            if (operatorTimes <= 0)
                 return false;
-            if (this.count < this.max)
+            if (count < max)
             {
-                this.count++;
-                this.operatorTimes--;
+                count++;
+                operatorTimes--;
             }
             return true;
         }
@@ -45,12 +45,12 @@ namespace _1._2._10
         /// </summary>
         public bool Decreasement()
         {
-            if (this.operatorTimes <= 0)
+            if (operatorTimes <= 0)
                 return false;
-            if (this.count > 0)
+            if (count > 0)
             {
-                this.count--;
-                this.operatorTimes--;
+                count--;
+                operatorTimes--;
             }
             return true;
         }
@@ -61,7 +61,7 @@ namespace _1._2._10
         /// <returns>返回计数值。</returns>
         public int Tally()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace _1._2._10
         /// <returns>返回形如 “1 counter” 的字符串。</returns>
         public override string ToString()
         {
-            return this.count + " " + this.name;
+            return count + " " + name;
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace _1._2._10
             var bodyPart = new Rectangle(0, height / 3, (height * 2) / 3, (height * 2) / 3);
 
             // 绘图
-            g.DrawString($"计数：{this.count} 剩余操作数：{this.operatorTimes} 最大值：{this.max}", font, Brushes.Black, headPart);
-            g.FillPie(Brushes.Blue, bodyPart, 0, 360 * (float)this.count / this.max);
+            g.DrawString($"计数：{count} 剩余操作数：{operatorTimes} 最大值：{max}", font, Brushes.Black, headPart);
+            g.FillPie(Brushes.Blue, bodyPart, 0, 360 * (float)count / max);
         }
     }
 }

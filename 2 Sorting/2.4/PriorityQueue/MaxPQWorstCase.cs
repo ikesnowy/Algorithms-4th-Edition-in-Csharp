@@ -24,8 +24,8 @@ namespace PriorityQueue
         /// <param name="capacity">最大堆的容量。</param>
         public MaxPQWorstCase(int capacity)
         {
-            this.pq = new int[capacity + 1];
-            this.n = 0;
+            pq = new int[capacity + 1];
+            n = 0;
         }
 
         /// <summary>
@@ -46,36 +46,36 @@ namespace PriorityQueue
 
             var worstCase = new int[n];
             for (var i = 1; i <= n; i++)
-                worstCase[i - 1] = this.pq[i];
+                worstCase[i - 1] = pq[i];
             return worstCase;
         }
 
-        private bool Less(int i, int j) => this.pq[i].CompareTo(this.pq[j]) < 0;
+        private bool Less(int i, int j) => pq[i].CompareTo(pq[j]) < 0;
       
         private int PullDown(int i, int j)
         {
-            var toReturn = this.pq[j];
+            var toReturn = pq[j];
             for (var m = j; m / 2 >= i; m /= 2)
             {
-                this.pq[m] = this.pq[m / 2];
+                pq[m] = pq[m / 2];
             }
             return toReturn;
         }
 
         private void UnFixHeap(int i)
         {
-            var j = (int)(i * Math.Pow(2, Math.Floor(Math.Log10(this.n / i) / Math.Log10(2))));
-            this.pq[i] = PullDown(i, j);
+            var j = (int)(i * Math.Pow(2, Math.Floor(Math.Log10(n / i) / Math.Log10(2))));
+            pq[i] = PullDown(i, j);
         }
 
         private void UnRemoveMax(int i)
         {
-            var p = (this.n + 1) / 2;
+            var p = (n + 1) / 2;
             if (Less(p, i))
                 return;
-            this.n++;
-            this.pq[this.n] = PullDown(1, i);
-            this.pq[1] = this.n;
+            n++;
+            pq[n] = PullDown(1, i);
+            pq[1] = n;
         }
 
         private int[] Par(int l)

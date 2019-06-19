@@ -19,13 +19,13 @@ namespace _1._5._11
         /// <param name="n">并查集的大小。</param>
         public WeightedQuickFindUF(int n)
         {
-            this.count = n;
-            this.id = new int[n];
-            this.size = new int[n];
+            count = n;
+            id = new int[n];
+            size = new int[n];
             for (var i = 0; i < n; i++)
             {
-                this.id[i] = i;
-                this.size[i] = 1;
+                id[i] = i;
+                size[i] = 1;
             }
         }
 
@@ -34,7 +34,7 @@ namespace _1._5._11
         /// </summary>
         public void ResetArrayCount()
         {
-            this.ArrayVisitCount = 0;
+            ArrayVisitCount = 0;
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace _1._5._11
         /// <returns>返回并查集中连通分量的数量。</returns>
         public int Count()
         {
-            return this.count;
+            return count;
         }
         
         /// <summary>
@@ -54,8 +54,8 @@ namespace _1._5._11
         public int Find(int p)
         {
             Validate(p);
-            this.ArrayVisitCount++;
-            return this.id[p];
+            ArrayVisitCount++;
+            return id[p];
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace _1._5._11
         {
             Validate(p);
             Validate(q);
-            this.ArrayVisitCount += 2;
-            return this.id[p] == this.id[q];
+            ArrayVisitCount += 2;
+            return id[p] == id[q];
         }
 
         /// <summary>
@@ -81,9 +81,9 @@ namespace _1._5._11
         {
             Validate(p);
             Validate(q);
-            var pID = this.id[p];
-            var qID = this.id[q];
-            this.ArrayVisitCount += 2;
+            var pID = id[p];
+            var qID = id[q];
+            ArrayVisitCount += 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
             if (pID == qID)
@@ -94,32 +94,32 @@ namespace _1._5._11
             // 判断较大的连通分量和较小的连通分量。
             var larger = 0;
             var smaller = 0;
-            if (this.size[pID] > this.size[qID])
+            if (size[pID] > size[qID])
             {
                 larger = pID;
                 smaller = qID;
-                this.size[pID] += this.size[qID];
+                size[pID] += size[qID];
             }
             else
             {
                 larger = qID;
                 smaller = pID;
-                this.size[qID] += this.size[pID];
+                size[qID] += size[pID];
             }
 
             // 将较小的连通分量连接到较大的连通分量上，
             // 这会减少赋值语句的执行次数，略微减少数组访问。
-            for (var i = 0; i < this.id.Length; i++)
+            for (var i = 0; i < id.Length; i++)
             {
-                if (this.id[i] == smaller)
+                if (id[i] == smaller)
                 {
-                    this.id[i] = larger;
-                    this.ArrayVisitCount++;
+                    id[i] = larger;
+                    ArrayVisitCount++;
                 }
             }
 
-            this.ArrayVisitCount += this.id.Length;
-            this.count--;
+            ArrayVisitCount += id.Length;
+            count--;
             return;
         }
 
@@ -129,7 +129,7 @@ namespace _1._5._11
         /// <returns>id 数组。</returns>
         public int[] GetID()
         {
-            return this.id;
+            return id;
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace _1._5._11
         /// <exception cref="ArgumentException">输入的 p 值无效。</exception>
         private void Validate(int p)
         {
-            var n = this.id.Length;
+            var n = id.Length;
             if (p < 0 || p > n)
             {
                 throw new ArgumentException("index " + p + " is not between 0 and " + (n - 1));

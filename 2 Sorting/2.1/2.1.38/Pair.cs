@@ -15,7 +15,7 @@ namespace _2._1._38
 
         public int CompareTo(Pair<TKey, TValue> other)
         {
-            return this.key.CompareTo(other.key);
+            return key.CompareTo(other.key);
         }
     }
 }

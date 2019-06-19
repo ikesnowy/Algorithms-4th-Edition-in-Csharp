@@ -18,8 +18,8 @@ namespace _1._5._18
         /// </summary>
         public RandomBag()
         {
-            this.bag = new Item[2];
-            this.count = 0;
+            bag = new Item[2];
+            count = 0;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace _1._5._18
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _1._5._18
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -46,13 +46,13 @@ namespace _1._5._18
         /// <param name="item">要向背包中添加的元素。</param>
         public void Add(Item item)
         {
-            if (this.count == this.bag.Length)
+            if (count == bag.Length)
             {
-                Resize(this.count * 2);
+                Resize(count * 2);
             }
 
-            this.bag[this.count] = item;
-            this.count++;
+            bag[count] = item;
+            count++;
         }
 
         /// <summary>
@@ -64,16 +64,16 @@ namespace _1._5._18
             if (capacity <= 0)
                 throw new ArgumentException();
             var temp = new Item[capacity];
-            for (var i = 0; i < this.count; i++)
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.bag[i];
+                temp[i] = bag[i];
             }
-            this.bag = temp;
+            bag = temp;
         }
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new RandomBagEnumerator(this.bag, this.count);
+            return new RandomBagEnumerator(bag, count);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -91,14 +91,14 @@ namespace _1._5._18
             public RandomBagEnumerator(Item[] bag, int count)
             {
                 this.bag = bag;
-                this.current = -1;
+                current = -1;
                 this.count = count;
-                this.sequence = new int[count];
+                sequence = new int[count];
                 for (var i = 0; i < this.count; i++)
                 {
-                    this.sequence[i] = i;
+                    sequence[i] = i;
                 }
-                Shuffle(this.sequence, DateTime.Now.Millisecond);
+                Shuffle(sequence, DateTime.Now.Millisecond);
             }
 
             /// <summary>
@@ -119,28 +119,28 @@ namespace _1._5._18
                 }
             }
 
-            Item IEnumerator<Item>.Current => this.bag[this.sequence[this.current]];
+            Item IEnumerator<Item>.Current => bag[sequence[current]];
 
-            object IEnumerator.Current => this.bag[this.sequence[this.current]];
+            object IEnumerator.Current => bag[sequence[current]];
 
             void IDisposable.Dispose()
             {
-                this.bag = null;
-                this.sequence = null;
-                this.current = -1;
+                bag = null;
+                sequence = null;
+                current = -1;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.count - 1)
+                if (current == count - 1)
                     return false;
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = -1;
+                current = -1;
             }
         }
     }

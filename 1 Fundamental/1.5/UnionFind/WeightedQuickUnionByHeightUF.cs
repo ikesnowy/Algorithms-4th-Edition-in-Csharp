@@ -13,10 +13,10 @@
         /// <param name="n">新建并查集的大小。</param>
         public WeightedQuickUnionByHeightUF(int n) : base(n)
         {
-            this.height = new int[n];
+            height = new int[n];
             for (var i = 0; i < n; i++)
             {
-                this.height[i] = 0;
+                height[i] = 0;
             }
         }
 
@@ -35,20 +35,20 @@
                 return;
             }
 
-            if (this.height[rootP] < this.height[rootQ])
+            if (height[rootP] < height[rootQ])
             {
-                this.parent[rootP] = rootQ;
+                parent[rootP] = rootQ;
             }
-            else if (this.height[rootP] > this.height[rootQ])
+            else if (height[rootP] > height[rootQ])
             {
-                this.parent[rootQ] = rootP;
+                parent[rootQ] = rootP;
             }
             else
             {
-                this.parent[rootQ] = rootP;
-                this.height[rootP]++;
+                parent[rootQ] = rootP;
+                height[rootP]++;
             }
-            this.count--;
+            count--;
         }
     }
 }

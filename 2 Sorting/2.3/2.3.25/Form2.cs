@@ -17,7 +17,7 @@ namespace _2._3._25
         public Form2(int n)
         {
             InitializeComponent();
-            this.N = n;
+            N = n;
         }
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            this.Text = "正在绘图";
-            this.backgroundWorker1.RunWorkerAsync();
+            Text = "正在绘图";
+            backgroundWorker1.RunWorkerAsync();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace _2._3._25
             {
                 worker.ReportProgress(i * 3);
                 quickSortInsertion.M = i;
-                var data = SortCompare.GetRandomArrayInt(this.N);
+                var data = SortCompare.GetRandomArrayInt(N);
                 timeRecord[i] = SortCompare.Time(quickSortInsertion, data);
             }
             e.Result = timeRecord;
@@ -58,7 +58,7 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
+            Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
         }
 
         /// <summary>
@@ -74,10 +74,10 @@ namespace _2._3._25
             }
             var result = e.Result as double[];
 
-            var graphics = this.CreateGraphics();
+            var graphics = CreateGraphics();
 
             // 获得绘图区矩形。
-            RectangleF rect = this.ClientRectangle;
+            RectangleF rect = ClientRectangle;
             var unitX = rect.Width / 10;
             var unitY = rect.Width / 10;
 
@@ -89,9 +89,9 @@ namespace _2._3._25
             // 绘制坐标系。
             graphics.DrawLine(Pens.Black, center.Left, center.Top, center.Left, center.Bottom);
             graphics.DrawLine(Pens.Black, center.Left, center.Bottom, center.Right, center.Bottom);
-            graphics.DrawString(result.Max().ToString(), this.Font, Brushes.Black, rect.Location);
-            graphics.DrawString(result.Length.ToString(), this.Font, Brushes.Black, center.Right, center.Bottom);
-            graphics.DrawString("0", this.Font, Brushes.Black, rect.Left, center.Bottom);
+            graphics.DrawString(result.Max().ToString(), Font, Brushes.Black, rect.Location);
+            graphics.DrawString(result.Length.ToString(), Font, Brushes.Black, center.Right, center.Bottom);
+            graphics.DrawString("0", Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
             var bluePoints = new PointF[result.Length];
@@ -111,7 +111,7 @@ namespace _2._3._25
 
             graphics.Dispose();
 
-            this.Text = "绘图结果";
+            Text = "绘图结果";
             var min = 0;
             for (var i = 0; i < result.Length; i++)
             {

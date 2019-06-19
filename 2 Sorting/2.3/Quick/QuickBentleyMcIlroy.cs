@@ -45,12 +45,12 @@ namespace Quick
         {
             var n = hi - lo + 1;
 
-            if (n <= this.INSERTION_SORT_CUTOFF)
+            if (n <= INSERTION_SORT_CUTOFF)
             {
                 InsertionSort(a, lo, hi);
                 return;
             }
-            else if (n <= this.MEDIAN_OF_3_CUTOFF)
+            else if (n <= MEDIAN_OF_3_CUTOFF)
             {
                 // 对于较小的数组，直接选择左中右三个元素中的中位数作为枢轴。
                 var m = Median3(a, lo, lo + n / 2, hi);

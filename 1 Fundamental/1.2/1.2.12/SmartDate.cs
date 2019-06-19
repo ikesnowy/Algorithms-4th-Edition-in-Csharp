@@ -17,9 +17,9 @@ namespace _1._2._12
         {
             if (Vaildation(m, d, y) == false)
                 throw new FormatException("Invaild Date");
-            this.Month = m;
-            this.Day = d;
-            this.Year = y;
+            Month = m;
+            Day = d;
+            Year = y;
         }
 
         /// <summary>
@@ -28,9 +28,9 @@ namespace _1._2._12
         /// <returns></returns>
         public string DayOfTheWeek()
         {
-            var d = this.Day;
-            var m = this.Month;
-            var y = this.Year;
+            var d = Day;
+            var m = Month;
+            var y = Year;
             
             if (m < 3)
             {
@@ -75,7 +75,7 @@ namespace _1._2._12
 
         public override string ToString()
         {
-            return this.Month + "/" + this.Day + "/" + this.Year;
+            return Month + "/" + Day + "/" + Year;
         }
     }
 }

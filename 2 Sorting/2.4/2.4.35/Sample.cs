@@ -20,18 +20,18 @@ namespace _2._4._35
         public Sample(double[] data)
         {
             // 复制权重
-            this.P = new double[data.Length + 1];
+            P = new double[data.Length + 1];
             for (var i = 1; i <= data.Length; i++)
             {
-                this.P[i] = data[i - 1];
-                this.T += data[i - 1];
+                P[i] = data[i - 1];
+                T += data[i - 1];
             }
 
             // 记录子树权重之和
-            this.SumP = new double[data.Length + 1];
+            SumP = new double[data.Length + 1];
             for (var i = data.Length; i / 2 > 0; i--)
             {
-                this.SumP[i / 2] += this.P[i];
+                SumP[i / 2] += P[i];
             }
         }
 
@@ -41,24 +41,24 @@ namespace _2._4._35
         /// <returns></returns>
         public int Random()
         {
-            var parcentage = this.random.NextDouble() * this.T;
+            var parcentage = random.NextDouble() * T;
             var index = 1;
-            while (index * 2 <= this.P.Length)
+            while (index * 2 <= P.Length)
             {
                 // 找到结点
-                if (parcentage <= this.P[index])
+                if (parcentage <= P[index])
                     break;
                 
                 // 减去当前结点，向子结点搜寻
-                parcentage -= this.P[index];
+                parcentage -= P[index];
                 index *= 2;
 
                 // 在左子树范围内
-                if (parcentage <= this.SumP[index] + this.P[index])
+                if (parcentage <= SumP[index] + P[index])
                     continue;
 
                 // 在右子树范围内，减去左子树
-                parcentage -= this.SumP[index] + this.P[index];
+                parcentage -= SumP[index] + P[index];
                 index++;
             }
 
@@ -73,14 +73,14 @@ namespace _2._4._35
         public void Change(int i, double v)
         {
             i++;
-            this.P[i] = v;
+            P[i] = v;
             // 重新计算总和
             while (i > 0)
             {
                 i /= 2;
-                this.SumP[i] = this.P[i * 2] + this.SumP[i * 2];
-                if (i * 2 + 1 < this.P.Length)
-                    this.SumP[i] += this.P[i * 2 + 1] + this.SumP[i * 2 + 1];
+                SumP[i] = P[i * 2] + SumP[i * 2];
+                if (i * 2 + 1 < P.Length)
+                    SumP[i] += P[i * 2 + 1] + SumP[i * 2 + 1];
             }
         }
     }

@@ -19,7 +19,7 @@ namespace SortApplication
         /// </summary>
         public SampleSort()
         {
-            this.K = 8;
+            K = 8;
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace SortApplication
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            if (a.Length < Math.Pow(2, this.K + 1))
+            if (a.Length < Math.Pow(2, K + 1))
             {
                 // 小于 2^(k+1) 的数组直接进行快排
                 base.Sort(a);
@@ -37,7 +37,7 @@ namespace SortApplication
             }
 
             Shuffle(a);
-            var samplehi = (int)Math.Pow(2, this.K) - 2;
+            var samplehi = (int)Math.Pow(2, K) - 2;
             // 利用快速排序对取样数组进行排序
             base.Sort(a, 0, samplehi);
             // 找到取样数组的中位数

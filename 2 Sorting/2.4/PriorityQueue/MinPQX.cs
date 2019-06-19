@@ -32,8 +32,8 @@ namespace PriorityQueue
         /// <param name="capacity">最小堆的容量。</param>
         public MinPQX(int capacity)
         {
-            this.pq = new Key[capacity + 1];
-            this.n = 0;
+            pq = new Key[capacity + 1];
+            n = 0;
         }
 
         /// <summary>
@@ -42,11 +42,11 @@ namespace PriorityQueue
         /// <param name="keys">已有元素。</param>
         public MinPQX(Key[] keys)
         {
-            this.n = keys.Length;
-            this.pq = new Key[keys.Length + 1];
+            n = keys.Length;
+            pq = new Key[keys.Length + 1];
             for (var i = 0; i < keys.Length; i++)
-                this.pq[i + 1] = keys[i];
-            for (var k = this.n / 2; k >= 1; k--)
+                pq[i + 1] = keys[i];
+            for (var k = n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMinHeap());
         }
@@ -60,12 +60,12 @@ namespace PriorityQueue
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            var min = this.pq[1];
-            Exch(1, this.n--);
+            var min = pq[1];
+            Exch(1, n--);
             Sink(1);
-            this.pq[this.n + 1] = default(Key);
-            if ((this.n > 0) && (this.n == this.pq.Length / 4))
-                Resize(this.pq.Length / 2);
+            pq[n + 1] = default(Key);
+            if ((n > 0) && (n == pq.Length / 4))
+                Resize(pq.Length / 2);
 
             //Debug.Assert(IsMinHeap());
             return min;
@@ -77,19 +77,19 @@ namespace PriorityQueue
         /// <param name="k">元素下标。</param>
         internal void Remove(int k)
         {
-            if (k == this.n)
+            if (k == n)
             {
-                this.pq[this.n--] = default(Key);
+                pq[n--] = default(Key);
                 return;
             }
-            else if (this.n <= 2)
+            else if (n <= 2)
             {
                 Exch(1, k);
-                this.pq[this.n--] = default(Key);
+                pq[n--] = default(Key);
                 return;
             }
-            Exch(k, this.n--);
-            this.pq[this.n + 1] = default(Key);
+            Exch(k, n--);
+            pq[n + 1] = default(Key);
             Swim(k);
             Sink(k);
         }
@@ -100,11 +100,11 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            if (this.n == this.pq.Length - 1)
-                Resize(2 * this.pq.Length);
+            if (n == pq.Length - 1)
+                Resize(2 * pq.Length);
 
-            this.pq[++this.n] = v;
-            Swim(this.n);
+            pq[++n] = v;
+            Swim(n);
             Debug.Assert(IsMinHeap());
         }
 
@@ -112,19 +112,19 @@ namespace PriorityQueue
         /// 检查堆是否为空。
         /// </summary>
         /// <returns></returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得堆中最小元素。
         /// </summary>
         /// <returns></returns>
-        public Key Min() => this.pq[1];
+        public Key Min() => pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
         /// <returns></returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获取堆的迭代器，元素以升序排列。
@@ -132,9 +132,9 @@ namespace PriorityQueue
         /// <returns></returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            var copy = new MinPQ<Key>(this.n);
-            for (var i = 1; i <= this.n; i++)
-                copy.Insert(this.pq[i]);
+            var copy = new MinPQ<Key>(n);
+            for (var i = 1; i <= n; i++)
+                copy.Insert(pq[i]);
 
             while (!copy.IsEmpty())
                 yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
@@ -159,7 +159,7 @@ namespace PriorityQueue
                 return;
 
             // 获取路径
-            var heapHeight = (int)(Math.Log(this.n) / Math.Log(2));
+            var heapHeight = (int)(Math.Log(n) / Math.Log(2));
             var path = new List<int>();
             var temp = k;
             while (temp >= 1)
@@ -191,10 +191,10 @@ namespace PriorityQueue
         /// <param name="k">需要下沉的元素。</param>
         private void Sink(int k)
         {
-            while (k * 2 <= this.n)
+            while (k * 2 <= n)
             {
                 var j = 2 * k;
-                if (j < this.n && Greater(j, j + 1))
+                if (j < n && Greater(j, j + 1))
                     j++;
                 if (!Greater(k, j))
                     break;
@@ -210,11 +210,11 @@ namespace PriorityQueue
         private void Resize(int capacity)
         {
             var temp = new Key[capacity];
-            for (var i = 1; i <= this.n; i++)
+            for (var i = 1; i <= n; i++)
             {
-                temp[i] = this.pq[i];
+                temp[i] = pq[i];
             }
-            this.pq = temp;
+            pq = temp;
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace PriorityQueue
         /// <param name="j">判断是否较小的元素。</param>
         /// <returns></returns>
         private bool Greater(int i, int j)
-            => this.pq[i].CompareTo(this.pq[j]) > 0;
+            => pq[i].CompareTo(pq[j]) > 0;
 
         /// <summary>
         /// 交换堆中的两个元素。
@@ -233,9 +233,9 @@ namespace PriorityQueue
         /// <param name="j">要交换的第二个元素下标。</param>
         protected virtual void Exch(int i, int j)
         {
-            var swap = this.pq[i];
-            this.pq[i] = this.pq[j];
-            this.pq[j] = swap;
+            var swap = pq[i];
+            pq[i] = pq[j];
+            pq[j] = swap;
         }
 
         /// <summary>
@@ -251,13 +251,13 @@ namespace PriorityQueue
         /// <returns></returns>
         private bool IsMinHeap(int k)
         {
-            if (k > this.n)
+            if (k > n)
                 return true;
             var left = 2 * k;
             var right = 2 * k + 1;
-            if (left <= this.n && Greater(k, left))
+            if (left <= n && Greater(k, left))
                 return false;
-            if (right <= this.n && Greater(k, right))
+            if (right <= n && Greater(k, right))
                 return false;
 
             return IsMinHeap(left) && IsMinHeap(right);

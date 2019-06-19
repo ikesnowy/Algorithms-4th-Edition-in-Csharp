@@ -638,5 +638,14 @@ namespace BinarySearchTree
                 return 0;
             return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
         }
+
+        private int LeftDepth()
+        {
+            var x = root;
+            var depth = 0;
+            while (x.Left != null)
+                depth++;
+            return depth;
+        }
     }
 }

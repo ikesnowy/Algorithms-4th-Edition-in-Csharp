@@ -20,10 +20,10 @@ namespace _1._3._33
         /// </summary>
         public ResizingArrayDeque()
         {
-            this.deque = new Item[2];
-            this.first = 0;
-            this.last = 0;
-            this.count = 0;
+            deque = new Item[2];
+            first = 0;
+            last = 0;
+            count = 0;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace _1._3._33
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace _1._3._33
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -53,14 +53,14 @@ namespace _1._3._33
             if (capacity <= 0)
                 throw new ArgumentException();
 
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.deque[(this.first + i) % this.deque.Length];
+                temp[i] = deque[(first + i) % deque.Length];
             }
-            this.deque = temp;
-            this.first = 0;
-            this.last = this.count;
+            deque = temp;
+            first = 0;
+            last = count;
         }
 
 
@@ -70,30 +70,30 @@ namespace _1._3._33
         /// <param name="item">要添加的元素</param>
         public void PushLeft(Item item)
         {
-            if (this.count == this.deque.Length)
+            if (count == deque.Length)
             {
-                Resize(2 * this.count);
+                Resize(2 * count);
             }
 
-            this.first--;
-            if (this.first < 0)
+            first--;
+            if (first < 0)
             {
-                this.first += this.deque.Length;
+                first += deque.Length;
             }
-            this.deque[this.first] = item;
-            this.count++;
+            deque[first] = item;
+            count++;
         }
 
         public void PushRight (Item item)
         {
-            if (this.count == this.deque.Length)
+            if (count == deque.Length)
             {
-                Resize(2 * this.count);
+                Resize(2 * count);
             }
 
-            this.deque[this.last] = item;
-            this.last = (this.last + 1) % this.deque.Length;
-            this.count++;
+            deque[last] = item;
+            last = (last + 1) % deque.Length;
+            count++;
         }
 
         public Item PopRight()
@@ -103,15 +103,15 @@ namespace _1._3._33
                 throw new InvalidOperationException();
             }
 
-            this.last--;
-            if (this.last < 0)
+            last--;
+            if (last < 0)
             {
-                this.last += this.deque.Length;
+                last += deque.Length;
             }
-            Item temp = this.deque[this.last];
-            this.count--;
-            if (this.count > 0 && this.count == this.deque.Length / 4)
-                Resize(this.deque.Length / 2);
+            var temp = deque[last];
+            count--;
+            if (count > 0 && count == deque.Length / 4)
+                Resize(deque.Length / 2);
             return temp;
         }
 
@@ -120,19 +120,19 @@ namespace _1._3._33
             if (IsEmpty())
                 throw new ArgumentException();
 
-            Item temp = this.deque[this.first];
-            this.first = (this.first + 1) % this.deque.Length;
-            this.count--;
-            if (this.count > 0 && this.count == this.deque.Length / 4)
+            var temp = deque[first];
+            first = (first + 1) % deque.Length;
+            count--;
+            if (count > 0 && count == deque.Length / 4)
             {
-                Resize(this.deque.Length / 2);
+                Resize(deque.Length / 2);
             }
             return temp;
         }
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new ResizingDequeEnumerator(this.deque, this.first, this.count);
+            return new ResizingDequeEnumerator(deque, first, count);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -152,33 +152,33 @@ namespace _1._3._33
                 this.deque = deque;
                 this.first = first;
                 this.count = count;
-                this.current = -1;
+                current = -1;
             }
 
-            Item IEnumerator<Item>.Current => this.deque[(this.first + this.current) % this.deque.Length];
+            Item IEnumerator<Item>.Current => deque[(first + current) % deque.Length];
 
-            object IEnumerator.Current => this.deque[(this.first + this.current) % this.deque.Length];
+            object IEnumerator.Current => deque[(first + current) % deque.Length];
 
             void IDisposable.Dispose()
             {
-                this.deque = null;
-                this.current = -1;
+                deque = null;
+                current = -1;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.count - 1)
+                if (current == count - 1)
                 {
                     return false;
                 }
 
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = -1;
+                current = -1;
             }
         }
     }

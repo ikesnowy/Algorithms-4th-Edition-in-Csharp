@@ -19,12 +19,12 @@ namespace _1._3._17
         /// <exception cref="ArgumentException">非法日期格式</exception>
         public Date(string date)
         {
-            string[] a = date.Split('/');
+            var a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
-            this.Month = int.Parse(a[0]);
-            this.Day = int.Parse(a[1]);
-            this.Year = int.Parse(a[2]);
+            Month = int.Parse(a[0]);
+            Day = int.Parse(a[1]);
+            Year = int.Parse(a[2]);
         }
 
         /// <summary>
@@ -35,9 +35,9 @@ namespace _1._3._17
         /// <param name="y">交易年份。</param>
         public Date(int m, int d, int y)
         {
-            this.Month = m;
-            this.Day = d;
-            this.Year = y;
+            Month = m;
+            Day = d;
+            Year = y;
         }
 
         /// <summary>
@@ -46,11 +46,11 @@ namespace _1._3._17
         /// <returns></returns>
         public static Date[] ReadDates()
         {
-            char[] split = new char[] { '\n' };
-            string[] input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
-            Date[] d = new Date[input.Length];
+            var split = new char[] { '\n' };
+            var input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var d = new Date[input.Length];
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 d[i] = new Date(input[i]);
             }
@@ -65,10 +65,10 @@ namespace _1._3._17
         /// <returns></returns>
         public static Date[] ReadDates(string path)
         {
-            string[] allStrings = File.ReadAllLines(path);
-            Date[] d = new Date[allStrings.Length];
+            var allStrings = File.ReadAllLines(path);
+            var d = new Date[allStrings.Length];
 
-            for (int i = 0; i < allStrings.Length; i++)
+            for (var i = 0; i < allStrings.Length; i++)
             {
                 d[i] = new Date(allStrings[i]);
             }
@@ -82,7 +82,7 @@ namespace _1._3._17
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Month + "/" + this.Day + "/" + this.Year;
+            return Month + "/" + Day + "/" + Year;
         }
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace _1._3._17
                 return true;
             if (obj == null)
                 return false;
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
                 return false;
-            Date that = (Date)obj;
-            return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
+            var that = (Date)obj;
+            return (Year == that.Year) && (Month == that.Month) && (Day == that.Day);
         }
 
         /// <summary>
@@ -108,10 +108,10 @@ namespace _1._3._17
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 17;
-            hash = 31 * hash + this.Month;
-            hash = 31 * hash + this.Year;
-            hash = 31 * hash + this.Day;
+            var hash = 17;
+            hash = 31 * hash + Month;
+            hash = 31 * hash + Year;
+            hash = 31 * hash + Day;
             return hash;
         }
 
@@ -122,19 +122,19 @@ namespace _1._3._17
         /// <returns></returns>
         public int CompareTo(Date other)
         {
-            if (this.Year > other.Year)
+            if (Year > other.Year)
                 return 1;
-            else if (this.Year < other.Year)
+            else if (Year < other.Year)
                 return -1;
 
-            if (this.Month > other.Month)
+            if (Month > other.Month)
                 return 1;
-            else if (this.Month < other.Month)
+            else if (Month < other.Month)
                 return -1;
 
-            if (this.Day > other.Day)
+            if (Day > other.Day)
                 return 1;
-            else if (this.Day < other.Day)
+            else if (Day < other.Day)
                 return -1;
 
             return 0;

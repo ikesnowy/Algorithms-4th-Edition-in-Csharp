@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace _2._5._32
 {
-    
     class Program
     {
         class TilesInWrongPlace : AStarSolverFor8Puzzles
@@ -18,8 +17,8 @@ namespace _2._5._32
             /// <returns></returns>
             protected override int HeuristicDistance(SearchNode start, SearchNode goal)
             {
-                int missTile = 0;
-                for (int i = 0; i < start.Status.Length; i++)
+                var missTile = 0;
+                for (var i = 0; i < start.Status.Length; i++)
                 {
                     if (start.Status[i] != goal.Status[i])
                         missTile++;
@@ -40,16 +39,16 @@ namespace _2._5._32
             /// <returns></returns>
             protected override int HeuristicDistance(SearchNode start, SearchNode goal)
             {
-                int manhattanSum = 0;
-                for (int i = 0; i < start.Status.Length; i++)
+                var manhattanSum = 0;
+                for (var i = 0; i < start.Status.Length; i++)
                 {
-                    int goalIndex = 0;
-                    for (int j = 0; j < goal.Status.Length; j++)
+                    var goalIndex = 0;
+                    for (var j = 0; j < goal.Status.Length; j++)
                         if (goal.Status[j] == start.Status[i])
                             goalIndex = j;
 
-                    int dx = Math.Abs(i % 3 - goalIndex % 3);
-                    int dy = Math.Abs(i / 3 - goalIndex / 3);
+                    var dx = Math.Abs(i % 3 - goalIndex % 3);
+                    var dy = Math.Abs(i / 3 - goalIndex / 3);
                     manhattanSum += dx + dy;
                 }
                 return manhattanSum;
@@ -68,16 +67,16 @@ namespace _2._5._32
             /// <returns></returns>
             protected override int HeuristicDistance(SearchNode start, SearchNode goal)
             {
-                int manhattanSquareSum = 0;
-                for (int i = 0; i < start.Status.Length; i++)
+                var manhattanSquareSum = 0;
+                for (var i = 0; i < start.Status.Length; i++)
                 {
-                    int goalIndex = 0;
-                    for (int j = 0; j < goal.Status.Length; j++)
+                    var goalIndex = 0;
+                    for (var j = 0; j < goal.Status.Length; j++)
                         if (goal.Status[j] == start.Status[i])
                             goalIndex = j;
 
-                    int dx = Math.Abs(i % 3 - goalIndex % 3);
-                    int dy = Math.Abs(i / 3 - goalIndex / 3);
+                    var dx = Math.Abs(i % 3 - goalIndex % 3);
+                    var dy = Math.Abs(i / 3 - goalIndex / 3);
                     manhattanSquareSum += (dx + dy) * (dx + dy);
                 }
                 return manhattanSquareSum;
@@ -91,7 +90,7 @@ namespace _2._5._32
         {
             public bool Equals(SearchNode x, SearchNode y)
             {
-                for (int i = 0; i < x.Status.Length; i++)
+                for (var i = 0; i < x.Status.Length; i++)
                     if (x.Status[i] != y.Status[i])
                         return false;
                 return true;
@@ -102,8 +101,8 @@ namespace _2._5._32
                 if (obj.Status.Length == 0)
                     return 0;
 
-                int hash = 1;
-                foreach (int i in obj.Status)
+                var hash = 1;
+                foreach (var i in obj.Status)
                 {
                     hash = 31 * hash + i;
                 }
@@ -118,9 +117,9 @@ namespace _2._5._32
         /// <param name="current">当前状态。</param>
         static void PrintMatrix(int[] current)
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (var j = 0; j < 3; j++)
                 {
                     Console.Write(current[i * 3 + j] + " ");
                 }
@@ -131,35 +130,35 @@ namespace _2._5._32
 
         static void Main(string[] args)
         {
-            TilesInWrongPlace tiles = new TilesInWrongPlace(new BoardEqualityComparer());
-            ManhattanDistance manhattan = new ManhattanDistance(new BoardEqualityComparer());
-            SquareOfManhattanDistance manhattanSquare = new SquareOfManhattanDistance(new BoardEqualityComparer());
+            var tiles = new TilesInWrongPlace(new BoardEqualityComparer());
+            var manhattan = new ManhattanDistance(new BoardEqualityComparer());
+            var manhattanSquare = new SquareOfManhattanDistance(new BoardEqualityComparer());
 
-            SearchNode start = new SearchNode()
+            var start = new SearchNode()
             {
                 Status = new int[9] { 0, 1, 3, 4, 2, 5, 7, 8, 6 },
                 Steps = 0
             };
 
-            SearchNode goal = new SearchNode()
+            var goal = new SearchNode()
             {
                 Status = new int[9] { 1, 2, 3, 4, 5, 6, 7, 8, 0 },
                 Steps = 0
             };
 
             Console.WriteLine("Missing Tiles");
-            SearchNode[] path = tiles.GetPath(start, goal);
-            foreach (SearchNode s in path)
+            var path = tiles.GetPath(start, goal);
+            foreach (var s in path)
                 PrintMatrix(s.Status);
 
             Console.WriteLine("Manhattan");
             path = manhattan.GetPath(start, goal);
-            foreach (SearchNode s in path)
+            foreach (var s in path)
                 PrintMatrix(s.Status);
 
             Console.WriteLine("Square Manhattan");
             path = manhattanSquare.GetPath(start, goal);
-            foreach (SearchNode s in path)
+            foreach (var s in path)
                 PrintMatrix(s.Status);
         }
     }

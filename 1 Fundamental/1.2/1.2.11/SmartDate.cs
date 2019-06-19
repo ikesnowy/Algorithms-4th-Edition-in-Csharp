@@ -15,9 +15,9 @@ namespace _1._2._11
         {
             if (Vaildation(m, d, y) == false)
                 throw new FormatException("Invaild Date");
-            this.Month = m;
-            this.Day = d;
-            this.Year = y;
+            Month = m;
+            Day = d;
+            Year = y;
         }
 
         private bool Vaildation(int m, int d, int y)
@@ -25,7 +25,7 @@ namespace _1._2._11
             if (y < 0)
                 return false;
 
-            bool isLeapYear = false;
+            var isLeapYear = false;
 
             if (m > 12 || m < 1)
                 return false;
@@ -51,7 +51,7 @@ namespace _1._2._11
 
         public override string ToString()
         {
-            return this.Month + "/" + this.Day + "/" + this.Year;
+            return Month + "/" + Day + "/" + Year;
         }
     }
 }

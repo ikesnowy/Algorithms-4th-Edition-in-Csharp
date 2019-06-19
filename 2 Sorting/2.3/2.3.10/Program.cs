@@ -2,7 +2,6 @@
 
 namespace _2._3._10
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -19,7 +18,7 @@ namespace _2._3._10
             // P(|X-27 631 021| ≥ 100 000 000 000) ≤ 0.00000000004225
             // P ≤ 0.000000004225 %
             double N = 10000000;
-            double k = 0.1 * N / 0.65;
+            var k = 0.1 * N / 0.65;
             Console.WriteLine(1.0 / (k * k));//4.225x10^-13
         }
     }

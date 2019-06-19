@@ -3,19 +3,18 @@ using Quick;
 
 namespace _2._3._8
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
             // 约为 NlogN 次
-            QuickSortAnalyze sort = new QuickSortAnalyze();
-            int N = 100;
+            var sort = new QuickSortAnalyze();
+            var N = 100;
             Console.WriteLine("N\tCompare\tNlogN");
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
-                int[] a = new int[N];
-                for (int j = 0; j < a.Length; j++)
+                var a = new int[N];
+                for (var j = 0; j < a.Length; j++)
                 {
                     a[j] = 1;
                 }
@@ -23,7 +22,7 @@ namespace _2._3._8
                 Console.WriteLine(N + "\t" + sort.CompareCount + "\t" + N * Math.Log(N) / Math.Log(2));
                 N *= 10;
             }
-            
+
         }
     }
 }

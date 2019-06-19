@@ -5,27 +5,26 @@ using PriorityQueue;
 
 namespace _2._4._38
 {
-    
     class Program
     {
         static Random random = new Random();
 
         static void Main(string[] args)
         {
-            int n = 200000;
-            int repeatTimes = 5;
-            int doubleTimes = 4;
-            for (int i = 0; i < doubleTimes; i++)
+            var n = 200000;
+            var repeatTimes = 5;
+            var doubleTimes = 4;
+            for (var i = 0; i < doubleTimes; i++)
             {
                 Console.WriteLine("n=" + n);
                 // 升序数组
                 long totalTime = 0;
                 Console.Write("Ascending:\t");
-                for (int j = 0; j < repeatTimes; j++)
+                for (var j = 0; j < repeatTimes; j++)
                 {
-                    MaxPQ<int> pq = new MaxPQ<int>(n);
-                    int[] data = GetAscending(n);
-                    long time = Test(pq, data);
+                    var pq = new MaxPQ<int>(n);
+                    var data = GetAscending(n);
+                    var time = Test(pq, data);
                     Console.Write(time + "\t");
                     totalTime += time;
                 }
@@ -33,11 +32,11 @@ namespace _2._4._38
                 // 降序数组
                 totalTime = 0;
                 Console.Write("Descending:\t");
-                for (int j = 0; j < repeatTimes; j++)
+                for (var j = 0; j < repeatTimes; j++)
                 {
-                    MaxPQ<int> pq = new MaxPQ<int>(n);
-                    int[] data = GetDescending(n);
-                    long time = Test(pq, data);
+                    var pq = new MaxPQ<int>(n);
+                    var data = GetDescending(n);
+                    var time = Test(pq, data);
                     Console.Write(time + "\t");
                     totalTime += time;
                 }
@@ -45,11 +44,11 @@ namespace _2._4._38
                 // 全部元素相同
                 totalTime = 0;
                 Console.Write("All Same:\t");
-                for (int j = 0; j < repeatTimes; j++)
+                for (var j = 0; j < repeatTimes; j++)
                 {
-                    MaxPQ<int> pq = new MaxPQ<int>(n);
-                    int[] data = GetSame(n, 17763);
-                    long time = Test(pq, data);
+                    var pq = new MaxPQ<int>(n);
+                    var data = GetSame(n, 17763);
+                    var time = Test(pq, data);
                     Console.Write(time + "\t");
                     totalTime += time;
                 }
@@ -57,11 +56,11 @@ namespace _2._4._38
                 // 只有两个值
                 totalTime = 0;
                 Console.Write("Binary Dist.:\t");
-                for (int j = 0; j < repeatTimes; j++)
+                for (var j = 0; j < repeatTimes; j++)
                 {
-                    MaxPQ<int> pq = new MaxPQ<int>(n);
-                    int[] data = GetBinary(n, 15254, 17763);
-                    long time = Test(pq, data);
+                    var pq = new MaxPQ<int>(n);
+                    var data = GetBinary(n, 15254, 17763);
+                    var time = Test(pq, data);
                     Console.Write(time + "\t");
                     totalTime += time;
                 }
@@ -72,13 +71,13 @@ namespace _2._4._38
 
         static long Test(MaxPQ<int> pq, int[] data)
         {
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 pq.Insert(data[i]);
             }
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 pq.DelMax();
             }
@@ -88,8 +87,8 @@ namespace _2._4._38
 
         static int[] GetAscending(int n)
         {
-            int[] ascending = new int[n];
-            for (int i = 0; i < n; i++)
+            var ascending = new int[n];
+            for (var i = 0; i < n; i++)
                 ascending[i] = random.Next();
             Array.Sort(ascending);
             return ascending;
@@ -97,15 +96,15 @@ namespace _2._4._38
 
         static int[] GetDescending(int n)
         {
-            int[] descending = GetAscending(n);
+            var descending = GetAscending(n);
             descending = descending.Reverse().ToArray();
             return descending;
         }
 
         static int[] GetSame(int n, int v)
         {
-            int[] same = new int[n];
-            for (int i = 0; i < n; i++)
+            var same = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 same[i] = v;
             }
@@ -114,8 +113,8 @@ namespace _2._4._38
 
         static int[] GetBinary(int n, int a, int b)
         {
-            int[] binary = new int[n];
-            for (int i = 0; i < n; i++)
+            var binary = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 binary[i] = random.NextDouble() > 0.5 ? a : b;
             }

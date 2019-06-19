@@ -4,7 +4,6 @@ using PriorityQueue;
 
 namespace _2._4._28
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -13,10 +12,10 @@ namespace _2._4._28
             // 因此预计时间是 n=10^5 的运行时间乘以 10^3 倍。
             int n = 100000, m = 10000;
             long prev = 0;
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 Console.Write("n= " + n + " m= " + m);
-                long now = test(m, n);  // 获取当前 m,n 值的算法运行时间
+                var now = test(m, n);  // 获取当前 m,n 值的算法运行时间
                 Console.Write("\t time=" + now);
                 if (prev == 0)
                 {
@@ -41,25 +40,25 @@ namespace _2._4._28
         static long test(int m, int n)
         {
             var pq = new MinPQ<EuclideanDistance3D>(m);
-            int[] x = new int[n];
-            int[] y = new int[n];
-            int[] z = new int[n];
-            Random random = new Random();
-            for (int i = 0; i < n; i++)
+            var x = new int[n];
+            var y = new int[n];
+            var z = new int[n];
+            var random = new Random();
+            for (var i = 0; i < n; i++)
             {
                 x[i] = random.Next();
                 y[i] = random.Next();
                 z[i] = random.Next();
             }
 
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();// 开始计时
-            for (int i = 0; i < m; i++)
+            for (var i = 0; i < m; i++)
             {
                 // 先插入 m 个记录
                 pq.Insert(new EuclideanDistance3D(x[i], y[i], z[i]));
             }
-            for (int i = m; i < n; i++)
+            for (var i = m; i < n; i++)
             {
                 // 插入剩余 n-m 个记录
                 pq.DelMin();

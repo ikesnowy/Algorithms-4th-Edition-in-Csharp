@@ -3,24 +3,23 @@ using UnionFind;
 
 namespace _1._5._2
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
+            var input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
             var quickUnion = new QuickUnionUF(10);
 
-            foreach (string s in input)
+            foreach (var s in input)
             {
                 quickUnion.ResetArrayCount();
-                string[] numbers = s.Split('-');
-                int p = int.Parse(numbers[0]);
-                int q = int.Parse(numbers[1]);
+                var numbers = s.Split('-');
+                var p = int.Parse(numbers[0]);
+                var q = int.Parse(numbers[1]);
 
                 quickUnion.Union(p, q);
-                int[] parent = quickUnion.GetParent();
-                for (int i = 0; i < parent.Length; i++)
+                var parent = quickUnion.GetParent();
+                for (var i = 0; i < parent.Length; i++)
                 {
                     if (parent[i] == i)
                     {
@@ -34,11 +33,11 @@ namespace _1._5._2
 
         static void DFS(int[] parent, int root, int level)
         {
-            for (int i = 0; i < parent.Length; i++)
+            for (var i = 0; i < parent.Length; i++)
             {
                 if (parent[i] == root && i != root)
                 {
-                    for (int j = 0; j < level; j++)
+                    for (var j = 0; j < level; j++)
                     {
                         Console.Write("    ");
                     }

@@ -18,8 +18,8 @@ namespace _1._4._37
         /// <param name="capacity">栈的大小。</param>
         public FixedCapacityStackOfInts(int capacity)
         {
-            this.a = new int[capacity];
-            this.N = 0;
+            a = new int[capacity];
+            N = 0;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace _1._4._37
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.N == 0;
+            return N == 0;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _1._4._37
         /// <returns></returns>
         public bool IsFull()
         {
-            return this.N == this.a.Length;
+            return N == a.Length;
         }
 
         /// <summary>
@@ -46,8 +46,8 @@ namespace _1._4._37
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(int item)
         {
-            this.a[this.N] = item;
-            this.N++;
+            a[N] = item;
+            N++;
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace _1._4._37
         /// <returns></returns>
         public int Pop()
         {
-            this.N--;
-            return this.a[this.N];
+            N--;
+            return a[N];
         }
 
         /// <summary>
@@ -66,12 +66,12 @@ namespace _1._4._37
         /// <returns></returns>
         public int Peek()
         {
-            return this.a[this.N - 1];
+            return a[N - 1];
         }
 
         public IEnumerator<int> GetEnumerator()
         {
-            return new ReverseEnmerator(this.a);
+            return new ReverseEnmerator(a);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -86,31 +86,31 @@ namespace _1._4._37
 
             public ReverseEnmerator(int[] a)
             {
-                this.current = a.Length;
+                current = a.Length;
                 this.a = a;
             }
 
-            int IEnumerator<int>.Current => this.a[this.current];
+            int IEnumerator<int>.Current => a[current];
 
-            object IEnumerator.Current => this.a[this.current];
+            object IEnumerator.Current => a[current];
 
             void IDisposable.Dispose()
             {
-                this.current = -1;
-                this.a = null;
+                current = -1;
+                a = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == 0)
+                if (current == 0)
                     return false;
-                this.current--;
+                current--;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.a.Length;
+                current = a.Length;
             }
         }
     }

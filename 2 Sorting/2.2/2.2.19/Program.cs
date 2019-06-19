@@ -7,8 +7,8 @@ namespace _2._2._19
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 1, 3, 5, 7, 2, 0 };
-            MergeSort mergeSort = new MergeSort();
+            var a = new int[] { 1, 3, 5, 7, 2, 0 };
+            var mergeSort = new MergeSort();
             mergeSort.Sort(a);
             Console.WriteLine(mergeSort.Counter);
         }

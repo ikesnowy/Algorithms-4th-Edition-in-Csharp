@@ -21,7 +21,7 @@ namespace _1._1._33
 
             // 点乘
             double result = 0;
-            for (int i = 0; i < x.Length; i++)
+            for (var i = 0; i < x.Length; i++)
             {
                 result += x[i] * y[i];
             }
@@ -48,22 +48,22 @@ namespace _1._1._33
                 throw new FormatException("a's column number must be equal to b's row number");
             }
 
-            int m = a.GetLength(0);
-            int n = b[0].Length;
-            int p = a[0].Length;
+            var m = a.GetLength(0);
+            var n = b[0].Length;
+            var p = a[0].Length;
 
-            double[][] result = new double[m][];
+            var result = new double[m][];
 
-            for (int i = 0; i < m; i++)
+            for (var i = 0; i < m; i++)
             {
-                double[] resultrow = new double[n];
-                for (int j = 0; j < n; j++)
+                var resultrow = new double[n];
+                for (var j = 0; j < n; j++)
                 {
                     // result[i][j] = 行向量 a[i] 与列向量 b[j] 的点积
-                    double[] row = a[i];
-                    double[] col = new double[p];
+                    var row = a[i];
+                    var col = new double[p];
                     // 取得列向量
-                    for (int k = 0; k < p; k++)
+                    for (var k = 0; k < p; k++)
                     {
                         col[k] = b[k][j];
                     }
@@ -82,11 +82,11 @@ namespace _1._1._33
         /// <returns>返回转置后的数组。</returns>
         public static double[][] Transpose(double[][] a)
         {
-            double[][] trans = new double[a[0].Length][];
-            for (int i = 0; i < a[0].Length; i++)
+            var trans = new double[a[0].Length][];
+            for (var i = 0; i < a[0].Length; i++)
             {
-                double[] row = new double[a.GetLength(0)];
-                for (int j = 0; j < a.GetLength(0); j++)
+                var row = new double[a.GetLength(0)];
+                for (var j = 0; j < a.GetLength(0); j++)
                 {
                     row[j] = a[j][i];
                 }
@@ -109,9 +109,9 @@ namespace _1._1._33
                 throw new FormatException("a's column number must be equal to x's length");
             }
 
-            double[] result = new double[a.GetLength(0)];
+            var result = new double[a.GetLength(0)];
 
-            for (int i = 0; i < a.GetLength(0); i++)
+            for (var i = 0; i < a.GetLength(0); i++)
             {
                 result[i] = Dot(a[i], x);
             }
@@ -133,12 +133,12 @@ namespace _1._1._33
                 throw new FormatException("a's column number must be equal to x's length");
             }
 
-            double[] result = new double[a[0].Length];
+            var result = new double[a[0].Length];
 
-            for (int i = 0; i < a[0].Length; i++)
+            for (var i = 0; i < a[0].Length; i++)
             {
-                double[] colVector = new double[a.GetLength(0)];
-                for (int j = 0; j < colVector.Length; j++)
+                var colVector = new double[a.GetLength(0)];
+                for (var j = 0; j < colVector.Length; j++)
                 {
                     colVector[j] = a[j][i];
                 }
@@ -154,9 +154,9 @@ namespace _1._1._33
         /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(double[][] a)
         {
-            for (int i = 0; i < a.GetLength(0); i++)
+            for (var i = 0; i < a.GetLength(0); i++)
             {
-                for (int j = 0; j < a[i].Length; j++)
+                for (var j = 0; j < a[i].Length; j++)
                 {
                     Console.Write($"\t{a[i][j]}");
                 }
@@ -170,7 +170,7 @@ namespace _1._1._33
         /// <param name="a">需要输出的向量。</param>
         public static void PrintVector(double[] a)
         {
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
                 Console.Write($"\t{a[i]}");
             }

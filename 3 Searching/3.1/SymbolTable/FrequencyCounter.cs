@@ -25,8 +25,8 @@ namespace SymbolTable
         /// <returns><paramref name="keys"/> 中的不重复元素数量。</returns>
         public static int CountDistinct<TKey>(TKey[] keys, IST<TKey, int> st)
         {
-            int distinct = 0;
-            for (int i = 0; i < keys.Length; i++)
+            var distinct = 0;
+            for (var i = 0; i < keys.Length; i++)
             {
                 if (!st.Contains(keys[i]))
                     st.Put(keys[i], distinct++);
@@ -43,10 +43,10 @@ namespace SymbolTable
         public static void LookUpDictionary(string filename, string dictionaryFile, int minLength)
         {
             // 初始化字典
-            StreamReader sr = new StreamReader(File.OpenRead(dictionaryFile));
-            string[] words = sr.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            BinarySearchST<string, int> dictionary = new BinarySearchST<string, int>();
-            for (int i = 0; i < words.Length; i++)
+            var sr = new StreamReader(File.OpenRead(dictionaryFile));
+            var words = sr.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var dictionary = new BinarySearchST<string, int>();
+            for (var i = 0; i < words.Length; i++)
             {
                 if (words[i].Length > minLength)
                     dictionary.Put(words[i], i);
@@ -54,13 +54,13 @@ namespace SymbolTable
             sr.Close();
 
             // 读入单词
-            StreamReader srFile = new StreamReader(File.OpenRead(filename));
-            string[] inputs = srFile.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var srFile = new StreamReader(File.OpenRead(filename));
+            var inputs = srFile.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             srFile.Close();
 
-            BinarySearchST<int, string> stDictionary = new BinarySearchST<int, string>();
-            BinarySearchST<string, int> stFrequency = new BinarySearchST<string, int>();
-            foreach (string s in inputs)
+            var stDictionary = new BinarySearchST<int, string>();
+            var stFrequency = new BinarySearchST<string, int>();
+            foreach (var s in inputs)
             {
                 if (stFrequency.Contains(s))
                     stFrequency.Put(s, stFrequency.Get(s) + 1);
@@ -73,20 +73,20 @@ namespace SymbolTable
 
             // 输出字典序
             Console.WriteLine("Alphabet");
-            foreach (int i in stDictionary.Keys())
+            foreach (var i in stDictionary.Keys())
             {
-                string s = stDictionary.Get(i);
+                var s = stDictionary.Get(i);
                 Console.WriteLine(s + "\t" + stFrequency.Get(s));
             }
 
             // 频率序
             Console.WriteLine("Frequency");
-            int n = stFrequency.Size();
-            for (int i = 0; i < n; i++)
+            var n = stFrequency.Size();
+            for (var i = 0; i < n; i++)
             {
-                string max = "";
+                var max = "";
                 stFrequency.Put(max, 0);
-                foreach (string s in stFrequency.Keys())
+                foreach (var s in stFrequency.Keys())
                     if (stFrequency.Get(s) > stFrequency.Get(max))
                         max = s;
                 Console.WriteLine(max + "\t" + stFrequency.Get(max));
@@ -103,7 +103,7 @@ namespace SymbolTable
         /// <returns><paramref name="keys"/> 中出现频率最高的键。</returns>
         public static TKey MostFrequentlyKey<TKey>(IST<TKey, int> st, TKey[] keys)
         {
-            foreach (TKey s in keys)
+            foreach (var s in keys)
             {
                 if (st.Contains(s))
                     st.Put(s, st.Get(s) + 1);
@@ -111,8 +111,8 @@ namespace SymbolTable
                     st.Put(s, 1);
             }
 
-            TKey max = keys[0];
-            foreach (TKey s in st.Keys())
+            var max = keys[0];
+            foreach (var s in st.Keys())
                 if (st.Get(s) > st.Get(max))
                     max = s;
 
@@ -129,15 +129,15 @@ namespace SymbolTable
         public static string MostFrequentlyWord(string filename, int minLength, IST<string, int> st)
         {
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs = 
+            var inputs = 
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' }, 
                 StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string s in inputs)
+            foreach (var s in inputs)
             {
                 if (s.Length < minLength)
                     continue;
@@ -153,9 +153,9 @@ namespace SymbolTable
                 }
             }
 
-            string max = "";
+            var max = "";
             st.Put(max, 0);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 if (st.Get(s) > st.Get(max))
                     max = s;
 
@@ -173,15 +173,15 @@ namespace SymbolTable
         public static string MostFrequentlyWord(string filename, int counts, int minLength, IST<string, int> st)
         {
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs =
+            var inputs =
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < counts && i < inputs.Length; i++)
+            for (var i = 0; i < counts && i < inputs.Length; i++)
             {
                 if (inputs[i].Length < minLength)
                 {
@@ -200,9 +200,9 @@ namespace SymbolTable
                 }
             }
 
-            string max = "";
+            var max = "";
             st.Put(max, 0);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 if (st.Get(s) > st.Get(max))
                     max = s;
 
@@ -220,16 +220,16 @@ namespace SymbolTable
         public static int[] MostFrequentlyWordAnalysis(string filename, int minLength, ISTAnalysis<string, int> st)
         {
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs =
+            var inputs =
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            List<int> compares = new List<int>();
-            for (int i = 0; i < inputs.Length; i++)
+            var compares = new List<int>();
+            for (var i = 0; i < inputs.Length; i++)
             {
                 if (inputs[i].Length < minLength)
                     continue;
@@ -244,9 +244,9 @@ namespace SymbolTable
                 compares.Add(st.ArrayVisit);
             }            
 
-            string max = "";
+            var max = "";
             st.Put(max, 0);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 if (st.Get(s) > st.Get(max))
                     max = s;
 
@@ -266,21 +266,21 @@ namespace SymbolTable
         /// <param name="timeRecord">对应耗时。</param>
         public static void MostFrequentlyWordAnalysis(string filename, int minLength, IST<string, int> st, out int[] callIndex, out long[] timeRecord)
         {
-            List<int> call = new List<int>();
-            List<long> time = new List<long>();
-            Stopwatch sw = Stopwatch.StartNew();
+            var call = new List<int>();
+            var time = new List<long>();
+            var sw = Stopwatch.StartNew();
 
-            int callTime = 0;
+            var callTime = 0;
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs =
+            var inputs =
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < inputs.Length; i++)
+            for (var i = 0; i < inputs.Length; i++)
             {
                 if (inputs[i].Length < minLength)
                     continue;
@@ -302,12 +302,12 @@ namespace SymbolTable
                 }
             }
 
-            string max = "";
+            var max = "";
             st.Put(max, 0);
             callTime++;
             time.Add(sw.ElapsedMilliseconds);
             call.Add(callTime);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
             {
                 if (st.Get(s) > st.Get(max))
                     max = s;
@@ -330,15 +330,15 @@ namespace SymbolTable
         public static string[] MostFrequentlyWords(string filename, int minLength, IST<string, int> st)
         {
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs =
+            var inputs =
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string s in inputs)
+            foreach (var s in inputs)
             {
                 if (s.Length < minLength)
                     continue;
@@ -354,10 +354,10 @@ namespace SymbolTable
                 }
             }
 
-            string max = "";
-            Queue<string> queue = new Queue<string>();
+            var max = "";
+            var queue = new Queue<string>();
             st.Put(max, 0);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
             {
                 if (st.Get(s) > st.Get(max))
                 {

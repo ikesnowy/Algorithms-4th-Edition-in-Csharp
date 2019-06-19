@@ -17,31 +17,31 @@ namespace _2._5._14
         /// <param name="url">域名的 url。</param>
         public Domain(string url)
         {
-            this.fields = url.Split('.');
-            this.n = this.fields.Length;
+            fields = url.Split('.');
+            n = fields.Length;
         }
 
         public int CompareTo(Domain other)
         {
-            int minLength = Math.Min(this.n, other.n);
-            for (int i = 0; i < minLength; i++)
+            var minLength = Math.Min(n, other.n);
+            for (var i = 0; i < minLength; i++)
             {
-                int c = this.fields[minLength - i - 1].CompareTo(other.fields[minLength - i - 1]);
+                var c = fields[minLength - i - 1].CompareTo(other.fields[minLength - i - 1]);
                 if (c != 0)
                     return c;
             }
 
-            return this.n.CompareTo(other.n);
+            return n.CompareTo(other.n);
         }
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.fields.Length; i++)
+            var sb = new StringBuilder();
+            for (var i = 0; i < fields.Length; i++)
             {
                 if (i != 0)
                     sb.Append('.');
-                sb.Append(this.fields[i]);
+                sb.Append(fields[i]);
             }
             return sb.ToString();
         }

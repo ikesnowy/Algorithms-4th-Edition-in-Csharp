@@ -3,14 +3,13 @@ using Generics;
 
 namespace _1._3._25
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Node<string> first = new Node<string>();
-            Node<string> second = new Node<string>();
-            Node<string> third = new Node<string>();
+            var first = new Node<string>();
+            var second = new Node<string>();
+            var third = new Node<string>();
 
             first.item = "first";
             second.item = "second";
@@ -19,7 +18,7 @@ namespace _1._3._25
             first.next = second;
             second.next = null;
 
-            Node<string> current = first;
+            var current = first;
             while (current != null)
             {
                 Console.Write(current.item + " ");

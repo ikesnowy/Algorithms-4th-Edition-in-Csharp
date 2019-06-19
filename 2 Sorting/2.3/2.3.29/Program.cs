@@ -20,22 +20,22 @@ namespace _2._3._29
         /// <param name="m">要使用的阈值</param>
         static void Trial(int m)
         {
-            QuickSortInsertion withShuffle = new QuickSortInsertion();
-            QuickSortRandomPivot randomPivot = new QuickSortRandomPivot();
-            int trialTime = 5;
+            var withShuffle = new QuickSortInsertion();
+            var randomPivot = new QuickSortRandomPivot();
+            var trialTime = 5;
 
             // M=10
             withShuffle.M = m;
             randomPivot.M = m;
             double timeShuffle = 0;
             double timeRandomPivot = 0;
-            for (int N = 1000; N < 10000000; N *= 10)
+            for (var N = 1000; N < 10000000; N *= 10)
             {
-                for (int i = 0; i < trialTime; i++)
+                for (var i = 0; i < trialTime; i++)
                 {
-                    int[] a = new int[N];
-                    int[] b = new int[N];
-                    for (int j = 0; j < N; j++)
+                    var a = new int[N];
+                    var b = new int[N];
+                    for (var j = 0; j < N; j++)
                     {
                         a[j] = j;
                     }
@@ -57,11 +57,11 @@ namespace _2._3._29
         /// <param name="a">需要打乱的数组。</param>
         static void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

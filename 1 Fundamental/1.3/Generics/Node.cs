@@ -28,8 +28,8 @@
         /// <param name="node">要复制的结点。</param>
         public Node(Node<T> node)
         {
-            this.item = node.item;
-            this.next = node.next;
+            item = node.item;
+            next = node.next;
         }
     }
 }

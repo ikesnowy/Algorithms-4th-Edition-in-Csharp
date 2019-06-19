@@ -6,7 +6,6 @@ using UnionFind;
 
 namespace _1._5._16
 {
-    
     static class Program
     {
         [STAThread]
@@ -21,16 +20,16 @@ namespace _1._5._16
         static void Compute()
         {
             char[] split = { '\n', '\r' };
-            string[] input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int size = int.Parse(input[0]);
-            QuickFindUF quickFind = new QuickFindUF(size);
-            QuickUnionUF quickUnion = new QuickUnionUF(size);
+            var input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var size = int.Parse(input[0]);
+            var quickFind = new QuickFindUF(size);
+            var quickUnion = new QuickUnionUF(size);
 
             string[] pair;
             int p, q;
-            int[] quickFindResult = new int[size];
-            int[] quickUnionResult = new int[size];
-            for (int i = 1; i < size; i++)
+            var quickFindResult = new int[size];
+            var quickUnionResult = new int[size];
+            for (var i = 1; i < size; i++)
             {
                 pair = input[i].Split(' ');
                 p = int.Parse(pair[0]);
@@ -52,28 +51,28 @@ namespace _1._5._16
         static void Draw(int[] cost)
         {
             // 构建 total 数组。
-            int[] total = new int[cost.Length];
+            var total = new int[cost.Length];
             total[0] = cost[0];
-            for (int i = 1; i < cost.Length; i++)
+            for (var i = 1; i < cost.Length; i++)
             {
                 total[i] = total[i - 1] + cost[i];
             }
 
             // 获得最大值。
-            int costMax = cost.Max();
+            var costMax = cost.Max();
 
             // 新建绘图窗口。
-            Form2 plot = new Form2();
+            var plot = new Form2();
             plot.Show();
-            Graphics graphics = plot.CreateGraphics();
+            var graphics = plot.CreateGraphics();
 
             // 获得绘图区矩形。
             RectangleF rect = plot.ClientRectangle;
-            float unitX = rect.Width / 10;
-            float unitY = rect.Width / 10;
+            var unitX = rect.Width / 10;
+            var unitY = rect.Width / 10;
 
             // 添加 10% 边距作为文字区域。
-            RectangleF center = new RectangleF
+            var center = new RectangleF
                 (rect.X + unitX, rect.Y + unitY, 
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
@@ -85,19 +84,19 @@ namespace _1._5._16
             graphics.DrawString("0", plot.Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
-            PointF[] grayPoints = new PointF[cost.Length];
-            PointF[] redPoints = new PointF[cost.Length];
+            var grayPoints = new PointF[cost.Length];
+            var redPoints = new PointF[cost.Length];
             unitX = center.Width / cost.Length;
             unitY = center.Width / costMax;
 
-            for (int i = 0; i < cost.Length; i++)
+            for (var i = 0; i < cost.Length; i++)
             {
                 grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (cost[i] * unitY));
                 redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - ((total[i] / (i + 1)) * unitY));
             }
 
             // 绘制点。
-            for (int i = 0; i < cost.Length; i++)
+            for (var i = 0; i < cost.Length; i++)
             {
                 graphics.DrawEllipse(Pens.Gray, new RectangleF(grayPoints[i], new SizeF(2, 2)));
                 graphics.DrawEllipse(Pens.Red, new RectangleF(redPoints[i], new SizeF(2, 2)));

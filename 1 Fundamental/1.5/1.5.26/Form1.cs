@@ -12,7 +12,7 @@ namespace _1._5._26
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

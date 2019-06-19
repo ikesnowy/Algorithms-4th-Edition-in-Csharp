@@ -20,10 +20,10 @@ namespace _2._1._25
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            int exchanges = 0;
+            var n = a.Length;
+            var exchanges = 0;
 
-            for (int i = n - 1; i > 0 ; i--)
+            for (var i = n - 1; i > 0 ; i--)
             {
                 if (Less(a[i], a[i - 1]))
                 {
@@ -34,10 +34,10 @@ namespace _2._1._25
             if (exchanges == 0)
                 return;
 
-            for (int i = 2; i < n; i++)
+            for (var i = 2; i < n; i++)
             {
-                int j = i;
-                T v = a[i];
+                var j = i;
+                var v = a[i];
                 while (Less(v, a[j - 1]))
                 {
                     a[j] = a[j - 1];
@@ -57,10 +57,10 @@ namespace _2._1._25
         /// <param name="c">比较器。</param>
         public void Sort<T>(T[] a, IComparer<T> c)
         {
-            int n = a.Length;
-            int exchanges = 0;
+            var n = a.Length;
+            var exchanges = 0;
 
-            for (int i = n - 1; i > 0; i--)
+            for (var i = n - 1; i > 0; i--)
             {
                 if (Less(a[i], a[i - 1], c))
                 {
@@ -71,10 +71,10 @@ namespace _2._1._25
             if (exchanges == 0)
                 return;
 
-            for (int i = 2; i < n; i++)
+            for (var i = 2; i < n; i++)
             {
-                int j = i;
-                T v = a[i];
+                var j = i;
+                var v = a[i];
                 while (Less(v, a[j - 1], c))
                 {
                     a[j] = a[j - 1];

@@ -49,7 +49,7 @@
                 return p;
             }
 
-            int r = p % q;
+            var r = p % q;
 
             return gcd(q, r);
         }

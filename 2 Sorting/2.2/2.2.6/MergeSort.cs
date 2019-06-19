@@ -24,7 +24,7 @@ namespace _2._2._6
         /// <returns>数组访问计数值。</returns>
         public int GetArrayVisitCount()
         {
-            return this.arrayVisitCount;
+            return arrayVisitCount;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace _2._2._6
         /// </summary>
         public void ClearArrayVisitCount()
         {
-            this.arrayVisitCount = 0;
+            arrayVisitCount = 0;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace _2._2._6
         /// <param name="a">待排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1);
         }
 
@@ -58,7 +58,7 @@ namespace _2._2._6
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Sort(a, aux, lo, mid);
             Sort(a, aux, mid + 1, hi);
             Merge(a, aux, lo, mid, hi);
@@ -75,14 +75,14 @@ namespace _2._2._6
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
-                this.arrayVisitCount++;
+                arrayVisitCount++;
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {
@@ -104,7 +104,7 @@ namespace _2._2._6
                     a[k] = aux[i];
                     i++;
                 }
-                this.arrayVisitCount++;
+                arrayVisitCount++;
             }
         }
     }

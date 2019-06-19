@@ -33,32 +33,32 @@ namespace PriorityQueue
         /// <remarks>如果希望获得最大值而不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
-            Key result = this.root.Value;
-            Exch(this.root, this.last);
+            var result = root.Value;
+            Exch(root, last);
 
-            if (this.nodesCount == 2)
+            if (nodesCount == 2)
             {
-                this.root.Left = null;
-                this.last = this.root;
-                this.nodesCount--;
+                root.Left = null;
+                last = root;
+                nodesCount--;
                 return result;
             }
-            else if (this.nodesCount == 1)
+            else if (nodesCount == 1)
             {
-                this.last = null;
-                this.root = null;
-                this.nodesCount--;
+                last = null;
+                root = null;
+                nodesCount--;
                 return result;
             }
 
             // 获得前一个结点。
-            TreeNode<Key> newLast = this.last;
-            if (newLast == this.last.Prev.Right)
-                newLast = this.last.Prev.Left;
+            var newLast = last;
+            if (newLast == last.Prev.Right)
+                newLast = last.Prev.Left;
             else
             {
                 // 找到上一棵子树。
-                while (newLast != this.root)
+                while (newLast != root)
                 {
                     if (newLast != newLast.Prev.Left)
                         break;
@@ -66,7 +66,7 @@ namespace PriorityQueue
                 }
 
                 // 已经是满二叉树。
-                if (newLast == this.root)
+                if (newLast == root)
                 {
                     // 一路向右，回到上一层。
                     while (newLast.Right != null)
@@ -83,16 +83,16 @@ namespace PriorityQueue
             }
 
             // 删除最后一个结点。
-            if (this.last.Prev.Left == this.last)
-                this.last.Prev.Left = null;
+            if (last.Prev.Left == last)
+                last.Prev.Left = null;
             else
-                this.last.Prev.Right = null;
+                last.Prev.Right = null;
 
-            Sink(this.root);
+            Sink(root);
 
             // 指向新的最后一个结点。
-            this.last = newLast;
-            this.nodesCount--;
+            last = newLast;
+            nodesCount--;
             return result;
         }
 
@@ -102,29 +102,29 @@ namespace PriorityQueue
         /// <param name="v">待插入的结点。</param>
         public void Insert(Key v)
         {
-            TreeNode<Key> item = new TreeNode<Key>(v);
+            var item = new TreeNode<Key>(v);
             // 堆为空。
-            if (this.last == null)
+            if (last == null)
             {
-                this.root = item;
-                this.last = item;
-                this.nodesCount++;
+                root = item;
+                last = item;
+                nodesCount++;
                 return;
             }
             
             // 堆只有一个结点。
-            if (this.last == this.root)
+            if (last == root)
             {
-                item.Prev = this.root;
-                this.root.Left = item;
-                this.last = item;
-                this.nodesCount++;
+                item.Prev = root;
+                root.Left = item;
+                last = item;
+                nodesCount++;
                 Swim(item);
                 return;
             }
 
             // 定位到最后一个节点的父结点。
-            TreeNode<Key> prev = this.last.Prev;
+            var prev = last.Prev;
 
             // 右子节点为空，插入到右子节点。
             if (prev.Right == null)
@@ -136,7 +136,7 @@ namespace PriorityQueue
             {
                 // 当前子树已满，需要向上回溯。
                 // 找到下一个子树（回溯的时候是从左子树回溯上去的）。
-                while (prev != this.root)
+                while (prev != root)
                 {
                     if (prev != prev.Prev.Right)
                         break;
@@ -144,7 +144,7 @@ namespace PriorityQueue
                 }
 
                 // 已经是满二叉树。
-                if (prev == this.root)
+                if (prev == root)
                 {
                     // 一路向左，进入下一层。
                     while (prev.Left != null)
@@ -166,8 +166,8 @@ namespace PriorityQueue
                 }
             }
 
-            this.last = item;
-            this.nodesCount++;
+            last = item;
+            nodesCount++;
             Swim(item);
             return;
         }
@@ -176,20 +176,20 @@ namespace PriorityQueue
         /// 返回二叉堆是否为空。
         /// </summary>
         /// <returns>如果为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.root == null;
+        public bool IsEmpty() => root == null;
 
         /// <summary>
         /// 返回二叉堆中的最大值。
         /// </summary>
         /// <returns>堆中的最大值。</returns>
         /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
-        public Key Max() => this.root.Value;
+        public Key Max() => root.Value;
 
         /// <summary>
         /// 返回二叉堆中的元素个数。
         /// </summary>
         /// <returns>堆中元素数量。</returns>
-        public int Size() => this.nodesCount;
+        public int Size() => nodesCount;
 
         /// <summary>
         /// 使结点上浮。
@@ -240,7 +240,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的第二个结点。</param>
         private void Exch(TreeNode<Key> a, TreeNode<Key> b)
         {
-            Key temp = a.Value;
+            var temp = a.Value;
             a.Value = b.Value;
             b.Value = temp;
         }

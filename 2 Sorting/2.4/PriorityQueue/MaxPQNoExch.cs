@@ -33,8 +33,8 @@ namespace PriorityQueue
         /// <param name="capacity">最大堆的容量。</param>
         public MaxPQNoExch(int capacity)
         {
-            this.pq = new Key[capacity + 1];
-            this.n = 0;
+            pq = new Key[capacity + 1];
+            n = 0;
         }
 
         /// <summary>
@@ -43,11 +43,11 @@ namespace PriorityQueue
         /// <param name="keys">已有元素。</param>
         public MaxPQNoExch(Key[] keys)
         {
-            this.n = keys.Length;
-            this.pq = new Key[keys.Length + 1];
-            for (int i = 0; i < keys.Length; i++)
-                this.pq[i + 1] = keys[i];
-            for (int k = this.n / 2; k >= 1; k--)
+            n = keys.Length;
+            pq = new Key[keys.Length + 1];
+            for (var i = 0; i < keys.Length; i++)
+                pq[i + 1] = keys[i];
+            for (var k = n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMaxHeap());
         }
@@ -63,13 +63,13 @@ namespace PriorityQueue
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key max = this.pq[1];
-            Exch(1, this.n--);
-            this.pq[this.n + 1] = this.pq[1];
+            var max = pq[1];
+            Exch(1, n--);
+            pq[n + 1] = pq[1];
             Sink(1);
-            this.pq[this.n + 1] = default(Key);
-            if ((this.n > 0) && (this.n == this.pq.Length / 4))
-                Resize(this.pq.Length / 2);
+            pq[n + 1] = default(Key);
+            if ((n > 0) && (n == pq.Length / 4))
+                Resize(pq.Length / 2);
 
             // Debug.Assert(IsMaxHeap());
             return max;
@@ -81,11 +81,11 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            if (this.n == this.pq.Length - 1)
-                Resize(2 * this.pq.Length);
+            if (n == pq.Length - 1)
+                Resize(2 * pq.Length);
 
-            this.pq[++this.n] = v;
-            Swim(this.n);
+            pq[++n] = v;
+            Swim(n);
             // Debug.Assert(IsMaxHeap());
         }
 
@@ -93,20 +93,20 @@ namespace PriorityQueue
         /// 检查堆是否为空。
         /// </summary>
         /// <returns>若堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得堆中最大元素。
         /// </summary>
         /// <returns>堆中最大的元素。</returns>
         /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
-        public Key Max() => this.pq[1];
+        public Key Max() => pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
         /// <returns>堆中元素的数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获取堆的迭代器，元素以降序排列。
@@ -114,9 +114,9 @@ namespace PriorityQueue
         /// <returns>堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQNoExch<Key> copy = new MaxPQNoExch<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
-                copy.Insert(this.pq[i]);
+            var copy = new MaxPQNoExch<Key>(n);
+            for (var i = 1; i <= n; i++)
+                copy.Insert(pq[i]);
 
             while (!copy.IsEmpty())
                 yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
@@ -138,13 +138,13 @@ namespace PriorityQueue
         /// <param name="k">需要上浮的元素。</param>
         private void Swim(int k)
         {
-            Key key = this.pq[k];
-            while (k > 1 && this.pq[k / 2].CompareTo(key) < 0)
+            var key = pq[k];
+            while (k > 1 && pq[k / 2].CompareTo(key) < 0)
             {
-                this.pq[k] = this.pq[k / 2];
+                pq[k] = pq[k / 2];
                 k /= 2;
             }
-            this.pq[k] = key;
+            pq[k] = key;
         }
 
         /// <summary>
@@ -153,18 +153,18 @@ namespace PriorityQueue
         /// <param name="k">需要下沉的元素。</param>
         private void Sink(int k)
         {
-            Key key = this.pq[k];
-            while (k * 2 <= this.n)
+            var key = pq[k];
+            while (k * 2 <= n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (Less(j, j + 1))
                     j++;
-                if (this.pq[j].CompareTo(key) < 0)
+                if (pq[j].CompareTo(key) < 0)
                     break;
-                this.pq[k] = this.pq[j];
+                pq[k] = pq[j];
                 k = j;
             }
-            this.pq[k] = key;
+            pq[k] = key;
         }
 
         /// <summary>
@@ -173,12 +173,12 @@ namespace PriorityQueue
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            for (var i = 1; i <= n; i++)
             {
-                temp[i] = this.pq[i];
+                temp[i] = pq[i];
             }
-            this.pq = temp;
+            pq = temp;
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace PriorityQueue
         /// <param name="j">判断是否较大的元素。</param>
         /// <returns>若下标为 <paramref name="i"/> 的元素更小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(int i, int j)
-            => this.pq[i].CompareTo(this.pq[j]) < 0;
+            => pq[i].CompareTo(pq[j]) < 0;
 
         /// <summary>
         /// 交换堆中的两个元素。
@@ -197,9 +197,9 @@ namespace PriorityQueue
         /// <param name="j">要交换的第二个元素下标。</param>
         private void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
-            this.pq[i] = this.pq[j];
-            this.pq[j] = swap;
+            var swap = pq[i];
+            pq[i] = pq[j];
+            pq[j] = swap;
         }
 
         /// <summary>
@@ -215,13 +215,13 @@ namespace PriorityQueue
         /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMaxHeap(int k)
         {
-            if (k > this.n)
+            if (k > n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
-            if (left <= this.n && Less(k, left))
+            var left = 2 * k;
+            var right = 2 * k + 1;
+            if (left <= n && Less(k, left))
                 return false;
-            if (right <= this.n && Less(k, right))
+            if (right <= n && Less(k, right))
                 return false;
 
             return IsMaxHeap(left) && IsMaxHeap(right);

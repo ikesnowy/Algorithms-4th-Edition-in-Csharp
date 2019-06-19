@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 namespace _3._1._41
 {
-    
     class Program
     {
         static long binarySearchCompare = 0;
@@ -32,18 +31,18 @@ namespace _3._1._41
             interpolationSearchCompare = 0;
             Console.Write(n + "\t");
 
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
 
-            int[] data = new int[n];
-            int[] dataSorted = new int[n];
-            int[] dataQuery = new int[trial];
-            for (int i = 0; i < n; i++)
+            var data = new int[n];
+            var dataSorted = new int[n];
+            var dataQuery = new int[trial];
+            for (var i = 0; i < n; i++)
             {
                 dataSorted[i] = i;
                 data[i] = i;
             }
             Shuffle(data);
-            for (int i = 0; i < trial; i++)
+            for (var i = 0; i < trial; i++)
             {
                 dataQuery[i] = random.Next(0, n);
             }
@@ -52,7 +51,7 @@ namespace _3._1._41
             long bstTime = 0, istTime = 0;
             // 测试 ist
             sw.Start();
-            for (int i = 0; i < trial; i++)
+            for (var i = 0; i < trial; i++)
             {
                 InterpolationSearch(data, dataQuery[i]);
             }
@@ -62,7 +61,7 @@ namespace _3._1._41
 
             // 测试 bst
             sw.Restart();
-            for (int i = 0; i < trial; i++)
+            for (var i = 0; i < trial; i++)
             {
                 BinarySearch(dataSorted, dataQuery[i]);
             }
@@ -77,10 +76,10 @@ namespace _3._1._41
 
         static void Shuffle<T>(T[] array)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
-                int p = i + random.Next(array.Length - i);
-                T temp = array[p];
+                var p = i + random.Next(array.Length - i);
+                var temp = array[p];
                 array[p] = array[i];
                 array[i] = temp;
             }
@@ -91,8 +90,8 @@ namespace _3._1._41
             int lo = 0, hi = a.Length - 1;
             while (lo <= hi)
             {
-                int mid = (lo + hi) / 2;
-                int compare = a[mid].CompareTo(key);
+                var mid = (lo + hi) / 2;
+                var compare = a[mid].CompareTo(key);
                 binarySearchCompare++;
                 if (compare > 0)
                     hi = mid - 1;
@@ -111,13 +110,13 @@ namespace _3._1._41
             while (lo <= hi)
             {
                 double percent = a[hi] == a[lo] ? 0 : (key - a[lo]) / (a[hi] - a[lo]);
-                int index = lo + (int)Math.Floor((hi - lo) * percent);
+                var index = lo + (int)Math.Floor((hi - lo) * percent);
                 if (percent < 0)
                     index = lo;
                 if (percent > 1)
                     index = hi;
 
-                int compare = a[index].CompareTo(key);
+                var compare = a[index].CompareTo(key);
                 interpolationSearchCompare++;
                 if (compare > 0)
                     hi = index - 1;

@@ -20,10 +20,10 @@ namespace _2._1._24
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            int exchanges = 0;
+            var n = a.Length;
+            var exchanges = 0;
 
-            for (int i = n - 1; i > 0; i--)
+            for (var i = n - 1; i > 0; i--)
             {
                 if (Less(a[i], a[i - 1]))
                 {
@@ -34,9 +34,9 @@ namespace _2._1._24
             if (exchanges == 0)
                 return;
 
-            for (int i = 1; i < n; i++)
+            for (var i = 1; i < n; i++)
             {
-                for (int j = i; Less(a[j], a[j - 1]); --j)
+                for (var j = i; Less(a[j], a[j - 1]); --j)
                 {
                     Exch(a, j, j - 1);
                 }
@@ -53,10 +53,10 @@ namespace _2._1._24
         /// <param name="c">比较器。</param>
         public void Sort<T>(T[] a, IComparer<T> c)
         {
-            int n = a.Length;
-            int exchanges = 0;
+            var n = a.Length;
+            var exchanges = 0;
 
-            for (int i = n - 1; i > 0; i--)
+            for (var i = n - 1; i > 0; i--)
             {
                 if (Less(a[i], a[i - 1], c))
                 {
@@ -67,9 +67,9 @@ namespace _2._1._24
             if (exchanges == 0)
                 return;
 
-            for (int i = 1; i < n; i++)
+            for (var i = 1; i < n; i++)
             {
-                for (int j = i; Less(a[j], a[j - 1], c); --j)
+                for (var j = i; Less(a[j], a[j - 1], c); --j)
                 {
                     Exch(a, j, j - 1);
                 }

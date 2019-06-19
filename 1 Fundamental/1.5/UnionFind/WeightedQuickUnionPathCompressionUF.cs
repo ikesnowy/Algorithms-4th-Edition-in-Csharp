@@ -11,11 +11,11 @@
         /// <param name="n">新建并查集的大小。</param>
         public WeightedQuickUnionPathCompressionUF(int n) : base(n)
         {
-            this.size = new int[n];
+            size = new int[n];
 
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
-                this.size[i] = 1;
+                size[i] = 1;
             }
         }
 
@@ -27,15 +27,15 @@
         public override int Find(int p)
         {
             Validate(p);
-            int root = p;
-            while (root != this.parent[p])
+            var root = p;
+            while (root != parent[p])
             {
-                root = this.parent[p];
+                root = parent[p];
             }
             while (p != root)
             {
-                int newP = this.parent[p];
-                this.parent[p] = root;
+                var newP = parent[p];
+                parent[p] = root;
                 p = newP;
             }
             return root;

@@ -1,7 +1,5 @@
 ﻿namespace _2._4._19
 {
-    
-
     class Program
     {
         static void Main(string[] args)

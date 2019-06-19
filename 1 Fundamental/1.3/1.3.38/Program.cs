@@ -1,14 +1,13 @@
 ﻿using System;
 
 namespace _1._3._38
-{
-    
+{    
     class Program
     {
         static void Main(string[] args)
         {
-            ArrayBasedGeneralizeQueue<string> a = new ArrayBasedGeneralizeQueue<string>();
-            LinkedListBasedGeneralizeQueue<string> b = new LinkedListBasedGeneralizeQueue<string>();
+            var a = new ArrayBasedGeneralizeQueue<string>();
+            var b = new LinkedListBasedGeneralizeQueue<string>();
 
             a.Insert("first");
             b.Insert("first");

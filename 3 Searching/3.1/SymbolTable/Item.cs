@@ -15,7 +15,7 @@ namespace SymbolTable
 
         public int CompareTo(Item<TKey, TValue> other)
         {
-            return this.Key.CompareTo(other.Key);
+            return Key.CompareTo(other.Key);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace _2._3._25
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 panel = new Form2((int)this.numericUpDown1.Value);
+            var panel = new Form2((int)numericUpDown1.Value);
             panel.ShowDialog();
         }
     }

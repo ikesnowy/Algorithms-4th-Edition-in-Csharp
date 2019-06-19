@@ -3,7 +3,6 @@ using PriorityQueue;
 
 namespace _2._4._6
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -34,9 +33,9 @@ namespace _2._4._6
             // 
             // E
 
-            MaxPQ<char> pq = new MaxPQ<char>();
-            string input = "P R I O * R * * I * T * Y * * * Q U E * * * U * E";
-            foreach (char c in input)
+            var pq = new MaxPQ<char>();
+            var input = "P R I O * R * * I * T * Y * * * Q U E * * * U * E";
+            foreach (var c in input)
             {
                 if (c == ' ')
                     continue;
@@ -44,7 +43,7 @@ namespace _2._4._6
                     pq.DelMax();
                 else
                     pq.Insert(c);
-                
+
                 Console.WriteLine(pq);
             }
         }

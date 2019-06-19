@@ -19,7 +19,7 @@ namespace SymbolTable
         /// <returns>计算一次最常出现单词的时间。（毫秒）</returns>
         public static long Time<TKey>(IST<TKey, int> st, TKey[] keys)
         {
-            Stopwatch sw = new Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();
             FrequencyCounter.MostFrequentlyKey(st, keys);
             sw.Stop();
@@ -38,16 +38,16 @@ namespace SymbolTable
         /// <returns>测试耗时，单位为毫秒。</returns>
         public static long Performance(IST<string, int> st, int n, int averageHit)
         {
-            string[] keys = GetRandomArrayString(n, 2, 50);
-            string keyNotExist = GetRandomString(51, 52);
-            Stopwatch sw = Stopwatch.StartNew();
+            var keys = GetRandomArrayString(n, 2, 50);
+            var keyNotExist = GetRandomString(51, 52);
+            var sw = Stopwatch.StartNew();
             // 构建
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 st.Put(keys[i], i);
             // 查询
-            for (int i = 0; i < averageHit; i++)
+            for (var i = 0; i < averageHit; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (var j = 0; j < n; j++)
                 {
                     st.Get(keys[j]);
                     st.Get(keyNotExist);
@@ -67,8 +67,8 @@ namespace SymbolTable
         /// <returns>包含 <paramref name="n"/> 个元素的随机整数数组。</returns>
         public static long[] GetRandomArrayLong(int n, long min, long max)
         {
-            long[] result = new long[n];
-            for (int i = 0; i < n; i++)
+            var result = new long[n];
+            for (var i = 0; i < n; i++)
                 result[i] = min + (long)(random.NextDouble() * (max - min));
             return result;
         }
@@ -80,8 +80,8 @@ namespace SymbolTable
         /// <returns>大小为 <paramref name="n"/> 的非负 <see cref="double"/> 数组。</returns>
         public static double[] GetRandomArrayDouble(int n)
         {
-            double[] data = new double[n];
-            for (int i = 0; i < n; i++)
+            var data = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 data[i] = double.MaxValue * random.NextDouble();
             }
@@ -97,8 +97,8 @@ namespace SymbolTable
         /// <returns>一个包含随机字符串的数组。</returns>
         public static string[] GetRandomArrayString(int n, int minLength, int maxLength)
         {
-            string[] result = new string[n];
-            for (int i = 0; i < n; i++)
+            var result = new string[n];
+            for (var i = 0; i < n; i++)
             {
                 result[i] = GetRandomString(minLength, maxLength);
             }
@@ -113,11 +113,11 @@ namespace SymbolTable
         /// <returns>一个随机字符串。</returns>
         public static string GetRandomString(int minLength, int maxLength)
         {
-            int length = random.Next(minLength, maxLength);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < length; i++)
+            var length = random.Next(minLength, maxLength);
+            var sb = new StringBuilder();
+            for (var i = 0; i < length; i++)
             {
-                double choice = random.NextDouble();
+                var choice = random.NextDouble();
                 if (choice < 0.333)
                     sb.Append((char)random.Next('A', 'Z'));
                 else if (choice < 0.666)

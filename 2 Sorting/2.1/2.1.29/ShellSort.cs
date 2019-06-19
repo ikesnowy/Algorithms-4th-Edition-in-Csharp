@@ -19,8 +19,8 @@ namespace _2._1._29
         /// <param name="h">需要使用的递增序列。</param>
         public void Sort<T>(T[] a, int[] h) where T : IComparable<T>
         {
-            int n = a.Length;
-            int t = 0;
+            var n = a.Length;
+            var t = 0;
             while (h[t] < a.Length)
             {
                 t++;
@@ -31,9 +31,9 @@ namespace _2._1._29
 
             for ( ; t >= 0; t--)
             {
-                for (int i = h[t]; i < n; i++)
+                for (var i = h[t]; i < n; i++)
                 {
-                    for (int j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
+                    for (var j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
                     {
                         Exch(a, j, j - h[t]);
                     }
@@ -49,17 +49,17 @@ namespace _2._1._29
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            int[] h = new int[2];   // 预先准备好的 h 值数组
+            var n = a.Length;
+            var h = new int[2];   // 预先准备好的 h 值数组
 
-            int hTemp = 1;
-            int sequenceSize = 0;
+            var hTemp = 1;
+            var sequenceSize = 0;
             for (sequenceSize = 0; hTemp < n; sequenceSize++)
             {
                 if (sequenceSize >= h.Length)  // 如果数组不够大则双倍扩容
                 {
-                    int[] expand = new int[h.Length * 2];
-                    for (int j = 0; j < h.Length; j++)
+                    var expand = new int[h.Length * 2];
+                    for (var j = 0; j < h.Length; j++)
                     {
                         expand[j] = h[j];
                     }
@@ -69,11 +69,11 @@ namespace _2._1._29
                 hTemp = hTemp * 3 + 1;
             }
 
-            for (int t = sequenceSize - 1; t >= 0; t--)
+            for (var t = sequenceSize - 1; t >= 0; t--)
             {
-                for (int i = h[t]; i < n; i++)
+                for (var i = h[t]; i < n; i++)
                 {
-                    for (int j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
+                    for (var j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
                     {
                         Exch(a, j, j - h[t]);
                     }
@@ -91,7 +91,7 @@ namespace _2._1._29
         /// <returns>是否有序。</returns>
         private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
         {
-            for (int i = h; i < a.Length; i++)
+            for (var i = h; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - h]))
                 {

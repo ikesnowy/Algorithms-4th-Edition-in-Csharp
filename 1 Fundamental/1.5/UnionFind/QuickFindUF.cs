@@ -22,7 +22,7 @@
         /// </summary>
         public void ResetArrayCount()
         {
-            this.ArrayVisitCount = 0;
+            ArrayVisitCount = 0;
         }
         
         /// <summary>
@@ -33,8 +33,8 @@
         public override int Find(int p)
         {
             Validate(p);
-            this.ArrayVisitCount++;
-            return this.parent[p];
+            ArrayVisitCount++;
+            return parent[p];
         }
 
         /// <summary>
@@ -47,8 +47,8 @@
         {
             Validate(p);
             Validate(q);
-            this.ArrayVisitCount += 2;
-            return this.parent[p] == this.parent[q];
+            ArrayVisitCount += 2;
+            return parent[p] == parent[q];
         }
 
         /// <summary>
@@ -60,9 +60,9 @@
         {
             Validate(p);
             Validate(q);
-            int pID = this.parent[p];
-            int qID = this.parent[q];
-            this.ArrayVisitCount += 2;
+            var pID = parent[p];
+            var qID = parent[q];
+            ArrayVisitCount += 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
             if (pID == qID)
@@ -70,17 +70,17 @@
                 return;
             }
 
-            for (int i = 0; i < this.parent.Length; i++)
+            for (var i = 0; i < parent.Length; i++)
             {
-                if (this.parent[i] == pID)
+                if (parent[i] == pID)
                 {
-                    this.parent[i] = qID;
-                    this.ArrayVisitCount++;
+                    parent[i] = qID;
+                    ArrayVisitCount++;
                 }
             }
 
-            this.ArrayVisitCount += this.parent.Length;
-            this.count--;
+            ArrayVisitCount += parent.Length;
+            count--;
             return;
         }
 
@@ -90,7 +90,7 @@
         /// <returns>parent 数组。</returns>
         public int[] GetParent()
         {
-            return this.parent;
+            return parent;
         }
     }
 }

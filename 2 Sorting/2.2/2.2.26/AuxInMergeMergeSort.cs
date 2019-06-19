@@ -35,7 +35,7 @@ namespace _2._2._26
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Sort(a, lo, mid);
             Sort(a, mid + 1, hi);
             Merge(a, lo, mid, hi);
@@ -52,14 +52,14 @@ namespace _2._2._26
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, int lo, int mid, int hi) where T : IComparable<T>
         {
-            T[] aux = new T[a.Length];
-            for (int k = lo; k <= hi; k++)
+            var aux = new T[a.Length];
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {

@@ -1,6 +1,5 @@
 ﻿namespace _1._4._1
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -8,7 +7,7 @@
             // 证明组合计算公式：
             // C(N, 3) = N! / [(N - 3)! × 3!]
             //  = [(N - 2) * (N - 1) * N] / 3!
- 
+
             //  = N(N - 1)(N - 2) / 6
 
             // 显然 N 必须大于等于 3。

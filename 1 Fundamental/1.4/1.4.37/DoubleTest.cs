@@ -17,19 +17,19 @@ namespace _1._4._37
         /// <returns></returns>
         public static double TimeTrial(int n)
         {
-            int[] a = new int[n];
-            FixedCapacityStackOfInts stack = new FixedCapacityStackOfInts(n);
-            Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; i++)
+            var a = new int[n];
+            var stack = new FixedCapacityStackOfInts(n);
+            var random = new Random(DateTime.Now.Millisecond);
+            for (var i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
-            Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; i++)
+            var timer = new Stopwatch();
+            for (var i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 stack.Pop();
             }
@@ -43,19 +43,19 @@ namespace _1._4._37
         /// <returns></returns>
         public static double TimeTrialGeneric(int n)
         {
-            int[] a = new int[n];
-            FixedCapacityStack<int> stack = new FixedCapacityStack<int>(n);
-            Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; i++)
+            var a = new int[n];
+            var stack = new FixedCapacityStack<int>(n);
+            var random = new Random(DateTime.Now.Millisecond);
+            for (var i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
-            Stopwatch timer = new Stopwatch();
-            for (int i = 0; i < n; i++)
+            var timer = new Stopwatch();
+            for (var i = 0; i < n; i++)
             {
                 stack.Push(a[i]);
             }
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 stack.Pop();
             }

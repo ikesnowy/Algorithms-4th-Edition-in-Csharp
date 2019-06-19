@@ -11,32 +11,32 @@ namespace _2._5._10
 
         public Version(string version)
         {
-            string[] versions = version.Split('.');
-            this.versionNumber = new int[versions.Length];
-            for (int i = 0; i < versions.Length; i++)
+            var versions = version.Split('.');
+            versionNumber = new int[versions.Length];
+            for (var i = 0; i < versions.Length; i++)
             {
-                this.versionNumber[i] = int.Parse(versions[i]);
+                versionNumber[i] = int.Parse(versions[i]);
             }
         }
 
         public int CompareTo(Version other)
         {
-            for (int i = 0; i < this.versionNumber.Length && i < other.versionNumber.Length; i++)
+            for (var i = 0; i < versionNumber.Length && i < other.versionNumber.Length; i++)
             {
-                if (this.versionNumber[i].CompareTo(other.versionNumber[i]) != 0)
-                    return this.versionNumber[i].CompareTo(other.versionNumber[i]);
+                if (versionNumber[i].CompareTo(other.versionNumber[i]) != 0)
+                    return versionNumber[i].CompareTo(other.versionNumber[i]);
             }
-            return this.versionNumber.Length.CompareTo(other.versionNumber.Length);
+            return versionNumber.Length.CompareTo(other.versionNumber.Length);
         }
 
         public override string ToString()
         {
-            string result = "";
-            for (int i = 0; i < this.versionNumber.Length - 1; i++)
+            var result = "";
+            for (var i = 0; i < versionNumber.Length - 1; i++)
             {
-                result += this.versionNumber[i] + ".";
+                result += versionNumber[i] + ".";
             }
-            result += this.versionNumber[this.versionNumber.Length - 1].ToString();
+            result += versionNumber[versionNumber.Length - 1].ToString();
             return result;
         }
     }

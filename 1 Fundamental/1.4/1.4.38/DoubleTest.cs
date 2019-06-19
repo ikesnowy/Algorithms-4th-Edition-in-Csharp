@@ -16,13 +16,13 @@ namespace _1._4._38
         /// <returns></returns>
         public static double TimeTrial(int n)
         {
-            int[] a = new int[n];
-            Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; i++)
+            var a = new int[n];
+            var random = new Random(DateTime.Now.Millisecond);
+            for (var i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
-            Measurement.Stopwatch timer = new Measurement.Stopwatch();
+            var timer = new Measurement.Stopwatch();
             ThreeSum.Count(a);
             return timer.ElapsedTime();
         }

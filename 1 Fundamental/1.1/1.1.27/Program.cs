@@ -2,7 +2,6 @@
 
 namespace _1._1._27
 {
-    
     class Program
     {
         static int BinomialCalled = 0;      // 计算递归调用次数

@@ -4,13 +4,12 @@ using System.Diagnostics;
 
 namespace _1._5._24
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            int n = 10000;
-            for (int t = 0; t < 5; t++)
+            var n = 10000;
+            for (var t = 0; t < 5; t++)
             {
                 var input = ErdosRenyi.Generate(n);
                 var weightedQuickUnionUF = new WeightedQuickUnionUF(n);
@@ -18,8 +17,8 @@ namespace _1._5._24
 
                 Console.WriteLine("N:" + n);
 
-                long weightedQuickUnionTime = RunTest(weightedQuickUnionUF, input);
-                long weightedQuickUnionPathCompressionTime = RunTest(weightedQuickUnionPathCompressionUF, input);
+                var weightedQuickUnionTime = RunTest(weightedQuickUnionUF, input);
+                var weightedQuickUnionPathCompressionTime = RunTest(weightedQuickUnionPathCompressionUF, input);
 
                 Console.WriteLine("加权 quick-find 耗时（毫秒）：" + weightedQuickUnionTime);
                 Console.WriteLine("带路径压缩的加权 quick-union 耗时（毫秒）：" + weightedQuickUnionPathCompressionTime);
@@ -38,10 +37,10 @@ namespace _1._5._24
         /// <returns>平均耗时。</returns>
         static long RunTest(UF uf, Connection[] connections)
         {
-            Stopwatch timer = new Stopwatch();
-            int repeatTime = 5;
+            var timer = new Stopwatch();
+            var repeatTime = 5;
             timer.Start();
-            for (int i = 0; i < repeatTime; i++)
+            for (var i = 0; i < repeatTime; i++)
             {
                 ErdosRenyi.Count(uf, connections);
             }

@@ -18,10 +18,10 @@
         public override void Sort<T>(T[] a)
         {
             int lt = 0, gt = a.Length - 1;
-            int i = 0;
+            var i = 0;
             while (i <= gt)
             {
-                int cmp = a[i].CompareTo(a[lt]);
+                var cmp = a[i].CompareTo(a[lt]);
                 if (cmp < 0)
                     Exch(a, lt++, i++);
                 else if (cmp > 0)

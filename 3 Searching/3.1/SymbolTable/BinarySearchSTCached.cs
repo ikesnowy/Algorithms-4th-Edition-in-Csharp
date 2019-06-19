@@ -47,9 +47,9 @@ namespace SymbolTable
         /// <param name="capacity">符号表初始容量。</param>
         public BinarySearchSTCached(int capacity)
         {
-            this.keys = new TKey[capacity];
-            this.values = new TValue[capacity];
-            this.n = 0;
+            keys = new TKey[capacity];
+            values = new TValue[capacity];
+            n = 0;
         }
 
         /// <summary>
@@ -62,11 +62,11 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Ceiling is null");
-            int i = Rank(key);
-            if (i == this.n)
+            var i = Rank(key);
+            if (i == n)
                 return default(TKey);
             else
-                return this.keys[i];
+                return keys[i];
         }
 
         /// <summary>
@@ -93,23 +93,23 @@ namespace SymbolTable
             if (IsEmpty())
                 return;
 
-            int i = Rank(key);
+            var i = Rank(key);
 
-            if (i == this.n && this.keys[i].CompareTo(key) != 0)
+            if (i == n && keys[i].CompareTo(key) != 0)
                 return;
 
-            for (int j = i; j < this.n - 1; j++)
+            for (var j = i; j < n - 1; j++)
             {
-                this.keys[j] = this.keys[j + 1];
-                this.values[j] = this.values[j + 1];
+                keys[j] = keys[j + 1];
+                values[j] = values[j + 1];
             }
 
-            this.n--;
-            this.keys[this.n] = default(TKey);
-            this.values[this.n] = default(TValue);
+            n--;
+            keys[n] = default(TKey);
+            values[n] = default(TValue);
 
-            if (this.n > 0 && this.n == this.keys.Length / 4)
-                Resize(this.keys.Length / 2);
+            if (n > 0 && n == keys.Length / 4)
+                Resize(keys.Length / 2);
         }
 
         /// <summary>
@@ -132,13 +132,13 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Floor() is null");
-            int i = Rank(key);
-            if (i < this.n && this.keys[i].CompareTo(key) == 0)
-                return this.keys[i];
+            var i = Rank(key);
+            if (i < n && keys[i].CompareTo(key) == 0)
+                return keys[i];
             if (i == 0)
                 return default(TKey);
             else
-                return this.keys[i - 1];
+                return keys[i - 1];
         }
 
         /// <summary>
@@ -153,13 +153,13 @@ namespace SymbolTable
                 throw new ArgumentNullException("argument to Get() is null");
             if (IsEmpty())
                 return default(TValue);
-            if (this.cache < this.n && this.keys[this.cache].Equals(key)) // 缓存检查
-                return this.values[this.cache];
-            int rank = Rank(key);
-            if (rank < this.n && this.keys[rank].Equals(key))
+            if (cache < n && keys[cache].Equals(key)) // 缓存检查
+                return values[cache];
+            var rank = Rank(key);
+            if (rank < n && keys[rank].Equals(key))
             {
-                this.cache = rank;                                        // 更新缓存
-                return this.values[rank];
+                cache = rank;                                        // 更新缓存
+                return values[rank];
             }
 
             return default(TValue);
@@ -169,7 +169,7 @@ namespace SymbolTable
         /// 符号表是否为空。
         /// </summary>
         /// <returns>如果符号表为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得全部键的集合。
@@ -190,13 +190,13 @@ namespace SymbolTable
             if (hi == null)
                 throw new ArgumentNullException("Second argument to Keys() is null");
 
-            List<TKey> list = new List<TKey>();
+            var list = new List<TKey>();
             if (lo.CompareTo(hi) > 0)
                 return list;
-            for (int i = Rank(lo); i < Rank(hi); i++)
-                list.Add(this.keys[i]);
+            for (var i = Rank(lo); i < Rank(hi); i++)
+                list.Add(keys[i]);
             if (Contains(hi))
-                list.Add(this.keys[Rank(hi)]);
+                list.Add(keys[Rank(hi)]);
             return list;
         }
 
@@ -209,7 +209,7 @@ namespace SymbolTable
         {
             if (IsEmpty())
                 throw new InvalidOperationException("called Max() with empty table");
-            return this.keys[this.n - 1];
+            return keys[n - 1];
         }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace SymbolTable
         {
             if (IsEmpty())
                 throw new InvalidOperationException("called Min() with empty table");
-            return this.keys[0];
+            return keys[0];
         }
 
         /// <summary>
@@ -240,25 +240,25 @@ namespace SymbolTable
                 return;
             }
 
-            int i = Rank(key);
+            var i = Rank(key);
 
-            if (i < this.n && this.keys[i].CompareTo(key) == 0)
+            if (i < n && keys[i].CompareTo(key) == 0)
             {
-                this.values[i] = value;
+                values[i] = value;
                 return;
             }
 
-            if (this.n == this.keys.Length)
-                Resize(this.n * 2);
+            if (n == keys.Length)
+                Resize(n * 2);
 
-            for (int j = this.n; j > i; j--)
+            for (var j = n; j > i; j--)
             {
-                this.keys[j] = this.keys[j - 1];
-                this.values[j] = this.values[j - 1];
+                keys[j] = keys[j - 1];
+                values[j] = values[j - 1];
             }
-            this.keys[i] = key;
-            this.values[i] = value;
-            this.n++;
+            keys[i] = key;
+            values[i] = value;
+            n++;
         }
 
         /// <summary>
@@ -271,11 +271,11 @@ namespace SymbolTable
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Rank() is null");
-            int lo = 0, hi = this.n - 1;
+            int lo = 0, hi = n - 1;
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
-                int compare = this.keys[mid].CompareTo(key);
+                var mid = lo + (hi - lo) / 2;
+                var compare = keys[mid].CompareTo(key);
                 if (compare > 0)
                     hi = mid - 1;
                 else if (compare < 0)
@@ -293,16 +293,16 @@ namespace SymbolTable
         /// <returns>第 <paramref name="k"/> 小的键。</returns>
         public TKey Select(int k)
         {
-            if (k < 0 || k >= this.n)
+            if (k < 0 || k >= n)
                 throw new ArgumentOutOfRangeException("called Select() with invaild k: " + k);
-            return this.keys[k];
+            return keys[k];
         }
 
         /// <summary>
         /// 符号表中的键值对数量。
         /// </summary>
         /// <returns>符号表中的键值对数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获得区间 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键的数量。
@@ -333,17 +333,17 @@ namespace SymbolTable
         /// <exception cref="ArgumentOutOfRangeException">当 <paramref name="capacity"/> < <see cref="n"/> 时抛出该异常。</exception>
         private void Resize(int capacity)
         {
-            if (capacity < this.n)
+            if (capacity < n)
                 throw new ArgumentOutOfRangeException("分配容量不能小于表中元素数量。");
-            TKey[] tempKeys = new TKey[capacity];
-            TValue[] tempValues = new TValue[capacity];
-            for (int i = 0; i < this.n; i++)
+            var tempKeys = new TKey[capacity];
+            var tempValues = new TValue[capacity];
+            for (var i = 0; i < n; i++)
             {
-                tempKeys[i] = this.keys[i];
-                tempValues[i] = this.values[i];
+                tempKeys[i] = keys[i];
+                tempValues[i] = values[i];
             }
-            this.keys = tempKeys;
-            this.values = tempValues;
+            keys = tempKeys;
+            values = tempValues;
         }
     }
 }

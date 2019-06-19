@@ -23,17 +23,17 @@ namespace _1._5._26
 
         static void Compute()
         {
-            int size = 200;
-            QuickFindUF quickFind = new QuickFindUF(size);
-            QuickUnionUF quickUnion = new QuickUnionUF(size);
-            WeightedQuickUnionUF weightedQuickUnion = new WeightedQuickUnionUF(size);
-            Connection[] connections = ErdosRenyi.Generate(size);
+            var size = 200;
+            var quickFind = new QuickFindUF(size);
+            var quickUnion = new QuickUnionUF(size);
+            var weightedQuickUnion = new WeightedQuickUnionUF(size);
+            var connections = ErdosRenyi.Generate(size);
 
-            int[] quickFindResult = new int[size];
-            int[] quickUnionResult = new int[size];
-            int[] weightedQuickUnionResult = new int[size];
+            var quickFindResult = new int[size];
+            var quickUnionResult = new int[size];
+            var weightedQuickUnionResult = new int[size];
             int p, q;
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
                 p = connections[i].P;
                 q = connections[i].Q;
@@ -58,29 +58,29 @@ namespace _1._5._26
         static void Draw(int[] cost, string title)
         {
             // 构建 total 数组。
-            int[] total = new int[cost.Length];
+            var total = new int[cost.Length];
             total[0] = cost[0];
-            for (int i = 1; i < cost.Length; i++)
+            for (var i = 1; i < cost.Length; i++)
             {
                 total[i] = total[i - 1] + cost[i];
             }
 
             // 获得最大值。
-            int costMax = cost.Max();
+            var costMax = cost.Max();
 
             // 新建绘图窗口。
-            Form2 plot = new Form2();
+            var plot = new Form2();
             plot.Text = title;
             plot.Show();
-            Graphics graphics = plot.CreateGraphics();
+            var graphics = plot.CreateGraphics();
 
             // 获得绘图区矩形。
             RectangleF rect = plot.ClientRectangle;
-            float unitX = rect.Width / 10;
-            float unitY = rect.Width / 10;
+            var unitX = rect.Width / 10;
+            var unitY = rect.Width / 10;
 
             // 添加 10% 边距作为文字区域。
-            RectangleF center = new RectangleF
+            var center = new RectangleF
                 (rect.X + unitX, rect.Y + unitY,
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
@@ -92,19 +92,19 @@ namespace _1._5._26
             graphics.DrawString("0", plot.Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
-            PointF[] grayPoints = new PointF[cost.Length];
-            PointF[] redPoints = new PointF[cost.Length];
+            var grayPoints = new PointF[cost.Length];
+            var redPoints = new PointF[cost.Length];
             unitX = center.Width / cost.Length;
             unitY = center.Width / costMax;
 
-            for (int i = 0; i < cost.Length; i++)
+            for (var i = 0; i < cost.Length; i++)
             {
                 grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (cost[i] * unitY));
                 redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - ((total[i] / (i + 1)) * unitY));
             }
 
             // 绘制点。
-            for (int i = 0; i < cost.Length; i++)
+            for (var i = 0; i < cost.Length; i++)
             {
                 graphics.FillEllipse(Brushes.Gray, new RectangleF(grayPoints[i], new SizeF(5, 5)));
                 graphics.FillEllipse(Brushes.Red, new RectangleF(redPoints[i], new SizeF(5, 5)));

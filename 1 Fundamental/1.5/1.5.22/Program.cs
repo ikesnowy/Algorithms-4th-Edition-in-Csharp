@@ -4,7 +4,6 @@ using UnionFind;
 
 namespace _1._5._22
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -14,12 +13,12 @@ namespace _1._5._22
             long lastTimeWeightedQuickUnion = 0;
 
             long nowTime = 0;
-            for (int n = 2000; n < 100000; n *= 2)
+            for (var n = 2000; n < 100000; n *= 2)
             {
                 Console.WriteLine("N:" + n);
-                QuickFindUF quickFindUF = new QuickFindUF(n);
-                QuickUnionUF quickUnionUF = new QuickUnionUF(n);
-                WeightedQuickUnionUF weightedQuickUnionUF = new WeightedQuickUnionUF(n);
+                var quickFindUF = new QuickFindUF(n);
+                var quickUnionUF = new QuickUnionUF(n);
+                var weightedQuickUnionUF = new WeightedQuickUnionUF(n);
 
                 // quick-find
                 Console.WriteLine("quick-find");
@@ -31,7 +30,7 @@ namespace _1._5._22
                 }
                 else
                 {
-                    Console.WriteLine("用时：" + nowTime + 
+                    Console.WriteLine("用时：" + nowTime +
                         " 比值：" + (double)nowTime / lastTimeQuickFind);
                     lastTimeQuickFind = nowTime;
                 }
@@ -47,7 +46,7 @@ namespace _1._5._22
                 }
                 else
                 {
-                    Console.WriteLine("用时：" + nowTime + 
+                    Console.WriteLine("用时：" + nowTime +
                         " 比值：" + (double)nowTime / lastTimeQuickUnion);
                     lastTimeQuickUnion = nowTime;
                 }
@@ -63,7 +62,7 @@ namespace _1._5._22
                 }
                 else
                 {
-                    Console.WriteLine("用时：" + nowTime + 
+                    Console.WriteLine("用时：" + nowTime +
                         " 比值：" + (double)nowTime / lastTimeWeightedQuickUnion);
                     lastTimeWeightedQuickUnion = nowTime;
                 }
@@ -71,7 +70,7 @@ namespace _1._5._22
 
                 Console.WriteLine();
             }
-            
+
         }
 
         /// <summary>
@@ -81,11 +80,11 @@ namespace _1._5._22
         /// <returns>平均耗时。</returns>
         static long RunTest(UF uf)
         {
-            Stopwatch timer = new Stopwatch();
-            int total = 0;
-            int repeatTime = 10;
+            var timer = new Stopwatch();
+            var total = 0;
+            var repeatTime = 10;
             timer.Start();
-            for (int i = 0; i < repeatTime; i++)
+            for (var i = 0; i < repeatTime; i++)
             {
                 total += ErdosRenyi.Count(uf);
             }

@@ -14,11 +14,11 @@ namespace _2._1._18
         public Form3(int N)
         {
             InitializeComponent();
-            this.randomDoubles = new double[N];
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            randomDoubles = new double[N];
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
+                randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
             }
         }
 
@@ -27,13 +27,13 @@ namespace _2._1._18
         /// </summary>
         private void InsertionSort()
         {
-            for (this.sortI = 0; this.sortI < this.randomDoubles.Length; this.sortI++)
+            for (sortI = 0; sortI < randomDoubles.Length; sortI++)
             {
-                for (this.sortJ = this.sortI; this.sortJ > 0 && this.randomDoubles[this.sortJ] < this.randomDoubles[this.sortJ - 1]; this.sortJ--)
+                for (sortJ = sortI; sortJ > 0 && randomDoubles[sortJ] < randomDoubles[sortJ - 1]; sortJ--)
                 {
-                    double temp = this.randomDoubles[this.sortJ];
-                    this.randomDoubles[this.sortJ] = this.randomDoubles[this.sortJ - 1];
-                    this.randomDoubles[this.sortJ - 1] = temp;
+                    var temp = randomDoubles[sortJ];
+                    randomDoubles[sortJ] = randomDoubles[sortJ - 1];
+                    randomDoubles[sortJ - 1] = temp;
                 }
                 drawPanel();
                 Thread.Sleep(1000);
@@ -45,37 +45,37 @@ namespace _2._1._18
         /// </summary>
         private void drawPanel()
         {
-            Graphics graphics = this.CreateGraphics();
-            graphics.Clear(this.BackColor);
-            graphics.TranslateTransform(0, this.Height);
+            var graphics = CreateGraphics();
+            graphics.Clear(BackColor);
+            graphics.TranslateTransform(0, Height);
             graphics.ScaleTransform(1, -1);
-            Rectangle clientRect = this.ClientRectangle;
-            Rectangle drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
+            var clientRect = ClientRectangle;
+            var drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
 
-            PointF[] barX = new PointF[this.randomDoubles.Length];
-            float unitX = (float)drawRect.Width / this.randomDoubles.Length;
+            var barX = new PointF[randomDoubles.Length];
+            var unitX = (float)drawRect.Width / randomDoubles.Length;
             unitX -= 4;
 
             barX[0] = new PointF(4, drawRect.Top);
-            for (int i = 1; i < this.randomDoubles.Length; i++)
+            for (var i = 1; i < randomDoubles.Length; i++)
             {
                 barX[i] = new PointF(2 + unitX + barX[i - 1].X, drawRect.Top);
             }
 
-            RectangleF[] bars = new RectangleF[this.randomDoubles.Length];
-            for (int i = 0; i < this.randomDoubles.Length; i++)
+            var bars = new RectangleF[randomDoubles.Length];
+            for (var i = 0; i < randomDoubles.Length; i++)
             {
-                SizeF size = new SizeF(unitX, (float)this.randomDoubles[i] * drawRect.Height);
+                var size = new SizeF(unitX, (float)randomDoubles[i] * drawRect.Height);
                 bars[i] = new RectangleF(barX[i], size);
             }
 
-            for (int i = 0; i < bars.Length; i++)
+            for (var i = 0; i < bars.Length; i++)
             {
-                if (i == this.sortJ)
+                if (i == sortJ)
                 {
                     graphics.FillRectangle(Brushes.Red, bars[i]);
                 }
-                else if (i <= this.sortI && i > this.sortJ)
+                else if (i <= sortI && i > sortJ)
                 {
                     graphics.FillRectangle(Brushes.Black, bars[i]);
                 }

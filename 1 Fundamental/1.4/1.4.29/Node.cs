@@ -13,8 +13,8 @@
 
         public Node(Node<T> node)
         {
-            this.item = node.item;
-            this.next = node.next;
+            item = node.item;
+            next = node.next;
         }
     }
 }

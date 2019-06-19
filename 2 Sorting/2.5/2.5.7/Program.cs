@@ -3,7 +3,6 @@ using SortApplication;
 
 namespace _2._5._7
 {
-    
     class Program
     {
         static Random random = new Random();
@@ -23,16 +22,16 @@ namespace _2._5._7
             // Cn = 2 + C(n-1)
             // Cn = 2n-2, n > 1.
 
-            int multiBy10 = 5;
-            int repeatTime = 100;
-            int n = 10000;
+            var multiBy10 = 5;
+            var repeatTime = 100;
+            var n = 10000;
             Console.WriteLine("n\tAverage Compare");
-            for (int i = 0; i < multiBy10; i++)
+            for (var i = 0; i < multiBy10; i++)
             {
                 long totalCompare = 0;
-                for (int j = 0; j < repeatTime; j++)
+                for (var j = 0; j < repeatTime; j++)
                 {
-                    QuickSortAnalyze quick = new QuickSortAnalyze();
+                    var quick = new QuickSortAnalyze();
                     quick.Select(GetRandomArray(n), 0);
                     totalCompare += quick.CompareCount;
                 }
@@ -44,8 +43,8 @@ namespace _2._5._7
 
         static int[] GetRandomArray(int n)
         {
-            int[] array = new int[n];
-            for (int i = 0; i < n; i++)
+            var array = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = random.Next();
             }

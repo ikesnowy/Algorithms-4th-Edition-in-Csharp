@@ -64,10 +64,10 @@ namespace SortApplication
         /// <param name="equality">相等比较器。</param>
         public MinPQ(int capacity, IComparer<Key> comparer, IEqualityComparer<Key> equality)
         {
-            this.equalityComparer = equality;
+            equalityComparer = equality;
             this.comparer = comparer;
-            this.pq = new Key[capacity + 1];
-            this.n = 0;
+            pq = new Key[capacity + 1];
+            n = 0;
         }
 
         /// <summary>
@@ -76,11 +76,11 @@ namespace SortApplication
         /// <param name="keys">已有元素。</param>
         public MinPQ(Key[] keys)
         {
-            this.n = keys.Length;
-            this.pq = new Key[keys.Length + 1];
-            for (int i = 0; i < keys.Length; i++)
-                this.pq[i + 1] = keys[i];
-            for (int k = this.n / 2; k >= 1; k--)
+            n = keys.Length;
+            pq = new Key[keys.Length + 1];
+            for (var i = 0; i < keys.Length; i++)
+                pq[i + 1] = keys[i];
+            for (var k = n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMinHeap());
         }
@@ -92,8 +92,8 @@ namespace SortApplication
         /// <returns>存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Key key)
         {
-            for (int i = 1; i <= this.n; i++)
-                if (Equal(this.pq[i], key))
+            for (var i = 1; i <= n; i++)
+                if (Equal(pq[i], key))
                     return true;
             return false;
         }
@@ -109,12 +109,12 @@ namespace SortApplication
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key min = this.pq[1];
-            Exch(1, this.n--);
+            var min = pq[1];
+            Exch(1, n--);
             Sink(1);
-            this.pq[this.n + 1] = default(Key);
-            if ((this.n > 0) && (this.n == this.pq.Length / 4))
-                Resize(this.pq.Length / 2);
+            pq[n + 1] = default(Key);
+            if ((n > 0) && (n == pq.Length / 4))
+                Resize(pq.Length / 2);
 
             // Debug.Assert(IsMinHeap());
             return min;
@@ -126,19 +126,19 @@ namespace SortApplication
         /// <param name="k">元素下标。</param>
         internal void Remove(int k)
         {
-            if (k == this.n)
+            if (k == n)
             {
-                this.pq[this.n--] = default(Key);
+                pq[n--] = default(Key);
                 return;
             }
-            else if (this.n <= 2)
+            else if (n <= 2)
             {
                 Exch(1, k);
-                this.pq[this.n--] = default(Key);
+                pq[n--] = default(Key);
                 return;
             }
-            Exch(k, this.n--);
-            this.pq[this.n + 1] = default(Key);
+            Exch(k, n--);
+            pq[n + 1] = default(Key);
             Swim(k);
             Sink(k);
         }
@@ -149,11 +149,11 @@ namespace SortApplication
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            if (this.n == this.pq.Length - 1)
-                Resize(2 * this.pq.Length);
+            if (n == pq.Length - 1)
+                Resize(2 * pq.Length);
 
-            this.pq[++this.n] = v;
-            Swim(this.n);
+            pq[++n] = v;
+            Swim(n);
             // Debug.Assert(IsMinHeap());
         }
 
@@ -161,20 +161,20 @@ namespace SortApplication
         /// 检查堆是否为空。
         /// </summary>
         /// <returns>如果堆为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得堆中最小元素。
         /// </summary>
         /// <returns>堆中最小元素。</returns>
         /// <remarks>如果希望获得并删除最小元素，请使用 <see cref="DelMin"/>。</remarks>
-        public Key Min() => this.pq[1];
+        public Key Min() => pq[1];
 
         /// <summary>
         /// 获得堆中元素的数量。
         /// </summary>
         /// <returns>堆中元素的数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 获取堆的迭代器，元素以升序排列。
@@ -182,9 +182,9 @@ namespace SortApplication
         /// <returns>最小堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MinPQ<Key> copy = new MinPQ<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
-                copy.Insert(this.pq[i]);
+            var copy = new MinPQ<Key>(n);
+            for (var i = 1; i <= n; i++)
+                copy.Insert(pq[i]);
 
             while (!copy.IsEmpty())
                 yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
@@ -219,10 +219,10 @@ namespace SortApplication
         /// <param name="k">需要下沉的元素。</param>
         private void Sink(int k)
         {
-            while (k * 2 <= this.n)
+            while (k * 2 <= n)
             {
-                int j = 2 * k;
-                if (j < this.n && Greater(j, j + 1))
+                var j = 2 * k;
+                if (j < n && Greater(j, j + 1))
                     j++;
                 if (!Greater(k, j))
                     break;
@@ -237,12 +237,12 @@ namespace SortApplication
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            for (var i = 1; i <= n; i++)
             {
-                temp[i] = this.pq[i];
+                temp[i] = pq[i];
             }
-            this.pq = temp;
+            pq = temp;
         }
 
         /// <summary>
@@ -253,10 +253,10 @@ namespace SortApplication
         /// <returns>如果下标为 <paramref name="i"/> 的元素较大，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Greater(int i, int j)
         {
-            if (this.comparer == null)
-                return this.pq[i].CompareTo(this.pq[j]) > 0;
+            if (comparer == null)
+                return pq[i].CompareTo(pq[j]) > 0;
             else
-                return this.comparer.Compare(this.pq[i], this.pq[j]) > 0;
+                return comparer.Compare(pq[i], pq[j]) > 0;
         }
 
         /// <summary>
@@ -267,13 +267,13 @@ namespace SortApplication
         /// <returns>如果 <paramref name="x"/> 和 <paramref name="y"/> 相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Equal(Key x, Key y)
         {
-            if (this.equalityComparer == null)
-                if (this.comparer == null)
+            if (equalityComparer == null)
+                if (comparer == null)
                     return x.CompareTo(y) == 0;
                 else
-                    return this.comparer.Compare(x, y) == 0;
+                    return comparer.Compare(x, y) == 0;
             else
-                return this.equalityComparer.Equals(x, y);
+                return equalityComparer.Equals(x, y);
         }
 
         /// <summary>
@@ -283,9 +283,9 @@ namespace SortApplication
         /// <param name="j">要交换的第二个元素下标。</param>
         protected virtual void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
-            this.pq[i] = this.pq[j];
-            this.pq[j] = swap;
+            var swap = pq[i];
+            pq[i] = pq[j];
+            pq[j] = swap;
         }
 
         /// <summary>
@@ -301,13 +301,13 @@ namespace SortApplication
         /// <returns>如果是则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool IsMinHeap(int k)
         {
-            if (k > this.n)
+            if (k > n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
-            if (left <= this.n && Greater(k, left))
+            var left = 2 * k;
+            var right = 2 * k + 1;
+            if (left <= n && Greater(k, left))
                 return false;
-            if (right <= this.n && Greater(k, right))
+            if (right <= n && Greater(k, right))
                 return false;
 
             return IsMinHeap(left) && IsMinHeap(right);

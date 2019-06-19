@@ -13,10 +13,10 @@ namespace Measurement
         /// <param name="a">查找范围。</param>
         public static void PrintAll(int[] a)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i + 1; j < n; j++)
+                for (var j = i + 1; j < n; j++)
                 {
                     if (a[i] + a[j] == 0)
                     {
@@ -33,11 +33,11 @@ namespace Measurement
         /// <returns>数组中和为零的整数对数量。</returns>
         public static int Count(int[] a)
         {
-            int n = a.Length;
-            int count = 0;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            var count = 0;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i + 1; j < n; j++)
+                for (var j = i + 1; j < n; j++)
                 {
                     if (a[i] + a[j] == 0)
                     {

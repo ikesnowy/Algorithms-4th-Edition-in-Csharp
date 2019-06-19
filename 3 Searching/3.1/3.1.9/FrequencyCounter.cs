@@ -25,16 +25,16 @@ namespace _3._1._9
         public static string MostFrequentlyWord(string filename, int minLength, IST<string, int> st)
         {
             int distinct = 0, words = 0;
-            StreamReader sr = new StreamReader(File.OpenRead(filename));
+            var sr = new StreamReader(File.OpenRead(filename));
 
-            string[] inputs = 
+            var inputs = 
                 sr
                 .ReadToEnd()
                 .Split(new char[] { ' ', '\r', '\n' }, 
                 StringSplitOptions.RemoveEmptyEntries);
 
-            string lastPut = "";
-            foreach (string s in inputs)
+            var lastPut = "";
+            foreach (var s in inputs)
             {
                 if (s.Length < minLength)
                     continue;
@@ -54,9 +54,9 @@ namespace _3._1._9
 
             Console.WriteLine("Last Put: " + lastPut + "\t words count: " + words);
 
-            string max = "";
+            var max = "";
             st.Put(max, 0);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 if (st.Get(s) > st.Get(max))
                     max = s;
 
@@ -72,8 +72,8 @@ namespace _3._1._9
         /// <returns><paramref name="keys"/> 中的不重复元素数量。</returns>
         public static int CountDistinct<TKey>(TKey[] keys, IST<TKey, int> st)
         {
-            int distinct = 0;
-            for (int i = 0; i < keys.Length; i++)
+            var distinct = 0;
+            for (var i = 0; i < keys.Length; i++)
             {
                 if (!st.Contains(keys[i]))
                     st.Put(keys[i], distinct++);

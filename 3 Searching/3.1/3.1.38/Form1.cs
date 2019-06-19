@@ -13,16 +13,16 @@ namespace _3._1._38
 
         static void Test()
         {
-            BinarySearchSTAnalysis<string, int> bst = new BinarySearchSTAnalysis<string, int>();
-            int[] dataBinary = FrequencyCounter.MostFrequentlyWordAnalysis("tale.txt", 8, bst);
-            Form2 resultBinary = new Form2();
+            var bst = new BinarySearchSTAnalysis<string, int>();
+            var dataBinary = FrequencyCounter.MostFrequentlyWordAnalysis("tale.txt", 8, bst);
+            var resultBinary = new Form2();
             resultBinary.Text = "BinarySearch";
             resultBinary.Show();
             resultBinary.Draw(dataBinary);
 
-            SequentialSearchSTAnalysis<string, int> sst = new SequentialSearchSTAnalysis<string, int>();
-            int[] dataSequential = FrequencyCounter.MostFrequentlyWordAnalysis("tale.txt", 8, sst);
-            Form2 resultSequential = new Form2();
+            var sst = new SequentialSearchSTAnalysis<string, int>();
+            var dataSequential = FrequencyCounter.MostFrequentlyWordAnalysis("tale.txt", 8, sst);
+            var resultSequential = new Form2();
             resultSequential.Text = "Sequential";
             resultSequential.Show();
             resultSequential.Draw(dataSequential);

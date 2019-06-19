@@ -27,9 +27,9 @@ namespace _1._3._31
         /// </summary>
         public DoubleLinkList()
         {
-            this.first = null;
-            this.last = null;
-            this.count = 0;
+            first = null;
+            last = null;
+            count = 0;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace _1._3._31
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace _1._3._31
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -56,22 +56,22 @@ namespace _1._3._31
         /// <param name="item">要插入的元素。</param>
         public void InsertFront(Item item)
         {
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var node = new DoubleNode<Item>()
             {
                 item = item,
-                next = this.first,
+                next = first,
                 prev = null
             };
-            if (this.first != null)
+            if (first != null)
             {
-                this.first.prev = node;
+                first.prev = node;
             }
             else
             {
-                this.last = node;
+                last = node;
             }
-            this.first = node;
-            this.count++;
+            first = node;
+            count++;
         }
 
         /// <summary>
@@ -80,22 +80,22 @@ namespace _1._3._31
         /// <param name="item">要插入表尾的元素。</param>
         public void InsertRear(Item item)
         {
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var node = new DoubleNode<Item>()
             {
                 item = item,
                 next = null,
-                prev = this.last
+                prev = last
             };
-            if (this.last != null)
+            if (last != null)
             {
-                this.last.next = node;
+                last.next = node;
             }
             else
             {
-                this.first = node;
+                first = node;
             }
-            this.last = node;
-            this.count++;
+            last = node;
+            count++;
         }
 
         /// <summary>
@@ -105,11 +105,11 @@ namespace _1._3._31
         /// <returns></returns>
         public Item At(int index)
         {
-            if (index >= this.count || index < 0)
+            if (index >= count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -123,11 +123,11 @@ namespace _1._3._31
         /// <returns></returns>
         private DoubleNode<Item> Find(int index)
         {
-            if (index >= this.count || index < 0)
+            if (index >= count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -147,11 +147,11 @@ namespace _1._3._31
                 return;
             }
 
-            if (index >= this.count || index < 0)
+            if (index >= count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = Find(index);
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var current = Find(index);
+            var node = new DoubleNode<Item>()
             {
                 next = current,
                 prev = current.prev,
@@ -159,7 +159,7 @@ namespace _1._3._31
             };
             current.prev.next = node;
             current.prev = node;
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -169,17 +169,17 @@ namespace _1._3._31
         /// <param name="index">查找元素的下标。</param>
         public void InsertAfter(Item item, int index)
         {
-            if (index == this.count - 1)
+            if (index == count - 1)
             {
                 InsertRear(item);
                 return;
             }
 
-            if (index >= this.count || index < 0)
+            if (index >= count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = Find(index);
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var current = Find(index);
+            var node = new DoubleNode<Item>()
             {
                 prev = current,
                 next = current.next,
@@ -187,7 +187,7 @@ namespace _1._3._31
             };
             current.next.prev = node;
             current.next = node;
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -199,12 +199,12 @@ namespace _1._3._31
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            Item temp = this.first.item;
-            this.first = this.first.next;
-            this.count--;
+            var temp = first.item;
+            first = first.next;
+            count--;
             if (IsEmpty())
             {
-                this.last = null;
+                last = null;
             }
             return temp;
         }
@@ -218,16 +218,16 @@ namespace _1._3._31
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            Item temp = this.last.item;
-            this.last = this.last.prev;
-            this.count--;
+            var temp = last.item;
+            last = last.prev;
+            count--;
             if (IsEmpty())
             {
-                this.first = null;
+                first = null;
             }
             else
             {
-                this.last.next = null;
+                last.next = null;
             }
             return temp;
         }
@@ -239,7 +239,7 @@ namespace _1._3._31
         /// <returns></returns>
         public Item Delete(int index)
         {
-            if (index < 0 || index >= this.count)
+            if (index < 0 || index >= count)
                 throw new IndexOutOfRangeException();
 
             if (index == 0)
@@ -247,24 +247,24 @@ namespace _1._3._31
                 return DeleteFront();
             }
 
-            if (index == this.count - 1)
+            if (index == count - 1)
             {
                 return DeleteRear();
             }
 
-            DoubleNode<Item> current = Find(index);
-            Item temp = current.item;
+            var current = Find(index);
+            var temp = current.item;
             current.prev.next = current.next;
             current.next.prev = current.prev;
-            this.count--;
+            count--;
             return temp;
         }
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
+            var s = new StringBuilder();
 
-            foreach (Item i in this)
+            foreach (var i in this)
             {
                 s.Append(i.ToString());
                 s.Append(" ");
@@ -275,7 +275,7 @@ namespace _1._3._31
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new DoubleLinkListEnumerator(this.first);
+            return new DoubleLinkListEnumerator(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -290,32 +290,32 @@ namespace _1._3._31
 
             public DoubleLinkListEnumerator(DoubleNode<Item> first)
             {
-                this.current = new DoubleNode<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                current = new DoubleNode<Item>();
+                current.next = first;
+                this.first = current;
             }
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             void IDisposable.Dispose()
             {
-                this.current = null;
-                this.first = null;
+                current = null;
+                first = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

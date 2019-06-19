@@ -17,8 +17,8 @@ namespace _1._4._43
         /// </summary>
         public DoublingStack()
         {
-            this.items = new Item[2];
-            this.count = 0;
+            items = new Item[2];
+            count = 0;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace _1._4._43
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace _1._4._43
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace _1._4._43
         /// <param name="s"></param>
         public void Push(Item s)
         {
-            if (this.count == this.items.Length)
-                Resize(this.items.Length * 2);
-            this.items[this.count] = s;
-            this.count++;
+            if (count == items.Length)
+                Resize(items.Length * 2);
+            items[count] = s;
+            count++;
         }
 
         /// <summary>
@@ -59,13 +59,13 @@ namespace _1._4._43
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            this.count--;
+            count--;
 
             // 缩小长度
-            if (this.count > 0 && this.count <= this.items.Length / 4)
-                Resize(this.items.Length / 2);
+            if (count > 0 && count <= items.Length / 4)
+                Resize(items.Length / 2);
 
-            return this.items[this.count];
+            return items[count];
 
         }
 
@@ -77,7 +77,7 @@ namespace _1._4._43
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack underflow");
-            return this.items[this.count - 1];
+            return items[count - 1];
         }
 
         /// <summary>
@@ -86,19 +86,19 @@ namespace _1._4._43
         /// <param name="capcity">重新分配的空间大小。</param>
         private void Resize(int capcity)
         {
-            Item[] temp = new Item[capcity];
+            var temp = new Item[capcity];
             
-            for (int i = 0; i < this.count; i++)
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.items[i];
+                temp[i] = items[i];
             }
 
-            this.items = temp;
+            items = temp;
         }
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new StackEnumerator(this.items);
+            return new StackEnumerator(items);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -114,30 +114,30 @@ namespace _1._4._43
             public StackEnumerator(Item[] items)
             {
                 this.items = items;
-                this.current = -1;
+                current = -1;
             }
 
-            Item IEnumerator<Item>.Current => this.items[this.current];
+            Item IEnumerator<Item>.Current => items[current];
 
-            object IEnumerator.Current => this.items[this.current];
+            object IEnumerator.Current => items[current];
 
             void IDisposable.Dispose()
             {
-                this.items = null;
-                this.current = -1;
+                items = null;
+                current = -1;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.items.Length - 1)
+                if (current == items.Length - 1)
                     return false;
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = -1;
+                current = -1;
             }
         }
     }

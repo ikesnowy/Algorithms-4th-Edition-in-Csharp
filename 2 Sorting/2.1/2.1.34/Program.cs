@@ -3,14 +3,13 @@ using Sort;
 
 namespace _2._1._34
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            InsertionSort insertionSort = new InsertionSort();
-            SelectionSort selectionSort = new SelectionSort();
-            ShellSort shellSort = new ShellSort();
+            var insertionSort = new InsertionSort();
+            var selectionSort = new SelectionSort();
+            var shellSort = new ShellSort();
 
             // 逆序
             Console.WriteLine("逆序");
@@ -29,7 +28,7 @@ namespace _2._1._34
             Console.WriteLine("Insertion Sort Time: " + EqualSortTest(insertionSort));
             Console.WriteLine("Selection Sort Time: " + EqualSortTest(selectionSort));
             Console.WriteLine("Shell Sort Time: " + EqualSortTest(shellSort));
-            
+
             // 二元数组
             Console.WriteLine("二元数组");
             Console.WriteLine("Insertion Sort Time: " + BinarySortTest(insertionSort));
@@ -56,8 +55,8 @@ namespace _2._1._34
         /// <returns>算法耗时。</returns>
         static double ReverseSortTest(BaseSort sort)
         {
-            int[] array = new int[10000];
-            for (int i = 0; i < array.Length; i++)
+            var array = new int[10000];
+            for (var i = 0; i < array.Length; i++)
             {
                 array[i] = array.Length - i;
             }
@@ -82,10 +81,10 @@ namespace _2._1._34
         /// <returns>算法的耗时。</returns>
         static double EqualSortTest(BaseSort sort)
         {
-            int[] array = new int[10000];
-            Random random = new Random();
-            int num = random.Next();
-            for (int i = 0; i < array.Length; i++)
+            var array = new int[10000];
+            var random = new Random();
+            var num = random.Next();
+            for (var i = 0; i < array.Length; i++)
             {
                 array[i] = num;
             }
@@ -100,9 +99,9 @@ namespace _2._1._34
         /// <returns>排序算法的耗时。</returns>
         static double BinarySortTest(BaseSort sort)
         {
-            int[] array = new int[10000];
-            Random random = new Random();
-            for (int i = 0; i < array.Length; i++)
+            var array = new int[10000];
+            var random = new Random();
+            for (var i = 0; i < array.Length; i++)
             {
                 array[i] = random.Next(2);
             }
@@ -117,7 +116,7 @@ namespace _2._1._34
         /// <returns>排序算法的耗时。</returns>
         static double ZeroArraySizeSort(BaseSort sort)
         {
-            int[] array = new int[0];
+            var array = new int[0];
 
             return SortCompare.Time(sort, array);
         }
@@ -129,8 +128,8 @@ namespace _2._1._34
         /// <returns>排序算法的耗时。</returns>
         static double OneArraySizeSort(BaseSort sort)
         {
-            int[] array = new int[1];
-            Random random = new Random();
+            var array = new int[1];
+            var random = new Random();
             array[0] = random.Next();
 
             return SortCompare.Time(sort, array);

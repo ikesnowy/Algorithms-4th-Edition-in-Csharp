@@ -59,9 +59,9 @@ namespace SortApplication
                 throw new ArgumentNullException("Coordinate cannot be NaN");
             }
 
-            this.X = x;
-            this.Y = y;
-            this.Radius = 2;
+            X = x;
+            Y = y;
+            Radius = 2;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace SortApplication
         /// <returns>极半径。</returns>
         public double R()
         {
-            return Math.Sqrt(this.X * this.X + this.Y * this.Y);
+            return Math.Sqrt(X * X + Y * Y);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace SortApplication
         /// <returns>极角。</returns>
         public double Theta()
         {
-            return Math.Atan2(this.Y, this.X);
+            return Math.Atan2(Y, X);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace SortApplication
         /// <returns>返回与点 <paramref name="that"/> 构成的角度。</returns>
         private double AngleTo(Point2D that)
         {
-            double dx = that.X - this.X;
-            double dy = that.Y - this.Y;
+            var dx = that.X - X;
+            var dy = that.Y - Y;
             return Math.Atan2(dy, dx);
         }
 
@@ -103,7 +103,7 @@ namespace SortApplication
         /// <returns>如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}</returns>
         public static int CCW(Point2D a, Point2D b, Point2D c)
         {
-            double area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
+            var area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
             if (area2 < 0)
                 return -1;
             if (area2 > 0)
@@ -131,8 +131,8 @@ namespace SortApplication
         /// <returns>返回到 <paramref name="that"/> 的距离。</returns>
         public double DistanceTo(Point2D that)
         {
-            double dx = this.X - that.X;
-            double dy = this.Y - that.Y;
+            var dx = X - that.X;
+            var dy = Y - that.Y;
 
             return Math.Sqrt(dx * dx + dy * dy);
         }
@@ -144,8 +144,8 @@ namespace SortApplication
         /// <returns>到 <paramref name="that"/> 距离的平方。</returns>
         public double DistanceSquareTo(Point2D that)
         {
-            double dx = this.X - that.X;
-            double dy = this.Y - that.Y;
+            var dx = X - that.X;
+            var dy = Y - that.Y;
 
             return dx * dx + dy * dy;
         }
@@ -157,13 +157,13 @@ namespace SortApplication
         /// <returns>如果 <paramref name="other"/> 较小则返回 -1，反之返回 1，相等返回 0。</returns>
         public int CompareTo(Point2D other)
         {
-            if (this.Y < other.Y)
+            if (Y < other.Y)
                 return -1;
-            if (this.Y > other.Y)
+            if (Y > other.Y)
                 return 1;
-            if (this.X < other.X)
+            if (X < other.X)
                 return -1;
-            if (this.X > other.X)
+            if (X > other.X)
                 return 1;
 
             return 0;
@@ -217,7 +217,7 @@ namespace SortApplication
         {
             public override int Compare(Point2D x, Point2D y)
             {
-                double delta = (x.X * x.X + x.Y * x.Y) - (y.X * y.X + y.Y * y.Y);
+                var delta = (x.X * x.X + x.Y * x.Y) - (y.X * y.X + y.Y * y.Y);
                 if (delta < 0)
                 {
                     return -1;
@@ -245,8 +245,8 @@ namespace SortApplication
             }
             public override int Compare(Point2D x, Point2D y)
             {
-                double angle1 = this.parent.AngleTo(x);
-                double angle2 = this.parent.AngleTo(y);
+                double angle1 = parent.AngleTo(x);
+                double angle2 = parent.AngleTo(y);
                 if (angle1 < angle2)
                 {
                     return -1;
@@ -275,10 +275,10 @@ namespace SortApplication
             }
             public override int Compare(Point2D q1, Point2D q2)
             {
-                double dx1 = q1.X - this.parent.X;
-                double dy1 = q1.Y - this.parent.Y;
-                double dx2 = q2.X - this.parent.X;
-                double dy2 = q2.Y - this.parent.Y;
+                var dx1 = q1.X - parent.X;
+                var dy1 = q1.Y - parent.Y;
+                var dx2 = q2.X - parent.X;
+                var dy2 = q2.Y - parent.Y;
 
                 if (dy2 >= 0 && dy2 < 0)
                 {
@@ -305,7 +305,7 @@ namespace SortApplication
                 }
                 else
                 {
-                    return -CCW(this.parent, q1, q2);
+                    return -CCW(parent, q1, q2);
                 }
             }
         }
@@ -323,8 +323,8 @@ namespace SortApplication
             }
             public override int Compare(Point2D p, Point2D q)
             {
-                double dist1 = this.parent.DistanceSquareTo(p);
-                double dist2 = this.parent.DistanceSquareTo(q);
+                double dist1 = parent.DistanceSquareTo(p);
+                double dist2 = parent.DistanceSquareTo(q);
 
                 if (dist1 < dist2)
                 {
@@ -383,12 +383,12 @@ namespace SortApplication
             {
                 return false;
             }
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
             {
                 return false;
             }
-            Point2D that = (Point2D)obj;
-            return this.X == that.X && this.Y == that.Y;
+            var that = (Point2D)obj;
+            return X == that.X && Y == that.Y;
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace SortApplication
         /// <returns>形如 "(<see cref="X"/>, <see cref="Y"/>)" 的字符串。</returns>
         public override string ToString()
         {
-            return "(" + this.X + ", " + this.Y + ")";
+            return "(" + X + ", " + Y + ")";
         }
 
         /// <summary>
@@ -406,8 +406,8 @@ namespace SortApplication
         /// <returns>哈希值。</returns>
         public override int GetHashCode()
         {
-            int hashX = this.X.GetHashCode();
-            int hashY = this.Y.GetHashCode();
+            var hashX = X.GetHashCode();
+            var hashY = Y.GetHashCode();
             return 31 * hashX + hashY;
         }
     }

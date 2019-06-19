@@ -3,20 +3,19 @@ using Sort;
 
 namespace _2._1._35
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            InsertionSort insertionSort = new InsertionSort();
-            SelectionSort selectionSort = new SelectionSort();
-            ShellSort shellSort = new ShellSort();
-            int n = 10000;
+            var insertionSort = new InsertionSort();
+            var selectionSort = new SelectionSort();
+            var shellSort = new ShellSort();
+            var n = 10000;
 
             // 高斯分布（正态分布）
-            double[] arrayInsertion = SortCompare.GetNormalDistributionArray(n);
-            double[] arraySelection = new double[n];
-            double[] arrayShell = new double[n];
+            var arrayInsertion = SortCompare.GetNormalDistributionArray(n);
+            var arraySelection = new double[n];
+            var arrayShell = new double[n];
 
             arrayInsertion.CopyTo(arraySelection, 0);
             arrayInsertion.CopyTo(arrayShell, 0);

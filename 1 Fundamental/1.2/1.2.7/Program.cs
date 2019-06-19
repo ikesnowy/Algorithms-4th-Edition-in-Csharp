@@ -2,7 +2,6 @@
 
 namespace _1._2._7
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -17,11 +16,11 @@ namespace _1._2._7
         /// <returns></returns>
         public static string Mystery(string s)
         {
-            int N = s.Length;
+            var N = s.Length;
             if (N <= 1)
                 return s;
-            string a = s.Substring(0, N / 2);
-            string b = s.Substring(N / 2, N - N / 2);
+            var a = s.Substring(0, N / 2);
+            var b = s.Substring(N / 2, N - N / 2);
 
             return Mystery(b) + Mystery(a);
         }

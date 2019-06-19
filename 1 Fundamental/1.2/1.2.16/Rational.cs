@@ -21,27 +21,27 @@ namespace _1._2._16
 
             if (numerator < 0 && denominator < 0)
             {
-                this.isNagative = false;
+                isNagative = false;
                 numerator = -numerator;
                 denominator = -denominator;
             }
             else if (numerator < 0 || denominator < 0)
             {
-                this.isNagative = true;
+                isNagative = true;
             }
             else
             {
-                this.isNagative = false;
+                isNagative = false;
             }
 
-            long gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
+            var gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
             if (gcd != 1)
             {
                 numerator /= gcd;
                 denominator /= gcd;
             }
-            this.Numerator = numerator;
-            this.Denominator = denominator;
+            Numerator = numerator;
+            Denominator = denominator;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Plus(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator + b.Numerator * this.Denominator, this.Denominator * b.Denominator);
+            var result = new Rational(Numerator * b.Denominator + b.Numerator * Denominator, Denominator * b.Denominator);
             return result;
         }
 
@@ -62,7 +62,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Minus(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator - b.Numerator * this.Denominator, this.Denominator * b.Denominator);
+            var result = new Rational(Numerator * b.Denominator - b.Numerator * Denominator, Denominator * b.Denominator);
             return result;
         }
 
@@ -73,7 +73,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Multiply(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Numerator, this.Denominator * b.Denominator);
+            var result = new Rational(Numerator * b.Numerator, Denominator * b.Denominator);
             return result;
         }
 
@@ -84,7 +84,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Divide(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator, this.Denominator * b.Numerator);
+            var result = new Rational(Numerator * b.Denominator, Denominator * b.Numerator);
             return result;
         }
 
@@ -107,16 +107,16 @@ namespace _1._2._16
                 return true;
             if (obj == null)
                 return false;
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
                 return false;
 
-            Rational that = (Rational)obj;
-            return (this.Numerator == that.Numerator) && (this.Denominator == that.Denominator);
+            var that = (Rational)obj;
+            return (Numerator == that.Numerator) && (Denominator == that.Denominator);
         }
 
         public override int GetHashCode()
         {
-            return 31 * this.Numerator.GetHashCode() + this.Denominator.GetHashCode();
+            return 31 * Numerator.GetHashCode() + Denominator.GetHashCode();
         }
 
         /// <summary>
@@ -125,10 +125,10 @@ namespace _1._2._16
         /// <returns></returns>
         public override string ToString()
         {
-            string result = "";
-            if (this.isNagative)
+            var result = "";
+            if (isNagative)
                 result += "-";
-            result += Math.Abs(this.Numerator) + "/" + Math.Abs(this.Denominator);
+            result += Math.Abs(Numerator) + "/" + Math.Abs(Denominator);
             return result;
         }
     }

@@ -2,13 +2,13 @@
 
 namespace _1._2._6
 {
-    
+
     class Program
     {
         static void Main(string[] args)
         {
-            string s1 = "ACTGACG";
-            string s2 = "TGACGAC";
+            var s1 = "ACTGACG";
+            var s2 = "TGACGAC";
 
             Console.WriteLine(Circular(s1, s2));
         }

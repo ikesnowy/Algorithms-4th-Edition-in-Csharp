@@ -2,13 +2,12 @@
 
 namespace _1._2._16
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Rational a = new Rational(15, 20);
-            Rational b = new Rational(2, -9);
+            var a = new Rational(15, 20);
+            var b = new Rational(2, -9);
 
             Console.WriteLine(a + " + " + b + "=" + a.Plus(b));
             Console.WriteLine(a + " - " + b + "=" + a.Minus(b));

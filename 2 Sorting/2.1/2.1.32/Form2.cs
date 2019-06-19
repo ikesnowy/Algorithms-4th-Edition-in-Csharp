@@ -22,9 +22,9 @@ namespace _2._1._32
             InitializeComponent();
             this.sort = sort;
             this.n = n;
-            this.result = Test(n);
-            this.timer1.Interval = 1000;
-            this.timer1.Start();
+            result = Test(n);
+            timer1.Interval = 1000;
+            timer1.Start();
         }
 
         /// <summary>
@@ -34,10 +34,10 @@ namespace _2._1._32
         /// <returns>测试结果数据。</returns>
         public double[] Test(int n)
         {
-            double[] result = new double[8];
-            for (int i = 0; i < result.Length; i++)
+            var result = new double[8];
+            for (var i = 0; i < result.Length; i++)
             {
-                result[i] = SortCompare.TimeRandomInput(this.sort, n, 3);
+                result[i] = SortCompare.TimeRandomInput(sort, n, 3);
                 n *= 2;
             }
             return result;
@@ -49,17 +49,17 @@ namespace _2._1._32
         /// <param name="result">结果数组。</param>
         public void DrawPanel(double[] result)
         {
-            Graphics graphics = this.CreateGraphics();
-            graphics.TranslateTransform(0, this.ClientRectangle.Height);
+            var graphics = CreateGraphics();
+            graphics.TranslateTransform(0, ClientRectangle.Height);
             graphics.ScaleTransform(1, -1);
-            Rectangle clientRect = this.ClientRectangle;
-            Rectangle drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
+            var clientRect = ClientRectangle;
+            var drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
 
-            PointF[] dataPoints = new PointF[result.Length];
-            float unitX = (float)drawRect.Width / result.Length;
-            float unitY = (float)(drawRect.Height / result.Max());
-            SizeF pointSize = new SizeF(8, 8);
-            for (int i = 0; i < result.Length; i++)
+            var dataPoints = new PointF[result.Length];
+            var unitX = (float)drawRect.Width / result.Length;
+            var unitY = (float)(drawRect.Height / result.Max());
+            var pointSize = new SizeF(8, 8);
+            for (var i = 0; i < result.Length; i++)
             {
                 dataPoints[i] = new PointF(drawRect.Left + unitX * i, (float)(unitY * result[i]));
                 graphics.FillEllipse(Brushes.Black, new RectangleF(dataPoints[i], pointSize));
@@ -69,8 +69,8 @@ namespace _2._1._32
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DrawPanel(this.result);
-            this.timer1.Stop();
+            DrawPanel(result);
+            timer1.Stop();
         }
     }
 }

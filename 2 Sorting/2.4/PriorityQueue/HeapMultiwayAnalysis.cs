@@ -23,7 +23,7 @@ namespace PriorityQueue
             compareTimes = 0;
             long n = pq.Length;
             // 建堆
-            for (long k = (n - 2) / d + 1; k >= 1; k--)
+            for (var k = (n - 2) / d + 1; k >= 1; k--)
             {
                 Sink(pq, k, n, d);
             }
@@ -47,7 +47,7 @@ namespace PriorityQueue
         {
             while ((k - 1) * d + 2 <= n)
             {
-                long j = d * (k - 1) + 2;
+                var j = d * (k - 1) + 2;
                 try
                 {
                     // 在 d 个子结点中找到最大的那个
@@ -99,7 +99,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的结点序号。</param>
         private static void Exch<T>(T[] pq, long a, long b)
         {
-            T temp = pq[a - 1];
+            var temp = pq[a - 1];
             pq[a - 1] = pq[b - 1];
             pq[b - 1] = temp;
         }

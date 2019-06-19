@@ -12,10 +12,10 @@ namespace _1._4._3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double[] testResult = Program.Test();
+            var testResult = Program.Test();
             Program.PaintLinear(testResult);
-            double[] testResultLog = new double[testResult.Length];
-            for (int i = 0; i < testResult.Length; i++)
+            var testResultLog = new double[testResult.Length];
+            for (var i = 0; i < testResult.Length; i++)
             {
                 testResultLog[i] = Math.Log10(testResult[i]);
             }

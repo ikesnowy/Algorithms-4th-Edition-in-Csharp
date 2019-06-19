@@ -31,17 +31,17 @@ namespace _2._2._12
         /// <param name="M">分块大小。</param>
         public void Sort<T>(T[] a, int M) where T : IComparable<T>
         {
-            int blockNum = (a.Length + M - 1) / M;
-            SelectionSort selection = new SelectionSort();
+            var blockNum = (a.Length + M - 1) / M;
+            var selection = new SelectionSort();
             // 对块进行选择排序。
-            for (int i = 0; i < blockNum; i++)
+            for (var i = 0; i < blockNum; i++)
             {
-                int lo = i * M;
-                int hi = Math.Min((i + 1) * M - 1, a.Length - 1);
+                var lo = i * M;
+                var hi = Math.Min((i + 1) * M - 1, a.Length - 1);
                 selection.Sort(a, lo, hi);
             }
             // 将各个块合并。
-            for (int i = 0; i < blockNum - 1; i++)
+            for (var i = 0; i < blockNum - 1; i++)
             {
                 Merge(a, 0, (i + 1) * M - 1, Math.Min((i + 2) * M - 1, a.Length - 1));
             }
@@ -57,14 +57,14 @@ namespace _2._2._12
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, int lo, int mid, int hi) where T : IComparable<T>
         {
-            T[] aux = new T[hi - lo + 1];
-            for (int k = lo; k <= hi; k++)
+            var aux = new T[hi - lo + 1];
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {

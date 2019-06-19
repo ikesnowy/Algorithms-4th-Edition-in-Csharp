@@ -14,7 +14,7 @@ namespace Measurement
         /// </summary>
         public Stopwatch()
         {
-            this.start = DateTime.Now;
+            start = DateTime.Now;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Measurement
         /// </summary>
         public void Restart()
         {
-            this.start = DateTime.Now;
+            start = DateTime.Now;
         }
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace Measurement
         /// <returns>计时器的计数值（秒）。</returns>
         public double ElapsedTime()
         {
-            DateTime now = DateTime.Now;
-            return (now - this.start).TotalMilliseconds / 1000.0;
+            var now = DateTime.Now;
+            return (now - start).TotalMilliseconds / 1000.0;
         }
 
         /// <summary>
@@ -41,8 +41,8 @@ namespace Measurement
         /// <returns>计时器的计数值（毫秒）。</returns>
         public double ElapsedTimeMillionSeconds()
         {
-            DateTime now = DateTime.Now;
-            return (now - this.start).TotalMilliseconds;
+            var now = DateTime.Now;
+            return (now - start).TotalMilliseconds;
         }
     }
 }

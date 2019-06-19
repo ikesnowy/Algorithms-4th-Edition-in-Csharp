@@ -17,9 +17,9 @@ namespace _1._2._12
         {
             if (Vaildation(m, d, y) == false)
                 throw new FormatException("Invaild Date");
-            this.Month = m;
-            this.Day = d;
-            this.Year = y;
+            Month = m;
+            Day = d;
+            Year = y;
         }
 
         /// <summary>
@@ -28,9 +28,9 @@ namespace _1._2._12
         /// <returns></returns>
         public string DayOfTheWeek()
         {
-            int d = this.Day;
-            int m = this.Month;
-            int y = this.Year;
+            var d = Day;
+            var m = Month;
+            var y = Year;
             
             if (m < 3)
             {
@@ -39,7 +39,7 @@ namespace _1._2._12
             }
 
             // 使用蔡勒公式计算，参见 http://www.cnblogs.com/mq0036/p/3534314.html
-            int w = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
+            var w = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
 
             return dayOfWeek[w];
         }
@@ -49,7 +49,7 @@ namespace _1._2._12
             if (y < 0)
                 return false;
 
-            bool isLeapYear = false;
+            var isLeapYear = false;
 
             if (m > 12 || m < 1)
                 return false;
@@ -75,7 +75,7 @@ namespace _1._2._12
 
         public override string ToString()
         {
-            return this.Month + "/" + this.Day + "/" + this.Year;
+            return Month + "/" + Day + "/" + Year;
         }
     }
 }

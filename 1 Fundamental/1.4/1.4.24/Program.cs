@@ -2,7 +2,6 @@
 
 namespace _1._4._24
 {
-    
     class Program
     {
         static int F = 100;// 需要寻找的 F 值
@@ -13,18 +12,18 @@ namespace _1._4._24
         }
         static void Main(string[] args)
         {
-            int[] building = new int[100000];
-            for (int i = 0; i < 100000; i++)
+            var building = new int[100000];
+            for (var i = 0; i < 100000; i++)
             {
                 building[i] = i;
             }
             // 第一问：二分查找即可
-            testResult A = PlanA(building);
+            var A = PlanA(building);
             Console.WriteLine($"Plan A: F={A.F}, Broken Eggs={A.BrokenEggs}");
 
             // 第二问：按照第 1, 2, 4, 8,..., 2^k 层顺序查找，一直到 2^k > F，
             // 随后在 [2^(k - 1), 2^k] 范围中二分查找。
-            testResult B = PlanB(building);
+            var B = PlanB(building);
             Console.WriteLine($"Plan B: F={B.F}, Broken Eggs={B.BrokenEggs}");
         }
 
@@ -45,11 +44,11 @@ namespace _1._4._24
         /// <returns></returns>
         static testResult PlanA(int[] a)
         {
-            int lo = 0;
-            int hi = a.Length - 1;
-            int mid = 0;
-            int eggs = 0;
-            testResult result = new testResult();
+            var lo = 0;
+            var hi = a.Length - 1;
+            var mid = 0;
+            var eggs = 0;
+            var result = new testResult();
 
             while (lo <= hi)
             {
@@ -77,11 +76,11 @@ namespace _1._4._24
         /// <returns></returns>
         static testResult PlanB(int[] a)
         {
-            int lo = 0;
-            int hi = 1;
-            int mid = 0;
-            int eggs = 0;
-            testResult result = new testResult();
+            var lo = 0;
+            var hi = 1;
+            var mid = 0;
+            var eggs = 0;
+            var result = new testResult();
 
             while (ThrowEgg(hi))
             {

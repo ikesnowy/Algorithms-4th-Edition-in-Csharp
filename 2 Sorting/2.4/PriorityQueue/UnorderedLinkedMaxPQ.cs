@@ -18,7 +18,7 @@ namespace PriorityQueue
         /// </summary>
         public UnorderedLinkedMaxPQ()
         {
-            this.pq = new LinkedList<Key>();
+            pq = new LinkedList<Key>();
         }
 
         /// <summary>
@@ -28,11 +28,11 @@ namespace PriorityQueue
         /// <remarks>如果希望获得并删除最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max()
         {
-            int max = 0;
-            for (int i = 1; i < this.pq.Size(); i++)
-                if (Less(this.pq.Find(max), this.pq.Find(i)))
+            var max = 0;
+            for (var i = 1; i < pq.Size(); i++)
+                if (Less(pq.Find(max), pq.Find(i)))
                     max = i;
-            return this.pq.Find(max);
+            return pq.Find(max);
         }
 
         /// <summary>
@@ -42,31 +42,31 @@ namespace PriorityQueue
         /// <remarks>如果希望获得最大元素但不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
-            int max = 0;
-            for (int i = 1; i < this.pq.Size(); i++)
-                if (Less(this.pq.Find(max), this.pq.Find(i)))
+            var max = 0;
+            for (var i = 1; i < pq.Size(); i++)
+                if (Less(pq.Find(max), pq.Find(i)))
                     max = i;
 
-            return this.pq.Delete(max);
+            return pq.Delete(max);
         }
 
         /// <summary>
         /// 向优先队列中插入一个元素。
         /// </summary>
         /// <param name="v">需要插入的元素。</param>
-        public void Insert(Key v) => this.pq.Insert(v);
+        public void Insert(Key v) => pq.Insert(v);
 
         /// <summary>
         /// 检查优先队列是否为空。
         /// </summary>
         /// <returns>如果队列为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.pq.IsEmpty();
+        public bool IsEmpty() => pq.IsEmpty();
 
         /// <summary>
         /// 检查优先队列中含有的元素数量。
         /// </summary>
         /// <returns>优先队列中含有元素的数量。</returns>
-        public int Size() => this.pq.Size();
+        public int Size() => pq.Size();
 
         /// <summary>
         /// 比较第一个元素是否小于第二个元素。

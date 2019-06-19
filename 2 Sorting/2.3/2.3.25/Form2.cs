@@ -17,7 +17,7 @@ namespace _2._3._25
         public Form2(int n)
         {
             InitializeComponent();
-            this.N = n;
+            N = n;
         }
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            this.Text = "正在绘图";
-            this.backgroundWorker1.RunWorkerAsync();
+            Text = "正在绘图";
+            backgroundWorker1.RunWorkerAsync();
         }
 
         /// <summary>
@@ -38,14 +38,14 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            QuickSortInsertion quickSortInsertion = new QuickSortInsertion();
-            double[] timeRecord = new double[31];
-            for (int i = 0; i <= 30; i++)
+            var worker = sender as BackgroundWorker;
+            var quickSortInsertion = new QuickSortInsertion();
+            var timeRecord = new double[31];
+            for (var i = 0; i <= 30; i++)
             {
                 worker.ReportProgress(i * 3);
                 quickSortInsertion.M = i;
-                int[] data = SortCompare.GetRandomArrayInt(this.N);
+                var data = SortCompare.GetRandomArrayInt(N);
                 timeRecord[i] = SortCompare.Time(quickSortInsertion, data);
             }
             e.Result = timeRecord;
@@ -58,7 +58,7 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
+            Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
         }
 
         /// <summary>
@@ -72,53 +72,53 @@ namespace _2._3._25
             {
                 MessageBox.Show(e.Error.Message);
             }
-            double[] result = e.Result as double[];
+            var result = e.Result as double[];
 
-            Graphics graphics = this.CreateGraphics();
+            var graphics = CreateGraphics();
 
             // 获得绘图区矩形。
-            RectangleF rect = this.ClientRectangle;
-            float unitX = rect.Width / 10;
-            float unitY = rect.Width / 10;
+            RectangleF rect = ClientRectangle;
+            var unitX = rect.Width / 10;
+            var unitY = rect.Width / 10;
 
             // 添加 10% 边距作为文字区域。
-            RectangleF center = new RectangleF
+            var center = new RectangleF
                 (rect.X + unitX, rect.Y + unitY,
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
             // 绘制坐标系。
             graphics.DrawLine(Pens.Black, center.Left, center.Top, center.Left, center.Bottom);
             graphics.DrawLine(Pens.Black, center.Left, center.Bottom, center.Right, center.Bottom);
-            graphics.DrawString(result.Max().ToString(), this.Font, Brushes.Black, rect.Location);
-            graphics.DrawString(result.Length.ToString(), this.Font, Brushes.Black, center.Right, center.Bottom);
-            graphics.DrawString("0", this.Font, Brushes.Black, rect.Left, center.Bottom);
+            graphics.DrawString(result.Max().ToString(), Font, Brushes.Black, rect.Location);
+            graphics.DrawString(result.Length.ToString(), Font, Brushes.Black, center.Right, center.Bottom);
+            graphics.DrawString("0", Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
-            PointF[] bluePoints = new PointF[result.Length];
+            var bluePoints = new PointF[result.Length];
             unitX = center.Width / result.Length;
             unitY = center.Height / (float)result.Max();
 
-            for (int i = 0; i < result.Length; i++)
+            for (var i = 0; i < result.Length; i++)
             {
                 bluePoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (float)(result[i] * unitY) - 10);
             }
 
             // 绘制点。
-            for (int i = 0; i < result.Length; i++)
+            for (var i = 0; i < result.Length; i++)
             {
                 graphics.FillEllipse(Brushes.Blue, new RectangleF(bluePoints[i], new Size(10, 10)));
             }
 
             graphics.Dispose();
 
-            this.Text = "绘图结果";
-            int min = 0;
-            for (int i = 0; i < result.Length; i++)
+            Text = "绘图结果";
+            var min = 0;
+            for (var i = 0; i < result.Length; i++)
             {
                 if (result[i] < result[min])
                     min = i;
             }
-            string report = "M " + min + "\r\ntime " + result[min];
+            var report = "M " + min + "\r\ntime " + result[min];
             MessageBox.Show(report, "最优结果");
         }
     }

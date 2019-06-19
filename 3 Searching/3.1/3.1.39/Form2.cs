@@ -13,17 +13,17 @@ namespace _3._1._39
 
         public void Draw(int[] x, long[] y)
         {
-            Graphics panel = this.CreateGraphics();
+            var panel = CreateGraphics();
 
-            float unitX = (float)this.ClientRectangle.Width / x.Max();
-            float unitY = (float)this.ClientRectangle.Height / y.Max();
+            var unitX = (float)ClientRectangle.Width / x.Max();
+            var unitY = (float)ClientRectangle.Height / y.Max();
 
-            for (int i = 0; i < x.Length; i++)
+            for (var i = 0; i < x.Length; i++)
             {
                 panel.FillEllipse(
                     Brushes.Black,
                     x[i] * unitX,
-                    this.ClientRectangle.Height - y[i] * unitY,
+                    ClientRectangle.Height - y[i] * unitY,
                     2, 2);
             }
         }

@@ -2,7 +2,6 @@
 
 namespace _1._2._18
 {
-    
     class Program
     {
         // 当数据比较大时—— 例如 10^9 加上随机小数组成的数列，这时 double 的小数精度将受限。
@@ -16,10 +15,10 @@ namespace _1._2._18
         // 这种情况下并没有直接对所有输入值求和，小数精度不受到整数部分长度的影响。
         static void Main(string[] args)
         {
-            int T = 100000;
-            Random random = new Random();
-            Accumulator a = new Accumulator();
-            for (int t = 0; t < T; t++)
+            var T = 100000;
+            var random = new Random();
+            var a = new Accumulator();
+            for (var t = 0; t < T; t++)
             {
                 a.AddDataValue(random.NextDouble() + 1000000000);
             }

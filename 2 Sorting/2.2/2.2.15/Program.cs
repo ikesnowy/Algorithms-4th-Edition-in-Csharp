@@ -7,10 +7,10 @@ namespace _2._2._15
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 1, 3, 5, 7, 9, 2, 4, 6, 8 };
-            MergeSortQueue mergeSort = new MergeSortQueue();
+            var a = new int[] { 1, 3, 5, 7, 9, 2, 4, 6, 8 };
+            var mergeSort = new MergeSortQueue();
             mergeSort.Sort(a);
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
                 Console.Write(a[i] + " ");
             }

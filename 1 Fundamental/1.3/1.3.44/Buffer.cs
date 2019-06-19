@@ -15,8 +15,8 @@ namespace _1._3._44
         /// </summary>
         public Buffer()
         {
-            this.leftside = new Stack<char>();
-            this.rightside = new Stack<char>();
+            leftside = new Stack<char>();
+            rightside = new Stack<char>();
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace _1._3._44
         /// <param name="c">要插入的字符。</param>
         public void Insert(char c)
         {
-            this.leftside.Push(c);
+            leftside.Push(c);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace _1._3._44
         /// <returns></returns>
         public char Delete()
         {
-            return this.leftside.Pop();
+            return leftside.Pop();
         }
 
         /// <summary>
@@ -43,9 +43,9 @@ namespace _1._3._44
         /// <param name="k">光标移动的距离。</param>
         public void Left(int k)
         {
-            for (int i = 0; i < k; i++)
+            for (var i = 0; i < k; i++)
             {
-                this.rightside.Push(this.leftside.Pop());
+                rightside.Push(leftside.Pop());
             }
         }
 
@@ -55,9 +55,9 @@ namespace _1._3._44
         /// <param name="k">光标移动的距离。</param>
         public void Right(int k)
         {
-            for (int i = 0; i < k; i++)
+            for (var i = 0; i < k; i++)
             {
-                this.leftside.Push(this.rightside.Pop());
+                leftside.Push(rightside.Pop());
             }
         }
 
@@ -67,7 +67,7 @@ namespace _1._3._44
         /// <returns></returns>
         public int Size()
         {
-            return this.leftside.Size() + this.rightside.Size();
+            return leftside.Size() + rightside.Size();
         }
 
         /// <summary>
@@ -76,12 +76,12 @@ namespace _1._3._44
         /// <returns></returns>
         public string Getstring()
         {
-            while (!this.leftside.IsEmpty())
+            while (!leftside.IsEmpty())
             {
-                this.rightside.Push(this.leftside.Pop());
+                rightside.Push(leftside.Pop());
             }
 
-            return this.rightside.ToString();
+            return rightside.ToString();
         }
     }
 }

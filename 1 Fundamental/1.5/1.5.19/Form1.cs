@@ -14,21 +14,21 @@ namespace _1._5._19
         {
             try
             {
-                int N = int.Parse(this.InputN.Text);
-                Log log = new Log(N);
+                var N = int.Parse(InputN.Text);
+                var log = new Log(N);
                 log.Show();
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = "数据过大";
             }
         }
     }

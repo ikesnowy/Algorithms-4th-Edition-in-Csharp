@@ -3,15 +3,14 @@ using Generics;
 
 namespace _1._3._28
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Node<int> first = new Node<int>();
-            Node<int> second = new Node<int>();
-            Node<int> third = new Node<int>();
-            Node<int> fourth = new Node<int>();
+            var first = new Node<int>();
+            var second = new Node<int>();
+            var third = new Node<int>();
+            var fourth = new Node<int>();
 
             first.item = 1;
             second.item = 2;

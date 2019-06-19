@@ -17,7 +17,7 @@
         {
             if (hi < lo)
                 return -1;
-            int mid = (hi - lo) / 2 + lo;
+            var mid = (hi - lo) / 2 + lo;
             if (a[mid] == key)
             {
                 return mid;

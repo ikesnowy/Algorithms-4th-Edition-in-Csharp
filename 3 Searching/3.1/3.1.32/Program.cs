@@ -4,17 +4,16 @@ using SymbolTable;
 
 namespace _3._1._32
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            int n = 100000;
+            var n = 100000;
 
             Console.WriteLine("n=" + n);
-            SequentialSearchST<string, int>[] sst = new SequentialSearchST<string, int>[4]; 
-            BinarySearchST<string, int>[] bst = new BinarySearchST<string, int>[4];
-            for (int i = 0; i < 4; i++)
+            var sst = new SequentialSearchST<string, int>[4];
+            var bst = new BinarySearchST<string, int>[4];
+            for (var i = 0; i < 4; i++)
             {
                 bst[i] = new BinarySearchST<string, int>();
                 sst[i] = new SequentialSearchST<string, int>();
@@ -28,15 +27,15 @@ namespace _3._1._32
 
         static void Test(IST<string, int>[] sts, int n)
         {
-            Stopwatch sw = new Stopwatch();
-            string[] data = SearchCompare.GetRandomArrayString(n, 3, 10);
-            string item1 = "item1";
+            var sw = new Stopwatch();
+            var data = SearchCompare.GetRandomArrayString(n, 3, 10);
+            var item1 = "item1";
             Array.Sort(data);
 
             // 有序的数组
             Console.Write("Sorted Array: ");
             sw.Start();
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 sts[0].Put(data[i], i);
             }
@@ -46,7 +45,7 @@ namespace _3._1._32
             // 逆序的数组
             Console.Write("Sorted Array Reversed: ");
             sw.Restart();
-            for (int i = n - 1; i >= 0; i--)
+            for (var i = n - 1; i >= 0; i--)
             {
                 sts[1].Put(data[i], i);
             }
@@ -56,7 +55,7 @@ namespace _3._1._32
             // 只有一种键
             Console.Write("One Distinct Key: ");
             sw.Restart();
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 sts[2].Put(item1, i);
             }
@@ -66,7 +65,7 @@ namespace _3._1._32
             // 只有两种值
             Console.Write("Two Distinct Values: ");
             sw.Restart();
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 sts[3].Put(data[i], i % 2);
             }

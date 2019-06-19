@@ -37,8 +37,8 @@ namespace SymbolTable
         /// <param name="initCapacity">初始大小。</param>
         public ArrayST(int initCapacity)
         {
-            this.keys = new TKey[initCapacity];
-            this.values = new TValue[initCapacity];
+            keys = new TKey[initCapacity];
+            values = new TValue[initCapacity];
         }
 
         /// <summary>
@@ -54,17 +54,17 @@ namespace SymbolTable
         /// <param name="key">需要删除的键。</param>
         public void Delete(TKey key)
         {
-            for (int i = 0; i < this.n; i++)
+            for (var i = 0; i < n; i++)
             {
-                if (key.Equals(this.keys[i]))
+                if (key.Equals(keys[i]))
                 {
-                    this.keys[i] = this.keys[this.n - 1];
-                    this.values[i] = this.values[this.n - 1];
-                    this.keys[this.n - 1] = default(TKey);
-                    this.values[this.n - 1] = default(TValue);
-                    this.n--;
-                    if (this.n > 0 && this.n == this.keys.Length / 4)
-                        Resize(this.keys.Length / 2);
+                    keys[i] = keys[n - 1];
+                    values[i] = values[n - 1];
+                    keys[n - 1] = default(TKey);
+                    values[n - 1] = default(TValue);
+                    n--;
+                    if (n > 0 && n == keys.Length / 4)
+                        Resize(keys.Length / 2);
                     return;
                 }
             }
@@ -77,9 +77,9 @@ namespace SymbolTable
         /// <returns>找到的值，不存在则返回 <c>default(Value)</c></returns>
         public TValue Get(TKey key)
         {
-            for (int i = 0; i < this.n; i++)
-                if (this.keys[i].Equals(key))
-                    return this.values[i];
+            for (var i = 0; i < n; i++)
+                if (keys[i].Equals(key))
+                    return values[i];
             return default(TValue);
         }
 
@@ -87,7 +87,7 @@ namespace SymbolTable
         /// 检查符号表是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得包含全部键的集合。
@@ -95,8 +95,8 @@ namespace SymbolTable
         /// <returns>全部键的集合。</returns>
         public IEnumerable<TKey> Keys()
         {
-            TKey[] result = new TKey[this.n];
-            Array.Copy(this.keys, result, this.n);
+            var result = new TKey[n];
+            Array.Copy(keys, result, n);
             return result;
         }
 
@@ -109,19 +109,19 @@ namespace SymbolTable
         {
             Delete(key);
 
-            if (this.n >= this.values.Length)
-                Resize(this.n * 2);
+            if (n >= values.Length)
+                Resize(n * 2);
 
-            this.keys[this.n] = key;
-            this.values[this.n] = value;
-            this.n++;
+            keys[n] = key;
+            values[n] = value;
+            n++;
         }
 
         /// <summary>
         /// 返回符号表中键值对的数量。
         /// </summary>
         /// <returns>键值对数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 为符号表重新分配空间。
@@ -129,16 +129,16 @@ namespace SymbolTable
         /// <param name="capacity">新分配的空间大小。</param>
         private void Resize(int capacity)
         {
-            TKey[] tempKey = new TKey[capacity];
-            TValue[] tempValue = new TValue[capacity];
+            var tempKey = new TKey[capacity];
+            var tempValue = new TValue[capacity];
 
-            for (int i = 0; i < this.n; i++)
-                tempKey[i] = this.keys[i];
-            for (int i = 0; i < this.n; i++)
-                tempValue[i] = this.values[i];
+            for (var i = 0; i < n; i++)
+                tempKey[i] = keys[i];
+            for (var i = 0; i < n; i++)
+                tempValue[i] = values[i];
 
-            this.keys = tempKey;
-            this.values = tempValue;
+            keys = tempKey;
+            values = tempValue;
         }
     }
 }

@@ -21,19 +21,19 @@ namespace _2._2._17
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
 
             while (true)
             {
                 // 找到第一个块
-                int lo = 0;
-                int mid = FindBlock(lo, a) - 1;
+                var lo = 0;
+                var mid = FindBlock(lo, a) - 1;
                 if (mid == a.Length - 1)
                     break;
 
                 while (mid < a.Length - 1)
                 {
-                    int hi = FindBlock(mid + 1, a) + mid;
+                    var hi = FindBlock(mid + 1, a) + mid;
                     Merge(lo, mid, hi, a, aux);
                     lo = hi + 1;
                     mid = FindBlock(lo, a) + lo;
@@ -52,15 +52,15 @@ namespace _2._2._17
             while (true)
             {
                 // 找到第一个块
-                Node<T> lo = a.GetFirst();
-                Node<T> mid = FindBlock(lo);
+                var lo = a.GetFirst();
+                var mid = FindBlock(lo);
 
                 if (mid.next == null)
                     break;
 
                 while (mid.next != null)
                 {
-                    Node<T> hi = FindBlock(mid.next);
+                    var hi = FindBlock(mid.next);
                     if (lo == a.GetFirst())
                         a.SetFirst(Merge(lo, mid, hi));
                     else
@@ -89,13 +89,13 @@ namespace _2._2._17
         /// <param name="aux">辅助数组。</param>
         private void Merge<T>(int lo, int mid, int hi, T[] a, T[] aux) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {
@@ -130,10 +130,10 @@ namespace _2._2._17
         /// <returns>新的表头。</returns>
         private Node<T> Merge<T>(Node<T> lo, Node<T> mid, Node<T> hi) where T : IComparable<T>
         {
-            Node<T> after = hi.next; // 要合并的两个块之后的元素
+            var after = hi.next; // 要合并的两个块之后的元素
             Node<T> first = null;
-            Node<T> i = lo;          // 链表1
-            Node<T> j = mid.next;    // 链表2
+            var i = lo;          // 链表1
+            var j = mid.next;    // 链表2
 
             // 切割链表
             mid.next = null;
@@ -194,8 +194,8 @@ namespace _2._2._17
         /// <returns>块的大小。</returns>
         private int FindBlock<T>(int lo, T[] a) where T : IComparable<T>
         {
-            int size = 1;
-            for (int i = lo; i < a.Length - 1; i++)
+            var size = 1;
+            for (var i = lo; i < a.Length - 1; i++)
             {
                 if (Less(a[i], a[i + 1]) || a[i].Equals(a[i + 1]))
                     size++;
@@ -213,7 +213,7 @@ namespace _2._2._17
         /// <returns>有序块的最后一个元素结点。</returns>
         private Node<T> FindBlock<T>(Node<T> lo) where T : IComparable<T>
         {
-            Node<T> hi = lo;
+            var hi = lo;
             while (hi.next != null)
             {
                 if (Less(hi.item, hi.next.item) || hi.item.Equals(hi.next.item))

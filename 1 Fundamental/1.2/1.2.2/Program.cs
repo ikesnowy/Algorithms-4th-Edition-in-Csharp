@@ -4,14 +4,13 @@ using Geometry;
 
 namespace _1._2._2
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Type the value of N:");
-            int N = int.Parse(Console.ReadLine());
-            List<Interval1D> intervalList = new List<Interval1D>();
+            var N = int.Parse(Console.ReadLine());
+            var intervalList = new List<Interval1D>();
 
             if (N < 2)
             {
@@ -21,15 +20,15 @@ namespace _1._2._2
 
             // 读取并建立间隔数组
             Console.WriteLine("Type the data, make sure there is a space between two numbers.\nExample: 0.5 1");
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
-                string temp = Console.ReadLine();
-                double lo = double.Parse(temp.Split(' ')[0]);
-                double hi = double.Parse(temp.Split(' ')[1]);
+                var temp = Console.ReadLine();
+                var lo = double.Parse(temp.Split(' ')[0]);
+                var hi = double.Parse(temp.Split(' ')[1]);
 
                 if (lo > hi)
                 {
-                    double t = lo;
+                    var t = lo;
                     lo = hi;
                     hi = t;
                 }
@@ -38,9 +37,9 @@ namespace _1._2._2
             }
 
             // 判断是否相交并输出
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; j++)
+                for (var j = i + 1; j < N; j++)
                 {
                     if (intervalList[i].Intersect(intervalList[j]))
                     {

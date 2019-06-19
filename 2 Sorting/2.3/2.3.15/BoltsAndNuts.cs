@@ -16,7 +16,7 @@ namespace _2._3._15
         /// 螺母的构造函数。
         /// </summary>
         /// <param name="value">螺母的值。</param>
-        public Nut(T value) => this.Value = value;
+        public Nut(T value) => Value = value;
 
         /// <summary>
         /// 比较方法，螺母只能和螺丝比较。
@@ -25,7 +25,7 @@ namespace _2._3._15
         /// <returns></returns>
         public int CompareTo(Bolt<T> other)
         {
-            return this.Value.CompareTo(other.Value);
+            return Value.CompareTo(other.Value);
         }
     }
 
@@ -43,7 +43,7 @@ namespace _2._3._15
         /// 螺丝的默认构造函数。
         /// </summary>
         /// <param name="value">螺丝的值。</param>
-        public Bolt(T value) => this.Value = value;
+        public Bolt(T value) => Value = value;
 
         /// <summary>
         /// 比较方法，螺丝只能和螺母比较。
@@ -52,7 +52,7 @@ namespace _2._3._15
         /// <returns></returns>
         public int CompareTo(Nut<T> other)
         {
-            return this.Value.CompareTo(other.Value);
+            return Value.CompareTo(other.Value);
         }
     }
 
@@ -96,7 +96,7 @@ namespace _2._3._15
         {
             if (hi <= lo)
                 return;
-            int j = Partition(bolts, nuts, lo, hi);
+            var j = Partition(bolts, nuts, lo, hi);
             Sort(bolts, nuts, lo, j - 1);
             Sort(bolts, nuts, j + 1, hi);
         }
@@ -113,9 +113,9 @@ namespace _2._3._15
         private int Partition<T>(Bolt<T>[] bolts, Nut<T>[] nuts, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            Bolt<T> pivotB = bolts[lo];
+            var pivotB = bolts[lo];
             // 找到对应螺丝
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (nuts[k].CompareTo(pivotB) == 0)
                 {
@@ -140,7 +140,7 @@ namespace _2._3._15
             Exch(nuts, lo, j);
 
             // 再用螺丝去比较螺母
-            Nut<T> pivotN = nuts[j];
+            var pivotN = nuts[j];
             i = lo;
             j = hi + 1;
             while (true)
@@ -169,10 +169,10 @@ namespace _2._3._15
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + this.random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }
@@ -186,7 +186,7 @@ namespace _2._3._15
         /// <param name="b">需要交换的第二个元素。</param>
         private void Exch<T>(T[] a, int lo, int hi)
         {
-            T t = a[lo];
+            var t = a[lo];
             a[lo] = a[hi];
             a[hi] = t;
         }

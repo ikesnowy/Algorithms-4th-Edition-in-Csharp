@@ -15,14 +15,14 @@ namespace UnionFind
         /// <returns>一组能让并查集只剩一个连通分量的连接。</returns>
         public static Connection[] Generate(int n)
         {
-            Random random = new Random();
-            List<Connection> connections = new List<Connection>();
-            WeightedQuickUnionPathCompressionUF uf = new WeightedQuickUnionPathCompressionUF(n);
+            var random = new Random();
+            var connections = new List<Connection>();
+            var uf = new WeightedQuickUnionPathCompressionUF(n);
 
             while (uf.Count() > 1)
             {
-                int p = random.Next(n);
-                int q = random.Next(n);
+                var p = random.Next(n);
+                var q = random.Next(n);
                 uf.Union(p, q);
                 connections.Add(new Connection(p, q));
             }
@@ -37,13 +37,13 @@ namespace UnionFind
         /// <returns>需要的连接总数。</returns>
         public static int Count(UF uf)
         {
-            Random random = new Random();
-            int size = uf.Count();
-            int edges = 0;
+            var random = new Random();
+            var size = uf.Count();
+            var edges = 0;
             while (uf.Count() > 1)
             {
-                int p = random.Next(size);
-                int q = random.Next(size);
+                var p = random.Next(size);
+                var q = random.Next(size);
                 uf.Union(p, q);
                 edges++;
             }
@@ -58,7 +58,7 @@ namespace UnionFind
         /// <param name="connections">用于输入的连接集合。</param>
         public static void Count(UF uf, Connection[] connections)
         {
-            foreach (Connection c in connections)
+            foreach (var c in connections)
             {
                 uf.Union(c.P, c.Q);
             }

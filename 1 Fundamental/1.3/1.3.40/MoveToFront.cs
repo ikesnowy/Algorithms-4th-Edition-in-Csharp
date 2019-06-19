@@ -24,7 +24,7 @@ namespace _1._3._40
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return first == null;
         }
 
         /// <summary>
@@ -32,8 +32,8 @@ namespace _1._3._40
         /// </summary>
         public MoveToFront()
         {
-            this.first = null;
-            this.count = 0;
+            first = null;
+            count = 0;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace _1._3._40
                 return null;
             }
 
-            Node<Item> current = this.first;
+            var current = first;
             while (current.next != null)
             {
                 if (current.next.item.Equals(item))
@@ -66,24 +66,24 @@ namespace _1._3._40
         /// <param name="item">需要插入的元素。</param>
         public void Insert(Item item)
         {
-            Node<Item> temp = Find(item);
+            var temp = Find(item);
             if (temp == null)
             {
                 temp = new Node<Item>()
                 {
                     item = item,
-                    next = this.first
+                    next = first
                 };
 
-                this.first = temp;
-                this.count++;
+                first = temp;
+                count++;
             }
-            else if (temp != null && this.count != 1)
+            else if (temp != null && count != 1)
             {
-                Node<Item> target = temp.next;
+                var target = temp.next;
                 temp.next = temp.next.next;
-                target.next = this.first;
-                this.first = target;
+                target.next = first;
+                first = target;
             }
         }
 
@@ -93,18 +93,18 @@ namespace _1._3._40
         /// <returns></returns>
         public Item Peek()
         {
-            if (this.first == null)
+            if (first == null)
             {
                 throw new InvalidOperationException();
             }
 
-            return this.first.item;
+            return first.item;
         }
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            Node<Item> current = this.first;
+            var s = new StringBuilder();
+            var current = first;
             while (current != null)
             {
                 s.Append(current.item.ToString());

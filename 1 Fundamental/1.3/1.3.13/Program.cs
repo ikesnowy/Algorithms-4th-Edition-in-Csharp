@@ -1,6 +1,5 @@
 ﻿namespace _1._3._13
 {
-    
     class Program
     {
         // b, c, d 不可能出现

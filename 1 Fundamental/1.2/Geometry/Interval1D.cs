@@ -56,8 +56,8 @@ namespace Geometry
 
             if (lo <= hi)
             {
-                this.Min = lo;
-                this.Max = hi;
+                Min = lo;
+                Max = hi;
             }
             else
             {
@@ -71,7 +71,7 @@ namespace Geometry
         /// <returns>返回长度。</returns>
         public double Length()
         {
-            return this.Max - this.Min;
+            return Max - Min;
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Geometry
         /// <returns>若 <paramref name="that"/> 被本区间包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(Interval1D that)
         {
-            return this.Min < that.Min && this.Max > that.Max;
+            return Min < that.Min && Max > that.Max;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Geometry
         /// <returns>若 <paramref name="x"/> 被本区间包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool Contains(double x)
         {
-            return x >= this.Min && x <= this.Max;
+            return x >= Min && x <= Max;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Geometry
         /// <returns>如果相交则返回 True，否则返回 False。</returns>
         public bool Intersect(Interval1D that)
         {
-            if (this.Max < that.Min || that.Max < this.Min)
+            if (Max < that.Min || that.Max < Min)
                 return false;
 
             return true;
@@ -114,8 +114,8 @@ namespace Geometry
         /// <param name="y">绘制一维区间的 y轴 坐标。</param>
         public void Draw(Graphics g, int y)
         {
-            Point A = new Point((int)this.Min, y);
-            Point B = new Point((int)this.Max, y);
+            var A = new Point((int)Min, y);
+            var B = new Point((int)Max, y);
             g.DrawLine(Pens.Black, A, B);
         }
 
@@ -125,7 +125,7 @@ namespace Geometry
         /// <returns>形如 "[<see cref="Min"/>, <see cref="Max"/>]" 的字符串。</returns>
         public override string ToString()
         {
-            string s = "[" + this.Min + ", " + this.Max + "]";
+            var s = "[" + Min + ", " + Max + "]";
             return s;
         }
 
@@ -144,12 +144,12 @@ namespace Geometry
             {
                 return false;
             }
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
             {
                 return false;
             }
-            Interval1D that = (Interval1D)obj;
-            return this.Min == that.Min && this.Max == that.Max;
+            var that = (Interval1D)obj;
+            return Min == that.Min && Max == that.Max;
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace Geometry
         /// <returns>返回区间的哈希代码。</returns>
         public override int GetHashCode()
         {
-            int hash1 = this.Min.GetHashCode();
-            int hash2 = this.Max.GetHashCode();
+            var hash1 = Min.GetHashCode();
+            var hash2 = Max.GetHashCode();
             return 31 * hash1 + hash2;
         }
 
@@ -221,8 +221,8 @@ namespace Geometry
         {
             public override int Compare(Interval1D a, Interval1D b)
             {
-                double alen = a.Length();
-                double blen = b.Length();
+                var alen = a.Length();
+                var blen = b.Length();
 
                 if (alen < blen)
                 {

@@ -19,10 +19,10 @@ namespace _1._3._39
         /// <param name="N">缓冲区的大小。</param>
         public RingBuffer(int N)
         {
-            this.buffer = new Item[N];
-            this.count = 0;
-            this.first = 0;
-            this.last = 0;
+            buffer = new Item[N];
+            count = 0;
+            first = 0;
+            last = 0;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace _1._3._39
         /// <returns></returns>
         public bool IsFull()
         {
-            return this.count == this.buffer.Length;
+            return count == buffer.Length;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace _1._3._39
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -54,9 +54,9 @@ namespace _1._3._39
                 throw new OutOfMemoryException("buffer is full");
             }
 
-            this.buffer[this.last] = item;
-            this.last = (this.last + 1) % this.buffer.Length;
-            this.count++;
+            buffer[last] = item;
+            last = (last + 1) % buffer.Length;
+            count++;
         }
 
         /// <summary>
@@ -70,9 +70,9 @@ namespace _1._3._39
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.buffer[this.first];
-            this.first = (this.first + 1) % this.buffer.Length;
-            this.count--;
+            var temp = buffer[first];
+            first = (first + 1) % buffer.Length;
+            count--;
             return temp;
         }
     }

@@ -31,13 +31,13 @@ namespace UnionFind
         {
             if (n < 0)
                 throw new ArgumentException();
-            this.count = n;
-            this.parent = new int[n];
-            this.rank = new byte[n];
-            for (int i = 0; i < n; i++)
+            count = n;
+            parent = new int[n];
+            rank = new byte[n];
+            for (var i = 0; i < n; i++)
             {
-                this.parent[i] = i;
-                this.rank[i] = 0;
+                parent[i] = i;
+                rank[i] = 0;
             }
         }
 
@@ -49,10 +49,10 @@ namespace UnionFind
         public virtual int Find(int p)
         {
             Validate(p);
-            while (p != this.parent[p])
+            while (p != parent[p])
             {
-                this.parent[p] = this.parent[this.parent[p]];
-                p = this.parent[p];
+                parent[p] = parent[parent[p]];
+                p = parent[p];
             }
             return p;
         }
@@ -64,22 +64,22 @@ namespace UnionFind
         /// <param name="q">需要合并的另一个结点。</param>
         public virtual void Union(int p, int q)
         {
-            int rootP = Find(p);
-            int rootQ = Find(q);
+            var rootP = Find(p);
+            var rootQ = Find(q);
 
             if (rootP == rootQ)
                 return;
 
-            if (this.rank[rootP] < this.rank[rootQ])
-                this.parent[rootP] = rootQ;
-            else if (this.rank[rootP] > this.rank[rootQ])
-                this.parent[rootQ] = rootP;
+            if (rank[rootP] < rank[rootQ])
+                parent[rootP] = rootQ;
+            else if (rank[rootP] > rank[rootQ])
+                parent[rootQ] = rootP;
             else
             {
-                this.parent[rootQ] = rootP;
-                this.rank[rootP]++;
+                parent[rootQ] = rootP;
+                rank[rootP]++;
             }
-            this.count--;
+            count--;
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace UnionFind
         /// <returns>分量的数目。</returns>
         public int Count()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace UnionFind
         /// <exception cref="ArgumentException">当 <paramref name="p"/> 不在索引范围内时抛出。</exception>
         protected void Validate(int p)
         {
-            int n = this.parent.Length;
+            var n = parent.Length;
             if (p < 0 || p >= n)
             {
                 throw new ArgumentException("index" + p + " is not between 0 and " + (n - 1));

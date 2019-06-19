@@ -3,7 +3,6 @@ using UnionFind;
 
 namespace _1._5._13
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -19,8 +18,8 @@ namespace _1._5._13
             UF.Union(4, 6);
             UF.Union(0, 4);
 
-            int[] id = UF.GetParent();
-            for (int i = 0; i < id.Length; i++)
+            var id = UF.GetParent();
+            for (var i = 0; i < id.Length; i++)
             {
                 Console.Write(id[i]);
             }

@@ -17,10 +17,10 @@
         {
             if (hi < lo)
                 return -1;
-            int mid = (hi - lo) / 2 + lo;
+            var mid = (hi - lo) / 2 + lo;
             if (a[mid] == key)
             {
-                int mini = Rank(key, a, lo, mid - 1);
+                var mini = Rank(key, a, lo, mid - 1);
                 if (mini != -1)
                     return mini;
                 return mid;

@@ -19,11 +19,11 @@ namespace Sort
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                int min = i;
-                for (int j = i + 1; j < n; j++)
+                var min = i;
+                for (var j = i + 1; j < n; j++)
                 {
                     if (Less(a[j], a[min]))
                         min = j;
@@ -42,11 +42,11 @@ namespace Sort
         /// <param name="c">比较器。</param>
         public void Sort<T>(T[] a, IComparer<T> c)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                int min = i;
-                for (int j = i + 1; j < n; j++)
+                var min = i;
+                for (var j = i + 1; j < n; j++)
                 {
                     if (Less(a[j], a[min], c))
                         min = j;

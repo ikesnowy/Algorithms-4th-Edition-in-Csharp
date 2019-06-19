@@ -8,12 +8,12 @@
 
         public Event(string message)
         {
-            this.EventMessage = message;
+            EventMessage = message;
         }
 
         public override string ToString()
         {
-            return this.EventMessage;
+            return EventMessage;
         }
     }
 }

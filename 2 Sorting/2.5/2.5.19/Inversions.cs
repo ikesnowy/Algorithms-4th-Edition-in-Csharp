@@ -22,8 +22,8 @@ namespace _2._5._19
         /// <param name="a">待排序的数组。</param>
         public void Count<T>(T[] a) where T : IComparable<T>
         {
-            this.Counter = 0;
-            T[] aux = new T[a.Length];
+            Counter = 0;
+            var aux = new T[a.Length];
             Count(a, aux, 0, a.Length - 1);
         }
 
@@ -39,7 +39,7 @@ namespace _2._5._19
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Count(a, aux, lo, mid);
             Count(a, aux, mid + 1, hi);
             Merge(a, aux, lo, mid, hi);
@@ -56,13 +56,13 @@ namespace _2._5._19
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {
@@ -77,7 +77,7 @@ namespace _2._5._19
                 else if (Less(aux[j], aux[i]))      // 右侧的小于左侧的，出现逆序
                 {
                     a[k] = aux[j];
-                    this.Counter += mid - i + 1;    // 统计逆序对数
+                    Counter += mid - i + 1;    // 统计逆序对数
                     j++;
                 }
                 else
@@ -122,7 +122,7 @@ namespace _2._5._19
         /// <param name="j">需要交换的第二个元素。</param>
         protected void Exch<T>(T[] a, int i, int j)
         {
-            T t = a[i];
+            var t = a[i];
             a[i] = a[j];
             a[j] = t;
         }

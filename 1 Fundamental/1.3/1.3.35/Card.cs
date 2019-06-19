@@ -17,28 +17,28 @@
         public override string ToString()
         {
             string num;
-            if (this.number == 1)
+            if (number == 1)
             {
                 num = "Ace";
             }
-            else if (this.number == 11)
+            else if (number == 11)
             {
                 num = "Jack";
             }
-            else if (this.number == 12)
+            else if (number == 12)
             {
                 num = "Queen";
             }
-            else if (this.number == 13)
+            else if (number == 13)
             {
                 num = "King";
             }
             else
             {
-                num = this.number.ToString();
+                num = number.ToString();
             }
 
-            return num + " of the " + this.suit.ToString();
+            return num + " of the " + suit.ToString();
         }
     }
 

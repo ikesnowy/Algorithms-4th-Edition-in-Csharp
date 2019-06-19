@@ -24,9 +24,9 @@ namespace _2._5._26
         public void Init()
         {
             Show();
-            this.panel = CreateGraphics();
-            this.points = new List<Point2D>();
-            this.startPoint = null;
+            panel = CreateGraphics();
+            points = new List<Point2D>();
+            startPoint = null;
         }
 
         /// <summary>
@@ -35,57 +35,57 @@ namespace _2._5._26
         /// <param name="point"></param>
         public void Add(Point2D point)
         {
-            this.points.Add(point);
-            if (this.startPoint == null)
+            points.Add(point);
+            if (startPoint == null)
             {
-                this.startPoint = point;
-                this.maxX = point.X * 1.1;
-                this.maxY = point.Y * 1.1;
+                startPoint = point;
+                maxX = point.X * 1.1;
+                maxY = point.Y * 1.1;
             }
-            else if (this.startPoint.Y > point.Y)
-                this.startPoint = point;
-            else if (this.startPoint.Y == point.Y && this.startPoint.X > point.X)
-                this.startPoint = point;
+            else if (startPoint.Y > point.Y)
+                startPoint = point;
+            else if (startPoint.Y == point.Y && startPoint.X > point.X)
+                startPoint = point;
 
-            if (point.X > this.maxX)
-                this.maxX = point.X * 1.1;
-            if (point.Y > this.maxY)
-                this.maxY = point.Y * 1.1;
+            if (point.X > maxX)
+                maxX = point.X * 1.1;
+            if (point.Y > maxY)
+                maxY = point.Y * 1.1;
 
-            this.points.Sort(this.startPoint.Polor_Order());
+            points.Sort(startPoint.Polor_Order());
             RefreashPoints();
         }
 
         public void RefreashPoints()
         {
-            double unitX = this.ClientRectangle.Width / this.maxX;
-            double unitY = this.ClientRectangle.Height / this.maxY;
-            double left = this.ClientRectangle.Left;
-            double bottom = this.ClientRectangle.Bottom;
+            var unitX = ClientRectangle.Width / maxX;
+            var unitY = ClientRectangle.Height / maxY;
+            double left = ClientRectangle.Left;
+            double bottom = ClientRectangle.Bottom;
 
-            this.panel.Clear(this.BackColor);
-            Pen line = (Pen)Pens.Red.Clone();
+            panel.Clear(BackColor);
+            var line = (Pen)Pens.Red.Clone();
             line.Width = 6;
-            Point2D before = this.startPoint;
-            foreach (var p in this.points)
+            var before = startPoint;
+            foreach (var p in points)
             {
-                this.panel.FillEllipse(Brushes.Black, 
+                panel.FillEllipse(Brushes.Black, 
                     (float)(left + p.X * unitX - 5.0), 
                     (float)(bottom - p.Y * unitY - 5.0), 
                     (float)10.0, 
                     (float)10.0);
-                this.panel.DrawLine(line,
+                panel.DrawLine(line,
                     (float)(left + before.X * unitX),
                     (float)(bottom - before.Y * unitY),
                     (float)(left + p.X * unitX),
                     (float)(bottom - p.Y * unitY));
                 before = p;
             }
-            this.panel.DrawLine(line,
+            panel.DrawLine(line,
                     (float)(left + before.X * unitX),
                     (float)(bottom - before.Y * unitY),
-                    (float)(left + this.startPoint.X * unitX),
-                    (float)(bottom - this.startPoint.Y * unitY));
+                    (float)(left + startPoint.X * unitX),
+                    (float)(bottom - startPoint.Y * unitY));
         }
     }
 }

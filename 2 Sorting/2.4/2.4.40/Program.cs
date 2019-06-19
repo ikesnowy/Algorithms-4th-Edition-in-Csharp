@@ -4,7 +4,7 @@ using PriorityQueue;
 
 namespace _2._4._40
 {
-    
+
     class Program
     {
         static Random random = new Random();
@@ -13,15 +13,15 @@ namespace _2._4._40
         {
             Console.WriteLine("n\tOrigin\tFloyd\tRatio");
 
-            int n = 1000;     // 当数据量到达 10^9 时会需要 2G 左右的内存
-            int multiTen = 7;
-            for (int i = 0; i < multiTen; i++)
+            var n = 1000;     // 当数据量到达 10^9 时会需要 2G 左右的内存
+            var multiTen = 7;
+            for (var i = 0; i < multiTen; i++)
             {
-                short[] data = GetRandomArray(n);
+                var data = GetRandomArray(n);
                 BackupArray(data, i);       // 暂存数组
-                long originCount = HeapAnalysis.Sort(data);
+                var originCount = HeapAnalysis.Sort(data);
                 RestoreArray(data, i);      // 恢复数组
-                long floydCount = HeapFloydAnalysis.Sort(data);
+                var floydCount = HeapFloydAnalysis.Sort(data);
                 Console.WriteLine(n + "\t" + originCount + "\t" + floydCount + "\t" + (double)floydCount / originCount);
                 n *= 10;
             }
@@ -29,12 +29,12 @@ namespace _2._4._40
 
         static void BackupArray(short[] data, int index)
         {
-            StreamWriter sw =
+            var sw =
                 File.CreateText
-                (Environment.CurrentDirectory + 
-                Path.DirectorySeparatorChar + 
+                (Environment.CurrentDirectory +
+                Path.DirectorySeparatorChar +
                 "data" + index + ".txt");
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 sw.WriteLine(data[i]);
             }
@@ -44,12 +44,12 @@ namespace _2._4._40
 
         static void RestoreArray(short[] data, int index)
         {
-            StreamReader sr = 
+            var sr =
                 File.OpenText
-                (Environment.CurrentDirectory + 
-                Path.DirectorySeparatorChar + 
+                (Environment.CurrentDirectory +
+                Path.DirectorySeparatorChar +
                 "data" + index + ".txt");
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 data[i] = short.Parse(sr.ReadLine());
             }
@@ -58,8 +58,8 @@ namespace _2._4._40
 
         static short[] GetRandomArray(int n)
         {
-            short[] data = new short[n];
-            for (int i = 0; i < n; i++)
+            var data = new short[n];
+            for (var i = 0; i < n; i++)
             {
                 data[i] = (short)random.Next();
             }

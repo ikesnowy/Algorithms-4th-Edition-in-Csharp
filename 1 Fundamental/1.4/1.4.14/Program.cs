@@ -3,7 +3,6 @@ using Measurement;
 
 namespace _1._4._14
 {
-    
     class Program
     {
         // 见 Measurement.FourSum 类
@@ -17,9 +16,9 @@ namespace _1._4._14
             //     a[i] = long.Parse(testcases[i]);
             // }
 
-            long[] a = new long[20] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10 };
+            var a = new long[20] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10 };
 
-            Stopwatch timer = new Stopwatch();
+            var timer = new Stopwatch();
             FourSum.PrintAll(a);
             Console.WriteLine(timer.ElapsedTime());
         }

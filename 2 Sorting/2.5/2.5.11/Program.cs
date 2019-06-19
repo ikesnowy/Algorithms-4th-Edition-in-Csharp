@@ -3,7 +3,6 @@ using SortApplication;
 
 namespace _2._5._11
 {
-    
     class Program
     {
         /// <summary>
@@ -17,13 +16,13 @@ namespace _2._5._11
 
             public Item(int index, T key)
             {
-                this.Index = index;
-                this.Key = key;
+                Index = index;
+                Key = key;
             }
 
             public int CompareTo(Item<T> other)
             {
-                return this.Key.CompareTo(other.Key);
+                return Key.CompareTo(other.Key);
             }
         }
 
@@ -43,7 +42,7 @@ namespace _2._5._11
             Test(new MergeSort(), 7, 1);
             // 快速排序
             Console.WriteLine("Quick Sort");
-            QuickSortAnalyze quick = new QuickSortAnalyze
+            var quick = new QuickSortAnalyze
             {
                 NeedShuffle = false,
                 NeedPath = false
@@ -51,22 +50,22 @@ namespace _2._5._11
             Test(quick, 7, 1);
             // 堆排序
             Console.WriteLine("Heap Sort");
-            Item<int>[] array = new Item<int>[7];
-            for (int i = 0; i < 7; i++)
+            var array = new Item<int>[7];
+            for (var i = 0; i < 7; i++)
                 array[i] = new Item<int>(i, 1);
             Heap.Sort(array);
-            for (int i = 0; i < 7; i++)
+            for (var i = 0; i < 7; i++)
                 Console.Write(array[i].Index + " ");
             Console.WriteLine();
         }
 
         static void Test(BaseSort sort, int n, int constant)
         {
-            Item<int>[] array = new Item<int>[n];
-            for (int i = 0; i < n; i++)
+            var array = new Item<int>[n];
+            for (var i = 0; i < n; i++)
                 array[i] = new Item<int>(i, constant);
             sort.Sort(array);
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 Console.Write(array[i].Index + " ");
             Console.WriteLine();
         }

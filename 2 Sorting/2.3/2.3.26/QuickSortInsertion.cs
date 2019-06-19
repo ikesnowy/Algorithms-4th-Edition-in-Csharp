@@ -21,7 +21,7 @@ namespace _2._3._26
         /// </summary>
         public QuickSortInsertion()
         {
-            this.M = 8;
+            M = 8;
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace _2._3._26
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            this.Counts = new int[this.M + 1];
-            for (int i = 0; i < this.M + 1; i++)
+            Counts = new int[M + 1];
+            for (var i = 0; i < M + 1; i++)
             {
-                this.Counts[i] = 0;
+                Counts[i] = 0;
             }
             Shuffle(a);
             Sort(a, 0, a.Length - 1);
@@ -52,16 +52,16 @@ namespace _2._3._26
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
-                this.Counts[hi - lo]++;
+                Counts[hi - lo]++;
                 // 调用插入排序
-                for (int i = lo; i <= hi; i++)
-                    for (int k = i; k > lo && Less(a[k], a[k - 1]); k--)
+                for (var i = lo; i <= hi; i++)
+                    for (var k = i; k > lo && Less(a[k], a[k - 1]); k--)
                         Exch(a, k, k - 1);
                 return;
             }
-            int j = Partition(a, lo, hi);
+            var j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }
@@ -77,7 +77,7 @@ namespace _2._3._26
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v))
@@ -101,11 +101,11 @@ namespace _2._3._26
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

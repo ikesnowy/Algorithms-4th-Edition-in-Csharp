@@ -19,7 +19,7 @@ namespace _2._3._27
         /// </summary>
         public QuickSortIgnore()
         {
-            this.M = 10;
+            M = 10;
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace _2._3._27
             Sort(a, 0, a.Length - 1);
 
             // 插入排序处理小数组
-            for (int i = 0; i < a.Length; i++)
-                for (int j = i; j > 0 && Less(a[j], a[j - 1]); j--)
+            for (var i = 0; i < a.Length; i++)
+                for (var j = i; j > 0 && Less(a[j], a[j - 1]); j--)
                     Exch(a, j, j - 1);
 
             Debug.Assert(IsSorted(a));
@@ -51,11 +51,11 @@ namespace _2._3._27
         {
             if (hi <= lo)                   // 别越界
                 return;
-            if (hi - lo <= this.M)
+            if (hi - lo <= M)
             {
                 return;     // 直接忽略
             }
-            int j = Partition(a, lo, hi);
+            var j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }
@@ -71,7 +71,7 @@ namespace _2._3._27
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v))
@@ -95,11 +95,11 @@ namespace _2._3._27
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

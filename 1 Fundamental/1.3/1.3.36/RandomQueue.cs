@@ -18,8 +18,8 @@ namespace _1._3._36
         /// </summary>
         public RandomQueue()
         {
-            this.queue = new Item[2];
-            this.count = 0;
+            queue = new Item[2];
+            count = 0;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace _1._3._36
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace _1._3._36
                 throw new ArgumentException();
             }
 
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.queue[i];
+                temp[i] = queue[i];
             }
 
-            this.queue = temp;
+            queue = temp;
         }
 
         /// <summary>
@@ -57,13 +57,13 @@ namespace _1._3._36
         /// <param name="item">要向队列中添加的元素。</param>
         public void Enqueue(Item item)
         {
-            if (this.queue.Length == this.count)
+            if (queue.Length == count)
             {
-                Resize(this.count * 2);
+                Resize(count * 2);
             }
 
-            this.queue[this.count] = item;
-            this.count++;
+            queue[count] = item;
+            count++;
         }
 
         /// <summary>
@@ -77,18 +77,18 @@ namespace _1._3._36
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random(DateTime.Now.Millisecond);
-            int index = random.Next(this.count);
+            var random = new Random(DateTime.Now.Millisecond);
+            var index = random.Next(count);
 
-            Item temp = this.queue[index];
-            this.queue[index] = this.queue[this.count - 1];
-            this.queue[this.count - 1] = temp;
+            var temp = queue[index];
+            queue[index] = queue[count - 1];
+            queue[count - 1] = temp;
 
-            this.count--;
+            count--;
 
-            if (this.count < this.queue.Length / 4)
+            if (count < queue.Length / 4)
             {
-                Resize(this.queue.Length / 2);
+                Resize(queue.Length / 2);
             }
 
             return temp;
@@ -105,15 +105,15 @@ namespace _1._3._36
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random();
-            int index = random.Next(this.count);
+            var random = new Random();
+            var index = random.Next(count);
 
-            return this.queue[index];
+            return queue[index];
         }
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new RandomQueueEnumerator(this.queue, this.count);
+            return new RandomQueueEnumerator(queue, count);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -132,15 +132,15 @@ namespace _1._3._36
             {
                 this.count = count;
                 this.queue = queue;
-                this.current = -1;
+                current = -1;
 
-                this.sequence = new int[this.count];
-                for (int i = 0; i < this.count; i++)
+                sequence = new int[this.count];
+                for (var i = 0; i < this.count; i++)
                 {
-                    this.sequence[i] = i;
+                    sequence[i] = i;
                 }
 
-                Shuffle(this.sequence, DateTime.Now.Millisecond);
+                Shuffle(sequence, DateTime.Now.Millisecond);
             }
 
             /// <summary>
@@ -150,39 +150,39 @@ namespace _1._3._36
             /// <param name="seed">随机种子值。</param>
             private void Shuffle(int[] a, int seed)
             {
-                int N = a.Length;
-                Random random = new Random(seed);
-                for (int i = 0; i < N; i++)
+                var N = a.Length;
+                var random = new Random(seed);
+                for (var i = 0; i < N; i++)
                 {
-                    int r = i + random.Next(N - i);
-                    int temp = a[i];
+                    var r = i + random.Next(N - i);
+                    var temp = a[i];
                     a[i] = a[r];
                     a[r] = temp;
                 }
             }
 
-            Item IEnumerator<Item>.Current => this.queue[this.sequence[this.current]];
+            Item IEnumerator<Item>.Current => queue[sequence[current]];
 
-            object IEnumerator.Current => this.queue[this.sequence[this.current]];
+            object IEnumerator.Current => queue[sequence[current]];
 
             void IDisposable.Dispose()
             {
-                this.current = -1;
-                this.sequence = null;
-                this.queue = null;
+                current = -1;
+                sequence = null;
+                queue = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current == this.count - 1)
+                if (current == count - 1)
                     return false;
-                this.current++;
+                current++;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = -1;
+                current = -1;
             }
         }
     }

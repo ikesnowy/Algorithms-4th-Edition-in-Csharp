@@ -6,12 +6,12 @@ namespace _3._2._6
     {
         static void Main(string[] args)
         {
-            BSTRecursive<int, int> recursiveHeight = new BSTRecursive<int, int>();
-            BSTConstant<int, int> constantHeight = new BSTConstant<int, int>();
+            var recursiveHeight = new BSTRecursive<int, int>();
+            var constantHeight = new BSTConstant<int, int>();
 
             int[] testCase = {5, 6, 2, 3, 9, 1, 0, 7};
 
-            foreach (int key in testCase)
+            foreach (var key in testCase)
             {
                 recursiveHeight.Put(key, key);
                 constantHeight.Put(key, key);

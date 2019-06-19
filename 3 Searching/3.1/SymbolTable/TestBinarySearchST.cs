@@ -13,11 +13,11 @@ namespace SymbolTable
         /// <param name="st">用于测试的符号表。</param>
         public static void Test(BinarySearchST<string, int> st)
         {
-            string test = "S E A R C H E X A M P L E";
-            string[] keys = test.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            int n = keys.Length;
+            var test = "S E A R C H E X A M P L E";
+            var keys = test.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var n = keys.Length;
 
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 st.Put(keys[i], i);
 
             Console.WriteLine("size = " + st.Size());
@@ -27,30 +27,30 @@ namespace SymbolTable
 
             Console.WriteLine("Testing Keys()");
             Console.WriteLine("-----------------------------------");
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 Console.WriteLine(s + " " + st.Get(s));
             Console.WriteLine();
 
             Console.WriteLine("Testing Select()");
             Console.WriteLine("-----------------------------------");
-            for (int i = 0; i < st.Size(); i++) // 循环条件不能有 '='
+            for (var i = 0; i < st.Size(); i++) // 循环条件不能有 '='
                 Console.WriteLine(i + " " + st.Select(i));
             Console.WriteLine();
 
             Console.WriteLine("key Rank Floor Ceil");
             Console.WriteLine("-----------------------------------");
-            for (char i = 'A'; i <= 'Z'; i++)
+            for (var i = 'A'; i <= 'Z'; i++)
             {
-                string s = i + "";
+                var s = i + "";
                 Console.WriteLine($"{s} {st.Rank(s)} {st.Floor(s)} {st.Ceiling(s)}");
             }
             Console.WriteLine();
 
-            for (int i = 0; i < st.Size() / 2; i++)
+            for (var i = 0; i < st.Size() / 2; i++)
                 st.DeleteMin();
             Console.WriteLine("After deleting the smallest " + st.Size() / 2 + " keys"); 
             Console.WriteLine("-----------------------------------");
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 Console.WriteLine(s + " " + st.Get(s));
             Console.WriteLine();
 
@@ -61,7 +61,7 @@ namespace SymbolTable
             // 异常处理
             try
             {
-                foreach (string s in st.Keys())
+                foreach (var s in st.Keys())
                     Console.WriteLine(s + " " + st.Get(s));
             }
             catch (Exception ex)
@@ -72,9 +72,9 @@ namespace SymbolTable
 
             Console.WriteLine("After adding back N keys");
             Console.WriteLine("-----------------------------------");
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 st.Put(keys[i], i);
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 Console.WriteLine(s + " " + st.Get(s));
             Console.WriteLine();
         }

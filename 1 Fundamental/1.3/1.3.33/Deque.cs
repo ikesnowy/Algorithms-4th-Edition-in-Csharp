@@ -26,9 +26,9 @@ namespace _1._3._33
         /// </summary>
         public Deque()
         {
-            this.first = null;
-            this.last = null;
-            this.count = 0;
+            first = null;
+            last = null;
+            count = 0;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace _1._3._33
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace _1._3._33
         /// <returns></returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -55,8 +55,8 @@ namespace _1._3._33
         /// <param name="item">要添加的元素。</param>
         public void PushLeft(Item item)
         {
-            DoubleNode<Item> oldFirst = this.first;
-            this.first = new DoubleNode<Item>()
+            var oldFirst = first;
+            first = new DoubleNode<Item>()
             {
                 item = item,
                 prev = null,
@@ -64,13 +64,13 @@ namespace _1._3._33
             };
             if (oldFirst == null)
             {
-                this.last = this.first;
+                last = first;
             }
             else
             {
-                oldFirst.prev = this.first;
+                oldFirst.prev = first;
             }
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace _1._3._33
         /// <param name="item">要添加的元素。</param>
         public void PushRight(Item item)
         {
-            DoubleNode<Item> oldLast = this.last;
-            this.last = new DoubleNode<Item>()
+            var oldLast = last;
+            last = new DoubleNode<Item>()
             {
                 item = item,
                 prev = oldLast,
@@ -89,13 +89,13 @@ namespace _1._3._33
 
             if (oldLast == null)
             {
-                this.first = this.last;
+                first = last;
             }
             else
             {
-                oldLast.next = this.last;
+                oldLast.next = last;
             }
-            this.count++;
+            count++;
         }
 
         /// <summary>
@@ -109,18 +109,18 @@ namespace _1._3._33
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.last.item;
-            this.last = this.last.prev;
-            this.count--;
+            var temp = last.item;
+            last = last.prev;
+            count--;
 
-            if (this.last == null)
+            if (last == null)
             {
-                this.first = null;
+                first = null;
             }
             else
             {
-                this.last.next.item = default(Item);
-                this.last.next = null;
+                last.next.item = default(Item);
+                last.next = null;
             }
             return temp;
         }
@@ -136,18 +136,18 @@ namespace _1._3._33
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.first.item;
-            this.first = this.first.next;
-            this.count--;
+            var temp = first.item;
+            first = first.next;
+            count--;
 
-            if (this.first == null)
+            if (first == null)
             {
-                this.last = null;
+                last = null;
             }
             else
             {
-                this.first.prev.item = default(Item);
-                this.first.prev = null;
+                first.prev.item = default(Item);
+                first.prev = null;
             }
 
             return temp;
@@ -155,7 +155,7 @@ namespace _1._3._33
 
         public IEnumerator<Item> GetEnumerator()
         {
-            return new DequeEnumerator(this.first);
+            return new DequeEnumerator(first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -170,33 +170,33 @@ namespace _1._3._33
 
             public DequeEnumerator(DoubleNode<Item> first) 
             {
-                this.current = new DoubleNode<Item>();
-                this.current.next = first;
-                this.current.prev = null;
-                this.first = this.current;
+                current = new DoubleNode<Item>();
+                current.next = first;
+                current.prev = null;
+                this.first = current;
             }
 
-            public Item Current => this.current.item;
+            public Item Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             public void Dispose()
             {
-                this.current = null;
-                this.first = null;
+                current = null;
+                first = null;
             }
 
             public bool MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
-                this.current = this.current.next;
+                current = current.next;
                 return true;
             }
 
             public void Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

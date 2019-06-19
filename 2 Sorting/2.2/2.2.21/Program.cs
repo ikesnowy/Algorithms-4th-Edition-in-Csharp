@@ -3,21 +3,20 @@ using Merge;
 
 namespace _2._2._21
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            string[] name1 = new string[] { "Noah", "Liam", "Jacob", "Mason" };
-            string[] name2 = new string[] { "Sophia", "Emma", "Mason", "Ava" };
-            string[] name3 = new string[] { "Mason", "Marcus", "Alexander", "Ava" };
+            var name1 = new string[] { "Noah", "Liam", "Jacob", "Mason" };
+            var name2 = new string[] { "Sophia", "Emma", "Mason", "Ava" };
+            var name3 = new string[] { "Mason", "Marcus", "Alexander", "Ava" };
 
-            MergeSort mergeSort = new MergeSort();
+            var mergeSort = new MergeSort();
             mergeSort.Sort(name1);
             mergeSort.Sort(name2);
             mergeSort.Sort(name3);
 
-            for (int i = 0; i < name1.Length; i++)
+            for (var i = 0; i < name1.Length; i++)
             {
                 if (BinarySearch(name1[i], name2, 0, name1.Length) != -1 &&
                     BinarySearch(name1[i], name3, 0, name1.Length) != -1)
@@ -25,7 +24,7 @@ namespace _2._2._21
                     Console.WriteLine(name1[i]);
                     break;
                 }
-                    
+
             }
         }
 
@@ -42,7 +41,7 @@ namespace _2._2._21
         {
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
                 if (array[mid].Equals(key))
                     return mid;
                 else if (array[mid].CompareTo(key) < 0)

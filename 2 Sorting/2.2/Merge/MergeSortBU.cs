@@ -19,14 +19,14 @@ namespace Merge
         /// <param name="a">待排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            T[] aux = new T[n];
-            for (int len = 1; len < n; len *= 2)
+            var n = a.Length;
+            var aux = new T[n];
+            for (var len = 1; len < n; len *= 2)
             {
-                for (int lo = 0; lo < n - len; lo += len + len)
+                for (var lo = 0; lo < n - len; lo += len + len)
                 {
-                    int mid = lo + len - 1;
-                    int hi = Math.Min(lo + len + len - 1, n - 1);
+                    var mid = lo + len - 1;
+                    var hi = Math.Min(lo + len + len - 1, n - 1);
                     Merge(a, aux, lo, mid, hi);
                 }
             }
@@ -43,13 +43,13 @@ namespace Merge
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {

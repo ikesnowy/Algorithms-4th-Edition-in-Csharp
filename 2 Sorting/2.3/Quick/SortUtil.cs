@@ -21,10 +21,10 @@ namespace Quick
         /// <returns>符合正态分布的随机数。</returns>
         public static double Normal(double average, double standardDeviation)
         {
-            double u1 = UniformGenerator.NextDouble();
-            double u2 = UniformGenerator.NextDouble();
+            var u1 = UniformGenerator.NextDouble();
+            var u2 = UniformGenerator.NextDouble();
 
-            double z0 = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(Math.PI * 2 * u2);
+            var z0 = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(Math.PI * 2 * u2);
             
             return z0 * standardDeviation + average;
         }
@@ -37,9 +37,9 @@ namespace Quick
         public static double Poission(double average)
         {
             double x = 0;
-            double p = Math.Pow(Math.E, -average);
-            double s = p;
-            double u = UniformGenerator.NextDouble();
+            var p = Math.Pow(Math.E, -average);
+            var s = p;
+            var u = UniformGenerator.NextDouble();
             do
             {
                 x++;
@@ -82,9 +82,9 @@ namespace Quick
                 throw new ArgumentNullException("Argument array is null");
             }
 
-            double EPSION = 1E-14;
+            var EPSION = 1E-14;
             double sum = 0;
-            for (int i = 0; i < probabilities.Length; i++)
+            for (var i = 0; i < probabilities.Length; i++)
             {
                 if (probabilities[i] <= 0)
                 {
@@ -101,9 +101,9 @@ namespace Quick
 
             while (true)
             {
-                double r = UniformGenerator.NextDouble();
+                var r = UniformGenerator.NextDouble();
                 sum = 0.0;
-                for (int i = 0; i < probabilities.Length; i++)
+                for (var i = 0; i < probabilities.Length; i++)
                 {
                     sum += probabilities[i];
                     if (sum > r)

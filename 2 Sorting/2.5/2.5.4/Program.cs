@@ -2,14 +2,13 @@
 
 namespace _2._5._4
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            string[] a = new string[] { "dup", "aba", "dup", "aaaaa", "aba", "cs" };
-            string[] distinct = Dedup(a);
-            for (int i = 0; i < distinct.Length; i++)
+            var a = new string[] { "dup", "aba", "dup", "aaaaa", "aba", "cs" };
+            var distinct = Dedup(a);
+            for (var i = 0; i < distinct.Length; i++)
             {
                 Console.Write(distinct[i] + " ");
             }
@@ -20,17 +19,17 @@ namespace _2._5._4
             if (a.Length == 0)
                 return a;
 
-            string[] sorted = new string[a.Length];
-            for (int i = 0; i < a.Length; i++)
+            var sorted = new string[a.Length];
+            for (var i = 0; i < a.Length; i++)
             {
                 sorted[i] = a[i];
             }
             Array.Sort(sorted);
             // sorted = sorted.Distinct().ToArray();
-            string[] distinct = new string[sorted.Length];
+            var distinct = new string[sorted.Length];
             distinct[0] = sorted[0];
-            int j = 1;
-            for (int i = 1; i < sorted.Length; i++)
+            var j = 1;
+            for (var i = 1; i < sorted.Length; i++)
             {
                 if (sorted[i].CompareTo(sorted[i - 1]) != 0)
                     distinct[j++] = sorted[i];

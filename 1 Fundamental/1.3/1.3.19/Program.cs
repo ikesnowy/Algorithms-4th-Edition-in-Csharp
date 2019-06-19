@@ -3,20 +3,19 @@ using Generics;
 
 namespace _1._3._19
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Node<string> first = new Node<string>()
+            var first = new Node<string>()
             {
                 item = "first"
             };
-            Node<string> second = new Node<string>()
+            var second = new Node<string>()
             {
                 item = "second"
             };
-            Node<string> third = new Node<string>()
+            var third = new Node<string>()
             {
                 item = "third"
             };
@@ -25,7 +24,7 @@ namespace _1._3._19
             second.next = third;
             third.next = null;
 
-            Node<string> current = first;
+            var current = first;
             while (current != null)
             {
                 Console.Write(current.item + " ");
@@ -46,7 +45,7 @@ namespace _1._3._19
 
         static void DeleteLast(Node<string> first)
         {
-            Node<string> current = first;
+            var current = first;
 
             while (current.next.next != null)
             {

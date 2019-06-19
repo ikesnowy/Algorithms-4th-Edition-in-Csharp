@@ -11,18 +11,18 @@ namespace _2._1._17
         public Form2(int N)
         {
             InitializeComponent();
-            this.randomDoubles = new double[N];
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            randomDoubles = new double[N];
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
+                randomDoubles[i] = random.NextDouble() * 0.8 + 0.2;
             }
             drawPanel();
 
-            this.timer1.Interval = 60;
-            this.timer1.Start();
+            timer1.Interval = 60;
+            timer1.Start();
 
-            Thread thread = new Thread(new ThreadStart(this.SelectionSort));
+            var thread = new Thread(new ThreadStart(SelectionSort));
             thread.IsBackground = true;
             thread.Start();
         }
@@ -32,19 +32,19 @@ namespace _2._1._17
         /// </summary>
         private void SelectionSort()
         {
-            for (int i = 0; i < this.randomDoubles.Length; i++)
+            for (var i = 0; i < randomDoubles.Length; i++)
             {
-                int min = i;
-                for (int j = i; j < this.randomDoubles.Length; j++)
+                var min = i;
+                for (var j = i; j < randomDoubles.Length; j++)
                 {
-                    if (this.randomDoubles[min] > this.randomDoubles[j])
+                    if (randomDoubles[min] > randomDoubles[j])
                     {
                         min = j;
                     }
                 }
-                double temp = this.randomDoubles[i];
-                this.randomDoubles[i] = this.randomDoubles[min];
-                this.randomDoubles[min] = temp;
+                var temp = randomDoubles[i];
+                randomDoubles[i] = randomDoubles[min];
+                randomDoubles[min] = temp;
                 Thread.Sleep(1000);
             }
         }
@@ -54,27 +54,27 @@ namespace _2._1._17
         /// </summary>
         private void drawPanel()
         {
-            Graphics graphics = this.CreateGraphics();
-            graphics.Clear(this.BackColor);
-            graphics.TranslateTransform(0, this.Height);
+            var graphics = CreateGraphics();
+            graphics.Clear(BackColor);
+            graphics.TranslateTransform(0, Height);
             graphics.ScaleTransform(1, -1);
-            Rectangle clientRect = this.ClientRectangle;
-            Rectangle drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
+            var clientRect = ClientRectangle;
+            var drawRect = new Rectangle(clientRect.X + 10, clientRect.Y + 10, clientRect.Width - 10, clientRect.Height - 10);
 
-            PointF[] barX = new PointF[this.randomDoubles.Length];
-            float unitX = (float)drawRect.Width / this.randomDoubles.Length;
+            var barX = new PointF[randomDoubles.Length];
+            var unitX = (float)drawRect.Width / randomDoubles.Length;
             unitX -= 4;
 
             barX[0] = new PointF(4, drawRect.Top);
-            for (int i = 1; i < this.randomDoubles.Length; i++)
+            for (var i = 1; i < randomDoubles.Length; i++)
             {
                 barX[i] = new PointF(2 + unitX + barX[i - 1].X, drawRect.Top);
             }
 
-            RectangleF[] bars = new RectangleF[this.randomDoubles.Length];
-            for (int i = 0; i < this.randomDoubles.Length; i++)
+            var bars = new RectangleF[randomDoubles.Length];
+            for (var i = 0; i < randomDoubles.Length; i++)
             {
-                SizeF size = new SizeF(unitX, (float)this.randomDoubles[i] * drawRect.Height);
+                var size = new SizeF(unitX, (float)randomDoubles[i] * drawRect.Height);
                 bars[i] = new RectangleF(barX[i], size);
             }
 

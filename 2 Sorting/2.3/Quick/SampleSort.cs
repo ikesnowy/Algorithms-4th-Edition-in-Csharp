@@ -19,7 +19,7 @@ namespace Quick
         /// </summary>
         public SampleSort()
         {
-            this.K = 8;
+            K = 8;
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Quick
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            if (a.Length < Math.Pow(2, this.K + 1))
+            if (a.Length < Math.Pow(2, K + 1))
             {
                 // 小于 2^(k+1) 的数组直接进行快排
                 base.Sort(a);
@@ -37,11 +37,11 @@ namespace Quick
             }
 
             Shuffle(a);
-            int samplehi = (int)Math.Pow(2, this.K) - 2;
+            var samplehi = (int)Math.Pow(2, K) - 2;
             // 利用快速排序对取样数组进行排序
             base.Sort(a, 0, samplehi);
             // 找到取样数组的中位数
-            int sampleMedian = samplehi / 2;
+            var sampleMedian = samplehi / 2;
             // 将取样数组后半部分放到数组末尾
             int i = samplehi, j = a.Length - 1;
             while (i != sampleMedian)
@@ -65,14 +65,14 @@ namespace Quick
             if (hi <= lo)                   // 别越界
                 return;
 
-            int j = Partition(a, lo, hi);
+            var j = Partition(a, lo, hi);
             // 将前部的有序取样数组取半，后半部分放在枢轴前面。
             if (lo - samplelo > 1)
             {
                 // p 应该始终指向有序部分的最后一项
                 // v 应该始终指向有序部分的前面一项
                 int p = lo - 1, v = j - 1;
-                for (int i = 0; i < (lo - samplelo) / 2; i++)
+                for (var i = 0; i < (lo - samplelo) / 2; i++)
                 {
                     Exch(a, p--, v--);
                 }
@@ -90,7 +90,7 @@ namespace Quick
                 // p 应该始终指向有序部分的前面一项
                 // v 应该始终指向有序部分的最后一项
                 int p = hi, v = j;
-                for (int i = 0; i < (samplehi - hi) / 2; i++)
+                for (var i = 0; i < (samplehi - hi) / 2; i++)
                 {
                     Exch(a, ++p, ++v);
                 }
@@ -114,7 +114,7 @@ namespace Quick
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v))
@@ -138,11 +138,11 @@ namespace Quick
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

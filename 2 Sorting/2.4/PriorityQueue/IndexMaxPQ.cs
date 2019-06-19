@@ -35,12 +35,12 @@ namespace PriorityQueue
         {
             if (capacity < 0)
                 throw new ArgumentOutOfRangeException();
-            this.n = 0;
-            this.keys = new Key[capacity + 1];
-            this.pq = new int[capacity + 1];
-            this.qp = new int[capacity + 1];
-            for (int i = 0; i <= capacity; i++)
-                this.qp[i] = -1;
+            n = 0;
+            keys = new Key[capacity + 1];
+            pq = new int[capacity + 1];
+            qp = new int[capacity + 1];
+            for (var i = 0; i <= capacity; i++)
+                qp[i] = -1;
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentNullException("队列中没有该索引");
-            this.keys[i] = k;
-            Swim(this.qp[i]);
-            Sink(this.qp[i]);
+            keys[i] = k;
+            Swim(qp[i]);
+            Sink(qp[i]);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace PriorityQueue
         /// </summary>
         /// <param name="i">要查询的索引。</param>
         /// <returns>包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool Contains(int i) => this.qp[i] != -1;
+        public bool Contains(int i) => qp[i] != -1;
 
         /// <summary>
         /// 删除索引 <paramref name="i"/> 对应的键值。
@@ -72,12 +72,12 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentOutOfRangeException("index is not in the priority queue");
-            int index = this.qp[i];
-            Exch(index, this.n--);
+            var index = qp[i];
+            Exch(index, n--);
             Swim(index);
             Sink(index);
-            this.keys[i] = default(Key);
-            this.qp[i] = -1;
+            keys[i] = default(Key);
+            qp[i] = -1;
         }
 
         /// <summary>
@@ -86,15 +86,15 @@ namespace PriorityQueue
         /// <returns>最大元素所在的索引。</returns>
         public int DelMax()
         {
-            if (this.n == 0)
+            if (n == 0)
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
-            int max = this.pq[1];
-            Exch(1, this.n--);
+            var max = pq[1];
+            Exch(1, n--);
             Sink(1);
 
-            this.qp[max] = -1;
-            this.keys[max] = default(Key);
-            this.pq[this.n + 1] = -1;
+            qp[max] = -1;
+            keys[max] = default(Key);
+            pq[n + 1] = -1;
             return max;
         }
 
@@ -107,11 +107,11 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentOutOfRangeException("index is not in the priority queue");
-            if (this.keys[i].CompareTo(key) <= 0)
+            if (keys[i].CompareTo(key) <= 0)
                 throw new ArgumentException("Calling IncreaseKey() with given argument would not strictly increase the Key");
 
-            this.keys[i] = key;
-            Sink(this.qp[i]);
+            keys[i] = key;
+            Sink(qp[i]);
         }
 
         /// <summary>
@@ -123,11 +123,11 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentOutOfRangeException("index is not in the priority queue");
-            if (this.keys[i].CompareTo(key) >= 0)
+            if (keys[i].CompareTo(key) >= 0)
                 throw new ArgumentException("Calling IncreaseKey() with given argument would not strictly increase the Key");
 
-            this.keys[i] = key;
-            Swim(this.qp[i]);
+            keys[i] = key;
+            Swim(qp[i]);
         }
 
         /// <summary>
@@ -139,18 +139,18 @@ namespace PriorityQueue
         {
             if (Contains(i))
                 throw new ArgumentException("索引已存在");
-            this.n++;
-            this.qp[i] = this.n;
-            this.pq[this.n] = i;
-            this.keys[i] = v;
-            Swim(this.n);
+            n++;
+            qp[i] = n;
+            pq[n] = i;
+            keys[i] = v;
+            Swim(n);
         }
 
         /// <summary>
         /// 堆是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => this.n == 0;
+        public bool IsEmpty() => n == 0;
 
         /// <summary>
         /// 获得与索引 <paramref name="i"/> 关联的元素。
@@ -162,7 +162,7 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentNullException("队列中没有该索引");
-            return this.keys[i];
+            return keys[i];
         }
 
         /// <summary>
@@ -172,9 +172,9 @@ namespace PriorityQueue
         /// <exception cref="ArgumentOutOfRangeException">当优先队列为空时抛出该异常。</exception>
         public int MaxIndex()
         {
-            if (this.n == 0)
+            if (n == 0)
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
-            return this.pq[1];
+            return pq[1];
         }
 
         /// <summary>
@@ -184,16 +184,16 @@ namespace PriorityQueue
         /// <exception cref="ArgumentOutOfRangeException">当优先队列为空时抛出该异常。</exception>
         public Key MaxKey()
         {
-            if (this.n == 0)
+            if (n == 0)
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
-            return this.keys[this.pq[1]];
+            return keys[pq[1]];
         }
 
         /// <summary>
         /// 返回堆的元素数量。
         /// </summary>
         /// <returns>堆的元素数量。</returns>
-        public int Size() => this.n;
+        public int Size() => n;
 
         /// <summary>
         /// 比较第一个元素是否小于第二个元素。
@@ -202,7 +202,7 @@ namespace PriorityQueue
         /// <param name="j">第二个元素。</param>
         /// <returns>如果堆中索引为 <paramref name="i"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Less(int i, int j) 
-            => this.keys[this.pq[i]].CompareTo(this.keys[this.pq[j]]) < 0;
+            => keys[pq[i]].CompareTo(keys[pq[j]]) < 0;
 
         /// <summary>
         /// 交换两个元素。
@@ -211,11 +211,11 @@ namespace PriorityQueue
         /// <param name="j">要交换的元素下标。</param>
         private void Exch(int i, int j)
         {
-            int swap = this.pq[i];
-            this.pq[i] = this.pq[j];
-            this.pq[j] = swap;
-            this.qp[this.pq[i]] = i;
-            this.qp[this.pq[j]] = j;
+            var swap = pq[i];
+            pq[i] = pq[j];
+            pq[j] = swap;
+            qp[pq[i]] = i;
+            qp[pq[j]] = j;
         }
 
         /// <summary>
@@ -237,10 +237,10 @@ namespace PriorityQueue
         /// <param name="k">需要下沉的元素。</param>
         private void Sink(int k)
         {
-            while (k * 2 <= this.n)
+            while (k * 2 <= n)
             {
-                int j = 2 * k;
-                if (j < this.n && Less(j, j + 1))
+                var j = 2 * k;
+                if (j < n && Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
                     break;
@@ -255,9 +255,9 @@ namespace PriorityQueue
         /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<int> GetEnumerator()
         {
-            IndexMaxPQ<Key> copy = new IndexMaxPQ<Key>(this.n);
-            for (int i = 0; i < this.n; i++)
-                copy.Insert(this.keys[this.pq[i]], this.pq[i]);
+            var copy = new IndexMaxPQ<Key>(n);
+            for (var i = 0; i < n; i++)
+                copy.Insert(keys[pq[i]], pq[i]);
 
             while (!copy.IsEmpty())
                 yield return copy.DelMax();

@@ -1,11 +1,10 @@
 ﻿namespace _1._3._44
-{
-    
+{    
     class Program
     {
         static void Main(string[] args)
         {
-            Buffer buffer = new Buffer();
+            var buffer = new Buffer();
             buffer.Insert('1');
             buffer.Insert('2');
             buffer.Insert('3');

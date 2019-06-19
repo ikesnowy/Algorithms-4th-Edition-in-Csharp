@@ -3,7 +3,6 @@ using Sort;
 
 namespace _2._1._24
 {
-    
     class Program
     {
         static void Main(string[] args)

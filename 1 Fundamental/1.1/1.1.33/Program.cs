@@ -7,22 +7,22 @@ namespace _1._1._33
     {
         static void Main(string[] args)
         {
-            double[] x = new double[] { 1, 2, 3 };
+            var x = new double[] { 1, 2, 3 };
 
-            double[][] a = new double[][]
+            var a = new double[][]
             {
                 new double[] {1, 2, 3},
                 new double[] {4, 5, 6}
             };
 
-            double[][] b = new double[][]
+            var b = new double[][]
             {
                 new double[] {1, 4},
                 new double[] {2, 5},
                 new double[] {3, 6}
             };
 
-            double[][] c = Matrix.Mult(a, b);
+            var c = Matrix.Mult(a, b);
 
             Console.WriteLine("a:");
             Matrix.PrintMatrix(a);

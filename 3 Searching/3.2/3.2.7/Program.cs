@@ -6,12 +6,12 @@ namespace _3._2._7
     {
         static void Main(string[] args)
         {
-            BSTRecursive<int, int> recursiveAvgCompare = new BSTRecursive<int, int>();
-            BSTConstant<int, int> constantAvgCompare = new BSTConstant<int, int>();
+            var recursiveAvgCompare = new BSTRecursive<int, int>();
+            var constantAvgCompare = new BSTConstant<int, int>();
 
             int[] testCase = { 5, 6, 2, 3, 9, 1, 0, 7 };
 
-            foreach (int key in testCase)
+            foreach (var key in testCase)
             {
                 recursiveAvgCompare.Put(key, key);
                 constantAvgCompare.Put(key, key);

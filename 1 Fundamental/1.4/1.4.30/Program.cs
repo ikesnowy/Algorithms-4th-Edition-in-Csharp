@@ -2,12 +2,11 @@
 
 namespace _1._4._30
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Deque<string> deque = new Deque<string>();
+            var deque = new Deque<string>();
 
             deque.PushLeft("first");
             deque.PushRight("second");

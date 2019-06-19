@@ -3,23 +3,22 @@ using Measurement;
 
 namespace _1._4._8
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            char[] splits = new char[1] { '\n' };
-            string[] testCase = TestCase.Properties.Resources._16Kints.Split(splits, StringSplitOptions.RemoveEmptyEntries);
-            int[] testArray = new int[testCase.Length + 2];
+            var splits = new char[1] { '\n' };
+            var testCase = TestCase.Properties.Resources._16Kints.Split(splits, StringSplitOptions.RemoveEmptyEntries);
+            var testArray = new int[testCase.Length + 2];
             // 样例第一个和最后一个相等
             testArray[0] = 1;
             testArray[testCase.Length + 1] = 1;
-            for (int i = 1; i <= testCase.Length; i++)
+            for (var i = 1; i <= testCase.Length; i++)
             {
                 testArray[i] = int.Parse(testCase[i - 1]);
             }
 
-            Stopwatch timer = new Stopwatch();
+            var timer = new Stopwatch();
             Console.WriteLine($"Count:{CountEqual(testArray)}");
             Console.WriteLine($"Time:{timer.ElapsedTime()} seconds");
             timer = new Stopwatch();
@@ -34,11 +33,11 @@ namespace _1._4._8
         /// <returns></returns>
         static int CountEqual(int[] a)
         {
-            int n = a.Length;
-            int count = 0;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            var count = 0;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i + 1; j < n; j++)
+                for (var j = i + 1; j < n; j++)
                 {
                     if (a[i] == a[j])
                         count++;
@@ -55,11 +54,11 @@ namespace _1._4._8
         /// <returns></returns>
         static int CountEqualLog(int[] a)
         {
-            int n = a.Length;
-            int count = 0;
+            var n = a.Length;
+            var count = 0;
             Array.Sort(a);
-            int dup = 0; // dup = 重复元素数量-1
-            for (int i = 1; i < n; i++)
+            var dup = 0; // dup = 重复元素数量-1
+            for (var i = 1; i < n; i++)
             {
                 while (a[i - 1] == a[i])
                 {

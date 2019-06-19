@@ -18,8 +18,8 @@ namespace Generics
         /// </summary>
         public Bag()
         {
-            this.first = null;
-            this.count = 0;
+            first = null;
+            count = 0;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Generics
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         public bool IsEmpty()
         {
-            return this.first == null;
+            return first == null;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Generics
         /// <returns>背包中元素的数量。</returns>
         public int Size()
         {
-            return this.count;
+            return count;
         }
 
         /// <summary>
@@ -46,11 +46,11 @@ namespace Generics
         /// <param name="item">要添加的元素。</param>
         public void Add(Item item)
         {
-            Node<Item> oldFirst = this.first;
-            this.first = new Node<Item>();
-            this.first.item = item;
-            this.first.next = oldFirst;
-            this.count++;
+            var oldFirst = first;
+            first = new Node<Item>();
+            first.item = item;
+            first.next = oldFirst;
+            count++;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Generics
         /// <returns>返回枚举器对象。</returns>
         public IEnumerator<Item> GetEnumerator()
         {
-            return new BagEnumerator(this.first);
+            return new BagEnumerator(first);
         }
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace Generics
             private Node<Item> current;
             private Node<Item> first;
 
-            Item IEnumerator<Item>.Current => this.current.item;
+            Item IEnumerator<Item>.Current => current.item;
 
-            object IEnumerator.Current => this.current.item;
+            object IEnumerator.Current => current.item;
 
             /// <summary>
             /// 构造一个背包枚举器。
@@ -90,31 +90,31 @@ namespace Generics
             /// <param name="first">背包的第一个结点。</param>
             public BagEnumerator(Node<Item> first)
             {
-                this.current = new Node<Item>();
-                this.current.next = first;
-                this.first = this.current;
+                current = new Node<Item>();
+                current.next = first;
+                this.first = current;
             }
 
             void IDisposable.Dispose()
             {
-                this.current = null;
-                this.first = null;
+                current = null;
+                first = null;
                 return;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (this.current.next == null)
+                if (current.next == null)
                     return false;
 
-                Item item = this.current.item;
-                this.current = this.current.next;
+                Item item = current.item;
+                current = current.next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                this.current = this.first;
+                current = first;
             }
         }
     }

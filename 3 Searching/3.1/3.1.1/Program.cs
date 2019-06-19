@@ -3,14 +3,13 @@ using SymbolTable;
 
 namespace _3._1._1
 {
-    
     class Program
     {
         // 官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
         // ST.java：https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/ST.java.html
         static void Main(string[] args)
         {
-            ST<string, double> st = new ST<string, double>();
+            var st = new ST<string, double>();
             st.Put("A+", 4.33);
             st.Put("A", 4.00);
             st.Put("A-", 3.67);
@@ -24,8 +23,8 @@ namespace _3._1._1
             st.Put("F", 0.00);
 
             double total = 0;
-            string[] gpas = Console.ReadLine().Split(' ');
-            foreach (string gpa in gpas)
+            var gpas = Console.ReadLine().Split(' ');
+            foreach (var gpa in gpas)
                 total += st.Get(gpa);
             total /= gpas.Length;
             Console.WriteLine("GPA=" + total);

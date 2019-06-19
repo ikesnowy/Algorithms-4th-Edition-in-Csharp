@@ -3,16 +3,15 @@ using System.IO;
 
 namespace _1._1._23
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
             // 从largeW.txt中读取数据
-            string[] whiteList = File.ReadAllLines("largeW.txt");
-            int[] WhiteList = new int[whiteList.Length];
+            var whiteList = File.ReadAllLines("largeW.txt");
+            var WhiteList = new int[whiteList.Length];
 
-            for (int i = 0; i < whiteList.Length; i++)
+            for (var i = 0; i < whiteList.Length; i++)
             {
                 WhiteList[i] = int.Parse(whiteList[i]);
             }
@@ -21,18 +20,18 @@ namespace _1._1._23
 
             Console.WriteLine("Type the numbers you want to query: ");
             // 输入样例：5 824524 478510 387221
-            string input = Console.ReadLine();
-            int[] Query = new int[input.Split(' ').Length];
-            for (int i = 0; i < Query.Length; i++)
+            var input = Console.ReadLine();
+            var Query = new int[input.Split(' ').Length];
+            for (var i = 0; i < Query.Length; i++)
             {
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }
 
             Console.WriteLine("Type '+' to get the numbers that not in the whitelist," +
                 "'-' to get the numbers that in the whitelist.");
-            char operation = Console.ReadLine()[0];
+            var operation = Console.ReadLine()[0];
 
-            foreach (int n in Query)
+            foreach (var n in Query)
             {
                 if (rank(n, WhiteList) == -1)
                 {
@@ -75,7 +74,7 @@ namespace _1._1._23
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {

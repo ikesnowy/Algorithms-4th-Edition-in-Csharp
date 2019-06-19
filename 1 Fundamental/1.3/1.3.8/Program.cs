@@ -7,12 +7,12 @@ namespace _1._3._8
     {
         static void Main(string[] args)
         {
-            DoublingStackOfStrings stack = new DoublingStackOfStrings();
+            var stack = new DoublingStackOfStrings();
 
-            string[] input = "it was - the best - of times - - - it was - the - -".Split(' ');
+            var input = "it was - the best - of times - - - it was - the - -".Split(' ');
 
 
-            foreach (string n in input)
+            foreach (var n in input)
             {
                 if (n == "-")
                     stack.Pop();
@@ -20,7 +20,7 @@ namespace _1._3._8
                     stack.Push(n);
             }
 
-            foreach (string s in stack)
+            foreach (var s in stack)
             {
                 Console.Write(s + ' ');
             }

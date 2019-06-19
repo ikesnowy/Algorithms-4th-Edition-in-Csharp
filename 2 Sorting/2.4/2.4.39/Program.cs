@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 namespace _2._4._39
 {
-    
     class Program
     {
         static Random random = new Random();
@@ -12,13 +11,13 @@ namespace _2._4._39
         {
             Console.WriteLine("n\tBuild\tSort\tRatio");
 
-            int n = 1000;     // 当数据量到达 10^9 时会需要 2G 左右的内存
-            int multiTen = 7;
-            for (int i = 0; i < multiTen; i++)
+            var n = 1000;     // 当数据量到达 10^9 时会需要 2G 左右的内存
+            var multiTen = 7;
+            for (var i = 0; i < multiTen; i++)
             {
-                short[] data = GetRandomArray(n);
-                Stopwatch fullSort = new Stopwatch();
-                Stopwatch buildHeap = new Stopwatch();
+                var data = GetRandomArray(n);
+                var fullSort = new Stopwatch();
+                var buildHeap = new Stopwatch();
 
                 fullSort.Restart();
 
@@ -29,8 +28,8 @@ namespace _2._4._39
                 HeapSort(data);
                 fullSort.Stop();
 
-                long buildTime = buildHeap.ElapsedMilliseconds;
-                long fullTime = fullSort.ElapsedMilliseconds;
+                var buildTime = buildHeap.ElapsedMilliseconds;
+                var fullTime = fullSort.ElapsedMilliseconds;
                 Console.WriteLine(n + "\t" + buildTime + "\t" + fullTime + "\t" + (double)buildTime / fullTime);
                 n *= 10;
             }
@@ -38,8 +37,8 @@ namespace _2._4._39
 
         static short[] GetRandomArray(int n)
         {
-            short[] data = new short[n];
-            for (int i = 0; i < n; i++)
+            var data = new short[n];
+            for (var i = 0; i < n; i++)
             {
                 data[i] = (short)random.Next();
             }
@@ -52,8 +51,8 @@ namespace _2._4._39
         /// <param name="data">数组。</param>
         static void BuildHeap(short[] data)
         {
-            int n = data.Length;
-            for (int k = n / 2; k >= 1; k--)
+            var n = data.Length;
+            for (var k = n / 2; k >= 1; k--)
             {
                 Sink(data, k, n);
             }
@@ -65,7 +64,7 @@ namespace _2._4._39
         /// <param name="heap">最大堆。</param>
         static void HeapSort(short[] heap)
         {
-            int n = heap.Length;
+            var n = heap.Length;
             while (n > 1)
             {
                 Exch(heap, 1, n--);
@@ -83,7 +82,7 @@ namespace _2._4._39
         {
             while (2 * k <= n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < n && Less(pq, j, j + 1))
                     j++;
                 if (!Less(pq, k, j))
@@ -111,7 +110,7 @@ namespace _2._4._39
         /// <param name="b">要交换的结点序号。</param>
         static void Exch(short[] pq, int a, int b)
         {
-            short temp = pq[a - 1];
+            var temp = pq[a - 1];
             pq[a - 1] = pq[b - 1];
             pq[b - 1] = temp;
         }

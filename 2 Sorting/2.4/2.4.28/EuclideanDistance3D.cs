@@ -21,7 +21,7 @@ namespace _2._4._28
             this.x = x;
             this.y = y;
             this.z = z;
-            this.distance = Math.Sqrt(x * x + y * y + z * z);
+            distance = Math.Sqrt(x * x + y * y + z * z);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace _2._4._28
         /// <returns></returns>
         public int CompareTo(EuclideanDistance3D other)
         {
-            return this.distance.CompareTo(other.distance);
+            return distance.CompareTo(other.distance);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace _2._4._28
         /// <returns></returns>
         public override string ToString()
         {
-            return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+            return "(" + x + ", " + y + ", " + z + ")";
         }
     }
 }

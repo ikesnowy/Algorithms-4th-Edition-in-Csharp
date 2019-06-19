@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace _2._5._29
 {
-    
     class Program
     {
         class FileSizeComparer : Comparer<FileInfo>
@@ -33,10 +32,10 @@ namespace _2._5._29
 
         static void InsertionSort<T>(T[] keys, Comparer<T>[] comparers)
         {
-            for (int i = 0; i < keys.Length; i++)
-                for (int j = i; j > 0 && Less(keys, j, j - 1, comparers); j--)
+            for (var i = 0; i < keys.Length; i++)
+                for (var j = i; j > 0 && Less(keys, j, j - 1, comparers); j--)
                 {
-                    T temp = keys[j];
+                    var temp = keys[j];
                     keys[j] = keys[j - 1];
                     keys[j - 1] = temp;
                 }
@@ -44,8 +43,8 @@ namespace _2._5._29
 
         static bool Less<T>(T[] keys, int x, int y, Comparer<T>[] comparables)
         {
-            int cmp = 0;
-            for (int i = 0; i < comparables.Length && cmp == 0; i++)
+            var cmp = 0;
+            for (var i = 0; i < comparables.Length && cmp == 0; i++)
             {
                 cmp = comparables[i].Compare(keys[x], keys[y]);
             }
@@ -54,17 +53,17 @@ namespace _2._5._29
 
         static void Main(string[] args)
         {
-            string[] arguments = Console.ReadLine().Split(' ');
-            string directoryPath = arguments[0];
-            string[] filenames = Directory.GetFiles(directoryPath);
-            FileInfo[] fileInfos = new FileInfo[filenames.Length];
-            for (int i = 0; i < filenames.Length; i++)
+            var arguments = Console.ReadLine().Split(' ');
+            var directoryPath = arguments[0];
+            var filenames = Directory.GetFiles(directoryPath);
+            var fileInfos = new FileInfo[filenames.Length];
+            for (var i = 0; i < filenames.Length; i++)
                 fileInfos[i] = new FileInfo(filenames[i]);
 
-            List<Comparer<FileInfo>> comparers = new List<Comparer<FileInfo>>();
-            for (int i = 1; i < arguments.Length; i++)
+            var comparers = new List<Comparer<FileInfo>>();
+            for (var i = 1; i < arguments.Length; i++)
             {
-                string command = arguments[i];
+                var command = arguments[i];
                 switch (command)
                 {
                     case "-t":
@@ -79,7 +78,7 @@ namespace _2._5._29
                 }
             }
             InsertionSort(fileInfos, comparers.ToArray());
-            for (int i = 0; i < fileInfos.Length; i++)
+            for (var i = 0; i < fileInfos.Length; i++)
             {
                 Console.WriteLine(fileInfos[i].Name + "\t" + fileInfos[i].Length + "\t" + fileInfos[i].LastWriteTime);
             }

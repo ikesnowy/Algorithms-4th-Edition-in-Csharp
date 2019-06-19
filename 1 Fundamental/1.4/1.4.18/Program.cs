@@ -2,12 +2,11 @@
 
 namespace _1._4._18
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            int[] a = new int[5] { 5, 6, 5, 3, 5 };
+            var a = new int[5] { 5, 6, 5, 3, 5 };
             Console.WriteLine(LocalMinimum(a));
         }
 
@@ -18,11 +17,11 @@ namespace _1._4._18
         /// <returns>局部最小元素的值。</returns>
         static int LocalMinimum(int[] testcases)
         {
-            int lo = 0;
-            int hi = testcases.Length - 1;
+            var lo = 0;
+            var hi = testcases.Length - 1;
             while (lo <= hi)
             {
-                int mid = (hi - lo) / 2 + lo;
+                var mid = (hi - lo) / 2 + lo;
                 if (testcases[mid] < testcases[mid - 1] && testcases[mid] < testcases[mid + 1])
                     return mid;
                 if (testcases[mid - 1] < testcases[mid + 1])

@@ -2,15 +2,14 @@
 
 namespace _1._1._26
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            int a = 3;
-            int b = 2;
-            int c = 1;
-            int t = 0;
+            var a = 3;
+            var b = 2;
+            var c = 1;
+            var t = 0;
 
             if (a > b) { t = a; a = b; b = t; } // 如果 a > b，那么 a, b 交换，保证b >= a
             if (a > c) { t = a; a = c; c = t; } // 如果 b >= a > c，那么 a, c 交换，保证 c >= a

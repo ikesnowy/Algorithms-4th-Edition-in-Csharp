@@ -18,10 +18,10 @@ namespace _1._3._38
         /// </summary>
         public ArrayBasedGeneralizeQueue()
         {
-            this.queue = new Item[2];
-            this.IsVisited = new bool[2];
-            this.last = 0;
-            this.count = 0;
+            queue = new Item[2];
+            IsVisited = new bool[2];
+            last = 0;
+            count = 0;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace _1._3._38
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.count == 0;
+            return count == 0;
         }
 
         /// <summary>
@@ -39,19 +39,19 @@ namespace _1._3._38
         /// <param name="capacity"></param>
         private void Resize(int capacity)
         {
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < count; i++)
             {
-                temp[i] = this.queue[i];
+                temp[i] = queue[i];
             }
-            this.queue = temp;
+            queue = temp;
 
-            bool[] t = new bool[capacity];
-            for (int i = 0; i < this.count; i++)
+            var t = new bool[capacity];
+            for (var i = 0; i < count; i++)
             {
-                t[i] = this.IsVisited[i];
+                t[i] = IsVisited[i];
             }
-            this.IsVisited = t;
+            IsVisited = t;
         }
 
         /// <summary>
@@ -60,15 +60,15 @@ namespace _1._3._38
         /// <param name="item">要插入队列的元素。</param>
         public void Insert(Item item)
         {
-            if (this.count == this.queue.Length)
+            if (count == queue.Length)
             {
-                Resize(this.queue.Length * 2);
+                Resize(queue.Length * 2);
             }
 
-            this.queue[this.last] = item;
-            this.IsVisited[this.last] = false;
-            this.last++;
-            this.count++;
+            queue[last] = item;
+            IsVisited[last] = false;
+            last++;
+            count++;
         }
 
         /// <summary>
@@ -83,19 +83,19 @@ namespace _1._3._38
                 throw new InvalidOperationException();
             }
 
-            if (k > this.last || k < 0)
+            if (k > last || k < 0)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
-            if (this.IsVisited[k - 1] == true)
+            if (IsVisited[k - 1] == true)
             {
                 throw new ArgumentException("this node had been already deleted");
             }
 
-            Item temp = this.queue[k - 1];
-            this.IsVisited[k - 1] = true;
-            this.count--;
+            var temp = queue[k - 1];
+            IsVisited[k - 1] = true;
+            count--;
             return temp;
         }
     }

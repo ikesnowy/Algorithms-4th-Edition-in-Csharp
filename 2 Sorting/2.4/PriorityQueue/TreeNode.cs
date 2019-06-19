@@ -35,10 +35,10 @@ namespace PriorityQueue
         /// <param name="value">结点的值。</param>
         public TreeNode(T value)
         {
-            this.Value = value;
-            this.Prev = null;
-            this.Left = null;
-            this.Right = null;
+            Value = value;
+            Prev = null;
+            Left = null;
+            Right = null;
         }
 
         /// <summary>
@@ -50,10 +50,10 @@ namespace PriorityQueue
         /// <param name="value">当前结点的值。</param>
         public TreeNode(TreeNode<T> prev, TreeNode<T> left, TreeNode<T> right, T value)
         {
-            this.Prev = prev;
-            this.Left = left;
-            this.Right = right;
-            this.Value = value;
+            Prev = prev;
+            Left = left;
+            Right = right;
+            Value = value;
         }
     }
 }

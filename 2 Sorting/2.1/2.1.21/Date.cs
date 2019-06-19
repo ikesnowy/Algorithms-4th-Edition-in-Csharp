@@ -14,12 +14,12 @@ namespace _2._1._21
         /// <param name="date">形如 "05/31/2017" 的字符串。</param>
         public Date(string date)
         {
-            string[] a = date.Split('/');
+            var a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
-            this.Month = int.Parse(a[0]);
-            this.Day = int.Parse(a[1]);
-            this.Year = int.Parse(a[2]);
+            Month = int.Parse(a[0]);
+            Day = int.Parse(a[1]);
+            Year = int.Parse(a[2]);
         }
 
         /// <summary>
@@ -30,9 +30,9 @@ namespace _2._1._21
         /// <param name="y">交易年份。</param>
         public Date(int m, int d, int y)
         {
-            this.Month = m;
-            this.Day = d;
-            this.Year = y;
+            Month = m;
+            Day = d;
+            Year = y;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace _2._1._21
         /// <returns></returns>
         public override string ToString()
         {
-            return this.Month + "/" + this.Day + "/" + this.Year;
+            return Month + "/" + Day + "/" + Year;
         }
 
         /// <summary>
@@ -55,10 +55,10 @@ namespace _2._1._21
                 return true;
             if (obj == null)
                 return false;
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
                 return false;
-            Date that = (Date)obj;
-            return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
+            var that = (Date)obj;
+            return (Year == that.Year) && (Month == that.Month) && (Day == that.Day);
         }
 
         /// <summary>
@@ -67,10 +67,10 @@ namespace _2._1._21
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 17;
-            hash = 31 * hash + this.Month;
-            hash = 31 * hash + this.Year;
-            hash = 31 * hash + this.Day;
+            var hash = 17;
+            hash = 31 * hash + Month;
+            hash = 31 * hash + Year;
+            hash = 31 * hash + Day;
             return hash;
         }
 
@@ -81,19 +81,19 @@ namespace _2._1._21
         /// <returns></returns>
         public int CompareTo(Date other)
         {
-            if (this.Year > other.Year)
+            if (Year > other.Year)
                 return 1;
-            else if (this.Year < other.Year)
+            else if (Year < other.Year)
                 return -1;
 
-            if (this.Month > other.Month)
+            if (Month > other.Month)
                 return 1;
-            else if (this.Month < other.Month)
+            else if (Month < other.Month)
                 return -1;
 
-            if (this.Day > other.Day)
+            if (Day > other.Day)
                 return 1;
-            else if (this.Day < other.Day)
+            else if (Day < other.Day)
                 return -1;
 
             return 0;

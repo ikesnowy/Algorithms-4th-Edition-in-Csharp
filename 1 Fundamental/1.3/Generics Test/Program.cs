@@ -7,23 +7,23 @@ namespace Generics_Test
     {
         static void Main(string[] args)
         {
-            Bag<string> bag = new Bag<string>();
+            var bag = new Bag<string>();
             bag.Add("lalala");
             bag.Add("lalala");
             bag.Add("lalala");
 
             Console.WriteLine(bag.Size());
-            foreach (string n in bag)
+            foreach (var n in bag)
             {
                 Console.WriteLine(n);
             }
             Console.WriteLine();
 
-            Stack<string> stack = new Stack<string>();
-            string input = "to be or not to - be - - that - - - is";
-            string[] s = input.Split(' ');
+            var stack = new Stack<string>();
+            var input = "to be or not to - be - - that - - - is";
+            var s = input.Split(' ');
 
-            foreach (string n in s)
+            foreach (var n in s)
             {
                 if (!n.Equals("-"))
                     stack.Push(n);
@@ -35,9 +35,9 @@ namespace Generics_Test
             Console.WriteLine(stack);
             Console.WriteLine();
 
-            Queue<string> queue = new Queue<string>();
+            var queue = new Queue<string>();
 
-            foreach (string n in s)
+            foreach (var n in s)
             {
                 if (!n.Equals("-"))
                     queue.Enqueue(n);
@@ -48,7 +48,7 @@ namespace Generics_Test
             Console.WriteLine($"({queue.Size()}) left on queue");
             Console.WriteLine(queue);
 
-            LinkedList<string> link = new LinkedList<string>();
+            var link = new LinkedList<string>();
             link.Insert("first");
             link.Insert("second");
             link.Insert("third");

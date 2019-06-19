@@ -4,36 +4,35 @@ using SymbolTable;
 
 namespace _3._1._33
 {
-    
     class Program
     {
         static Random random = new Random();
 
         static void Main(string[] args)
         {
-            int n = 1000;
-            int multiplyBy10 = 4;
-            for (int i = 0; i < multiplyBy10; i++)
+            var n = 1000;
+            var multiplyBy10 = 4;
+            for (var i = 0; i < multiplyBy10; i++)
             {
                 Console.WriteLine("n=" + n);
                 // 构造表
-                BinarySearchST<string, int> bst = new BinarySearchST<string, int>(n);
-                MoveToFrontArrayST<string, int> mst = new MoveToFrontArrayST<string, int>(n);
-                string[] keys = SearchCompare.GetRandomArrayString(n, 3, 20);
-                for (int j = 0; j < n; j++)
+                var bst = new BinarySearchST<string, int>(n);
+                var mst = new MoveToFrontArrayST<string, int>(n);
+                var keys = SearchCompare.GetRandomArrayString(n, 3, 20);
+                for (var j = 0; j < n; j++)
                 {
                     bst.Put(keys[j], j);
                     mst.Put(keys[j], j);
                 }
                 // 构造查询
                 Array.Sort(keys);
-                string[] querys = new string[10 * n];
+                var querys = new string[10 * n];
                 int queryIndex = 0, keyIndex = 0;
                 while (queryIndex < querys.Length)
                 {
-                    int searchTimes = (int)Math.Ceiling((Math.Pow(0.5, keyIndex + 1) * querys.Length));
-                    
-                    for (int j = 0; j < searchTimes && queryIndex < querys.Length; j++)
+                    var searchTimes = (int)Math.Ceiling((Math.Pow(0.5, keyIndex + 1) * querys.Length));
+
+                    for (var j = 0; j < searchTimes && queryIndex < querys.Length; j++)
                     {
                         querys[queryIndex++] = keys[keyIndex];
                     }
@@ -41,10 +40,10 @@ namespace _3._1._33
                 }
                 Shuffle(querys);
 
-                Stopwatch sw = new Stopwatch();
+                var sw = new Stopwatch();
                 // 测试 MoveToFrontArrayST
                 sw.Start();
-                for (int j = 0; j < querys.Length; j++)
+                for (var j = 0; j < querys.Length; j++)
                 {
                     mst.Get(querys[j]);
                 }
@@ -53,7 +52,7 @@ namespace _3._1._33
 
                 // 测试 BinarySearchST
                 sw.Restart();
-                for (int j = 0; j < querys.Length; j++)
+                for (var j = 0; j < querys.Length; j++)
                 {
                     bst.Get(querys[j]);
                 }
@@ -66,10 +65,10 @@ namespace _3._1._33
 
         static void Shuffle<T>(T[] data)
         {
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
-                int r = i + random.Next(data.Length - i);
-                T temp = data[r];
+                var r = i + random.Next(data.Length - i);
+                var temp = data[r];
                 data[r] = data[i];
                 data[i] = temp;
             }

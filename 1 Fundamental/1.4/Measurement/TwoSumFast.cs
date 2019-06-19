@@ -13,11 +13,11 @@ namespace Measurement
         /// <param name="a">查找范围。</param>
         public static void PrintAll(int[] a)
         {
-            int n = a.Length;
+            var n = a.Length;
             Array.Sort(a);
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
-                int j = Array.BinarySearch(a, -a[i]);
+                var j = Array.BinarySearch(a, -a[i]);
                 if (j > i)
                 {
                     Console.WriteLine(a[i] + " " + a[j]);
@@ -32,12 +32,12 @@ namespace Measurement
         /// <returns>数组中和为零的整数对数量。</returns>
         public static int Count(int[] a)
         {
-            int n = a.Length;
+            var n = a.Length;
             Array.Sort(a);
-            int count = 0;
-            for (int i = 0; i < n; i++)
+            var count = 0;
+            for (var i = 0; i < n; i++)
             {
-                int j = Array.BinarySearch(a, -a[i]);
+                var j = Array.BinarySearch(a, -a[i]);
                 if (i < j)
                 {
                     count++;

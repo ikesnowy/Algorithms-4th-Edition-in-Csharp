@@ -2,7 +2,6 @@
 
 namespace _3._1._26
 {
-    
     class Program
     {
         static void Main(string[] args)

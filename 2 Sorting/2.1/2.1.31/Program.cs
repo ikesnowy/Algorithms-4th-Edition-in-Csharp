@@ -3,30 +3,30 @@ using Sort;
 
 namespace _2._1._31
 {
-    
+
     class Program
     {
         static void Main(string[] args)
         {
-            int N = 1000;
+            var N = 1000;
 
-            InsertionSort insertion = new InsertionSort();
-            SelectionSort selection = new SelectionSort();
-            ShellSort shell = new ShellSort();
+            var insertion = new InsertionSort();
+            var selection = new SelectionSort();
+            var shell = new ShellSort();
 
             double prevInsertion = 0;
             double prevSelection = 0;
             double prevShell = 0;
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 Console.WriteLine("N:" + N);
-                int[] array = SortCompare.GetRandomArrayInt(N);
-                int[] arrayBak = new int[N];
+                var array = SortCompare.GetRandomArrayInt(N);
+                var arrayBak = new int[N];
                 array.CopyTo(arrayBak, 0);
 
                 Console.WriteLine("\tInsertion Sort");
-                double now = SortCompare.Time(insertion, array);
+                var now = SortCompare.Time(insertion, array);
                 Console.WriteLine("\t\tActual Time(ms):" + now);
                 if (i != 0)
                 {
@@ -61,7 +61,7 @@ namespace _2._1._31
 
                 N *= 2;
             }
-            
+
         }
     }
 }

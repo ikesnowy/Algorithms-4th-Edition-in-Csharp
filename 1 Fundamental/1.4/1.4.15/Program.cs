@@ -3,7 +3,6 @@ using Measurement;
 
 namespace _1._4._15
 {
-    
     class Program
     {
         // 由于数组已经排序（从小到大），负数在左侧，正数在右侧。
@@ -18,10 +17,10 @@ namespace _1._4._15
         // 只要在 TwoSumFaster 外层再套一个循环即可。
         static void Main(string[] args)
         {
-            char[] split = new char[1] { '\n' };
-            string[] testCases = TestCase.Properties.Resources._1Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] a = new int[testCases.Length];
-            for (int i = 0; i < testCases.Length; i++)
+            var split = new char[1] { '\n' };
+            var testCases = TestCase.Properties.Resources._1Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var a = new int[testCases.Length];
+            for (var i = 0; i < testCases.Length; i++)
             {
                 a[i] = int.Parse(testCases[i]);
             }
@@ -39,9 +38,9 @@ namespace _1._4._15
         /// <returns>数组中和为零的整数对数量。</returns>
         static int TwoSumFaster(int[] a)
         {
-            int lo = 0;
-            int hi = a.Length - 1;
-            int count = 0;
+            var lo = 0;
+            var hi = a.Length - 1;
+            var count = 0;
             while (lo < hi)
             {
                 if (a[lo] + a[hi] == 0)
@@ -69,11 +68,11 @@ namespace _1._4._15
         /// <returns>数组中和为零的三元组数量。</returns>
         static int ThreeSumFaster(int[] a)
         {
-            int count = 0;
-            for (int i = 0; i < a.Length; i++)
+            var count = 0;
+            for (var i = 0; i < a.Length; i++)
             {
-                int lo = i + 1;
-                int hi = a.Length - 1;
+                var lo = i + 1;
+                var hi = a.Length - 1;
                 while (lo <= hi)
                 {
                     if (a[lo] + a[hi] + a[i] == 0)

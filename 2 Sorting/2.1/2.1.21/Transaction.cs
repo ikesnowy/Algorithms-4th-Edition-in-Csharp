@@ -15,10 +15,10 @@ namespace _2._1._21
         /// <param name="transaction">用空格隔开的形如 “姓名 日期 金额” 的字符串。</param>
         public Transaction(string transaction)
         {
-            string[] a = transaction.Split(' ');
-            this.Who = a[0];
-            this.When = new Date(a[1]);
-            this.Amount = double.Parse(a[2]);
+            var a = transaction.Split(' ');
+            Who = a[0];
+            When = new Date(a[1]);
+            Amount = double.Parse(a[2]);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace _2._1._21
             {
                 throw new ArgumentException("Amount cannot be NaN or Infinity");
             }
-            this.Who = who;
-            this.When = when;
-            this.Amount = amount;
+            Who = who;
+            When = when;
+            Amount = amount;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace _2._1._21
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("{0, -10} {1, 10} {2, 8:F2}", this.Who, this.When, this.Amount);
+            return string.Format("{0, -10} {1, 10} {2, 8:F2}", Who, When, Amount);
         }
 
         /// <summary>
@@ -54,9 +54,9 @@ namespace _2._1._21
         /// <returns></returns>
         public int CompareTo(Transaction other)
         {
-            if (this.Amount < other.Amount)
+            if (Amount < other.Amount)
                 return -1;
-            if (this.Amount > other.Amount)
+            if (Amount > other.Amount)
                 return 1;
             return 0;
         }
@@ -105,14 +105,14 @@ namespace _2._1._21
                 return true;
             if (obj == null)
                 return false;
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
                 return false;
-            Transaction that = (Transaction)obj;
+            var that = (Transaction)obj;
 
             return
-                (that.Amount == this.Amount) &&
-                (that.When.Equals(this.When)) &&
-                (that.Who == this.Who);
+                (that.Amount == Amount) &&
+                (that.When.Equals(When)) &&
+                (that.Who == Who);
         }
 
         /// <summary>
@@ -121,10 +121,10 @@ namespace _2._1._21
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 1;
-            hash = 31 * hash + this.Who.GetHashCode();
-            hash = 31 * hash + this.When.GetHashCode();
-            hash = 31 * hash + this.Amount.GetHashCode();
+            var hash = 1;
+            hash = 31 * hash + Who.GetHashCode();
+            hash = 31 * hash + When.GetHashCode();
+            hash = 31 * hash + Amount.GetHashCode();
             return hash;
         }
     }

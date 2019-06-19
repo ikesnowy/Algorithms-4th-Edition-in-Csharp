@@ -20,73 +20,73 @@ namespace _1._3._49
 
         public StackQueue()
         {
-            this.isRecopying = false;
-            this.nowcopying = 0;
+            isRecopying = false;
+            nowcopying = 0;
 
-            this.H = new Stack<Item>();
-            this.T = new Stack<Item>();
-            this.h = new Stack<Item>();
-            this.HH = new Stack<Item>();
-            this.TT = new Stack<Item>();
-            this.Hr = new Stack<Item>();
+            H = new Stack<Item>();
+            T = new Stack<Item>();
+            h = new Stack<Item>();
+            HH = new Stack<Item>();
+            TT = new Stack<Item>();
+            Hr = new Stack<Item>();
         }
 
         public Item Peek()
         {
-            if (this.isRecopying)
+            if (isRecopying)
             {
-                return this.h.Peek();
+                return h.Peek();
             }
             else
             {
-                return this.H.Peek();
+                return H.Peek();
             }
         }
 
         public void Enqueue(Item item)
         {
-            if (!this.isRecopying && Lendiff() > 0)
+            if (!isRecopying && Lendiff() > 0)
             {
-                this.nowcopying = 0;
-                this.T.Push(item);
+                nowcopying = 0;
+                T.Push(item);
             }
-            else if (!this.isRecopying && Lendiff() == 0)
+            else if (!isRecopying && Lendiff() == 0)
             {
-                this.T.Push(item);
-                this.isRecopying = true;
-                this.h = this.H.Copy();
+                T.Push(item);
+                isRecopying = true;
+                h = H.Copy();
                 OneStep(OneStep(this));
             }
-            else if (this.isRecopying)
+            else if (isRecopying)
             {
-                this.TT.Push(item);
+                TT.Push(item);
                 OneStep(OneStep(this));
             }
         }
 
         public int Lendiff()
         {
-            return this.H.Size() - this.T.Size();
+            return H.Size() - T.Size();
         }
 
         public Item Dequeue()
         {
-            if (!this.isRecopying && Lendiff() > 0)
+            if (!isRecopying && Lendiff() > 0)
             {
-                return this.H.Pop();
+                return H.Pop();
             }
-            else if (!this.isRecopying && Lendiff() == 0)
+            else if (!isRecopying && Lendiff() == 0)
             {
-                Item temp = this.H.Pop();
-                this.h = this.H.Copy();
-                this.isRecopying = true;
+                var temp = H.Pop();
+                h = H.Copy();
+                isRecopying = true;
                 OneStep(OneStep(this));
                 return temp;
             }
             else
             {
-                Item temp = this.h.Pop();
-                this.nowcopying--;
+                var temp = h.Pop();
+                nowcopying--;
                 OneStep(OneStep(this));
                 return temp;
             }

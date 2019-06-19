@@ -3,7 +3,6 @@ using SymbolTable;
 
 namespace _3._1._12
 {
-    
     class Program
     {
         static void Main(string[] args)
@@ -16,7 +15,7 @@ namespace _3._1._12
             };
             var st = new ItemBinarySearchST<string, string>(items);
 
-            foreach (string s in st.Keys())
+            foreach (var s in st.Keys())
                 Console.WriteLine(s + " " + st.Get(s));
         }
     }

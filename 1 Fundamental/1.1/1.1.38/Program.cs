@@ -4,18 +4,17 @@ using System.IO;
 
 namespace _1._1._38
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            string[] largeWString = File.ReadAllLines("largeW.txt");
-            int[] largeW = new int[largeWString.Length];
-            for (int i = 0; i < largeW.Length; i++)
+            var largeWString = File.ReadAllLines("largeW.txt");
+            var largeW = new int[largeWString.Length];
+            for (var i = 0; i < largeW.Length; i++)
             {
                 largeW[i] = int.Parse(largeWString[i]);
             }
-            Stopwatch timer = Stopwatch.StartNew();
+            var timer = Stopwatch.StartNew();
             BruteForceSearch(111111, largeW);
             Console.WriteLine($"BruteForceSearch: {timer.ElapsedMilliseconds} ms");
 
@@ -23,9 +22,9 @@ namespace _1._1._38
             rank(111111, largeW);
             Console.WriteLine($"BinarySearch: {timer.ElapsedMilliseconds} ms");
 
-            string[] largeTString = File.ReadAllLines("largeT.txt");
-            int[] largeT = new int[largeTString.Length];
-            for (int i = 0; i < largeW.Length; i++)
+            var largeTString = File.ReadAllLines("largeT.txt");
+            var largeT = new int[largeTString.Length];
+            for (var i = 0; i < largeW.Length; i++)
             {
                 largeT[i] = int.Parse(largeTString[i]);
             }
@@ -47,7 +46,7 @@ namespace _1._1._38
         /// <returns></returns>
         public static int BruteForceSearch(int key, int[] a)
         {
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
                 if (a[i] == key)
                     return i;
@@ -83,7 +82,7 @@ namespace _1._1._38
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {

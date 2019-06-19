@@ -2,12 +2,11 @@
 
 namespace _1._1._20
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            int N = 4;
+            var N = 4;
             Console.WriteLine($"{factorialLn(N)}");
         }
 

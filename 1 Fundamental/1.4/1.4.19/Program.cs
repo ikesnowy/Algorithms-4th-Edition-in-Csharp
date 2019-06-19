@@ -2,19 +2,18 @@
 
 namespace _1._4._19
 {
-    
     class Program
     {
         // 先查找 N/2 行中的最小元素，并令其与上下元素比较，
         // 如果不满足题意，则向相邻的最小元素靠近再次查找
         static void Main(string[] args)
         {
-            int[,] matrix = new int[5, 5] 
-            { 
-                { 26, 3, 4 , 10, 11 }, 
-                { 5, 1, 6, 12, 13 }, 
-                { 7, 8, 9 , 14, 15 }, 
-                { 16, 17, 18, 27, 20 }, 
+            var matrix = new int[5, 5]
+            {
+                { 26, 3, 4 , 10, 11 },
+                { 5, 1, 6, 12, 13 },
+                { 7, 8, 9 , 14, 15 },
+                { 16, 17, 18, 27, 20 },
                 { 21, 22, 23, 24, 25 }
             };
             Console.WriteLine(MinimumRow(matrix, 0, 5, 0, 5));
@@ -31,13 +30,13 @@ namespace _1._4._19
         /// <returns>矩阵中的局部最小元素。</returns>
         static int MinimumRow(int[,] matrix, int rowStart, int rowLength, int colStart, int colLength)
         {
-            int min = int.MaxValue;
+            var min = int.MaxValue;
             if (rowLength < 3)
                 return int.MaxValue;
-            int mid = rowStart + rowLength / 2;
-            int minCol = 0;
+            var mid = rowStart + rowLength / 2;
+            var minCol = 0;
             // 获取矩阵中间行的最小值
-            for (int i = 0; i < colLength; i++)
+            for (var i = 0; i < colLength; i++)
             {
                 if (min > matrix[mid, colStart + i])
                 {
@@ -72,13 +71,13 @@ namespace _1._4._19
         /// <returns>矩阵中的局部最小元素。</returns>
         static int MinimumCol(int[,] matrix, int rowStart, int rowLength, int colStart, int colLength)
         {
-            int min = int.MaxValue;
-            int n = matrix.GetLength(0);
-            int mid = n / 2;
-            int minRow = 0;
+            var min = int.MaxValue;
+            var n = matrix.GetLength(0);
+            var mid = n / 2;
+            var minRow = 0;
 
             // 获取矩阵中间列最小值
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 if (min > matrix[i, mid])
                 {

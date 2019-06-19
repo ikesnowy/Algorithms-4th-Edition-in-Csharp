@@ -3,7 +3,6 @@ using UnionFind;
 
 namespace _1._5._18
 {
-    
     class Program
     {
         static void Main(string[] args)

@@ -13,7 +13,7 @@
         /// </summary>
         public QueueStack()
         {
-            this.queue = new Queue<Item>();
+            queue = new Queue<Item>();
         }
 
         /// <summary>
@@ -22,12 +22,12 @@
         /// <param name="item"></param>
         public void Push(Item item)
         {
-            this.queue.Enqueue(item);
-            int size = this.queue.Size();
+            queue.Enqueue(item);
+            var size = queue.Size();
             // 倒转队列
-            for (int i = 0; i < size - 1; i++)
+            for (var i = 0; i < size - 1; i++)
             {
-                this.queue.Enqueue(this.queue.Dequeue());
+                queue.Enqueue(queue.Dequeue());
             }
         }
 
@@ -37,7 +37,7 @@
         /// <returns></returns>
         public Item Pop()
         {
-            return this.queue.Dequeue();
+            return queue.Dequeue();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return this.queue.IsEmpty();
+            return queue.IsEmpty();
         }
     }
 }

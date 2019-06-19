@@ -2,7 +2,6 @@
 
 namespace _1._4._34
 {
-    
     class Program
     {
         /// <summary>
@@ -16,10 +15,10 @@ namespace _1._4._34
 
         static void Main(string[] args)
         {
-            Game game = new Game(1000);
-            TestResult A = PlayGameA(game);
+            var game = new Game(1000);
+            var A = PlayGameA(game);
             game.Restart();
-            TestResult B = PlayGameB(game);
+            var B = PlayGameB(game);
 
             Console.WriteLine($"SecretNumber:{game.SecretNumber}");
             Console.WriteLine("TestResultA:");
@@ -41,13 +40,13 @@ namespace _1._4._34
             result.SecretNumber = 0;
             GuessResult guessResult;
 
-            int hi = game.N;
-            int lo = 1;
+            var hi = game.N;
+            var lo = 1;
 
             // 利用二分查找猜测，2lgN
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
 
                 guessResult = game.Guess(lo);
                 result.TryTimes++;
@@ -89,9 +88,9 @@ namespace _1._4._34
             result.SecretNumber = 0;
             GuessResult guessResult;
 
-            int hi = game.N;
-            int lo = 1;
-            bool isRightSide = true;
+            var hi = game.N;
+            var lo = 1;
+            var isRightSide = true;
 
             // 第一次猜测
             guessResult = game.Guess(1);
@@ -104,8 +103,8 @@ namespace _1._4._34
 
             while (lo < hi)
             {
-                int mid = lo + (hi - lo) / 2;
-                int nowGuess = (lo + hi) - game.LastGuess;
+                var mid = lo + (hi - lo) / 2;
+                var nowGuess = (lo + hi) - game.LastGuess;
 
                 guessResult = game.Guess(nowGuess);
                 result.TryTimes++;

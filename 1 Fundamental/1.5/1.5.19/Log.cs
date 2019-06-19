@@ -7,7 +7,7 @@ namespace _1._5._19
         public Log(int n)
         {
             InitializeComponent();
-            Program.Draw(n, this.textBox1, this);
+            Program.Draw(n, textBox1, this);
         }
     }
 }

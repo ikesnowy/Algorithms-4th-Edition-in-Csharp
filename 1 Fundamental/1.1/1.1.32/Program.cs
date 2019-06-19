@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace _1._1._32
 {
-    
     static class Program
     {
         /// <summary>
@@ -29,11 +28,11 @@ namespace _1._1._32
         public static void StartDrawing(double[] array, int N, double l, double r)
         {
             // 创建并显示绘图窗口
-            Form2 DrawPad = new Form2();
+            var DrawPad = new Form2();
             DrawPad.Show();
 
             // 新建画布
-            Graphics graphics = DrawPad.CreateGraphics();
+            var graphics = DrawPad.CreateGraphics();
             
             // 翻转默认坐标系
             graphics.TranslateTransform(0, DrawPad.Height);
@@ -43,11 +42,11 @@ namespace _1._1._32
             Array.Sort(array);
 
             // 计算各区域的值
-            int[] counts = new int[N];
-            int index = 0;
-            for (int i = 0; i < N; i++)
+            var counts = new int[N];
+            var index = 0;
+            for (var i = 0; i < N; i++)
             {
-                for (int j = index; j < array.Length; j++)
+                for (var j = index; j < array.Length; j++)
                 {
                     if (array[j] <= (r - l) * (i + 1) / N)
                     {
@@ -64,14 +63,14 @@ namespace _1._1._32
             // 获取最大值
             double max = counts.Max();
             // 计算间距
-            double unit = DrawPad.Width / (3.0 * N + 1);
+            var unit = DrawPad.Width / (3.0 * N + 1);
             // 计算直方图的矩形
-            Rectangle[] rects = new Rectangle[N];
+            var rects = new Rectangle[N];
             rects[0].X = (int)unit;
             rects[0].Y = 0;
             rects[0].Width = (int)(2 * unit);
             rects[0].Height = (int)((counts[0] / max) * DrawPad.Height);
-            for (int i = 1; i < N; i++)
+            for (var i = 1; i < N; i++)
             {
                 rects[i].X = (int)(rects[i - 1].X + 3 * unit);
                 rects[i].Y = 0;

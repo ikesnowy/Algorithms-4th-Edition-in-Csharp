@@ -19,7 +19,7 @@ namespace SortApplication
         /// <param name="a">待排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1);
         }
 
@@ -35,7 +35,7 @@ namespace SortApplication
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Sort(a, aux, lo, mid);
             Sort(a, aux, mid + 1, hi);
             Merge(a, aux, lo, mid, hi);
@@ -52,13 +52,13 @@ namespace SortApplication
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = a[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {

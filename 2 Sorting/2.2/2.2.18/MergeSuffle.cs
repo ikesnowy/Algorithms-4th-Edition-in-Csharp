@@ -19,20 +19,20 @@ namespace _2._2._18
         /// <param name="a">等待打乱的链表。</param>
         public void Shuffle<T>(LinkedList<T> a)
         {
-            int blockLen = 1;
-            Random random = new Random();
+            var blockLen = 1;
+            var random = new Random();
             while (blockLen <= a.Size())
             {
                 // 找到第一个块
-                Node<T> lo = a.GetFirst();
-                Node<T> mid = FindBlock(lo, blockLen);
+                var lo = a.GetFirst();
+                var mid = FindBlock(lo, blockLen);
 
                 if (mid.next == null)
                     break;
 
                 while (mid.next != null)
                 {
-                    Node<T> hi = FindBlock(mid.next, blockLen);
+                    var hi = FindBlock(mid.next, blockLen);
                     Node<T>[] result;
                     if (lo == a.GetFirst())
                     {
@@ -68,11 +68,11 @@ namespace _2._2._18
         /// <returns>新的表头。</returns>
         private Node<T>[] Merge<T>(Node<T> lo, Node<T> mid, Node<T> hi, Random random)
         {
-            Node<T> after = hi.next; // 要合并的两个块之后的元素
+            var after = hi.next; // 要合并的两个块之后的元素
             Node<T> first = null;
-            Node<T>[] result = new Node<T>[2];
-            Node<T> i = lo;          // 链表1
-            Node<T> j = mid.next;    // 链表2
+            var result = new Node<T>[2];
+            var i = lo;          // 链表1
+            var j = mid.next;    // 链表2
 
             // 切割链表
             mid.next = null;
@@ -140,8 +140,8 @@ namespace _2._2._18
         /// <returns>结果链表的最后一个元素结点。</returns>
         private Node<T> FindBlock<T>(Node<T> lo, int length)
         {
-            Node<T> hi = lo;
-            for (int i = 0; i < length - 1 && hi.next != null; i++)
+            var hi = lo;
+            for (var i = 0; i < length - 1 && hi.next != null; i++)
             {
                 hi = hi.next;
             }

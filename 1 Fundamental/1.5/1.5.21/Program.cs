@@ -3,17 +3,16 @@ using UnionFind;
 
 namespace _1._5._21
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            for (int n = 10; n < 10000; n *= 2)
+            for (var n = 10; n < 10000; n *= 2)
             {
-                int total = 0;
-                for (int i = 0; i < 100; i++)
+                var total = 0;
+                for (var i = 0; i < 100; i++)
                 {
-                    UF uf = new UF(n);
+                    var uf = new UF(n);
                     total += ErdosRenyi.Count(uf);
                 }
 

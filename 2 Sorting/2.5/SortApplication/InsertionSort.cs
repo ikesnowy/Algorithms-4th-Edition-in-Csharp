@@ -18,10 +18,10 @@ namespace SortApplication
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
+                for (var j = i; j > 0 && Less(a[j], a[j - 1]); --j)
                 {
                     Exch(a, j, j - 1);
                 }
@@ -38,10 +38,10 @@ namespace SortApplication
         /// <param name="c">比较器。</param>
         public void Sort<T>(T[] a, IComparer<T> c)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i; j > 0 && Less(a[j], a[j - 1], c); --j)
+                for (var j = i; j > 0 && Less(a[j], a[j - 1], c); --j)
                 {
                     Exch(a, j, j - 1);
                 }

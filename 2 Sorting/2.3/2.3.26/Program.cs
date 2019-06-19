@@ -3,7 +3,6 @@ using System.Windows.Forms;
 
 namespace _2._3._26
 {
-    
     static class Program
     {
         /// <summary>

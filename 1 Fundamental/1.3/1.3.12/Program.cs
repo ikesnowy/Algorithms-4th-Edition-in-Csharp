@@ -3,18 +3,17 @@ using Generics;
 
 namespace _1._3._12
 {
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Stack<string> src = new Stack<string>();
+            var src = new Stack<string>();
             src.Push("first");
             src.Push("second");
             src.Push("third");
 
-            Stack<string> des = CopyTo(src);
-            
+            var des = CopyTo(src);
+
             while (!des.IsEmpty())
             {
                 Console.WriteLine(des.Pop());
@@ -24,10 +23,10 @@ namespace _1._3._12
 
         static Stack<string> CopyTo(Stack<string> src)
         {
-            Stack<string> des = new Stack<string>();
-            Stack<string> temp = new Stack<string>();
+            var des = new Stack<string>();
+            var temp = new Stack<string>();
 
-            foreach (string s in src)
+            foreach (var s in src)
             {
                 temp.Push(s);
             }

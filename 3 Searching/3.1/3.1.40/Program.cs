@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 namespace _3._1._40
 {
-    
     class Program
     {
         static long binarySearchCompare = 0;
@@ -16,7 +15,7 @@ namespace _3._1._40
 
             public int CompareTo(TestNode other)
             {
-                return this.Value.CompareTo(other.Value);
+                return Value.CompareTo(other.Value);
             }
         }
 
@@ -39,20 +38,20 @@ namespace _3._1._40
             sequentialSearchCompare = 0;
             Console.Write(n + "\t");
 
-            Stopwatch sw = new Stopwatch();
-            int[] seedData = new int[n];
-            for (int i = 0; i < n; i++)
+            var sw = new Stopwatch();
+            var seedData = new int[n];
+            for (var i = 0; i < n; i++)
                 seedData[i] = i;
             Shuffle(seedData);
 
-            TestNode[] data = new TestNode[n];
-            TestNode[] dataSorted = new TestNode[n];
-            TestNode[] dataQuery = new TestNode[n];
-            for (int i = 0; i < n; i++)
+            var data = new TestNode[n];
+            var dataSorted = new TestNode[n];
+            var dataQuery = new TestNode[n];
+            for (var i = 0; i < n; i++)
                 data[i] = new TestNode() { Value = seedData[i] };
-            
+
             Array.Sort(seedData);
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 dataSorted[i] = new TestNode() { Value = seedData[i] };
 
             Array.Copy(data, dataQuery, data.Length);
@@ -61,7 +60,7 @@ namespace _3._1._40
             long bstTime = 0, sstTime = 0;
             // 测试 sst
             sw.Start();
-            for (int i = 0; i < trial; i++)
+            for (var i = 0; i < trial; i++)
             {
                 SequentialSearch(data, dataQuery[i]);
             }
@@ -71,7 +70,7 @@ namespace _3._1._40
 
             // 测试 bst
             sw.Restart();
-            for (int i = 0; i < trial; i++)
+            for (var i = 0; i < trial; i++)
             {
                 BinarySearch(dataSorted, dataQuery[i]);
             }
@@ -81,15 +80,15 @@ namespace _3._1._40
             Console.Write(binarySearchCompare + "/" + bstTime + "\t\t");
 
             // 比例
-            Console.WriteLine((float)sequentialSearchCompare / binarySearchCompare + "/" + (float)sstTime/bstTime);
+            Console.WriteLine((float)sequentialSearchCompare / binarySearchCompare + "/" + (float)sstTime / bstTime);
         }
 
         static void Shuffle<T>(T[] array)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
-                int p = i + random.Next(array.Length - i);
-                T temp = array[p];
+                var p = i + random.Next(array.Length - i);
+                var temp = array[p];
                 array[p] = array[i];
                 array[i] = temp;
             }
@@ -97,9 +96,9 @@ namespace _3._1._40
 
         static int SequentialSearch<T>(T[] a, T key) where T : IComparable<T>
         {
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
-                int compare = a[i].CompareTo(key);
+                var compare = a[i].CompareTo(key);
                 sequentialSearchCompare++;
                 if (compare == 0)
                     return i;
@@ -112,8 +111,8 @@ namespace _3._1._40
             int lo = 0, hi = a.Length - 1;
             while (lo <= hi)
             {
-                int mid = (lo + hi) / 2;
-                int compare = a[mid].CompareTo(key);
+                var mid = (lo + hi) / 2;
+                var compare = a[mid].CompareTo(key);
                 binarySearchCompare++;
                 if (compare > 0)
                     hi = mid - 1;

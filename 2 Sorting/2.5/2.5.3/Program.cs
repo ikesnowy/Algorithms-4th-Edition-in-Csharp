@@ -1,6 +1,5 @@
 ﻿namespace _2._5._3
 {
-    
     class Program
     {
         static void Main(string[] args)

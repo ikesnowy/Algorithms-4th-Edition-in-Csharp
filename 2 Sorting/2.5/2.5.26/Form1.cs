@@ -12,37 +12,37 @@ namespace _2._5._26
         public Form1()
         {
             InitializeComponent();
-            this.panel = new Form2();
-            this.panel.Init();
+            panel = new Form2();
+            panel.Init();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                int X = int.Parse(this.InputX.Text);
-                int Y = int.Parse(this.InputY.Text);
-                this.panel.Add(new Point2D(X, Y));
+                var X = int.Parse(InputX.Text);
+                var Y = int.Parse(InputY.Text);
+                panel.Add(new Point2D(X, Y));
             }
             catch (ArgumentNullException)
             {
-                this.ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = "输入值不能为空。";
             }
             catch (FormatException)
             {
-                this.ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = "格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                this.ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = "数据过大";
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.panel.Add(new Point2D(
-                this.random.NextDouble() * this.panel.ClientRectangle.Width + 1,
-                this.random.NextDouble() * this.panel.ClientRectangle.Height + 1));
+            panel.Add(new Point2D(
+                random.NextDouble() * panel.ClientRectangle.Width + 1,
+                random.NextDouble() * panel.ClientRectangle.Height + 1));
         }
     }
 }

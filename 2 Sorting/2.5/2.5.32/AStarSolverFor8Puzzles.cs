@@ -22,9 +22,9 @@ namespace _2._5._32
         /// <returns></returns>
         protected override SearchNode[] GetNeighbors(SearchNode current)
         {
-            List<SearchNode> neighbors = new List<SearchNode>();
+            var neighbors = new List<SearchNode>();
 
-            SearchNode temp = MoveDown(current);
+            var temp = MoveDown(current);
             if (temp != null)
                 neighbors.Add(temp);
             temp = MoveUp(current);
@@ -58,8 +58,8 @@ namespace _2._5._32
         /// <returns></returns>
         protected int GetSpaceIndex(SearchNode current)
         {
-            int spaceIndex = 0;
-            for (int i = 0; i < current.Status.Length; i++)
+            var spaceIndex = 0;
+            for (var i = 0; i < current.Status.Length; i++)
                 if (current.Status[i] == 0)
                     spaceIndex = i;
             return spaceIndex;
@@ -72,17 +72,17 @@ namespace _2._5._32
         /// <returns></returns>
         protected SearchNode MoveRight(SearchNode current)
         {
-            int spaceIndex = GetSpaceIndex(current);
+            var spaceIndex = GetSpaceIndex(current);
             if ((spaceIndex + 1) % 3 == 0)
                 return null;
 
-            SearchNode right = new SearchNode
+            var right = new SearchNode
             {
                 Steps = current.Steps + 1,
                 Status = new int[current.Status.Length]
             };
             Array.Copy(current.Status, right.Status, current.Status.Length);
-            int temp = right.Status[spaceIndex];
+            var temp = right.Status[spaceIndex];
             right.Status[spaceIndex] = right.Status[spaceIndex + 1];
             right.Status[spaceIndex + 1] = temp;
             return right;
@@ -95,17 +95,17 @@ namespace _2._5._32
         /// <returns></returns>
         protected SearchNode MoveLeft(SearchNode current)
         {
-            int spaceIndex = GetSpaceIndex(current);
+            var spaceIndex = GetSpaceIndex(current);
             if (spaceIndex % 3 == 0)
                 return null;
 
-            SearchNode left = new SearchNode
+            var left = new SearchNode
             {
                 Status = new int[current.Status.Length],
                 Steps = current.Steps + 1
             };
             Array.Copy(current.Status, left.Status, current.Status.Length);
-            int temp = left.Status[spaceIndex];
+            var temp = left.Status[spaceIndex];
             left.Status[spaceIndex] = left.Status[spaceIndex - 1];
             left.Status[spaceIndex - 1] = temp;
             return left;
@@ -118,17 +118,17 @@ namespace _2._5._32
         /// <returns></returns>
         protected SearchNode MoveUp(SearchNode current)
         {
-            int spaceIndex = GetSpaceIndex(current);
+            var spaceIndex = GetSpaceIndex(current);
             if (spaceIndex - 3 < 0)
                 return null;
 
-            SearchNode up = new SearchNode()
+            var up = new SearchNode()
             {
                 Status = new int[current.Status.Length],
                 Steps = current.Steps + 1
             };
             Array.Copy(current.Status, up.Status, current.Status.Length);
-            int temp = up.Status[spaceIndex];
+            var temp = up.Status[spaceIndex];
             up.Status[spaceIndex] = up.Status[spaceIndex - 3];
             up.Status[spaceIndex - 3] = temp;
             return up;
@@ -141,17 +141,17 @@ namespace _2._5._32
         /// <returns></returns>
         protected SearchNode MoveDown(SearchNode current)
         {
-            int spaceIndex = GetSpaceIndex(current);
+            var spaceIndex = GetSpaceIndex(current);
             if (spaceIndex + 3 >= current.Status.Length)
                 return null;
 
-            SearchNode down = new SearchNode()
+            var down = new SearchNode()
             {
                 Status = new int[current.Status.Length],
                 Steps = current.Steps + 1
             };
             Array.Copy(current.Status, down.Status, current.Status.Length);
-            int temp = down.Status[spaceIndex];
+            var temp = down.Status[spaceIndex];
             down.Status[spaceIndex] = down.Status[spaceIndex + 3];
             down.Status[spaceIndex + 3] = temp;
             return down;

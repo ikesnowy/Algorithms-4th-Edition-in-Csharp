@@ -8,31 +8,31 @@ namespace _1._2._9
         // 参考 1.1.10 节的代码
         static void Main(string[] args)
         {
-            Counter count = new Counter("BinarySearch");
+            var count = new Counter("BinarySearch");
 
             // 读取白名单
-            string[] whiteListString = File.ReadAllLines("tinyW.txt");
-            int[] whiteList = new int[whiteListString.Length];
+            var whiteListString = File.ReadAllLines("tinyW.txt");
+            var whiteList = new int[whiteListString.Length];
             
-            for (int i = 0; i < whiteListString.Length; i++)
+            for (var i = 0; i < whiteListString.Length; i++)
             {
                 whiteList[i] = int.Parse(whiteListString[i]);
             }
             Array.Sort(whiteList);
 
             // 读取查询值
-            string[] inputListString = File.ReadAllLines("tinyT.txt");
-            int[] inputList = new int[inputListString.Length];
+            var inputListString = File.ReadAllLines("tinyT.txt");
+            var inputList = new int[inputListString.Length];
 
-            for (int i = 0; i < inputListString.Length; i++)
+            for (var i = 0; i < inputListString.Length; i++)
             {
                 inputList[i] = int.Parse(inputListString[i]);
             }
 
             // 对每一个查询值进行二分查找
-            foreach (int n in inputList)
+            foreach (var n in inputList)
             {
-                int result = rank(n, whiteList, count);
+                var result = rank(n, whiteList, count);
                 // 将不在白名单上的数据输出
                 if (result == -1)
                 {
@@ -47,11 +47,11 @@ namespace _1._2._9
 
         static int rank(int key, int[] a, Counter count)
         {
-            int lo = 0;
-            int hi = a.Length - 1;
+            var lo = 0;
+            var hi = a.Length - 1;
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
                 count.Increment();
                 if (key < a[mid])
                 {

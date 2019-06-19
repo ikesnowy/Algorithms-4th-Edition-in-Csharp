@@ -8,15 +8,15 @@ namespace _1._5._11
         static void Main(string[] args)
         {
             char[] split = { '\n', '\r' };
-            string[] input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int size = int.Parse(input[0]);
+            var input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var size = int.Parse(input[0]);
 
-            QuickFindUF quickFind = new QuickFindUF(size);
-            WeightedQuickFindUF weightedQuickFind = new WeightedQuickFindUF(size);
+            var quickFind = new QuickFindUF(size);
+            var weightedQuickFind = new WeightedQuickFindUF(size);
 
             int p, q;
             string[] pair;
-            for (int i = 1; i < size; i++)
+            for (var i = 1; i < size; i++)
             {
                 pair = input[i].Split(' ');
                 p = int.Parse(pair[0]);

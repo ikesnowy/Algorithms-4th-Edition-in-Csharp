@@ -13,13 +13,13 @@ namespace _2._4._16
             // 参考论文：https://arxiv.org/abs/1504.01459
             // 下面的代码能够生成最好和最坏情况并输出序列和比较次数。
 
-            int size = 32;
-            int[] bestCase = new int[size];
-            for (int i = 0; i < size; i++)
+            var size = 32;
+            var bestCase = new int[size];
+            for (var i = 0; i < size; i++)
                 bestCase[i] = 1;
 
             Console.WriteLine("Best Input");
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
                 Console.Write(bestCase[i] + " ");
             Console.WriteLine();
             Console.Write("Best Compare Times: ");
@@ -27,10 +27,10 @@ namespace _2._4._16
 
             Console.WriteLine();
 
-            MaxPQWorstCase pq = new MaxPQWorstCase(size);
-            int[] worstCase = pq.MakeWorst(size);
+            var pq = new MaxPQWorstCase(size);
+            var worstCase = pq.MakeWorst(size);
             Console.WriteLine("Worst Input");
-            for (int i = 0; i < worstCase.Length; i++)
+            for (var i = 0; i < worstCase.Length; i++)
                 Console.Write(worstCase[i] + " ");
             Console.WriteLine();
             Console.Write("Worst Compare Times: ");

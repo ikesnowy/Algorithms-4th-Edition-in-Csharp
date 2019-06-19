@@ -82,7 +82,7 @@ namespace SortApplication
                 Shuffle(a);
             if (this.NeedPath)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (var i = 0; i < a.Length; i++)
                 {
                     Console.Write("  ");
                 }
@@ -110,10 +110,10 @@ namespace SortApplication
 
             if (hi <= lo)                   // 别越界
                 return;
-            int j = Partition(a, lo, hi);
+            var j = Partition(a, lo, hi);
             if (this.NeedPath)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (var i = 0; i < a.Length; i++)
                 {
                     Console.Write(a[i] + " ");
                 }
@@ -134,7 +134,7 @@ namespace SortApplication
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v))
@@ -158,11 +158,11 @@ namespace SortApplication
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }
@@ -184,7 +184,7 @@ namespace SortApplication
             int lo = 0, hi = a.Length - 1;
             while (hi > lo)
             {
-                int i = Partition(a, lo, hi);
+                var i = Partition(a, lo, hi);
                 if (i > k)
                     hi = i - 1;
                 else if (i < k)

@@ -6,11 +6,11 @@ namespace _1._3._29
     {
         static void Main(string[] args)
         {
-            string input = "to be or not to - be - - that - - - is";
-            string[] s = input.Split(' ');
-            Queue<string> queue = new Queue<string>();
+            var input = "to be or not to - be - - that - - - is";
+            var s = input.Split(' ');
+            var queue = new Queue<string>();
 
-            foreach (string n in s)
+            foreach (var n in s)
             {
                 if (!n.Equals("-"))
                     queue.Enqueue(n);

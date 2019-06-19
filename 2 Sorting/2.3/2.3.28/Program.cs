@@ -19,19 +19,19 @@ namespace _2._3._28
         /// <param name="m">要使用的阈值</param>
         static void Trial(int m)
         {
-            QuickSortInsertion sort = new QuickSortInsertion();
-            int trialTime = 5;
+            var sort = new QuickSortInsertion();
+            var trialTime = 5;
 
             // 由于排序前有 Shuffle，因此直接输入有序数组。
             // M=10
             sort.M = m;
-            int totalDepth = 0;
-            for (int N = 1000; N < 10000000; N *= 10)
+            var totalDepth = 0;
+            for (var N = 1000; N < 10000000; N *= 10)
             {
-                for (int i = 0; i < trialTime; i++)
+                for (var i = 0; i < trialTime; i++)
                 {
-                    int[] a = new int[N];
-                    for (int j = 0; j < N; j++)
+                    var a = new int[N];
+                    for (var j = 0; j < N; j++)
                     {
                         a[j] = j;
                     }

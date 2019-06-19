@@ -8,7 +8,7 @@ namespace _1._3._45
         static void Main(string[] args)
         {
             // 给定输入序列，判断是否会出现下溢出。
-            string input = "- 0 1 2 3 4 5 6 7 8 9 - - - - - - - - -";
+            var input = "- 0 1 2 3 4 5 6 7 8 9 - - - - - - - - -";
             Console.WriteLine(IsUnderflow(input.Split(' ')));//True
             input = "0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 -";
             Console.WriteLine(IsUnderflow(input.Split(' ')));//False
@@ -28,9 +28,9 @@ namespace _1._3._45
         static bool IsUnderflow(string[] input)
         {
             // 记录栈中元素数量，如果元素数量小于 0 则会出现下溢出。
-            int count = 0;
+            var count = 0;
 
-            foreach (string s in input)
+            foreach (var s in input)
             {
                 if (count < 0)
                 {
@@ -56,11 +56,11 @@ namespace _1._3._45
         /// <returns></returns>
         static bool IsOutputPossible(int[] output)
         {
-            int input = 0;
-            int N = output.Length;
-            Stack<int> stack = new Stack<int>();
+            var input = 0;
+            var N = output.Length;
+            var stack = new Stack<int>();
 
-            foreach (int i in output)
+            foreach (var i in output)
             {
                 // 如果栈为空，则从输入序列中压入一个数。
                 if (stack.IsEmpty())

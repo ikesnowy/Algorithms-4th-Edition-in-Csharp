@@ -25,16 +25,16 @@ namespace _2._5._24
 
         static void Main(string[] args)
         {
-            MinPQStable<Wrapper<string>> pq = new MinPQStable<Wrapper<string>>();
-            string text = "it was the best of times it was the worst of times it was the ";
-            string[] texts = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var pq = new MinPQStable<Wrapper<string>>();
+            var text = "it was the best of times it was the worst of times it was the ";
+            var texts = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < texts.Length; i++)
+            for (var i = 0; i < texts.Length; i++)
                 pq.Insert(new Wrapper<string>(texts[i], i + 1));
 
             while (!pq.IsEmpty())
             {
-                Wrapper<string> w = pq.DelMin();
+                var w = pq.DelMin();
                 Console.WriteLine(w.Value + " " + w.Index);
             }
         }

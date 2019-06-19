@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Buffer buffer = new Buffer();
+            var buffer = new Buffer();
             buffer.Insert('1');
             buffer.Insert('2');
             buffer.Insert('3');

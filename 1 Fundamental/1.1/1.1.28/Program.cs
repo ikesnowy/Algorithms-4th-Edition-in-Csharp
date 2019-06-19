@@ -10,12 +10,12 @@ namespace _1._1._28
         {
             // 从largeW.txt中读取数据
             // 用 HashSet 的不可重复性去除重复
-            HashSet<string> h = new HashSet<string>(File.ReadAllLines("largeW.txt"));
-            string[] whiteList = new string[h.Count];
+            var h = new HashSet<string>(File.ReadAllLines("largeW.txt"));
+            var whiteList = new string[h.Count];
             h.CopyTo(whiteList);
-            int[] WhiteList = new int[whiteList.Length];
+            var WhiteList = new int[whiteList.Length];
 
-            for (int i = 0; i < whiteList.Length; i++)
+            for (var i = 0; i < whiteList.Length; i++)
             {
                 WhiteList[i] = int.Parse(whiteList[i]);
             }
@@ -24,15 +24,15 @@ namespace _1._1._28
 
             Console.WriteLine("Type the numbers you want to query: ");
             // 输入样例：5 824524 478510 387221
-            string input = Console.ReadLine();
-            int[] Query = new int[input.Split(' ').Length];
-            for (int i = 0; i < Query.Length; i++)
+            var input = Console.ReadLine();
+            var Query = new int[input.Split(' ').Length];
+            for (var i = 0; i < Query.Length; i++)
             {
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }
 
             Console.WriteLine("Irrelevant:");
-            foreach (int n in Query)
+            foreach (var n in Query)
             {
                 if (rank(n, WhiteList) == -1)
                 {
@@ -68,7 +68,7 @@ namespace _1._1._28
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {

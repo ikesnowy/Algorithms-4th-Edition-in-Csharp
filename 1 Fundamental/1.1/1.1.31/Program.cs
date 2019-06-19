@@ -25,48 +25,48 @@ namespace _1._1._31
         /// <param name="p">每对点之间连接的概率。</param>
         public static void StartDrawing(int N, double p)
         {
-            int pointSize = 5;// 每个点绘制的大小
-            int precious = 1000;// 概率判断的精度
+            var pointSize = 5;// 每个点绘制的大小
+            var precious = 1000;// 概率判断的精度
 
             // 新建一个绘图窗口
-            Form2 DrawPad = new Form2();
+            var DrawPad = new Form2();
             // 显示绘图窗口
             DrawPad.Show();
 
             // 新建画布
-            Graphics graphics = DrawPad.CreateGraphics();
+            var graphics = DrawPad.CreateGraphics();
 
             // 建立绘图区域（矩形）
-            Rectangle rect = new Rectangle(10, 10, 400, 400);
+            var rect = new Rectangle(10, 10, 400, 400);
             
             // 画圆
             graphics.DrawEllipse(Pens.Black, rect);
 
             // 计算旋转角度
-            double rotateDgree = 360.0 / N;
+            var rotateDgree = 360.0 / N;
 
             // 计算点的坐标
-            Point Center = new Point(rect.Top + rect.Height / 2, rect.Top + rect.Height / 2);
-            Point[] points = new Point[N];
+            var Center = new Point(rect.Top + rect.Height / 2, rect.Top + rect.Height / 2);
+            var points = new Point[N];
             points[0].X = rect.Left + rect.Width / 2;
             points[0].Y = rect.Top;
 
-            for (int i = 1; i < N; i++)
+            for (var i = 1; i < N; i++)
             {
                 points[i] = Rotate(Center, points[i - 1], rotateDgree);
             }
 
             // 绘制点
-            foreach (Point point in points)
+            foreach (var point in points)
             {
                 graphics.FillEllipse(Brushes.Black, point.X - pointSize, point.Y - pointSize, pointSize, pointSize);
             }
 
             // 按照概率绘制直线
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; j++)
+                for (var j = i + 1; j < N; j++)
                 {
                     // 举例：输入概率为 0.6，精度为 1000
                     // 在 0~1000 范围内等概率取值，如果小于等于 600 则视为事件发生
@@ -90,8 +90,8 @@ namespace _1._1._31
         /// <returns>返回旋转后的坐标。</returns>
         public static Point Rotate(Point origin, Point point, double dgree)
         {
-            Point rotated = new Point();
-            double dgreePi = dgree / 180 * Math.PI;
+            var rotated = new Point();
+            var dgreePi = dgree / 180 * Math.PI;
 
             rotated.X = (int)((point.X - origin.X) * Math.Cos(dgreePi) -
                 (point.Y - origin.Y) * Math.Sin(dgreePi) + origin.X);

@@ -43,7 +43,7 @@ namespace _1._5._19
 
             // 新建画布窗口。
             log.AppendText("\r\n启动画布……");
-            Form2 matrix = new Form2();
+            var matrix = new Form2();
             matrix.StartPosition = FormStartPosition.Manual;
             matrix.Location = new Point(WinBox.Left - matrix.ClientRectangle.Width, WinBox.Top);
             matrix.Show();
@@ -52,15 +52,15 @@ namespace _1._5._19
 
             // 获取绘图区域。
             RectangleF rect = matrix.ClientRectangle;
-            float unitX = rect.Width / (n + 1);
-            float unitY = rect.Height / (n + 1);
+            var unitX = rect.Width / (n + 1);
+            var unitY = rect.Height / (n + 1);
 
             // 绘制点。
             log.AppendText("\r\n绘制点……");
             points = new PointF[n * n];
-            for (int row = 0; row < n; row++)
+            for (var row = 0; row < n; row++)
             {
-                for (int col = 0; col < n; col++)
+                for (var col = 0; col < n; col++)
                 {
                     points[row * n + col] = new PointF(unitX * (col + 1), unitY * (row + 1));
                     graphics.FillEllipse(Brushes.Black, unitX * (col + 1), unitY * (row + 1), 5, 5);
@@ -71,7 +71,7 @@ namespace _1._5._19
             // 绘制连接。
             log.AppendText("\r\n开始绘制连接……");
             connections = new List<Connection>();
-            foreach (Connection c in bag)
+            foreach (var c in bag)
             {
                 connections.Add(c);
             }
@@ -85,7 +85,7 @@ namespace _1._5._19
 
         private static void DrawOneLine(object sender, EventArgs e)
         {
-            Connection c = connections[count];
+            var c = connections[count];
             count++;
             graphics.DrawLine(Pens.Black, points[c.P], points[c.Q]);
             logBox.AppendText("\r\n绘制" + "(" + c.P + ", " + c.Q + ")");

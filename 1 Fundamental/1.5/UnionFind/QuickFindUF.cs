@@ -60,8 +60,8 @@
         {
             Validate(p);
             Validate(q);
-            int pID = this.parent[p];
-            int qID = this.parent[q];
+            var pID = this.parent[p];
+            var qID = this.parent[q];
             this.ArrayVisitCount += 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
@@ -70,7 +70,7 @@
                 return;
             }
 
-            for (int i = 0; i < this.parent.Length; i++)
+            for (var i = 0; i < this.parent.Length; i++)
             {
                 if (this.parent[i] == pID)
                 {

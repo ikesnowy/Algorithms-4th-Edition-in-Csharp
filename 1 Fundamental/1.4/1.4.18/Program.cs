@@ -1,28 +1,35 @@
 ﻿using System;
 
-namespace _1._4._17
+namespace _1._4._18
 {
     class Program
     {
         static void Main(string[] args)
         {
-            double[] a = new double[5] { 0.1, 0.3, 0.6, 0.8, 0 };
-            double min = int.MaxValue;
-            double max = int.MinValue;
+            var a = new int[5] { 5, 6, 5, 3, 5 };
+            Console.WriteLine(LocalMinimum(a));
+        }
 
-            for (int i = 0; i < a.Length; i++)
+        /// <summary>
+        /// 寻找数组的局部最小元素。
+        /// </summary>
+        /// <param name="testcases">寻找范围。</param>
+        /// <returns>局部最小元素的值。</returns>
+        static int LocalMinimum(int[] testcases)
+        {
+            var lo = 0;
+            var hi = testcases.Length - 1;
+            while (lo <= hi)
             {
-                if (a[i] > max)
-                {
-                    max = a[i];
-                }
-                if (a[i] < min)
-                {
-                    min = a[i];
-                }
+                var mid = (hi - lo) / 2 + lo;
+                if (testcases[mid] < testcases[mid - 1] && testcases[mid] < testcases[mid + 1])
+                    return mid;
+                if (testcases[mid - 1] < testcases[mid + 1])
+                    hi = mid - 1;
+                else
+                    lo = mid + 1;
             }
-
-            Console.WriteLine($"MaxDiff Pair: {min} {max}, Max Difference: {Math.Abs(max - min)}");
+            return -1;
         }
     }
 }

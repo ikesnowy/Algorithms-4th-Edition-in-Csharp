@@ -20,9 +20,9 @@ namespace _2._2._20
         /// <param name="a">待排序的数组。</param>
         public int[] IndexSort<T>(T[] a) where T : IComparable<T>
         {
-            int[] aux = new int[a.Length];
-            int[] index = new int[a.Length];
-            for (int i = 0; i < a.Length; i++)
+            var aux = new int[a.Length];
+            var index = new int[a.Length];
+            for (var i = 0; i < a.Length; i++)
             {
                 index[i] = i;
             }
@@ -42,7 +42,7 @@ namespace _2._2._20
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Sort(a, index, aux, lo, mid);
             Sort(a, index, aux, mid + 1, hi);
             Merge(a, index, aux, lo, mid, hi);
@@ -59,13 +59,13 @@ namespace _2._2._20
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, int[] index, int[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 aux[k] = index[k];
             }
 
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                 {

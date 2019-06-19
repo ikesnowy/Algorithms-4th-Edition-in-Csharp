@@ -20,7 +20,7 @@ namespace _2._2._10
         /// <param name="a">待排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1);
         }
 
@@ -36,7 +36,7 @@ namespace _2._2._10
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Sort(a, aux, lo, mid);
             Sort(a, aux, mid + 1, hi);
             Merge(a, aux, lo, mid, hi);
@@ -54,19 +54,19 @@ namespace _2._2._10
         private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
             // 前半部分升序复制
-            for (int k = lo; k <= mid; k++)
+            for (var k = lo; k <= mid; k++)
             {
                 aux[k] = a[k];
             }
             // 后半部分降序复制
-            for (int k = mid + 1; k <= hi; k++)
+            for (var k = mid + 1; k <= hi; k++)
             {
                 aux[k] = a[hi - k + mid + 1];
             }
 
             // i 指向最左端，j 指向最右端
             int i = lo, j = hi;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (Less(aux[j], aux[i]))
                 {

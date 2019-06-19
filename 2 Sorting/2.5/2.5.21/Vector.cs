@@ -16,10 +16,10 @@ namespace _2._5._21
 
         public int CompareTo(Vector other)
         {
-            int maxN = Math.Max(this.Length, other.Length);
-            for (int i = 0; i < maxN; i++)
+            var maxN = Math.Max(this.Length, other.Length);
+            for (var i = 0; i < maxN; i++)
             {
-                int comp = this.data[i].CompareTo(other.data[i]);
+                var comp = this.data[i].CompareTo(other.data[i]);
                 if (comp != 0)
                     return comp;
             }
@@ -28,8 +28,8 @@ namespace _2._5._21
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.Length; i++)
+            var sb = new StringBuilder();
+            for (var i = 0; i < this.Length; i++)
             {
                 if (i != 0)
                     sb.Append(' ');

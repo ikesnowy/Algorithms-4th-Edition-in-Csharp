@@ -22,7 +22,7 @@ namespace _1._5._11
             this.count = n;
             this.id = new int[n];
             this.size = new int[n];
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 this.id[i] = i;
                 this.size[i] = 1;
@@ -81,8 +81,8 @@ namespace _1._5._11
         {
             Validate(p);
             Validate(q);
-            int pID = this.id[p];
-            int qID = this.id[q];
+            var pID = this.id[p];
+            var qID = this.id[q];
             this.ArrayVisitCount += 2;
 
             // 如果两个结点同属于一个连通分量，那么什么也不做。
@@ -92,8 +92,8 @@ namespace _1._5._11
             }
 
             // 判断较大的连通分量和较小的连通分量。
-            int larger = 0;
-            int smaller = 0;
+            var larger = 0;
+            var smaller = 0;
             if (this.size[pID] > this.size[qID])
             {
                 larger = pID;
@@ -109,7 +109,7 @@ namespace _1._5._11
 
             // 将较小的连通分量连接到较大的连通分量上，
             // 这会减少赋值语句的执行次数，略微减少数组访问。
-            for (int i = 0; i < this.id.Length; i++)
+            for (var i = 0; i < this.id.Length; i++)
             {
                 if (this.id[i] == smaller)
                 {
@@ -139,7 +139,7 @@ namespace _1._5._11
         /// <exception cref="ArgumentException">输入的 p 值无效。</exception>
         private void Validate(int p)
         {
-            int n = this.id.Length;
+            var n = this.id.Length;
             if (p < 0 || p > n)
             {
                 throw new ArgumentException("index " + p + " is not between 0 and " + (n - 1));

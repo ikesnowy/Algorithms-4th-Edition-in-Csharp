@@ -24,12 +24,12 @@ namespace _2._5._17
 
         static void Main(string[] args)
         {
-            int[] data = new int[] { 7, 7, 4, 8, 8, 5, 1, 7, 7 };
-            MergeSort merge = new MergeSort();
-            InsertionSort insertion = new InsertionSort();
-            ShellSort shell = new ShellSort();
-            SelectionSort selection = new SelectionSort();
-            QuickSort quick = new QuickSort();
+            var data = new int[] { 7, 7, 4, 8, 8, 5, 1, 7, 7 };
+            var merge = new MergeSort();
+            var insertion = new InsertionSort();
+            var shell = new ShellSort();
+            var selection = new SelectionSort();
+            var quick = new QuickSort();
 
             Console.WriteLine("Merge Sort: " + CheckStability(data, merge));
             Console.WriteLine("Insertion Sort: " + CheckStability(data, insertion));
@@ -40,11 +40,11 @@ namespace _2._5._17
 
         static bool CheckStability<T>(T[] data, BaseSort sort) where T : IComparable<T>
         {
-            Wrapper<T>[] items = new Wrapper<T>[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            var items = new Wrapper<T>[data.Length];
+            for (var i = 0; i < data.Length; i++)
                 items[i] = new Wrapper<T>(i, data[i]);
             sort.Sort(items);
-            int index = 0;
+            var index = 0;
             while (index < data.Length - 1)
             {
                 while (index < data.Length - 1 && items[index].Key.Equals(items[index + 1].Key))

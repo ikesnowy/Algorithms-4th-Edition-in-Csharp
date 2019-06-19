@@ -70,7 +70,7 @@ namespace _1._3._39
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.buffer[this.first];
+            var temp = this.buffer[this.first];
             this.first = (this.first + 1) % this.buffer.Length;
             this.count--;
             return temp;

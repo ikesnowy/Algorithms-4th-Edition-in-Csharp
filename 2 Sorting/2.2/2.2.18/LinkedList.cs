@@ -29,7 +29,7 @@ namespace _2._2._18
         /// <param name="item">要插入的元素。</param>
         public void Insert(Item item)
         {
-            Node<Item> n = new Node<Item>();
+            var n = new Node<Item>();
             n.item = item;
             n.next = this.first;
             this.first = n;
@@ -53,11 +53,11 @@ namespace _2._2._18
                 return;
             }
 
-            Node<Item> n = new Node<Item>();
+            var n = new Node<Item>();
             n.item = item;
 
-            Node<Item> front = this.first;
-            for (int i = 1; i < position; i++)
+            var front = this.first;
+            for (var i = 1; i < position; i++)
             {
                 front = front.next;
             }
@@ -79,8 +79,8 @@ namespace _2._2._18
                 throw new IndexOutOfRangeException();
             }
 
-            Node<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = this.first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -100,8 +100,8 @@ namespace _2._2._18
                 throw new IndexOutOfRangeException();
             }
 
-            Node<Item> front = this.first;
-            Item temp = this.first.item;
+            var front = this.first;
+            var temp = this.first.item;
             if (index == 0)
             {
                 this.first = this.first.next;
@@ -109,7 +109,7 @@ namespace _2._2._18
                 return temp;
             }
 
-            for (int i = 1; i < index; i++)
+            for (var i = 1; i < index; i++)
             {
                 front = front.next;
             }
@@ -126,9 +126,9 @@ namespace _2._2._18
         /// <returns>链表的中间元素。</returns>
         public Node<Item> GetMiddle()
         {
-            Node<Item> middle = this.first;
-            int mid = this.count / 2;
-            for (int i = 0; i < mid - 1; i++)
+            var middle = this.first;
+            var mid = this.count / 2;
+            for (var i = 0; i < mid - 1; i++)
             {
                 middle = middle.next;
             }
@@ -159,9 +159,9 @@ namespace _2._2._18
         /// <returns></returns>
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
+            var s = new StringBuilder();
 
-            foreach (Item i in this)
+            foreach (var i in this)
             {
                 s.Append(i);
                 s.Append(" ");
@@ -189,7 +189,7 @@ namespace _2._2._18
         /// <param name="B">第二个链表。（将被清空）</param>
         public static void Merge(LinkedList<Item> A, LinkedList<Item> B)
         {
-            Node<Item> pointer = A.first;
+            var pointer = A.first;
             while (pointer.next != null)
                 pointer = pointer.next;
             pointer.next = B.first;

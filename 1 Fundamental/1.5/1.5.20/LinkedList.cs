@@ -29,7 +29,7 @@ namespace _1._5._20
         /// <param name="item">要插入的元素。</param>
         public void Insert(Item item)
         {
-            Node<Item> n = new Node<Item>();
+            var n = new Node<Item>();
             n.item = item;
             n.next = this.first;
             this.first = n;
@@ -53,11 +53,11 @@ namespace _1._5._20
                 return;
             }
 
-            Node<Item> n = new Node<Item>();
+            var n = new Node<Item>();
             n.item = item;
 
-            Node<Item> front = this.first;
-            for (int i = 1; i < position; i++)
+            var front = this.first;
+            for (var i = 1; i < position; i++)
             {
                 front = front.next;
             }
@@ -79,8 +79,8 @@ namespace _1._5._20
                 throw new IndexOutOfRangeException();
             }
 
-            Node<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = this.first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -100,8 +100,8 @@ namespace _1._5._20
                 throw new IndexOutOfRangeException();
             }
 
-            Node<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = this.first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -121,8 +121,8 @@ namespace _1._5._20
                 throw new IndexOutOfRangeException();
             }
 
-            Node<Item> front = this.first;
-            Item temp = this.first.item;
+            var front = this.first;
+            var temp = this.first.item;
             if (index == 0)
             {
                 this.count--;
@@ -130,7 +130,7 @@ namespace _1._5._20
                 return temp;
             }
 
-            for (int i = 1; i < index; i++)
+            for (var i = 1; i < index; i++)
             {
                 front = front.next;
             }
@@ -165,9 +165,9 @@ namespace _1._5._20
         /// <returns></returns>
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
+            var s = new StringBuilder();
 
-            foreach (Item i in this)
+            foreach (var i in this)
             {
                 s.Append(i);
                 s.Append(" ");

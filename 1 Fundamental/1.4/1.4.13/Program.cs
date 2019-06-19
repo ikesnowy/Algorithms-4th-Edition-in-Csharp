@@ -1,33 +1,41 @@
-﻿using System;
-
-namespace _1._4._12
+﻿namespace _1._4._13
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] a = new int[4] { 2, 3, 4, 10 };
-            int[] b = new int[6] { 1, 3, 3, 5, 10, 11 };
-
-            // 2N 次数组访问，数组 a 和数组 b 各遍历一遍
-            for (int i = 0, j = 0; i < a.Length && j < b.Length;)
-            {
-                if (a[i] < b[j])
-                {
-                    i++;
-                }
-                else if (a[i] > b[j])
-                {
-                    j++;
-                }
-                else
-                {
-                    Console.WriteLine($"Common Element:{a[i]}, First index: (a[{i}], b[{j}])");
-                    i++;
-                    j++;
-                }
-            }
-
+            /*   
+             *   对象的固定开销用 Object 表示
+             *   a.Accumulator(1.2.4.3 节给出的实现)
+             *      = int * 1 + double + Object * 1
+             *      = 4 * 1 + 8 + 16 * 1 = 32
+             *   b.Transaction
+             *      = string * 1 + Date * 1 + double * 1 + Object * 1
+             *      = (40 + 16 + 4 + 4 + 2N) * 1 + (8 + 32) * 1 + 8 * 1 + 16 * 1
+             *      = 128 + 2N
+             *   c.FixedCapacityStackOfStrings
+             *      = string[] * 1 + string * N + int * 1 +  Object * 1
+             *      = 24 * 1 + N * (64 + 2C) + 4 * 1 + 16 * 1
+             *      = N * (64 + 2C) + 44
+             *      = N * (64 + 2C) + 48（填充）
+             *   d.Point2D
+             *      = double * 2 + Object * 1
+             *      = 8 * 2 + 16 * 1
+             *      = 32
+             *   e.Interval1D
+             *      = double * 2 + Object * 1
+             *      = 8 * 2 + 16 * 1
+             *      = 32
+             *   f.Interval2D
+             *      = Interval1D * 2 + Object * 1
+             *      = (8 + 24) * 2 + 16 * 1
+             *      = 80
+             *   g.Double
+             *      = double * 1 + Object * 1
+             *      = 8 * 1 + 16 * 1
+             *      = 24
+             *      
+             */
         }
     }
 }

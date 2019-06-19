@@ -8,9 +8,9 @@ namespace _1._2._14
     {
         static void Main(string[] args)
         {
-            Transaction a = new Transaction("Turing 01/01/1991 12.12");
-            Transaction b = new Transaction("Turing 01/01/1991 12.12");
-            Transaction c = new Transaction("Turing 01/01/1991 12.13");
+            var a = new Transaction("Turing 01/01/1991 12.12");
+            var b = new Transaction("Turing 01/01/1991 12.12");
+            var c = new Transaction("Turing 01/01/1991 12.13");
 
             Console.WriteLine(a.Equals(b)); // True
             Console.WriteLine(a.Equals(c)); // False

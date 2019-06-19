@@ -20,10 +20,10 @@ namespace Merge
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i; j > 0 && Less(a[j], a[j - 1]); --j)
+                for (var j = i; j > 0 && Less(a[j], a[j - 1]); --j)
                 {
                     Exch(a, j, j - 1);
                 }
@@ -40,9 +40,9 @@ namespace Merge
         /// <param name="hi">排序范围的上界（闭区间）。</param>
         public void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
-            for (int i = lo; i <= hi; i++)
+            for (var i = lo; i <= hi; i++)
             {
-                for (int j = i; j > lo && Less(a[j], a[j - 1]); --j)
+                for (var j = i; j > lo && Less(a[j], a[j - 1]); --j)
                 {
                     Exch(a, j, j - 1);
                 }
@@ -58,10 +58,10 @@ namespace Merge
         /// <param name="c">比较器。</param>
         public void Sort<T>(T[] a, IComparer<T> c)
         {
-            int n = a.Length;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            for (var i = 0; i < n; i++)
             {
-                for (int j = i; j > 0 && Less(a[j], a[j - 1], c); --j)
+                for (var j = i; j > 0 && Less(a[j], a[j - 1], c); --j)
                 {
                     Exch(a, j, j - 1);
                 }

@@ -31,7 +31,7 @@ namespace Measurement
         /// <returns>计时器的计数值（秒）。</returns>
         public double ElapsedTime()
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
             return (now - this.start).TotalMilliseconds / 1000.0;
         }
 
@@ -41,7 +41,7 @@ namespace Measurement
         /// <returns>计时器的计数值（毫秒）。</returns>
         public double ElapsedTimeMillionSeconds()
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
             return (now - this.start).TotalMilliseconds;
         }
     }

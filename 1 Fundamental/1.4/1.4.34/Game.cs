@@ -28,7 +28,7 @@ namespace _1._4._34
         /// <param name="N">目标值的最大范围。</param>
         public Game(int N)
         {
-            Random random = new Random();
+            var random = new Random();
             this.N = N;
             this.SecretNumber = random.Next(N - 1) + 1;
             this.LastGuess = -1;
@@ -51,9 +51,9 @@ namespace _1._4._34
                 return GuessResult.FirstGuess;
             }
 
-            int lastDiff = Math.Abs(this.LastGuess - this.SecretNumber);
+            var lastDiff = Math.Abs(this.LastGuess - this.SecretNumber);
             this.LastGuess = guess;
-            int nowDiff = Math.Abs(guess - this.SecretNumber);
+            var nowDiff = Math.Abs(guess - this.SecretNumber);
             if (nowDiff > lastDiff)
             {
                 return GuessResult.Cold;

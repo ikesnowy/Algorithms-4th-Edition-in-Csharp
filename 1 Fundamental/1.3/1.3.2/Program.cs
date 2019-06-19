@@ -9,11 +9,11 @@ namespace _1._3._2
         static void Main(string[] args)
         {
             // 以下是书中给出的 Stack 类中的 Main() 方法
-            Stack<string> stack = new Stack<string>();
-            string input = "it was - the best - of times - - - it was - the - -";
-            string[] s = input.Split(' ');
+            var stack = new Stack<string>();
+            var input = "it was - the best - of times - - - it was - the - -";
+            var s = input.Split(' ');
 
-            foreach (string n in s)
+            foreach (var n in s)
             {
                 if (!n.Equals("-"))
                     stack.Push(n);

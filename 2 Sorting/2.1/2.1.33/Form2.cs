@@ -40,9 +40,9 @@ namespace _2._1._33
         /// </summary>
         public void Test()
         {
-            Random random = new Random();
-            double[] array = SortCompare.GetRandomArrayDouble(this.n);
-            double time = SortCompare.Time(this.sort, array);
+            var random = new Random();
+            var array = SortCompare.GetRandomArrayDouble(this.n);
+            var time = SortCompare.Time(this.sort, array);
             this.resultList.Add(time);
             this.resultYList.Add((float)(random.NextDouble() * this.drawRect.Height));
             DrawPanel(this.resultList.ToArray(), this.resultYList.ToArray());
@@ -55,16 +55,16 @@ namespace _2._1._33
         /// <param name="resultY">Y 轴数据</param>
         public void DrawPanel(double[] result, float[] resultY)
         {
-            Graphics graphics = this.CreateGraphics();
+            var graphics = this.CreateGraphics();
             graphics.Clear(this.BackColor);
             graphics.TranslateTransform(0, this.ClientRectangle.Height);
             graphics.ScaleTransform(1, -1);
 
-            PointF[] dataPoints = new PointF[result.Length];
-            float unitX = (float)(this.drawRect.Width / (result.Max() - result.Min()));
-            double min = result.Min();
-            SizeF pointSize = new SizeF(8, 8);
-            for (int i = 0; i < result.Length; i++)
+            var dataPoints = new PointF[result.Length];
+            var unitX = (float)(this.drawRect.Width / (result.Max() - result.Min()));
+            var min = result.Min();
+            var pointSize = new SizeF(8, 8);
+            for (var i = 0; i < result.Length; i++)
             {
                 dataPoints[i] = new PointF((float)(unitX * (result[i] - min)), resultY[i]);
                 graphics.FillEllipse(Brushes.Black, new RectangleF(dataPoints[i], pointSize));

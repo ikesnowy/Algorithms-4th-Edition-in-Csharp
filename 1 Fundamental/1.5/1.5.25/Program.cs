@@ -8,19 +8,19 @@ namespace _1._5._25
     {
         static void Main(string[] args)
         {
-            int n = 40;
-            int t = 4;
+            var n = 40;
+            var t = 4;
 
             // quick-find
             Console.WriteLine("Quick-Find");
             long last = 0;
             long now = 0;
-            for (int i = 0; i < t; i++, n *= 2)
+            for (var i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
 
-                QuickFindUF quickFind = new QuickFindUF(n * n);
+                var quickFind = new QuickFindUF(n * n);
                 now = RunTest(quickFind, connections);
                 if (last == 0)
                 {
@@ -37,12 +37,12 @@ namespace _1._5._25
             // quick-union
             Console.WriteLine("Quick-Union");
             n = 40;
-            for (int i = 0; i < t; i++, n *= 2)
+            for (var i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
 
-                QuickUnionUF quickFind = new QuickUnionUF(n * n);
+                var quickFind = new QuickUnionUF(n * n);
                 now = RunTest(quickFind, connections);
                 if (last == 0)
                 {
@@ -59,12 +59,12 @@ namespace _1._5._25
             // 加权 quick-union
             Console.WriteLine("Weighted Quick-Union");
             n = 40;
-            for (int i = 0; i < t; i++, n *= 2)
+            for (var i = 0; i < t; i++, n *= 2)
             {
                 Console.WriteLine("N:" + n * n);
                 var connections = RandomGrid.GetConnections(n);
 
-                WeightedQuickUnionUF quickFind = new WeightedQuickUnionUF(n * n);
+                var quickFind = new WeightedQuickUnionUF(n * n);
                 now = RunTest(quickFind, connections);
                 if (last == 0)
                 {
@@ -87,10 +87,10 @@ namespace _1._5._25
         /// <returns>平均耗时。</returns>
         static long RunTest(UF uf, Connection[] connections)
         {
-            Stopwatch timer = new Stopwatch();
+            var timer = new Stopwatch();
             long repeatTime = 3;
             timer.Start();
-            for (int i = 0; i < repeatTime; i++)
+            for (var i = 0; i < repeatTime; i++)
             {
                 ErdosRenyi.Count(uf, connections);
             }

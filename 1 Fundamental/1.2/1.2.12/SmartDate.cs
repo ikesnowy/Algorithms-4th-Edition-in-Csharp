@@ -28,9 +28,9 @@ namespace _1._2._12
         /// <returns></returns>
         public string DayOfTheWeek()
         {
-            int d = this.Day;
-            int m = this.Month;
-            int y = this.Year;
+            var d = this.Day;
+            var m = this.Month;
+            var y = this.Year;
             
             if (m < 3)
             {
@@ -39,7 +39,7 @@ namespace _1._2._12
             }
 
             // 使用蔡勒公式计算，参见 http://www.cnblogs.com/mq0036/p/3534314.html
-            int w = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
+            var w = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
 
             return dayOfWeek[w];
         }
@@ -49,7 +49,7 @@ namespace _1._2._12
             if (y < 0)
                 return false;
 
-            bool isLeapYear = false;
+            var isLeapYear = false;
 
             if (m > 12 || m < 1)
                 return false;

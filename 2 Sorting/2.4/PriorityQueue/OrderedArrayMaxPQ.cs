@@ -36,7 +36,7 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            int i = this.n - 1;
+            var i = this.n - 1;
             while (i >= 0 && Less(v, this.pq[i]))
             {
                 this.pq[i + 1] = this.pq[i];

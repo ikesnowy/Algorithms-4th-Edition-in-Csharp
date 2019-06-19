@@ -19,9 +19,9 @@ namespace UnionFind
             var random = new Random();
 
             // 建立横向连接
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
-                for (int j = 0; j < n - 1; j++)
+                for (var j = 0; j < n - 1; j++)
                 {
                     if (random.Next(10) > 4)
                     {
@@ -35,9 +35,9 @@ namespace UnionFind
             }
 
             // 建立纵向连接
-            for (int j = 0; j < n; j++)
+            for (var j = 0; j < n; j++)
             {
-                for (int i = 0; i < n - 1; i++)
+                for (var i = 0; i < n - 1; i++)
                 {
                     if (random.Next(10) > 4)
                     {
@@ -60,10 +60,10 @@ namespace UnionFind
         /// <returns>连接数组。</returns>
         public static Connection[] GetConnections(int n)
         {
-            RandomBag<Connection> bag = Generate(n);
-            List<Connection> connections = new List<Connection>();
+            var bag = Generate(n);
+            var connections = new List<Connection>();
 
-            foreach (Connection c in bag)
+            foreach (var c in bag)
             {
                 connections.Add(c);
             }

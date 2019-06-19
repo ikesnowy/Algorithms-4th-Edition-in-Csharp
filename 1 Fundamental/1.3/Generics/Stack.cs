@@ -32,7 +32,7 @@ namespace Generics
             if (s.first != null)
             {
                 this.first = new Node<Item>(s.first);
-                for (Node<Item> x = this.first; x.next != null; x = x.next)
+                for (var x = this.first; x.next != null; x = x.next)
                 {
                     x.next = new Node<Item>(x.next);
                 }
@@ -64,7 +64,7 @@ namespace Generics
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = this.first;
+            var oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
@@ -81,7 +81,7 @@ namespace Generics
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            Item item = this.first.item;
+            var item = this.first.item;
             this.first = this.first.next;
             this.count--;
             return item;
@@ -115,7 +115,7 @@ namespace Generics
             }
             else
             {
-                Node<Item> last = s1.first;
+                var last = s1.first;
                 while (last.next != null)
                 {
                     last = last.next;
@@ -133,7 +133,7 @@ namespace Generics
         /// <returns>栈的浅表副本。</returns>
         public Stack<Item> Copy()
         {
-            Stack<Item> temp = new Stack<Item>();
+            var temp = new Stack<Item>();
             temp.first = this.first;
             temp.count = this.count;
             return temp;
@@ -145,8 +145,8 @@ namespace Generics
         /// <returns>将栈中元素用空格分隔后的字符串。</returns>
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            foreach (Item n in this)
+            var s = new StringBuilder();
+            foreach (var n in this)
             {
                 s.Append(n);
                 s.Append(' ');

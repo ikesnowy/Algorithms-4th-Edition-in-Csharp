@@ -53,8 +53,8 @@ namespace _1._3._33
             if (capacity <= 0)
                 throw new ArgumentException();
 
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.deque[(this.first + i) % this.deque.Length];
             }
@@ -108,7 +108,7 @@ namespace _1._3._33
             {
                 this.last += this.deque.Length;
             }
-            Item temp = this.deque[this.last];
+            var temp = this.deque[this.last];
             this.count--;
             if (this.count > 0 && this.count == this.deque.Length / 4)
                 Resize(this.deque.Length / 2);
@@ -120,7 +120,7 @@ namespace _1._3._33
             if (IsEmpty())
                 throw new ArgumentException();
 
-            Item temp = this.deque[this.first];
+            var temp = this.deque[this.first];
             this.first = (this.first + 1) % this.deque.Length;
             this.count--;
             if (this.count > 0 && this.count == this.deque.Length / 4)

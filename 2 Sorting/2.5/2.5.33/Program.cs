@@ -8,19 +8,19 @@ namespace _2._5._33
     {
         static void Main(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            ShellSort shellSort = new ShellSort();
-            MergeSort mergeSort = new MergeSort();
-            QuickSort quickSort = new QuickSort();
+            var stopwatch = new Stopwatch();
+            var shellSort = new ShellSort();
+            var mergeSort = new MergeSort();
+            var quickSort = new QuickSort();
 
-            int n = 1000;
-            int nMultipleBy10 = 4;
-            for (int i = 0; i < nMultipleBy10; i++)
+            var n = 1000;
+            var nMultipleBy10 = 4;
+            for (var i = 0; i < nMultipleBy10; i++)
             {
                 Console.WriteLine("n=" + n);
-                Transaction[] trans = TransactionGenerator.Generate(n);
+                var trans = TransactionGenerator.Generate(n);
 
-                Transaction[] testCase = new Transaction[n];
+                var testCase = new Transaction[n];
 
                 trans.CopyTo(testCase, 0);
                 stopwatch.Restart();

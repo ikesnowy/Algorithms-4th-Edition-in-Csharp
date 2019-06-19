@@ -7,10 +7,10 @@ namespace _2._2._9
     {
         static void Main(string[] args)
         {
-            MergeSort merge = new MergeSort();
-            int[] data = SortCompare.GetRandomArrayInt(200);
+            var merge = new MergeSort();
+            var data = SortCompare.GetRandomArrayInt(200);
             merge.Sort(data);
-            for (int i = 0; i < data.Length; i++)
+            for (var i = 0; i < data.Length; i++)
             {
                 Console.Write(data[i] + " ");
             }

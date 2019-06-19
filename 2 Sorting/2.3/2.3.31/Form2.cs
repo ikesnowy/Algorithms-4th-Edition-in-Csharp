@@ -37,14 +37,14 @@ namespace _2._3._31
         /// <param name="e"></param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            QuickSort quick = new QuickSort();
+            var worker = sender as BackgroundWorker;
+            var quick = new QuickSort();
 
-            double percentPerTrial = 100.0 / this.T;
-            double[] totalTime = new double[this.T];
-            for (int i = 0; i < this.T; i++)
+            var percentPerTrial = 100.0 / this.T;
+            var totalTime = new double[this.T];
+            for (var i = 0; i < this.T; i++)
             {
-                double[] data = SortCompare.GetRandomArrayDouble(this.N);
+                var data = SortCompare.GetRandomArrayDouble(this.N);
                 totalTime[i] = SortCompare.Time(quick, data);
                 worker.ReportProgress((int)(percentPerTrial * i));
             }
@@ -74,26 +74,26 @@ namespace _2._3._31
                 MessageBox.Show(e.Error.Message);
             }
             //新建画布
-            Graphics graphics = this.CreateGraphics();
+            var graphics = this.CreateGraphics();
 
             //翻转默认坐标系
             graphics.TranslateTransform(0, this.Height);
             graphics.ScaleTransform(1, -1);
 
-            double[] counts = e.Result as double[];
+            var counts = e.Result as double[];
 
             //获取最大值
-            double max = counts.Max();
+            var max = counts.Max();
             //计算间距
-            double unit = this.Width / (3.0 * counts.Length + 1);
+            var unit = this.Width / (3.0 * counts.Length + 1);
             double marginTop = 100;
             //计算直方图的矩形
-            Rectangle[] rects = new Rectangle[counts.Length];
+            var rects = new Rectangle[counts.Length];
             rects[0].X = (int)unit;
             rects[0].Y = 0;
             rects[0].Width = (int)(2 * unit);
             rects[0].Height = (int)((counts[0] / max) * (this.Height - marginTop));
-            for (int i = 1; i < counts.Length; ++i)
+            for (var i = 1; i < counts.Length; ++i)
             {
                 rects[i].X = (int)(rects[i - 1].X + 3 * unit);
                 rects[i].Y = 0;

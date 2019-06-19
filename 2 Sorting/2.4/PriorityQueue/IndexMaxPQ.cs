@@ -39,7 +39,7 @@ namespace PriorityQueue
             this.keys = new Key[capacity + 1];
             this.pq = new int[capacity + 1];
             this.qp = new int[capacity + 1];
-            for (int i = 0; i <= capacity; i++)
+            for (var i = 0; i <= capacity; i++)
                 this.qp[i] = -1;
         }
 
@@ -72,7 +72,7 @@ namespace PriorityQueue
         {
             if (!Contains(i))
                 throw new ArgumentOutOfRangeException("index is not in the priority queue");
-            int index = this.qp[i];
+            var index = this.qp[i];
             Exch(index, this.n--);
             Swim(index);
             Sink(index);
@@ -88,7 +88,7 @@ namespace PriorityQueue
         {
             if (this.n == 0)
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
-            int max = this.pq[1];
+            var max = this.pq[1];
             Exch(1, this.n--);
             Sink(1);
 
@@ -211,7 +211,7 @@ namespace PriorityQueue
         /// <param name="j">要交换的元素下标。</param>
         private void Exch(int i, int j)
         {
-            int swap = this.pq[i];
+            var swap = this.pq[i];
             this.pq[i] = this.pq[j];
             this.pq[j] = swap;
             this.qp[this.pq[i]] = i;
@@ -239,7 +239,7 @@ namespace PriorityQueue
         {
             while (k * 2 <= this.n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < this.n && Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
@@ -255,8 +255,8 @@ namespace PriorityQueue
         /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<int> GetEnumerator()
         {
-            IndexMaxPQ<Key> copy = new IndexMaxPQ<Key>(this.n);
-            for (int i = 0; i < this.n; i++)
+            var copy = new IndexMaxPQ<Key>(this.n);
+            for (var i = 0; i < this.n; i++)
                 copy.Insert(this.keys[this.pq[i]], this.pq[i]);
 
             while (!copy.IsEmpty())

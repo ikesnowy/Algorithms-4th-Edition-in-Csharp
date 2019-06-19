@@ -73,8 +73,8 @@ namespace _1._5._20
         /// <param name="q">需要合并的另一个结点。</param>
         public void Union(int p, int q)
         {
-            int rootP = Find(p);
-            int rootQ = Find(q);
+            var rootP = Find(p);
+            var rootQ = Find(q);
             if (rootP == rootQ)
             {
                 return;
@@ -99,7 +99,7 @@ namespace _1._5._20
         /// <param name="p">输入的 p 值。</param>
         protected void Validate(int p)
         {
-            int n = this.parent.Size();
+            var n = this.parent.Size();
             if (p < 0 || p >= n)
             {
                 throw new ArgumentException("index" + p + " is not between 0 and " + (n - 1));

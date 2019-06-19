@@ -44,7 +44,7 @@ namespace _1._3._38
         /// <param name="item">需要插入的元素。</param>
         public void Insert(Item item)
         {
-            Node<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new Node<Item>()
             {
                 item = item,
@@ -78,8 +78,8 @@ namespace _1._3._38
             k--;
 
             // 找到目标结点
-            Node<Item> current = this.first;
-            for (int i = 0; i < k; i++)
+            var current = this.first;
+            for (var i = 0; i < k; i++)
             {
                 current = current.next;
             }

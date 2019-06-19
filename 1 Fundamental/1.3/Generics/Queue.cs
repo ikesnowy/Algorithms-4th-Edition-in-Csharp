@@ -31,7 +31,7 @@ namespace Generics
         /// <param name="r">要复制的队列。</param>
         public Queue(Queue<Item> r)
         {
-            foreach (Item i in r)
+            foreach (var i in r)
             {
                 Enqueue(i);
             }
@@ -74,7 +74,7 @@ namespace Generics
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            Node<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new Node<Item>();
             this.last.item = item;
             this.last.next = null;
@@ -95,7 +95,7 @@ namespace Generics
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            Item item = this.first.item;
+            var item = this.first.item;
             this.first = this.first.next;
             this.count--;
             if (IsEmpty())
@@ -134,8 +134,8 @@ namespace Generics
         /// <returns>形如 "1 2 3 4 5 " 字符串。</returns>
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            foreach (Item item in this)
+            var s = new StringBuilder();
+            foreach (var item in this)
             {
                 s.Append(item);
                 s.Append(" ");

@@ -34,7 +34,7 @@ namespace UnionFind
             this.count = n;
             this.parent = new int[n];
             this.rank = new byte[n];
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 this.parent[i] = i;
                 this.rank[i] = 0;
@@ -64,8 +64,8 @@ namespace UnionFind
         /// <param name="q">需要合并的另一个结点。</param>
         public virtual void Union(int p, int q)
         {
-            int rootP = Find(p);
-            int rootQ = Find(q);
+            var rootP = Find(p);
+            var rootQ = Find(q);
 
             if (rootP == rootQ)
                 return;
@@ -109,7 +109,7 @@ namespace UnionFind
         /// <exception cref="ArgumentException">当 <paramref name="p"/> 不在索引范围内时抛出。</exception>
         protected void Validate(int p)
         {
-            int n = this.parent.Length;
+            var n = this.parent.Length;
             if (p < 0 || p >= n)
             {
                 throw new ArgumentException("index" + p + " is not between 0 and " + (n - 1));

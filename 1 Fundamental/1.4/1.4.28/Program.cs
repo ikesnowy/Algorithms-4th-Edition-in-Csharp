@@ -6,10 +6,10 @@ namespace _1._4._28
     {
         static void Main(string[] args)
         {
-            QueueStack<string> stack = new QueueStack<string>();
-            string[] input = "to be or not to - be - - that - - - is".Split(' ');
+            var stack = new QueueStack<string>();
+            var input = "to be or not to - be - - that - - - is".Split(' ');
 
-            foreach (string s in input)
+            foreach (var s in input)
             {
                 if (s == "-")
                 {

@@ -11,14 +11,14 @@ namespace _2._1._36
         // 希尔排序本质上也是插入排序，因此也会更快一些。
         static void Main(string[] args)
         {
-            int n = 10000;
-            InsertionSort insertionSort = new InsertionSort();
-            SelectionSort selectionSort = new SelectionSort();
-            ShellSort shellSort = new ShellSort();
+            var n = 10000;
+            var insertionSort = new InsertionSort();
+            var selectionSort = new SelectionSort();
+            var shellSort = new ShellSort();
 
-            int[] arrayInsertion = new int[n];
-            int[] arraySelection = new int[n];
-            int[] arrayShell = new int[n];
+            var arrayInsertion = new int[n];
+            var arraySelection = new int[n];
+            var arrayShell = new int[n];
 
             // 对照，完全随机
             arrayInsertion = HalfZeroHalfOne(n);
@@ -71,9 +71,9 @@ namespace _2._1._36
         /// <returns>一半是 0 一半是 1 的 <see cref="int"/>数组。</returns>
         static int[] HalfZeroHalfOne(int n)
         {
-            int[] result = new int[n];
-            Random random = new Random();
-            for (int i = 0; i < n; i++)
+            var result = new int[n];
+            var random = new Random();
+            for (var i = 0; i < n; i++)
             {
                 if (random.NextDouble() >= 0.5)
                 {
@@ -94,7 +94,7 @@ namespace _2._1._36
         /// <returns>1/2 为 0， 1/4 为 1， 1/8 为 2 …… 的 <see cref="int"/> 数组。</returns>
         static int[] HalfAndHalf(int n)
         {
-            int[] array = new int[n];
+            var array = new int[n];
             HalfIt(0, 0, n / 2, array);
             Shuffle(array);
             return array;
@@ -113,7 +113,7 @@ namespace _2._1._36
             if (length == 0)
                 return array;
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 array[start + i] = number;
             }
@@ -128,14 +128,14 @@ namespace _2._1._36
         /// <returns>生成一半是 0 一半是随机整数的 <see cref="int"/> 数组。</returns>
         static int[] HalfZeroHalfRandom(int n)
         {
-            int[] array = new int[n];
-            Random random = new Random();
-            for (int i = 0; i < n / 2; i++)
+            var array = new int[n];
+            var random = new Random();
+            for (var i = 0; i < n / 2; i++)
             {
                 array[i] = 0;
             }
 
-            for (int i = n / 2; i < n; i++)
+            for (var i = n / 2; i < n; i++)
             {
                 array[i] = random.Next();
             }
@@ -151,12 +151,12 @@ namespace _2._1._36
         /// <param name="a">需要打乱的数组。</param>
         static void Shuffle(int[] a)
         {
-            int N = a.Length;
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            var N = a.Length;
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                int r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
-                int temp = a[i];
+                var r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

@@ -43,7 +43,7 @@ namespace Quick
         /// <param name="hi">排序的终止下标。</param>
         private void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
-            int n = hi - lo + 1;
+            var n = hi - lo + 1;
 
             if (n <= this.INSERTION_SORT_CUTOFF)
             {
@@ -53,25 +53,25 @@ namespace Quick
             else if (n <= this.MEDIAN_OF_3_CUTOFF)
             {
                 // 对于较小的数组，直接选择左中右三个元素中的中位数作为枢轴。
-                int m = Median3(a, lo, lo + n / 2, hi);
+                var m = Median3(a, lo, lo + n / 2, hi);
                 Exch(a, m, lo);
             }
             else
             {
                 // 对于较大的数组使用 Turkey Ninther 作为枢轴。
-                int eps = n / 8;
-                int mid = lo + n / 2;
-                int m1 = Median3(a, lo, lo + eps, lo + eps + eps);
-                int m2 = Median3(a, mid - eps, mid, mid + eps); 
-                int m3 = Median3(a, hi - eps - eps, hi - eps, hi);
-                int ninther = Median3(a, m1, m2, m3);
+                var eps = n / 8;
+                var mid = lo + n / 2;
+                var m1 = Median3(a, lo, lo + eps, lo + eps + eps);
+                var m2 = Median3(a, mid - eps, mid, mid + eps); 
+                var m3 = Median3(a, hi - eps - eps, hi - eps, hi);
+                var ninther = Median3(a, m1, m2, m3);
                 Exch(a, ninther, lo);
             }
 
             // 三向切分
             int i = lo, j = hi + 1;
             int p = lo, q = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v)) ;
@@ -92,9 +92,9 @@ namespace Quick
             }
 
             i = j + 1;
-            for (int k = lo; k <= p; k++)
+            for (var k = lo; k <= p; k++)
                 Exch(a, k, j--);
-            for (int k = hi; k >= q; k--)
+            for (var k = hi; k >= q; k--)
                 Exch(a, k, i++);
 
             Sort(a, lo, j);
@@ -122,9 +122,9 @@ namespace Quick
         /// <param name="hi">排序的终止下标。</param>
         private void InsertionSort<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
-            for (int i = lo; i <= hi; i++)
+            for (var i = lo; i <= hi; i++)
             {
-                for (int j = i; j > lo && Less(a[j], a[j - 1]); j--)
+                for (var j = i; j > lo && Less(a[j], a[j - 1]); j--)
                 {
                     Exch(a, j, j - 1);
                 }

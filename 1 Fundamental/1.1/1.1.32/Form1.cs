@@ -14,7 +14,7 @@ namespace _1._1._32
         private void button1_Click(object sender, EventArgs e)
         {
             //新建一个文件选取窗口
-            OpenFileDialog openfiledialog = new OpenFileDialog();
+            var openfiledialog = new OpenFileDialog();
             //设置要读取的文件类型
             openfiledialog.Filter = "文本文档(*.txt)|*.txt";
             //设置初始位置为“我的文档”
@@ -43,25 +43,25 @@ namespace _1._1._32
             try
             {
                 //打开文件并读取全部数字
-                string[] stringNums = File.ReadAllLines(this.InputFilePath.Text);
+                var stringNums = File.ReadAllLines(this.InputFilePath.Text);
                 //建立 double 数组
-                double[] Numbers = new double[stringNums.Length];
+                var Numbers = new double[stringNums.Length];
                 //将数字从 string 转换为 double
-                for (int i = 0; i < stringNums.Length; i++)
+                for (var i = 0; i < stringNums.Length; i++)
                 {
                     Numbers[i] = double.Parse(stringNums[i]);
                 }
 
                 try
                 {
-                    int N = int.Parse(this.InputN.Text);
+                    var N = int.Parse(this.InputN.Text);
                     if (N <= 0)
                     {
                         this.ErrorLabel.Text = "N 必须大于 0";
                         return;
                     }
-                    double L = double.Parse(this.InputL.Text);
-                    double R = double.Parse(this.InputR.Text);
+                    var L = double.Parse(this.InputL.Text);
+                    var R = double.Parse(this.InputR.Text);
                     Program.StartDrawing(Numbers, N, L, R);
                 }
                 catch (FormatException fex)

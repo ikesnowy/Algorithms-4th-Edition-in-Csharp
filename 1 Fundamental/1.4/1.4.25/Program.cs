@@ -13,19 +13,19 @@ namespace _1._4._25
         }
         static void Main(string[] args)
         {
-            int[] building = new int[100000];
-            for (int i = 0; i < 100000; i++)
+            var building = new int[100000];
+            for (var i = 0; i < 100000; i++)
             {
                 building[i] = i;
             }
             // 第一问：第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),..., √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)
             // k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
-            testResult A = PlanA(building);
+            var A = PlanA(building);
             Console.WriteLine($"Plan A: F={A.F}, Broken Eggs={A.BrokenEggs}, Throw Times={A.ThrowTimes}");
 
             // 第二问：按照第 1, 3, 6, 10,..., 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
             // 随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
-            testResult B = PlanB(building);
+            var B = PlanB(building);
             Console.WriteLine($"Plan B: F={B.F}, Broken Eggs={B.BrokenEggs}, Throw Times={B.ThrowTimes}");
         }
 
@@ -46,11 +46,11 @@ namespace _1._4._25
         /// <returns></returns>
         static testResult PlanA(int[] a)
         {
-            int lo = 0;
-            int hi = 0;
-            int eggs = 0;
-            int throwTimes = 0;
-            testResult result = new testResult();
+            var lo = 0;
+            var hi = 0;
+            var eggs = 0;
+            var throwTimes = 0;
+            var result = new testResult();
 
             while (ThrowEgg(hi))
             {
@@ -89,13 +89,13 @@ namespace _1._4._25
         /// <returns></returns>
         static testResult PlanB(int[] a)
         {
-            int lo = 0;
-            int hi = 0;
-            int eggs = 0;
-            int throwTimes = 0;
-            testResult result = new testResult();
+            var lo = 0;
+            var hi = 0;
+            var eggs = 0;
+            var throwTimes = 0;
+            var result = new testResult();
 
-            for (int i = 0; ThrowEgg(hi); i++)
+            for (var i = 0; ThrowEgg(hi); i++)
             {
                 throwTimes++;
                 lo = hi;

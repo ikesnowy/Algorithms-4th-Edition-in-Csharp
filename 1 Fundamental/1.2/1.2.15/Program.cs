@@ -7,8 +7,8 @@ namespace _1._2._15
     {
         static void Main(string[] args)
         {
-            int[] tinyT = ReadInts("tinyT.txt");
-            foreach (int n in tinyT)
+            var tinyT = ReadInts("tinyT.txt");
+            foreach (var n in tinyT)
             {
                 Console.WriteLine(n);
             }
@@ -16,10 +16,10 @@ namespace _1._2._15
 
         public static int[] ReadInts(string path)
         {
-            string[] allLines = File.ReadAllLines(path);
-            int[] result = new int[allLines.Length];
+            var allLines = File.ReadAllLines(path);
+            var result = new int[allLines.Length];
 
-            for (int i = 0; i < allLines.Length; i++)
+            for (var i = 0; i < allLines.Length; i++)
             {
                 result[i] = int.Parse(allLines[i]);
             }

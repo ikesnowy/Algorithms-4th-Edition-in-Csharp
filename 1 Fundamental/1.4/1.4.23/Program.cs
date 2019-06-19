@@ -6,8 +6,8 @@ namespace _1._4._23
     {
         static void Main(string[] args)
         {
-            double[] a = new double[20];
-            int i = 1;
+            var a = new double[20];
+            var i = 1;
             double j = 0;
             while (i <= 20)
             {
@@ -29,13 +29,13 @@ namespace _1._4._23
         /// <returns>结果的下标，没有结果时返回 -1。</returns>
         static int BinarySearch(double[] a, double key)
         {
-            int lo = 0;
-            int hi = a.Length - 1;
-            double threshold = 1.0 / (a.Length * a.Length);
+            var lo = 0;
+            var hi = a.Length - 1;
+            var threshold = 1.0 / (a.Length * a.Length);
 
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
                 if (Math.Abs(a[mid] - key) <= threshold)
                 {
                     return mid;

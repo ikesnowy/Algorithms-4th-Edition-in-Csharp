@@ -57,8 +57,8 @@
         /// <param name="q">需要合并的另一个结点。</param>
         public override void Union(int p, int q)
         {
-            int rootP = Find(p);
-            int rootQ = Find(q);
+            var rootP = Find(p);
+            var rootQ = Find(q);
             if (rootP == rootQ)
             {
                 return;

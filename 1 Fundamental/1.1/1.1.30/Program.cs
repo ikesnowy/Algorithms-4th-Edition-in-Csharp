@@ -7,13 +7,13 @@ namespace _1._1._30
         // 互质 = 最大公约数为 1 = gcd(i, j) == 1
         static void Main(string[] args)
         {
-            int N = int.Parse(Console.ReadLine());
+            var N = int.Parse(Console.ReadLine());
 
-            bool[,] a = new bool[N, N];
+            var a = new bool[N, N];
 
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
-                for (int j = 0; j < N; j++)
+                for (var j = 0; j < N; j++)
                 {
                     a[i, j] = (gcd(i, j) == 1);
                 }
@@ -38,9 +38,9 @@ namespace _1._1._30
 
         private static void PrintArray2D(bool[,] array, int rows, int columns)
         {
-            for (int i = 0; i < rows; i++)
+            for (var i = 0; i < rows; i++)
             {
-                for (int j = 0; j < columns; j++)
+                for (var j = 0; j < columns; j++)
                 {
                     Console.Write($"\t{array[i, j]}");
                 }

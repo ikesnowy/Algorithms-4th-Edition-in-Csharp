@@ -39,10 +39,10 @@ namespace Quick
 
             // 三向切分
             int lt = lo, i = lo + 1, gt = hi;
-            T v = a[lo];
+            var v = a[lo];
             while (i <= gt)
             {
-                int cmp = a[i].CompareTo(v);
+                var cmp = a[i].CompareTo(v);
                 if (cmp < 0)
                     Exch(a, lt++, i++);
                 else if (cmp > 0)
@@ -62,11 +62,11 @@ namespace Quick
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

@@ -19,8 +19,8 @@ namespace _2._1._30
         /// <param name="t">几何级数的底数。</param>
         public void Sort<T>(T[] a, int t) where T : IComparable<T>
         {
-            int n = a.Length;
-            int h = 1;
+            var n = a.Length;
+            var h = 1;
             while (h <= a.Length)
             {
                 h *= t;
@@ -28,9 +28,9 @@ namespace _2._1._30
 
             while (h >= 1)
             {
-                for (int i = h; i < n; i++)
+                for (var i = h; i < n; i++)
                 {
-                    for (int j = i; j >= h && Less(a[j], a[j - h]); j -= h)
+                    for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
                     {
                         Exch(a, j, j - h);
                     }
@@ -47,17 +47,17 @@ namespace _2._1._30
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
-            int[] h = new int[2];   // 预先准备好的 h 值数组
+            var n = a.Length;
+            var h = new int[2];   // 预先准备好的 h 值数组
 
-            int hTemp = 1;
-            int hLength = 0;
+            var hTemp = 1;
+            var hLength = 0;
             for (hLength = 0; hTemp < n; hLength++)
             {
                 if (hLength >= h.Length)  // 如果数组不够大则双倍扩容
                 {
-                    int[] expand = new int[h.Length * 2];
-                    for (int j = 0; j < h.Length; j++)
+                    var expand = new int[h.Length * 2];
+                    for (var j = 0; j < h.Length; j++)
                     {
                         expand[j] = h[j];
                     }
@@ -67,11 +67,11 @@ namespace _2._1._30
                 hTemp = hTemp * 3 + 1;
             }
 
-            for (int t = hLength - 1; t >= 0; t--)
+            for (var t = hLength - 1; t >= 0; t--)
             {
-                for (int i = h[t]; i < n; i++)
+                for (var i = h[t]; i < n; i++)
                 {
-                    for (int j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
+                    for (var j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
                     {
                         Exch(a, j, j - h[t]);
                     }
@@ -89,7 +89,7 @@ namespace _2._1._30
         /// <returns>是否有序。</returns>
         private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
         {
-            for (int i = h; i < a.Length; i++)
+            for (var i = h; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - h]))
                 {

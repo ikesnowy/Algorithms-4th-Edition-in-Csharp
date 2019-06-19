@@ -64,8 +64,8 @@ namespace UnionFind
         {
             if (capacity <= 0)
                 throw new ArgumentException();
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.bag[i];
             }
@@ -104,7 +104,7 @@ namespace UnionFind
                 this.current = -1;
                 this.count = count;
                 this.sequence = new int[count];
-                for (int i = 0; i < this.count; i++)
+                for (var i = 0; i < this.count; i++)
                 {
                     this.sequence[i] = i;
                 }
@@ -118,12 +118,12 @@ namespace UnionFind
             /// <param name="seed">随机种子值。</param>
             private void Shuffle(int[] a, int seed)
             {
-                int N = a.Length;
-                Random random = new Random(seed);
-                for (int i = 0; i < N; i++)
+                var N = a.Length;
+                var random = new Random(seed);
+                for (var i = 0; i < N; i++)
                 {
-                    int r = i + random.Next(N - i);
-                    int temp = a[i];
+                    var r = i + random.Next(N - i);
+                    var temp = a[i];
                     a[i] = a[r];
                     a[r] = temp;
                 }

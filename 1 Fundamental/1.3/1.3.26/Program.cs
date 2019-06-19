@@ -7,7 +7,7 @@ namespace _1._3._26
     {
         static void Main(string[] args)
         {
-            LinkedList<string> link = new LinkedList<string>();
+            var link = new LinkedList<string>();
             link.Insert("first", 0);
             link.Insert("second", 1);
             link.Insert("third", 2);
@@ -21,7 +21,7 @@ namespace _1._3._26
 
         static void Remove(LinkedList<string> link, string key)
         {
-            for (int i = 0; i < link.Size(); i++)
+            for (var i = 0; i < link.Size(); i++)
             {
                 if (link.Find(i) == key)
                 {

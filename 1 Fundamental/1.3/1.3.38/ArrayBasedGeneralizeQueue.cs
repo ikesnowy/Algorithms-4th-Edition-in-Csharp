@@ -39,15 +39,15 @@ namespace _1._3._38
         /// <param name="capacity"></param>
         private void Resize(int capacity)
         {
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }
             this.queue = temp;
 
-            bool[] t = new bool[capacity];
-            for (int i = 0; i < this.count; i++)
+            var t = new bool[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 t[i] = this.IsVisited[i];
             }
@@ -93,7 +93,7 @@ namespace _1._3._38
                 throw new ArgumentException("this node had been already deleted");
             }
 
-            Item temp = this.queue[k - 1];
+            var temp = this.queue[k - 1];
             this.IsVisited[k - 1] = true;
             this.count--;
             return temp;

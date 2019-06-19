@@ -9,11 +9,11 @@ namespace _1._1._34
     {
         static void Main(string[] args)
         {
-            string[] AllNumbers = File.ReadAllLines("largeW.txt");
-            int N = AllNumbers.Length;
-            int[] input = new int[N];
+            var AllNumbers = File.ReadAllLines("largeW.txt");
+            var N = AllNumbers.Length;
+            var input = new int[N];
 
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
                 input[i] = int.Parse(AllNumbers[i]);
             }
@@ -47,11 +47,11 @@ namespace _1._1._34
         static void MinAndMax(int[] input)
         {
             // 只用到了两个变量
-            int min = input[0];
-            int max = input[0];
+            var min = input[0];
+            var max = input[0];
 
             // 只对输入值正向遍历一遍，不需要保存
-            for (int i = 1; i < input.Length; i++)
+            for (var i = 1; i < input.Length; i++)
             {
                 if (input[i] > max)
                 {
@@ -76,7 +76,7 @@ namespace _1._1._34
         static int MidNumber(int[] input)
         {
             // 需要对输入值进行去重 & 排序，故需要保存
-            List<int> DistinctNumbers = new List<int>(input.Distinct());
+            var DistinctNumbers = new List<int>(input.Distinct());
             DistinctNumbers.Sort();
             Console.WriteLine("MidNumber:");
             Console.WriteLine(DistinctNumbers[DistinctNumbers.Count / 2]);
@@ -92,10 +92,10 @@ namespace _1._1._34
         /// <returns></returns>
         static int NumberK(int k, int[] input)
         {
-            int[] temp = new int[101];
+            var temp = new int[101];
 
             // 只正向遍历一遍，不需要保存
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (i < 100)
                 {
@@ -123,7 +123,7 @@ namespace _1._1._34
         {
             long sum = 0;
             // 只正向遍历一遍，不需要保存
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 sum += input[i] * input[i];
             }
@@ -144,12 +144,12 @@ namespace _1._1._34
             long sum = 0;
 
             // 只遍历一遍，且不保存整个数组
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 sum += input[i];
             }
 
-            double ave = sum / (double)input.Length;
+            var ave = sum / (double)input.Length;
 
             Console.WriteLine("Average:");
             Console.WriteLine(ave);
@@ -164,11 +164,11 @@ namespace _1._1._34
         /// <returns>大于平均值的元素数量。</returns>
         static double AboveAverage(int[] input)
         {
-            double ave = Average(input);
+            var ave = Average(input);
             Console.WriteLine();
             double count = 0;
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (input[i] > ave)
                 {
@@ -191,7 +191,7 @@ namespace _1._1._34
             Array.Sort(input);
 
             Console.WriteLine("Ascending:");
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 Console.Write($" {input[i]}");
             }
@@ -204,13 +204,13 @@ namespace _1._1._34
         /// <param name="input">输入流。</param>
         static void Shuffle(int[] input)
         {
-            Random random = new Random();
-            List<int> All = new List<int>(input);
-            int N = input.Length;
-            int temp = 0;
+            var random = new Random();
+            var All = new List<int>(input);
+            var N = input.Length;
+            var temp = 0;
 
             Console.WriteLine("Shuffle:");
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
                 temp = random.Next(0, All.Count - 1);
                 Console.Write($" {All[temp]}");

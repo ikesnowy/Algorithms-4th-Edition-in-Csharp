@@ -35,8 +35,8 @@ namespace PriorityQueue
         /// <remarks>如果希望获得并删除优先队列中的最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max()
         {
-            int max = 0;
-            for (int i = 1; i < this.n; i++)
+            var max = 0;
+            for (var i = 1; i < this.n; i++)
                 if (Less(this.pq[max], this.pq[i]))
                     max = i;
             return this.pq[max];
@@ -49,8 +49,8 @@ namespace PriorityQueue
         /// <remarks>如果希望获得最大元素而不删除，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
-            int max = 0;
-            for (int i = 1; i < this.n; i++)
+            var max = 0;
+            for (var i = 1; i < this.n; i++)
                 if (Less(this.pq[max], this.pq[i]))
                     max = i;
             Exch(max, this.n - 1);
@@ -91,7 +91,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的第二个元素。</param>
         private void Exch(int a, int b)
         {
-            Key temp = this.pq[a];
+            var temp = this.pq[a];
             this.pq[a] = this.pq[b];
             this.pq[b] = temp;
         }

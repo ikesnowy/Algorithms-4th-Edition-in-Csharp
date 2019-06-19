@@ -7,7 +7,7 @@ namespace _1._3._32
         // 见 Steque.cs
         static void Main(string[] args)
         {
-            Steque<string> steque = new Steque<string>();
+            var steque = new Steque<string>();
             steque.Push("first");
             steque.Push("second");
             steque.Push("third");

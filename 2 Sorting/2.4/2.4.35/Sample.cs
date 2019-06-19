@@ -21,7 +21,7 @@ namespace _2._4._35
         {
             // 复制权重
             this.P = new double[data.Length + 1];
-            for (int i = 1; i <= data.Length; i++)
+            for (var i = 1; i <= data.Length; i++)
             {
                 this.P[i] = data[i - 1];
                 this.T += data[i - 1];
@@ -29,7 +29,7 @@ namespace _2._4._35
 
             // 记录子树权重之和
             this.SumP = new double[data.Length + 1];
-            for (int i = data.Length; i / 2 > 0; i--)
+            for (var i = data.Length; i / 2 > 0; i--)
             {
                 this.SumP[i / 2] += this.P[i];
             }
@@ -41,8 +41,8 @@ namespace _2._4._35
         /// <returns></returns>
         public int Random()
         {
-            double parcentage = this.random.NextDouble() * this.T;
-            int index = 1;
+            var parcentage = this.random.NextDouble() * this.T;
+            var index = 1;
             while (index * 2 <= this.P.Length)
             {
                 // 找到结点

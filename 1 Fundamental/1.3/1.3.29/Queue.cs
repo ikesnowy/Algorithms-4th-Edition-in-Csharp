@@ -58,7 +58,7 @@ namespace _1._3._29
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            Node<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new Node<Item>();
             this.last.item = item;
             this.last.next = this.last;
@@ -89,8 +89,8 @@ namespace _1._3._29
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            foreach (Item item in this)
+            var s = new StringBuilder();
+            foreach (var item in this)
             {
                 s.Append(item);
                 s.Append(" ");

@@ -56,7 +56,7 @@ namespace _1._3._31
         /// <param name="item">要插入的元素。</param>
         public void InsertFront(Item item)
         {
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var node = new DoubleNode<Item>()
             {
                 item = item,
                 next = this.first,
@@ -80,7 +80,7 @@ namespace _1._3._31
         /// <param name="item">要插入表尾的元素。</param>
         public void InsertRear(Item item)
         {
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var node = new DoubleNode<Item>()
             {
                 item = item,
                 next = null,
@@ -108,8 +108,8 @@ namespace _1._3._31
             if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = this.first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -126,8 +126,8 @@ namespace _1._3._31
             if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = this.first;
-            for (int i = 0; i < index; i++)
+            var current = this.first;
+            for (var i = 0; i < index; i++)
             {
                 current = current.next;
             }
@@ -150,8 +150,8 @@ namespace _1._3._31
             if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = Find(index);
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var current = Find(index);
+            var node = new DoubleNode<Item>()
             {
                 next = current,
                 prev = current.prev,
@@ -178,8 +178,8 @@ namespace _1._3._31
             if (index >= this.count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            DoubleNode<Item> current = Find(index);
-            DoubleNode<Item> node = new DoubleNode<Item>()
+            var current = Find(index);
+            var node = new DoubleNode<Item>()
             {
                 prev = current,
                 next = current.next,
@@ -199,7 +199,7 @@ namespace _1._3._31
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            Item temp = this.first.item;
+            var temp = this.first.item;
             this.first = this.first.next;
             this.count--;
             if (IsEmpty())
@@ -218,7 +218,7 @@ namespace _1._3._31
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            Item temp = this.last.item;
+            var temp = this.last.item;
             this.last = this.last.prev;
             this.count--;
             if (IsEmpty())
@@ -252,8 +252,8 @@ namespace _1._3._31
                 return DeleteRear();
             }
 
-            DoubleNode<Item> current = Find(index);
-            Item temp = current.item;
+            var current = Find(index);
+            var temp = current.item;
             current.prev.next = current.next;
             current.next.prev = current.prev;
             this.count--;
@@ -262,9 +262,9 @@ namespace _1._3._31
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
+            var s = new StringBuilder();
 
-            foreach (Item i in this)
+            foreach (var i in this)
             {
                 s.Append(i.ToString());
                 s.Append(" ");

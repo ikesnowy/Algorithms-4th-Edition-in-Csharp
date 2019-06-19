@@ -6,7 +6,7 @@ namespace _1._1._22
     {
         static void Main(string[] args)
         {
-            int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             rank(9, array);
         }
@@ -34,7 +34,7 @@ namespace _1._1._22
         public static int rank(int key, int[] a, int lo, int hi, int number)
         {
 
-            for (int i = 0; i < number; i++)
+            for (var i = 0; i < number; i++)
             {
                 Console.Write(" ");
             }
@@ -45,7 +45,7 @@ namespace _1._1._22
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {

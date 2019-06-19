@@ -23,10 +23,10 @@ namespace _2._5._14
 
         public int CompareTo(Domain other)
         {
-            int minLength = Math.Min(this.n, other.n);
-            for (int i = 0; i < minLength; i++)
+            var minLength = Math.Min(this.n, other.n);
+            for (var i = 0; i < minLength; i++)
             {
-                int c = this.fields[minLength - i - 1].CompareTo(other.fields[minLength - i - 1]);
+                var c = this.fields[minLength - i - 1].CompareTo(other.fields[minLength - i - 1]);
                 if (c != 0)
                     return c;
             }
@@ -36,8 +36,8 @@ namespace _2._5._14
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.fields.Length; i++)
+            var sb = new StringBuilder();
+            for (var i = 0; i < this.fields.Length; i++)
             {
                 if (i != 0)
                     sb.Append('.');

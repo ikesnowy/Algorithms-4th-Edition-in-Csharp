@@ -19,9 +19,9 @@ namespace Sort
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            int n = a.Length;
+            var n = a.Length;
 
-            int h = 1;
+            var h = 1;
             while (h < n / 3)
             {
                 h = 3 * h + 1;
@@ -29,9 +29,9 @@ namespace Sort
 
             while (h >= 1)
             {
-                for (int i = h; i < n; i++)
+                for (var i = h; i < n; i++)
                 {
-                    for (int j = i; j >= h && Less(a[j], a[j - h]); j -= h)
+                    for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
                     {
                         Exch(a, j, j - h);
                     }
@@ -50,7 +50,7 @@ namespace Sort
         /// <returns>是否有序。</returns>
         private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
         {
-            for (int i = h; i < a.Length; i++)
+            for (var i = h; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - h]))
                 {

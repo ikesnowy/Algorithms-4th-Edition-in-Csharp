@@ -75,7 +75,7 @@ namespace _1._3._48
         /// <param name="item">要添加的元素。</param>
         public void PushLeft(Item item)
         {
-            DoubleNode<Item> oldFirst = this.first;
+            var oldFirst = this.first;
             this.first = new DoubleNode<Item>()
             {
                 item = item,
@@ -99,7 +99,7 @@ namespace _1._3._48
         /// <param name="item">要添加的元素。</param>
         public void PushRight(Item item)
         {
-            DoubleNode<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new DoubleNode<Item>()
             {
                 item = item,
@@ -129,7 +129,7 @@ namespace _1._3._48
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.last.item;
+            var temp = this.last.item;
             this.last = this.last.prev;
             this.rightcount--;
 
@@ -156,7 +156,7 @@ namespace _1._3._48
                 throw new InvalidOperationException();
             }
 
-            Item temp = this.first.item;
+            var temp = this.first.item;
             this.first = this.first.next;
             this.leftcount--;
 

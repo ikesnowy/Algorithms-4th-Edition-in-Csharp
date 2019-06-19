@@ -38,14 +38,14 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            QuickSortInsertion quickSortInsertion = new QuickSortInsertion();
-            double[] timeRecord = new double[31];
-            for (int i = 0; i <= 30; i++)
+            var worker = sender as BackgroundWorker;
+            var quickSortInsertion = new QuickSortInsertion();
+            var timeRecord = new double[31];
+            for (var i = 0; i <= 30; i++)
             {
                 worker.ReportProgress(i * 3);
                 quickSortInsertion.M = i;
-                int[] data = SortCompare.GetRandomArrayInt(this.N);
+                var data = SortCompare.GetRandomArrayInt(this.N);
                 timeRecord[i] = SortCompare.Time(quickSortInsertion, data);
             }
             e.Result = timeRecord;
@@ -72,17 +72,17 @@ namespace _2._3._25
             {
                 MessageBox.Show(e.Error.Message);
             }
-            double[] result = e.Result as double[];
+            var result = e.Result as double[];
 
-            Graphics graphics = this.CreateGraphics();
+            var graphics = this.CreateGraphics();
 
             // 获得绘图区矩形。
             RectangleF rect = this.ClientRectangle;
-            float unitX = rect.Width / 10;
-            float unitY = rect.Width / 10;
+            var unitX = rect.Width / 10;
+            var unitY = rect.Width / 10;
 
             // 添加 10% 边距作为文字区域。
-            RectangleF center = new RectangleF
+            var center = new RectangleF
                 (rect.X + unitX, rect.Y + unitY,
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
@@ -94,17 +94,17 @@ namespace _2._3._25
             graphics.DrawString("0", this.Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
-            PointF[] bluePoints = new PointF[result.Length];
+            var bluePoints = new PointF[result.Length];
             unitX = center.Width / result.Length;
             unitY = center.Height / (float)result.Max();
 
-            for (int i = 0; i < result.Length; i++)
+            for (var i = 0; i < result.Length; i++)
             {
                 bluePoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (float)(result[i] * unitY) - 10);
             }
 
             // 绘制点。
-            for (int i = 0; i < result.Length; i++)
+            for (var i = 0; i < result.Length; i++)
             {
                 graphics.FillEllipse(Brushes.Blue, new RectangleF(bluePoints[i], new Size(10, 10)));
             }
@@ -112,13 +112,13 @@ namespace _2._3._25
             graphics.Dispose();
 
             this.Text = "绘图结果";
-            int min = 0;
-            for (int i = 0; i < result.Length; i++)
+            var min = 0;
+            for (var i = 0; i < result.Length; i++)
             {
                 if (result[i] < result[min])
                     min = i;
             }
-            string report = "M " + min + "\r\ntime " + result[min];
+            var report = "M " + min + "\r\ntime " + result[min];
             MessageBox.Show(report, "最优结果");
         }
     }

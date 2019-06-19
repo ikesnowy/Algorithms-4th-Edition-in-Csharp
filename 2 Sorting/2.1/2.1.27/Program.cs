@@ -7,8 +7,8 @@ namespace _2._1._27
     {
         static void Main(string[] args)
         {
-            int n = 128;
-            Random random = new Random();
+            var n = 128;
+            var random = new Random();
 
             double shellPrev = 1;
             double insertionPrev = 1;
@@ -17,11 +17,11 @@ namespace _2._1._27
 
             while (n < 65538)
             {
-                int[] testShell = new int[n];
-                int[] testInsertion = new int[n];
-                int[] testSelection = new int[n];
+                var testShell = new int[n];
+                var testInsertion = new int[n];
+                var testSelection = new int[n];
 
-                for (int i = 0; i < n; i++)
+                for (var i = 0; i < n; i++)
                 {
                     testShell[i] = random.Next();
                     testInsertion[i] = testShell[i];
@@ -31,13 +31,13 @@ namespace _2._1._27
                 Console.WriteLine("数组大小：" + n);
 
                 Console.Write("Shell Sort:");
-                double shellNow = SortCompare.Time(new ShellSort(), testShell);
+                var shellNow = SortCompare.Time(new ShellSort(), testShell);
                 Console.WriteLine(shellNow + "\t\tNow/Prev=" + shellNow / shellPrev);
                 Console.Write("Insertion Sort:");
-                double insertionNow = SortCompare.Time(new InsertionSort(), testInsertion);
+                var insertionNow = SortCompare.Time(new InsertionSort(), testInsertion);
                 Console.WriteLine(insertionNow + "\tNow/Prev=" + insertionNow / insertionPrev);
                 Console.Write("Selection Sort:");
-                double selectionNow = SortCompare.Time(new SelectionSort(), testSelection);
+                var selectionNow = SortCompare.Time(new SelectionSort(), testSelection);
                 Console.WriteLine(selectionNow + "\tNow/Prev=" + selectionNow / selectionPrev);
                 Console.WriteLine();
 

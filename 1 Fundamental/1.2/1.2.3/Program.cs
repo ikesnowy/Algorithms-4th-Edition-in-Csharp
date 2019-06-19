@@ -26,49 +26,49 @@ namespace _1._2._3
         /// <param name="Max">分布范围的上界。（大于 0 且小于 1）</param>
         public static void StartDrawing(int N, double Min, double Max)
         {
-            Interval2D[] list = new Interval2D[N];
-            Random random = new Random();
+            var list = new Interval2D[N];
+            var random = new Random();
 
             // 开始绘图
-            Form2 drawPad = new Form2();
+            var drawPad = new Form2();
             drawPad.Show();
-            Graphics graphics = drawPad.CreateGraphics();
+            var graphics = drawPad.CreateGraphics();
 
             // 生成随机二维间隔
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
-                double x = random.NextDouble() * (Max - Min) + Min;
-                double y = random.NextDouble() * (Max - Min) + Min;
+                var x = random.NextDouble() * (Max - Min) + Min;
+                var y = random.NextDouble() * (Max - Min) + Min;
                 if (x >= y)
                 {
-                    double temp = x;
+                    var temp = x;
                     x = y;
                     y = temp;
                 }
                 x *= drawPad.ClientRectangle.Width;
                 y *= drawPad.ClientRectangle.Width;
-                Interval1D tempx = new Interval1D(x, y);
+                var tempx = new Interval1D(x, y);
 
                 x = random.NextDouble() * (Max - Min) + Min;
                 y = random.NextDouble() * (Max - Min) + Min;
                 if (x >= y)
                 {
-                    double temp = x;
+                    var temp = x;
                     x = y;
                     y = temp;
                 }
                 x *= drawPad.ClientRectangle.Height;
                 y *= drawPad.ClientRectangle.Height;
-                Interval1D tempy = new Interval1D(x, y);
+                var tempy = new Interval1D(x, y);
 
                 list[i] = new Interval2D(tempx, tempy);
             }
 
             // 计算相交和包含的数量
-            int intersectNum = 0;
-            for (int i = 0; i < N; i++)
+            var intersectNum = 0;
+            for (var i = 0; i < N; i++)
             {
-                for (int j = i + 1; j < N; j++)
+                for (var j = i + 1; j < N; j++)
                 {
                     if (list[i].Intersects(list[j]))
                     {
@@ -77,10 +77,10 @@ namespace _1._2._3
                 }
             }
 
-            int containsNum = 0;
-            for (int i = 0; i < N; i++)
+            var containsNum = 0;
+            for (var i = 0; i < N; i++)
             {
-                for (int j = 0; j < N; j++)
+                for (var j = 0; j < N; j++)
                 {
                     if (i == j)
                         continue;
@@ -97,7 +97,7 @@ namespace _1._2._3
             graphics.ScaleTransform(1, -1);
 
             // 绘制所有区间
-            foreach (Interval2D n in list)
+            foreach (var n in list)
             {
                 n.Draw(graphics);
             }

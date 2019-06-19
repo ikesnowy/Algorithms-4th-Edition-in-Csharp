@@ -19,7 +19,7 @@ namespace _1._3._16
         /// <exception cref="ArgumentException">非法日期格式</exception>
         public Date(string date)
         {
-            string[] a = date.Split('/');
+            var a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
             this.Month = int.Parse(a[0]);
@@ -46,11 +46,11 @@ namespace _1._3._16
         /// <returns></returns>
         public static Date[] ReadDates()
         {
-            char[] split = new char[] { '\n' };
-            string[] input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
-            Date[] d = new Date[input.Length];
+            var split = new char[] { '\n' };
+            var input = Console.In.ReadToEnd().Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var d = new Date[input.Length];
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 d[i] = new Date(input[i]);
             }
@@ -65,10 +65,10 @@ namespace _1._3._16
         /// <returns></returns>
         public static Date[] ReadDates(string path)
         {
-            string[] allStrings = File.ReadAllLines(path);
-            Date[] d = new Date[allStrings.Length];
+            var allStrings = File.ReadAllLines(path);
+            var d = new Date[allStrings.Length];
 
-            for (int i = 0; i < allStrings.Length; i++)
+            for (var i = 0; i < allStrings.Length; i++)
             {
                 d[i] = new Date(allStrings[i]);
             }
@@ -98,7 +98,7 @@ namespace _1._3._16
                 return false;
             if (obj.GetType() != this.GetType())
                 return false;
-            Date that = (Date)obj;
+            var that = (Date)obj;
             return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
         }
 
@@ -108,7 +108,7 @@ namespace _1._3._16
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 17;
+            var hash = 17;
             hash = 31 * hash + this.Month;
             hash = 31 * hash + this.Year;
             hash = 31 * hash + this.Day;

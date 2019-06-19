@@ -8,12 +8,12 @@ namespace _1._3._6
         // 将队列反序
         static void Main(string[] args)
         {
-            Queue<string> q = new Queue<string>();
+            var q = new Queue<string>();
             q.Enqueue("first");
             q.Enqueue("second");
             q.Enqueue("third");
             q.Enqueue("fourth");
-            Stack<string> stack = new Stack<string>();
+            var stack = new Stack<string>();
             while (!q.IsEmpty())
                 stack.Push(q.Dequeue());
             while (!stack.IsEmpty())

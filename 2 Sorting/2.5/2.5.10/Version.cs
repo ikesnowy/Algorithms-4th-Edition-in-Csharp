@@ -11,9 +11,9 @@ namespace _2._5._10
 
         public Version(string version)
         {
-            string[] versions = version.Split('.');
+            var versions = version.Split('.');
             this.versionNumber = new int[versions.Length];
-            for (int i = 0; i < versions.Length; i++)
+            for (var i = 0; i < versions.Length; i++)
             {
                 this.versionNumber[i] = int.Parse(versions[i]);
             }
@@ -21,7 +21,7 @@ namespace _2._5._10
 
         public int CompareTo(Version other)
         {
-            for (int i = 0; i < this.versionNumber.Length && i < other.versionNumber.Length; i++)
+            for (var i = 0; i < this.versionNumber.Length && i < other.versionNumber.Length; i++)
             {
                 if (this.versionNumber[i].CompareTo(other.versionNumber[i]) != 0)
                     return this.versionNumber[i].CompareTo(other.versionNumber[i]);
@@ -31,8 +31,8 @@ namespace _2._5._10
 
         public override string ToString()
         {
-            string result = "";
-            for (int i = 0; i < this.versionNumber.Length - 1; i++)
+            var result = "";
+            for (var i = 0; i < this.versionNumber.Length - 1; i++)
             {
                 result += this.versionNumber[i] + ".";
             }

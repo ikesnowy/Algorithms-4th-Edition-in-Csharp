@@ -7,8 +7,8 @@ namespace _1._4._11
     {
         static void Main(string[] args)
         {
-            int[] a = new int[5] { 5, 5, 5, 5, 1 };
-            StaticSETofInts set = new StaticSETofInts(a);
+            var a = new int[5] { 5, 5, 5, 5, 1 };
+            var set = new StaticSETofInts(a);
             Console.WriteLine(set.HowMany(5));
         }
     }

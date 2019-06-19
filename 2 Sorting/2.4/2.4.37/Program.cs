@@ -11,17 +11,17 @@ namespace _2._4._37
 
         static void Main(string[] args)
         {
-            int doubleTime = 6;
-            int repeatTime = 6;
-            int n = 1000000;
-            for (int i = 0; i < doubleTime; i++)
+            var doubleTime = 6;
+            var repeatTime = 6;
+            var n = 1000000;
+            for (var i = 0; i < doubleTime; i++)
             {
-                int totalDelCount = 0;
+                var totalDelCount = 0;
                 Console.WriteLine("n=" + n);
-                for (int j = 0; j < repeatTime; j++)
+                for (var j = 0; j < repeatTime; j++)
                 {
-                    MaxPQ<int> pq = new MaxPQ<int>(n);
-                    int delCount = Test(n, pq);
+                    var pq = new MaxPQ<int>(n);
+                    var delCount = Test(n, pq);
                     totalDelCount += delCount;
                     Console.Write(delCount + "\t");
                 }
@@ -32,14 +32,14 @@ namespace _2._4._37
 
         static int Test(int n, MaxPQ<int> pq)
         {
-            Timer timer = new Timer(1000);
+            var timer = new Timer(1000);
             timer.Elapsed += new ElapsedEventHandler(StopRunning);
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 pq.Insert(random.Next());
             }
 
-            int delCount = 0;
+            var delCount = 0;
             StartRunning();
             timer.Start();
             while (isRunning && !pq.IsEmpty())

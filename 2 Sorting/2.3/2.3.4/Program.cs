@@ -22,11 +22,11 @@ namespace _2._3._4
             // 4 5 6 7 8 9 10 11 12 13
             // 5 6 7 8 9 10 11 12 13 14
             // 6 7 8 9 10 11 12 13 14 15
-            QuickSortAnalyze quick = new QuickSortAnalyze
+            var quick = new QuickSortAnalyze
             {
                 NeedShuffle = false   // 关闭开始的打乱操作。
             };
-            int[] a = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var a = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             quick.Sort(a);
             Console.WriteLine(quick.CompareCount);
         }

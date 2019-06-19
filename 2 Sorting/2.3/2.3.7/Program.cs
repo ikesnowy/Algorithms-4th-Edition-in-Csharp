@@ -35,13 +35,13 @@ namespace _2._3._7
             // C2(n)=C2(3)*(n+1)/4=(n+1)/6, n>3
             // 结论
             // C0(n)=C1(n)=(n+1)/3, C2(n)=(n+1)/6
-            int n = 1000;
-            QuickSortAnalyze sort = new QuickSortAnalyze();
+            var n = 1000;
+            var sort = new QuickSortAnalyze();
             Console.WriteLine("n\t0\t1\t2");
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
-                int[] a = new int[n];
-                for (int j = 0; j < n; j++)
+                var a = new int[n];
+                for (var j = 0; j < n; j++)
                 {
                     a[j] = j;
                 }

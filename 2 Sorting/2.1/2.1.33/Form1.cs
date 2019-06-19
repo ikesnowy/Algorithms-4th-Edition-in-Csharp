@@ -15,7 +15,7 @@ namespace _2._1._33
         {
             try
             {
-                int N = int.Parse(this.InputN.Text);
+                var N = int.Parse(this.InputN.Text);
                 if (this.selectionSortRadio.Checked)
                 {
                     new Form2(new SelectionSort(), N).Show();

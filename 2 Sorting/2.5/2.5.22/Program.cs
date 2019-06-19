@@ -19,14 +19,14 @@ namespace _2._5._22
         static void Main(string[] args)
         {
             // 输入格式： buy 20.05 100
-            MaxPQ<Ticket> buyer = new MaxPQ<Ticket>();
-            MinPQ<Ticket> seller = new MinPQ<Ticket>();
+            var buyer = new MaxPQ<Ticket>();
+            var seller = new MinPQ<Ticket>();
 
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 0; i < n; i++)
+            var n = int.Parse(Console.ReadLine());
+            for (var i = 0; i < n; i++)
             {
-                Ticket ticket = new Ticket();
-                string[] item = Console.ReadLine().Split(' ');
+                var ticket = new Ticket();
+                var item = Console.ReadLine().Split(' ');
 
                 ticket.Price = double.Parse(item[1]);
                 ticket.Share = int.Parse(item[2]);
@@ -40,8 +40,8 @@ namespace _2._5._22
             {
                 if (buyer.Max().Price < seller.Min().Price)
                     break;
-                Ticket buy = buyer.DelMax();
-                Ticket sell = seller.DelMin();
+                var buy = buyer.DelMax();
+                var sell = seller.DelMin();
                 Console.Write("sell $" + sell.Price + " * " + sell.Share);
                 if (buy.Share > sell.Share)
                 {

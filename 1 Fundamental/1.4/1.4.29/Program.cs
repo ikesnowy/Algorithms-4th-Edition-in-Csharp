@@ -6,10 +6,10 @@ namespace _1._4._29
     {
         static void Main(string[] args)
         {
-            StackSteque<string> stackSteque = new StackSteque<string>();
-            string[] input = "to be or not to - be - - that - - - is".Split(' ');
+            var stackSteque = new StackSteque<string>();
+            var input = "to be or not to - be - - that - - - is".Split(' ');
 
-            foreach (String s in input)
+            foreach (var s in input)
             {
                 if (s == "-")
                 {
@@ -27,7 +27,7 @@ namespace _1._4._29
             }
             Console.WriteLine();
 
-            foreach (String s in input)
+            foreach (var s in input)
             {
                 if (s == "-")
                 {

@@ -17,8 +17,8 @@
         /// <returns>适用于快速排序的最佳情况数组。</returns>
         public static int[] Best(int n)
         {
-            int[] a = new int[n];
-            for (int i = 0; i < n; i++)
+            var a = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 a[i] = i;
             }
@@ -36,7 +36,7 @@
         {
             if (hi <= lo)
                 return;
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             Best(a, lo, mid - 1);
             Best(a, mid + 1, hi);
             Exch(a, lo, mid);
@@ -51,7 +51,7 @@
         /// <param name="y">需要交换的第二个元素下标。</param>
         private static void Exch(int[] a, int x, int y)
         {
-            int t = a[x];
+            var t = a[x];
             a[x] = a[y];
             a[y] = t;
         }

@@ -48,7 +48,7 @@ namespace _1._3._40
                 return null;
             }
 
-            Node<Item> current = this.first;
+            var current = this.first;
             while (current.next != null)
             {
                 if (current.next.item.Equals(item))
@@ -66,7 +66,7 @@ namespace _1._3._40
         /// <param name="item">需要插入的元素。</param>
         public void Insert(Item item)
         {
-            Node<Item> temp = Find(item);
+            var temp = Find(item);
             if (temp == null)
             {
                 temp = new Node<Item>()
@@ -80,7 +80,7 @@ namespace _1._3._40
             }
             else if (temp != null && this.count != 1)
             {
-                Node<Item> target = temp.next;
+                var target = temp.next;
                 temp.next = temp.next.next;
                 target.next = this.first;
                 this.first = target;
@@ -103,8 +103,8 @@ namespace _1._3._40
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            Node<Item> current = this.first;
+            var s = new StringBuilder();
+            var current = this.first;
             while (current != null)
             {
                 s.Append(current.item.ToString());

@@ -30,7 +30,7 @@ namespace Commercial
         /// <exception cref="ArgumentException">输入日期格式不正确时抛出异常。</exception>
         public Date(string date)
         {
-            string[] a = date.Split('/');
+            var a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
             this.Month = int.Parse(a[0]);
@@ -73,7 +73,7 @@ namespace Commercial
                 return false;
             if (obj.GetType() != this.GetType())
                 return false;
-            Date that = (Date)obj;
+            var that = (Date)obj;
             return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
         }
 
@@ -83,7 +83,7 @@ namespace Commercial
         /// <returns>日期的哈希值。</returns>
         public override int GetHashCode()
         {
-            int hash = 17;
+            var hash = 17;
             hash = 31 * hash + this.Month;
             hash = 31 * hash + this.Year;
             hash = 31 * hash + this.Day;

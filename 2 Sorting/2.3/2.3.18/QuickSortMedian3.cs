@@ -47,7 +47,7 @@ namespace _2._3._18
                 return;
             }
 
-            int j = Partition(a, lo, hi);
+            var j = Partition(a, lo, hi);
             Sort(a, lo, j - 1);
             Sort(a, j + 1, hi);
         }
@@ -74,7 +74,7 @@ namespace _2._3._18
             Exch(a, lo, lo + 1);        // 中位数放最左侧
             Exch(a, hi, lo + 2);        // 较大的值放最右侧作为哨兵
 
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v)) ;
@@ -94,11 +94,11 @@ namespace _2._3._18
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

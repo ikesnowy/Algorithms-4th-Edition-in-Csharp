@@ -23,9 +23,9 @@
         public void Push(Item item)
         {
             this.queue.Enqueue(item);
-            int size = this.queue.Size();
+            var size = this.queue.Size();
             // 倒转队列
-            for (int i = 0; i < size - 1; i++)
+            for (var i = 0; i < size - 1; i++)
             {
                 this.queue.Enqueue(this.queue.Dequeue());
             }

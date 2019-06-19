@@ -7,12 +7,12 @@ namespace _1._3._41
     {
         static void Main(string[] args)
         {
-            Queue<string> r = new Queue<string>();
+            var r = new Queue<string>();
             r.Enqueue("first");
             r.Enqueue("second");
             r.Enqueue("third");
 
-            Queue<string> q = new Queue<string>(r);
+            var q = new Queue<string>(r);
 
             Console.WriteLine("r:" + r);
             Console.WriteLine("q:" + q);

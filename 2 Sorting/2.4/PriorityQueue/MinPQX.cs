@@ -44,9 +44,9 @@ namespace PriorityQueue
         {
             this.n = keys.Length;
             this.pq = new Key[keys.Length + 1];
-            for (int i = 0; i < keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
                 this.pq[i + 1] = keys[i];
-            for (int k = this.n / 2; k >= 1; k--)
+            for (var k = this.n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMinHeap());
         }
@@ -60,7 +60,7 @@ namespace PriorityQueue
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key min = this.pq[1];
+            var min = this.pq[1];
             Exch(1, this.n--);
             Sink(1);
             this.pq[this.n + 1] = default(Key);
@@ -132,8 +132,8 @@ namespace PriorityQueue
         /// <returns></returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MinPQ<Key> copy = new MinPQ<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
+            var copy = new MinPQ<Key>(this.n);
+            for (var i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
@@ -159,9 +159,9 @@ namespace PriorityQueue
                 return;
 
             // 获取路径
-            int heapHeight = (int)(Math.Log(this.n) / Math.Log(2));
-            List<int> path = new List<int>();
-            int temp = k;
+            var heapHeight = (int)(Math.Log(this.n) / Math.Log(2));
+            var path = new List<int>();
+            var temp = k;
             while (temp >= 1)
             {
                 path.Add(temp);
@@ -172,14 +172,14 @@ namespace PriorityQueue
             int lo = 1, hi = path.Count - 1;
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
                 if (Greater(k, path[mid]))
                     hi = mid - 1;   // 当前值比较大，应该向下走
                 else
                     lo = mid + 1;   // 值较小，向根结点方向走
             }
 
-            for (int i = 1; i < lo; i++)
+            for (var i = 1; i < lo; i++)
             {
                 Exch(path[i - 1], path[i]);
             }
@@ -193,7 +193,7 @@ namespace PriorityQueue
         {
             while (k * 2 <= this.n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < this.n && Greater(j, j + 1))
                     j++;
                 if (!Greater(k, j))
@@ -209,8 +209,8 @@ namespace PriorityQueue
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            for (var i = 1; i <= this.n; i++)
             {
                 temp[i] = this.pq[i];
             }
@@ -233,7 +233,7 @@ namespace PriorityQueue
         /// <param name="j">要交换的第二个元素下标。</param>
         protected virtual void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
+            var swap = this.pq[i];
             this.pq[i] = this.pq[j];
             this.pq[j] = swap;
         }
@@ -253,8 +253,8 @@ namespace PriorityQueue
         {
             if (k > this.n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
+            var left = 2 * k;
+            var right = 2 * k + 1;
             if (left <= this.n && Greater(k, left))
                 return false;
             if (right <= this.n && Greater(k, right))

@@ -15,18 +15,18 @@ namespace _1._1._21
          */
         static void Main(string[] args)
         {
-            int columns = 2;
-            int rows = int.Parse(Console.ReadLine());   // 行号
+            var columns = 2;
+            var rows = int.Parse(Console.ReadLine());   // 行号
 
-            string[] names = new string[rows];          // 姓名
-            int[,] array = new int[rows, columns];      // 输入的两个整数
-            double[] results = new double[rows];        // 计算结果
+            var names = new string[rows];          // 姓名
+            var array = new int[rows, columns];      // 输入的两个整数
+            var results = new double[rows];        // 计算结果
 
-            for (int i = 0; i < rows; i++)
+            for (var i = 0; i < rows; i++)
             {
-                string temp = Console.ReadLine();
+                var temp = Console.ReadLine();
                 names[i] = temp.Split(' ')[0];
-                for (int j = 0; j < columns; j++)
+                for (var j = 0; j < columns; j++)
                 {
                     array[i, j] = int.Parse(temp.Split(' ')[j + 1]);
                 }
@@ -38,13 +38,13 @@ namespace _1._1._21
 
         static void PrintArray2D(string[] names, int[,] array, double[] results)
         {
-            int rows = array.GetLength(0);// 获取行数
-            int columns = array.GetLength(1);// 获取列数
+            var rows = array.GetLength(0);// 获取行数
+            var columns = array.GetLength(1);// 获取列数
 
-            for (int i = 0; i < rows; i++)
+            for (var i = 0; i < rows; i++)
             {
                 Console.Write($"\t{names[i]}");
-                for (int j = 0; j < columns - 1; j++)
+                for (var j = 0; j < columns - 1; j++)
                 {
                     Console.Write($"\t{array[i, j]}");
                 }

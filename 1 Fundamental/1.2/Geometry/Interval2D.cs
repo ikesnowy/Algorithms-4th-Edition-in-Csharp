@@ -76,7 +76,7 @@ namespace Geometry
         /// <param name="g">原点在左下方，x轴向右，y轴向上的画布。</param>
         public void Draw(Graphics g)
         {
-            Rectangle rect = new Rectangle((int)this.X.Min, (int)this.Y.Min, (int)this.X.Length(), (int)this.Y.Length());
+            var rect = new Rectangle((int)this.X.Min, (int)this.Y.Min, (int)this.X.Length(), (int)this.Y.Length());
             g.DrawRectangle(Pens.White, rect);
             g.FillRectangle(Brushes.Black, rect);
         }
@@ -111,7 +111,7 @@ namespace Geometry
                 return false;
             }
 
-            Interval2D that = (Interval2D)obj;
+            var that = (Interval2D)obj;
 
             return this.X.Equals(that.X) && this.Y.Equals(that.Y);
         }
@@ -122,8 +122,8 @@ namespace Geometry
         /// <returns>2D 区间的哈希值。</returns>
         public override int GetHashCode()
         {
-            int hash1 = this.X.GetHashCode();
-            int hash2 = this.Y.GetHashCode();
+            var hash1 = this.X.GetHashCode();
+            var hash2 = this.Y.GetHashCode();
 
             return 31 * hash1 + hash2;
         }

@@ -64,7 +64,7 @@ namespace _1._4._30
         /// <param name="item">要压入栈中的元素。</param>
         public void Push(Item item)
         {
-            Node<Item> oldFirst = this.first;
+            var oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;
@@ -84,7 +84,7 @@ namespace _1._4._30
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            Item item = this.first.item;
+            var item = this.first.item;
             this.first = this.first.next;
             this.count--;
             if (this.count == 0)
@@ -100,7 +100,7 @@ namespace _1._4._30
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            Node<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new Node<Item>();
             this.last.item = item;
             this.last.next = null;
@@ -124,8 +124,8 @@ namespace _1._4._30
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            foreach (Item n in this)
+            var s = new StringBuilder();
+            foreach (var n in this)
             {
                 s.Append(n);
                 s.Append(' ');

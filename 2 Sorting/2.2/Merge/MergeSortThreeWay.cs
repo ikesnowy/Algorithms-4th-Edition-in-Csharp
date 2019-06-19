@@ -20,7 +20,7 @@ namespace Merge
         /// <param name="a">待排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1);
             Debug.Assert(IsSorted(a));
         }
@@ -37,8 +37,8 @@ namespace Merge
         {
             if (hi <= lo)       // 小于或等于一个元素
                 return;
-            int lmid = lo + (hi - lo) / 3;
-            int rmid = hi - (hi - lo) / 3;
+            var lmid = lo + (hi - lo) / 3;
+            var rmid = hi - (hi - lo) / 3;
             Sort(a, aux, lo, lmid);
             Sort(a, aux, lmid + 1, rmid);
             Sort(a, aux, rmid + 1, hi);
@@ -71,15 +71,15 @@ namespace Merge
         /// <param name="hi">范围终点。</param>
         private void Merge<T>(T[] a, T[] aux, int lo, int lmid, int rmid, int hi) where T : IComparable<T>
         {
-            for (int l = lo; l <= hi; l++)
+            for (var l = lo; l <= hi; l++)
             {
                 aux[l] = a[l];
             }
 
             int i = lo, j = lmid + 1, k = rmid + 1;
-            for (int l = lo; l <= hi; l++)
+            for (var l = lo; l <= hi; l++)
             {
-                int flag = 0;
+                var flag = 0;
                 if (i > lmid)
                     flag += 1;
                 if (j > rmid)
@@ -89,7 +89,7 @@ namespace Merge
                 switch (flag)
                 {
                     case 0:         // 三个数组都还没有取完
-                        T min = Min(aux[i], Min(aux[j], aux[k]));
+                        var min = Min(aux[i], Min(aux[j], aux[k]));
                         if (min.Equals(aux[i]))
                             a[l] = aux[i++];
                         else if (min.Equals(aux[j]))

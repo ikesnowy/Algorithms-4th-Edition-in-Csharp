@@ -28,8 +28,8 @@ namespace PriorityQueue
         /// <remarks>如果希望获得并删除最大元素，请使用 <see cref="DelMax"/>。</remarks>
         public Key Max()
         {
-            int max = 0;
-            for (int i = 1; i < this.pq.Size(); i++)
+            var max = 0;
+            for (var i = 1; i < this.pq.Size(); i++)
                 if (Less(this.pq.Find(max), this.pq.Find(i)))
                     max = i;
             return this.pq.Find(max);
@@ -42,8 +42,8 @@ namespace PriorityQueue
         /// <remarks>如果希望获得最大元素但不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
-            int max = 0;
-            for (int i = 1; i < this.pq.Size(); i++)
+            var max = 0;
+            for (var i = 1; i < this.pq.Size(); i++)
                 if (Less(this.pq.Find(max), this.pq.Find(i)))
                     max = i;
 

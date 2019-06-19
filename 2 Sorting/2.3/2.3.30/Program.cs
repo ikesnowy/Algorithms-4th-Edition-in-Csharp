@@ -8,13 +8,13 @@ namespace _2._3._30
     {
         static void Main(string[] args)
         {
-            QuickSortInsertion insertionSort = new QuickSortInsertion();
-            QuickSortRandomPivot randomSort = new QuickSortRandomPivot();
-            int n = 5000000;
+            var insertionSort = new QuickSortInsertion();
+            var randomSort = new QuickSortRandomPivot();
+            var n = 5000000;
 
             // 高斯分布（正态分布）
-            double[] arrayInsertion = SortCompare.GetNormalDistributionArray(n);
-            double[] arraySelection = new double[n];
+            var arrayInsertion = SortCompare.GetNormalDistributionArray(n);
+            var arraySelection = new double[n];
 
             arrayInsertion.CopyTo(arraySelection, 0);
 
@@ -51,8 +51,8 @@ namespace _2._3._30
             Console.WriteLine();
 
             // 一半是 0 一半是 1
-            int[] arrayNormalInsertion = HalfZeroHalfOne(n);
-            int[] arrayRandomPivot = new int[n];
+            var arrayNormalInsertion = HalfZeroHalfOne(n);
+            var arrayRandomPivot = new int[n];
             arrayNormalInsertion.CopyTo(arrayRandomPivot, 0);
 
             Console.WriteLine("half 0 and half 1");
@@ -85,9 +85,9 @@ namespace _2._3._30
         /// <returns>一半是 0 一半是 1 的 <see cref="int"/>数组。</returns>
         static int[] HalfZeroHalfOne(int n)
         {
-            int[] result = new int[n];
-            Random random = new Random();
-            for (int i = 0; i < n; i++)
+            var result = new int[n];
+            var random = new Random();
+            for (var i = 0; i < n; i++)
             {
                 if (random.NextDouble() >= 0.5)
                 {
@@ -108,7 +108,7 @@ namespace _2._3._30
         /// <returns>1/2 为 0， 1/4 为 1， 1/8 为 2 …… 的 <see cref="int"/> 数组。</returns>
         static int[] HalfAndHalf(int n)
         {
-            int[] array = new int[n];
+            var array = new int[n];
             HalfIt(0, 0, n / 2, array);
             Shuffle(array);
             return array;
@@ -127,7 +127,7 @@ namespace _2._3._30
             if (length == 0)
                 return array;
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 array[start + i] = number;
             }
@@ -142,14 +142,14 @@ namespace _2._3._30
         /// <returns>生成一半是 0 一半是随机整数的 <see cref="int"/> 数组。</returns>
         static int[] HalfZeroHalfRandom(int n)
         {
-            int[] array = new int[n];
-            Random random = new Random();
-            for (int i = 0; i < n / 2; i++)
+            var array = new int[n];
+            var random = new Random();
+            for (var i = 0; i < n / 2; i++)
             {
                 array[i] = 0;
             }
 
-            for (int i = n / 2; i < n; i++)
+            for (var i = n / 2; i < n; i++)
             {
                 array[i] = random.Next();
             }
@@ -165,12 +165,12 @@ namespace _2._3._30
         /// <param name="a">需要打乱的数组。</param>
         static void Shuffle(int[] a)
         {
-            int N = a.Length;
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            var N = a.Length;
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                int r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
-                int temp = a[i];
+                var r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

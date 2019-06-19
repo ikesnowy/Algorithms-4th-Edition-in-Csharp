@@ -46,7 +46,7 @@ namespace Generics
         /// <param name="item">要添加的元素。</param>
         public void Add(Item item)
         {
-            Node<Item> oldFirst = this.first;
+            var oldFirst = this.first;
             this.first = new Node<Item>();
             this.first.item = item;
             this.first.next = oldFirst;

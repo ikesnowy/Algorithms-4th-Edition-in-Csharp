@@ -10,9 +10,9 @@ namespace _1._3._10
         // 结果 A B +，变成后序表达式
         static void Main(string[] args)
         {
-            Stack<string> stack = new Stack<string>();
-            string[] input = "( 1 + ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) ) )".Split(' ');
-            foreach (string n in input)
+            var stack = new Stack<string>();
+            var input = "( 1 + ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) ) )".Split(' ');
+            foreach (var n in input)
             {
                 if (n == " ")
                     continue;

@@ -42,8 +42,8 @@ namespace _1._3._36
                 throw new ArgumentException();
             }
 
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }
@@ -77,10 +77,10 @@ namespace _1._3._36
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random(DateTime.Now.Millisecond);
-            int index = random.Next(this.count);
+            var random = new Random(DateTime.Now.Millisecond);
+            var index = random.Next(this.count);
 
-            Item temp = this.queue[index];
+            var temp = this.queue[index];
             this.queue[index] = this.queue[this.count - 1];
             this.queue[this.count - 1] = temp;
 
@@ -105,8 +105,8 @@ namespace _1._3._36
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random();
-            int index = random.Next(this.count);
+            var random = new Random();
+            var index = random.Next(this.count);
 
             return this.queue[index];
         }
@@ -135,7 +135,7 @@ namespace _1._3._36
                 this.current = -1;
 
                 this.sequence = new int[this.count];
-                for (int i = 0; i < this.count; i++)
+                for (var i = 0; i < this.count; i++)
                 {
                     this.sequence[i] = i;
                 }
@@ -150,12 +150,12 @@ namespace _1._3._36
             /// <param name="seed">随机种子值。</param>
             private void Shuffle(int[] a, int seed)
             {
-                int N = a.Length;
-                Random random = new Random(seed);
-                for (int i = 0; i < N; i++)
+                var N = a.Length;
+                var random = new Random(seed);
+                for (var i = 0; i < N; i++)
                 {
-                    int r = i + random.Next(N - i);
-                    int temp = a[i];
+                    var r = i + random.Next(N - i);
+                    var temp = a[i];
                     a[i] = a[r];
                     a[r] = temp;
                 }

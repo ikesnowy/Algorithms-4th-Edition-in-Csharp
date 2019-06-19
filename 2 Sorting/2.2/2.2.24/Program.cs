@@ -7,17 +7,17 @@ namespace _2._2._24
     {
         static void Main(string[] args)
         {
-            MergeSortX mergeSortX = new MergeSortX();
-            int n = 10000;
-            int trialTimes = 10;
+            var mergeSortX = new MergeSortX();
+            var n = 10000;
+            var trialTimes = 10;
             Console.WriteLine("数组\t平均命中次数");
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
-                int avgHit = 0;
-                for (int j = 0; j < trialTimes; j++)
+                var avgHit = 0;
+                for (var j = 0; j < trialTimes; j++)
                 {
                     mergeSortX.ResetHitTime();
-                    int[] a = SortCompare.GetRandomArrayInt(n);
+                    var a = SortCompare.GetRandomArrayInt(n);
                     mergeSortX.Sort(a);
                     avgHit += mergeSortX.GetHitTime();
                 }

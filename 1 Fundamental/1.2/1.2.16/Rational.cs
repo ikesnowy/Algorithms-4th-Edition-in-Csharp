@@ -34,7 +34,7 @@ namespace _1._2._16
                 this.isNagative = false;
             }
 
-            long gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
+            var gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
             if (gcd != 1)
             {
                 numerator /= gcd;
@@ -51,7 +51,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Plus(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator + b.Numerator * this.Denominator, this.Denominator * b.Denominator);
+            var result = new Rational(this.Numerator * b.Denominator + b.Numerator * this.Denominator, this.Denominator * b.Denominator);
             return result;
         }
 
@@ -62,7 +62,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Minus(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator - b.Numerator * this.Denominator, this.Denominator * b.Denominator);
+            var result = new Rational(this.Numerator * b.Denominator - b.Numerator * this.Denominator, this.Denominator * b.Denominator);
             return result;
         }
 
@@ -73,7 +73,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Multiply(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Numerator, this.Denominator * b.Denominator);
+            var result = new Rational(this.Numerator * b.Numerator, this.Denominator * b.Denominator);
             return result;
         }
 
@@ -84,7 +84,7 @@ namespace _1._2._16
         /// <returns></returns>
         public Rational Divide(Rational b)
         {
-            Rational result = new Rational(this.Numerator * b.Denominator, this.Denominator * b.Numerator);
+            var result = new Rational(this.Numerator * b.Denominator, this.Denominator * b.Numerator);
             return result;
         }
 
@@ -110,7 +110,7 @@ namespace _1._2._16
             if (obj.GetType() != this.GetType())
                 return false;
 
-            Rational that = (Rational)obj;
+            var that = (Rational)obj;
             return (this.Numerator == that.Numerator) && (this.Denominator == that.Denominator);
         }
 
@@ -125,7 +125,7 @@ namespace _1._2._16
         /// <returns></returns>
         public override string ToString()
         {
-            string result = "";
+            var result = "";
             if (this.isNagative)
                 result += "-";
             result += Math.Abs(this.Numerator) + "/" + Math.Abs(this.Denominator);

@@ -13,7 +13,7 @@
         {
             this.size = new int[n];
 
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 this.size[i] = 1;
             }
@@ -27,14 +27,14 @@
         public override int Find(int p)
         {
             Validate(p);
-            int root = p;
+            var root = p;
             while (root != this.parent[p])
             {
                 root = this.parent[p];
             }
             while (p != root)
             {
-                int newP = this.parent[p];
+                var newP = this.parent[p];
                 this.parent[p] = root;
                 p = newP;
             }

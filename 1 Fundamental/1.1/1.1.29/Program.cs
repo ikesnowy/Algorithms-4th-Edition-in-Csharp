@@ -6,23 +6,23 @@ namespace _1._1._29
     {
         static void Main(string[] args)
         {
-            int[] WhiteList = new int[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+            var WhiteList = new int[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 
             Array.Sort<int>(WhiteList);
 
             Console.WriteLine("Type the numbers you want to query: ");
-            string input = Console.ReadLine();
-            int[] Query = new int[input.Split(' ').Length];
-            for (int i = 0; i < Query.Length; i++)
+            var input = Console.ReadLine();
+            var Query = new int[input.Split(' ').Length];
+            for (var i = 0; i < Query.Length; i++)
             {
                 Query[i] = int.Parse(input.Split(' ')[i]);
             }
 
             Console.WriteLine("Result:");
-            foreach (int n in Query)
+            foreach (var n in Query)
             {
-                int less = rank(n, WhiteList);
-                int equal = count(n, WhiteList);
+                var less = rank(n, WhiteList);
+                var equal = count(n, WhiteList);
                 Console.WriteLine($"Less: {less} Equal: {equal}");
             }
         }
@@ -35,13 +35,13 @@ namespace _1._1._29
         /// <returns></returns>
         public static int count(int key, int[] a)
         {
-            int lowerBound = rank(key, a);
-            int upperBound = lowerBound;
+            var lowerBound = rank(key, a);
+            var upperBound = lowerBound;
 
             if (lowerBound == -1)
                 return 0;
 
-            int result = 0;
+            var result = 0;
             while (true)
             {
                 result = rank(key, a, upperBound + 1, a.Length - 1);
@@ -64,10 +64,10 @@ namespace _1._1._29
         /// <returns></returns>
         public static int rank(int key, int[] a)
         {
-            int mid = rank(key, a, 0, a.Length - 1);
+            var mid = rank(key, a, 0, a.Length - 1);
             if (mid == -1)
                 return 0;
-            int result = mid;
+            var result = mid;
             while (true)
             {
                 result = rank(key, a, 0, mid - 1);
@@ -96,7 +96,7 @@ namespace _1._1._29
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {

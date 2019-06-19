@@ -7,20 +7,20 @@ namespace _1._4._45
         // HN 指的是调和级数
         static void Main(string[] args)
         {
-            Random random = new Random();
-            int N = 10000;
-            bool[] a = new bool[N];
-            int randomSize = 0;
-            int times = 0;
+            var random = new Random();
+            var N = 10000;
+            var a = new bool[N];
+            var randomSize = 0;
+            var times = 0;
             for (times = 0; times < 20; times++)
             {
-                for (int i = 0; i < N; i++)
+                for (var i = 0; i < N; i++)
                 {
                     a[i] = false;
                 }
-                for (int i = 0; true; i++)
+                for (var i = 0; true; i++)
                 {
-                    int now = random.Next(N);
+                    var now = random.Next(N);
                     a[now] = true;
                     if (IsAllGenerated(a))
                     {
@@ -41,7 +41,7 @@ namespace _1._4._45
         static double HarmonicSum(int N)
         {
             double sum = 0;
-            for (int i = 1; i <= N; i++)
+            for (var i = 1; i <= N; i++)
             {
                 sum += 1.0 / i;
             }
@@ -55,7 +55,7 @@ namespace _1._4._45
         /// <returns>全都生成则返回 true，否则返回 false。</returns>
         static bool IsAllGenerated(bool[] a)
         {
-            foreach (bool i in a)
+            foreach (var i in a)
             {
                 if (!i)
                     return false;

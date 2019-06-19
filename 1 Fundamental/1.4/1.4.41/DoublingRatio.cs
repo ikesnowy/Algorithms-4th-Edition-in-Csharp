@@ -13,10 +13,10 @@ namespace _1._4._41
         /// <returns>读入的整型数组</returns>
         private static int[] ReadAllInts(string inputString)
         {
-            char[] split = new char[1] { '\n' };
-            string[] input = inputString.Split(split, StringSplitOptions.RemoveEmptyEntries);
-            int[] a = new int[input.Length];
-            for (int i = 0; i < a.Length; i++)
+            var split = new char[1] { '\n' };
+            var input = inputString.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var a = new int[input.Length];
+            for (var i = 0; i < a.Length; i++)
             {
                 a[i] = int.Parse(input[i]);
             }
@@ -31,7 +31,7 @@ namespace _1._4._41
         /// <returns>耗时（秒）。</returns>
         public static double TimeTrial(Count Count, int[] a)
         {
-            Stopwatch timer = new Stopwatch();
+            var timer = new Stopwatch();
             Count(a);
             return timer.ElapsedTimeMillionSeconds();
         }
@@ -47,14 +47,14 @@ namespace _1._4._41
             double times = 3;
 
             // 1K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            double prevTime = TimeTrial(Count, a);
+            var a = ReadAllInts(TestCase.Properties.Resources._1Kints);
+            var prevTime = TimeTrial(Count, a);
             Console.WriteLine("数据量\t耗时\t比值");
             Console.WriteLine($"1000\t{prevTime / 1000}\t");
 
             // 2K
             a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            double time = TimeTrial(Count, a);
+            var time = TimeTrial(Count, a);
             Console.WriteLine($"2000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
@@ -108,14 +108,14 @@ namespace _1._4._41
             double times = 2;
 
             // 8K
-            int[] a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            double prevTime = TimeTrial(Count, a);
+            var a = ReadAllInts(TestCase.Properties.Resources._8Kints);
+            var prevTime = TimeTrial(Count, a);
             Console.WriteLine("数据量\t耗时\t比值");
             Console.WriteLine($"8000\t{prevTime / 1000}\t");
 
             // 16K
             a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            double time = TimeTrial(Count, a);
+            var time = TimeTrial(Count, a);
             Console.WriteLine($"16000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {

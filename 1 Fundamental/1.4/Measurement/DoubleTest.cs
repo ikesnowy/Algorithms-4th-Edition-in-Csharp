@@ -16,13 +16,13 @@ namespace Measurement
         /// <returns>运行时间，单位为毫秒。</returns>
         public static double TimeTrial(int n)
         {
-            int[] a = new int[n];
-            Random random = new Random(DateTime.Now.Millisecond);
-            for (int i = 0; i < n; i++)
+            var a = new int[n];
+            var random = new Random(DateTime.Now.Millisecond);
+            for (var i = 0; i < n; i++)
             {
                 a[i] = random.Next(-MAXIMUM_INTEGER, MAXIMUM_INTEGER);
             }
-            Stopwatch timer = new Stopwatch();
+            var timer = new Stopwatch();
             ThreeSum.Count(a);
             return timer.ElapsedTime();
         }

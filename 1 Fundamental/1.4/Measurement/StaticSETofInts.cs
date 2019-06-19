@@ -16,7 +16,7 @@ namespace Measurement
         public StaticSETofInts(int[] keys)
         {
             this.a = new int[keys.Length];
-            for (int i = 0; i < keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
             {
                 this.a[i] = keys[i];
             }
@@ -40,8 +40,8 @@ namespace Measurement
         /// <returns><paramref name="key"/> 在数组中存在的数量。</returns>
         public int HowMany(int key)
         {
-            int hi = this.a.Length - 1;
-            int lo = 0;
+            var hi = this.a.Length - 1;
+            var lo = 0;
             
             return HowMany(key, lo, hi);
         }
@@ -55,7 +55,7 @@ namespace Measurement
         /// <returns><paramref name="key"/> 在数组中存在的数量。</returns>
         private int HowMany(int key, int lo, int hi)
         {
-            int mid = Rank(key, lo, hi);
+            var mid = Rank(key, lo, hi);
             if (mid == -1)
                 return 0;
             else
@@ -75,7 +75,7 @@ namespace Measurement
         {
             while (lo <= hi)
             {
-                int mid = (hi - lo) / 2 + lo;
+                var mid = (hi - lo) / 2 + lo;
                 if (key < this.a[mid])
                     hi = mid - 1;
                 else if (key > this.a[mid])

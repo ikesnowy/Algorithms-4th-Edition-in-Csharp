@@ -22,18 +22,18 @@ namespace _2._2._6
 
         static void Compute()
         {
-            MergeSort mergeSort = new MergeSort();
-            MergeSortBU mergeSortBU = new MergeSortBU();
-            int[] mergeResult = new int[10];
-            int[] mergeResultBU = new int[10];
-            int[] upperBound = new int[10];
+            var mergeSort = new MergeSort();
+            var mergeSortBU = new MergeSortBU();
+            var mergeResult = new int[10];
+            var mergeResultBU = new int[10];
+            var upperBound = new int[10];
 
             // 进行计算
-            int dataSize = 1;
-            for (int i = 0; i < 10; i++)
+            var dataSize = 1;
+            for (var i = 0; i < 10; i++)
             {
-                int[] dataMerge = SortCompare.GetRandomArrayInt(dataSize);
-                int[] dataMergeBU = new int[dataSize];
+                var dataMerge = SortCompare.GetRandomArrayInt(dataSize);
+                var dataMergeBU = new int[dataSize];
                 dataMerge.CopyTo(dataMergeBU, 0);
 
                 mergeSort.ClearArrayVisitCount();
@@ -49,17 +49,17 @@ namespace _2._2._6
             }
 
             // 绘图
-            Form2 plot = new Form2();
+            var plot = new Form2();
             plot.Show();
-            Graphics graphics = plot.CreateGraphics();
+            var graphics = plot.CreateGraphics();
 
             // 获得绘图区矩形。
             RectangleF rect = plot.ClientRectangle;
-            float unitX = rect.Width / 10;
-            float unitY = rect.Width / 10;
+            var unitX = rect.Width / 10;
+            var unitY = rect.Width / 10;
 
             // 添加 10% 边距作为文字区域。
-            RectangleF center = new RectangleF
+            var center = new RectangleF
                 (rect.X + unitX, rect.Y + unitY,
                 rect.Width - 2 * unitX, rect.Height - 2 * unitY);
 
@@ -71,13 +71,13 @@ namespace _2._2._6
             graphics.DrawString("0", plot.Font, Brushes.Black, rect.Left, center.Bottom);
 
             // 初始化点。
-            PointF[] grayPoints = new PointF[10]; // 上限
-            PointF[] redPoints = new PointF[10];  // 自顶向下
-            PointF[] bluePoints = new PointF[10]; // 自底向上
+            var grayPoints = new PointF[10]; // 上限
+            var redPoints = new PointF[10];  // 自顶向下
+            var bluePoints = new PointF[10]; // 自底向上
             unitX = center.Width / 11.0f;
             unitY = center.Height / 28000.0f;
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (upperBound[i] * unitY) - 10);
                 redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (mergeResult[i] * unitY) - 10);
@@ -85,7 +85,7 @@ namespace _2._2._6
             }
 
             // 绘制点。
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 graphics.FillEllipse(Brushes.Gray, new RectangleF(grayPoints[i], new SizeF(10, 10)));
                 graphics.FillEllipse(Brushes.Red, new RectangleF(redPoints[i], new SizeF(10, 10)));

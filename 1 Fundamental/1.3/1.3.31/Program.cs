@@ -6,7 +6,7 @@ namespace _1._3._31
     {
         static void Main(string[] args)
         {
-            DoubleLinkList<string> linklist = new DoubleLinkList<string>();
+            var linklist = new DoubleLinkList<string>();
             linklist.InsertRear("fourth");
             linklist.InsertFront("first");
             linklist.InsertAfter("second", 0);

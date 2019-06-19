@@ -58,14 +58,14 @@ namespace PriorityQueue
 
             // 复制元素的同时更新最小值。
             this.min = keys[0];
-            for (int i = 0; i < keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
             {
                 this.pq[i + 1] = keys[i];
                 if (this.pq[i + 1].CompareTo(this.min) < 0)
                     this.min = this.pq[i + 1];
             }
 
-            for (int k = this.n / 2; k >= 1; k--)
+            for (var k = this.n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMaxHeap());
         }
@@ -81,7 +81,7 @@ namespace PriorityQueue
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key max = this.pq[1];
+            var max = this.pq[1];
             Exch(1, this.n--);
             this.pq[this.n + 1] = this.pq[1];
             Sink(1);
@@ -148,8 +148,8 @@ namespace PriorityQueue
         /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQWithMin<Key> copy = new MaxPQWithMin<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
+            var copy = new MaxPQWithMin<Key>(this.n);
+            for (var i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
@@ -187,7 +187,7 @@ namespace PriorityQueue
         {
             while (k * 2 <= this.n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
@@ -203,8 +203,8 @@ namespace PriorityQueue
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            for (var i = 1; i <= this.n; i++)
             {
                 temp[i] = this.pq[i];
             }
@@ -227,7 +227,7 @@ namespace PriorityQueue
         /// <param name="j">要交换的第二个元素下标。</param>
         private void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
+            var swap = this.pq[i];
             this.pq[i] = this.pq[j];
             this.pq[j] = swap;
         }
@@ -247,8 +247,8 @@ namespace PriorityQueue
         {
             if (k > this.n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
+            var left = 2 * k;
+            var right = 2 * k + 1;
             if (left <= this.n && Less(k, left))
                 return false;
             if (right <= this.n && Less(k, right))

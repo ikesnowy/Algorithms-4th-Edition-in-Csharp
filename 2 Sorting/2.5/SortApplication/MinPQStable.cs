@@ -58,7 +58,7 @@ namespace SortApplication
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key min = this.pq[1];
+            var min = this.pq[1];
             Exch(1, this.n--);
             Sink(1);
             this.pq[this.n + 1] = default(Key);
@@ -110,8 +110,8 @@ namespace SortApplication
         /// <returns>最小堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MinPQStable<Key> copy = new MinPQStable<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
+            var copy = new MinPQStable<Key>(this.n);
+            for (var i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
@@ -149,7 +149,7 @@ namespace SortApplication
         {
             while (k * 2 <= this.n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < this.n && Greater(j, j + 1))
                     j++;
                 if (!Greater(k, j))
@@ -165,9 +165,9 @@ namespace SortApplication
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            long[] timeTemp = new long[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            var timeTemp = new long[capacity];
+            for (var i = 1; i <= this.n; i++)
             {
                 temp[i] = this.pq[i];
                 timeTemp[i] = this.time[i];
@@ -184,7 +184,7 @@ namespace SortApplication
         /// <returns>如果下标为 <paramref name="i"/> 的元素较大，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private bool Greater(int i, int j)
         {
-            int cmp = this.pq[i].CompareTo(this.pq[j]);
+            var cmp = this.pq[i].CompareTo(this.pq[j]);
             if (cmp == 0)
                 return this.time[i].CompareTo(this.time[j]) > 0;
             return cmp > 0;
@@ -197,11 +197,11 @@ namespace SortApplication
         /// <param name="j">要交换的第二个元素下标。</param>
         protected virtual void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
+            var swap = this.pq[i];
             this.pq[i] = this.pq[j];
             this.pq[j] = swap;
 
-            long temp = this.time[i];
+            var temp = this.time[i];
             this.time[i] = this.time[j];
             this.time[j] = temp;
         }
@@ -221,8 +221,8 @@ namespace SortApplication
         {
             if (k > this.n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
+            var left = 2 * k;
+            var right = 2 * k + 1;
             if (left <= this.n && Greater(k, left))
                 return false;
             if (right <= this.n && Greater(k, right))

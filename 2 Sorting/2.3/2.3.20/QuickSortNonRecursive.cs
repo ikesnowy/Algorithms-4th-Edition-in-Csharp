@@ -22,20 +22,20 @@ namespace _2._3._20
         public override void Sort<T>(T[] a)
         {
             Shuffle(a);
-            Stack<int> stack = new Stack<int>();
+            var stack = new Stack<int>();
             stack.Push(0);
             stack.Push(a.Length - 1);
 
             while (!stack.IsEmpty())
             {
                 // 压入顺序是先 lo，再 hi，故弹出顺序是先 hi 再 lo
-                int hi = stack.Pop();
-                int lo = stack.Pop();
+                var hi = stack.Pop();
+                var lo = stack.Pop();
 
                 if (hi <= lo)
                     continue;
 
-                int j = Partition(a, lo, hi);
+                var j = Partition(a, lo, hi);
 
                 // 让较大的子数组先入栈（先排序较小的子数组）
                 if (j - lo > hi - j)
@@ -69,7 +69,7 @@ namespace _2._3._20
         private int Partition<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
             int i = lo, j = hi + 1;
-            T v = a[lo];
+            var v = a[lo];
             while (true)
             {
                 while (Less(a[++i], v))
@@ -93,11 +93,11 @@ namespace _2._3._20
         /// <param name="a">需要打乱的数组。</param>
         private void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

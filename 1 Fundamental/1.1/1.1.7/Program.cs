@@ -8,7 +8,7 @@ namespace _1._1._7
         private static void a()
         {
             Console.WriteLine("a");
-            double t = 9.0;
+            var t = 9.0;
             while (Math.Abs(t - 9.0 / t) > .001)
             {
                 t = (9.0 / t + t) / 2.0;
@@ -19,10 +19,10 @@ namespace _1._1._7
         private static void b()
         {
             Console.WriteLine("\nb");
-            int sum = 0;
-            for (int i = 1; i < 1000; i++)
+            var sum = 0;
+            for (var i = 1; i < 1000; i++)
             {
-                for (int j = 0; j < i; j++)
+                for (var j = 0; j < i; j++)
                 {
                     sum++;
                 }
@@ -33,10 +33,10 @@ namespace _1._1._7
         private static void c()
         {
             Console.WriteLine("\nc");
-            int sum = 0;
-            for (int i = 1; i < 1000; i *= 2)
+            var sum = 0;
+            for (var i = 1; i < 1000; i *= 2)
             {
-                for (int j = 0; j < 1000; j++)
+                for (var j = 0; j < 1000; j++)
                 {
                     sum++;
                 }

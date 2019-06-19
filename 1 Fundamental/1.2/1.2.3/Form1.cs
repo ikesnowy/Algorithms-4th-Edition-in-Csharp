@@ -14,13 +14,13 @@ namespace _1._2._3
         {
             try
             {
-                int N = int.Parse(this.InputN.Text);
+                var N = int.Parse(this.InputN.Text);
                 if (N <= 0)
                 {
                     throw new FormatException();
                 }
-                double max = double.Parse(this.InputMax.Text);
-                double min = double.Parse(this.InputMin.Text);
+                var max = double.Parse(this.InputMax.Text);
+                var min = double.Parse(this.InputMin.Text);
 
                 if (max > 1 || max < 0)
                 {

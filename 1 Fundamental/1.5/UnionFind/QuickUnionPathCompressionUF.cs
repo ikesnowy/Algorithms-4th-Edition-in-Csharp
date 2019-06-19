@@ -18,14 +18,14 @@
         /// <returns>结点所属的连通分量。</returns>
         public override int Find(int p)
         {
-            int root = p;
+            var root = p;
             while (root != this.parent[root])
             {
                 root = this.parent[root];
             }
             while (p != root)
             {
-                int newp = this.parent[p];
+                var newp = this.parent[p];
                 this.parent[p] = root;
                 p = newp;
             }

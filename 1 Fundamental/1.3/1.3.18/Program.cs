@@ -8,12 +8,12 @@ namespace _1._3._18
         // 删除 x 的后一个结点。
         static void Main(string[] args)
         {
-            Node<string> x = new Node<string>();
+            var x = new Node<string>();
             x.item = "first";
-            Node<string> y = new Node<string>();
+            var y = new Node<string>();
             y.item = "second";
             x.next = y;
-            Node<string> z = new Node<string>();
+            var z = new Node<string>();
             z.item = "third";
             y.next = z;
 

@@ -7,10 +7,10 @@ namespace _1._3._27
     {
         static void Main(string[] args)
         {
-            Node<int> first = new Node<int>();
-            Node<int> second = new Node<int>();
-            Node<int> third = new Node<int>();
-            Node<int> fourth = new Node<int>();
+            var first = new Node<int>();
+            var second = new Node<int>();
+            var third = new Node<int>();
+            var fourth = new Node<int>();
 
             first.item = 1;
             second.item = 2;
@@ -27,9 +27,9 @@ namespace _1._3._27
 
         static int Max(Node<int> first)
         {
-            int max = 0;
+            var max = 0;
 
-            Node<int> current = first;
+            var current = first;
             while (current != null)
             {
                 if (max < current.item)

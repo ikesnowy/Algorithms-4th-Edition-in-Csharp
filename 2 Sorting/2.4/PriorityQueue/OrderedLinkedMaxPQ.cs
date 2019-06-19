@@ -27,7 +27,7 @@ namespace PriorityQueue
         /// <param name="v">需要插入的元素。</param>
         public void Insert(Key v)
         {
-            int i = this.pq.Size() - 1;
+            var i = this.pq.Size() - 1;
             while (i >= 0 && Less(v, this.pq.Find(i)))
                 i--;
             this.pq.Insert(v, i + 1);

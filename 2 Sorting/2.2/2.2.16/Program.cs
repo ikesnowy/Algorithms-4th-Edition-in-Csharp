@@ -7,29 +7,29 @@ namespace _2._2._16
     {
         static void Main(string[] args)
         {
-            MergeSortNatural mergeSort = new MergeSortNatural();
+            var mergeSort = new MergeSortNatural();
 
             Console.WriteLine("总长度\t有序\t时间\t比率");
-            int maxSorted = 256;
-            int repeatTime = 4;
+            var maxSorted = 256;
+            var repeatTime = 4;
             double previousTime = 1;
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
-                int n = 16384;
-                for (int j = 0; j < 6; j++)
+                var n = 16384;
+                for (var j = 0; j < 6; j++)
                 {
                     double time = 0;
-                    for (int k = 0; k < repeatTime; k++)
+                    for (var k = 0; k < repeatTime; k++)
                     {
-                        int[] test = new int[n];
-                        int[] unsorted = SortCompare.GetRandomArrayInt(n - maxSorted);
-                        int[] sorted = SortCompare.GetRandomArrayInt(maxSorted);
+                        var test = new int[n];
+                        var unsorted = SortCompare.GetRandomArrayInt(n - maxSorted);
+                        var sorted = SortCompare.GetRandomArrayInt(maxSorted);
                         Array.Sort(sorted);
-                        for (int l = 0; l < n - maxSorted; l++)
+                        for (var l = 0; l < n - maxSorted; l++)
                         {
                             test[l] = unsorted[l];
                         }
-                        for (int l = 0; l < maxSorted; l++)
+                        for (var l = 0; l < maxSorted; l++)
                         {
                             test[l + n - maxSorted] = sorted[l];
                         }

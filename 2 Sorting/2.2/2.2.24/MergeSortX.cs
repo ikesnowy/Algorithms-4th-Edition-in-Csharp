@@ -52,7 +52,7 @@ namespace _2._2._24
         private void Merge<T>(T[] src, T[] dst, int lo, int mid, int hi) where T : IComparable<T>
         {
             int i = lo, j = mid + 1;
-            for (int k = lo; k <= hi; k++)
+            for (var k = lo; k <= hi; k++)
             {
                 if (i > mid)
                     dst[k] = src[j++];
@@ -78,11 +78,11 @@ namespace _2._2._24
             // 小于 CUTOFF 的数组调用插入排序
             if (hi <= lo + CUTOFF)
             {
-                InsertionSort insertion = new InsertionSort();
+                var insertion = new InsertionSort();
                 insertion.Sort(dst, lo, hi);
                 return;
             }
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             // 交换辅助数组和原数组
             Sort(dst, src, lo, mid);
             Sort(dst, src, mid + 1, hi);
@@ -103,7 +103,7 @@ namespace _2._2._24
         /// <param name="a">需要排序的数组。</param>
         public override void Sort<T>(T[] a)
         {
-            T[] aux = new T[a.Length];
+            var aux = new T[a.Length];
             a.CopyTo(aux, 0);
             // aux 和 a 需要交换
             Sort(aux, a, 0, a.Length - 1);

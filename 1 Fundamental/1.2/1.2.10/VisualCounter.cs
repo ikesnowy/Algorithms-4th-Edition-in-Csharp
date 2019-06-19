@@ -85,8 +85,8 @@ namespace _1._2._10
             // 空画布
             g.Clear(SystemColors.Control);
             // 画布分为上 1/3 和下 2/3
-            RectangleF headPart = new RectangleF(0, 0, width, height / 3);
-            Rectangle bodyPart = new Rectangle(0, height / 3, (height * 2) / 3, (height * 2) / 3);
+            var headPart = new RectangleF(0, 0, width, height / 3);
+            var bodyPart = new Rectangle(0, height / 3, (height * 2) / 3, (height * 2) / 3);
 
             // 绘图
             g.DrawString($"计数：{this.count} 剩余操作数：{this.operatorTimes} 最大值：{this.max}", font, Brushes.Black, headPart);

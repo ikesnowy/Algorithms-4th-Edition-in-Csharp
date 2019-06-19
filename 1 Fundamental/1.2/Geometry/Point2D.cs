@@ -90,8 +90,8 @@ namespace Geometry
         /// <returns>返回与点 <paramref name="that"/> 构成的角度。</returns>
         private double AngleTo(Point2D that)
         {
-            double dx = that.X - this.X;
-            double dy = that.Y - this.Y;
+            var dx = that.X - this.X;
+            var dy = that.Y - this.Y;
             return Math.Atan2(dy, dx);
         }
 
@@ -104,7 +104,7 @@ namespace Geometry
         /// <returns>如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}</returns>
         public static int CCW(Point2D a, Point2D b, Point2D c)
         {
-            double area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
+            var area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
             if (area2 < 0)
                 return -1;
             if (area2 > 0)
@@ -132,8 +132,8 @@ namespace Geometry
         /// <returns>返回到 <paramref name="that"/> 的距离。</returns>
         public double DistanceTo(Point2D that)
         {
-            double dx = this.X - that.X;
-            double dy = this.Y - that.Y;
+            var dx = this.X - that.X;
+            var dy = this.Y - that.Y;
 
             return Math.Sqrt(dx * dx + dy * dy);
         }
@@ -145,8 +145,8 @@ namespace Geometry
         /// <returns>到 <paramref name="that"/> 距离的平方。</returns>
         public double DistanceSquareTo(Point2D that)
         {
-            double dx = this.X - that.X;
-            double dy = this.Y - that.Y;
+            var dx = this.X - that.X;
+            var dy = this.Y - that.Y;
 
             return dx * dx + dy * dy;
         }
@@ -227,7 +227,7 @@ namespace Geometry
         {
             public override int Compare(Point2D x, Point2D y)
             {
-                double delta = (x.X * x.X + x.Y * x.Y) - (y.X * y.X + y.Y * y.Y);
+                var delta = (x.X * x.X + x.Y * x.Y) - (y.X * y.X + y.Y * y.Y);
                 if (delta < 0)
                 {
                     return -1;
@@ -285,10 +285,10 @@ namespace Geometry
             }
             public override int Compare(Point2D q1, Point2D q2)
             {
-                double dx1 = q1.X - this.parent.X;
-                double dy1 = q1.Y - this.parent.Y;
-                double dx2 = q2.X - this.parent.X;
-                double dy2 = q2.Y - this.parent.Y;
+                var dx1 = q1.X - this.parent.X;
+                var dy1 = q1.Y - this.parent.Y;
+                var dx2 = q2.X - this.parent.X;
+                var dy2 = q2.Y - this.parent.Y;
 
                 if (dy2 >= 0 && dy2 < 0)
                 {
@@ -397,7 +397,7 @@ namespace Geometry
             {
                 return false;
             }
-            Point2D that = (Point2D)obj;
+            var that = (Point2D)obj;
             return this.X == that.X && this.Y == that.Y;
         }
 
@@ -416,8 +416,8 @@ namespace Geometry
         /// <returns>哈希值。</returns>
         public override int GetHashCode()
         {
-            int hashX = this.X.GetHashCode();
-            int hashY = this.Y.GetHashCode();
+            var hashX = this.X.GetHashCode();
+            var hashY = this.Y.GetHashCode();
             return 31 * hashX + hashY;
         }
     }

@@ -49,7 +49,7 @@ namespace Sort
         /// <param name="j">需要交换的第二个元素。</param>
         protected void Exch<T>(T[] a, int i, int j)
         {
-            T t = a[i];
+            var t = a[i];
             a[i] = a[j];
             a[j] = t;
         }
@@ -60,7 +60,7 @@ namespace Sort
         /// <param name="a">需要打印的数组。</param>
         protected void Show<T>(T[] a) where T : IComparable<T>
         {
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
                 Console.Write(a[i] + " ");
             }
@@ -74,7 +74,7 @@ namespace Sort
         /// <returns>有序则返回 true，否则返回 false。</returns>
         public bool IsSorted<T>(T[] a) where T : IComparable<T>
         {
-            for (int i = 1; i < a.Length; i++)
+            for (var i = 1; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - 1]))
                     return false;
@@ -90,7 +90,7 @@ namespace Sort
         /// <returns>有序则返回 true，否则返回 false。</returns>
         public bool IsSorted<T>(T[] a, IComparer<T> c)
         {
-            for (int i = 1; i < a.Length; i++)
+            for (var i = 1; i < a.Length; i++)
             {
                 if (Less(a[i], a[i - 1], c))
                     return false;
@@ -107,7 +107,7 @@ namespace Sort
         /// <returns>有序则返回 true，否则返回 false。</returns>
         public bool IsSorted<T>(T[] a, int lo, int hi) where T : IComparable<T>
         {
-            for (int i = lo + 1; i <= hi; i++)
+            for (var i = lo + 1; i <= hi; i++)
             {
                 if (Less(a[i], a[i - 1]))
                     return false;
@@ -126,7 +126,7 @@ namespace Sort
         /// <returns>有序则返回 true，否则返回 false。</returns>
         public bool IsSorted<T>(T[] a, int lo, int hi, IComparer<T> c)
         {
-            for (int i = lo + 1; i <= hi; i++)
+            for (var i = lo + 1; i <= hi; i++)
             {
                 if (Less(a[i], a[i - 1], c))
                     return false;

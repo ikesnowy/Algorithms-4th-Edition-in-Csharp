@@ -7,18 +7,18 @@ namespace _1._3._37
     {
         static void Main(string[] args)
         {
-            int numOfPeople = 7;
-            int callForDeath = 2;
+            var numOfPeople = 7;
+            var callForDeath = 2;
 
-            Queue<int> queue = new Queue<int>();
-            for (int i = 0; i < numOfPeople; i++)
+            var queue = new Queue<int>();
+            for (var i = 0; i < numOfPeople; i++)
             {
                 queue.Enqueue(i);
             }
 
             while (!queue.IsEmpty())
             {
-                for (int i = 0; i < callForDeath - 1; i++)
+                for (var i = 0; i < callForDeath - 1; i++)
                 {
                     queue.Enqueue(queue.Dequeue());
                 }

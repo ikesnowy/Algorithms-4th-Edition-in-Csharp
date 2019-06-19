@@ -44,9 +44,9 @@ namespace _2._5._13
 
             public override string ToString()
             {
-                StringBuilder sb = new StringBuilder();
-                Job[] nowList = this.jobs.ToArray();
-                for (int i = 0; i < nowList.Length; i++)
+                var sb = new StringBuilder();
+                var nowList = this.jobs.ToArray();
+                for (var i = 0; i < nowList.Length; i++)
                 {
                     sb.AppendLine(nowList[i].Name + " " + nowList[i].Time);
                 }
@@ -56,27 +56,27 @@ namespace _2._5._13
 
         static void Main(string[] args)
         {
-            int processorNum = int.Parse(Console.ReadLine());
-            int jobNum = int.Parse(Console.ReadLine());
+            var processorNum = int.Parse(Console.ReadLine());
+            var jobNum = int.Parse(Console.ReadLine());
 
-            Job[] jobs = new Job[jobNum];
-            for (int i = 0; i < jobNum; i++)
+            var jobs = new Job[jobNum];
+            for (var i = 0; i < jobNum; i++)
             {
-                string[] jobDesc = Console.ReadLine().Split(' ');
+                var jobDesc = Console.ReadLine().Split(' ');
                 jobs[i] = new Job(jobDesc[0], double.Parse(jobDesc[1]));
             }
 
             Array.Sort(jobs);
 
-            MinPQ<Processor> processors = new MinPQ<Processor>(processorNum);
-            for (int i = 0; i < processorNum; i++)
+            var processors = new MinPQ<Processor>(processorNum);
+            for (var i = 0; i < processorNum; i++)
             {
                 processors.Insert(new Processor());
             }
 
-            for (int i = jobs.Length - 1; i >= 0; i--)
+            for (var i = jobs.Length - 1; i >= 0; i--)
             {
-                Processor min = processors.DelMin();
+                var min = processors.DelMin();
                 min.Add(jobs[i]);
                 processors.Insert(min);
             }

@@ -14,10 +14,10 @@ namespace _1._4._20
         /// <returns></returns>
         public static int[] Bitonic(int N)
         {
-            Random random = new Random();
-            int mid = random.Next(N);
-            int[] a = new int[N];
-            for (int i = 1; i < mid; i++)
+            var random = new Random();
+            var mid = random.Next(N);
+            var a = new int[N];
+            for (var i = 1; i < mid; i++)
             {
                 a[i] = a[i - 1] + 1 + random.Next(9);
             }
@@ -27,7 +27,7 @@ namespace _1._4._20
                 a[mid] = a[mid - 1] + random.Next(10) - 5;
             }
 
-            for (int i = mid + 1; i < N; i++)
+            for (var i = mid + 1; i < N; i++)
             {
                 a[i] = a[i - 1] - 1 - random.Next(9);
             }
@@ -48,7 +48,7 @@ namespace _1._4._20
             {
                 return hi;
             }
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
             if (a[mid] < a[mid + 1])
             {
                 return Max(a, mid + 1, hi);

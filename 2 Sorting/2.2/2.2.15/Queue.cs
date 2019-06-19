@@ -31,7 +31,7 @@ namespace _2._2._15
         /// <param name="r"></param>
         public Queue(Queue<Item> r)
         {
-            foreach (Item i in r)
+            foreach (var i in r)
             {
                 Enqueue(i);
             }
@@ -72,7 +72,7 @@ namespace _2._2._15
         /// <param name="item">要入队的元素。</param>
         public void Enqueue(Item item)
         {
-            Node<Item> oldLast = this.last;
+            var oldLast = this.last;
             this.last = new Node<Item>();
             this.last.item = item;
             this.last.next = null;
@@ -91,7 +91,7 @@ namespace _2._2._15
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            Item item = this.first.item;
+            var item = this.first.item;
             this.first = this.first.next;
             this.count--;
             if (IsEmpty())
@@ -125,8 +125,8 @@ namespace _2._2._15
 
         public override string ToString()
         {
-            StringBuilder s = new StringBuilder();
-            foreach (Item item in this)
+            var s = new StringBuilder();
+            foreach (var item in this)
             {
                 s.Append(item);
                 s.Append(" ");

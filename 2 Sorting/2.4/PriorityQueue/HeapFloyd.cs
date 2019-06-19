@@ -14,9 +14,9 @@ namespace PriorityQueue
         /// <param name="pq">需要排序的数组。</param>
         public static void Sort<T>(T[] pq) where T : IComparable<T>
         {
-            int n = pq.Length;
+            var n = pq.Length;
             // 建堆
-            for (int k = n / 2; k >= 1; k--)
+            for (var k = n / 2; k >= 1; k--)
             {
                 Sink(pq, k, n);
             }
@@ -38,7 +38,7 @@ namespace PriorityQueue
         {
             while (2 * k <= n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < n && Less(pq, j, j + 1))
                     j++;
                 if (!Less(pq, k, j))
@@ -59,7 +59,7 @@ namespace PriorityQueue
         {
             while (2 * k <= n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < n && Less(pq, j, j + 1))
                     j++;
                 Exch(pq, k, j);
@@ -98,7 +98,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的结点序号。</param>
         private static void Exch<T>(T[] pq, int a, int b)
         {
-            T temp = pq[a - 1];
+            var temp = pq[a - 1];
             pq[a - 1] = pq[b - 1];
             pq[b - 1] = temp;
         }

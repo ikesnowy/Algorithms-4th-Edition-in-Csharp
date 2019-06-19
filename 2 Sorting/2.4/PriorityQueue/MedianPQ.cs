@@ -69,7 +69,7 @@ namespace PriorityQueue
 
             this.n = keys.Length;
             this.median = keys[0];
-            for (int i = 1; i < keys.Length; i++)
+            for (var i = 1; i < keys.Length; i++)
             {
                 if (this.median.CompareTo(keys[i]) < 0)
                     this.minPQ.Insert(keys[i]);
@@ -112,7 +112,7 @@ namespace PriorityQueue
         {
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("MedianPQ underflow!");
-            Key median = this.median;
+            var median = this.median;
 
             if (this.n == 1)
             {

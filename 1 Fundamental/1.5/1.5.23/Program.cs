@@ -8,17 +8,17 @@ namespace _1._5._23
     {
         static void Main(string[] args)
         {
-            int n = 2000;
-            for (int t = 0; t < 5; t++)
+            var n = 2000;
+            for (var t = 0; t < 5; t++)
             {
-                Connection[] input = ErdosRenyi.Generate(n);
-                QuickFindUF quickFind = new QuickFindUF(n);
-                QuickUnionUF quickUnion = new QuickUnionUF(n);
+                var input = ErdosRenyi.Generate(n);
+                var quickFind = new QuickFindUF(n);
+                var quickUnion = new QuickUnionUF(n);
 
                 Console.WriteLine("N:" + n);
 
-                long quickFindTime = RunTest(quickFind, input);
-                long quickUnionTime = RunTest(quickUnion, input);
+                var quickFindTime = RunTest(quickFind, input);
+                var quickUnionTime = RunTest(quickUnion, input);
 
                 Console.WriteLine("quick-find 耗时（毫秒）：" + quickFindTime);
                 Console.WriteLine("quick-union 耗时（毫秒）：" + quickUnionTime);
@@ -37,10 +37,10 @@ namespace _1._5._23
         /// <returns>平均耗时。</returns>
         static long RunTest(UF uf, Connection[] connections)
         {
-            Stopwatch timer = new Stopwatch();
-            int repeatTime = 5;
+            var timer = new Stopwatch();
+            var repeatTime = 5;
             timer.Start();
-            for (int i = 0; i < repeatTime; i++)
+            for (var i = 0; i < repeatTime; i++)
             {
                 ErdosRenyi.Count(uf, connections);
             }

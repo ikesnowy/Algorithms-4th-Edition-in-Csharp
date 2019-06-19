@@ -37,8 +37,8 @@ namespace _1._3._14
         {
             if (capacity < 0)
                 throw new ArgumentException("capacity should be above zero");
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.q[(this.first + i) % this.q.Length];
             }
@@ -66,7 +66,7 @@ namespace _1._3._14
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
-            Item item = this.q[this.first];
+            var item = this.q[this.first];
             this.q[this.first] = default(Item);
             this.count--;
             this.first++;

@@ -45,9 +45,9 @@
         /// <param name="destination">空栈。</param>
         private void Move(Stack<Item> source, Stack<Item> destination) 
         {
-            int n = source.Size();
+            var n = source.Size();
             // 将上半部分元素移动到临时栈 middle
-            for (int i = 0; i < n / 2; i++)
+            for (var i = 0; i < n / 2; i++)
             {
                 this.middle.Push(source.Pop());
             }

@@ -74,31 +74,31 @@ namespace SortApplication
         /// <returns><paramref name="start"/> 至 <paramref name="goal"/> 之间的最短路径。</returns>
         public T[] GetPath(T start, T goal)
         {
-            Dictionary<T, T> comeFrom = new Dictionary<T, T>(this.equalityComparer);
-            Dictionary<T, int> gScore = new Dictionary<T, int>(this.equalityComparer);
-            Dictionary<T, int> fScore = new Dictionary<T, int>(this.equalityComparer);
+            var comeFrom = new Dictionary<T, T>(this.equalityComparer);
+            var gScore = new Dictionary<T, int>(this.equalityComparer);
+            var fScore = new Dictionary<T, int>(this.equalityComparer);
 
-            MinPQ<T> openSet = new MinPQ<T>(new FScoreComparer(fScore), this.equalityComparer);
-            HashSet<T> closeSet = new HashSet<T>(this.equalityComparer);
+            var openSet = new MinPQ<T>(new FScoreComparer(fScore), this.equalityComparer);
+            var closeSet = new HashSet<T>(this.equalityComparer);
 
             openSet.Insert(start);
             gScore.Add(start, 0);
             fScore.Add(start, HeuristicDistance(start, goal));
             while (!openSet.IsEmpty())
             {
-                T current = openSet.DelMin();
+                var current = openSet.DelMin();
                 if (this.equalityComparer.Equals(current, goal))
                     return ReconstructPath(comeFrom, current);
 
                 closeSet.Add(current);
 
-                T[] neighbors = GetNeighbors(current);
-                foreach (T neighbor in neighbors)
+                var neighbors = GetNeighbors(current);
+                foreach (var neighbor in neighbors)
                 {
                     if (closeSet.Contains(neighbor))
                         continue;
 
-                    int gScoreTentative = gScore[current] + ActualDistance(current, neighbor);
+                    var gScoreTentative = gScore[current] + ActualDistance(current, neighbor);
 
                     // 新状态
                     if (!openSet.Contains(neighbor))
@@ -125,14 +125,14 @@ namespace SortApplication
         /// <returns>重建之后的最短路径。</returns>
         private T[] ReconstructPath(Dictionary<T, T> comeFrom, T current)
         {
-            Stack<T> pathReverse = new Stack<T>();
+            var pathReverse = new Stack<T>();
             while (comeFrom.ContainsKey(current))
             {
                 pathReverse.Push(current);
                 current = comeFrom[current];
             }
-            T[] path = new T[pathReverse.Count];
-            for (int i = 0; i < path.Length; i++)
+            var path = new T[pathReverse.Count];
+            for (var i = 0; i < path.Length; i++)
             {
                 path[i] = pathReverse.Pop();
             }

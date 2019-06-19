@@ -46,9 +46,9 @@ namespace PriorityQueue
         {
             this.n = keys.Length;
             this.pq = new Key[keys.Length + 1];
-            for (int i = 0; i < keys.Length; i++)
+            for (var i = 0; i < keys.Length; i++)
                 this.pq[i + 1] = keys[i];
-            for (int k = this.n / 2; k >= 1; k--)
+            for (var k = this.n / 2; k >= 1; k--)
                 Sink(k);
             Debug.Assert(IsMaxHeap());
         }
@@ -64,7 +64,7 @@ namespace PriorityQueue
             if (IsEmpty())
                 throw new ArgumentOutOfRangeException("Priority Queue Underflow");
 
-            Key max = this.pq[1];
+            var max = this.pq[1];
             Exch(1, this.n--);
             Sink(1);
             this.pq[this.n + 1] = default(Key);
@@ -137,8 +137,8 @@ namespace PriorityQueue
         /// <returns>形如 A B C D 的字符串。</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 1; i < pq.Length; i++)
+            var sb = new StringBuilder();
+            for (var i = 1; i < pq.Length; i++)
                 sb.Append(pq[i] + " ");
             return sb.ToString();
         }
@@ -149,8 +149,8 @@ namespace PriorityQueue
         /// <returns>最大堆的迭代器。</returns>
         public IEnumerator<Key> GetEnumerator()
         {
-            MaxPQ<Key> copy = new MaxPQ<Key>(this.n);
-            for (int i = 1; i <= this.n; i++)
+            var copy = new MaxPQ<Key>(this.n);
+            for (var i = 1; i <= this.n; i++)
                 copy.Insert(this.pq[i]);
 
             while (!copy.IsEmpty())
@@ -188,7 +188,7 @@ namespace PriorityQueue
         {
             while (k * 2 <= this.n)
             {
-                int j = 2 * k;
+                var j = 2 * k;
                 if (j < this.n && Less(j, j + 1))
                     j++;
                 if (!Less(k, j))
@@ -204,8 +204,8 @@ namespace PriorityQueue
         /// <param name="capacity">调整后的堆大小。</param>
         private void Resize(int capacity)
         {
-            Key[] temp = new Key[capacity];
-            for (int i = 1; i <= this.n; i++)
+            var temp = new Key[capacity];
+            for (var i = 1; i <= this.n; i++)
             {
                 temp[i] = this.pq[i];
             }
@@ -228,7 +228,7 @@ namespace PriorityQueue
         /// <param name="j">要交换的第二个元素下标。</param>
         protected virtual void Exch(int i, int j)
         {
-            Key swap = this.pq[i];
+            var swap = this.pq[i];
             this.pq[i] = this.pq[j];
             this.pq[j] = swap;
         }
@@ -248,8 +248,8 @@ namespace PriorityQueue
         {
             if (k > this.n)
                 return true;
-            int left = 2 * k;
-            int right = 2 * k + 1;
+            var left = 2 * k;
+            var right = 2 * k + 1;
             if (left <= this.n && Less(k, left))
                 return false;
             if (right <= this.n && Less(k, right))

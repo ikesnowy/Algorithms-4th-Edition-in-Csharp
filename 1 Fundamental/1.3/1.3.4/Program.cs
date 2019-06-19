@@ -7,9 +7,9 @@ namespace _1._3._4
     {
         static bool isBalanced(string input)
         {
-            Stack<char> stack = new Stack<char>();
+            var stack = new Stack<char>();
 
-            foreach (char i in input)
+            foreach (var i in input)
             {
                 if (i == '(' || i == '[' || i == '{')
                     stack.Push(i);
@@ -31,9 +31,9 @@ namespace _1._3._4
 
         static void Main(string[] args)
         {
-            string input = "[()]{}{[()()]()}";
+            var input = "[()]{}{[()()]()}";
             Console.WriteLine(isBalanced(input));
-            string input2 = "[(])";
+            var input2 = "[(])";
             Console.WriteLine(isBalanced(input2));
         }
     }

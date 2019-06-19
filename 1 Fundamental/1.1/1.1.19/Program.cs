@@ -17,8 +17,8 @@ namespace _1._1._19
              * i7 4650U + 8G
              * 
              */
-            Stopwatch timer = Stopwatch.StartNew();
-            for (int N = 0; N < 100; N++)
+            var timer = Stopwatch.StartNew();
+            for (var N = 0; N < 100; N++)
             {
                 // 书本中的代码，非常慢，1小时后 N = 50
                 // Console.WriteLine($"{N} {F(N)}");

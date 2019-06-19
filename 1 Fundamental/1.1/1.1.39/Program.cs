@@ -7,19 +7,19 @@ namespace _1._1._39
         // 需要 6 秒左右的运算时间
         static void Main(string[] args)
         {
-            Random r = new Random();
-            int baseNum = 10;
-            int powNum = 3;
-            int T = 10;
-            int M = 4;
+            var r = new Random();
+            var baseNum = 10;
+            var powNum = 3;
+            var T = 10;
+            var M = 4;
 
-            double[,] Matrix = new double[M, 2];
+            var Matrix = new double[M, 2];
 
-            for (int i = 0; i < M; i++)
+            for (var i = 0; i < M; i++)
             {
-                int N = (int)Math.Pow(baseNum, powNum + i);
+                var N = (int)Math.Pow(baseNum, powNum + i);
                 double sum = 0;
-                for (int j = 0; j < T; j++)
+                for (var j = 0; j < T; j++)
                 {
                     sum += Test(N, r.Next());
                 }
@@ -38,18 +38,18 @@ namespace _1._1._39
         /// <returns></returns>
         static int Test(int N, int seed)
         {
-            Random random = new Random(seed);
-            int[] a = new int[N];
-            int[] b = new int[N];
-            int count = 0;
+            var random = new Random(seed);
+            var a = new int[N];
+            var b = new int[N];
+            var count = 0;
 
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
                 a[i] = random.Next(100000, 1000000);
                 b[i] = random.Next(100000, 1000000);
             }
 
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < N; i++)
             {
                 if (rank(a[i], b) != -1)
                     count++;
@@ -72,7 +72,7 @@ namespace _1._1._39
                 return -1;
             }
 
-            int mid = lo + (hi - lo) / 2;
+            var mid = lo + (hi - lo) / 2;
 
             if (key < a[mid])
             {
@@ -94,9 +94,9 @@ namespace _1._1._39
         /// <param name="a">需要输出的矩阵。</param>
         public static void PrintMatrix(double[,] a)
         {
-            for (int i = 0; i < a.GetLength(0); i++)
+            for (var i = 0; i < a.GetLength(0); i++)
             {
-                for (int j = 0; j < a.GetLength(1); j++)
+                for (var j = 0; j < a.GetLength(1); j++)
                 {
                     Console.Write($"\t{a[i, j]}");
                 }

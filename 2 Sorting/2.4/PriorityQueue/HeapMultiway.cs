@@ -15,9 +15,9 @@ namespace PriorityQueue
         /// <param name="d">堆的分叉数。</param>
         public static void Sort<T>(T[] pq, int d) where T : IComparable<T>
         {
-            int n = pq.Length;
+            var n = pq.Length;
             // 建堆
-            for (int k = (n - 2) / d + 1; k >= 1; k--)
+            for (var k = (n - 2) / d + 1; k >= 1; k--)
             {
                 Sink(pq, k, n, d);
             }
@@ -40,7 +40,7 @@ namespace PriorityQueue
         {
             while ((k - 1) * d + 2 <= n)
             {
-                int j = d * (k - 1) + 2;
+                var j = d * (k - 1) + 2;
                 // 在 d 个子结点中找到最大的那个
                 for (int i = 0, q = j; i < d; i++)
                 {
@@ -71,7 +71,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的结点序号。</param>
         private static void Exch<T>(T[] pq, int a, int b)
         {
-            T temp = pq[a - 1];
+            var temp = pq[a - 1];
             pq[a - 1] = pq[b - 1];
             pq[b - 1] = temp;
         }

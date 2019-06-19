@@ -19,27 +19,27 @@ namespace _2._2._15
         /// <param name="a">需要排序的数组。</param>
         public void Sort<T>(T[] a) where T : IComparable<T>
         {
-            Queue<Queue<T>> queueList = new Queue<Queue<T>>();
-            for (int i = 0; i < a.Length; i++)
+            var queueList = new Queue<Queue<T>>();
+            for (var i = 0; i < a.Length; i++)
             {
-                Queue<T> temp = new Queue<T>();
+                var temp = new Queue<T>();
                 temp.Enqueue(a[i]);
                 queueList.Enqueue(temp);
             }
 
             while (queueList.Size() != 1)
             {
-                int times = queueList.Size() / 2;
-                for (int i = 0; i < times; i++)
+                var times = queueList.Size() / 2;
+                for (var i = 0; i < times; i++)
                 {
-                    Queue<T> A = queueList.Dequeue();
-                    Queue<T> B = queueList.Dequeue();
+                    var A = queueList.Dequeue();
+                    var B = queueList.Dequeue();
                     queueList.Enqueue(Merge(A, B));
                 }
             }
 
-            Queue<T> result = queueList.Dequeue();
-            for (int i = 0; i < a.Length; i++)
+            var result = queueList.Dequeue();
+            for (var i = 0; i < a.Length; i++)
             {
                 a[i] = result.Dequeue();
             }
@@ -54,7 +54,7 @@ namespace _2._2._15
         /// <returns>归并后的新队列。</returns>
         public static Queue<T> Merge<T>(Queue<T> a, Queue<T> b) where T : IComparable<T>
         {
-            Queue<T> sortedQueue = new Queue<T>();
+            var sortedQueue = new Queue<T>();
             while (!a.IsEmpty() && !b.IsEmpty())
             {
                 if (a.Peek().CompareTo(b.Peek()) < 0)

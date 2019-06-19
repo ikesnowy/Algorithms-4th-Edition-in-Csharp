@@ -15,11 +15,11 @@ namespace Quick
         /// <param name="a">需要打乱的数组。</param>
         public static void Shuffle<T>(T[] a)
         {
-            Random random = new Random();
-            for (int i = 0; i < a.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < a.Length; i++)
             {
-                int r = i + random.Next(a.Length - i);
-                T temp = a[i];
+                var r = i + random.Next(a.Length - i);
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }
@@ -33,7 +33,7 @@ namespace Quick
         /// <returns>排序的耗时，单位为毫秒。</returns>
         public static double Time<T>(BaseSort sort, T[] a) where T : IComparable<T>
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
             sort.Sort(a);
             return stopwatch.ElapsedMilliseconds;
         }
@@ -47,12 +47,12 @@ namespace Quick
         /// <returns>多次排序的总耗时，单位为毫秒。</returns>
         public static double TimeRandomInput(BaseSort sort, int n, int trials)
         {
-            double total = 0.0;
-            double[] a = new double[n];
-            Random random = new Random();
-            for (int t = 0; t < trials; t++)
+            var total = 0.0;
+            var a = new double[n];
+            var random = new Random();
+            for (var t = 0; t < trials; t++)
             {
-                for (int i = 0; i < n; i++)
+                for (var i = 0; i < n; i++)
                 {
                     a[i] = random.NextDouble();
                 }
@@ -70,11 +70,11 @@ namespace Quick
         /// <returns>多次排序的总耗时，单位为毫秒。</returns>
         public static double TimeSortedInput(BaseSort sort, int n, int trials)
         {
-            double total = 0.0;
-            double[] a = new double[n];
-            for (int t = 0; t < trials; t++)
+            var total = 0.0;
+            var a = new double[n];
+            for (var t = 0; t < trials; t++)
             {
-                for (int i = 0; i < n; i++)
+                for (var i = 0; i < n; i++)
                 {
                     a[i] = i * 1.0;
                 }
@@ -90,9 +90,9 @@ namespace Quick
         /// <returns>大小为 n 的随机整数数组。</returns>
         public static int[] GetRandomArrayInt(int n)
         {
-            Random random = new Random();
-            int[] array = new int[n];
-            for (int i = 0; i < n; i++)
+            var random = new Random();
+            var array = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = random.Next();
             }
@@ -106,9 +106,9 @@ namespace Quick
         /// <returns>大小为 n 的随机 double 数组。</returns>
         public static double[] GetRandomArrayDouble(int n)
         {
-            Random random = new Random();
-            double[] array = new double[n];
-            for (int i = 0; i < n; i++)
+            var random = new Random();
+            var array = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = random.NextDouble() * double.MaxValue;
             }
@@ -122,8 +122,8 @@ namespace Quick
         /// <returns>符合标准正态分布的 double 数组。</returns>
         public static double[] GetNormalDistributionArray(int n)
         {
-            double[] array = new double[n];
-            for (int i = 0; i < n; i++)
+            var array = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = SortUtil.Normal(0, 1);
             }
@@ -137,8 +137,8 @@ namespace Quick
         /// <returns>符合泊松分布的数组。</returns>
         public static double[] GetPossionDistributionArray(int n)
         {
-            double[] array = new double[n];
-            for (int i = 0; i < n; i++)
+            var array = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = SortUtil.Poission(20);
             }
@@ -154,8 +154,8 @@ namespace Quick
         /// <returns>符合几何分布的随机数组。</returns>
         public static double[] GetGeometricDistributionArray(int n, double p)
         {
-            double[] array = new double[n];
-            for (int i = 0; i < n; i++)
+            var array = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = SortUtil.Geometry(p);
             }
@@ -170,8 +170,8 @@ namespace Quick
         /// <returns>符合指定概率的离散分布的随机数组。</returns>
         public static double[] GetDiscretDistributionArray(int n, double[] probabilities)
         {
-            double[] array = new double[n];
-            for (int i = 0; i < n; i++)
+            var array = new double[n];
+            for (var i = 0; i < n; i++)
             {
                 array[i] = SortUtil.Discrete(probabilities);
             }

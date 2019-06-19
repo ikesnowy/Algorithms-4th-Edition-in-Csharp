@@ -5,9 +5,9 @@
     {
         static void Main(string[] args)
         {
-            int a = 1;
-            int b = 2;
-            int c = 0;
+            var a = 1;
+            var b = 2;
+            var c = 0;
 
             // if (a > b) then c = 0; 
             // if 后不能跟 then

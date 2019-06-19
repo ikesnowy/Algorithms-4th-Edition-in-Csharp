@@ -7,25 +7,25 @@ namespace _2._3._24
     {
         static void Main(string[] args)
         {
-            QuickSort quickNormal = new QuickSort();
-            SampleSort sampleSort = new SampleSort();
-            int arraySize = 1600000;                        // 初始数组大小。
+            var quickNormal = new QuickSort();
+            var sampleSort = new SampleSort();
+            var arraySize = 1600000;                        // 初始数组大小。
             const int kSteps = 10;                          // 取样 k 值的递增次数。
             const int trialTimes = 1;                       // 每次实验的重复次数。
             const int trialLevel = 2;                       // 双倍递增的次数。
 
             Console.WriteLine("k\tn\t\tsample\tnormal\tratio");
-            for (int i = 0; i < kSteps; i++)
+            for (var i = 0; i < kSteps; i++)
             {
-                int array = arraySize;
-                for (int j = 0; j < trialLevel; j++)
+                var array = arraySize;
+                for (var j = 0; j < trialLevel; j++)
                 {
                     double timeSample = 0;
                     double timeNormal = 0;
-                    for (int k = 0; k < trialTimes; k++)
+                    for (var k = 0; k < trialTimes; k++)
                     {
-                        int[] a = SortCompare.GetRandomArrayInt(array);
-                        int[] b = new int[a.Length];
+                        var a = SortCompare.GetRandomArrayInt(array);
+                        var b = new int[a.Length];
                         a.CopyTo(b, 0);
                         timeNormal += SortCompare.Time(quickNormal, b);
                         timeSample += SortCompare.Time(sampleSort, a);

@@ -7,10 +7,10 @@ namespace _1._3._30
     {
         static void Main(string[] args)
         {
-            Node<string> first = new Node<string>();
-            Node<string> second = new Node<string>();
-            Node<string> third = new Node<string>();
-            Node<string> fourth = new Node<string>();
+            var first = new Node<string>();
+            var second = new Node<string>();
+            var third = new Node<string>();
+            var fourth = new Node<string>();
 
             first.item = "first";
             second.item = "second";
@@ -22,7 +22,7 @@ namespace _1._3._30
             third.next = fourth;
             fourth.next = null;
 
-            Node<string> current = first;
+            var current = first;
             while (current != null)
             {
                 Console.Write(current.item + " ");
@@ -47,8 +47,8 @@ namespace _1._3._30
                 return null;
             if (first.next == null)
                 return first;
-            Node<Item> second = first.next;
-            Node<Item> rest = Reverse(second);
+            var second = first.next;
+            var rest = Reverse(second);
             second.next = first;
             first.next = null;
             return rest;

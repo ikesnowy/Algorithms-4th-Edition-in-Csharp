@@ -22,13 +22,13 @@ namespace _2._5._20
         static void Main(string[] args)
         {
             // 输入格式： JobName 15:02 17:02
-            int nowRunning = 0;     // 正在运行的程序数量
-            int maxIdle = 0;
-            int maxBusy = 0;
+            var nowRunning = 0;     // 正在运行的程序数量
+            var maxIdle = 0;
+            var maxBusy = 0;
 
-            int items = int.Parse(Console.ReadLine());
-            JobEvent[] jobs = new JobEvent[items * 2];
-            for (int i = 0; i < jobs.Length; i += 2)
+            var items = int.Parse(Console.ReadLine());
+            var jobs = new JobEvent[items * 2];
+            for (var i = 0; i < jobs.Length; i += 2)
             {
                 jobs[i] = new JobEvent();
                 jobs[i + 1] = new JobEvent();
@@ -36,7 +36,7 @@ namespace _2._5._20
                 jobs[i].IsFinished = false;     // 开始事件
                 jobs[i + 1].IsFinished = true;  // 停止事件
 
-                string[] record = Console.ReadLine().Split(new char[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries);
+                var record = Console.ReadLine().Split(new char[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries);
                 jobs[i].JobName = record[0];
                 jobs[i + 1].JobName = record[0];
 
@@ -47,9 +47,9 @@ namespace _2._5._20
             Array.Sort(jobs);
 
             // 事件处理
-            int idleStart = 0;
-            int busyStart = 0;
-            for (int i = 0; i < jobs.Length; i++)
+            var idleStart = 0;
+            var busyStart = 0;
+            for (var i = 0; i < jobs.Length; i++)
             {
                 // 启动事件
                 if (!jobs[i].IsFinished)
@@ -57,7 +57,7 @@ namespace _2._5._20
                     // 空闲状态结束
                     if (nowRunning == 0)
                     {
-                        int idle = jobs[i].Time - idleStart;
+                        var idle = jobs[i].Time - idleStart;
                         if (idle > maxIdle)
                             maxIdle = idle;
 
@@ -72,7 +72,7 @@ namespace _2._5._20
                     // 忙碌状态结束
                     if (nowRunning == 0)
                     {
-                        int busy = jobs[i].Time - busyStart;
+                        var busy = jobs[i].Time - busyStart;
                         if (busy > maxBusy)
                             maxBusy = busy;
 

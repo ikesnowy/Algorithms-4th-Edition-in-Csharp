@@ -9,7 +9,7 @@ namespace _1._4._2
         // 此时整个式子将按照精度最高（也就是 long）的标准计算。
         static void Main(string[] args)
         {
-            int[] a = new int[4];
+            var a = new int[4];
             a[0] = int.MaxValue;
             a[1] = int.MaxValue;
             a[2] = int.MinValue;

@@ -8,25 +8,25 @@ namespace _2._3._27
     {
         static void Main(string[] args)
         {
-            QuickSortInsertion insertion = new QuickSortInsertion();
-            QuickSortIgnore ignore = new QuickSortIgnore();
-            int arraySize = 20000;                          // 初始数组大小。
+            var insertion = new QuickSortInsertion();
+            var ignore = new QuickSortIgnore();
+            var arraySize = 20000;                          // 初始数组大小。
             const int mSteps = 1;                           // M 值的递增次数。
             const int trialTimes = 4;                       // 每次实验的重复次数。
             const int trialLevel = 10;                      // 双倍递增的次数。
 
             Console.WriteLine("M\tn\t\tignore\tinsert\tratio");
-            for (int i = 0; i < mSteps; i++)
+            for (var i = 0; i < mSteps; i++)
             {
-                int array = arraySize;
-                for (int j = 0; j < trialLevel; j++)
+                var array = arraySize;
+                for (var j = 0; j < trialLevel; j++)
                 {
                     double timeIgnore = 0;
                     double timeInsertion = 0;
-                    for (int k = 0; k < trialTimes; k++)
+                    for (var k = 0; k < trialTimes; k++)
                     {
-                        int[] a = SortCompare.GetRandomArrayInt(array);
-                        int[] b = new int[a.Length];
+                        var a = SortCompare.GetRandomArrayInt(array);
+                        var b = new int[a.Length];
                         a.CopyTo(b, 0);
                         timeInsertion += SortCompare.Time(insertion, b);
                         timeIgnore += SortCompare.Time(ignore, a);

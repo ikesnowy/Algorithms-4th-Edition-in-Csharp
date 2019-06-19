@@ -14,9 +14,9 @@ namespace _2._3._31
         {
             try
             {
-                int N = int.Parse(this.InputN.Text);
-                int T = int.Parse(this.InputT.Text);
-                Form2 panel = new Form2(N, T);
+                var N = int.Parse(this.InputN.Text);
+                var T = int.Parse(this.InputT.Text);
+                var panel = new Form2(N, T);
                 panel.ShowDialog();
             }
             catch (ArgumentNullException)

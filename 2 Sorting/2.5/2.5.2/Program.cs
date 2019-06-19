@@ -28,7 +28,7 @@ namespace _2._5._2
         {
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
                 if (keys[mid].Length == length)
                 {
                     while (mid >= lo && keys[mid].Length == length)
@@ -45,11 +45,11 @@ namespace _2._5._2
 
         static void Main(string[] args)
         {
-            string[] keywords = Console.ReadLine().Split(' ');
+            var keywords = Console.ReadLine().Split(' ');
             Array.Sort(keywords, new StringLengthComparer());
-            int minLength = keywords[0].Length * 2;
+            var minLength = keywords[0].Length * 2;
             // 找到第一个大于 minLength 的字符串
-            int canCombine = 0;
+            var canCombine = 0;
             while (keywords[canCombine].Length < minLength &&
                 canCombine < keywords.Length)
                 canCombine++;
@@ -57,10 +57,10 @@ namespace _2._5._2
             // 依次测试是否可能
             while (canCombine < keywords.Length)
             {
-                int sum = keywords[canCombine].Length;
-                for (int i = 0; i < canCombine; i++)
+                var sum = keywords[canCombine].Length;
+                for (var i = 0; i < canCombine; i++)
                 {
-                    int start = BinarySearch(keywords, sum - keywords[i].Length, i, canCombine);
+                    var start = BinarySearch(keywords, sum - keywords[i].Length, i, canCombine);
                     if (start != -1)
                     {
                         while (keywords[start].Length + keywords[i].Length == sum)

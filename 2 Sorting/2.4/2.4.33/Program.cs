@@ -10,10 +10,10 @@ namespace _2._4._33
         // 官网答案：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
         static void Main(string[] args)
         {
-            string[] input = new string[] { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
+            var input = new string[] { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
 
-            IndexMaxPQ<string> pq = new IndexMaxPQ<string>(input.Length);
-            for (int i = 0; i < input.Length; i++)
+            var pq = new IndexMaxPQ<string>(input.Length);
+            for (var i = 0; i < input.Length; i++)
             {
                 pq.Insert(input[i], i);
             }
@@ -25,8 +25,8 @@ namespace _2._4._33
 
             Console.WriteLine();
 
-            Random random = new Random();
-            for (int i = 0; i < input.Length; i++)
+            var random = new Random();
+            for (var i = 0; i < input.Length; i++)
             {
                 if (random.NextDouble() < 0.5)
                     pq.IncreaseKey(i, input[i] + input[i]);
@@ -36,29 +36,29 @@ namespace _2._4._33
 
             while (!pq.IsEmpty())
             {
-                string key = pq.MaxKey();
-                int i = pq.DelMax();
+                var key = pq.MaxKey();
+                var i = pq.DelMax();
                 Console.WriteLine(i + "." + key);
             }
 
             Console.WriteLine();
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 pq.Insert(input[i], i);
             }
 
-            int[] param = new int[input.Length];
-            for (int i = 0; i < input.Length; i++)
+            var param = new int[input.Length];
+            for (var i = 0; i < input.Length; i++)
             {
                 param[i] = i;
             }
 
             Shuffle(param);
 
-            for (int i = 0; i < param.Length; i++)
+            for (var i = 0; i < param.Length; i++)
             {
-                string key = pq.KeyOf(param[i]);
+                var key = pq.KeyOf(param[i]);
                 pq.Delete(param[i]);
                 Console.WriteLine(param[i] + "." + key);
             }
@@ -70,12 +70,12 @@ namespace _2._4._33
         /// <param name="a">需要打乱的数组。</param>
         static void Shuffle(int[] a)
         {
-            int N = a.Length;
-            Random random = new Random();
-            for (int i = 0; i < N; i++)
+            var N = a.Length;
+            var random = new Random();
+            for (var i = 0; i < N; i++)
             {
-                int r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
-                int temp = a[i];
+                var r = i + random.Next(N - i);// 等于StdRandom.uniform(N-i)
+                var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
             }

@@ -21,12 +21,12 @@ namespace _1._3._9
         // ) 计算，在 E 之前加入左括号（也就是 A 之前），结果 G 压入栈中，位置为 E 的位置。
         static void Main(string[] args)
         {
-            string input = "1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )";
-            Stack<char> operators = new Stack<char>();
-            Stack<Number> numbers = new Stack<Number>();
-            int[] leftBrackets = new int[input.Length];
+            var input = "1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )";
+            var operators = new Stack<char>();
+            var numbers = new Stack<Number>();
+            var leftBrackets = new int[input.Length];
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 if (input[i] == ' ')
                     continue;
@@ -36,10 +36,10 @@ namespace _1._3._9
                 }
                 else if (input[i] == ')')
                 {
-                    Number B = numbers.Pop();
-                    Number A = numbers.Pop();
-                    char operation = operators.Pop();
-                    Number C = new Number();
+                    var B = numbers.Pop();
+                    var A = numbers.Pop();
+                    var operation = operators.Pop();
+                    var C = new Number();
                     C.Position = A.Position;
                     leftBrackets[A.Position]++;
 
@@ -62,14 +62,14 @@ namespace _1._3._9
                 }
                 else
                 {
-                    Number num = new Number();
+                    var num = new Number();
                     num.Position = i;
                     num.Value = input[i] - '0';
                     numbers.Push(num);
                 }
             }
 
-            for (int i = 0; i < input.Length; i++)
+            for (var i = 0; i < input.Length; i++)
             {
                 while (leftBrackets[i] != 0)
                 {

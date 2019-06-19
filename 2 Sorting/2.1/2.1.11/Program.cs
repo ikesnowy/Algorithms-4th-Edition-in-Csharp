@@ -6,14 +6,14 @@ namespace _2._1._11
     {
         static void Main(string[] args)
         {
-            ShellSort shellSort = new ShellSort();
-            int[] array = new int[10];
-            for (int i = 0; i < array.Length; i++)
+            var shellSort = new ShellSort();
+            var array = new int[10];
+            for (var i = 0; i < array.Length; i++)
             {
                 array[i] = 10 - i;
             }
             shellSort.Sort(array);
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 Console.Write(array[i] + " ");
             }

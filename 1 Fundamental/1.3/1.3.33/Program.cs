@@ -6,8 +6,8 @@ namespace _1._3._33
     {
         static void Main(string[] args)
         {
-            Deque<string> a = new Deque<string>();
-            ResizingArrayDeque<string> b = new ResizingArrayDeque<string>();
+            var a = new Deque<string>();
+            var b = new ResizingArrayDeque<string>();
 
             a.PushLeft("first");
             b.PushLeft("first");
@@ -25,12 +25,12 @@ namespace _1._3._33
 
         static void Display(Deque<string> a, ResizingArrayDeque<string> b)
         {
-            foreach (string s in a)
+            foreach (var s in a)
             {
                 Console.Write(s + " ");
             }
             Console.WriteLine();
-            foreach (string s in b)
+            foreach (var s in b)
             {
                 Console.Write(s + " ");
             }

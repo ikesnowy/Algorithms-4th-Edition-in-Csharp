@@ -20,13 +20,13 @@ namespace _1._4._40
         // N^3/16M
         static void Main(string[] args)
         {
-            int M = 10000;
+            var M = 10000;
 
-            for (int n = 125; n < 10000; n += n)
+            for (var n = 125; n < 10000; n += n)
             {
-                Random random = new Random();
-                int[] a = new int[n];
-                for (int i = 0; i < n; i++)
+                var random = new Random();
+                var a = new int[n];
+                for (var i = 0; i < n; i++)
                 {
                     a[i] = random.Next(2 * M) - M;
                 }

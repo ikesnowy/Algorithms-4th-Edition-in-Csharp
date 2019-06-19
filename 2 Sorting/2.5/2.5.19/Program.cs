@@ -19,21 +19,21 @@ namespace _2._5._19
         {
             if (a.Length != b.Length)
                 throw new ArgumentException("Array dimensions disagree");
-            int n = a.Length;
+            var n = a.Length;
 
-            int[] ainv = new int[n];
-            for (int i = 0; i < n; i++)
+            var ainv = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 ainv[a[i]] = i;
             }
 
-            int[] bnew = new int[n];
-            for (int i = 0; i < n; i++)
+            var bnew = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 bnew[i] = ainv[b[i]];
             }
 
-            Inversions inversions = new Inversions();
+            var inversions = new Inversions();
             inversions.Count(bnew);
             return inversions.Counter;
         }

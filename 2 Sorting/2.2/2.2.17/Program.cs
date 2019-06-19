@@ -6,7 +6,7 @@ namespace _2._2._17
     {
         static void Main(string[] args)
         {
-            LinkedList<int> a = new LinkedList<int>();
+            var a = new LinkedList<int>();
             a.Insert(1);
             a.Insert(2);
             a.Insert(3);
@@ -18,9 +18,9 @@ namespace _2._2._17
             a.Insert(9);
             a.Insert(10);
 
-            MergeSortNatural mergeSort = new MergeSortNatural();
+            var mergeSort = new MergeSortNatural();
             mergeSort.Sort(a);
-            foreach (int i in a)
+            foreach (var i in a)
             {
                 Console.Write(i + " ");
             }

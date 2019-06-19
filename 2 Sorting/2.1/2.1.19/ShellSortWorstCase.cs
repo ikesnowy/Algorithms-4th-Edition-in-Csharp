@@ -9,18 +9,18 @@
         /// <returns>希尔排序最坏情况的数组。</returns>
         public static int[] GetWorst(int n)
         {
-            int l = 0;
-            int?[] a = new int?[n + 1];
+            var l = 0;
+            var a = new int?[n + 1];
 
-            for (int i = 0; i < a.Length; i++)
+            for (var i = 0; i < a.Length; i++)
             {
                 a[i] = null;
             }
-            int P = 40;
-            int PAddition = P;
-            for (int i = 0; l < 100; i++)
+            var P = 40;
+            var PAddition = P;
+            for (var i = 0; l < 100; i++)
             {
-                for (int j = 1; j <= n; j++)
+                for (var j = 1; j <= n; j++)
                 {
                     if (a[j] == null && IsVisible(j, P))
                     {
@@ -31,8 +31,8 @@
                 P += PAddition;
             }
 
-            int[] b = new int[n];
-            for (int i = 0; i < n; i++)
+            var b = new int[n];
+            for (var i = 0; i < n; i++)
             {
                 b[i] = (int)a[i + 1];
             }
@@ -48,7 +48,7 @@
         /// <returns></returns>
         public static bool IsVisible(int i, int j)
         {
-            int k = 0;
+            var k = 0;
             while (k <= 100)
             {
                 if (j - i >= k * 40 && j - i <= k * 41)

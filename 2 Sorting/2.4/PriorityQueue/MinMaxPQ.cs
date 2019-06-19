@@ -93,8 +93,8 @@ namespace PriorityQueue
                 this.pq[i].Pair.Pair = this.pq[j];
                 this.pq[j].Pair.Pair = this.pq[i];
 
-                MinMaxNode swapNode = this.pq[i].Pair;
-                Key swapKey = this.pq[i].Key;
+                var swapNode = this.pq[i].Pair;
+                var swapKey = this.pq[i].Key;
 
                 this.pq[i].Key = this.pq[j].Key;
                 this.pq[i].Pair = this.pq[j].Pair;
@@ -184,9 +184,9 @@ namespace PriorityQueue
         public MinMaxPQ(Key[] keys)
         {
             this.n = keys.Length;
-            MinMaxNode[] minNodes = new MinMaxNode[keys.Length];
-            MinMaxNode[] maxNodes = new MinMaxNode[keys.Length];
-            for (int i = 0; i < this.n; i++)
+            var minNodes = new MinMaxNode[keys.Length];
+            var maxNodes = new MinMaxNode[keys.Length];
+            for (var i = 0; i < this.n; i++)
             {
                 MinMaxNode.GetNodes(keys[i], i + 1, out minNodes[i], out maxNodes[i]);
             }
@@ -202,7 +202,7 @@ namespace PriorityQueue
         {
             // ⬇ 不可以交换操作顺序 ⬇
             this.minPQ.Remove(this.maxPQ.Max().Pair.Index);
-            Key key = this.maxPQ.Max().Key;
+            var key = this.maxPQ.Max().Key;
             this.maxPQ.DelMax();
             // ⬆ 不可以交换操作顺序 ⬆
             this.n--;
@@ -231,7 +231,7 @@ namespace PriorityQueue
         public void Insert(Key v)
         {
             this.n++;
-            MinMaxNode.GetNodes(v, this.n, out MinMaxNode minNode, out MinMaxNode maxNode);
+            MinMaxNode.GetNodes(v, this.n, out var minNode, out var maxNode);
             this.maxPQ.Insert(maxNode);
             this.minPQ.Insert(minNode);
         }

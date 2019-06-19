@@ -77,7 +77,7 @@ namespace _1._3._49
             }
             else if (!this.isRecopying && Lendiff() == 0)
             {
-                Item temp = this.H.Pop();
+                var temp = this.H.Pop();
                 this.h = this.H.Copy();
                 this.isRecopying = true;
                 OneStep(OneStep(this));
@@ -85,7 +85,7 @@ namespace _1._3._49
             }
             else
             {
-                Item temp = this.h.Pop();
+                var temp = this.h.Pop();
                 this.nowcopying--;
                 OneStep(OneStep(this));
                 return temp;

@@ -7,19 +7,19 @@ namespace _1._5._3
     {
         static void Main(string[] args)
         {
-            string[] input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
+            var input = "9-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2".Split(' ');
             var weightedQuickUnion = new WeightedQuickUnionUF(10);
 
-            foreach (string s in input)
+            foreach (var s in input)
             {
                 weightedQuickUnion.ResetArrayCount();
-                string[] numbers = s.Split('-');
-                int p = int.Parse(numbers[0]);
-                int q = int.Parse(numbers[1]);
+                var numbers = s.Split('-');
+                var p = int.Parse(numbers[0]);
+                var q = int.Parse(numbers[1]);
 
                 weightedQuickUnion.Union(p, q);
-                int[] parent = weightedQuickUnion.GetParent();
-                for (int i = 0; i < parent.Length; i++)
+                var parent = weightedQuickUnion.GetParent();
+                for (var i = 0; i < parent.Length; i++)
                 {
                     Console.Write(parent[i] + " ");
                 }

@@ -6,11 +6,11 @@ namespace _1._4._20
     {
         static void Main(string[] args)
         {
-            int[] a = BitonicMax.Bitonic(100);
-            int max = BitonicMax.Max(a, 0, a.Length - 1);
-            int key = a[50];
-            int leftside = BinarySearchAscending(a, key, 0, max);
-            int rightside = BinarySearchDescending(a, key, max, a.Length - 1);
+            var a = BitonicMax.Bitonic(100);
+            var max = BitonicMax.Max(a, 0, a.Length - 1);
+            var key = a[50];
+            var leftside = BinarySearchAscending(a, key, 0, max);
+            var rightside = BinarySearchDescending(a, key, max, a.Length - 1);
 
             if (leftside != -1)
             {
@@ -38,7 +38,7 @@ namespace _1._4._20
         {
             while (lo <= hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
 
                 if (a[mid] < key)
                 {
@@ -69,7 +69,7 @@ namespace _1._4._20
         {
             while (lo < hi)
             {
-                int mid = lo + (hi - lo) / 2;
+                var mid = lo + (hi - lo) / 2;
 
                 if (a[mid] > key)
                 {

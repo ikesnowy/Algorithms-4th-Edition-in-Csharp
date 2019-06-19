@@ -14,7 +14,7 @@ namespace _2._1._21
         /// <param name="date">形如 "05/31/2017" 的字符串。</param>
         public Date(string date)
         {
-            string[] a = date.Split('/');
+            var a = date.Split('/');
             if (a.Length != 3)
                 throw new ArgumentException("Illgal Date");
             this.Month = int.Parse(a[0]);
@@ -57,7 +57,7 @@ namespace _2._1._21
                 return false;
             if (obj.GetType() != this.GetType())
                 return false;
-            Date that = (Date)obj;
+            var that = (Date)obj;
             return (this.Year == that.Year) && (this.Month == that.Month) && (this.Day == that.Day);
         }
 
@@ -67,7 +67,7 @@ namespace _2._1._21
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 17;
+            var hash = 17;
             hash = 31 * hash + this.Month;
             hash = 31 * hash + this.Year;
             hash = 31 * hash + this.Day;

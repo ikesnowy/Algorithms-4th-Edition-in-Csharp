@@ -40,8 +40,8 @@ namespace _1._3._35
                 throw new ArgumentException();
             }
 
-            Item[] temp = new Item[capacity];
-            for (int i = 0; i < this.count; i++)
+            var temp = new Item[capacity];
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.queue[i];
             }
@@ -75,10 +75,10 @@ namespace _1._3._35
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random(DateTime.Now.Millisecond);
-            int index = random.Next(this.count);
+            var random = new Random(DateTime.Now.Millisecond);
+            var index = random.Next(this.count);
 
-            Item temp = this.queue[index];
+            var temp = this.queue[index];
             this.queue[index] = this.queue[this.count - 1];
             this.queue[this.count - 1] = temp;
 
@@ -103,8 +103,8 @@ namespace _1._3._35
                 throw new InvalidOperationException();
             }
 
-            Random random = new Random();
-            int index = random.Next(this.count);
+            var random = new Random();
+            var index = random.Next(this.count);
 
             return this.queue[index];
         }

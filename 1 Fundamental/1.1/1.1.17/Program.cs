@@ -11,7 +11,7 @@ namespace _1._1._17
 
         public static string exR2(int n)
         {
-            string s = exR2(n - 3) + n + exR2(n - 2) + n;// 运行到 exR2 即展开，不会再运行下一句
+            var s = exR2(n - 3) + n + exR2(n - 2) + n;// 运行到 exR2 即展开，不会再运行下一句
             if (n <= 0) return "";
             return s;
         }

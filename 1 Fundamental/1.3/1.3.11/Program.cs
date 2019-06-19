@@ -7,11 +7,11 @@ namespace _1._3._11
     {
         static void Main(string[] args)
         {
-            Stack<int> stack = new Stack<int>();
+            var stack = new Stack<int>();
 
-            string[] input = "7 16 * 5 + 16 * 3 + 16 * 1 +".Split(' ');
+            var input = "7 16 * 5 + 16 * 3 + 16 * 1 +".Split(' ');
 
-            foreach (string n in input)
+            foreach (var n in input)
             {
                 if (n == " ")
                 {
@@ -23,7 +23,7 @@ namespace _1._3._11
                 }
                 else if (n == "-")
                 {
-                    int temp = stack.Pop();
+                    var temp = stack.Pop();
                     stack.Push(stack.Pop() - temp);
                 }
                 else if (n == "*")
@@ -32,7 +32,7 @@ namespace _1._3._11
                 }
                 else if (n == "/")
                 {
-                    int temp = stack.Pop();
+                    var temp = stack.Pop();
                     stack.Push(stack.Pop() / temp);
                 }
                 else

@@ -6,11 +6,11 @@ namespace _1._3._39
     {
         static void Main(string[] args)
         {
-            RingBuffer<string> buffer = new RingBuffer<string>(5);
+            var buffer = new RingBuffer<string>(5);
 
             try
             {
-                for (int i = 0; i < 6; i++)     //引发 OutOfMemory 异常
+                for (var i = 0; i < 6; i++)     //引发 OutOfMemory 异常
                 {
                     buffer.Write(i.ToString());
                 }

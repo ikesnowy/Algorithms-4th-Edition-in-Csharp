@@ -17,14 +17,14 @@ namespace PriorityQueue
         public static long Sort<T>(T[] pq) where T : IComparable<T>
         {
             compareTimes = 0;
-            int n = pq.Length;
+            var n = pq.Length;
             BuildTree(pq, 0, pq.Length);
             // 排序
             while (n > 1)
             {
-                int tail = GetTail(pq, 0, n);
-                T temp = pq[tail];
-                for (int i = tail + 1; i < n; i++)
+                var tail = GetTail(pq, 0, n);
+                var temp = pq[tail];
+                for (var i = tail + 1; i < n; i++)
                     pq[i - 1] = pq[i];
                 n--;
                 Exch(pq, 0, n);
@@ -46,10 +46,10 @@ namespace PriorityQueue
         {
             if (n <= 1)
                 return p;
-            int k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
+            var k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
 
-            int left = (int)Math.Pow(2, k - 1) - 1;
-            int right = left;
+            var left = (int)Math.Pow(2, k - 1) - 1;
+            var right = left;
             if (n - left <= (int)Math.Pow(2, k))
             {
                 // 叶子结点全在左侧
@@ -75,10 +75,10 @@ namespace PriorityQueue
         {
             if (n <= 1)
                 return;
-            int k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
+            var k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
 
-            int left = (int)Math.Pow(2, k - 1) - 1;
-            int right = left;
+            var left = (int)Math.Pow(2, k - 1) - 1;
+            var right = left;
             if (n - left <= (int)Math.Pow(2, k))
             {
                 // 叶子结点全在左侧
@@ -105,10 +105,10 @@ namespace PriorityQueue
         {
             if (n <= 1)
                 return;
-            int k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
+            var k = (int)(Math.Log10(n) / Math.Log10(2));   // 高度
 
-            int left = (int)Math.Pow(2, k - 1) - 1;
-            int right = left;
+            var left = (int)Math.Pow(2, k - 1) - 1;
+            var right = left;
             if (n - left <= (int)Math.Pow(2, k))
             {
                 // 叶子结点全在左侧
@@ -162,7 +162,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的结点序号。</param>
         private static void Exch<T>(T[] pq, int a, int b)
         {
-            T temp = pq[a];
+            var temp = pq[a];
             pq[a] = pq[b];
             pq[b] = temp;
         }

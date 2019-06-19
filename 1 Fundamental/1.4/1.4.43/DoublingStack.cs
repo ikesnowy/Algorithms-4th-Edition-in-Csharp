@@ -86,9 +86,9 @@ namespace _1._4._43
         /// <param name="capcity">重新分配的空间大小。</param>
         private void Resize(int capcity)
         {
-            Item[] temp = new Item[capcity];
+            var temp = new Item[capcity];
             
-            for (int i = 0; i < this.count; i++)
+            for (var i = 0; i < this.count; i++)
             {
                 temp[i] = this.items[i];
             }

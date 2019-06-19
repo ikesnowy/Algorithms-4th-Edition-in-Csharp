@@ -20,8 +20,8 @@ namespace _2._5._26
         {
             try
             {
-                int X = int.Parse(this.InputX.Text);
-                int Y = int.Parse(this.InputY.Text);
+                var X = int.Parse(this.InputX.Text);
+                var Y = int.Parse(this.InputY.Text);
                 this.panel.Add(new Point2D(X, Y));
             }
             catch (ArgumentNullException)

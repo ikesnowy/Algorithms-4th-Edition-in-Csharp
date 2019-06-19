@@ -114,8 +114,8 @@ namespace Geometry
         /// <param name="y">绘制一维区间的 y轴 坐标。</param>
         public void Draw(Graphics g, int y)
         {
-            Point A = new Point((int)this.Min, y);
-            Point B = new Point((int)this.Max, y);
+            var A = new Point((int)this.Min, y);
+            var B = new Point((int)this.Max, y);
             g.DrawLine(Pens.Black, A, B);
         }
 
@@ -125,7 +125,7 @@ namespace Geometry
         /// <returns>形如 "[<see cref="Min"/>, <see cref="Max"/>]" 的字符串。</returns>
         public override string ToString()
         {
-            string s = "[" + this.Min + ", " + this.Max + "]";
+            var s = "[" + this.Min + ", " + this.Max + "]";
             return s;
         }
 
@@ -148,7 +148,7 @@ namespace Geometry
             {
                 return false;
             }
-            Interval1D that = (Interval1D)obj;
+            var that = (Interval1D)obj;
             return this.Min == that.Min && this.Max == that.Max;
         }
 
@@ -158,8 +158,8 @@ namespace Geometry
         /// <returns>返回区间的哈希代码。</returns>
         public override int GetHashCode()
         {
-            int hash1 = this.Min.GetHashCode();
-            int hash2 = this.Max.GetHashCode();
+            var hash1 = this.Min.GetHashCode();
+            var hash2 = this.Max.GetHashCode();
             return 31 * hash1 + hash2;
         }
 
@@ -221,8 +221,8 @@ namespace Geometry
         {
             public override int Compare(Interval1D a, Interval1D b)
             {
-                double alen = a.Length();
-                double blen = b.Length();
+                var alen = a.Length();
+                var blen = b.Length();
 
                 if (alen < blen)
                 {

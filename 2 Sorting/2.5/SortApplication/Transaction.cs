@@ -27,7 +27,7 @@ namespace SortApplication
         /// <param name="transaction">用空格隔开的形如 “姓名 日期 金额” 的字符串。</param>
         public Transaction(string transaction)
         {
-            string[] a = transaction.Split(' ');
+            var a = transaction.Split(' ');
             this.Who = a[0];
             this.When = new Date(a[1]);
             this.Amount = double.Parse(a[2]);
@@ -119,7 +119,7 @@ namespace SortApplication
                 return false;
             if (obj.GetType() != this.GetType())
                 return false;
-            Transaction that = (Transaction)obj;
+            var that = (Transaction)obj;
 
             return
                 (that.Amount == this.Amount) &&
@@ -133,7 +133,7 @@ namespace SortApplication
         /// <returns></returns>
         public override int GetHashCode()
         {
-            int hash = 1;
+            var hash = 1;
             hash = 31 * hash + this.Who.GetHashCode();
             hash = 31 * hash + this.When.GetHashCode();
             hash = 31 * hash + this.Amount.GetHashCode();

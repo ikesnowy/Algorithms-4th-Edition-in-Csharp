@@ -4,11 +4,11 @@
     {
         public static int Count(int[] a)
         { // A                                                                               
-            int n = a.Length;
-            int count = 0;
-            for (int i = 0; i < n; i++)
+            var n = a.Length;
+            var count = 0;
+            for (var i = 0; i < n; i++)
             {// B
-                for (int j = i + 1; j < n; j++)
+                for (var j = i + 1; j < n; j++)
                 {// C
                     if (a[i] + a[j] == 0)
                     {

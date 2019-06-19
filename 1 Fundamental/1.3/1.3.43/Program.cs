@@ -9,7 +9,7 @@ namespace _1._3._43
         static void Main(string[] args)
         {
             // 获取当前目录
-            string path = Directory.GetCurrentDirectory();
+            var path = Directory.GetCurrentDirectory();
             path = Directory.GetParent(path).FullName;
             path = Directory.GetParent(path).FullName;
             // 获取文件
@@ -19,12 +19,12 @@ namespace _1._3._43
 
         static void Search(string path, int tabs)
         {
-            string[] dirs = Directory.GetDirectories(path);
-            string[] files = Directory.GetFiles(path);
+            var dirs = Directory.GetDirectories(path);
+            var files = Directory.GetFiles(path);
 
-            foreach (string p in dirs)
+            foreach (var p in dirs)
             {
-                for (int i = 0; i < tabs; i++)
+                for (var i = 0; i < tabs; i++)
                 {
                     Console.Write("  ");
                 }
@@ -33,9 +33,9 @@ namespace _1._3._43
                 Search(p, tabs + 1);
             }
 
-            foreach (string f in files)
+            foreach (var f in files)
             {
-                for (int i = 0; i < tabs; i++)
+                for (var i = 0; i < tabs; i++)
                 {
                     Console.Write("  ");
                 }

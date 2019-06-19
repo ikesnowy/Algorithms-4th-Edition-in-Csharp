@@ -58,15 +58,15 @@ namespace _2._5._26
 
         public void RefreashPoints()
         {
-            double unitX = this.ClientRectangle.Width / this.maxX;
-            double unitY = this.ClientRectangle.Height / this.maxY;
+            var unitX = this.ClientRectangle.Width / this.maxX;
+            var unitY = this.ClientRectangle.Height / this.maxY;
             double left = this.ClientRectangle.Left;
             double bottom = this.ClientRectangle.Bottom;
 
             this.panel.Clear(this.BackColor);
-            Pen line = (Pen)Pens.Red.Clone();
+            var line = (Pen)Pens.Red.Clone();
             line.Width = 6;
-            Point2D before = this.startPoint;
+            var before = this.startPoint;
             foreach (var p in this.points)
             {
                 this.panel.FillEllipse(Brushes.Black, 

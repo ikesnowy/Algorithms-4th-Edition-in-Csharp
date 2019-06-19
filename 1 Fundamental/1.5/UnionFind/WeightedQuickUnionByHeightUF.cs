@@ -14,7 +14,7 @@
         public WeightedQuickUnionByHeightUF(int n) : base(n)
         {
             this.height = new int[n];
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 this.height[i] = 0;
             }
@@ -27,8 +27,8 @@
         /// <param name="q">需要合并的另一个结点。</param>
         public override void Union(int p, int q)
         {
-            int rootP = Find(p);
-            int rootQ = Find(q);
+            var rootP = Find(p);
+            var rootQ = Find(q);
 
             if (rootP == rootQ)
             {

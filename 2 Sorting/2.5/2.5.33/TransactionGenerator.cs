@@ -18,8 +18,8 @@ namespace _2._5._33
         /// <returns></returns>
         public static Transaction[] Generate(int n)
         {
-            Transaction[] trans = new Transaction[n];
-            for (int i = 0; i < n; i++)
+            var trans = new Transaction[n];
+            for (var i = 0; i < n; i++)
             {
                 trans[i] = new Transaction
                     (GenerateName(), 
@@ -35,11 +35,11 @@ namespace _2._5._33
         /// <returns></returns>
         private static string GenerateName()
         {
-            int nameLength = random.Next(4, 7);
-            StringBuilder sb = new StringBuilder();
+            var nameLength = random.Next(4, 7);
+            var sb = new StringBuilder();
 
             sb.Append(random.Next('A', 'Z' + 1));
-            for (int i = 1; i < nameLength; i++)
+            for (var i = 1; i < nameLength; i++)
                 sb.Append(random.Next('a', 'z' + 1));
 
             return sb.ToString();
@@ -51,8 +51,8 @@ namespace _2._5._33
         /// <returns></returns>
         private static Date GenerateDate()
         {
-            int year = random.Next(2017, 2019);
-            int month = random.Next(1, 13);
+            var year = random.Next(2017, 2019);
+            var month = random.Next(1, 13);
             int day;
             if (month == 2)
                 day = random.Next(1, 29);
@@ -62,7 +62,7 @@ namespace _2._5._33
             else
                 day = random.Next(1, 31);
 
-            Date date = new Date(month, day, year);
+            var date = new Date(month, day, year);
             return date;
         }
     }

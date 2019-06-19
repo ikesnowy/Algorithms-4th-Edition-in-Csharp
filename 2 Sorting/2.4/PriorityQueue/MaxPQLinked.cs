@@ -33,7 +33,7 @@ namespace PriorityQueue
         /// <remarks>如果希望获得最大值而不删除它，请使用 <see cref="Max"/>。</remarks>
         public Key DelMax()
         {
-            Key result = this.root.Value;
+            var result = this.root.Value;
             Exch(this.root, this.last);
 
             if (this.nodesCount == 2)
@@ -52,7 +52,7 @@ namespace PriorityQueue
             }
 
             // 获得前一个结点。
-            TreeNode<Key> newLast = this.last;
+            var newLast = this.last;
             if (newLast == this.last.Prev.Right)
                 newLast = this.last.Prev.Left;
             else
@@ -102,7 +102,7 @@ namespace PriorityQueue
         /// <param name="v">待插入的结点。</param>
         public void Insert(Key v)
         {
-            TreeNode<Key> item = new TreeNode<Key>(v);
+            var item = new TreeNode<Key>(v);
             // 堆为空。
             if (this.last == null)
             {
@@ -124,7 +124,7 @@ namespace PriorityQueue
             }
 
             // 定位到最后一个节点的父结点。
-            TreeNode<Key> prev = this.last.Prev;
+            var prev = this.last.Prev;
 
             // 右子节点为空，插入到右子节点。
             if (prev.Right == null)
@@ -240,7 +240,7 @@ namespace PriorityQueue
         /// <param name="b">要交换的第二个结点。</param>
         private void Exch(TreeNode<Key> a, TreeNode<Key> b)
         {
-            Key temp = a.Value;
+            var temp = a.Value;
             a.Value = b.Value;
             b.Value = temp;
         }

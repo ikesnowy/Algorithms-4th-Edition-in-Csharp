@@ -6,4 +6,8 @@
     <RootNamespace>_3._2._6</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BinarySearchTree\BinarySearchTree.csproj" />
+  </ItemGroup>
+
 </Project>

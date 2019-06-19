@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace BinarySearchTree
@@ -560,13 +562,14 @@ namespace BinarySearchTree
             int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
 
             //BST
-            var sb = new StringBuilder();
+            var lines = new List<string>();
             var nowLayer = new Queue<Node>();
             var nextLayer = new Queue<Node>();
             nextLayer.Enqueue(root);
 
             while (layer != maxDepth)
             {
+                var sb = new StringBuilder();
                 var unitSize = bottomLine / (int)Math.Pow(2, layer);
                 var temp = nowLayer;
                 nowLayer = nextLayer;
@@ -620,11 +623,37 @@ namespace BinarySearchTree
                             sb.Append(" ");
                     }
                 }
-                sb.AppendLine();
+                lines.Add(sb.ToString());
                 layer++;
             }
 
-            return sb.ToString();
+            // Trim
+            var margin = int.MaxValue;
+            foreach (var line in lines)
+            {
+                var firstNonWhite = 0;
+                for (var i = 0; i < line.Length; i++)
+                {
+                    if (line[i] == ' ') continue;
+                    firstNonWhite = i;
+                    break;
+                }
+
+                margin = Math.Min(margin, firstNonWhite);
+            }
+
+            for (var i = 0; i < lines.Count; i++)
+            {
+                lines[i] = lines[i].Substring(margin);
+            }
+
+            var result = new StringBuilder();
+            foreach (var line in lines)
+            {
+                result.AppendLine(line);
+            }
+
+            return result.ToString();
         }
 
         /// <summary>
@@ -637,15 +666,6 @@ namespace BinarySearchTree
             if (x == null)
                 return 0;
             return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
-        }
-
-        private int LeftDepth()
-        {
-            var x = root;
-            var depth = 0;
-            while (x.Left != null)
-                depth++;
-            return depth;
         }
     }
 }

@@ -657,6 +657,100 @@ namespace BinarySearchTree
         }
 
         /// <summary>
+        /// 将二叉树转变为数组表示。
+        /// </summary>
+        /// <returns>包含所有键值的数组。</returns>
+        public TKey[] ToKeyArray()
+        {
+            // 取最近的二的幂
+            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
+            var result = new TKey[size];
+
+            // 层序遍历。
+            var queue = new Queue<Node>();
+            var index = 0;
+            queue.Enqueue(root);
+            while (queue.Count != 0 && index < size)
+            {
+                var x = queue.Dequeue();
+                if (x != null)
+                {
+                    queue.Enqueue(x.Left);
+                    queue.Enqueue(x.Right);
+
+                    result[index++] = x.Key;
+                }
+
+                result[index++] = default;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 将二叉树转变为数组表示。
+        /// </summary>
+        /// <returns>表示二叉树的数组。</returns>
+        public TValue[] ToValueArray()
+        {
+            // 取最近的二的幂
+            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
+            var result = new TValue[size];
+
+            // 层序遍历。
+            var queue = new Queue<Node>();
+            var index = 0;
+            queue.Enqueue(root);
+            while (queue.Count != 0 && index < size)
+            {
+                var x = queue.Dequeue();
+                if (x != null)
+                {
+                    queue.Enqueue(x.Left);
+                    queue.Enqueue(x.Right);
+
+                    result[index++] = x.Value;
+                }
+
+                result[index++] = default;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 将二叉树转变为数组表示。
+        /// </summary>
+        /// <returns>用数组表示的二叉树。</returns>
+        private Node[] ToArray()
+        {
+            // 取最近的二的幂
+            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
+            var result = new Node[size];
+
+            // 层序遍历。
+            var queue = new Queue<Node>();
+            var index = 0;
+            queue.Enqueue(root);
+            while (queue.Count != 0 && index < size)
+            {
+                var x = queue.Dequeue();
+                if (x != null)
+                {
+                    queue.Enqueue(x.Left);
+                    queue.Enqueue(x.Right);
+
+                    result[index++] = x;
+                    continue;
+                }
+
+                result[index++] = default;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 获取二叉树的最大深度。
         /// </summary>
         /// <param name="x">二叉树的根结点。</param>
@@ -666,6 +760,33 @@ namespace BinarySearchTree
             if (x == null)
                 return 0;
             return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
+        }
+
+        /// <summary>
+        /// 检查两棵二叉树是否结构相同。
+        /// </summary>
+        /// <param name="a">要比较的第一棵二叉树。</param>
+        /// <param name="b">要比较的第二棵二叉树。</param>
+        /// <returns>相同返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool IsStructureEqual<TKeyA, TValueA, TKeyB, TValueB>(BST<TKeyA, TValueA> a, BST<TKeyB, TValueB> b) 
+            where TKeyA : IComparable<TKeyA> 
+            where TKeyB : IComparable<TKeyB>
+        {
+            var treeA = a.ToArray();
+            var treeB = b.ToArray();
+
+            if (treeA.Length != treeB.Length)
+                return false;
+            for (var i = 0; i < treeA.Length; i++)
+            {
+                if (treeA[i] == null && treeB[i] == null)
+                    continue;
+                if (treeA[i] != null && treeB[i] != null)
+                    continue;
+                return false;
+            }
+
+            return true;
         }
     }
 }

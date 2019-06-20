@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using BinarySearchTree;
 
 namespace _3._2._9
@@ -19,6 +18,7 @@ namespace _3._2._9
                     list.Add(i);
                 }
 
+                var trees = new List<BST<int, int>>();
                 var cases = GetPermutation(list);
                 foreach (var test in cases)
                 {
@@ -27,11 +27,22 @@ namespace _3._2._9
                     {
                         tree.Put(num, num);
                     }
+                    
+                    // 是否存在相同结构的二叉树。
+                    if (trees.Any(t => BST<int, int>.IsStructureEqual(tree, t)))
+                        continue;
+
                     Console.WriteLine(tree);
+                    trees.Add(tree);
                 }
             }
         }
         
+        /// <summary>
+        /// 获得全排列。
+        /// </summary>
+        /// <param name="s">需要获取全排列的数列。</param>
+        /// <returns>全排列。</returns>
         static List<int[]> GetPermutation(List<int> s)
         {
             var permutation = new List<int[]>();
@@ -40,6 +51,12 @@ namespace _3._2._9
             return permutation;
         }
 
+        /// <summary>
+        /// dfs 生成全排列。
+        /// </summary>
+        /// <param name="pool">剩余可选。</param>
+        /// <param name="path">已选路径。</param>
+        /// <param name="result">结果集。</param>
         static void Permutation(List<int> pool, List<int> path, List<int[]> result)
         {
             if (pool.Count == 0)

@@ -6,28 +6,36 @@ namespace _1._4._18
     {
         static void Main(string[] args)
         {
-            var a = new int[5] { 5, 6, 5, 3, 5 };
+            var a = new int[5] { 1, 2, 5, 3, 5 };
             Console.WriteLine(LocalMinimum(a));
         }
 
         /// <summary>
         /// 寻找数组的局部最小元素。
         /// </summary>
-        /// <param name="testcases">寻找范围。</param>
+        /// <param name="a">寻找范围。</param>
         /// <returns>局部最小元素的值。</returns>
-        static int LocalMinimum(int[] testcases)
+        static int LocalMinimum(int[] a)
         {
-            var lo = 0;
-            var hi = testcases.Length - 1;
+            int lo = 0;
+            int hi = a.Length - 1;
             while (lo <= hi)
             {
-                var mid = (hi - lo) / 2 + lo;
-                if (testcases[mid] < testcases[mid - 1] && testcases[mid] < testcases[mid + 1])
+                int mid = (hi - lo) / 2 + lo;
+                int min = mid;
+
+                // 取左中右最小值的下标
+                if (mid != hi && a[min] >= a[mid + 1])
+                    min = mid + 1;
+                if (mid != lo && a[min] >= a[mid - 1])
+                    min = mid - 1;
+
+                if (min == mid)
                     return mid;
-                if (testcases[mid - 1] < testcases[mid + 1])
-                    hi = mid - 1;
+                if (min > mid)
+                    lo = min;
                 else
-                    lo = mid + 1;
+                    hi = min;
             }
             return -1;
         }

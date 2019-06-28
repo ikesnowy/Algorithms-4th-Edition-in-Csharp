@@ -27,7 +27,7 @@ namespace _3._2._9
                     {
                         tree.Put(num, num);
                     }
-                    
+
                     // 是否存在相同结构的二叉树。
                     if (trees.Any(t => BST<int, int>.IsStructureEqual(tree, t)))
                         continue;
@@ -37,7 +37,7 @@ namespace _3._2._9
                 }
             }
         }
-        
+
         /// <summary>
         /// 获得全排列。
         /// </summary>

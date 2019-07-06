@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 
 namespace BinarySearchTree
 {
     /// <summary>
-    /// 二叉查找树。
+    /// 结点中没有计数器的二叉搜索树。
     /// </summary>
     /// <typeparam name="TKey">键类型。</typeparam>
     /// <typeparam name="TValue">值类型。</typeparam>
-    public class BST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
+    public class BSTWithoutCounter<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
         where TKey : IComparable<TKey>
     {
         /// <summary>
-        /// 二叉查找树的根结点。
+        /// 二叉树根结点。
         /// </summary>
         private Node root;
 
@@ -46,23 +44,16 @@ namespace BinarySearchTree
             /// </summary>
             /// <value>右子树的引用。</value>
             public Node Right { get; set; }
-            /// <summary>
-            /// 子树的结点数量。
-            /// </summary>
-            /// <value>子树的结点数量。</value>
-            public int Size { get; set; }
 
             /// <summary>
-            /// 构造一个二叉树结点。
+            /// 建立一个新结点。
             /// </summary>
             /// <param name="key">键。</param>
             /// <param name="value">值。</param>
-            /// <param name="size">子树大小。</param>
-            public Node(TKey key, TValue value, int size)
+            public Node(TKey key, TValue value)
             {
                 Key = key;
                 Value = value;
-                Size = size;
                 Left = null;
                 Right = null;
             }
@@ -71,7 +62,7 @@ namespace BinarySearchTree
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public BST() { }
+        public BSTWithoutCounter() { }
 
         /// <summary>
         /// 向二叉查找树中插入一个键值对。
@@ -80,13 +71,14 @@ namespace BinarySearchTree
         /// <param name="value">要插入的值。</param>
         public void Put(TKey key, TValue value)
         {
-            if (key == null)
-                throw new ArgumentNullException("calls Put() with a null key");
+            if(key == null)
+                throw new ArgumentNullException(nameof(key));
             if (value == null)
             {
                 Delete(key);
                 return;
             }
+
             root = Put(root, key, value);
         }
 
@@ -100,7 +92,7 @@ namespace BinarySearchTree
         private Node Put(Node x, TKey key, TValue value)
         {
             if (x == null)
-                return new Node(key, value, 1);
+                return new Node(key, value);
             var cmp = key.CompareTo(x.Key);
             if (cmp < 0)
                 x.Left = Put(x.Left, key, value);
@@ -108,7 +100,6 @@ namespace BinarySearchTree
                 x.Right = Put(x.Right, key, value);
             else
                 x.Value = value;
-            x.Size = 1 + Size(x.Left) + Size(x.Right);
             return x;
         }
 
@@ -117,7 +108,12 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">需要查找的键。</param>
         /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-        public TValue Get(TKey key) => Get(root, key);
+        public TValue Get(TKey key)
+        {
+            if (key == null)
+                throw new ArgumentNullException(nameof(key));
+            return Get(root, key);
+        }
 
         /// <summary>
         /// 递归查找 <paramref name="key"/> 所对应的值。
@@ -127,8 +123,6 @@ namespace BinarySearchTree
         /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
         private TValue Get(Node x, TKey key)
         {
-            if (key == null)
-                throw new ArgumentNullException("calls get() with a null key");
             if (x == null)
                 return default;
             var cmp = key.CompareTo(x.Key);
@@ -136,8 +130,7 @@ namespace BinarySearchTree
                 return Get(x.Left, key);
             else if (cmp > 0)
                 return Get(x.Right, key);
-            else
-                return x.Value;
+            return x.Value;
         }
 
         /// <summary>
@@ -148,7 +141,7 @@ namespace BinarySearchTree
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new InvalidOperationException("Symbol Table Underflow");
+                throw new ArgumentNullException(nameof(key));
             root = Delete(root, key);
         }
 
@@ -162,7 +155,6 @@ namespace BinarySearchTree
         {
             if (x == null)
                 return null;
-
             var cmp = key.CompareTo(x.Key);
             if (cmp < 0)
                 x.Left = Delete(x.Left, key);
@@ -179,7 +171,7 @@ namespace BinarySearchTree
                 x.Right = DeleteMin(t.Right);
                 x.Left = t.Left;
             }
-            x.Size = Size(x.Left) + Size(x.Right) + 1;
+
             return x;
         }
 
@@ -191,7 +183,7 @@ namespace BinarySearchTree
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to Contains is null!");
+                throw new ArgumentNullException(nameof(key));
             return Get(key) != null;
         }
 
@@ -199,13 +191,19 @@ namespace BinarySearchTree
         /// 二叉查找树是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => Size(root) == 0;
+        public bool IsEmpty()
+        {
+            return Size(root) == 0;
+        }
 
         /// <summary>
         /// 获取二叉查找树的结点数量。
         /// </summary>
         /// <returns>二叉查找树的结点数量。</returns>
-        public int Size() => Size(root);
+        public int Size()
+        {
+            return Size(root);
+        }
 
         /// <summary>
         /// 获取某个结点为根的二叉树结点数量。
@@ -216,7 +214,16 @@ namespace BinarySearchTree
         {
             if (x == null)
                 return 0;
-            return x.Size;
+            return Size(x.Left) + Size(x.Right) + 1;
+        }
+
+        /// <summary>
+        /// 获得符号表全部的键。
+        /// </summary>
+        /// <returns>符号表全部的键。</returns>
+        public IEnumerable<TKey> Keys()
+        {
+            return IsEmpty() ? new List<TKey>() : Keys(Min(), Max());
         }
 
         /// <summary>
@@ -228,46 +235,15 @@ namespace BinarySearchTree
         public int Size(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException("first argument to Size() is null");
+                throw new ArgumentNullException(nameof(lo));
             if (hi == null)
-                throw new ArgumentNullException("second argument to Size() is null");
+                throw new ArgumentNullException(nameof(hi));
 
             if (lo.CompareTo(hi) > 0)
                 return 0;
             if (Contains(hi))
                 return Rank(hi) - Rank(lo) + 1;
-            else
-                return Rank(hi) - Rank(lo);
-        }
-
-        /// <summary>
-        /// 获得二叉搜索树的高度。
-        /// </summary>
-        /// <returns>二叉搜索树的高度。</returns>
-        public int Height()
-        {
-            return Height(root);
-        }
-
-        /// <summary>
-        /// 获得二叉搜索树的高度。
-        /// </summary>
-        /// <param name="x">二叉搜索树的根结点。</param>
-        /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-        private int Height(Node x)
-        {
-            return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
-        }
-
-        /// <summary>
-        /// 获得符号表全部的键。
-        /// </summary>
-        /// <returns>符号表全部的键。</returns>
-        public IEnumerable<TKey> Keys()
-        {
-            if (IsEmpty())
-                return new List<TKey>();
-            return Keys(Min(), Max());
+            return Rank(hi) - Rank(lo);
         }
 
         /// <summary>
@@ -279,9 +255,9 @@ namespace BinarySearchTree
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException("first argument to keys() is null");
+                throw new ArgumentNullException(nameof(lo));
             if (hi == null)
-                throw new ArgumentNullException("second argument to keys() is null");
+                throw new ArgumentNullException(nameof(hi));
 
             var queue = new Queue<TKey>();
             Keys(root, queue, lo, hi);
@@ -330,7 +306,7 @@ namespace BinarySearchTree
         {
             if (x.Left == null)
                 return x;
-            return Min(x.Left); 
+            return Min(x.Left);
         }
 
         /// <summary>
@@ -388,13 +364,12 @@ namespace BinarySearchTree
             var cmp = key.CompareTo(x.Key);
             if (cmp == 0)
                 return x;
-            else if (cmp < 0)
+            if (cmp < 0)
                 return Floor(x.Left, key);
             var t = Floor(x.Right, key);
             if (t != null)
                 return t;
-            else
-                return x;
+            return x;
         }
 
         /// <summary>
@@ -521,7 +496,6 @@ namespace BinarySearchTree
             if (x.Left == null)
                 return x.Right;
             x.Left = DeleteMin(x.Left);
-            x.Size = Size(x.Left) + Size(x.Right) + 1;
             return x;
         }
 
@@ -546,7 +520,6 @@ namespace BinarySearchTree
             if (x.Right == null)
                 return x.Left;
             x.Right = DeleteMax(x.Right);
-            x.Size = 1 + Size(x.Left) + Size(x.Right);
             return x;
         }
 
@@ -769,8 +742,8 @@ namespace BinarySearchTree
         /// <param name="a">要比较的第一棵二叉树。</param>
         /// <param name="b">要比较的第二棵二叉树。</param>
         /// <returns>相同返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsStructureEqual<TKeyA, TValueA, TKeyB, TValueB>(BST<TKeyA, TValueA> a, BST<TKeyB, TValueB> b) 
-            where TKeyA : IComparable<TKeyA> 
+        public static bool IsStructureEqual<TKeyA, TValueA, TKeyB, TValueB>(BSTWithoutCounter<TKeyA, TValueA> a, BSTWithoutCounter<TKeyB, TValueB> b)
+            where TKeyA : IComparable<TKeyA>
             where TKeyB : IComparable<TKeyB>
         {
             var treeA = a.ToArray();

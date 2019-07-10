@@ -280,7 +280,7 @@ namespace SortApplication
                 var dx2 = q2.X - parent.X;
                 var dy2 = q2.Y - parent.Y;
 
-                if (dy2 >= 0 && dy2 < 0)
+                if (dy1 >= 0 && dy2 < 0)
                 {
                     return -1;
                 }

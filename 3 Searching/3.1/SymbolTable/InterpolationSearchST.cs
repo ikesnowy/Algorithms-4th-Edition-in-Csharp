@@ -227,7 +227,7 @@ namespace SymbolTable
         public int Rank(double key)
         {
             int lo = 0, hi = n - 1;
-            while (lo < hi)
+            while (lo <= hi)
             {
                 var percent = (key - keys[lo]) / (keys[hi] - keys[lo]);
                 var index = lo + (int)Math.Floor((hi - lo) * percent);

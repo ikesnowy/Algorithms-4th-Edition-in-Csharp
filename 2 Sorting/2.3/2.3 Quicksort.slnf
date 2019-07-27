@@ -1,0 +1,39 @@
+{
+  "solution": {
+    "path": "C:\\Users\\ikesn\\source\\repos\\Algorithms-4th-Edition-in-Csharp\\Algorithms 4th Edition.sln",
+    "projects": [
+      "2 Sorting\\2.3\\2.3.10\\2.3.10.csproj",
+      "2 Sorting\\2.3\\2.3.11\\2.3.11.csproj",
+      "2 Sorting\\2.3\\2.3.12\\2.3.12.csproj",
+      "2 Sorting\\2.3\\2.3.13\\2.3.13.csproj",
+      "2 Sorting\\2.3\\2.3.14\\2.3.14.csproj",
+      "2 Sorting\\2.3\\2.3.15\\2.3.15.csproj",
+      "2 Sorting\\2.3\\2.3.16\\2.3.16.csproj",
+      "2 Sorting\\2.3\\2.3.17\\2.3.17.csproj",
+      "2 Sorting\\2.3\\2.3.18\\2.3.18.csproj",
+      "2 Sorting\\2.3\\2.3.19\\2.3.19.csproj",
+      "2 Sorting\\2.3\\2.3.1\\2.3.1.csproj",
+      "2 Sorting\\2.3\\2.3.20\\2.3.20.csproj",
+      "2 Sorting\\2.3\\2.3.21\\2.3.21.csproj",
+      "2 Sorting\\2.3\\2.3.22\\2.3.22.csproj",
+      "2 Sorting\\2.3\\2.3.23\\2.3.23.csproj",
+      "2 Sorting\\2.3\\2.3.24\\2.3.24.csproj",
+      "2 Sorting\\2.3\\2.3.25\\2.3.25.csproj",
+      "2 Sorting\\2.3\\2.3.26\\2.3.26.csproj",
+      "2 Sorting\\2.3\\2.3.27\\2.3.27.csproj",
+      "2 Sorting\\2.3\\2.3.28\\2.3.28.csproj",
+      "2 Sorting\\2.3\\2.3.29\\2.3.29.csproj",
+      "2 Sorting\\2.3\\2.3.2\\2.3.2.csproj",
+      "2 Sorting\\2.3\\2.3.30\\2.3.30.csproj",
+      "2 Sorting\\2.3\\2.3.31\\2.3.31.csproj",
+      "2 Sorting\\2.3\\2.3.3\\2.3.3.csproj",
+      "2 Sorting\\2.3\\2.3.4\\2.3.4.csproj",
+      "2 Sorting\\2.3\\2.3.5\\2.3.5.csproj",
+      "2 Sorting\\2.3\\2.3.6\\2.3.6.csproj",
+      "2 Sorting\\2.3\\2.3.7\\2.3.7.csproj",
+      "2 Sorting\\2.3\\2.3.8\\2.3.8.csproj",
+      "2 Sorting\\2.3\\2.3.9\\2.3.9.csproj",
+      "2 Sorting\\2.3\\Quick\\Quick.csproj"
+    ]
+  }
+}

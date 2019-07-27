@@ -1,0 +1,28 @@
+{
+  "solution": {
+    "path": "C:\\Users\\ikesn\\source\\repos\\Algorithms-4th-Edition-in-Csharp\\Algorithms 4th Edition.sln",
+    "projects": [
+      "1 Fundamental\\1.2\\1.2.10\\1.2.10.csproj",
+      "1 Fundamental\\1.2\\1.2.11\\1.2.11.csproj",
+      "1 Fundamental\\1.2\\1.2.12\\1.2.12.csproj",
+      "1 Fundamental\\1.2\\1.2.13\\1.2.13.csproj",
+      "1 Fundamental\\1.2\\1.2.14\\1.2.14.csproj",
+      "1 Fundamental\\1.2\\1.2.15\\1.2.15.csproj",
+      "1 Fundamental\\1.2\\1.2.16\\1.2.16.csproj",
+      "1 Fundamental\\1.2\\1.2.17\\1.2.17.csproj",
+      "1 Fundamental\\1.2\\1.2.18\\1.2.18.csproj",
+      "1 Fundamental\\1.2\\1.2.19\\1.2.19.csproj",
+      "1 Fundamental\\1.2\\1.2.1\\1.2.1.csproj",
+      "1 Fundamental\\1.2\\1.2.2\\1.2.2.csproj",
+      "1 Fundamental\\1.2\\1.2.3\\1.2.3.csproj",
+      "1 Fundamental\\1.2\\1.2.4\\1.2.4.csproj",
+      "1 Fundamental\\1.2\\1.2.5\\1.2.5.csproj",
+      "1 Fundamental\\1.2\\1.2.6\\1.2.6.csproj",
+      "1 Fundamental\\1.2\\1.2.7\\1.2.7.csproj",
+      "1 Fundamental\\1.2\\1.2.8\\1.2.8.csproj",
+      "1 Fundamental\\1.2\\1.2.9\\1.2.9.csproj",
+      "1 Fundamental\\1.2\\Commercial\\Commercial.csproj",
+      "1 Fundamental\\1.2\\Geometry\\Geometry.csproj"
+    ]
+  }
+}

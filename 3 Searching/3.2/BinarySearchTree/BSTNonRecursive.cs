@@ -319,16 +319,22 @@ namespace BinarySearchTree
         /// <param name="hi">键的上限。</param>
         private void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
         {
-            if (x == null)
-                return;
-            var cmplo = lo.CompareTo(x.Key);
-            var cmphi = hi.CompareTo(x.Key);
-            if (cmplo < 0)
-                Keys(x.Left, queue, lo, hi);
-            if (cmplo <= 0 && cmphi >= 0)
-                queue.Enqueue(x.Key);
-            if (cmphi > 0)
-                Keys(x.Right, queue, lo, hi);
+            var stack = new Stack<Node>();
+
+            while (x != null || stack.Count > 0)
+            {
+                if (x != null)
+                {
+                    stack.Push(x);
+                    x = x.Left;
+                }
+                else
+                {
+                    x = stack.Pop();
+                    queue.Enqueue(x.Key);
+                    x = x.Right;
+                }
+            }
         }
 
         /// <summary>

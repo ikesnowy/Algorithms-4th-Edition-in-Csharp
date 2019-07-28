@@ -1,4 +1,4 @@
-# Algorithms-4th-Edition
+# Algorithms-4th-Edition in C#
 
 | dev                                                          | master                                                       |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -30,10 +30,11 @@
 
 - [3.查找 Searching](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching)
   - [3.1 符号表 Elementary Symbol Tables](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching/3.1)
+  - [3.2 二叉搜索树 BinarySearchTree](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/3%20Searching/3.2)
 
 ## 使用方法 & 开发环境
 
-### 使用方法：
+### 使用方法
 
 有时题目标号文件夹下只有用例（即 Main 方法），实际编写的类位于章节对应的类库中。
 
@@ -43,7 +44,7 @@
 
 获取图文版解答可以参考 [我的博客](http://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
 
-### 文件说明：
+### 文件说明
 
 #### 控制台应用程序  
 
@@ -55,7 +56,7 @@ Program.cs 是程序的运行代码。
 
 题目说明位于 Program.cs 文件中，绘图和逻辑部分代码可能在窗体文件，也可能在 Program.cs 中。  
 
-### 开发环境： 
+### 运行/开发环境：
 
 Visual Studio 2019 + .NET Core 3.0
 
@@ -69,62 +70,9 @@ Visual Studio 2019 + .NET Core 3.0
    // 这是一行 C# 注释内容。
    ```
 
-2. 类前的修饰符参照如下顺序排列，参照 [C# 语言规范](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/classes#class-declarations)。
+2. 尽量不要使用 C# 中特有的，初学者难以理解的语法特性，例如 `??` 和 `?`。
 
-   ```csharp
-   new
-   public/protected/internal/private
-   abstract
-   sealed
-   static
-   ```
-
-3. 方法前的修饰符参照如下顺序排列。
-
-   ```csharp
-   new
-   public/protected/internal/private
-   static
-   virtual
-   sealed
-   override
-   abstract
-   extern
-   async
-   ```
-
-4. 字段前的修饰符按照如下顺序排列。
-
-   ```csharp
-   new
-   public/protected/internal/private
-   static
-   readonly
-   volatile
-   ```
-
-5. 属性前的修饰符按如下顺序排列。
-
-   ```csharp
-   new
-   public/protected/internal/private
-   static
-   virtual
-   sealed
-   override
-   abstract
-   extern
-   ```
-
-   例子：
-
-   ```csharp
-   public abstract class BubbleSort : Sort
-   {
-     public static abstract void Sort (IComparable[] a);
-     private static override void Show();
-   }
-   ```
+3. 不要使用三目运算符 `?:` 这会增加理解难度。
 
 ## 相关资料  
 

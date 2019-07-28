@@ -1,5 +1,4 @@
-﻿using System;
-using BinarySearchTree;
+﻿using BinarySearchTree;
 
 namespace _3._2._12
 {

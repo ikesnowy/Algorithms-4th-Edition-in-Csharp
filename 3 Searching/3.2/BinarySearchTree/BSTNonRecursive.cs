@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml;
 
 namespace BinarySearchTree
 {
     /// <summary>
-    /// Get/Put 方法非递归的二叉树实现。
+    /// 非递归的二叉树实现。
     /// </summary>
     /// <typeparam name="TKey">键类型。</typeparam>
     /// <typeparam name="TValue">值类型。</typeparam>
@@ -278,7 +277,9 @@ namespace BinarySearchTree
         /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
         private int Height(Node x)
         {
-            return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
+            if (x == null)
+                return -1;
+            return 1 + Math.Max(Height(x.Left), Height(x.Right));
         }
 
         /// <summary>
@@ -325,13 +326,22 @@ namespace BinarySearchTree
             {
                 if (x != null)
                 {
-                    stack.Push(x);
-                    x = x.Left;
+                    var cmpLo = lo.CompareTo(x.Key);
+                    var cmpHi = hi.CompareTo(x.Key);
+                    if (cmpHi >= 0)
+                        stack.Push(x);
+                    if (cmpLo < 0)
+                        x = x.Left;
+                    else
+                        x = null;
                 }
                 else
                 {
                     x = stack.Pop();
-                    queue.Enqueue(x.Key);
+                    var cmpLo = lo.CompareTo(x.Key);
+                    var cmpHi = hi.CompareTo(x.Key);
+                    if (cmpLo <= 0 && cmpHi >= 0)
+                        queue.Enqueue(x.Key);
                     x = x.Right;
                 }
             }
@@ -356,9 +366,13 @@ namespace BinarySearchTree
         /// <returns>包含最小键的结点。</returns>
         private Node Min(Node x)
         {
-            if (x.Left == null)
-                return x;
-            return Min(x.Left);
+            while (x != null)
+            {
+                if (x.Left == null) return x;
+                x = x.Left;
+            }
+
+            return x;
         }
 
         /// <summary>
@@ -380,9 +394,13 @@ namespace BinarySearchTree
         /// <returns>包含最大键的结点。</returns>
         private Node Max(Node x)
         {
-            if (x.Right == null)
-                return x;
-            return Max(x.Right);
+            while (x != null)
+            {
+                if (x.Right == null) return x;
+                x = x.Right;
+            }
+
+            return x;
         }
 
         /// <summary>
@@ -411,18 +429,27 @@ namespace BinarySearchTree
         /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
         private Node Floor(Node x, TKey key)
         {
-            if (x == null)
-                return null;
-            var cmp = key.CompareTo(x.Key);
-            if (cmp == 0)
-                return x;
-            else if (cmp < 0)
-                return Floor(x.Left, key);
-            var t = Floor(x.Right, key);
-            if (t != null)
-                return t;
-            else
-                return x;
+            Node floor = null;
+            while (x != null)
+            {
+                var cmp = key.CompareTo(x.Key);
+                if (cmp == 0)
+                {
+                    return x;
+                }
+
+                if (cmp < 0)
+                {
+                    x = x.Left;
+                }
+                else
+                {
+                    floor = x;
+                    x = x.Right;
+                }
+            }
+
+            return floor;
         }
 
         /// <summary>
@@ -450,19 +477,26 @@ namespace BinarySearchTree
         /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
         private Node Ceiling(Node x, TKey key)
         {
-            if (x == null)
-                return null;
-            var cmp = key.CompareTo(x.Key);
-            if (cmp == 0)
-                return x;
-            if (cmp < 0)
+            Node ceil = null;
+            while (x != null)
             {
-                var t = Ceiling(x.Left, key);
-                if (t != null)
-                    return t;
-                return x;
+                var cmp = key.CompareTo(x.Key);
+                if (cmp == 0)
+                {
+                    return x;
+                }
+                if (cmp > 0)
+                {
+                    x = x.Right;
+                }
+                else
+                {
+                    ceil = x;
+                    x = x.Left;
+                }
             }
-            return Ceiling(x.Right, key);
+
+            return ceil;
         }
 
         /// <summary>
@@ -485,15 +519,28 @@ namespace BinarySearchTree
         /// <returns><paramref name="key"/> 的排名。</returns>
         private int Rank(Node x, TKey key)
         {
-            if (x == null)
-                return 0;
-            var cmp = key.CompareTo(x.Key);
-            if (cmp < 0)
-                return Rank(x.Left, key);
-            else if (cmp > 0)
-                return 1 + Size(x.Left) + Rank(x.Right, key);
-            else
-                return Size(x.Left);
+            var rank = 0;
+            while (x != null)
+            {
+                var cmp = key.CompareTo(x.Key);
+                if (cmp < 0)
+                {
+                    x = x.Left;
+                }
+                else if (cmp > 0)
+                {
+                    rank += 1 + Size(x.Left);
+                    x = x.Right;
+                }
+                else
+                {
+                    rank += Size(x.Left);
+                    return rank;
+                }
+
+            }
+
+            return rank;
         }
 
         /// <summary>
@@ -517,15 +564,25 @@ namespace BinarySearchTree
         /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
         private Node Select(Node x, int k)
         {
-            if (x == null)
-                return null;
-            var t = Size(x.Left);
-            if (t > k)
-                return Select(x.Left, k);
-            else if (t < k)
-                return Select(x.Right, k - t - 1);
-            else
-                return x;
+            while (x != null)
+            {
+                var t = Size(x.Left);
+                if (t > k)
+                {
+                    x = x.Left;
+                }
+                else if (t < k)
+                {
+                    x = x.Right;
+                    k = k - t - 1;
+                }
+                else
+                {
+                    return x;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>

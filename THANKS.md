@@ -15,3 +15,5 @@
 [@张越](https://www.zhihu.com/people/zyecho/activities)，1.4.19。
 
 [@miyuexingchen](https://github.com/miyuexingchen)，2.4.6 [#521](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/521)。
+
+[@ljdhhp](https://github.com/ljdhhp)，1.3.31 [#539](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/539)。

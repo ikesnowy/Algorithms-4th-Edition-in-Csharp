@@ -206,6 +206,10 @@ namespace _1._3._31
             {
                 last = null;
             }
+            else
+            {
+                first.prev = null;
+            }
             return temp;
         }
 

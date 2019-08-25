@@ -678,6 +678,7 @@ namespace BinarySearchTree
                     queue.Enqueue(x.Right);
 
                     result[index++] = x.Key;
+                    continue;
                 }
 
                 result[index++] = default;
@@ -709,6 +710,7 @@ namespace BinarySearchTree
                     queue.Enqueue(x.Right);
 
                     result[index++] = x.Value;
+                    continue;
                 }
 
                 result[index++] = default;

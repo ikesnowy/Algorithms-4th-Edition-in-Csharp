@@ -1,7 +1,7 @@
 ﻿using System;
 using BinarySearchTree;
 
-namespace _3._2._1
+namespace _3._2._17
 {
     class Program
     {
@@ -13,7 +13,11 @@ namespace _3._2._1
             {
                 bst.Put(key, key);
             }
-            Console.WriteLine(bst);
+            foreach (var key in input)
+            {
+                Console.WriteLine(bst);
+                bst.Delete(key);
+            }
         }
     }
 }

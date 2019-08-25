@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using BinarySearchTree;
 
-namespace _3._2._1
+namespace _3._2._19
 {
     class Program
     {
@@ -13,7 +14,12 @@ namespace _3._2._1
             {
                 bst.Put(key, key);
             }
-            Console.WriteLine(bst);
+
+            while (!bst.IsEmpty())
+            {
+                Console.WriteLine(bst);
+                bst.Delete(bst.ToKeyArray().First());
+            }
         }
     }
 }

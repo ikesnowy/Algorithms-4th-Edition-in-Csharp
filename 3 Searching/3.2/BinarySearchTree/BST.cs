@@ -15,12 +15,12 @@ namespace BinarySearchTree
         /// <summary>
         /// 二叉查找树的根结点。
         /// </summary>
-        private Node root;
+        protected Node root;
 
         /// <summary>
         /// 二叉树结点类型。
         /// </summary>
-        private class Node
+        protected class Node
         {
             /// <summary>
             /// 键值对中的键。

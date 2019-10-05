@@ -76,7 +76,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">要插入的键。</param>
         /// <param name="value">要插入的值。</param>
-        public void Put(TKey key, TValue value)
+        public virtual void Put(TKey key, TValue value)
         {
             if (key == null)
                 throw new ArgumentNullException("calls Put() with a null key");
@@ -95,7 +95,7 @@ namespace BinarySearchTree
         /// <param name="key">键。</param>
         /// <param name="value">值。</param>
         /// <returns>插入结点后的根结点。</returns>
-        private Node Put(Node x, TKey key, TValue value)
+        protected virtual Node Put(Node x, TKey key, TValue value)
         {
             if (x == null)
                 return new Node(key, value, 1);
@@ -115,7 +115,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">需要查找的键。</param>
         /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-        public TValue Get(TKey key) => Get(root, key);
+        public virtual TValue Get(TKey key) => Get(root, key);
 
         /// <summary>
         /// 递归查找 <paramref name="key"/> 所对应的值。
@@ -123,7 +123,7 @@ namespace BinarySearchTree
         /// <param name="x">要查找的根结点。</param>
         /// <param name="key">要查找的键。</param>
         /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
-        private TValue Get(Node x, TKey key)
+        protected virtual TValue Get(Node x, TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("calls get() with a null key");
@@ -143,7 +143,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">要删除的键。</param>
         /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-        public void Delete(TKey key)
+        public virtual void Delete(TKey key)
         {
             if (key == null)
                 throw new InvalidOperationException("Symbol Table Underflow");
@@ -156,7 +156,7 @@ namespace BinarySearchTree
         /// <param name="x">要删除的结点的二叉查找树。</param>
         /// <param name="key">要删除的键。</param>
         /// <returns>删除结点后的二叉查找树。</returns>
-        private Node Delete(Node x, TKey key)
+        protected virtual Node Delete(Node x, TKey key)
         {
             if (x == null)
                 return null;
@@ -186,7 +186,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">要查找的键值。</param>
         /// <returns>如果含有则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool Contains(TKey key)
+        public virtual bool Contains(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Contains is null!");
@@ -202,20 +202,20 @@ namespace BinarySearchTree
         /// 二叉查找树是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => Size(root) == 0;
+        public virtual bool IsEmpty() => Size(root) == 0;
 
         /// <summary>
         /// 获取二叉查找树的结点数量。
         /// </summary>
         /// <returns>二叉查找树的结点数量。</returns>
-        public int Size() => Size(root);
+        public virtual int Size() => Size(root);
 
         /// <summary>
         /// 获取某个结点为根的二叉树结点数量。
         /// </summary>
         /// <param name="x">根结点。</param>
         /// <returns>以 <paramref name="x"/> 为根的二叉树的结点数量。</returns>
-        private int Size(Node x)
+        protected virtual int Size(Node x)
         {
             if (x == null)
                 return 0;
@@ -228,7 +228,7 @@ namespace BinarySearchTree
         /// <param name="lo">键的下限。</param>
         /// <param name="hi">键的上限。</param>
         /// <returns><paramref name="lo"/> 和 <paramref name="hi"/> 之间键的数目。</returns>
-        public int Size(TKey lo, TKey hi)
+        public virtual int Size(TKey lo, TKey hi)
         {
             if (lo == null)
                 throw new ArgumentNullException("first argument to Size() is null");
@@ -247,7 +247,7 @@ namespace BinarySearchTree
         /// 获得二叉搜索树的高度。
         /// </summary>
         /// <returns>二叉搜索树的高度。</returns>
-        public int Height()
+        public virtual int Height()
         {
             return Height(root);
         }
@@ -257,7 +257,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="x">二叉搜索树的根结点。</param>
         /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-        private int Height(Node x)
+        protected virtual int Height(Node x)
         {
             return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
         }
@@ -266,7 +266,7 @@ namespace BinarySearchTree
         /// 获得符号表全部的键。
         /// </summary>
         /// <returns>符号表全部的键。</returns>
-        public IEnumerable<TKey> Keys()
+        public virtual IEnumerable<TKey> Keys()
         {
             if (IsEmpty())
                 return new List<TKey>();
@@ -279,7 +279,7 @@ namespace BinarySearchTree
         /// <param name="lo">键的下限。</param>
         /// <param name="hi">键的上限。</param>
         /// <returns>包含 <paramref name="lo"/> 和 <paramref name="hi"/> 及其之间的所有键。</returns>
-        public IEnumerable<TKey> Keys(TKey lo, TKey hi)
+        public virtual IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
                 throw new ArgumentNullException("first argument to keys() is null");
@@ -298,7 +298,7 @@ namespace BinarySearchTree
         /// <param name="queue">要填充的队列。</param>
         /// <param name="lo">键的下限。</param>
         /// <param name="hi">键的上限。</param>
-        private void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+        protected virtual void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
         {
             if (x == null)
                 return;
@@ -317,7 +317,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <returns>二叉查找树中最小的键。</returns>
         /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-        public TKey Min()
+        public virtual TKey Min()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
@@ -329,7 +329,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="x">二叉查找树的根结点。</param>
         /// <returns>包含最小键的结点。</returns>
-        private Node Min(Node x)
+        protected virtual Node Min(Node x)
         {
             if (x.Left == null)
                 return x;
@@ -341,7 +341,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <returns>二叉查找树中最大的键。</returns>
         /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-        public TKey Max()
+        public virtual TKey Max()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
@@ -353,7 +353,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="x">二叉查找树的根结点。</param>
         /// <returns>包含最大键的结点。</returns>
-        private Node Max(Node x)
+        protected virtual Node Max(Node x)
         {
             if (x.Right == null)
                 return x;
@@ -365,7 +365,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">键。</param>
         /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
-        public TKey Floor(TKey key)
+        public virtual TKey Floor(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("argument to floor is null");
@@ -384,7 +384,7 @@ namespace BinarySearchTree
         /// <param name="x">二叉查找树的根结点。</param>
         /// <param name="key">键。</param>
         /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
-        private Node Floor(Node x, TKey key)
+        protected virtual Node Floor(Node x, TKey key)
         {
             if (x == null)
                 return null;
@@ -405,7 +405,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">键。</param>
         /// <returns>大于等于 <paramref name="key"/> 的最小键。</returns>
-        public TKey Ceiling(TKey key)
+        public virtual TKey Ceiling(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("argument to ceiling is null");
@@ -423,7 +423,7 @@ namespace BinarySearchTree
         /// <param name="x">二叉查找树的根结点。</param>
         /// <param name="key">键。</param>
         /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
-        private Node Ceiling(Node x, TKey key)
+        protected virtual Node Ceiling(Node x, TKey key)
         {
             if (x == null)
                 return null;
@@ -445,7 +445,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">要排名的键。</param>
         /// <returns><paramref name="key"/> 的排名。</returns>
-        public int Rank(TKey key)
+        public virtual int Rank(TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("argument to rank() is null");
@@ -458,7 +458,7 @@ namespace BinarySearchTree
         /// <param name="x">二叉查找树的根结点。</param>
         /// <param name="key">要查找排名的键。</param>
         /// <returns><paramref name="key"/> 的排名。</returns>
-        private int Rank(Node x, TKey key)
+        protected virtual int Rank(Node x, TKey key)
         {
             if (x == null)
                 return 0;
@@ -476,7 +476,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="k">要挑拣的排名。</param>
         /// <returns>排名为 <paramref name="k"/> 的键。</returns>
-        public TKey Select(int k)
+        public virtual TKey Select(int k)
         {
             if (k < 0 || k >= Size())
                 throw new ArgumentException("argument to select() is invaild: " + k);
@@ -490,7 +490,7 @@ namespace BinarySearchTree
         /// <param name="x">树的根结点。</param>
         /// <param name="k">要挑拣的排名。</param>
         /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
-        private Node Select(Node x, int k)
+        protected virtual Node Select(Node x, int k)
         {
             if (x == null)
                 return null;
@@ -507,7 +507,7 @@ namespace BinarySearchTree
         /// 删除二叉查找树中最小的结点。
         /// </summary>
         /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-        public void DeleteMin()
+        public virtual void DeleteMin()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol table underflow");
@@ -519,7 +519,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="x">二叉查找树的根结点。</param>
         /// <returns>删除后的二叉查找树。</returns>
-        private Node DeleteMin(Node x)
+        protected virtual Node DeleteMin(Node x)
         {
             if (x.Left == null)
                 return x.Right;
@@ -532,7 +532,7 @@ namespace BinarySearchTree
         /// 删除二叉查找树中最大的结点。
         /// </summary>
         /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出该异常。</exception>
-        public void DeleteMax()
+        public virtual void DeleteMax()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
@@ -544,7 +544,7 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="x">二叉查找树的根结点。</param>
         /// <returns>删除后的二叉查找树。</returns>
-        private Node DeleteMax(Node x)
+        protected virtual Node DeleteMax(Node x)
         {
             if (x.Right == null)
                 return x.Left;

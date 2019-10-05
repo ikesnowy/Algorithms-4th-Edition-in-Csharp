@@ -9,13 +9,13 @@ namespace SymbolTable
     /// </summary>
     public static class SearchCompare
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
 
         /// <summary>
         /// 用指定的数据测试符号表，返回 <see cref="FrequencyCounter"/> 用去的时间。
         /// </summary>
         /// <param name="st">用于测试的空符号表。</param>
-        /// <param name="filename">读入字符串的存放文件路径。</param>
+        /// <param name="keys">键数组。</param>
         /// <returns>计算一次最常出现单词的时间。（毫秒）</returns>
         public static long Time<TKey>(IST<TKey, int> st, TKey[] keys)
         {

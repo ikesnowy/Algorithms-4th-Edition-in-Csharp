@@ -10,7 +10,7 @@ namespace BinarySearchTree
     /// <typeparam name="TKey">键类型。</typeparam>
     /// <typeparam name="TValue">值类型。</typeparam>
     public class BST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
-        where TKey : IComparable<TKey>
+        where TKey : IComparable<TKey> 
     {
         /// <summary>
         /// 二叉查找树的根结点。
@@ -190,7 +190,12 @@ namespace BinarySearchTree
         {
             if (key == null)
                 throw new ArgumentNullException("argument to Contains is null!");
-            return Get(key) != null;
+            var result = Get(key);
+            if (default(TValue) != null)
+            {
+                return !EqualityComparer<TValue>.Default.Equals(result, default);
+            }
+            return result != null;
         }
 
         /// <summary>

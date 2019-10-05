@@ -864,5 +864,45 @@ namespace BinarySearchTree
                    (x.Left == null || x.Left.Key.CompareTo(x.Key) < 0) &&
                    (x.Right == null || x.Right.Key.CompareTo(x.Key) > 0);   // 当前结点与子结点满足 BST 关系。
         }
+
+        /// <summary>
+        /// 验证输入的 BST 是否包含重复的键。
+        /// </summary>
+        /// <param name="bst">输入的二叉搜索树。</param>
+        /// <returns>如果不包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool HasNoDuplicates(BST<TKey, TValue> bst)
+        {
+            return HasNoDuplicates(bst.root);
+        }
+
+        /// <summary>
+        /// 验证输入的二叉树是否包含重复的键。
+        /// </summary>
+        /// <param name="x">输入的二叉树的根结点。</param>
+        /// <returns>如果不包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        protected static bool HasNoDuplicates(Node x)
+        {
+            var keys = new List<TKey>();    // 也可以用 HashSet 之类的数据结构提高效率。
+            var queue = new Queue<Node>();
+            queue.Enqueue(x);
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                if (node == null)
+                {
+                    continue;
+                }
+
+                if (keys.Contains(node.Key))
+                {
+                    return false;
+                }
+                keys.Add(node.Key);
+                queue.Enqueue(node.Left);
+                queue.Enqueue(node.Right);
+            }
+
+            return true;
+        }
     }
 }

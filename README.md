@@ -42,7 +42,7 @@
 
 配置运行题解代码的详细教程见：[如何：运行题解代码？](https://alg4.ikesnowy.com/如何%EF%BC%9A运行题解代码/)。
 
-获取图文版解答可以参考 [我的博客](http://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
+获取图文版解答可以参考 [我的博客](https://www.cnblogs.com/ikesnowy/) （博客园）或者 [题解网站](https://alg4.ikesnowy.com/) （GitHub Pages）。
 
 ### 文件说明
 
@@ -59,6 +59,8 @@ Program.cs 是程序的运行代码。
 ### 运行/开发环境：
 
 Visual Studio 2019 + .NET Core 3.0
+
+需要绘图的部分只能在 Windows 上运行。
 
 ## 代码规范
 

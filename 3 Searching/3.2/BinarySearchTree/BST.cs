@@ -832,5 +832,37 @@ namespace BinarySearchTree
                     IsBinaryTree(x.Right) && 
                     x.Size == size;
         }
+
+        /// <summary>
+        /// 验证输入的 BST 是否有序。
+        /// </summary>
+        /// <param name="bst">输入的二叉搜索树。</param>
+        /// <returns>如果有序则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool IsOrdered(BST<TKey, TValue> bst)
+        {
+            return IsOrdered(bst.root, bst.Min(), bst.Max());
+        }
+
+        /// <summary>
+        /// 验证输入的二叉树是否有序。
+        /// </summary>
+        /// <param name="x">二叉树的根结点。</param>
+        /// <param name="min">二叉树中最小键值。</param>
+        /// <param name="max">二叉树中的最大键值。</param>
+        /// <returns>如果有序则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        protected static bool IsOrdered(Node x, TKey min, TKey max)
+        {
+            if (x == null)
+            {
+                return true;        // 空树显然是满足要求的。
+            }
+
+            return IsOrdered(x.Left, min, max) &&
+                   IsOrdered(x.Right, min, max) &&                          // 左右子树都满足要求。
+                   x.Key.CompareTo(max) <= 0 &&
+                   x.Key.CompareTo(min) >= 0 &&                             // 当前结点位于范围内。
+                   (x.Left == null || x.Left.Key.CompareTo(x.Key) < 0) &&
+                   (x.Right == null || x.Right.Key.CompareTo(x.Key) > 0);   // 当前结点与子结点满足 BST 关系。
+        }
     }
 }

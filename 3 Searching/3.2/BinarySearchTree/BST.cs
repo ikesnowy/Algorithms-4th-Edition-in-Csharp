@@ -794,5 +794,43 @@ namespace BinarySearchTree
 
             return true;
         }
+
+        /// <summary>
+        /// 验证输入的 BST 是否是一棵二叉树。
+        /// </summary>
+        /// <param name="bst">输入的二叉搜索树。</param>
+        /// <returns>如果是二叉树则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool IsBinaryTree(BST<TKey, TValue> bst)
+        {
+            return IsBinaryTree(bst.root);
+        }
+
+        /// <summary>
+        /// 验证以 <paramref name="x"/> 为根结点的树是否是一棵二叉树。
+        /// </summary>
+        /// <param name="x">树的根结点。</param>
+        /// <returns>如果是二叉树则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        protected static bool IsBinaryTree(Node x)
+        {
+            if (x == null)
+            {
+                return true;    // 空树显然符合二叉树条件。
+            }
+
+            var size = 1;       // 包括当前结点本身。
+            if (x.Left != null)
+            {
+                size += x.Left.Size;
+            }
+
+            if (x.Right != null)
+            {
+                size += x.Right.Size;
+            }
+
+            return  IsBinaryTree(x.Left) && 
+                    IsBinaryTree(x.Right) && 
+                    x.Size == size;
+        }
     }
 }

@@ -904,5 +904,17 @@ namespace BinarySearchTree
 
             return true;
         }
+
+        /// <summary>
+        /// 验证输入的二叉树是一棵二叉搜索树。
+        /// </summary>
+        /// <param name="bst">输入的二叉树。</param>
+        /// <returns>如果是二叉树，则返回<c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool IsBST(BST<TKey, TValue> bst)
+        {
+            return IsBinaryTree(bst) &&
+                   IsOrdered(bst) &&
+                   HasNoDuplicates(bst);
+        }
     }
 }

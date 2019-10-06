@@ -916,5 +916,31 @@ namespace BinarySearchTree
                    IsOrdered(bst) &&
                    HasNoDuplicates(bst);
         }
+
+        /// <summary>
+        /// 验证二叉树中的 Rank 和 Select 一致性。
+        /// </summary>
+        /// <param name="bst">需要验证的二叉树。</param>
+        /// <returns>如果一致则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+        public static bool IsRankConsistent(BST<TKey, TValue> bst)
+        {
+            for (var i = 0; i < bst.Size(); i++)
+            {
+                if (i != bst.Rank(bst.Select(i)))
+                {
+                    return false;
+                }
+            }
+
+            foreach (var key in bst.Keys())
+            {
+                if (key.CompareTo(bst.Select(bst.Rank(key))) != 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

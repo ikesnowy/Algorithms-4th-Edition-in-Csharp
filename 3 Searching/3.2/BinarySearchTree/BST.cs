@@ -115,15 +115,15 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">需要查找的键。</param>
         /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-        public virtual TValue Get(TKey key) => Get(root, key);
+        public virtual TValue Get(TKey key) => Get(root, key).Value;
 
         /// <summary>
-        /// 递归查找 <paramref name="key"/> 所对应的值。
+        /// 递归查找 <paramref name="key"/> 所对应的结点。
         /// </summary>
         /// <param name="x">要查找的根结点。</param>
         /// <param name="key">要查找的键。</param>
-        /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
-        protected virtual TValue Get(Node x, TKey key)
+        /// <returns>如果存在则返回对应的结点，否则返回 <c>default(TValue)</c>。</returns>
+        protected virtual Node Get(Node x, TKey key)
         {
             if (key == null)
                 throw new ArgumentNullException("calls get() with a null key");
@@ -135,7 +135,7 @@ namespace BinarySearchTree
             else if (cmp > 0)
                 return Get(x.Right, key);
             else
-                return x.Value;
+                return x;
         }
 
         /// <summary>
@@ -551,6 +551,34 @@ namespace BinarySearchTree
             x.Right = DeleteMax(x.Right);
             x.Size = 1 + Size(x.Left) + Size(x.Right);
             return x;
+        }
+
+        /// <summary>
+        /// 按照层级顺序打印以 <paramref name="key"/> 为根的子树。
+        /// </summary>
+        /// <param name="key">作为根结点的键值。</param>
+        public void PrintLevel(TKey key)
+        {
+            PrintLevel(Get(root, key));
+        }
+
+        /// <summary>
+        /// 按照层级顺序打印以 <paramref name="x"/> 为根的子树。
+        /// </summary>
+        /// <param name="x">根结点。</param>
+        private void PrintLevel(Node x)
+        {
+            var queue = new Queue<Node>();
+            queue.Enqueue(x);
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                if (node.Left != null)
+                    queue.Enqueue(node.Left);
+                if (node.Right != null)
+                    queue.Enqueue(node.Right);
+                Console.Write(node.Key + ", ");
+            }
         }
 
         /// <summary>

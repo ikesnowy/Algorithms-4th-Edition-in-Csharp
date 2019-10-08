@@ -12,7 +12,7 @@ namespace _3._2._28
             var bstCached = BuildTree<BSTCached<int, int>>();
 
             var watch = Stopwatch.StartNew();
-            for (int i = 0; i < 100000; i++)
+            for (var i = 0; i < 1000000; i++)
             {
                 bstCached.Put(20, i);
             }
@@ -20,10 +20,11 @@ namespace _3._2._28
             Console.WriteLine("bstCached: " + watch.ElapsedMilliseconds + " ms");
 
             watch.Restart();
-            for (int i = 0; i < 100000; i++)
+            for (var i = 0; i < 1000000; i++)
             {
                 bst.Put(20, i);
             }
+            watch.Stop();
             Console.WriteLine("bst:" + watch.ElapsedMilliseconds + " ms");
         }
 
@@ -36,10 +37,13 @@ namespace _3._2._28
             bst.Put(2, 2);
             bst.Put(1, 1);
             bst.Put(12, 12);
+            bst.Put(18, 18);
             bst.Put(15, 15);
+            bst.Put(16, 16);
             bst.Put(11, 11);
             bst.Put(8, 8);
             bst.Put(14, 14);
+            bst.Put(20, 20);
             return bst;
         }
     }

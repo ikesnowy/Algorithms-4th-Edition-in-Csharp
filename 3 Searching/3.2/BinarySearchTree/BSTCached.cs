@@ -22,11 +22,11 @@ namespace BinarySearchTree
                 return _cache.Value;
             }
 
-            return base.Get(root, key);
+            return Get(root, key).Value;
         }
 
         /// <inheritdoc />
-        protected override TValue Get(Node x, TKey key)
+        protected override Node Get(Node x, TKey key)
         {
             if (key == null)
             {
@@ -35,7 +35,7 @@ namespace BinarySearchTree
 
             if (x == null)
             {
-                return default;
+                return null;
             }
             var cmp = key.CompareTo(x.Key);
             if (cmp < 0)
@@ -49,7 +49,7 @@ namespace BinarySearchTree
             else
             {
                 _cache = x;
-                return x.Value;
+                return x;
             }
         }
 
@@ -70,6 +70,7 @@ namespace BinarySearchTree
             if (_cache != null && _cache.Key.CompareTo(key) == 0)
             {
                 _cache.Value = value;
+                return;
             }
             root = Put(root, key, value);
         }

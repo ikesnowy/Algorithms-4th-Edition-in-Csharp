@@ -1,16 +1,11 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
-namespace BinarySearchTree
+namespace _3._2._38
 {
-    /// <summary>
-    /// 二叉查找树。
-    /// </summary>
-    /// <typeparam name="TKey">键类型。</typeparam>
-    /// <typeparam name="TValue">值类型。</typeparam>
-    public class BST<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
-        where TKey : IComparable<TKey> 
+    public class BSTDrawing<TKey, TValue> where TKey : IComparable<TKey>
     {
         /// <summary>
         /// 二叉查找树的根结点。
@@ -49,6 +44,16 @@ namespace BinarySearchTree
             /// </summary>
             /// <value>子树的结点数量。</value>
             public int Size { get; set; }
+            /// <summary>
+            /// 结点的 X 位置。
+            /// </summary>
+            /// <value>结点的 X 位置。</value>
+            public float X { get; set; }
+            /// <summary>
+            /// 结点的 Y 位置。
+            /// </summary>
+            /// <value>结点的 Y 位置。</value>
+            public float Y { get; set; }
 
             /// <summary>
             /// 构造一个二叉树结点。
@@ -69,7 +74,7 @@ namespace BinarySearchTree
         /// <summary>
         /// 默认构造函数。
         /// </summary>
-        public BST() { }
+        public BSTDrawing() { }
 
         /// <summary>
         /// 向二叉查找树中插入一个键值对。
@@ -333,7 +338,7 @@ namespace BinarySearchTree
         {
             if (x.Left == null)
                 return x;
-            return Min(x.Left); 
+            return Min(x.Left);
         }
 
         /// <summary>
@@ -554,237 +559,6 @@ namespace BinarySearchTree
         }
 
         /// <summary>
-        /// 按照层级顺序打印以 <paramref name="key"/> 为根的子树。
-        /// </summary>
-        /// <param name="key">作为根结点的键值。</param>
-        public void PrintLevel(TKey key)
-        {
-            PrintLevel(Get(root, key));
-        }
-
-        /// <summary>
-        /// 按照层级顺序打印以 <paramref name="x"/> 为根的子树。
-        /// </summary>
-        /// <param name="x">根结点。</param>
-        private void PrintLevel(Node x)
-        {
-            var queue = new Queue<Node>();
-            queue.Enqueue(x);
-            while (queue.Count > 0)
-            {
-                var node = queue.Dequeue();
-                if (node.Left != null)
-                    queue.Enqueue(node.Left);
-                if (node.Right != null)
-                    queue.Enqueue(node.Right);
-                Console.Write(node.Key + ", ");
-            }
-        }
-
-        /// <summary>
-        /// 将二叉树按照树形输出。
-        /// </summary>
-        /// <returns>二叉查找树输出的字符串。</returns>
-        public override string ToString()
-        {
-            if (IsEmpty())
-                return string.Empty;
-
-            var maxDepth = Depth(root);
-            int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
-
-            // BFS
-            var lines = new List<string>();
-            var nowLayer = new Queue<Node>();
-            var nextLayer = new Queue<Node>();
-            nextLayer.Enqueue(root);
-
-            while (layer != maxDepth)
-            {
-                var sb = new StringBuilder();
-                var unitSize = bottomLine / (int)Math.Pow(2, layer);
-                var temp = nowLayer;
-                nowLayer = nextLayer;
-                nextLayer = temp;
-
-                while (nowLayer.Count != 0)
-                {
-                    var x = nowLayer.Dequeue();
-
-                    if (x != null)
-                    {
-                        nextLayer.Enqueue(x.Left);
-                        nextLayer.Enqueue(x.Right);
-                    }
-                    else
-                    {
-                        nextLayer.Enqueue(null);
-                        nextLayer.Enqueue(null);
-                    }
-
-                    if (x != null && x.Left != null)
-                    {
-                        for (var i = 0; i < unitSize / 4; i++)
-                            sb.Append(" ");
-                        sb.Append("|");
-                        for (var i = 1; i < unitSize / 4; i++)
-                            sb.Append("-");
-                    }
-                    else
-                    {
-                        for (var i = 0; i < unitSize / 2; i++)
-                            sb.Append(" ");
-                    }
-
-                    if (x == null)
-                        sb.Append(" ");
-                    else
-                        sb.Append(x.Key);
-
-                    if (x != null && x.Right != null)
-                    {
-                        for (var i = 1; i < unitSize / 4; i++)
-                            sb.Append("-");
-                        sb.Append("|");
-                        for (var i = 1; i < unitSize / 4; i++)
-                            sb.Append(" ");
-                    }
-                    else
-                    {
-                        for (var i = 1; i < unitSize / 2; i++)
-                            sb.Append(" ");
-                    }
-                }
-                lines.Add(sb.ToString());
-                layer++;
-            }
-
-            // Trim
-            var margin = int.MaxValue;
-            foreach (var line in lines)
-            {
-                var firstNonWhite = 0;
-                for (var i = 0; i < line.Length; i++)
-                {
-                    if (line[i] == ' ') continue;
-                    firstNonWhite = i;
-                    break;
-                }
-
-                margin = Math.Min(margin, firstNonWhite);
-            }
-
-            for (var i = 0; i < lines.Count; i++)
-            {
-                lines[i] = lines[i].Substring(margin);
-            }
-
-            var result = new StringBuilder();
-            foreach (var line in lines)
-            {
-                result.AppendLine(line);
-            }
-
-            return result.ToString();
-        }
-
-        /// <summary>
-        /// 将二叉树转变为数组表示。
-        /// </summary>
-        /// <returns>包含所有键值的数组。</returns>
-        public TKey[] ToKeyArray()
-        {
-            // 取最近的二的幂
-            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-            var result = new TKey[size];
-
-            // 层序遍历。
-            var queue = new Queue<Node>();
-            var index = 0;
-            queue.Enqueue(root);
-            while (queue.Count != 0 && index < size)
-            {
-                var x = queue.Dequeue();
-                if (x != null)
-                {
-                    queue.Enqueue(x.Left);
-                    queue.Enqueue(x.Right);
-
-                    result[index++] = x.Key;
-                    continue;
-                }
-
-                result[index++] = default;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// 将二叉树转变为数组表示。
-        /// </summary>
-        /// <returns>表示二叉树的数组。</returns>
-        public TValue[] ToValueArray()
-        {
-            // 取最近的二的幂
-            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-            var result = new TValue[size];
-
-            // 层序遍历。
-            var queue = new Queue<Node>();
-            var index = 0;
-            queue.Enqueue(root);
-            while (queue.Count != 0 && index < size)
-            {
-                var x = queue.Dequeue();
-                if (x != null)
-                {
-                    queue.Enqueue(x.Left);
-                    queue.Enqueue(x.Right);
-
-                    result[index++] = x.Value;
-                    continue;
-                }
-
-                result[index++] = default;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// 将二叉树转变为数组表示。
-        /// </summary>
-        /// <returns>用数组表示的二叉树。</returns>
-        private Node[] ToArray()
-        {
-            // 取最近的二的幂
-            var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-            var result = new Node[size];
-
-            // 层序遍历。
-            var queue = new Queue<Node>();
-            var index = 0;
-            queue.Enqueue(root);
-            while (queue.Count != 0 && index < size)
-            {
-                var x = queue.Dequeue();
-                if (x != null)
-                {
-                    queue.Enqueue(x.Left);
-                    queue.Enqueue(x.Right);
-
-                    result[index++] = x;
-                    continue;
-                }
-
-                result[index++] = default;
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// 获取二叉树的最大深度。
         /// </summary>
         /// <param name="x">二叉树的根结点。</param>
@@ -797,178 +571,85 @@ namespace BinarySearchTree
         }
 
         /// <summary>
-        /// 检查两棵二叉树是否结构相同。
+        /// 在指定区域中绘制二叉树。
         /// </summary>
-        /// <param name="a">要比较的第一棵二叉树。</param>
-        /// <param name="b">要比较的第二棵二叉树。</param>
-        /// <returns>相同返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsStructureEqual<TKeyA, TValueA, TKeyB, TValueB>(BST<TKeyA, TValueA> a, BST<TKeyB, TValueB> b) 
-            where TKeyA : IComparable<TKeyA> 
-            where TKeyB : IComparable<TKeyB>
+        /// <param name="pen">绘制面。</param>
+        /// <param name="panel">绘制矩形。</param>
+        public void DrawTree(Graphics pen, RectangleF panel)
         {
-            var treeA = a.ToArray();
-            var treeB = b.ToArray();
+            var depth = Depth(root);
+            var layerHeight = panel.Height / depth;
+            // BFS
+            var nowLayer = new Queue<Node>();
+            var nextLayer = new Queue<Node>();
+            nextLayer.Enqueue(root);
 
-            if (treeA.Length != treeB.Length)
-                return false;
-            for (var i = 0; i < treeA.Length; i++)
+            for (var layer = 0; layer != depth; layer++)
             {
-                if (treeA[i] == null && treeB[i] == null)
-                    continue;
-                if (treeA[i] != null && treeB[i] != null)
-                    continue;
-                return false;
-            }
+                var unitSizeX = (float)(panel.Width / Math.Pow(2, layer));
+                var temp = nowLayer;
+                nowLayer = nextLayer;
+                nextLayer = temp;
 
-            return true;
-        }
-
-        /// <summary>
-        /// 验证输入的 BST 是否是一棵二叉树。
-        /// </summary>
-        /// <param name="bst">输入的二叉搜索树。</param>
-        /// <returns>如果是二叉树则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsBinaryTree(BST<TKey, TValue> bst)
-        {
-            return IsBinaryTree(bst.root);
-        }
-
-        /// <summary>
-        /// 验证以 <paramref name="x"/> 为根结点的树是否是一棵二叉树。
-        /// </summary>
-        /// <param name="x">树的根结点。</param>
-        /// <returns>如果是二叉树则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        protected static bool IsBinaryTree(Node x)
-        {
-            if (x == null)
-            {
-                return true;    // 空树显然符合二叉树条件。
-            }
-
-            var size = 1;       // 包括当前结点本身。
-            if (x.Left != null)
-            {
-                size += x.Left.Size;
-            }
-
-            if (x.Right != null)
-            {
-                size += x.Right.Size;
-            }
-
-            return  IsBinaryTree(x.Left) && 
-                    IsBinaryTree(x.Right) && 
-                    x.Size == size;
-        }
-
-        /// <summary>
-        /// 验证输入的 BST 是否有序。
-        /// </summary>
-        /// <param name="bst">输入的二叉搜索树。</param>
-        /// <returns>如果有序则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsOrdered(BST<TKey, TValue> bst)
-        {
-            return IsOrdered(bst.root, bst.Min(), bst.Max());
-        }
-
-        /// <summary>
-        /// 验证输入的二叉树是否有序。
-        /// </summary>
-        /// <param name="x">二叉树的根结点。</param>
-        /// <param name="min">二叉树中最小键值。</param>
-        /// <param name="max">二叉树中的最大键值。</param>
-        /// <returns>如果有序则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        protected static bool IsOrdered(Node x, TKey min, TKey max)
-        {
-            if (x == null)
-            {
-                return true;        // 空树显然是满足要求的。
-            }
-
-            return IsOrdered(x.Left, min, max) &&
-                   IsOrdered(x.Right, min, max) &&                          // 左右子树都满足要求。
-                   x.Key.CompareTo(max) <= 0 &&
-                   x.Key.CompareTo(min) >= 0 &&                             // 当前结点位于范围内。
-                   (x.Left == null || x.Left.Key.CompareTo(x.Key) < 0) &&
-                   (x.Right == null || x.Right.Key.CompareTo(x.Key) > 0);   // 当前结点与子结点满足 BST 关系。
-        }
-
-        /// <summary>
-        /// 验证输入的 BST 是否包含重复的键。
-        /// </summary>
-        /// <param name="bst">输入的二叉搜索树。</param>
-        /// <returns>如果不包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool HasNoDuplicates(BST<TKey, TValue> bst)
-        {
-            return HasNoDuplicates(bst.root);
-        }
-
-        /// <summary>
-        /// 验证输入的二叉树是否包含重复的键。
-        /// </summary>
-        /// <param name="x">输入的二叉树的根结点。</param>
-        /// <returns>如果不包含则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        protected static bool HasNoDuplicates(Node x)
-        {
-            var keys = new List<TKey>();    // 也可以用 HashSet 之类的数据结构提高效率。
-            var queue = new Queue<Node>();
-            queue.Enqueue(x);
-            while (queue.Count > 0)
-            {
-                var node = queue.Dequeue();
-                if (node == null)
+                var cursorX = 0.0f;
+                var cursorY = layer * layerHeight;
+                while (nowLayer.Count != 0)
                 {
-                    continue;
-                }
+                    var node = nowLayer.Dequeue();
 
-                if (keys.Contains(node.Key))
-                {
-                    return false;
-                }
-                keys.Add(node.Key);
-                queue.Enqueue(node.Left);
-                queue.Enqueue(node.Right);
-            }
+                    if (node != null)
+                    {
+                        nextLayer.Enqueue(node.Left);
+                        nextLayer.Enqueue(node.Right);
+                    }
+                    else
+                    {
+                        nextLayer.Enqueue(null);
+                        nextLayer.Enqueue(null);
+                    }
 
-            return true;
-        }
 
-        /// <summary>
-        /// 验证输入的二叉树是一棵二叉搜索树。
-        /// </summary>
-        /// <param name="bst">输入的二叉树。</param>
-        /// <returns>如果是二叉树，则返回<c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsBST(BST<TKey, TValue> bst)
-        {
-            return IsBinaryTree(bst) &&
-                   IsOrdered(bst) &&
-                   HasNoDuplicates(bst);
-        }
-
-        /// <summary>
-        /// 验证二叉树中的 Rank 和 Select 一致性。
-        /// </summary>
-        /// <param name="bst">需要验证的二叉树。</param>
-        /// <returns>如果一致则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public static bool IsRankConsistent(BST<TKey, TValue> bst)
-        {
-            for (var i = 0; i < bst.Size(); i++)
-            {
-                if (i != bst.Rank(bst.Select(i)))
-                {
-                    return false;
+                    if (node != null)
+                    {
+                        node.X = cursorX + unitSizeX / 2.0f;
+                        node.Y = cursorY;
+                    }
+                    
+                    cursorX += unitSizeX;
                 }
             }
 
-            foreach (var key in bst.Keys())
+            // Draw
+            DrawTree(root, pen);
+        }
+
+        /// <summary>
+        /// 递归的根据结点坐标绘制二叉树。
+        /// </summary>
+        /// <param name="node">根结点。</param>
+        /// <param name="pen">绘图 <see cref="Graphics"/></param>
+        private void DrawTree(Node node, Graphics pen)
+        {
+            const int pointRadius = 16;
+            var pointEdge = new Pen(Color.OrangeRed, 3);
+            var line = new Pen(Color.Black, 3);
+            var font = new Font(FontFamily.GenericMonospace, 12);
+            pen.DrawEllipse(pointEdge, node.X, node.Y, pointRadius * 2, pointRadius * 2);
+            pen.DrawString(node.Key.ToString(), font, Brushes.Black, node.X, node.Y);
+            if (node.Left != null)
             {
-                if (key.CompareTo(bst.Select(bst.Rank(key))) != 0)
-                {
-                    return false;
-                }
+                pen.DrawLine(line, node.X, node.Y + pointRadius * 2, node.Left.X + pointRadius * 2, node.Left.Y);
+                DrawTree(node.Left, pen);
             }
 
-            return true;
+            if (node.Right != null)
+            {
+                pen.DrawLine(line, node.X + pointRadius * 2, node.Y + pointRadius * 2, node.Right.X, node.Right.Y);
+                DrawTree(node.Right, pen);
+            }
+            pointEdge.Dispose();
+            line.Dispose();
+            font.Dispose();
         }
     }
 }

@@ -554,6 +554,52 @@ namespace BinarySearchTree
         }
 
         /// <summary>
+        /// 获取二叉树的内部平均路径长度。
+        /// </summary>
+        /// <returns>内部平均路径长度。</returns>
+        public int AverageInternalPathLength() => InternalPath() / Size() + 1;
+
+        /// <summary>
+        /// 二叉树的内部路径长度。
+        /// </summary>
+        /// <returns>二叉树的内部路径长度（所有结点深度之和）。</returns>
+        private int InternalPath()
+        {
+            var internalPath = 0;
+            var nowLayer = new Queue<Node>();
+            var nextLayer = new Queue<Node>();
+            nextLayer.Enqueue(root);
+
+            var depth = 0;
+            while (nextLayer.Count > 0)
+            {
+                var temp = nowLayer;
+                nowLayer = nextLayer;
+                nextLayer = temp;
+
+                while (nowLayer.Count > 0)
+                {
+                    var node = nowLayer.Dequeue();
+                    if (node.Left != null)
+                    {
+                        nextLayer.Enqueue(node.Left);
+                    }
+
+                    if (node.Right != null)
+                    {
+                        nextLayer.Enqueue(node.Right);
+                    }
+
+                    internalPath += depth;
+                }
+
+                depth++;
+            }
+
+            return internalPath;
+        }
+
+        /// <summary>
         /// 按照层级顺序打印以 <paramref name="key"/> 为根的子树。
         /// </summary>
         /// <param name="key">作为根结点的键值。</param>

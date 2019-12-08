@@ -58,7 +58,7 @@ Program.cs 是程序的运行代码。
 
 ### 运行/开发环境：
 
-Visual Studio 2019 + .NET Core 3.0
+Visual Studio 2019 + .NET Core 3.1
 
 需要绘图的部分只能在 Windows 上运行。
 
@@ -68,7 +68,7 @@ Visual Studio 2019 + .NET Core 3.0
 
 1. 单行注释（"//"）和注释内容之间必须有一个空格。中英文字符之间也需要有一个空格。例如：
 
-   ```c#
+   ```csharp
    // 这是一行 C# 注释内容。
    ```
 

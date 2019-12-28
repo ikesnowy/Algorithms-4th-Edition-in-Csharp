@@ -9,13 +9,8 @@ namespace BinarySearchTree
     /// 计算文本文档中出现次数最高的字符串，
     /// 用于测试符号表的 Get 和 Put 方法。
     /// </summary>
-    public class FrequencyCounter
+    public static class FrequencyCounter
     {
-        /// <summary>
-        /// 这个类不能被初始化。
-        /// </summary>
-        private FrequencyCounter() { }
-
         /// <summary>
         /// 计算数组中不重复元素的数量。
         /// </summary>

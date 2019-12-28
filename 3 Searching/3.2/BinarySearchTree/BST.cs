@@ -115,7 +115,16 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="key">需要查找的键。</param>
         /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-        public virtual TValue Get(TKey key) => Get(root, key).Value;
+        public virtual TValue Get(TKey key)
+        {
+            var result = Get(root, key);
+            if (result == null)
+            {
+                return default;
+            }
+
+            return result.Value;
+        }
 
         /// <summary>
         /// 递归查找 <paramref name="key"/> 所对应的结点。

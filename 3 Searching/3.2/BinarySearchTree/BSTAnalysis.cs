@@ -100,6 +100,7 @@ namespace BinarySearchTree
             if (x == null)
                 return new Node(key, value, 1);
             var cmp = key.CompareTo(x.Key);
+            CompareTimes++;
             if (cmp < 0)
                 x.Left = Put(x.Left, key, value);
             else if (cmp > 0)

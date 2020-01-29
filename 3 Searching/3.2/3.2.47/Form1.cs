@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinarySearchTree;
@@ -81,7 +80,7 @@ namespace _3._2._47
                 bst.Put(d, d);
             }
 
-            return bst.AverageInternalPathLength() + 1;
+            return bst.AverageInternalPathLength();
         }
 
         private int[] GetRandomInt(int n)

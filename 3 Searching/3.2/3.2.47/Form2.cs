@@ -17,7 +17,7 @@ namespace _3._2._47
         {
             var panel = CreateGraphics();
             var unitX = (float)ClientRectangle.Width / data.Count;
-            var unitY = (float)(ClientRectangle.Height / data.Values.Max());
+            var unitY = (float)(ClientRectangle.Height / (1.39 * Math.Log2(data.Keys.Max()) - 1.85));
 
             for (var i = data.Keys.Min(); i < data.Keys.Max(); i++)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Quick;
 
@@ -26,7 +27,7 @@ namespace _2._3._20
             stack.Push(0);
             stack.Push(a.Length - 1);
 
-            while (!stack.IsEmpty())
+            while (stack.Count != 0)
             {
                 // 压入顺序是先 lo，再 hi，故弹出顺序是先 hi 再 lo
                 var hi = stack.Pop();

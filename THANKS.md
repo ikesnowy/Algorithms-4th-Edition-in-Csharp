@@ -17,3 +17,5 @@
 [@miyuexingchen](https://github.com/miyuexingchen)，2.4.6 [#521](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/521)。
 
 [@ljdhhp](https://github.com/ljdhhp)，1.3.31 [#539](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/539)。
+
+[@TianDao](https://github.com/zxt385189207)，2.3.20 [#587](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/587)。

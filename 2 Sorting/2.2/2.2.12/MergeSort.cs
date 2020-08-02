@@ -41,9 +41,10 @@ namespace _2._2._12
                 selection.Sort(a, lo, hi);
             }
             // 将各个块合并。
+            var aux = new T[M];
             for (var i = 0; i < blockNum - 1; i++)
             {
-                Merge(a, 0, (i + 1) * M - 1, Math.Min((i + 2) * M - 1, a.Length - 1));
+                Merge(a, aux, 0, (i + 1) * M - 1, Math.Min((i + 2) * M - 1, a.Length - 1));
             }
         }
 
@@ -52,39 +53,39 @@ namespace _2._2._12
         /// </summary>
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">原数组。</param>
+        /// <param name="aux">辅助数组。</param>
         /// <param name="lo">范围起点。</param>
         /// <param name="mid">范围中点。</param>
         /// <param name="hi">范围终点。</param>
-        private void Merge<T>(T[] a, int lo, int mid, int hi) where T : IComparable<T>
+        private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
         {
-            var aux = new T[hi - lo + 1];
-            for (var k = lo; k <= hi; k++)
+            for (var k = mid + 1; k <= hi; k++)
             {
-                aux[k] = a[k];
+                aux[k - mid - 1] = a[k];
             }
 
-            int i = lo, j = mid + 1;
-            for (var k = lo; k <= hi; k++)
+            int i = mid, j = hi - mid - 1;
+            for (var k = hi; k >= lo; k--)
             {
-                if (i > mid)
+                if (i < lo)
                 {
                     a[k] = aux[j];
-                    j++;
+                    j--;
                 }
-                else if (j > hi)
+                else if (j < 0)
                 {
-                    a[k] = aux[i];
-                    i++;
+                    a[k] = a[i];
+                    i--;
                 }
-                else if (Less(aux[j], aux[i]))
+                else if (Less(aux[j], a[i]))
                 {
-                    a[k] = aux[j];
-                    j++;
+                    a[k] = a[i];
+                    i--;
                 }
                 else
                 {
-                    a[k] = aux[i];
-                    i++;
+                    a[k] = aux[j];
+                    j--;
                 }
             }
         }

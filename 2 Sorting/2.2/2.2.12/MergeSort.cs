@@ -23,23 +23,22 @@ namespace _2._2._12
         /// </summary>
         /// <typeparam name="T">待排序的数组内容。</typeparam>
         /// <param name="a">待排序的数组。</param>
-        /// <param name="M">分块大小。</param>
-        public void Sort<T>(T[] a, int M) where T : IComparable<T>
+        /// <param name="m">分块大小。</param>
+        public void Sort<T>(T[] a, int m) where T : IComparable<T>
         {
-            var blockNum = (a.Length + M - 1) / M;
+            var blockNum = (a.Length + m - 1) / m;
             var selection = new SelectionSort();
             // 对块进行选择排序。
             for (var i = 0; i < blockNum; i++)
             {
-                var lo = i * M;
-                var hi = Math.Min((i + 1) * M - 1, a.Length - 1);
+                var lo = i * m;
+                var hi = Math.Min((i + 1) * m - 1, a.Length - 1);
                 selection.Sort(a, lo, hi);
             }
             // 将各个块合并。
-            var aux = new T[M];
             for (var i = 0; i < blockNum - 1; i++)
             {
-                Merge(a, aux, 0, (i + 1) * M - 1, Math.Min((i + 2) * M - 1, a.Length - 1));
+                Merge(a, 0, (i + 1) * m - 1, Math.Min((i + 2) * m - 1, a.Length - 1));
             }
         }
 
@@ -48,39 +47,39 @@ namespace _2._2._12
         /// </summary>
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">原数组。</param>
-        /// <param name="aux">辅助数组。</param>
         /// <param name="lo">范围起点。</param>
         /// <param name="mid">范围中点。</param>
         /// <param name="hi">范围终点。</param>
-        private void Merge<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable<T>
+        private void Merge<T>(T[] a, int lo, int mid, int hi) where T : IComparable<T>
         {
-            for (var k = mid + 1; k <= hi; k++)
+            var aux = new T[hi - lo + 1];
+            for (var k = lo; k <= hi; k++)
             {
-                aux[k - mid - 1] = a[k];
+                aux[k] = a[k];
             }
 
-            int i = mid, j = hi - mid - 1;
-            for (var k = hi; k >= lo; k--)
+            int i = lo, j = mid + 1;
+            for (var k = lo; k <= hi; k++)
             {
-                if (i < lo)
+                if (i > mid)
                 {
                     a[k] = aux[j];
-                    j--;
+                    j++;
                 }
-                else if (j < 0)
+                else if (j > hi)
                 {
-                    a[k] = a[i];
-                    i--;
+                    a[k] = aux[i];
+                    i++;
                 }
-                else if (Less(aux[j], a[i]))
+                else if (Less(aux[j], aux[i]))
                 {
-                    a[k] = a[i];
-                    i--;
+                    a[k] = aux[j];
+                    j++;
                 }
                 else
                 {
-                    a[k] = aux[j];
-                    j--;
+                    a[k] = aux[i];
+                    i++;
                 }
             }
         }

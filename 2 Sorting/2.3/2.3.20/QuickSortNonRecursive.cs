@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Quick;
+// ReSharper disable CognitiveComplexity
 
 namespace _2._3._20
 {

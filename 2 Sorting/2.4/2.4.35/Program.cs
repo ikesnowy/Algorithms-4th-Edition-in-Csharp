@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using _2._4._35;
 
 // 题目有翻译问题，应该是 random() 返回索引 i 的概率为 p[i]/T
@@ -9,6 +10,7 @@ var n = 100000;
 
 // 一般测试
 Test(n, sample);
+
 // 修改权值测试
 sample.Change(3, 0.1);
 sample.Change(4, 0.2);

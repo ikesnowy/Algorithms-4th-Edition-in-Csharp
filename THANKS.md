@@ -28,6 +28,8 @@
 
 [@miyuexingchen](https://github.com/miyuexingchen) ，2.4.6 [#521](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/521)
 
+[@玉垒浮云](https://github.com/YuLeiFuYun) ，2.4.35 [#590](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/590)
+
 ## 第三章
 
 [@雨碎江南](https://github.com/consoles) ，3.1.24 [#538](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/538)

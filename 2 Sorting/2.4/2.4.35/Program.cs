@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using _2._4._35;
 
 // 题目有翻译问题，应该是 random() 返回索引 i 的概率为 p[i]/T

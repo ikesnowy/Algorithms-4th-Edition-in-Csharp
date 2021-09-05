@@ -1,5 +1,10 @@
-﻿// E
-//    E
-//
+﻿using System;
+using BalancedSearchTree;
 
-return;
+var tree = new TwoThreeBst<char, int>();
+var input = "EASYQUTION";
+foreach (var c in input)
+{
+    tree.Put(c, 1);
+    Console.WriteLine(tree.ToString());
+}

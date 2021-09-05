@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 // ReSharper disable CognitiveComplexity
 
@@ -420,7 +421,6 @@ namespace BalancedSearchTree
             return x;
         }
 
-
         /// <inheritdoc />
         public int Rank(TKey key)
         {
@@ -656,12 +656,140 @@ namespace BalancedSearchTree
             return DeleteMax(x.Right);
         }
 
+        public override string ToString()
+        {
+            if (IsEmpty())
+            {
+                return string.Empty;
+            }
+
+            var maxDepth = Depth(_root);
+            var layer = 0;
+            var bottomLine = (int)Math.Pow(3, maxDepth) * 2;
+
+            // BFS
+            var lines = new List<string>();
+            var nowLayer = new Queue<Node>();
+            var nextLayer = new Queue<Node>();
+            nextLayer.Enqueue(_root);
+
+            while (layer != maxDepth)
+            {
+                var sb = new StringBuilder();
+                var unitSize = bottomLine / (int)Math.Pow(3, layer);
+                var temp = nowLayer;
+                nowLayer = nextLayer;
+                nextLayer = temp;
+
+                while (nowLayer.Count != 0)
+                {
+                    var x = nowLayer.Dequeue();
+
+                    if (x != null)
+                    {
+                        nextLayer.Enqueue(x.Left);
+                        if (x.Degree == 3)
+                            nextLayer.Enqueue(x.Middle);
+                        else
+                            nextLayer.Enqueue(null);
+                        nextLayer.Enqueue(x.Right);
+                    }
+                    else
+                    {
+                        nextLayer.Enqueue(null);
+                        nextLayer.Enqueue(null);
+                        nextLayer.Enqueue(null);
+                    }
+
+                    if (x != null && x.Left != null)
+                    {
+                        for (var i = 0; i < unitSize / 6; i++)
+                            sb.Append(" ");
+                        sb.Append("|");
+                        for (var i = 1; i < unitSize / 6; i++)
+                            sb.Append("-");
+                    }
+                    else
+                    {
+                        for (var i = 0; i < unitSize / 3; i++)
+                            sb.Append(" ");
+                    }
+
+                    if (x == null)
+                        sb.Append(" ");
+                    else
+                        sb.Append(x.Contents.Aggregate(string.Empty, (s, n) => s + n.Key));
+
+                    if (x != null && x.Right != null)
+                    {
+                        for (var i = 1; i < unitSize / 6; i++)
+                            sb.Append("-");
+                        sb.Append("|");
+                        for (var i = 1; i < unitSize / 6; i++)
+                            sb.Append(" ");
+                    }
+                    else
+                    {
+                        for (var i = 1; i < unitSize / 3; i++)
+                            sb.Append(" ");
+                    }
+                }
+                lines.Add(sb.ToString());
+                layer++;
+            }
+
+            // Trim
+            var margin = int.MaxValue;
+            foreach (var line in lines)
+            {
+                var firstNonWhite = 0;
+                for (var i = 0; i < line.Length; i++)
+                {
+                    if (line[i] == ' ') continue;
+                    firstNonWhite = i;
+                    break;
+                }
+
+                margin = Math.Min(margin, firstNonWhite);
+            }
+
+            for (var i = 0; i < lines.Count; i++)
+            {
+                lines[i] = lines[i].Substring(margin);
+            }
+
+            var result = new StringBuilder();
+            foreach (var line in lines)
+            {
+                result.AppendLine(line);
+            }
+
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// 获取 2-3 树的最大深度。
+        /// </summary>
+        /// <param name="x">二叉树的根结点。</param>
+        /// <returns>二叉树的最大深度。</returns>
+        private int Depth(Node x)
+        {
+            if (x == null) return 0;
+            if (x.Degree == 2) return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
+            return 1 + Math.Max(Depth(x.Left), Math.Max(Depth(x.Middle), Depth(x.Right)));
+        }
+        
+        /// <summary>
+        /// 自底向上对 2-3 树进行平衡。
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         private static Node BalanceBottomUp(Node node)
         {
             if (node.Degree != 4)
             {
                 // not 4-node
-                return BalanceBottomUp(node.Parent);
+                return node.Parent == null ? node : BalanceBottomUp(node.Parent);
             }
 
             // break 4-node into 2 2-node
@@ -688,9 +816,9 @@ namespace BalancedSearchTree
             }
 
             node.Parent.AddPair(node.Contents[1]);
-            if (node.Parent.Degree == 2)
+            if (node.Parent.Degree == 3)
             {
-                // parent is 2-node
+                // parent was 2-node
                 if (node == node.Parent.Children[0])
                 {
                     // 4-node is 2-node's left child
@@ -707,7 +835,7 @@ namespace BalancedSearchTree
                 return BalanceBottomUp(node.Parent);
             }
 
-            // parent is 3-node
+            // parent was 3-node
             if (node == node.Parent.Children[0])
             {
                 // 4-node is 3-node's left child
@@ -730,6 +858,13 @@ namespace BalancedSearchTree
             return BalanceBottomUp(node.Parent);
         }
 
+        /// <summary>
+        /// 在 2-3 树中搜索 <paramref name="key"/>。
+        /// </summary>
+        /// <param name="parent">父结点。</param>
+        /// <param name="current">当前结点</param>
+        /// <param name="key">要搜索的键。</param>
+        /// <returns>父结点、当前结点和键的下标。</returns>
         private static (Node Parent, Node Node, int Index) Get(Node parent, Node current, TKey key)
         {
             if (current == null)
@@ -750,6 +885,13 @@ namespace BalancedSearchTree
             return Get(current, current.Children[^1], key);
         }
 
+        /// <summary>
+        /// 将两个结点合并。
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         private static Node Merge(Node x, Node y)
         {
             if (x.Degree != 2 || y.Degree != 2)
@@ -803,6 +945,13 @@ namespace BalancedSearchTree
             return parent;
         }
 
+        /// <summary>
+        /// 合并兄弟结点。
+        /// </summary>
+        /// <param name="node">结点。</param>
+        /// <param name="sibling"><paramref name="node"/> 的兄弟结点。</param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         private static Node Redistribution(Node node, Node sibling)
         {
             if (node.Degree != 2 || sibling.Degree == 2)
@@ -858,66 +1007,137 @@ namespace BalancedSearchTree
             return node;
         }
 
+        /// <summary>
+        /// 2-3 树结点。
+        /// </summary>
         private class Node
         {
+            /// <summary>
+            /// 构造一个空的 2-3 树结点，并设置父结点。
+            /// </summary>
+            /// <param name="parent">父结点。</param>
             public Node(Node parent)
             {
                 Parent = parent;
             }
 
+            /// <summary>
+            /// 父结点。
+            /// </summary>
             public Node Parent { get; set; }
             
+            /// <summary>
+            /// 结点保存的键值对。
+            /// </summary>
             public List<Pair> Contents { get; } = new();
             
+            /// <summary>
+            /// 结点的子结点。
+            /// </summary>
             public List<Node> Children { get; } = new() { null };
 
+            /// <summary>
+            /// 结点的度，例如 2-结点返回的就是 2。
+            /// </summary>
             public int Degree => Children.Count;
 
+            /// <summary>
+            /// 左子结点。
+            /// </summary>
             public Node Left
             {
                 get => Children[0];
-                set => Children[0] = value;
+                set
+                {
+                    if (value != null)
+                        value.Parent = this;
+                    Children[0] = value;
+                }
             }
 
+            /// <summary>
+            /// 第二个子结点，只有当 <see cref="Degree"/> 是 4 时才可以访问这个属性。
+            /// </summary>
+            /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 4。</exception>
             public Node MiddleLeft
             {
                 get
                     => Degree == 4
                         ? Children[1]
                         : throw new InvalidOperationException("only 4-node has middle left");
-                set => Children[1] = value;
-            }
-            
-            public Node Middle
-            {
-                get
-                    => Degree == 3
-                        ? Children[1]
-                        : throw new InvalidOperationException("only 3-node has middle");
-                set => Children[1] = value;
+                set
+                {
+                    if (value != null)
+                        value.Parent = this;
+                    Children[1] = value;
+                }
             }
 
+            /// <summary>
+            /// 位于中间的子结点，只有当 <see cref="Degree"/> 为 3 时才可以访问这个属性。
+            /// </summary>
+            /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 3。</exception>
+            public Node Middle
+            {
+                get => Degree == 3
+                    ? Children[1]
+                    : throw new InvalidOperationException("only 3-node has middle");
+                set
+                {
+                    if (value != null)
+                        value.Parent = this;
+                    Children[1] = value;
+                }
+            }
+
+            /// <summary>
+            /// 第三个子结点，只有当 <see cref="Degree"/> 是 4 时才可以访问这个属性。
+            /// </summary>
+            /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 4。</exception>
             public Node MiddleRight
             {
                 get
                     => Degree == 4
                         ? Children[2]
                         : throw new InvalidOperationException("only 4-node has middle right");
-                set => Children[2] = value;
+                set
+                {
+                    if (value != null)
+                        value.Parent = this;
+                    Children[2] = value;
+                }
             }
 
+            /// <summary>
+            /// 右子结点。
+            /// </summary>
             public Node Right
             {
+                // ^1 即最后一个，与 Children.Count - 1 等同。
                 get => Children[^1];
-                set => Children[^1] = value;
+                set
+                {
+                    if (value != null)
+                        value.Parent = this;
+                    Children[^1] = value;
+                }
             }
 
+            /// <summary>
+            /// 向结点添加一个键值对。
+            /// </summary>
+            /// <param name="key">键。</param>
+            /// <param name="value">值。</param>
             public void AddPair(TKey key, TValue value)
             {
                 var pair = new Pair(key, value);
                 AddPair(pair);
             }
 
+            /// <summary>
+            /// 向结点添加一个键值对。
+            /// </summary>
+            /// <param name="pair">键值对。</param>
             public void AddPair(Pair pair)
             {
                 for (var i = 0; i < Contents.Count; i++)
@@ -935,21 +1155,49 @@ namespace BalancedSearchTree
                 Children.Add(null);
             }
 
+            /// <summary>
+            /// 结点是否为叶结点（没有子结点）。
+            /// </summary>
+            /// <returns></returns>
             public bool IsLeaf()
             {
                 return Children.All(c => c == null);
             }
+
+            /// <summary>
+            /// 拼接并输出结点的键。
+            /// </summary>
+            /// <returns></returns>
+            public override string ToString()
+            {
+                return Contents.Aggregate(string.Empty, (s, k) => s + k.Key);
+            }
         }
 
+        /// <summary>
+        /// 键值对。
+        /// </summary>
         private class Pair
         {
+            /// <summary>
+            /// 新建一个键值对。
+            /// </summary>
+            /// <param name="key">键。</param>
+            /// <param name="value">值。</param>
             public Pair(TKey key, TValue value)
             {
                 Key = key;
                 Value = value;
             }
 
+            /// <summary>
+            /// 键。
+            /// </summary>
             public TKey Key { get; }
+            
+            /// <summary>
+            /// 值。
+            /// </summary>
             public TValue Value { get; }
         }
     }

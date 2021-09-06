@@ -767,6 +767,9 @@ namespace BalancedSearchTree
             return result.ToString();
         }
 
+
+        public int Height() => Depth(_root) - 1;
+        
         /// <summary>
         /// 获取 2-3 树的最大深度。
         /// </summary>

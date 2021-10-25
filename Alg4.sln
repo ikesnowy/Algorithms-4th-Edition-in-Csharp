@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-基础", "1-基础", "{344FB20B-6315-477C-B032-B4E217E8A2DD}"
 EndProject
@@ -1063,7 +1063,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedSearchTree", "3 Sea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.3.2", "3 Searching\3.3\3.3.2\3.3.2.csproj", "{46B1CAB6-C82D-4B33-9E80-160FD1EEB1F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.3.3", "3 Searching\3.3\3.3.3\3.3.3.csproj", "{C69973B5-33DB-4CA4-AA52-97906965C578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.3.3", "3 Searching\3.3\3.3.3\3.3.3.csproj", "{C69973B5-33DB-4CA4-AA52-97906965C578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.3.4", "3 Searching\3.3\3.3.4\3.3.4.csproj", "{7D561FDB-C531-4717-9DFA-D5758D9F41B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -2911,6 +2913,10 @@ Global
 		{C69973B5-33DB-4CA4-AA52-97906965C578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C69973B5-33DB-4CA4-AA52-97906965C578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C69973B5-33DB-4CA4-AA52-97906965C578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D561FDB-C531-4717-9DFA-D5758D9F41B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D561FDB-C531-4717-9DFA-D5758D9F41B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D561FDB-C531-4717-9DFA-D5758D9F41B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D561FDB-C531-4717-9DFA-D5758D9F41B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -3439,6 +3445,7 @@ Global
 		{0CA5FDE0-E7B3-4F1D-82B4-545B0AEF4EFC} = {F87B73E5-6453-4081-B2C5-8B16B8CEB583}
 		{46B1CAB6-C82D-4B33-9E80-160FD1EEB1F7} = {6F3CDCB7-01C9-48A9-8F5C-DCDD9A333640}
 		{C69973B5-33DB-4CA4-AA52-97906965C578} = {6F3CDCB7-01C9-48A9-8F5C-DCDD9A333640}
+		{7D561FDB-C531-4717-9DFA-D5758D9F41B8} = {6F3CDCB7-01C9-48A9-8F5C-DCDD9A333640}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE55CF8D-6F35-464D-B95B-ED85644AE41C}

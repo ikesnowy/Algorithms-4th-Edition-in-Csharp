@@ -12,9 +12,11 @@
 
 [@ShuXin](https://github.com/aowoWolf) ，1.4.15 [#321](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/321)
 
-[@雨碎江南](https://github.com/consoles) ，1.4.8，1.4.18 [#437](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/437) 
+[@雨碎江南](https://github.com/consoles) ，1.4.8，1.4.18 [#437](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/437)
 
 [@张越](https://www.zhihu.com/people/zyecho/activities) ，1.4.19
+
+[@5ME](https://github.com/5ME) ，1.1.1 [#592](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/592)
 
 ## 第二章
 

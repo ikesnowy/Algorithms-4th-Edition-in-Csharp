@@ -25,18 +25,22 @@ namespace _2._1._19
             {
                 for (var i = h; i < n; i++)
                 {
-                    for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
+                    for (var j = i; j >= h && LessAndCount(a[j], a[j - h], ref compareTime); j -= h)
                     {
                         Exch(a, j, j - h);
-                        compareTime++;
                     }
-                    compareTime++;
                 }
                 Debug.Assert(IsHSorted(a, h));
                 h /= 3;
             }
             Console.WriteLine("CompareTime:" + compareTime);
             Debug.Assert(IsSorted(a));
+        }
+
+        private bool LessAndCount<T>(T a, T b, ref int count) where T : IComparable<T>
+        {
+            count++;
+            return Less(a, b);
         }
 
         /// <summary>

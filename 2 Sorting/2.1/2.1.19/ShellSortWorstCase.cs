@@ -1,4 +1,5 @@
 ﻿// ReSharper disable PossibleInvalidOperationException
+
 namespace _2._1._19
 {
     class ShellSortWorstCase
@@ -17,9 +18,10 @@ namespace _2._1._19
             {
                 a[i] = null;
             }
+
             var p = 40;
             var pAddition = p;
-           while(l < 100) 
+            while (l < 100)
             {
                 for (var j = 1; j <= n; j++)
                 {
@@ -29,6 +31,7 @@ namespace _2._1._19
                         a[j] = l;
                     }
                 }
+
                 p += pAddition;
             }
 
@@ -56,6 +59,7 @@ namespace _2._1._19
                     return true;
                 k++;
             }
+
             return false;
         }
     }

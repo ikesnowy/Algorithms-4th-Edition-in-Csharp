@@ -1,0 +1,13823 @@
+ACEMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACEMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACEMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACEMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+ACESMHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACESMXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACEXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACEXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+ACHMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACHMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACHMXES
+ |--CM--|  
+A   EH   SX 
+
+
+ACHMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+ACHSMEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACHSMXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACHXMES
+ |--CM--|  
+A   EH   SX 
+
+
+ACHXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+ACMESHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACMESXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACMEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACMEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+ACMHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACMHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACMHXES
+ |--CM--|  
+A   EH   SX 
+
+
+ACMHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+ACMSEHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACMSEXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACMSHEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACMSHXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACMXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACMXESH
+ |--CM--|  
+A   EH   SX 
+
+
+ACMXHES
+ |--CM--|  
+A   EH   SX 
+
+
+ACMXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+ACSEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACSEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACSHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACSHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACSMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+ACSMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+ACSMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+ACSMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+ACXEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACXEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+ACXHMES
+ |--CM--|  
+A   EH   SX 
+
+
+ACXHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+ACXMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+ACXMESH
+ |--CM--|  
+A   EH   SX 
+
+
+ACXMHES
+ |--CM--|  
+A   EH   SX 
+
+
+ACXMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+AECMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+AECMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+AECMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+AECMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+AECSMHX
+ |--CM--|  
+A   EH   SX 
+
+
+AECSMXH
+ |--CM--|  
+A   EH   SX 
+
+
+AECXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+AECXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+AEHCMSX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHCMXS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHCSMX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHCSXM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHCXMS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHCXSM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+AEHMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEHSCMX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHSCXM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHSMCX
+ |--EM--|  
+AC   H   SX 
+
+
+AEHSMXC
+ |--EM--|  
+AC   H   SX 
+
+
+AEHSXCM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHSXMC
+ |--ES--|  
+AC   HM   X 
+
+
+AEHXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEHXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEHXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+AEHXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+AEMCHSX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMCHXS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMCSHX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMCSXH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMCXHS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMCXSH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+AEMHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEMSCHX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMSCXH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMSHCX
+ |--EM--|  
+AC   H   SX 
+
+
+AEMSHXC
+ |--EM--|  
+AC   H   SX 
+
+
+AEMSXCH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMSXHC
+ |--ES--|  
+AC   HM   X 
+
+
+AEMXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEMXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEMXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+AEMXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+AESCHMX
+ |--EM--|  
+AC   H   SX 
+
+
+AESCHXM
+ |--ES--|  
+AC   HM   X 
+
+
+AESCMHX
+ |--EM--|  
+AC   H   SX 
+
+
+AESCMXH
+ |--ES--|  
+AC   HM   X 
+
+
+AESCXHM
+ |--ES--|  
+AC   HM   X 
+
+
+AESCXMH
+ |--ES--|  
+AC   HM   X 
+
+
+AESHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+AESHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+AESHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+AESHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+AESHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+AESHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+AESMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+AESMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+AESMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+AESMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+AESMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+AESMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+AESXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+AESXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+AESXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+AESXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+AESXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+AESXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+AEXCHMS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXCHSM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXCMHS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXCMSH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXCSHM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXCSMH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEXHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+AEXMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AEXMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AEXMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSCHM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSCMH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSHCM
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSHMC
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSMCH
+ |--ES--|  
+AC   HM   X 
+
+
+AEXSMHC
+ |--ES--|  
+AC   HM   X 
+
+
+AHCMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+AHCMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+AHCMXES
+ |--CM--|  
+A   EH   SX 
+
+
+AHCMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+AHCSMEX
+ |--CM--|  
+A   EH   SX 
+
+
+AHCSMXE
+ |--CM--|  
+A   EH   SX 
+
+
+AHCXMES
+ |--CM--|  
+A   EH   SX 
+
+
+AHCXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+AHECMSX
+ |--EM--|  
+AC   H   SX 
+
+
+AHECMXS
+ |--EM--|  
+AC   H   SX 
+
+
+AHECSMX
+ |--EM--|  
+AC   H   SX 
+
+
+AHECSXM
+ |--ES--|  
+AC   HM   X 
+
+
+AHECXMS
+ |--EM--|  
+AC   H   SX 
+
+
+AHECXSM
+ |--ES--|  
+AC   HM   X 
+
+
+AHEMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+AHEMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+AHEMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+AHEMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+AHEMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+AHEMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+AHESCMX
+ |--EM--|  
+AC   H   SX 
+
+
+AHESCXM
+ |--ES--|  
+AC   HM   X 
+
+
+AHESMCX
+ |--EM--|  
+AC   H   SX 
+
+
+AHESMXC
+ |--EM--|  
+AC   H   SX 
+
+
+AHESXCM
+ |--ES--|  
+AC   HM   X 
+
+
+AHESXMC
+ |--ES--|  
+AC   HM   X 
+
+
+AHEXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+AHEXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+AHEXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+AHEXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+AHEXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+AHEXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+AMCESHX
+ |--CM--|  
+A   EH   SX 
+
+
+AMCESXH
+ |--CM--|  
+A   EH   SX 
+
+
+AMCEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+AMCEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+AMCHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+AMCHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+AMCHXES
+ |--CM--|  
+A   EH   SX 
+
+
+AMCHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+AMCSEHX
+ |--CM--|  
+A   EH   SX 
+
+
+AMCSEXH
+ |--CM--|  
+A   EH   SX 
+
+
+AMCSHEX
+ |--CM--|  
+A   EH   SX 
+
+
+AMCSHXE
+ |--CM--|  
+A   EH   SX 
+
+
+AMCXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+AMCXESH
+ |--CM--|  
+A   EH   SX 
+
+
+AMCXHES
+ |--CM--|  
+A   EH   SX 
+
+
+AMCXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+AMECHSX
+ |--EM--|  
+AC   H   SX 
+
+
+AMECHXS
+ |--EM--|  
+AC   H   SX 
+
+
+AMECSHX
+ |--EM--|  
+AC   H   SX 
+
+
+AMECSXH
+ |--ES--|  
+AC   HM   X 
+
+
+AMECXHS
+ |--EM--|  
+AC   H   SX 
+
+
+AMECXSH
+ |--ES--|  
+AC   HM   X 
+
+
+AMEHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+AMEHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+AMEHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+AMEHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+AMEHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+AMEHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+AMESCHX
+ |--EM--|  
+AC   H   SX 
+
+
+AMESCXH
+ |--ES--|  
+AC   HM   X 
+
+
+AMESHCX
+ |--EM--|  
+AC   H   SX 
+
+
+AMESHXC
+ |--EM--|  
+AC   H   SX 
+
+
+AMESXCH
+ |--ES--|  
+AC   HM   X 
+
+
+AMESXHC
+ |--ES--|  
+AC   HM   X 
+
+
+AMEXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+AMEXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+AMEXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AMEXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AMEXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+AMEXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+AMSCEHX
+ |--CM--|  
+A   EH   SX 
+
+
+AMSCEXH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSCHEX
+ |--CM--|  
+A   EH   SX 
+
+
+AMSCHXE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSCXEH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSCXHE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSECHX
+ |--CM--|  
+A   EH   SX 
+
+
+AMSECXH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+AMSEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+AMSEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+AMSHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+AMSHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSHECX
+ |--EM--|  
+AC   H   SX 
+
+
+AMSHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+AMSHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+AMSXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSXECH
+ |--CM--|  
+A   EH   SX 
+
+
+AMSXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+AMSXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+AMSXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXCEHS
+ |--CM--|  
+A   EH   SX 
+
+
+AMXCESH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXCHES
+ |--CM--|  
+A   EH   SX 
+
+
+AMXCHSE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXCSEH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXCSHE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXECHS
+ |--CM--|  
+A   EH   SX 
+
+
+AMXECSH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AMXEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXESCH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXESHC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXHCES
+ |--CM--|  
+A   EH   SX 
+
+
+AMXHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXHECS
+ |--EM--|  
+AC   H   SX 
+
+
+AMXHESC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXSCEH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXSCHE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXSECH
+ |--CM--|  
+A   EH   SX 
+
+
+AMXSEHC
+ |--EM--|  
+AC   H   SX 
+
+
+AMXSHCE
+ |--CM--|  
+A   EH   SX 
+
+
+AMXSHEC
+ |--EM--|  
+AC   H   SX 
+
+
+ASCEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+ASCEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+ASCHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+ASCHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+ASCMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+ASCMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+ASCMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+ASCMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+ASECHMX
+ |--EM--|  
+AC   H   SX 
+
+
+ASECHXM
+ |--ES--|  
+AC   HM   X 
+
+
+ASECMHX
+ |--EM--|  
+AC   H   SX 
+
+
+ASECMXH
+ |--ES--|  
+AC   HM   X 
+
+
+ASECXHM
+ |--ES--|  
+AC   HM   X 
+
+
+ASECXMH
+ |--ES--|  
+AC   HM   X 
+
+
+ASEHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+ASEHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+ASEHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+ASEHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+ASEHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+ASEHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+ASEMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+ASEMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+ASEMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+ASEMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+ASEMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+ASEMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+ASEXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+ASMCEHX
+ |--CM--|  
+A   EH   SX 
+
+
+ASMCEXH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMCHEX
+ |--CM--|  
+A   EH   SX 
+
+
+ASMCHXE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMCXEH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMCXHE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMECHX
+ |--CM--|  
+A   EH   SX 
+
+
+ASMECXH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+ASMEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+ASMEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+ASMHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+ASMHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMHECX
+ |--EM--|  
+AC   H   SX 
+
+
+ASMHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+ASMHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+ASMXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMXECH
+ |--CM--|  
+A   EH   SX 
+
+
+ASMXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+ASMXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+ASMXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+ASXEHCM
+ |--ES--|  
+AC   HM   X 
+
+
+ASXEHMC
+ |--ES--|  
+AC   HM   X 
+
+
+ASXEMCH
+ |--ES--|  
+AC   HM   X 
+
+
+ASXEMHC
+ |--ES--|  
+AC   HM   X 
+
+
+ASXHECM
+ |--ES--|  
+AC   HM   X 
+
+
+ASXHEMC
+ |--ES--|  
+AC   HM   X 
+
+
+ASXMECH
+ |--ES--|  
+AC   HM   X 
+
+
+ASXMEHC
+ |--ES--|  
+AC   HM   X 
+
+
+AXCEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+AXCEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+AXCHMES
+ |--CM--|  
+A   EH   SX 
+
+
+AXCHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+AXCMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+AXCMESH
+ |--CM--|  
+A   EH   SX 
+
+
+AXCMHES
+ |--CM--|  
+A   EH   SX 
+
+
+AXCMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+AXECHMS
+ |--EM--|  
+AC   H   SX 
+
+
+AXECHSM
+ |--ES--|  
+AC   HM   X 
+
+
+AXECMHS
+ |--EM--|  
+AC   H   SX 
+
+
+AXECMSH
+ |--ES--|  
+AC   HM   X 
+
+
+AXECSHM
+ |--ES--|  
+AC   HM   X 
+
+
+AXECSMH
+ |--ES--|  
+AC   HM   X 
+
+
+AXEHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+AXEHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+AXEHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+AXEHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+AXEHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+AXEHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+AXEMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+AXEMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+AXEMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AXEMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AXEMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+AXEMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+AXESCHM
+ |--ES--|  
+AC   HM   X 
+
+
+AXESCMH
+ |--ES--|  
+AC   HM   X 
+
+
+AXESHCM
+ |--ES--|  
+AC   HM   X 
+
+
+AXESHMC
+ |--ES--|  
+AC   HM   X 
+
+
+AXESMCH
+ |--ES--|  
+AC   HM   X 
+
+
+AXESMHC
+ |--ES--|  
+AC   HM   X 
+
+
+AXMCEHS
+ |--CM--|  
+A   EH   SX 
+
+
+AXMCESH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMCHES
+ |--CM--|  
+A   EH   SX 
+
+
+AXMCHSE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMCSEH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMCSHE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMECHS
+ |--CM--|  
+A   EH   SX 
+
+
+AXMECSH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+AXMEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+AXMESCH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMESHC
+ |--EM--|  
+AC   H   SX 
+
+
+AXMHCES
+ |--CM--|  
+A   EH   SX 
+
+
+AXMHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMHECS
+ |--EM--|  
+AC   H   SX 
+
+
+AXMHESC
+ |--EM--|  
+AC   H   SX 
+
+
+AXMHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+AXMSCEH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMSCHE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMSECH
+ |--CM--|  
+A   EH   SX 
+
+
+AXMSEHC
+ |--EM--|  
+AC   H   SX 
+
+
+AXMSHCE
+ |--CM--|  
+A   EH   SX 
+
+
+AXMSHEC
+ |--EM--|  
+AC   H   SX 
+
+
+AXSEHCM
+ |--ES--|  
+AC   HM   X 
+
+
+AXSEHMC
+ |--ES--|  
+AC   HM   X 
+
+
+AXSEMCH
+ |--ES--|  
+AC   HM   X 
+
+
+AXSEMHC
+ |--ES--|  
+AC   HM   X 
+
+
+AXSHECM
+ |--ES--|  
+AC   HM   X 
+
+
+AXSHEMC
+ |--ES--|  
+AC   HM   X 
+
+
+AXSMECH
+ |--ES--|  
+AC   HM   X 
+
+
+AXSMEHC
+ |--ES--|  
+AC   HM   X 
+
+
+CAEMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+CAEMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+CAEMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAEMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+CAESMHX
+ |--CM--|  
+A   EH   SX 
+
+
+CAESMXH
+ |--CM--|  
+A   EH   SX 
+
+
+CAEXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAEXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+CAHMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+CAHMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+CAHMXES
+ |--CM--|  
+A   EH   SX 
+
+
+CAHMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+CAHSMEX
+ |--CM--|  
+A   EH   SX 
+
+
+CAHSMXE
+ |--CM--|  
+A   EH   SX 
+
+
+CAHXMES
+ |--CM--|  
+A   EH   SX 
+
+
+CAHXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+CAMESHX
+ |--CM--|  
+A   EH   SX 
+
+
+CAMESXH
+ |--CM--|  
+A   EH   SX 
+
+
+CAMEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAMEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+CAMHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+CAMHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+CAMHXES
+ |--CM--|  
+A   EH   SX 
+
+
+CAMHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+CAMSEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CAMSEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CAMSHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CAMSHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CAMXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAMXESH
+ |--CM--|  
+A   EH   SX 
+
+
+CAMXHES
+ |--CM--|  
+A   EH   SX 
+
+
+CAMXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CASEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+CASEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+CASHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+CASHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+CASMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CASMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CASMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CASMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CAXEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAXEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+CAXHMES
+ |--CM--|  
+A   EH   SX 
+
+
+CAXHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+CAXMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CAXMESH
+ |--CM--|  
+A   EH   SX 
+
+
+CAXMHES
+ |--CM--|  
+A   EH   SX 
+
+
+CAXMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CEAMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+CEAMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+CEAMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+CEAMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+CEASMHX
+ |--CM--|  
+A   EH   SX 
+
+
+CEASMXH
+ |--CM--|  
+A   EH   SX 
+
+
+CEAXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+CEAXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+CEHAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHASMX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHASXM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHMASX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+CEHMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEHSAMX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHSAXM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHSMAX
+ |--EM--|  
+AC   H   SX 
+
+
+CEHSMXA
+ |--EM--|  
+AC   H   SX 
+
+
+CEHSXAM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHSXMA
+ |--ES--|  
+AC   HM   X 
+
+
+CEHXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHXASM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEHXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEHXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+CEHXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+CEMAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMASHX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMASXH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMHASX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+CEMHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEMSAHX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMSAXH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMSHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CEMSHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CEMSXAH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMSXHA
+ |--ES--|  
+AC   HM   X 
+
+
+CEMXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMXASH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEMXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEMXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+CEMXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+CESAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+CESAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+CESAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+CESAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+CESAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+CESAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+CESHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+CESHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+CESHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+CESHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+CESHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+CESHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+CESMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+CESMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+CESMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CESMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CESMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+CESMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+CESXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+CESXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+CESXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CESXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CESXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CESXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CEXAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXASHM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXASMH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXHASM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEXHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+CEXMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXMASH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CEXMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CEXMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSAHM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSAMH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CEXSMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CHAMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+CHAMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+CHAMXES
+ |--CM--|  
+A   EH   SX 
+
+
+CHAMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+CHASMEX
+ |--CM--|  
+A   EH   SX 
+
+
+CHASMXE
+ |--CM--|  
+A   EH   SX 
+
+
+CHAXMES
+ |--CM--|  
+A   EH   SX 
+
+
+CHAXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+CHEAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+CHEAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEASMX
+ |--EM--|  
+AC   H   SX 
+
+
+CHEASXM
+ |--ES--|  
+AC   HM   X 
+
+
+CHEAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+CHEMASX
+ |--EM--|  
+AC   H   SX 
+
+
+CHEMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+CHEMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+CHEMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+CHESAMX
+ |--EM--|  
+AC   H   SX 
+
+
+CHESAXM
+ |--ES--|  
+AC   HM   X 
+
+
+CHESMAX
+ |--EM--|  
+AC   H   SX 
+
+
+CHESMXA
+ |--EM--|  
+AC   H   SX 
+
+
+CHESXAM
+ |--ES--|  
+AC   HM   X 
+
+
+CHESXMA
+ |--ES--|  
+AC   HM   X 
+
+
+CHEXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEXASM
+ |--ES--|  
+AC   HM   X 
+
+
+CHEXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+CHEXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+CHEXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+CHEXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+CMAESHX
+ |--CM--|  
+A   EH   SX 
+
+
+CMAESXH
+ |--CM--|  
+A   EH   SX 
+
+
+CMAEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+CMAEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+CMAHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+CMAHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+CMAHXES
+ |--CM--|  
+A   EH   SX 
+
+
+CMAHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+CMASEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CMASEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CMASHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CMASHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CMAXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CMAXESH
+ |--CM--|  
+A   EH   SX 
+
+
+CMAXHES
+ |--CM--|  
+A   EH   SX 
+
+
+CMAXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CMEAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+CMEAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEASHX
+ |--EM--|  
+AC   H   SX 
+
+
+CMEASXH
+ |--ES--|  
+AC   HM   X 
+
+
+CMEAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+CMEHASX
+ |--EM--|  
+AC   H   SX 
+
+
+CMEHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+CMEHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+CMEHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+CMESAHX
+ |--EM--|  
+AC   H   SX 
+
+
+CMESAXH
+ |--ES--|  
+AC   HM   X 
+
+
+CMESHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CMESHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CMESXAH
+ |--ES--|  
+AC   HM   X 
+
+
+CMESXHA
+ |--ES--|  
+AC   HM   X 
+
+
+CMEXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEXASH
+ |--ES--|  
+AC   HM   X 
+
+
+CMEXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CMEXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CMEXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+CMEXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+CMSAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CMSAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CMSAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+CMSEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CMSEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CMSEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+CMSHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+CMSHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+CMSHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+CMSHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+CMSXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+CMSXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+CMSXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+CMSXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CMXAESH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXAHES
+ |--CM--|  
+A   EH   SX 
+
+
+CMXAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXASEH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXASHE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+CMXEASH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CMXEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXESAH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXESHA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXHAES
+ |--CM--|  
+A   EH   SX 
+
+
+CMXHASE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXHEAS
+ |--EM--|  
+AC   H   SX 
+
+
+CMXHESA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXHSAE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXHSEA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXSAEH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXSAHE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXSEAH
+ |--CM--|  
+A   EH   SX 
+
+
+CMXSEHA
+ |--EM--|  
+AC   H   SX 
+
+
+CMXSHAE
+ |--CM--|  
+A   EH   SX 
+
+
+CMXSHEA
+ |--EM--|  
+AC   H   SX 
+
+
+CSAEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+CSAEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+CSAHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+CSAHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+CSAMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CSAMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CSAMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CSAMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CSEAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+CSEHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+CSEMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CSEMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CSEMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CSEXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CSMAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+CSMAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+CSMAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+CSMEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+CSMEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+CSMEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+CSMHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+CSMHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+CSMHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+CSMHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+CSMXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+CSMXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+CSMXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+CSMXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+CSXEHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CSXEHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CSXEMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CSXEMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CSXHEAM
+ |--ES--|  
+AC   HM   X 
+
+
+CSXHEMA
+ |--ES--|  
+AC   HM   X 
+
+
+CSXMEAH
+ |--ES--|  
+AC   HM   X 
+
+
+CSXMEHA
+ |--ES--|  
+AC   HM   X 
+
+
+CXAEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+CXAEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+CXAHMES
+ |--CM--|  
+A   EH   SX 
+
+
+CXAHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+CXAMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CXAMESH
+ |--CM--|  
+A   EH   SX 
+
+
+CXAMHES
+ |--CM--|  
+A   EH   SX 
+
+
+CXAMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CXEAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+CXEAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+CXEASHM
+ |--ES--|  
+AC   HM   X 
+
+
+CXEASMH
+ |--ES--|  
+AC   HM   X 
+
+
+CXEHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEHASM
+ |--ES--|  
+AC   HM   X 
+
+
+CXEHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+CXEHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+CXEHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+CXEMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEMASH
+ |--ES--|  
+AC   HM   X 
+
+
+CXEMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CXEMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CXEMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+CXEMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+CXESAHM
+ |--ES--|  
+AC   HM   X 
+
+
+CXESAMH
+ |--ES--|  
+AC   HM   X 
+
+
+CXESHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CXESHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CXESMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CXESMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CXMAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+CXMAESH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMAHES
+ |--CM--|  
+A   EH   SX 
+
+
+CXMAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMASEH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMASHE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+CXMEASH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+CXMEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+CXMESAH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMESHA
+ |--EM--|  
+AC   H   SX 
+
+
+CXMHAES
+ |--CM--|  
+A   EH   SX 
+
+
+CXMHASE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMHEAS
+ |--EM--|  
+AC   H   SX 
+
+
+CXMHESA
+ |--EM--|  
+AC   H   SX 
+
+
+CXMHSAE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMHSEA
+ |--EM--|  
+AC   H   SX 
+
+
+CXMSAEH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMSAHE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMSEAH
+ |--CM--|  
+A   EH   SX 
+
+
+CXMSEHA
+ |--EM--|  
+AC   H   SX 
+
+
+CXMSHAE
+ |--CM--|  
+A   EH   SX 
+
+
+CXMSHEA
+ |--EM--|  
+AC   H   SX 
+
+
+CXSEHAM
+ |--ES--|  
+AC   HM   X 
+
+
+CXSEHMA
+ |--ES--|  
+AC   HM   X 
+
+
+CXSEMAH
+ |--ES--|  
+AC   HM   X 
+
+
+CXSEMHA
+ |--ES--|  
+AC   HM   X 
+
+
+CXSHEAM
+ |--ES--|  
+AC   HM   X 
+
+
+CXSHEMA
+ |--ES--|  
+AC   HM   X 
+
+
+CXSMEAH
+ |--ES--|  
+AC   HM   X 
+
+
+CXSMEHA
+ |--ES--|  
+AC   HM   X 
+
+
+EACMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+EACMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+EACMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+EACMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+EACSMHX
+ |--CM--|  
+A   EH   SX 
+
+
+EACSMXH
+ |--CM--|  
+A   EH   SX 
+
+
+EACXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+EACXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+EAHCMSX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHCMXS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHCSMX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHCSXM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHCXMS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHCXSM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+EAHMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAHSCMX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHSCXM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHSMCX
+ |--EM--|  
+AC   H   SX 
+
+
+EAHSMXC
+ |--EM--|  
+AC   H   SX 
+
+
+EAHSXCM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHSXMC
+ |--ES--|  
+AC   HM   X 
+
+
+EAHXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAHXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAHXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+EAHXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+EAMCHSX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMCHXS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMCSHX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMCSXH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMCXHS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMCXSH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+EAMHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAMSCHX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMSCXH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMSHCX
+ |--EM--|  
+AC   H   SX 
+
+
+EAMSHXC
+ |--EM--|  
+AC   H   SX 
+
+
+EAMSXCH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMSXHC
+ |--ES--|  
+AC   HM   X 
+
+
+EAMXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAMXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAMXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+EAMXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+EASCHMX
+ |--EM--|  
+AC   H   SX 
+
+
+EASCHXM
+ |--ES--|  
+AC   HM   X 
+
+
+EASCMHX
+ |--EM--|  
+AC   H   SX 
+
+
+EASCMXH
+ |--ES--|  
+AC   HM   X 
+
+
+EASCXHM
+ |--ES--|  
+AC   HM   X 
+
+
+EASCXMH
+ |--ES--|  
+AC   HM   X 
+
+
+EASHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+EASHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+EASHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+EASHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+EASHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+EASHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+EASMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+EASMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+EASMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+EASMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+EASMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+EASMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+EASXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+EASXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+EASXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+EASXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+EASXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+EASXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+EAXCHMS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXCHSM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXCMHS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXCMSH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXCSHM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXCSMH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAXHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+EAXMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EAXMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EAXMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSCHM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSCMH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSHCM
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSHMC
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSMCH
+ |--ES--|  
+AC   HM   X 
+
+
+EAXSMHC
+ |--ES--|  
+AC   HM   X 
+
+
+ECAMSHX
+ |--CM--|  
+A   EH   SX 
+
+
+ECAMSXH
+ |--CM--|  
+A   EH   SX 
+
+
+ECAMXHS
+ |--CM--|  
+A   EH   SX 
+
+
+ECAMXSH
+ |--CM--|  
+A   EH   SX 
+
+
+ECASMHX
+ |--CM--|  
+A   EH   SX 
+
+
+ECASMXH
+ |--CM--|  
+A   EH   SX 
+
+
+ECAXMHS
+ |--CM--|  
+A   EH   SX 
+
+
+ECAXMSH
+ |--CM--|  
+A   EH   SX 
+
+
+ECHAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHASMX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHASXM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHMASX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECHMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECHSAMX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHSAXM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHSMAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECHSMXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECHSXAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHSXMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECHXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHXASM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECHXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECHXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECHXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECMAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMASHX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMASXH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMHASX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECMHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECMSAHX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMSAXH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMSHAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECMSHXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECMSXAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMSXHA
+ |--ES--|  
+AC   HM   X 
+
+
+ECMXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMXASH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECMXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECMXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECMXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+ECSAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECSHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECSMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+ECSMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+ECSMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECSXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+ECXAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXASHM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXASMH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXHASM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECXHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECXMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXMASH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+ECXMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+ECXMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSAHM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSAMH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSHAM
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSHMA
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSMAH
+ |--ES--|  
+AC   HM   X 
+
+
+ECXSMHA
+ |--ES--|  
+AC   HM   X 
+
+
+EHACMSX
+ |--EM--|  
+AC   H   SX 
+
+
+EHACMXS
+ |--EM--|  
+AC   H   SX 
+
+
+EHACSMX
+ |--EM--|  
+AC   H   SX 
+
+
+EHACSXM
+ |--ES--|  
+AC   HM   X 
+
+
+EHACXMS
+ |--EM--|  
+AC   H   SX 
+
+
+EHACXSM
+ |--ES--|  
+AC   HM   X 
+
+
+EHAMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+EHAMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+EHAMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+EHAMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+EHAMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+EHAMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+EHASCMX
+ |--EM--|  
+AC   H   SX 
+
+
+EHASCXM
+ |--ES--|  
+AC   HM   X 
+
+
+EHASMCX
+ |--EM--|  
+AC   H   SX 
+
+
+EHASMXC
+ |--EM--|  
+AC   H   SX 
+
+
+EHASXCM
+ |--ES--|  
+AC   HM   X 
+
+
+EHASXMC
+ |--ES--|  
+AC   HM   X 
+
+
+EHAXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+EHAXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+EHAXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+EHAXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+EHAXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+EHAXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+EHCAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCASMX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCASXM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCMASX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+EHCMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+EHCSAMX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCSAXM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCSMAX
+ |--EM--|  
+AC   H   SX 
+
+
+EHCSMXA
+ |--EM--|  
+AC   H   SX 
+
+
+EHCSXAM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCSXMA
+ |--ES--|  
+AC   HM   X 
+
+
+EHCXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCXASM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+EHCXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+EHCXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+EHCXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+EMACHSX
+ |--EM--|  
+AC   H   SX 
+
+
+EMACHXS
+ |--EM--|  
+AC   H   SX 
+
+
+EMACSHX
+ |--EM--|  
+AC   H   SX 
+
+
+EMACSXH
+ |--ES--|  
+AC   HM   X 
+
+
+EMACXHS
+ |--EM--|  
+AC   H   SX 
+
+
+EMACXSH
+ |--ES--|  
+AC   HM   X 
+
+
+EMAHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+EMAHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+EMAHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+EMAHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+EMAHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+EMAHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+EMASCHX
+ |--EM--|  
+AC   H   SX 
+
+
+EMASCXH
+ |--ES--|  
+AC   HM   X 
+
+
+EMASHCX
+ |--EM--|  
+AC   H   SX 
+
+
+EMASHXC
+ |--EM--|  
+AC   H   SX 
+
+
+EMASXCH
+ |--ES--|  
+AC   HM   X 
+
+
+EMASXHC
+ |--ES--|  
+AC   HM   X 
+
+
+EMAXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+EMAXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+EMAXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EMAXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EMAXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+EMAXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+EMCAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCASHX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCASXH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCHASX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+EMCHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+EMCSAHX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCSAXH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCSHAX
+ |--EM--|  
+AC   H   SX 
+
+
+EMCSHXA
+ |--EM--|  
+AC   H   SX 
+
+
+EMCSXAH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCSXHA
+ |--ES--|  
+AC   HM   X 
+
+
+EMCXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCXASH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+EMCXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+EMCXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+EMCXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+EMSACHX
+ |--CM--|  
+A   EH   SX 
+
+
+EMSACXH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+EMSAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSCAHX
+ |--CM--|  
+A   EH   SX 
+
+
+EMSCAXH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSCHAX
+ |--EM--|  
+AC   H   SX 
+
+
+EMSCHXA
+ |--EM--|  
+AC   H   SX 
+
+
+EMSCXAH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSCXHA
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHACX
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+EMSXACH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+EMSXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+EMSXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+EMSXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXACHS
+ |--CM--|  
+A   EH   SX 
+
+
+EMXACSH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXAHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EMXAHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXASCH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXASHC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXCAHS
+ |--CM--|  
+A   EH   SX 
+
+
+EMXCASH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXCHAS
+ |--EM--|  
+AC   H   SX 
+
+
+EMXCHSA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXCSAH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXCSHA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHACS
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHASC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHCAS
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHCSA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHSAC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXHSCA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXSACH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXSAHC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXSCAH
+ |--CM--|  
+A   EH   SX 
+
+
+EMXSCHA
+ |--EM--|  
+AC   H   SX 
+
+
+EMXSHAC
+ |--EM--|  
+AC   H   SX 
+
+
+EMXSHCA
+ |--EM--|  
+AC   H   SX 
+
+
+ESACHMX
+ |--EM--|  
+AC   H   SX 
+
+
+ESACHXM
+ |--ES--|  
+AC   HM   X 
+
+
+ESACMHX
+ |--EM--|  
+AC   H   SX 
+
+
+ESACMXH
+ |--ES--|  
+AC   HM   X 
+
+
+ESACXHM
+ |--ES--|  
+AC   HM   X 
+
+
+ESACXMH
+ |--ES--|  
+AC   HM   X 
+
+
+ESAHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+ESAHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+ESAHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+ESAHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+ESAHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+ESAHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+ESAMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+ESAMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+ESAMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+ESAMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+ESAMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+ESAMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+ESAXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+ESCAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+ESCHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+ESCMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+ESCMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+ESCMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+ESCXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+ESMACHX
+ |--CM--|  
+A   EH   SX 
+
+
+ESMACXH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+ESMAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMCAHX
+ |--CM--|  
+A   EH   SX 
+
+
+ESMCAXH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMCHAX
+ |--EM--|  
+AC   H   SX 
+
+
+ESMCHXA
+ |--EM--|  
+AC   H   SX 
+
+
+ESMCXAH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMCXHA
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHACX
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+ESMXACH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+ESMXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+ESMXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+ESMXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+ESXAHCM
+ |--ES--|  
+AC   HM   X 
+
+
+ESXAHMC
+ |--ES--|  
+AC   HM   X 
+
+
+ESXAMCH
+ |--ES--|  
+AC   HM   X 
+
+
+ESXAMHC
+ |--ES--|  
+AC   HM   X 
+
+
+ESXCHAM
+ |--ES--|  
+AC   HM   X 
+
+
+ESXCHMA
+ |--ES--|  
+AC   HM   X 
+
+
+ESXCMAH
+ |--ES--|  
+AC   HM   X 
+
+
+ESXCMHA
+ |--ES--|  
+AC   HM   X 
+
+
+ESXHACM
+ |--ES--|  
+AC   HM   X 
+
+
+ESXHAMC
+ |--ES--|  
+AC   HM   X 
+
+
+ESXHCAM
+ |--ES--|  
+AC   HM   X 
+
+
+ESXHCMA
+ |--ES--|  
+AC   HM   X 
+
+
+ESXMACH
+ |--ES--|  
+AC   HM   X 
+
+
+ESXMAHC
+ |--ES--|  
+AC   HM   X 
+
+
+ESXMCAH
+ |--ES--|  
+AC   HM   X 
+
+
+ESXMCHA
+ |--ES--|  
+AC   HM   X 
+
+
+EXACHMS
+ |--EM--|  
+AC   H   SX 
+
+
+EXACHSM
+ |--ES--|  
+AC   HM   X 
+
+
+EXACMHS
+ |--EM--|  
+AC   H   SX 
+
+
+EXACMSH
+ |--ES--|  
+AC   HM   X 
+
+
+EXACSHM
+ |--ES--|  
+AC   HM   X 
+
+
+EXACSMH
+ |--ES--|  
+AC   HM   X 
+
+
+EXAHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+EXAHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+EXAHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+EXAHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+EXAHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+EXAHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+EXAMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+EXAMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+EXAMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EXAMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EXAMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+EXAMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+EXASCHM
+ |--ES--|  
+AC   HM   X 
+
+
+EXASCMH
+ |--ES--|  
+AC   HM   X 
+
+
+EXASHCM
+ |--ES--|  
+AC   HM   X 
+
+
+EXASHMC
+ |--ES--|  
+AC   HM   X 
+
+
+EXASMCH
+ |--ES--|  
+AC   HM   X 
+
+
+EXASMHC
+ |--ES--|  
+AC   HM   X 
+
+
+EXCAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCASHM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCASMH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCHASM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+EXCHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+EXCMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCMASH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+EXCMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+EXCMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSAHM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSAMH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSHAM
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSHMA
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSMAH
+ |--ES--|  
+AC   HM   X 
+
+
+EXCSMHA
+ |--ES--|  
+AC   HM   X 
+
+
+EXMACHS
+ |--CM--|  
+A   EH   SX 
+
+
+EXMACSH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMAHCS
+ |--EM--|  
+AC   H   SX 
+
+
+EXMAHSC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMASCH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMASHC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMCAHS
+ |--CM--|  
+A   EH   SX 
+
+
+EXMCASH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMCHAS
+ |--EM--|  
+AC   H   SX 
+
+
+EXMCHSA
+ |--EM--|  
+AC   H   SX 
+
+
+EXMCSAH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMCSHA
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHACS
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHASC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHCAS
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHCSA
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHSAC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMHSCA
+ |--EM--|  
+AC   H   SX 
+
+
+EXMSACH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMSAHC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMSCAH
+ |--CM--|  
+A   EH   SX 
+
+
+EXMSCHA
+ |--EM--|  
+AC   H   SX 
+
+
+EXMSHAC
+ |--EM--|  
+AC   H   SX 
+
+
+EXMSHCA
+ |--EM--|  
+AC   H   SX 
+
+
+EXSAHCM
+ |--ES--|  
+AC   HM   X 
+
+
+EXSAHMC
+ |--ES--|  
+AC   HM   X 
+
+
+EXSAMCH
+ |--ES--|  
+AC   HM   X 
+
+
+EXSAMHC
+ |--ES--|  
+AC   HM   X 
+
+
+EXSCHAM
+ |--ES--|  
+AC   HM   X 
+
+
+EXSCHMA
+ |--ES--|  
+AC   HM   X 
+
+
+EXSCMAH
+ |--ES--|  
+AC   HM   X 
+
+
+EXSCMHA
+ |--ES--|  
+AC   HM   X 
+
+
+EXSHACM
+ |--ES--|  
+AC   HM   X 
+
+
+EXSHAMC
+ |--ES--|  
+AC   HM   X 
+
+
+EXSHCAM
+ |--ES--|  
+AC   HM   X 
+
+
+EXSHCMA
+ |--ES--|  
+AC   HM   X 
+
+
+EXSMACH
+ |--ES--|  
+AC   HM   X 
+
+
+EXSMAHC
+ |--ES--|  
+AC   HM   X 
+
+
+EXSMCAH
+ |--ES--|  
+AC   HM   X 
+
+
+EXSMCHA
+ |--ES--|  
+AC   HM   X 
+
+
+HACMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+HACMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+HACMXES
+ |--CM--|  
+A   EH   SX 
+
+
+HACMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+HACSMEX
+ |--CM--|  
+A   EH   SX 
+
+
+HACSMXE
+ |--CM--|  
+A   EH   SX 
+
+
+HACXMES
+ |--CM--|  
+A   EH   SX 
+
+
+HACXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+HAECMSX
+ |--EM--|  
+AC   H   SX 
+
+
+HAECMXS
+ |--EM--|  
+AC   H   SX 
+
+
+HAECSMX
+ |--EM--|  
+AC   H   SX 
+
+
+HAECSXM
+ |--ES--|  
+AC   HM   X 
+
+
+HAECXMS
+ |--EM--|  
+AC   H   SX 
+
+
+HAECXSM
+ |--ES--|  
+AC   HM   X 
+
+
+HAEMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+HAEMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+HAEMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+HAEMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+HAEMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+HAEMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+HAESCMX
+ |--EM--|  
+AC   H   SX 
+
+
+HAESCXM
+ |--ES--|  
+AC   HM   X 
+
+
+HAESMCX
+ |--EM--|  
+AC   H   SX 
+
+
+HAESMXC
+ |--EM--|  
+AC   H   SX 
+
+
+HAESXCM
+ |--ES--|  
+AC   HM   X 
+
+
+HAESXMC
+ |--ES--|  
+AC   HM   X 
+
+
+HAEXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+HAEXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+HAEXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+HAEXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+HAEXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+HAEXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+HCAMSEX
+ |--CM--|  
+A   EH   SX 
+
+
+HCAMSXE
+ |--CM--|  
+A   EH   SX 
+
+
+HCAMXES
+ |--CM--|  
+A   EH   SX 
+
+
+HCAMXSE
+ |--CM--|  
+A   EH   SX 
+
+
+HCASMEX
+ |--CM--|  
+A   EH   SX 
+
+
+HCASMXE
+ |--CM--|  
+A   EH   SX 
+
+
+HCAXMES
+ |--CM--|  
+A   EH   SX 
+
+
+HCAXMSE
+ |--CM--|  
+A   EH   SX 
+
+
+HCEAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+HCEAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEASMX
+ |--EM--|  
+AC   H   SX 
+
+
+HCEASXM
+ |--ES--|  
+AC   HM   X 
+
+
+HCEAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+HCEMASX
+ |--EM--|  
+AC   H   SX 
+
+
+HCEMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+HCEMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+HCEMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+HCESAMX
+ |--EM--|  
+AC   H   SX 
+
+
+HCESAXM
+ |--ES--|  
+AC   HM   X 
+
+
+HCESMAX
+ |--EM--|  
+AC   H   SX 
+
+
+HCESMXA
+ |--EM--|  
+AC   H   SX 
+
+
+HCESXAM
+ |--ES--|  
+AC   HM   X 
+
+
+HCESXMA
+ |--ES--|  
+AC   HM   X 
+
+
+HCEXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEXASM
+ |--ES--|  
+AC   HM   X 
+
+
+HCEXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+HCEXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+HCEXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+HCEXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+HEACMSX
+ |--EM--|  
+AC   H   SX 
+
+
+HEACMXS
+ |--EM--|  
+AC   H   SX 
+
+
+HEACSMX
+ |--EM--|  
+AC   H   SX 
+
+
+HEACSXM
+ |--ES--|  
+AC   HM   X 
+
+
+HEACXMS
+ |--EM--|  
+AC   H   SX 
+
+
+HEACXSM
+ |--ES--|  
+AC   HM   X 
+
+
+HEAMCSX
+ |--EM--|  
+AC   H   SX 
+
+
+HEAMCXS
+ |--EM--|  
+AC   H   SX 
+
+
+HEAMSCX
+ |--EM--|  
+AC   H   SX 
+
+
+HEAMSXC
+ |--EM--|  
+AC   H   SX 
+
+
+HEAMXCS
+ |--EM--|  
+AC   H   SX 
+
+
+HEAMXSC
+ |--EM--|  
+AC   H   SX 
+
+
+HEASCMX
+ |--EM--|  
+AC   H   SX 
+
+
+HEASCXM
+ |--ES--|  
+AC   HM   X 
+
+
+HEASMCX
+ |--EM--|  
+AC   H   SX 
+
+
+HEASMXC
+ |--EM--|  
+AC   H   SX 
+
+
+HEASXCM
+ |--ES--|  
+AC   HM   X 
+
+
+HEASXMC
+ |--ES--|  
+AC   HM   X 
+
+
+HEAXCMS
+ |--EM--|  
+AC   H   SX 
+
+
+HEAXCSM
+ |--ES--|  
+AC   HM   X 
+
+
+HEAXMCS
+ |--EM--|  
+AC   H   SX 
+
+
+HEAXMSC
+ |--EM--|  
+AC   H   SX 
+
+
+HEAXSCM
+ |--ES--|  
+AC   HM   X 
+
+
+HEAXSMC
+ |--ES--|  
+AC   HM   X 
+
+
+HECAMSX
+ |--EM--|  
+AC   H   SX 
+
+
+HECAMXS
+ |--EM--|  
+AC   H   SX 
+
+
+HECASMX
+ |--EM--|  
+AC   H   SX 
+
+
+HECASXM
+ |--ES--|  
+AC   HM   X 
+
+
+HECAXMS
+ |--EM--|  
+AC   H   SX 
+
+
+HECAXSM
+ |--ES--|  
+AC   HM   X 
+
+
+HECMASX
+ |--EM--|  
+AC   H   SX 
+
+
+HECMAXS
+ |--EM--|  
+AC   H   SX 
+
+
+HECMSAX
+ |--EM--|  
+AC   H   SX 
+
+
+HECMSXA
+ |--EM--|  
+AC   H   SX 
+
+
+HECMXAS
+ |--EM--|  
+AC   H   SX 
+
+
+HECMXSA
+ |--EM--|  
+AC   H   SX 
+
+
+HECSAMX
+ |--EM--|  
+AC   H   SX 
+
+
+HECSAXM
+ |--ES--|  
+AC   HM   X 
+
+
+HECSMAX
+ |--EM--|  
+AC   H   SX 
+
+
+HECSMXA
+ |--EM--|  
+AC   H   SX 
+
+
+HECSXAM
+ |--ES--|  
+AC   HM   X 
+
+
+HECSXMA
+ |--ES--|  
+AC   HM   X 
+
+
+HECXAMS
+ |--EM--|  
+AC   H   SX 
+
+
+HECXASM
+ |--ES--|  
+AC   HM   X 
+
+
+HECXMAS
+ |--EM--|  
+AC   H   SX 
+
+
+HECXMSA
+ |--EM--|  
+AC   H   SX 
+
+
+HECXSAM
+ |--ES--|  
+AC   HM   X 
+
+
+HECXSMA
+ |--ES--|  
+AC   HM   X 
+
+
+HMSACEX
+ |--CM--|  
+A   EH   SX 
+
+
+HMSACXE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSAECX
+ |--EM--|  
+AC   H   SX 
+
+
+HMSAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+HMSCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+HMSCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+HMSCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+HMSEACX
+ |--EM--|  
+AC   H   SX 
+
+
+HMSEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSECAX
+ |--EM--|  
+AC   H   SX 
+
+
+HMSECXA
+ |--EM--|  
+AC   H   SX 
+
+
+HMSEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+HMSXACE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+HMSXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+HMSXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+HMSXECA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXACES
+ |--CM--|  
+A   EH   SX 
+
+
+HMXACSE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXAECS
+ |--EM--|  
+AC   H   SX 
+
+
+HMXAESC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXASCE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXASEC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXCAES
+ |--CM--|  
+A   EH   SX 
+
+
+HMXCASE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXCEAS
+ |--EM--|  
+AC   H   SX 
+
+
+HMXCESA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXCSAE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXCSEA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXEACS
+ |--EM--|  
+AC   H   SX 
+
+
+HMXEASC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXECAS
+ |--EM--|  
+AC   H   SX 
+
+
+HMXECSA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXESAC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXESCA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXSACE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXSAEC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXSCAE
+ |--CM--|  
+A   EH   SX 
+
+
+HMXSCEA
+ |--EM--|  
+AC   H   SX 
+
+
+HMXSEAC
+ |--EM--|  
+AC   H   SX 
+
+
+HMXSECA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMACEX
+ |--CM--|  
+A   EH   SX 
+
+
+HSMACXE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMAECX
+ |--EM--|  
+AC   H   SX 
+
+
+HSMAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+HSMCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+HSMCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMEACX
+ |--EM--|  
+AC   H   SX 
+
+
+HSMEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMECAX
+ |--EM--|  
+AC   H   SX 
+
+
+HSMECXA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMXACE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+HSMXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+HSMXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+HSMXECA
+ |--EM--|  
+AC   H   SX 
+
+
+HSXAECM
+ |--ES--|  
+AC   HM   X 
+
+
+HSXAEMC
+ |--ES--|  
+AC   HM   X 
+
+
+HSXCEAM
+ |--ES--|  
+AC   HM   X 
+
+
+HSXCEMA
+ |--ES--|  
+AC   HM   X 
+
+
+HSXEACM
+ |--ES--|  
+AC   HM   X 
+
+
+HSXEAMC
+ |--ES--|  
+AC   HM   X 
+
+
+HSXECAM
+ |--ES--|  
+AC   HM   X 
+
+
+HSXECMA
+ |--ES--|  
+AC   HM   X 
+
+
+HXMACES
+ |--CM--|  
+A   EH   SX 
+
+
+HXMACSE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMAECS
+ |--EM--|  
+AC   H   SX 
+
+
+HXMAESC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMASCE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMASEC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMCAES
+ |--CM--|  
+A   EH   SX 
+
+
+HXMCASE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMCEAS
+ |--EM--|  
+AC   H   SX 
+
+
+HXMCESA
+ |--EM--|  
+AC   H   SX 
+
+
+HXMCSAE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMCSEA
+ |--EM--|  
+AC   H   SX 
+
+
+HXMEACS
+ |--EM--|  
+AC   H   SX 
+
+
+HXMEASC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMECAS
+ |--EM--|  
+AC   H   SX 
+
+
+HXMECSA
+ |--EM--|  
+AC   H   SX 
+
+
+HXMESAC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMESCA
+ |--EM--|  
+AC   H   SX 
+
+
+HXMSACE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMSAEC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMSCAE
+ |--CM--|  
+A   EH   SX 
+
+
+HXMSCEA
+ |--EM--|  
+AC   H   SX 
+
+
+HXMSEAC
+ |--EM--|  
+AC   H   SX 
+
+
+HXMSECA
+ |--EM--|  
+AC   H   SX 
+
+
+HXSAECM
+ |--ES--|  
+AC   HM   X 
+
+
+HXSAEMC
+ |--ES--|  
+AC   HM   X 
+
+
+HXSCEAM
+ |--ES--|  
+AC   HM   X 
+
+
+HXSCEMA
+ |--ES--|  
+AC   HM   X 
+
+
+HXSEACM
+ |--ES--|  
+AC   HM   X 
+
+
+HXSEAMC
+ |--ES--|  
+AC   HM   X 
+
+
+HXSECAM
+ |--ES--|  
+AC   HM   X 
+
+
+HXSECMA
+ |--ES--|  
+AC   HM   X 
+
+
+MACESHX
+ |--CM--|  
+A   EH   SX 
+
+
+MACESXH
+ |--CM--|  
+A   EH   SX 
+
+
+MACEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+MACEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+MACHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+MACHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+MACHXES
+ |--CM--|  
+A   EH   SX 
+
+
+MACHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+MACSEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MACSEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MACSHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MACSHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MACXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MACXESH
+ |--CM--|  
+A   EH   SX 
+
+
+MACXHES
+ |--CM--|  
+A   EH   SX 
+
+
+MACXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MAECHSX
+ |--EM--|  
+AC   H   SX 
+
+
+MAECHXS
+ |--EM--|  
+AC   H   SX 
+
+
+MAECSHX
+ |--EM--|  
+AC   H   SX 
+
+
+MAECSXH
+ |--ES--|  
+AC   HM   X 
+
+
+MAECXHS
+ |--EM--|  
+AC   H   SX 
+
+
+MAECXSH
+ |--ES--|  
+AC   HM   X 
+
+
+MAEHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+MAEHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+MAEHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+MAEHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+MAEHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+MAEHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+MAESCHX
+ |--EM--|  
+AC   H   SX 
+
+
+MAESCXH
+ |--ES--|  
+AC   HM   X 
+
+
+MAESHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MAESHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MAESXCH
+ |--ES--|  
+AC   HM   X 
+
+
+MAESXHC
+ |--ES--|  
+AC   HM   X 
+
+
+MAEXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+MAEXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+MAEXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MAEXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MAEXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+MAEXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+MASCEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MASCEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MASCHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MASCHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MASCXEH
+ |--CM--|  
+A   EH   SX 
+
+
+MASCXHE
+ |--CM--|  
+A   EH   SX 
+
+
+MASECHX
+ |--CM--|  
+A   EH   SX 
+
+
+MASECXH
+ |--CM--|  
+A   EH   SX 
+
+
+MASEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MASEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MASEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+MASEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+MASHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+MASHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+MASHECX
+ |--EM--|  
+AC   H   SX 
+
+
+MASHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+MASHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+MASHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+MASXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+MASXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+MASXECH
+ |--CM--|  
+A   EH   SX 
+
+
+MASXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+MASXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+MASXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXCEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MAXCESH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXCHES
+ |--CM--|  
+A   EH   SX 
+
+
+MAXCHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXCSEH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXCSHE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXECHS
+ |--CM--|  
+A   EH   SX 
+
+
+MAXECSH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MAXEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXESCH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXESHC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXHCES
+ |--CM--|  
+A   EH   SX 
+
+
+MAXHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXHECS
+ |--EM--|  
+AC   H   SX 
+
+
+MAXHESC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXSCEH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXSCHE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXSECH
+ |--CM--|  
+A   EH   SX 
+
+
+MAXSEHC
+ |--EM--|  
+AC   H   SX 
+
+
+MAXSHCE
+ |--CM--|  
+A   EH   SX 
+
+
+MAXSHEC
+ |--EM--|  
+AC   H   SX 
+
+
+MCAESHX
+ |--CM--|  
+A   EH   SX 
+
+
+MCAESXH
+ |--CM--|  
+A   EH   SX 
+
+
+MCAEXHS
+ |--CM--|  
+A   EH   SX 
+
+
+MCAEXSH
+ |--CM--|  
+A   EH   SX 
+
+
+MCAHSEX
+ |--CM--|  
+A   EH   SX 
+
+
+MCAHSXE
+ |--CM--|  
+A   EH   SX 
+
+
+MCAHXES
+ |--CM--|  
+A   EH   SX 
+
+
+MCAHXSE
+ |--CM--|  
+A   EH   SX 
+
+
+MCASEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MCASEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MCASHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MCASHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MCAXEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MCAXESH
+ |--CM--|  
+A   EH   SX 
+
+
+MCAXHES
+ |--CM--|  
+A   EH   SX 
+
+
+MCAXHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MCEAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+MCEAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEASHX
+ |--EM--|  
+AC   H   SX 
+
+
+MCEASXH
+ |--ES--|  
+AC   HM   X 
+
+
+MCEAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+MCEHASX
+ |--EM--|  
+AC   H   SX 
+
+
+MCEHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+MCEHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+MCEHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+MCESAHX
+ |--EM--|  
+AC   H   SX 
+
+
+MCESAXH
+ |--ES--|  
+AC   HM   X 
+
+
+MCESHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MCESHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MCESXAH
+ |--ES--|  
+AC   HM   X 
+
+
+MCESXHA
+ |--ES--|  
+AC   HM   X 
+
+
+MCEXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEXASH
+ |--ES--|  
+AC   HM   X 
+
+
+MCEXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MCEXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MCEXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+MCEXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+MCSAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MCSAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MCSAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+MCSEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MCSEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MCSEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+MCSHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+MCSHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+MCSHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+MCSHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+MCSXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+MCSXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+MCSXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+MCSXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MCXAESH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXAHES
+ |--CM--|  
+A   EH   SX 
+
+
+MCXAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXASEH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXASHE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+MCXEASH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MCXEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXESAH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXESHA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXHAES
+ |--CM--|  
+A   EH   SX 
+
+
+MCXHASE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXHEAS
+ |--EM--|  
+AC   H   SX 
+
+
+MCXHESA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXHSAE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXHSEA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXSAEH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXSAHE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXSEAH
+ |--CM--|  
+A   EH   SX 
+
+
+MCXSEHA
+ |--EM--|  
+AC   H   SX 
+
+
+MCXSHAE
+ |--CM--|  
+A   EH   SX 
+
+
+MCXSHEA
+ |--EM--|  
+AC   H   SX 
+
+
+MEACHSX
+ |--EM--|  
+AC   H   SX 
+
+
+MEACHXS
+ |--EM--|  
+AC   H   SX 
+
+
+MEACSHX
+ |--EM--|  
+AC   H   SX 
+
+
+MEACSXH
+ |--ES--|  
+AC   HM   X 
+
+
+MEACXHS
+ |--EM--|  
+AC   H   SX 
+
+
+MEACXSH
+ |--ES--|  
+AC   HM   X 
+
+
+MEAHCSX
+ |--EM--|  
+AC   H   SX 
+
+
+MEAHCXS
+ |--EM--|  
+AC   H   SX 
+
+
+MEAHSCX
+ |--EM--|  
+AC   H   SX 
+
+
+MEAHSXC
+ |--EM--|  
+AC   H   SX 
+
+
+MEAHXCS
+ |--EM--|  
+AC   H   SX 
+
+
+MEAHXSC
+ |--EM--|  
+AC   H   SX 
+
+
+MEASCHX
+ |--EM--|  
+AC   H   SX 
+
+
+MEASCXH
+ |--ES--|  
+AC   HM   X 
+
+
+MEASHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MEASHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MEASXCH
+ |--ES--|  
+AC   HM   X 
+
+
+MEASXHC
+ |--ES--|  
+AC   HM   X 
+
+
+MEAXCHS
+ |--EM--|  
+AC   H   SX 
+
+
+MEAXCSH
+ |--ES--|  
+AC   HM   X 
+
+
+MEAXHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MEAXHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MEAXSCH
+ |--ES--|  
+AC   HM   X 
+
+
+MEAXSHC
+ |--ES--|  
+AC   HM   X 
+
+
+MECAHSX
+ |--EM--|  
+AC   H   SX 
+
+
+MECAHXS
+ |--EM--|  
+AC   H   SX 
+
+
+MECASHX
+ |--EM--|  
+AC   H   SX 
+
+
+MECASXH
+ |--ES--|  
+AC   HM   X 
+
+
+MECAXHS
+ |--EM--|  
+AC   H   SX 
+
+
+MECAXSH
+ |--ES--|  
+AC   HM   X 
+
+
+MECHASX
+ |--EM--|  
+AC   H   SX 
+
+
+MECHAXS
+ |--EM--|  
+AC   H   SX 
+
+
+MECHSAX
+ |--EM--|  
+AC   H   SX 
+
+
+MECHSXA
+ |--EM--|  
+AC   H   SX 
+
+
+MECHXAS
+ |--EM--|  
+AC   H   SX 
+
+
+MECHXSA
+ |--EM--|  
+AC   H   SX 
+
+
+MECSAHX
+ |--EM--|  
+AC   H   SX 
+
+
+MECSAXH
+ |--ES--|  
+AC   HM   X 
+
+
+MECSHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MECSHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MECSXAH
+ |--ES--|  
+AC   HM   X 
+
+
+MECSXHA
+ |--ES--|  
+AC   HM   X 
+
+
+MECXAHS
+ |--EM--|  
+AC   H   SX 
+
+
+MECXASH
+ |--ES--|  
+AC   HM   X 
+
+
+MECXHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MECXHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MECXSAH
+ |--ES--|  
+AC   HM   X 
+
+
+MECXSHA
+ |--ES--|  
+AC   HM   X 
+
+
+MESACHX
+ |--CM--|  
+A   EH   SX 
+
+
+MESACXH
+ |--CM--|  
+A   EH   SX 
+
+
+MESAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MESAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MESAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+MESAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+MESCAHX
+ |--CM--|  
+A   EH   SX 
+
+
+MESCAXH
+ |--CM--|  
+A   EH   SX 
+
+
+MESCHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MESCHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MESCXAH
+ |--CM--|  
+A   EH   SX 
+
+
+MESCXHA
+ |--EM--|  
+AC   H   SX 
+
+
+MESHACX
+ |--EM--|  
+AC   H   SX 
+
+
+MESHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+MESHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+MESHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+MESHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+MESHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+MESXACH
+ |--CM--|  
+A   EH   SX 
+
+
+MESXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+MESXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+MESXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+MESXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+MESXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXACHS
+ |--CM--|  
+A   EH   SX 
+
+
+MEXACSH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXAHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MEXAHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXASCH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXASHC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXCAHS
+ |--CM--|  
+A   EH   SX 
+
+
+MEXCASH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXCHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MEXCHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXCSAH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXCSHA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHACS
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHASC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHCAS
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHCSA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHSAC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXHSCA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXSACH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXSAHC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXSCAH
+ |--CM--|  
+A   EH   SX 
+
+
+MEXSCHA
+ |--EM--|  
+AC   H   SX 
+
+
+MEXSHAC
+ |--EM--|  
+AC   H   SX 
+
+
+MEXSHCA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSACEX
+ |--CM--|  
+A   EH   SX 
+
+
+MHSACXE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSAECX
+ |--EM--|  
+AC   H   SX 
+
+
+MHSAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+MHSCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+MHSCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSEACX
+ |--EM--|  
+AC   H   SX 
+
+
+MHSEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSECAX
+ |--EM--|  
+AC   H   SX 
+
+
+MHSECXA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSXACE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+MHSXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+MHSXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+MHSXECA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXACES
+ |--CM--|  
+A   EH   SX 
+
+
+MHXACSE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXAECS
+ |--EM--|  
+AC   H   SX 
+
+
+MHXAESC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXASCE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXASEC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXCAES
+ |--CM--|  
+A   EH   SX 
+
+
+MHXCASE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXCEAS
+ |--EM--|  
+AC   H   SX 
+
+
+MHXCESA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXCSAE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXCSEA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXEACS
+ |--EM--|  
+AC   H   SX 
+
+
+MHXEASC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXECAS
+ |--EM--|  
+AC   H   SX 
+
+
+MHXECSA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXESAC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXESCA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXSACE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXSAEC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXSCAE
+ |--CM--|  
+A   EH   SX 
+
+
+MHXSCEA
+ |--EM--|  
+AC   H   SX 
+
+
+MHXSEAC
+ |--EM--|  
+AC   H   SX 
+
+
+MHXSECA
+ |--EM--|  
+AC   H   SX 
+
+
+MSACEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSACEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSACHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSACHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSACXEH
+ |--CM--|  
+A   EH   SX 
+
+
+MSACXHE
+ |--CM--|  
+A   EH   SX 
+
+
+MSAECHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSAECXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSAEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MSAEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSAEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+MSAEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+MSAHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSAHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSAHECX
+ |--EM--|  
+AC   H   SX 
+
+
+MSAHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSAHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+MSAHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+MSAXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+MSAXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+MSAXECH
+ |--CM--|  
+A   EH   SX 
+
+
+MSAXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+MSAXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+MSAXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+MSCAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSCAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSCAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSCEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSCEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSCEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+MSCHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSCHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSCHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSCHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+MSCXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+MSCXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+MSCXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+MSCXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+MSEACHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSEACXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSEAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+MSEAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSEAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+MSEAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+MSECAHX
+ |--CM--|  
+A   EH   SX 
+
+
+MSECAXH
+ |--CM--|  
+A   EH   SX 
+
+
+MSECHAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSECHXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSECXAH
+ |--CM--|  
+A   EH   SX 
+
+
+MSECXHA
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHACX
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+MSEHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+MSEXACH
+ |--CM--|  
+A   EH   SX 
+
+
+MSEXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+MSEXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+MSEXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+MSEXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+MSEXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHACEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSHACXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHAECX
+ |--EM--|  
+AC   H   SX 
+
+
+MSHAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+MSHCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSHCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHEACX
+ |--EM--|  
+AC   H   SX 
+
+
+MSHEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHECAX
+ |--EM--|  
+AC   H   SX 
+
+
+MSHECXA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHXACE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+MSHXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+MSHXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+MSHXECA
+ |--EM--|  
+AC   H   SX 
+
+
+MSXAECH
+ |--ES--|  
+AC   HM   X 
+
+
+MSXAEHC
+ |--ES--|  
+AC   HM   X 
+
+
+MSXCEAH
+ |--ES--|  
+AC   HM   X 
+
+
+MSXCEHA
+ |--ES--|  
+AC   HM   X 
+
+
+MSXEACH
+ |--ES--|  
+AC   HM   X 
+
+
+MSXEAHC
+ |--ES--|  
+AC   HM   X 
+
+
+MSXECAH
+ |--ES--|  
+AC   HM   X 
+
+
+MSXECHA
+ |--ES--|  
+AC   HM   X 
+
+
+MXACEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXACESH
+ |--CM--|  
+A   EH   SX 
+
+
+MXACHES
+ |--CM--|  
+A   EH   SX 
+
+
+MXACHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MXACSEH
+ |--CM--|  
+A   EH   SX 
+
+
+MXACSHE
+ |--CM--|  
+A   EH   SX 
+
+
+MXAECHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXAECSH
+ |--CM--|  
+A   EH   SX 
+
+
+MXAEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MXAEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MXAESCH
+ |--CM--|  
+A   EH   SX 
+
+
+MXAESHC
+ |--EM--|  
+AC   H   SX 
+
+
+MXAHCES
+ |--CM--|  
+A   EH   SX 
+
+
+MXAHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+MXAHECS
+ |--EM--|  
+AC   H   SX 
+
+
+MXAHESC
+ |--EM--|  
+AC   H   SX 
+
+
+MXAHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+MXAHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+MXASCEH
+ |--CM--|  
+A   EH   SX 
+
+
+MXASCHE
+ |--CM--|  
+A   EH   SX 
+
+
+MXASECH
+ |--CM--|  
+A   EH   SX 
+
+
+MXASEHC
+ |--EM--|  
+AC   H   SX 
+
+
+MXASHCE
+ |--CM--|  
+A   EH   SX 
+
+
+MXASHEC
+ |--EM--|  
+AC   H   SX 
+
+
+MXCAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXCAESH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCAHES
+ |--CM--|  
+A   EH   SX 
+
+
+MXCAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCASEH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCASHE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXCEASH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXCEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MXCESAH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCESHA
+ |--EM--|  
+AC   H   SX 
+
+
+MXCHAES
+ |--CM--|  
+A   EH   SX 
+
+
+MXCHASE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCHEAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXCHESA
+ |--EM--|  
+AC   H   SX 
+
+
+MXCHSAE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCHSEA
+ |--EM--|  
+AC   H   SX 
+
+
+MXCSAEH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCSAHE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCSEAH
+ |--CM--|  
+A   EH   SX 
+
+
+MXCSEHA
+ |--EM--|  
+AC   H   SX 
+
+
+MXCSHAE
+ |--CM--|  
+A   EH   SX 
+
+
+MXCSHEA
+ |--EM--|  
+AC   H   SX 
+
+
+MXEACHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXEACSH
+ |--CM--|  
+A   EH   SX 
+
+
+MXEAHCS
+ |--EM--|  
+AC   H   SX 
+
+
+MXEAHSC
+ |--EM--|  
+AC   H   SX 
+
+
+MXEASCH
+ |--CM--|  
+A   EH   SX 
+
+
+MXEASHC
+ |--EM--|  
+AC   H   SX 
+
+
+MXECAHS
+ |--CM--|  
+A   EH   SX 
+
+
+MXECASH
+ |--CM--|  
+A   EH   SX 
+
+
+MXECHAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXECHSA
+ |--EM--|  
+AC   H   SX 
+
+
+MXECSAH
+ |--CM--|  
+A   EH   SX 
+
+
+MXECSHA
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHACS
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHASC
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHCAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHCSA
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHSAC
+ |--EM--|  
+AC   H   SX 
+
+
+MXEHSCA
+ |--EM--|  
+AC   H   SX 
+
+
+MXESACH
+ |--CM--|  
+A   EH   SX 
+
+
+MXESAHC
+ |--EM--|  
+AC   H   SX 
+
+
+MXESCAH
+ |--CM--|  
+A   EH   SX 
+
+
+MXESCHA
+ |--EM--|  
+AC   H   SX 
+
+
+MXESHAC
+ |--EM--|  
+AC   H   SX 
+
+
+MXESHCA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHACES
+ |--CM--|  
+A   EH   SX 
+
+
+MXHACSE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHAECS
+ |--EM--|  
+AC   H   SX 
+
+
+MXHAESC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHASCE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHASEC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHCAES
+ |--CM--|  
+A   EH   SX 
+
+
+MXHCASE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHCEAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXHCESA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHCSAE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHCSEA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHEACS
+ |--EM--|  
+AC   H   SX 
+
+
+MXHEASC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHECAS
+ |--EM--|  
+AC   H   SX 
+
+
+MXHECSA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHESAC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHESCA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHSACE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHSAEC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHSCAE
+ |--CM--|  
+A   EH   SX 
+
+
+MXHSCEA
+ |--EM--|  
+AC   H   SX 
+
+
+MXHSEAC
+ |--EM--|  
+AC   H   SX 
+
+
+MXHSECA
+ |--EM--|  
+AC   H   SX 
+
+
+MXSAECH
+ |--ES--|  
+AC   HM   X 
+
+
+MXSAEHC
+ |--ES--|  
+AC   HM   X 
+
+
+MXSCEAH
+ |--ES--|  
+AC   HM   X 
+
+
+MXSCEHA
+ |--ES--|  
+AC   HM   X 
+
+
+MXSEACH
+ |--ES--|  
+AC   HM   X 
+
+
+MXSEAHC
+ |--ES--|  
+AC   HM   X 
+
+
+MXSECAH
+ |--ES--|  
+AC   HM   X 
+
+
+MXSECHA
+ |--ES--|  
+AC   HM   X 
+
+
+SACEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+SACEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+SACHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+SACHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+SACMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SACMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SACMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SACMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SAECHMX
+ |--EM--|  
+AC   H   SX 
+
+
+SAECHXM
+ |--ES--|  
+AC   HM   X 
+
+
+SAECMHX
+ |--EM--|  
+AC   H   SX 
+
+
+SAECMXH
+ |--ES--|  
+AC   HM   X 
+
+
+SAECXHM
+ |--ES--|  
+AC   HM   X 
+
+
+SAECXMH
+ |--ES--|  
+AC   HM   X 
+
+
+SAEHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+SAEHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+SAEHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+SAEHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+SAEHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+SAEHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+SAEMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+SAEMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+SAEMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SAEMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SAEMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+SAEMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SAEXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SAMCEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SAMCEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMCHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SAMCHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMCXEH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMCXHE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMECHX
+ |--CM--|  
+A   EH   SX 
+
+
+SAMECXH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SAMEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SAMEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+SAMHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+SAMHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMHECX
+ |--EM--|  
+AC   H   SX 
+
+
+SAMHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+SAMHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+SAMXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMXECH
+ |--CM--|  
+A   EH   SX 
+
+
+SAMXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+SAMXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+SAMXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+SAXEHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SAXEHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SAXEMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SAXEMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SAXHECM
+ |--ES--|  
+AC   HM   X 
+
+
+SAXHEMC
+ |--ES--|  
+AC   HM   X 
+
+
+SAXMECH
+ |--ES--|  
+AC   HM   X 
+
+
+SAXMEHC
+ |--ES--|  
+AC   HM   X 
+
+
+SCAEMHX
+ |--CM--|  
+A   EH   SX 
+
+
+SCAEMXH
+ |--CM--|  
+A   EH   SX 
+
+
+SCAHMEX
+ |--CM--|  
+A   EH   SX 
+
+
+SCAHMXE
+ |--CM--|  
+A   EH   SX 
+
+
+SCAMEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SCAMEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SCAMHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SCAMHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SCEAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+SCEHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+SCEMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SCEMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SCEMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SCEXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SCMAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SCMAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SCMAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+SCMEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SCMEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SCMEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+SCMHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+SCMHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+SCMHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+SCMHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+SCMXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+SCMXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+SCMXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+SCMXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+SCXEHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SCXEHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SCXEMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SCXEMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SCXHEAM
+ |--ES--|  
+AC   HM   X 
+
+
+SCXHEMA
+ |--ES--|  
+AC   HM   X 
+
+
+SCXMEAH
+ |--ES--|  
+AC   HM   X 
+
+
+SCXMEHA
+ |--ES--|  
+AC   HM   X 
+
+
+SEACHMX
+ |--EM--|  
+AC   H   SX 
+
+
+SEACHXM
+ |--ES--|  
+AC   HM   X 
+
+
+SEACMHX
+ |--EM--|  
+AC   H   SX 
+
+
+SEACMXH
+ |--ES--|  
+AC   HM   X 
+
+
+SEACXHM
+ |--ES--|  
+AC   HM   X 
+
+
+SEACXMH
+ |--ES--|  
+AC   HM   X 
+
+
+SEAHCMX
+ |--EM--|  
+AC   H   SX 
+
+
+SEAHCXM
+ |--ES--|  
+AC   HM   X 
+
+
+SEAHMCX
+ |--EM--|  
+AC   H   SX 
+
+
+SEAHMXC
+ |--EM--|  
+AC   H   SX 
+
+
+SEAHXCM
+ |--ES--|  
+AC   HM   X 
+
+
+SEAHXMC
+ |--ES--|  
+AC   HM   X 
+
+
+SEAMCHX
+ |--EM--|  
+AC   H   SX 
+
+
+SEAMCXH
+ |--ES--|  
+AC   HM   X 
+
+
+SEAMHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SEAMHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SEAMXCH
+ |--ES--|  
+AC   HM   X 
+
+
+SEAMXHC
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXCHM
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXCMH
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SEAXMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SECAHMX
+ |--EM--|  
+AC   H   SX 
+
+
+SECAHXM
+ |--ES--|  
+AC   HM   X 
+
+
+SECAMHX
+ |--EM--|  
+AC   H   SX 
+
+
+SECAMXH
+ |--ES--|  
+AC   HM   X 
+
+
+SECAXHM
+ |--ES--|  
+AC   HM   X 
+
+
+SECAXMH
+ |--ES--|  
+AC   HM   X 
+
+
+SECHAMX
+ |--EM--|  
+AC   H   SX 
+
+
+SECHAXM
+ |--ES--|  
+AC   HM   X 
+
+
+SECHMAX
+ |--EM--|  
+AC   H   SX 
+
+
+SECHMXA
+ |--EM--|  
+AC   H   SX 
+
+
+SECHXAM
+ |--ES--|  
+AC   HM   X 
+
+
+SECHXMA
+ |--ES--|  
+AC   HM   X 
+
+
+SECMAHX
+ |--EM--|  
+AC   H   SX 
+
+
+SECMAXH
+ |--ES--|  
+AC   HM   X 
+
+
+SECMHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SECMHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SECMXAH
+ |--ES--|  
+AC   HM   X 
+
+
+SECMXHA
+ |--ES--|  
+AC   HM   X 
+
+
+SECXAHM
+ |--ES--|  
+AC   HM   X 
+
+
+SECXAMH
+ |--ES--|  
+AC   HM   X 
+
+
+SECXHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SECXHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SECXMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SECXMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SEMACHX
+ |--CM--|  
+A   EH   SX 
+
+
+SEMACXH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SEMAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMCAHX
+ |--CM--|  
+A   EH   SX 
+
+
+SEMCAXH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMCHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SEMCHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SEMCXAH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMCXHA
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHACX
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+SEMXACH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+SEMXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+SEMXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+SEMXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+SEXAHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SEXAHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SEXAMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SEXAMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SEXCHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SEXCHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SEXCMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SEXCMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SEXHACM
+ |--ES--|  
+AC   HM   X 
+
+
+SEXHAMC
+ |--ES--|  
+AC   HM   X 
+
+
+SEXHCAM
+ |--ES--|  
+AC   HM   X 
+
+
+SEXHCMA
+ |--ES--|  
+AC   HM   X 
+
+
+SEXMACH
+ |--ES--|  
+AC   HM   X 
+
+
+SEXMAHC
+ |--ES--|  
+AC   HM   X 
+
+
+SEXMCAH
+ |--ES--|  
+AC   HM   X 
+
+
+SEXMCHA
+ |--ES--|  
+AC   HM   X 
+
+
+SHMACEX
+ |--CM--|  
+A   EH   SX 
+
+
+SHMACXE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMAECX
+ |--EM--|  
+AC   H   SX 
+
+
+SHMAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+SHMCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+SHMCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+SHMCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+SHMEACX
+ |--EM--|  
+AC   H   SX 
+
+
+SHMEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMECAX
+ |--EM--|  
+AC   H   SX 
+
+
+SHMECXA
+ |--EM--|  
+AC   H   SX 
+
+
+SHMEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+SHMXACE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+SHMXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+SHMXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+SHMXECA
+ |--EM--|  
+AC   H   SX 
+
+
+SHXAECM
+ |--ES--|  
+AC   HM   X 
+
+
+SHXAEMC
+ |--ES--|  
+AC   HM   X 
+
+
+SHXCEAM
+ |--ES--|  
+AC   HM   X 
+
+
+SHXCEMA
+ |--ES--|  
+AC   HM   X 
+
+
+SHXEACM
+ |--ES--|  
+AC   HM   X 
+
+
+SHXEAMC
+ |--ES--|  
+AC   HM   X 
+
+
+SHXECAM
+ |--ES--|  
+AC   HM   X 
+
+
+SHXECMA
+ |--ES--|  
+AC   HM   X 
+
+
+SMACEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMACEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMACHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMACHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMACXEH
+ |--CM--|  
+A   EH   SX 
+
+
+SMACXHE
+ |--CM--|  
+A   EH   SX 
+
+
+SMAECHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMAECXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMAEHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SMAEHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMAEXCH
+ |--CM--|  
+A   EH   SX 
+
+
+SMAEXHC
+ |--EM--|  
+AC   H   SX 
+
+
+SMAHCEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMAHCXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMAHECX
+ |--EM--|  
+AC   H   SX 
+
+
+SMAHEXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMAHXCE
+ |--CM--|  
+A   EH   SX 
+
+
+SMAHXEC
+ |--EM--|  
+AC   H   SX 
+
+
+SMAXCEH
+ |--CM--|  
+A   EH   SX 
+
+
+SMAXCHE
+ |--CM--|  
+A   EH   SX 
+
+
+SMAXECH
+ |--CM--|  
+A   EH   SX 
+
+
+SMAXEHC
+ |--EM--|  
+AC   H   SX 
+
+
+SMAXHCE
+ |--CM--|  
+A   EH   SX 
+
+
+SMAXHEC
+ |--EM--|  
+AC   H   SX 
+
+
+SMCAEHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMCAEXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCAHEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMCAHXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCAXEH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCAXHE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCEAHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMCEAXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCEHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMCEHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMCEXAH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCEXHA
+ |--EM--|  
+AC   H   SX 
+
+
+SMCHAEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMCHAXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCHEAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMCHEXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMCHXAE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCHXEA
+ |--EM--|  
+AC   H   SX 
+
+
+SMCXAEH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCXAHE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCXEAH
+ |--CM--|  
+A   EH   SX 
+
+
+SMCXEHA
+ |--EM--|  
+AC   H   SX 
+
+
+SMCXHAE
+ |--CM--|  
+A   EH   SX 
+
+
+SMCXHEA
+ |--EM--|  
+AC   H   SX 
+
+
+SMEACHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMEACXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMEAHCX
+ |--EM--|  
+AC   H   SX 
+
+
+SMEAHXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMEAXCH
+ |--CM--|  
+A   EH   SX 
+
+
+SMEAXHC
+ |--EM--|  
+AC   H   SX 
+
+
+SMECAHX
+ |--CM--|  
+A   EH   SX 
+
+
+SMECAXH
+ |--CM--|  
+A   EH   SX 
+
+
+SMECHAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMECHXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMECXAH
+ |--CM--|  
+A   EH   SX 
+
+
+SMECXHA
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHACX
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHAXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHCAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHCXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHXAC
+ |--EM--|  
+AC   H   SX 
+
+
+SMEHXCA
+ |--EM--|  
+AC   H   SX 
+
+
+SMEXACH
+ |--CM--|  
+A   EH   SX 
+
+
+SMEXAHC
+ |--EM--|  
+AC   H   SX 
+
+
+SMEXCAH
+ |--CM--|  
+A   EH   SX 
+
+
+SMEXCHA
+ |--EM--|  
+AC   H   SX 
+
+
+SMEXHAC
+ |--EM--|  
+AC   H   SX 
+
+
+SMEXHCA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHACEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMHACXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHAECX
+ |--EM--|  
+AC   H   SX 
+
+
+SMHAEXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHAXCE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHAXEC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHCAEX
+ |--CM--|  
+A   EH   SX 
+
+
+SMHCAXE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHCEAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMHCEXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHCXAE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHCXEA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHEACX
+ |--EM--|  
+AC   H   SX 
+
+
+SMHEAXC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHECAX
+ |--EM--|  
+AC   H   SX 
+
+
+SMHECXA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHEXAC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHEXCA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHXACE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHXAEC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHXCAE
+ |--CM--|  
+A   EH   SX 
+
+
+SMHXCEA
+ |--EM--|  
+AC   H   SX 
+
+
+SMHXEAC
+ |--EM--|  
+AC   H   SX 
+
+
+SMHXECA
+ |--EM--|  
+AC   H   SX 
+
+
+SMXAECH
+ |--ES--|  
+AC   HM   X 
+
+
+SMXAEHC
+ |--ES--|  
+AC   HM   X 
+
+
+SMXCEAH
+ |--ES--|  
+AC   HM   X 
+
+
+SMXCEHA
+ |--ES--|  
+AC   HM   X 
+
+
+SMXEACH
+ |--ES--|  
+AC   HM   X 
+
+
+SMXEAHC
+ |--ES--|  
+AC   HM   X 
+
+
+SMXECAH
+ |--ES--|  
+AC   HM   X 
+
+
+SMXECHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXAEHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SXAEHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXAEMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SXAEMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXAHECM
+ |--ES--|  
+AC   HM   X 
+
+
+SXAHEMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXAMECH
+ |--ES--|  
+AC   HM   X 
+
+
+SXAMEHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXCEHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXCEHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXCEMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXCEMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXCHEAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXCHEMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXCMEAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXCMEHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXEAHCM
+ |--ES--|  
+AC   HM   X 
+
+
+SXEAHMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXEAMCH
+ |--ES--|  
+AC   HM   X 
+
+
+SXEAMHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXECHAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXECHMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXECMAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXECMHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXEHACM
+ |--ES--|  
+AC   HM   X 
+
+
+SXEHAMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXEHCAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXEHCMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXEMACH
+ |--ES--|  
+AC   HM   X 
+
+
+SXEMAHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXEMCAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXEMCHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXHAECM
+ |--ES--|  
+AC   HM   X 
+
+
+SXHAEMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXHCEAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXHCEMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXHEACM
+ |--ES--|  
+AC   HM   X 
+
+
+SXHEAMC
+ |--ES--|  
+AC   HM   X 
+
+
+SXHECAM
+ |--ES--|  
+AC   HM   X 
+
+
+SXHECMA
+ |--ES--|  
+AC   HM   X 
+
+
+SXMAECH
+ |--ES--|  
+AC   HM   X 
+
+
+SXMAEHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXMCEAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXMCEHA
+ |--ES--|  
+AC   HM   X 
+
+
+SXMEACH
+ |--ES--|  
+AC   HM   X 
+
+
+SXMEAHC
+ |--ES--|  
+AC   HM   X 
+
+
+SXMECAH
+ |--ES--|  
+AC   HM   X 
+
+
+SXMECHA
+ |--ES--|  
+AC   HM   X 
+
+
+XACEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+XACEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+XACHMES
+ |--CM--|  
+A   EH   SX 
+
+
+XACHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+XACMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XACMESH
+ |--CM--|  
+A   EH   SX 
+
+
+XACMHES
+ |--CM--|  
+A   EH   SX 
+
+
+XACMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XAECHMS
+ |--EM--|  
+AC   H   SX 
+
+
+XAECHSM
+ |--ES--|  
+AC   HM   X 
+
+
+XAECMHS
+ |--EM--|  
+AC   H   SX 
+
+
+XAECMSH
+ |--ES--|  
+AC   HM   X 
+
+
+XAECSHM
+ |--ES--|  
+AC   HM   X 
+
+
+XAECSMH
+ |--ES--|  
+AC   HM   X 
+
+
+XAEHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+XAEHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+XAEHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+XAEHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+XAEHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+XAEHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+XAEMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+XAEMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+XAEMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+XAEMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+XAEMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+XAEMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+XAESCHM
+ |--ES--|  
+AC   HM   X 
+
+
+XAESCMH
+ |--ES--|  
+AC   HM   X 
+
+
+XAESHCM
+ |--ES--|  
+AC   HM   X 
+
+
+XAESHMC
+ |--ES--|  
+AC   HM   X 
+
+
+XAESMCH
+ |--ES--|  
+AC   HM   X 
+
+
+XAESMHC
+ |--ES--|  
+AC   HM   X 
+
+
+XAMCEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XAMCESH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMCHES
+ |--CM--|  
+A   EH   SX 
+
+
+XAMCHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMCSEH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMCSHE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMECHS
+ |--CM--|  
+A   EH   SX 
+
+
+XAMECSH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+XAMEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+XAMESCH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMESHC
+ |--EM--|  
+AC   H   SX 
+
+
+XAMHCES
+ |--CM--|  
+A   EH   SX 
+
+
+XAMHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMHECS
+ |--EM--|  
+AC   H   SX 
+
+
+XAMHESC
+ |--EM--|  
+AC   H   SX 
+
+
+XAMHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+XAMSCEH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMSCHE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMSECH
+ |--CM--|  
+A   EH   SX 
+
+
+XAMSEHC
+ |--EM--|  
+AC   H   SX 
+
+
+XAMSHCE
+ |--CM--|  
+A   EH   SX 
+
+
+XAMSHEC
+ |--EM--|  
+AC   H   SX 
+
+
+XASEHCM
+ |--ES--|  
+AC   HM   X 
+
+
+XASEHMC
+ |--ES--|  
+AC   HM   X 
+
+
+XASEMCH
+ |--ES--|  
+AC   HM   X 
+
+
+XASEMHC
+ |--ES--|  
+AC   HM   X 
+
+
+XASHECM
+ |--ES--|  
+AC   HM   X 
+
+
+XASHEMC
+ |--ES--|  
+AC   HM   X 
+
+
+XASMECH
+ |--ES--|  
+AC   HM   X 
+
+
+XASMEHC
+ |--ES--|  
+AC   HM   X 
+
+
+XCAEMHS
+ |--CM--|  
+A   EH   SX 
+
+
+XCAEMSH
+ |--CM--|  
+A   EH   SX 
+
+
+XCAHMES
+ |--CM--|  
+A   EH   SX 
+
+
+XCAHMSE
+ |--CM--|  
+A   EH   SX 
+
+
+XCAMEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XCAMESH
+ |--CM--|  
+A   EH   SX 
+
+
+XCAMHES
+ |--CM--|  
+A   EH   SX 
+
+
+XCAMHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XCEAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+XCEAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+XCEASHM
+ |--ES--|  
+AC   HM   X 
+
+
+XCEASMH
+ |--ES--|  
+AC   HM   X 
+
+
+XCEHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEHASM
+ |--ES--|  
+AC   HM   X 
+
+
+XCEHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+XCEHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+XCEHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+XCEMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEMASH
+ |--ES--|  
+AC   HM   X 
+
+
+XCEMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+XCEMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+XCEMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+XCEMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+XCESAHM
+ |--ES--|  
+AC   HM   X 
+
+
+XCESAMH
+ |--ES--|  
+AC   HM   X 
+
+
+XCESHAM
+ |--ES--|  
+AC   HM   X 
+
+
+XCESHMA
+ |--ES--|  
+AC   HM   X 
+
+
+XCESMAH
+ |--ES--|  
+AC   HM   X 
+
+
+XCESMHA
+ |--ES--|  
+AC   HM   X 
+
+
+XCMAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XCMAESH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMAHES
+ |--CM--|  
+A   EH   SX 
+
+
+XCMAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMASEH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMASHE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+XCMEASH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+XCMEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+XCMESAH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMESHA
+ |--EM--|  
+AC   H   SX 
+
+
+XCMHAES
+ |--CM--|  
+A   EH   SX 
+
+
+XCMHASE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMHEAS
+ |--EM--|  
+AC   H   SX 
+
+
+XCMHESA
+ |--EM--|  
+AC   H   SX 
+
+
+XCMHSAE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMHSEA
+ |--EM--|  
+AC   H   SX 
+
+
+XCMSAEH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMSAHE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMSEAH
+ |--CM--|  
+A   EH   SX 
+
+
+XCMSEHA
+ |--EM--|  
+AC   H   SX 
+
+
+XCMSHAE
+ |--CM--|  
+A   EH   SX 
+
+
+XCMSHEA
+ |--EM--|  
+AC   H   SX 
+
+
+XCSEHAM
+ |--ES--|  
+AC   HM   X 
+
+
+XCSEHMA
+ |--ES--|  
+AC   HM   X 
+
+
+XCSEMAH
+ |--ES--|  
+AC   HM   X 
+
+
+XCSEMHA
+ |--ES--|  
+AC   HM   X 
+
+
+XCSHEAM
+ |--ES--|  
+AC   HM   X 
+
+
+XCSHEMA
+ |--ES--|  
+AC   HM   X 
+
+
+XCSMEAH
+ |--ES--|  
+AC   HM   X 
+
+
+XCSMEHA
+ |--ES--|  
+AC   HM   X 
+
+
+XEACHMS
+ |--EM--|  
+AC   H   SX 
+
+
+XEACHSM
+ |--ES--|  
+AC   HM   X 
+
+
+XEACMHS
+ |--EM--|  
+AC   H   SX 
+
+
+XEACMSH
+ |--ES--|  
+AC   HM   X 
+
+
+XEACSHM
+ |--ES--|  
+AC   HM   X 
+
+
+XEACSMH
+ |--ES--|  
+AC   HM   X 
+
+
+XEAHCMS
+ |--EM--|  
+AC   H   SX 
+
+
+XEAHCSM
+ |--ES--|  
+AC   HM   X 
+
+
+XEAHMCS
+ |--EM--|  
+AC   H   SX 
+
+
+XEAHMSC
+ |--EM--|  
+AC   H   SX 
+
+
+XEAHSCM
+ |--ES--|  
+AC   HM   X 
+
+
+XEAHSMC
+ |--ES--|  
+AC   HM   X 
+
+
+XEAMCHS
+ |--EM--|  
+AC   H   SX 
+
+
+XEAMCSH
+ |--ES--|  
+AC   HM   X 
+
+
+XEAMHCS
+ |--EM--|  
+AC   H   SX 
+
+
+XEAMHSC
+ |--EM--|  
+AC   H   SX 
+
+
+XEAMSCH
+ |--ES--|  
+AC   HM   X 
+
+
+XEAMSHC
+ |--ES--|  
+AC   HM   X 
+
+
+XEASCHM
+ |--ES--|  
+AC   HM   X 
+
+
+XEASCMH
+ |--ES--|  
+AC   HM   X 
+
+
+XEASHCM
+ |--ES--|  
+AC   HM   X 
+
+
+XEASHMC
+ |--ES--|  
+AC   HM   X 
+
+
+XEASMCH
+ |--ES--|  
+AC   HM   X 
+
+
+XEASMHC
+ |--ES--|  
+AC   HM   X 
+
+
+XECAHMS
+ |--EM--|  
+AC   H   SX 
+
+
+XECAHSM
+ |--ES--|  
+AC   HM   X 
+
+
+XECAMHS
+ |--EM--|  
+AC   H   SX 
+
+
+XECAMSH
+ |--ES--|  
+AC   HM   X 
+
+
+XECASHM
+ |--ES--|  
+AC   HM   X 
+
+
+XECASMH
+ |--ES--|  
+AC   HM   X 
+
+
+XECHAMS
+ |--EM--|  
+AC   H   SX 
+
+
+XECHASM
+ |--ES--|  
+AC   HM   X 
+
+
+XECHMAS
+ |--EM--|  
+AC   H   SX 
+
+
+XECHMSA
+ |--EM--|  
+AC   H   SX 
+
+
+XECHSAM
+ |--ES--|  
+AC   HM   X 
+
+
+XECHSMA
+ |--ES--|  
+AC   HM   X 
+
+
+XECMAHS
+ |--EM--|  
+AC   H   SX 
+
+
+XECMASH
+ |--ES--|  
+AC   HM   X 
+
+
+XECMHAS
+ |--EM--|  
+AC   H   SX 
+
+
+XECMHSA
+ |--EM--|  
+AC   H   SX 
+
+
+XECMSAH
+ |--ES--|  
+AC   HM   X 
+
+
+XECMSHA
+ |--ES--|  
+AC   HM   X 
+
+
+XECSAHM
+ |--ES--|  
+AC   HM   X 
+
+
+XECSAMH
+ |--ES--|  
+AC   HM   X 
+
+
+XECSHAM
+ |--ES--|  
+AC   HM   X 
+
+
+XECSHMA
+ |--ES--|  
+AC   HM   X 
+
+
+XECSMAH
+ |--ES--|  
+AC   HM   X 
+
+
+XECSMHA
+ |--ES--|  
+AC   HM   X 
+
+
+XEMACHS
+ |--CM--|  
+A   EH   SX 
+
+
+XEMACSH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMAHCS
+ |--EM--|  
+AC   H   SX 
+
+
+XEMAHSC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMASCH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMASHC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMCAHS
+ |--CM--|  
+A   EH   SX 
+
+
+XEMCASH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMCHAS
+ |--EM--|  
+AC   H   SX 
+
+
+XEMCHSA
+ |--EM--|  
+AC   H   SX 
+
+
+XEMCSAH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMCSHA
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHACS
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHASC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHCAS
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHCSA
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHSAC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMHSCA
+ |--EM--|  
+AC   H   SX 
+
+
+XEMSACH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMSAHC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMSCAH
+ |--CM--|  
+A   EH   SX 
+
+
+XEMSCHA
+ |--EM--|  
+AC   H   SX 
+
+
+XEMSHAC
+ |--EM--|  
+AC   H   SX 
+
+
+XEMSHCA
+ |--EM--|  
+AC   H   SX 
+
+
+XESAHCM
+ |--ES--|  
+AC   HM   X 
+
+
+XESAHMC
+ |--ES--|  
+AC   HM   X 
+
+
+XESAMCH
+ |--ES--|  
+AC   HM   X 
+
+
+XESAMHC
+ |--ES--|  
+AC   HM   X 
+
+
+XESCHAM
+ |--ES--|  
+AC   HM   X 
+
+
+XESCHMA
+ |--ES--|  
+AC   HM   X 
+
+
+XESCMAH
+ |--ES--|  
+AC   HM   X 
+
+
+XESCMHA
+ |--ES--|  
+AC   HM   X 
+
+
+XESHACM
+ |--ES--|  
+AC   HM   X 
+
+
+XESHAMC
+ |--ES--|  
+AC   HM   X 
+
+
+XESHCAM
+ |--ES--|  
+AC   HM   X 
+
+
+XESHCMA
+ |--ES--|  
+AC   HM   X 
+
+
+XESMACH
+ |--ES--|  
+AC   HM   X 
+
+
+XESMAHC
+ |--ES--|  
+AC   HM   X 
+
+
+XESMCAH
+ |--ES--|  
+AC   HM   X 
+
+
+XESMCHA
+ |--ES--|  
+AC   HM   X 
+
+
+XHMACES
+ |--CM--|  
+A   EH   SX 
+
+
+XHMACSE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMAECS
+ |--EM--|  
+AC   H   SX 
+
+
+XHMAESC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMASCE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMASEC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMCAES
+ |--CM--|  
+A   EH   SX 
+
+
+XHMCASE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMCEAS
+ |--EM--|  
+AC   H   SX 
+
+
+XHMCESA
+ |--EM--|  
+AC   H   SX 
+
+
+XHMCSAE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMCSEA
+ |--EM--|  
+AC   H   SX 
+
+
+XHMEACS
+ |--EM--|  
+AC   H   SX 
+
+
+XHMEASC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMECAS
+ |--EM--|  
+AC   H   SX 
+
+
+XHMECSA
+ |--EM--|  
+AC   H   SX 
+
+
+XHMESAC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMESCA
+ |--EM--|  
+AC   H   SX 
+
+
+XHMSACE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMSAEC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMSCAE
+ |--CM--|  
+A   EH   SX 
+
+
+XHMSCEA
+ |--EM--|  
+AC   H   SX 
+
+
+XHMSEAC
+ |--EM--|  
+AC   H   SX 
+
+
+XHMSECA
+ |--EM--|  
+AC   H   SX 
+
+
+XHSAECM
+ |--ES--|  
+AC   HM   X 
+
+
+XHSAEMC
+ |--ES--|  
+AC   HM   X 
+
+
+XHSCEAM
+ |--ES--|  
+AC   HM   X 
+
+
+XHSCEMA
+ |--ES--|  
+AC   HM   X 
+
+
+XHSEACM
+ |--ES--|  
+AC   HM   X 
+
+
+XHSEAMC
+ |--ES--|  
+AC   HM   X 
+
+
+XHSECAM
+ |--ES--|  
+AC   HM   X 
+
+
+XHSECMA
+ |--ES--|  
+AC   HM   X 
+
+
+XMACEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XMACESH
+ |--CM--|  
+A   EH   SX 
+
+
+XMACHES
+ |--CM--|  
+A   EH   SX 
+
+
+XMACHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XMACSEH
+ |--CM--|  
+A   EH   SX 
+
+
+XMACSHE
+ |--CM--|  
+A   EH   SX 
+
+
+XMAECHS
+ |--CM--|  
+A   EH   SX 
+
+
+XMAECSH
+ |--CM--|  
+A   EH   SX 
+
+
+XMAEHCS
+ |--EM--|  
+AC   H   SX 
+
+
+XMAEHSC
+ |--EM--|  
+AC   H   SX 
+
+
+XMAESCH
+ |--CM--|  
+A   EH   SX 
+
+
+XMAESHC
+ |--EM--|  
+AC   H   SX 
+
+
+XMAHCES
+ |--CM--|  
+A   EH   SX 
+
+
+XMAHCSE
+ |--CM--|  
+A   EH   SX 
+
+
+XMAHECS
+ |--EM--|  
+AC   H   SX 
+
+
+XMAHESC
+ |--EM--|  
+AC   H   SX 
+
+
+XMAHSCE
+ |--CM--|  
+A   EH   SX 
+
+
+XMAHSEC
+ |--EM--|  
+AC   H   SX 
+
+
+XMASCEH
+ |--CM--|  
+A   EH   SX 
+
+
+XMASCHE
+ |--CM--|  
+A   EH   SX 
+
+
+XMASECH
+ |--CM--|  
+A   EH   SX 
+
+
+XMASEHC
+ |--EM--|  
+AC   H   SX 
+
+
+XMASHCE
+ |--CM--|  
+A   EH   SX 
+
+
+XMASHEC
+ |--EM--|  
+AC   H   SX 
+
+
+XMCAEHS
+ |--CM--|  
+A   EH   SX 
+
+
+XMCAESH
+ |--CM--|  
+A   EH   SX 
+
+
+XMCAHES
+ |--CM--|  
+A   EH   SX 
+
+
+XMCAHSE
+ |--CM--|  
+A   EH   SX 
+
+
+XMCASEH
+ |--CM--|  
+A   EH   SX 
+
+
+XMCASHE
+ |--CM--|  
+A   EH   SX 
+
+
+XMCEAHS
+ |--CM--|  
+A   EH   SX 
+
+
+XMCEASH
+ |--CM--|  
+A   EH   SX 
+
+
+XMCEHAS
+ |--EM--|  
+AC   H   SX 
+
+
+XMCEHSA
+ |--EM--|  
+AC   H   SX 
+
+
+XMCESAH
+ |--CM--|  
+A   EH   SX 
+
+
+XMCESHA
+ |--EM--|  
+AC   H   SX 
+
+
+XMCHAES
+ |--CM--|  
+A   EH   S

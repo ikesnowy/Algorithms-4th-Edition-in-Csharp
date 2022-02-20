@@ -1,0 +1,26 @@
+baseURL = 'https://alg4.ikesnowy.com/'
+languageCode = 'zh-Hans'
+title = '《算法（第四版）》C# 题解'
+theme = 'hugo-book'
+
+# (Optional) Set this to true to enable 'Last Modified by' date and git author
+#  information on 'doc' type pages.
+enableGitInfo = true
+
+[[menu.after]]
+  name = '特别感谢'
+  url = '/helps/thanks'
+
+[[menu.after]]
+  name = '如何：运行题解代码'
+  url = '/helps/run-solution-code'
+
+[params]
+  BookTheme = 'auto'
+  # (Optional, default docs) Specify section of content to render as menu
+  # You can also set value to "*" to render all sections to menu
+  BookSection = 'solutions'
+  BookComments = false
+  BookDateFormat = '2006-1-2'
+  BookRepo = 'https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/'
+  BookCommitPath = 'commit'

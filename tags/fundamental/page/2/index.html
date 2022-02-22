@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1417,7 +1417,7 @@
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.1.12 # 解答 # 第一个循环初始化数组{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
+<p>1.1.12 # 解答 # 第一个循环初始化数组 {9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
 第二个循环用相应位置的值作为下标取值，例如：a[0] = a[a[0]] = a[9] = 0
 最后结果为：0,1,2,3,4,4,3,2,1,0
 代码 # static void Main(string[] args) { int[] a = new int[10]; for (int i = 0; i &lt; 10; i++) { a[i] = 9 - i; } //a[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0} for (int i = 0; i &lt; 10; i++) { a[i] = a[a[i]]; } //a[0] = a[9] = 0; a[1] = a[8] = 1; a[2] = a[7] = 2;.
@@ -1501,9 +1501,7 @@
 <p>1.1.18 # 解答 # 其实就是一种快速乘法的实现，换成乘号之后就变成了快速乘幂。
 例如对于乘法 $2 \times 4$ ，可以用 $2 + 2 + 2 + 2$ 做四次加法计算；也可以变为 $(2 + 2) \times 2 = (2 + 2) + (2 + 2)$ 的形式，用两次加法就可以完成（先计算 $2 + 2$ 的值，再计算 $4 + 4$ 的值）。
 同理对于乘幂 $2^8$ ，既可以用 $2\times 2 \times 2 \times 2 \times 2 \times 2 \times 2 \times 2$ 做 8 次乘法，也可以只用三次乘法就计算出来：
-$$
-2^2 = 2 \times 2 \
-2^4 = 2^2 \times 2^2\
+$$ 2^2 = 2 \times 2 \newline 2^4 = 2^2 \times 2^2\newline 2^8 = 2^4 \times 2^4 $$
 <a href=/1-1-18/>...</a>
 </p>
 </article>
@@ -1534,7 +1532,7 @@ F(3) = F(2) + F(1) = F(1) + F(1) + F(0)
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
 <p>1.1.20 # 解答 # 根据对数的性质可以得到：
-ln(N!) = ln(N) + ln(N – 1) + ln(N – 2)…
+$$ \ln(N!) = \ln(N) + \ln(N – 1) + \ln(N – 2)… $$
 代码 # static void Main(string[] args) { int N = 4; Console.WriteLine($"{factorialLn(N)}"); } //ln(N!) = //ln(N * (N - 1) * ... * 1) = //ln(N) + ln((N - 1)!) public static double factorialLn(int N) { if (N == 1) { return 0; } return Math.Log(N) + factorialLn(N - 1); }
 </p>
 </article>

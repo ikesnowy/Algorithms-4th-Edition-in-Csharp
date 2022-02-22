@@ -2,8 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="3.1.32 #  解答 #  编码实现即可，实验结果如下：
-对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
+<meta name=description content="3.1.32 #  解答 #  编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
 而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
 只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
 只有两种值对性能的影响不大，性能主要由输入的键决定。
@@ -11,8 +10,7 @@
 static void Test(IST<string, int>[] sts, int n) { Stopwatch sw = new Stopwatch(); string[] data = SearchCompare.GetRandomArrayString(n, 3, 10); string item1 = &#34;item1&#34;; Array.Sort(data); // 有序的数组  Console.Write(&#34;Sorted Array: &#34;); sw.Start(); for (int i = 0; i < n; i++) { sts[0].Put(data[i], i); } sw.Stop(); Console.WriteLine(sw.ElapsedMilliseconds); // 逆序的数组  Console.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.32">
-<meta property="og:description" content="3.1.32 #  解答 #  编码实现即可，实验结果如下：
-对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
+<meta property="og:description" content="3.1.32 #  解答 #  编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
 而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
 只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
 只有两种值对性能的影响不大，性能主要由输入的键决定。
@@ -21,18 +19,18 @@ static void Test(IST<string, int>[] sts, int n) { Stopwatch sw = new Stopwatch()
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-32/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-03-08T10:13:25+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.32 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1416,12 +1414,12 @@ static void Test(IST<string, int>[] sts, int n) { Stopwatch sw = new Stopwatch()
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>编码实现即可，实验结果如下：<br>
+<p>编码实现即可，实验结果如下：
 <img src=/resources/3-1-32/1.png alt></p>
-<p>对于保持键有序的 <code>BinarySearchST</code> 来说，逆序输入是最坏情况，顺序输入则是最好情况。<br>
-而对于键无序的 <code>SequentialSearchST</code> 来说，输入顺序对于性能的影响不大。<br>
-只有一种键的时候，每次 <code>Put</code> 都只需要比较一次，值一直在被替换。<br>
-只有两种值对性能的影响不大，性能主要由输入的键决定。</p>
+<p>对于保持键有序的 <code>BinarySearchST</code> 来说，逆序输入是最坏情况，顺序输入则是最好情况。</p>
+<p>而对于键无序的 <code>SequentialSearchST</code> 来说，输入顺序对于性能的影响不大。</p>
+<p>只有一种键的时候，每次 <code>Put</code> 都只需要比较一次，值一直在被替换。</p>
+<p>只有两种值对性能的影响不大，性能主要由输入的键决定。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1482,7 +1480,7 @@ static void Test(IST<string, int>[] sts, int n) { Stopwatch sw = new Stopwatch()
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

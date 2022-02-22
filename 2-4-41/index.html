@@ -8,8 +8,7 @@
 先考虑 $d$ 叉堆的在数组中的保存方式，
 第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
 不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图：
-现在我们来推导某个结点的子结点的下标公式。
+接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
 结点 $i$ 的第一个子结点在哪里呢？
 首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
 以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
@@ -17,7 +16,7 @@
 3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
 它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
 不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来：">
+这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.41">
 <meta property="og:description" content="2.4.41 #  解答 #  多叉堆和二叉堆的实现上并没有很大的区别，
@@ -26,8 +25,7 @@
 先考虑 $d$ 叉堆的在数组中的保存方式，
 第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
 不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图：
-现在我们来推导某个结点的子结点的下标公式。
+接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
 结点 $i$ 的第一个子结点在哪里呢？
 首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
 以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
@@ -35,22 +33,22 @@
 3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
 它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
 不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来：">
+这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-41/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-12-29T19:34:00+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.41 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1434,32 +1432,32 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>多叉堆和二叉堆的实现上并没有很大的区别，<br>
-只不过下沉（<code>Sink</code>）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。<br>
-于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。</p>
-<p>先考虑 $d$ 叉堆的在数组中的保存方式，<br>
-第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：<br>
-<img src=/resources/2-4-41/1.png alt><br>
-不难推出第 $k$ 层有 $d^{k-1}$ 个结点。</p>
-<p>接下来我们对其标号，根结点为 1，以此类推，如下图：<br>
+<p>多叉堆和二叉堆的实现上并没有很大的区别，</p>
+<p>只不过下沉（<code>Sink</code>）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。</p>
+<p>于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。</p>
+<p>先考虑 $d$ 叉堆的在数组中的保存方式，</p>
+<p>第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：</p>
+<p><img src=/resources/2-4-41/1.png alt></p>
+<p>不难推出第 $k$ 层有 $d^{k-1}$ 个结点。</p>
+<p>接下来我们对其标号，根结点为 1，以此类推，如下图：
 <img src=/resources/2-4-41/2.png alt></p>
-<p>现在我们来推导某个结点的子结点的下标公式。<br>
-结点 $i$ 的第一个子结点在哪里呢？<br>
-首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。<br>
-以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。<br>
-2 号结点前面没有更多兄弟结点，于是第一个子结点下标即为 $2 + d - 1 + 1= 2 + d$。<br>
-3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，<br>
-它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。<br>
-不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），<br>
-这个规律也可以从图上（$d=3$）看出来：<br>
-<img src=/resources/2-4-41/3.png alt><br>
-1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。<br>
-于是立即可以推得结点 $i$ 的子结点下标范围是 $[d(i-1)+2,di+1]$ 。<br>
-代入 $d=2$，可以发现是符合我们已知的规律的。</p>
-<p>接下来是结点 $i$ 的父结点，<br>
-我们由上面的式子反推可以得到父结点的下标为 $ \lfloor (i-2)/d \rfloor +1$（或者 $\lceil (i-2)/d \rceil$）。<br>
-获得这两个公式之后，只需要将 <code>sink</code> 和 <code>swim</code> 方法中上升和下降的公式做相应更改即可。</p>
-<p>测试结果，注意下标可能会超过 <code>int</code> 的范围，请使用 <code>long</code>。：<br>
+<p>现在我们来推导某个结点的子结点的下标公式。</p>
+<p>结点 $i$ 的第一个子结点在哪里呢？</p>
+<p>首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。</p>
+<p>以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。</p>
+<p>2 号结点前面没有更多兄弟结点，于是第一个子结点下标即为 $2 + d - 1 + 1= 2 + d$。</p>
+<p>3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，</p>
+<p>它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。</p>
+<p>不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），</p>
+<p>这个规律也可以从图上（$d=3$）看出来：
+<img src=/resources/2-4-41/3.png alt></p>
+<p>1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。</p>
+<p>于是立即可以推得结点 $i$ 的子结点下标范围是 $[d(i-1)+2,di+1]$ 。</p>
+<p>代入 $d=2$，可以发现是符合我们已知的规律的。</p>
+<p>接下来是结点 $i$ 的父结点，</p>
+<p>我们由上面的式子反推可以得到父结点的下标为 $ \lfloor (i-2)/d \rfloor +1$（或者 $\lceil (i-2)/d \rceil$）。</p>
+<p>获得这两个公式之后，只需要将 <code>sink</code> 和 <code>swim</code> 方法中上升和下降的公式做相应更改即可。</p>
+<p>测试结果，注意下标可能会超过 <code>int</code> 的范围，请使用 <code>long</code>。：
 <img src=/resources/2-4-41/4.png alt></p>
 <h2 id=代码>
 代码
@@ -1548,12 +1546,12 @@
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=https://en.wikipedia.org/wiki/D-ary_heap>D-ary Heap-Wikipedia</a><br>
+<p><a href=https://en.wikipedia.org/wiki/D-ary_heap>D-ary Heap-Wikipedia</a>
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4/PriorityQueue>PriorityQueue 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

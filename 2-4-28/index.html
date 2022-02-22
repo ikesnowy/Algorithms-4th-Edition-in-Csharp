@@ -7,14 +7,10 @@
 为了方便比较，需要编写一个欧几里得距离类，
 构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。
 欧几里得距离的计算公式如下：
-$$
-d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
-$$
+$$ d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2} $$
 其中，x 和 y 分别代表两个点。
 在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：
-$$
-d=\sqrt {x^2+y^2+z^2}
-$$
+$$ d=\sqrt {x^2+y^2+z^2} $$
 同时这个类需要实现 IComparable 接口以作为最小堆的元素。
 做测试时，先随机生成 N 个点，再建立一个最小堆。
 随后开始计时，把开始的 m 个点插入。
@@ -32,14 +28,10 @@ using System; namespace _2._4._28 { /// <summary>  /// 点到原点的欧几里�
 为了方便比较，需要编写一个欧几里得距离类，
 构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。
 欧几里得距离的计算公式如下：
-$$
-d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
-$$
+$$ d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2} $$
 其中，x 和 y 分别代表两个点。
 在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：
-$$
-d=\sqrt {x^2+y^2+z^2}
-$$
+$$ d=\sqrt {x^2+y^2+z^2} $$
 同时这个类需要实现 IComparable 接口以作为最小堆的元素。
 做测试时，先随机生成 N 个点，再建立一个最小堆。
 随后开始计时，把开始的 m 个点插入。
@@ -53,18 +45,18 @@ using System; namespace _2._4._28 { /// <summary>  /// 点到原点的欧几里�
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-28/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-10-22T09:19:53+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.28 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1448,28 +1440,28 @@ using System; namespace _2._4._28 { /// <summary>  /// 点到原点的欧几里�
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>开始时让 N=10^5，在 M=10^4 不变的情况下令 N 不断翻倍，求出算法增长的数量级。<br>
-再根据求出的增长的数量级估计 N=10^8 时所需要的时间。</p>
-<p>为了方便比较，需要编写一个欧几里得距离类，<br>
-构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。<br>
-欧几里得距离的计算公式如下：<br>
-$$<br>
-d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}<br>
-$$<br>
-其中，x 和 y 分别代表两个点。<br>
-在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：<br>
-$$<br>
-d=\sqrt {x^2+y^2+z^2}<br>
-$$<br>
-同时这个类需要实现 IComparable 接口以作为最小堆的元素。</p>
-<p>做测试时，先随机生成 N 个点，再建立一个最小堆。<br>
-随后开始计时，把开始的 m 个点插入。<br>
-剩余的 n-m 个点则是先删除最小值再插入，这样可以保证最小堆的大小不变。<br>
-最后再把堆中的所有元素输出，停止计时。<br>
-用不断倍增的的 N 值做上述测试，获得每次的耗时，进而求得算法增长的数量级。</p>
-<p>求得的结果如下：<br>
-<img src=/resources/2-4-28/1.png alt><br>
-可以推出当 N=10^8 时耗时为 $ 398 \ ms × 1000 = 398 \ s $</p>
+<p>开始时让 N=10^5，在 M=10^4 不变的情况下令 N 不断翻倍，求出算法增长的数量级。</p>
+<p>再根据求出的增长的数量级估计 N=10^8 时所需要的时间。</p>
+<p>为了方便比较，需要编写一个欧几里得距离类，</p>
+<p>构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。</p>
+<p>欧几里得距离的计算公式如下：</p>
+<p>$$
+d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
+$$</p>
+<p>其中，x 和 y 分别代表两个点。</p>
+<p>在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：</p>
+<p>$$
+d=\sqrt {x^2+y^2+z^2}
+$$</p>
+<p>同时这个类需要实现 IComparable 接口以作为最小堆的元素。</p>
+<p>做测试时，先随机生成 N 个点，再建立一个最小堆。</p>
+<p>随后开始计时，把开始的 m 个点插入。</p>
+<p>剩余的 n-m 个点则是先删除最小值再插入，这样可以保证最小堆的大小不变。</p>
+<p>最后再把堆中的所有元素输出，停止计时。</p>
+<p>用不断倍增的的 N 值做上述测试，获得每次的耗时，进而求得算法增长的数量级。</p>
+<p>求得的结果如下：</p>
+<p><img src=/resources/2-4-28/1.png alt></p>
+<p>可以推出当 N=10^8 时耗时为 $ 398 \ ms × 1000 = 398 \ s $</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1609,12 +1601,12 @@ $$<br>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=https://zh.wikipedia.org/wiki/%e6%ac%a7%e5%87%a0%e9%87%8c%e5%be%97%e8%b7%9d%e7%a6%bb>欧几里得距离-维基百科</a><br>
+<p><a href=https://zh.wikipedia.org/wiki/%e6%ac%a7%e5%87%a0%e9%87%8c%e5%be%97%e8%b7%9d%e7%a6%bb>欧几里得距离-维基百科</a>
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4/PriorityQueue>PriorityQueue 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

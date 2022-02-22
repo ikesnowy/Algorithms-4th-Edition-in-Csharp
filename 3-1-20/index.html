@@ -3,56 +3,30 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="3.1.20 #  解答 #  国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：
-$$
-C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1
-$$
-其中 $n=2^k - 1 $ 。
-先证单调性，利用数学归纳法：
-已知对于 $N=0$，满足 $C(0) \le C(1)$。
-假设对于 $N=n$，满足 $C(n) \le C(n+1)$。
-根据递归式，有：
-$$
-\begin{eqnarray*}
-& C(n) & \le C(\lfloor n/2 \rfloor) + 1 \
-\
-& C(n+1) & \le
-\begin{cases}
-C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \
-C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}">
+$$ C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1 $$
+其中 $n=2^k - 1 $ 。 先证单调性，利用数学归纳法： 已知对于 $N=0$，满足 $C(0) \le C(1)$。 假设对于 $N=n$，满足 $C(n) \le C(n+1)$。 根据递归式，有：
+$$ \begin{eqnarray*} & C(n) & \le C(\lfloor n/2 \rfloor) + 1 \newline \newline & C(n+1) & \le \begin{cases} C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \newline C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数} \end{cases}\newline \newline & C(n+2) & \le C(\lfloor n/2 \rfloor + 1) + 1 \end{eqnarray*} $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.20">
 <meta property="og:description" content="3.1.20 #  解答 #  国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：
-$$
-C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1
-$$
-其中 $n=2^k - 1 $ 。
-先证单调性，利用数学归纳法：
-已知对于 $N=0$，满足 $C(0) \le C(1)$。
-假设对于 $N=n$，满足 $C(n) \le C(n+1)$。
-根据递归式，有：
-$$
-\begin{eqnarray*}
-& C(n) & \le C(\lfloor n/2 \rfloor) + 1 \
-\
-& C(n+1) & \le
-\begin{cases}
-C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \
-C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}">
+$$ C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1 $$
+其中 $n=2^k - 1 $ 。 先证单调性，利用数学归纳法： 已知对于 $N=0$，满足 $C(0) \le C(1)$。 假设对于 $N=n$，满足 $C(n) \le C(n+1)$。 根据递归式，有：
+$$ \begin{eqnarray*} & C(n) & \le C(\lfloor n/2 \rfloor) + 1 \newline \newline & C(n+1) & \le \begin{cases} C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \newline C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数} \end{cases}\newline \newline & C(n+2) & \le C(\lfloor n/2 \rfloor + 1) + 1 \end{eqnarray*} $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-20/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-02-26T20:52:55+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.20 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1436,41 +1410,41 @@ C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：<br>
-$$<br>
-C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1<br>
-$$<br>
-其中 $n=2^k - 1 $ 。<br>
-先证单调性，利用数学归纳法：<br>
-已知对于 $N=0$，满足 $C(0) \le C(1)$。<br>
-假设对于 $N=n$，满足 $C(n) \le C(n+1)$。<br>
-根据递归式，有：<br>
-$$<br>
-\begin{eqnarray*}<br>
-& C(n) & \le C(\lfloor n/2 \rfloor) + 1 \<br>
-\<br>
-& C(n+1) & \le<br>
-\begin{cases}<br>
-C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \<br>
-C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}<br>
-\end{cases}\<br>
-\<br>
-& C(n+2) & \le C(\lfloor n/2 \rfloor + 1) + 1<br>
-\end{eqnarray*}<br>
-$$<br>
-又 $ C(n) \le C(n+1) ​$ ，推出 $ C(\lfloor n/2 \rfloor) + 1 \le C(\lfloor n/2 \rfloor + 1) + 1 ​$。<br>
+<p>国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：</p>
+<p>$$
+C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1
+$$</p>
+<p>其中 $n=2^k - 1 $ 。
+先证单调性，利用数学归纳法：
+已知对于 $N=0$，满足 $C(0) \le C(1)$。
+假设对于 $N=n$，满足 $C(n) \le C(n+1)$。
+根据递归式，有：</p>
+<p>$$
+\begin{eqnarray*}
+& C(n) & \le C(\lfloor n/2 \rfloor) + 1 \newline
+\newline
+& C(n+1) & \le
+\begin{cases}
+C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \newline
+C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}
+\end{cases}\newline
+\newline
+& C(n+2) & \le C(\lfloor n/2 \rfloor + 1) + 1
+\end{eqnarray*}
+$$</p>
+<p>又 $ C(n) \le C(n+1) ​$ ，推出 $ C(\lfloor n/2 \rfloor) + 1 \le C(\lfloor n/2 \rfloor + 1) + 1 ​$。
 故 $ C(n+1) \le C(n+2) ​$，由数学归纳法，$ C(n) \le C(n+1) ​$ 成立。</p>
-<p>已知当 $N = 2^k - 1$ 时，有 $ C(N) \le k = \lg(N+1) \le \lg N + 1$。<br>
-接下来证明在 $(2^k - 1, 2^{k + 1} -1) $ 范围内上式仍然成立。<br>
-不妨设 $0 &lt; M &lt; 2^k$ ，则有 $2^k - 1 &lt; N + M &lt; 2^{k + 1} -1 $。<br>
-转变为证：$C(N+M) \le \lg (N+M) + 1$ 。<br>
-由于 $C(N+M)$ 是一个整数，则 $\lfloor \lg(N+M) +1\rfloor = k+1$。<br>
-即求证： $C(N+M) \le k+1$。<br>
+<p>已知当 $N = 2^k - 1$ 时，有 $ C(N) \le k = \lg(N+1) \le \lg N + 1$。
+接下来证明在 $(2^k - 1, 2^{k + 1} -1) $ 范围内上式仍然成立。
+不妨设 $0 &lt; M &lt; 2^k$ ，则有 $2^k - 1 &lt; N + M &lt; 2^{k + 1} -1 $。
+转变为证：$C(N+M) \le \lg (N+M) + 1$ 。
+由于 $C(N+M)$ 是一个整数，则 $\lfloor \lg(N+M) +1\rfloor = k+1$。
+即求证： $C(N+M) \le k+1$。
 由单调性可得 $ C(N+M) \le C(2^{k+1} - 1) \le k+1 ​$，得证。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

@@ -5,8 +5,7 @@
 <meta name=description content="2.2.13 #  解答 #  假设对三个数进行排序，
 这三个数是：35，10，17
 三个数排序的决策树如下，
-结点代表比较对应位置上的数。
-对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
+结点代表比较对应位置上的数。 对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
 我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个
 根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点
 那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来
@@ -16,14 +15,13 @@ $h \ge log(n!)$
 接下来我们来计算平均路径长度
 我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和
 上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$
-由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$">
+由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$ （加上 $k$ 的原因：左右子树的高度比整个树的高度小 $1$，因此每条路径的长度都必须加 $1$，总共多加了 $k$ 次）">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.13">
 <meta property="og:description" content="2.2.13 #  解答 #  假设对三个数进行排序，
 这三个数是：35，10，17
 三个数排序的决策树如下，
-结点代表比较对应位置上的数。
-对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
+结点代表比较对应位置上的数。 对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
 我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个
 根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点
 那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来
@@ -33,22 +31,22 @@ $h \ge log(n!)$
 接下来我们来计算平均路径长度
 我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和
 上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$
-由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$">
+由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$ （加上 $k$ 的原因：左右子树的高度比整个树的高度小 $1$，因此每条路径的长度都必须加 $1$，总共多加了 $k$ 次）">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-2-13/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-07-04T15:48:28+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.2.13 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1432,30 +1430,30 @@ $h \ge log(n!)$
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>假设对三个数进行排序，<br>
-这三个数是：35，10，17<br>
-三个数排序的决策树如下，<br>
-结点代表比较对应位置上的数。<br>
-<img src=/resources/2-2-13/1.jpg alt><br>
-对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。<br>
-我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个<br>
-根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点<br>
-那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来<br>
-$2^h >= n!$<br>
-$h \ge log(n!)$<br>
-因此可以得到决策树高度 $h$ 的最小值是 $log(n!)$</p>
-<p>接下来我们来计算平均路径长度<br>
-我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和<br>
-上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$<br>
-由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$<br>
-（加上 $k$ 的原因：左右子树的高度比整个树的高度小 $1$，因此每条路径的长度都必须加 $1$，总共多加了 $k$ 次）<br>
-因此 $H(k) = klogk$<br>
-现在令 $k = n!$<br>
-$H(n!) = n!log(n!)$<br>
-由于每次排序时我们只经过某一条路径（上例中我们只经过了右、左、左这条路径）<br>
-而且每种路径的出现概率相等<br>
-因此平均比较次数应该为 $H(n!) / n! = log(n!) = nlog(n)$<br>
-证明完毕</p>
+<p>假设对三个数进行排序，</p>
+<p>这三个数是：35，10，17</p>
+<p>三个数排序的决策树如下，</p>
+<p>结点代表比较对应位置上的数。
+<img src=/resources/2-2-13/1.jpg alt></p>
+<p>对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。</p>
+<p>我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个</p>
+<p>根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点</p>
+<p>那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来</p>
+<p>$2^h >= n!$</p>
+<p>$h \ge log(n!)$</p>
+<p>因此可以得到决策树高度 $h$ 的最小值是 $log(n!)$</p>
+<p>接下来我们来计算平均路径长度</p>
+<p>我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和</p>
+<p>上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$</p>
+<p>由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$
+（加上 $k$ 的原因：左右子树的高度比整个树的高度小 $1$，因此每条路径的长度都必须加 $1$，总共多加了 $k$ 次）</p>
+<p>因此 $H(k) = klogk$</p>
+<p>现在令 $k = n!$</p>
+<p>$H(n!) = n!log(n!)$</p>
+<p>由于每次排序时我们只经过某一条路径（上例中我们只经过了右、左、左这条路径）</p>
+<p>而且每种路径的出现概率相等</p>
+<p>因此平均比较次数应该为 $H(n!) / n! = log(n!) = nlog(n)$</p>
+<p>证明完毕</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
@@ -1464,7 +1462,7 @@ $H(n!) = n!log(n!)$<br>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

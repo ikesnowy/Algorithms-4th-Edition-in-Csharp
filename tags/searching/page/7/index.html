@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1457,16 +1457,11 @@ private static readonly Random Random = new Random(); public TKey RandomKey() { 
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.24 # 解答 # 根据命题 D （英文版 P404，中文版 P255），一次插入所需的比较次数平均为 $ 1.39\lg N$。
-(我们这里要求和，因此可以直接使用平均值进行计算）
+<p>3.2.24 # 解答 # 根据命题 D （英文版 P404，中文版 P255），一次插入所需的比较次数平均为 $ 1.39\lg N$。 (我们这里要求和，因此可以直接使用平均值进行计算）
 于是构造一棵二叉查找树所需的比较次数为：
-$$
-1.39C= 1.39\sum_{i=0}^N \lg i=1.39 \times(\lg 1 + \lg2+\cdots+\lg N)
-$$
+$$ 1.39C= 1.39\sum_{i=0}^N \lg i=1.39 \times(\lg 1 + \lg2+\cdots+\lg N) $$
 根据对数恒等式，有：
-$$
-C=\lg 1 + \lg2+\cdots+\lg N=\lg(1\times2\times3\times\cdots\times N)=\lg(N!)
-$$
+$$ C=\lg 1 + \lg2+\cdots+\lg N=\lg(1\times2\times3\times\cdots\times N)=\lg(N!) $$
 于是有 $ 1.39C=1.39\lg(N!) > \lg(N!)$ ，得证。
 </p>
 </article>
@@ -1507,16 +1502,14 @@ n=2 50% 50% n=3 16.666666% 16.666666% 33.333332% 16.666666% 16.666666% n=4 8.333
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.27 # 解答 # 二叉查找树的内存开销=对象开销+根结点引用+N个结点
-=对象开销+根结点引用+N×(对象开销+父类型引用+左/右子树引用+键/值引用+结点数)
+<p>3.2.27 # 解答 # 二叉查找树的内存开销=对象开销+根结点引用+N个结点 =对象开销+根结点引用+N×(对象开销+父类型引用+左/右子树引用+键/值引用+结点数)
 =16+8+N×(16+8+16+16+4+4)=24+64N 字节
 BinarySearchST：对象开销+键/值数组引用+键/值数组+计数器（一个 int）。
 =16+16+(16+4+4+8N)×2+4+4=88+16N 字节。
 SequentialSearchST：对象开销+头结点引用+N个结点+计数器
 =对象开销+头结点引用+N×(对象开销+父类型引用+next引用+键/值引用)+计数器
 =16+8+N×(16+8+8+16)+4+4=32+48N 字节
-示意图如下：
-其中，对象开销 16 字节，其他均为引用，各占 8 字节。
+示意图如下： 其中，对象开销 16 字节，其他均为引用，各占 8 字节。
 《双城记》中不重复的单词有 26436 个（不包括最后的版权声明），全部是原文的子字符串，每个占 40 字节。
 一个 Integer 占 24 字节，于是估计的内存消耗为：24+(64+40+24)×26436=3383832 字节。
 </p>

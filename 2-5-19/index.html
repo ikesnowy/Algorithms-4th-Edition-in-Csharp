@@ -2,8 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="2.5.19 #  解答 #  官方解答：
-Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
+<meta name=description content="2.5.19 #  解答 #  官方解答： Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
 Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。
 如果能够把其中一个数组变成标准排列（即 1,2,3,4... 这样的数组），
@@ -14,11 +13,11 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 获得逆数组之后，对另一个数组 b 做同样的变换，令数组 bnew[i] = ainv[b[i]] 。
 即 ainv[a[i]] = i, ainv[b[i]] = bnew[i] 。
 于是问题转化为了 bnew 和标准排列之间的 Kendall Tau 距离，即 bnew 的逆序对数量。
-逆序对数量的求法见 {% post_link 2-2-19 %}。">
+逆序对数量的求法见 2-2-19。
+代码 #  using System; namespace _2.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.19">
-<meta property="og:description" content="2.5.19 #  解答 #  官方解答：
-Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
+<meta property="og:description" content="2.5.19 #  解答 #  官方解答： Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
 Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。
 如果能够把其中一个数组变成标准排列（即 1,2,3,4... 这样的数组），
@@ -29,22 +28,23 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 获得逆数组之后，对另一个数组 b 做同样的变换，令数组 bnew[i] = ainv[b[i]] 。
 即 ainv[a[i]] = i, ainv[b[i]] = bnew[i] 。
 于是问题转化为了 bnew 和标准排列之间的 Kendall Tau 距离，即 bnew 的逆序对数量。
-逆序对数量的求法见 {% post_link 2-2-19 %}。">
+逆序对数量的求法见 2-2-19。
+代码 #  using System; namespace _2.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-5-19/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-01-14T17:36:46+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.5.19 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1428,20 +1428,20 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>官方解答：<br>
-Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html<br>
-Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html</p>
-<p>由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。<br>
-如果能够把其中一个数组变成标准排列（即 <code>1,2,3,4...</code> 这样的数组），<br>
-那么此时 Kendall Tau 距离就等于另一个数组中的逆序对数量。</p>
-<p>现在我们来解决如何把一个数组 <code>a</code> 变成标准排列的方法。<br>
-也就是找到函数 $ f(x) ​$，使得 $ f(a[i])=i ​$ ，这样的函数其实就是数组 <code>a</code> 的逆数组。<br>
-如下图所示，逆数组 <code>ainv</code> 即为满足 <code>ainv[a[i]] = i</code> 的数组。<br>
-<img src=/resources/2-5-19/1.png alt><br>
-获得逆数组之后，对另一个数组 <code>b</code> 做同样的变换，令数组 <code>bnew[i] = ainv[b[i]]</code> 。<br>
-即 <code>ainv[a[i]] = i, ainv[b[i]] = bnew[i]</code> 。<br>
-于是问题转化为了 <code>bnew</code> 和标准排列之间的 Kendall Tau 距离，即 <code>bnew</code> 的逆序对数量。</p>
-<p>逆序对数量的求法见 {% post_link 2-2-19 %}。</p>
+<p>官方解答：
+Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html</p>
+<p>Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html</p>
+<p>由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。</p>
+<p>如果能够把其中一个数组变成标准排列（即 <code>1,2,3,4...</code> 这样的数组），</p>
+<p>那么此时 Kendall Tau 距离就等于另一个数组中的逆序对数量。</p>
+<p>现在我们来解决如何把一个数组 <code>a</code> 变成标准排列的方法。</p>
+<p>也就是找到函数 $ f(x) ​$，使得 $ f(a[i])=i ​$ ，这样的函数其实就是数组 <code>a</code> 的逆数组。</p>
+<p>如下图所示，逆数组 <code>ainv</code> 即为满足 <code>ainv[a[i]] = i</code> 的数组。</p>
+<p><img src=/resources/2-5-19/1.png alt></p>
+<p>获得逆数组之后，对另一个数组 <code>b</code> 做同样的变换，令数组 <code>bnew[i] = ainv[b[i]]</code> 。</p>
+<p>即 <code>ainv[a[i]] = i, ainv[b[i]] = bnew[i]</code> 。</p>
+<p>于是问题转化为了 <code>bnew</code> 和标准排列之间的 Kendall Tau 距离，即 <code>bnew</code> 的逆序对数量。</p>
+<p>逆序对数量的求法见 2-2-19。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1490,7 +1490,7 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html</p>
 </code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

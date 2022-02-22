@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1416,8 +1416,7 @@ using System; using System.Collections.Generic; namespace UnionFind { public cla
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.5.19 # 解答 # 最后绘出的图像：
-代码 # 给出绘图部分的代码，窗体部分见 GitHub。
+<p>1.5.19 # 解答 # 最后绘出的图像： 代码 # 给出绘图部分的代码，窗体部分见 GitHub。
 using System; using System.Drawing; using System.Collections.Generic; using System.Windows.Forms; using UnionFind; namespace _1._5._19 { /* * 1.5.19 * * 动画。 * 编写一个 RandomGrid（请见练习 1.5.18）的用例， * 和我们开发用例一样使用 UnionFind 来检查触点的连通性并在处理时用 StdDraw 将它们绘出。 * */ static class Program { static RandomBag&lt;Connection> bag; static Graphics graphics; static TextBox logBox; static PointF[] points; static Timer timer; static List&lt;Connection> connections; static int count = 0; /// &lt;summary> /// 应用程序的主入口点。 /// &lt;/summary> [STAThread] static void Main() { Application.
 <a href=/1-5-19/>...</a>
 </p>
@@ -1499,8 +1498,7 @@ N:10000 加权 quick-find 耗时（毫秒）：9 带路径压缩的加权 quick-
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.5.25 # 解答 # 略微修改 1.5.22 的代码即可。
-我电脑上的结果：
+<p>1.5.25 # 解答 # 略微修改 1.5.22 的代码即可。 我电脑上的结果：
 Quick-Find N:1600 平均用时（毫秒）：4 N:6400 平均用时（毫秒）：67 比值：16.75 N:25600 平均用时（毫秒）：1268 比值：18.9253731343284 N:102400 平均用时（毫秒）：20554 比值：16.2097791798107 Quick-Union N:1600 平均用时（毫秒）：5 比值：0.000243261652233142 N:6400 平均用时（毫秒）：66 比值：13.2 N:25600 平均用时（毫秒）：1067 比值：16.1666666666667 N:102400 平均用时（毫秒）：18637 比值：17.4667291471415 Weighted Quick-Union N:1600 平均用时（毫秒）：0 比值：0 N:6400 平均用时（毫秒）：2 N:25600 平均用时（毫秒）：12 比值：6 N:102400 平均用时（毫秒）：64 比值：5.33333333333333 代码 # using System; using System.Diagnostics; using UnionFind; namespace _1._5._25 { /* * 1.5.25 * * 随机网格的倍率测试。 * 开发一个性能测试用例， * 从命令行接受一个 int 值 T 并进行 T 次以下实验： * 使用练习 1.
 <a href=/1-5-25/>...</a>
 </p>

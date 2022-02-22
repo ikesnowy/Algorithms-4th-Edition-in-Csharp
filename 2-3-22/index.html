@@ -4,61 +4,43 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="2.3.22 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
 快速三向切分 #  论文引用见「另请参阅」部分。
-算法演示
-Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
+算法演示 Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
 该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。
 这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：
-$$
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace
-$$
+$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace $$
 现在对于九个数，我们以三个为一组，取三个中位数：
-$$
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \
-y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \
-y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace
-$$
+$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \newline y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \newline y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace $$
 接下来取这三个中位数的中位数，有：
-$$
-y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace
-$$
+$$ y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace $$
 我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.22">
 <meta property="og:description" content="2.3.22 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
 快速三向切分 #  论文引用见「另请参阅」部分。
-算法演示
-Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
+算法演示 Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
 该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。
 这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：
-$$
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace
-$$
+$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace $$
 现在对于九个数，我们以三个为一组，取三个中位数：
-$$
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \
-y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \
-y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace
-$$
+$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \newline y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \newline y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace $$
 接下来取这三个中位数的中位数，有：
-$$
-y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace
-$$
+$$ y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace $$
 我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-22/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-08-02T11:31:46+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.22 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1447,38 +1429,38 @@ $$
 快速三向切分
 <a class=anchor href=#%e5%bf%ab%e9%80%9f%e4%b8%89%e5%90%91%e5%88%87%e5%88%86>#</a>
 </h2>
-<p>论文引用见「另请参阅」部分。<br>
-算法演示<br>
+<p>论文引用见「另请参阅」部分。</p>
+<p>算法演示
 <img src=/resources/2-3-22/3.gif alt></p>
 <h2 id=ninther-算法>
 Ninther 算法
 <a class=anchor href=#ninther-%e7%ae%97%e6%b3%95>#</a>
 </h2>
-<p>官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），<br>
-该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。<br>
-这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：</p>
-<p>$$<br>
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace<br>
+<p>官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），</p>
+<p>该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。</p>
+<p>这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：</p>
+<p>$$
+y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace
 $$</p>
 <p>现在对于九个数，我们以三个为一组，取三个中位数：</p>
-<p>$$<br>
-y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \<br>
-y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \<br>
-y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace<br>
+<p>$$
+y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \newline
+y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \newline
+y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace
 $$</p>
 <p>接下来取这三个中位数的中位数，有：</p>
-<p>$$<br>
-y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace<br>
+<p>$$
+y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace
 $$</p>
-<p>我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。<br>
-于是我们获得的 $y_E$ 即为近似中位数，如果 $\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 是单调数列，那么 $y_E$ 就是中位数。</p>
+<p>我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。</p>
+<p>于是我们获得的 $y_E$ 即为近似中位数，如果 $\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 是单调数列，那么 $y_E$ 就是中位数。</p>
 <h2 id=获取三个数中的中位数>
 获取三个数中的中位数
 <a class=anchor href=#%e8%8e%b7%e5%8f%96%e4%b8%89%e4%b8%aa%e6%95%b0%e4%b8%ad%e7%9a%84%e4%b8%ad%e4%bd%8d%e6%95%b0>#</a>
 </h2>
-<p>事实上，我们可以直接画出三个数排列的所有可能，获得决策树。<br>
-<img src=2.png alt><br>
-然后根据决策树写出取中位数的算法：</p>
+<p>事实上，我们可以直接画出三个数排列的所有可能，获得决策树。
+<img src=2.png alt></p>
+<p>然后根据决策树写出取中位数的算法：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> Median3&lt;T&gt;(T[] a, <span style=color:#66d9ef>int</span> i, <span style=color:#66d9ef>int</span> j, <span style=color:#66d9ef>int</span> k) <span style=color:#66d9ef>where</span> T : IComparable&lt;T&gt;
 {
     <span style=color:#66d9ef>return</span>
@@ -1490,7 +1472,7 @@ $$</p>
 测试结果
 <a class=anchor href=#%e6%b5%8b%e8%af%95%e7%bb%93%e6%9e%9c>#</a>
 </h2>
-<p>提高约 20% 左右的性能。<br>
+<p>提高约 20% 左右的性能。
 <img src=/resources/2-3-22/1.png alt></p>
 <h2 id=代码>
 代码
@@ -1558,7 +1540,7 @@ $$</p>
 </span><span style=color:#75715e></span>                <span style=color:#66d9ef>int</span> eps = n / <span style=color:#ae81ff>8</span>;
                 <span style=color:#66d9ef>int</span> mid = lo + n / <span style=color:#ae81ff>2</span>;
                 <span style=color:#66d9ef>int</span> m1 = Median3(a, lo, lo + eps, lo + eps + eps);
-                <span style=color:#66d9ef>int</span> m2 = Median3(a, mid - eps, mid, mid + eps); 
+                <span style=color:#66d9ef>int</span> m2 = Median3(a, mid - eps, mid, mid + eps);
                 <span style=color:#66d9ef>int</span> m3 = Median3(a, hi - eps - eps, hi - eps, hi);
                 <span style=color:#66d9ef>int</span> ninther = Median3(a, m1, m2, m3);
                 Exch(a, ninther, lo);
@@ -1655,7 +1637,7 @@ $$</p>
 {
     <span style=color:#75715e>/*
 </span><span style=color:#75715e>     * 2.3.22
-</span><span style=color:#75715e>     * 
+</span><span style=color:#75715e>     *
 </span><span style=color:#75715e>     * 快速三向切分。（J.Bently，D.McIlroy）
 </span><span style=color:#75715e>     * 用将重复元素放置于子数组两端的方式实现一个信息量最优的排序算法。
 </span><span style=color:#75715e>     * 使用两个索引 p 和 q，使得 a[lo...p-1] 和 a[q+1..hi] 的元素都和 a[lo] 相等。
@@ -1668,7 +1650,7 @@ $$</p>
 </span><span style=color:#75715e>     * 这里实现的代码和正文中给出的代码时等价的，
 </span><span style=color:#75715e>     * 因为这里额外的交换用于和切分元素相等的元素，
 </span><span style=color:#75715e>     * 而正文中的代码将额外的交换用于和切分元素不等的元素。
-</span><span style=color:#75715e>     * 
+</span><span style=color:#75715e>     *
 </span><span style=color:#75715e>     */</span>
     <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Program</span>
     {
@@ -1709,18 +1691,18 @@ $$</p>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p>有关这种快速排序算法的来源以及三个数的中位数的选取算法，请参阅下面这篇 1993 年的论文：<br>
-<a href=https://doi.org/10.1002/spe.4380231105>Bentley J L, McIlroy M D. Engineering a sort function[J]. Software: Practice and Experience, 1993, 23(11): 1249-1265.</a><br>
-下面这份 2002 年的 PPT 详细解释和分析了官方实现代码的思路和性能：<br>
-<a href=https://www.cs.princeton.edu/~rs/talks/QuicksortIsOptimal.pdf>Sedgewick R, Bentley J. Quicksort is optimal[J]. Knuthfest, Stanford University, Stanford, 2002.</a><br>
-有关选取中位数 Ninther 算法，请参阅下面这篇 1978 年的论文：<br>
-<a href=https://www.sciencedirect.com/science/article/pii/B9780122047503500241>Tukey J W. The ninther, a technique for low-effort robust (resistant) location in large samples[M]//Contributions to Survey Sampling and Applied Statistics. 1978: 251-257.</a><br>
-以及按照惯例给出本题用到的类库链接：<br>
+<p>有关这种快速排序算法的来源以及三个数的中位数的选取算法，请参阅下面这篇 1993 年的论文：
+<a href=https://doi.org/10.1002/spe.4380231105>Bentley J L, McIlroy M D. Engineering a sort function[J]. Software: Practice and Experience, 1993, 23(11): 1249-1265.</a>
+下面这份 2002 年的 PPT 详细解释和分析了官方实现代码的思路和性能：
+<a href=https://www.cs.princeton.edu/~rs/talks/QuicksortIsOptimal.pdf>Sedgewick R, Bentley J. Quicksort is optimal[J]. Knuthfest, Stanford University, Stanford, 2002.</a>
+有关选取中位数 Ninther 算法，请参阅下面这篇 1978 年的论文：
+<a href=https://www.sciencedirect.com/science/article/pii/B9780122047503500241>Tukey J W. The ninther, a technique for low-effort robust (resistant) location in large samples[M]//Contributions to Survey Sampling and Applied Statistics. 1978: 251-257.</a>
+以及按照惯例给出本题用到的类库链接：
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3/Quick>Quick 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

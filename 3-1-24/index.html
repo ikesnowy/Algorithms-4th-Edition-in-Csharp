@@ -9,8 +9,7 @@
 用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。
 不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。
 但如果数组分布不够均匀，也可能表现出不如二分查找的性能。
-实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。
-代码 #  SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
+实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。 代码 #  SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
 public static long Time<TKey>(IST<TKey, int> st, TKey[] keys) { Stopwatch sw = new Stopwatch(); sw.Start(); FrequencyCounter.MostFrequentlyKey(st, keys); sw.Stop(); return sw.ElapsedMilliseconds; } 由于这里需要使用数字而非字符串作为键值，需要对官方给出的 FrequencyCounter 做一些修改：
 public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) { foreach (TKey s in keys) { if (st.">
 <meta name=theme-color content="#FFFFFF">
@@ -22,25 +21,24 @@ public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) { fo
 用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。
 不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。
 但如果数组分布不够均匀，也可能表现出不如二分查找的性能。
-实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。
-代码 #  SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
+实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。 代码 #  SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
 public static long Time<TKey>(IST<TKey, int> st, TKey[] keys) { Stopwatch sw = new Stopwatch(); sw.Start(); FrequencyCounter.MostFrequentlyKey(st, keys); sw.Stop(); return sw.ElapsedMilliseconds; } 由于这里需要使用数字而非字符串作为键值，需要对官方给出的 FrequencyCounter 做一些修改：
 public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) { foreach (TKey s in keys) { if (st.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-24/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-03-02T14:57:26+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.24 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1425,13 +1423,13 @@ public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) { fo
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>FrequencyCounter 的官方实现：<a href=https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html>https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html</a></p>
-<p>二分查找总是与中间值进行比较，现在改为与数组中第 x% 位置上的元素比较。<br>
-具体而言，$\frac{k_x-k_{lo}}{k_{hi}-k_{lo}}$ 代表数组在均匀情况下目标值 $k_x$ 的相对位置（一个比率，在数组第 x% 的位置上）。<br>
-那么相对应的下标就等于 $lo+\frac{k_x-k_{lo}}{k_{hi}-k_{lo}} \times (hi - lo)$。<br>
-用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。</p>
-<p>不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。<br>
-但如果数组分布不够均匀，也可能表现出不如二分查找的性能。</p>
-<p>实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。<br>
+<p>二分查找总是与中间值进行比较，现在改为与数组中第 x% 位置上的元素比较。</p>
+<p>具体而言，$\frac{k_x-k_{lo}}{k_{hi}-k_{lo}}$ 代表数组在均匀情况下目标值 $k_x$ 的相对位置（一个比率，在数组第 x% 的位置上）。</p>
+<p>那么相对应的下标就等于 $lo+\frac{k_x-k_{lo}}{k_{hi}-k_{lo}} \times (hi - lo)$。</p>
+<p>用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。</p>
+<p>不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。</p>
+<p>但如果数组分布不够均匀，也可能表现出不如二分查找的性能。</p>
+<p>实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。
 <img src=/resources/3-1-24/1.png alt></p>
 <h2 id=代码>
 代码
@@ -1472,7 +1470,7 @@ public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) { fo
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

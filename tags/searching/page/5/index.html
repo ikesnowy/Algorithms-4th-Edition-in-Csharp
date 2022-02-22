@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1407,8 +1407,7 @@
 和上题类似，也是解超越方程。
 插值查找的平均查找次数为 $\lg(\lg(N))$。
 可以解得 N = 1, 4, 58。
-实验结果如下：
-由于 N 太小，可以看到插值查找的运行时间几乎没有变化。
+实验结果如下： 由于 N 太小，可以看到插值查找的运行时间几乎没有变化。
 </p>
 </article>
 <article class="markdown book-post">
@@ -1419,8 +1418,7 @@
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.1 # 解答 # 构造出的树如下图所示：
-总比较次数：0 + 1 + 1 + 2 + 2 + 3 + 1 + 2 + 4 + 3 + 4 + 5 = 28 次
+<p>3.2.1 # 解答 # 构造出的树如下图所示： 总比较次数：0 + 1 + 1 + 2 + 2 + 3 + 1 + 2 + 4 + 3 + 4 + 5 = 28 次
 另请参阅 # BinarySearchTree 库
 </p>
 </article>
@@ -1472,22 +1470,16 @@
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.5 # 解答 # 事实上，这个问题可以归结为，如何根据频率来构造一棵最优的BST？
+<p>3.2.5 # 解答 # 事实上，这个问题可以归结为，如何根据频率来构造一棵最优的 BST？
 如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。
-首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，
-（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
+首先我们定义某个结点的查找开销为该结点的深度加一乘以频率， （注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
 所有结点的查找开销加起来就是一整棵树的查找开销了。
-$$
-cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)
-$$
+$$ cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i) $$
 对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。
 这样的树被称为最优化二叉树，或者 Optimal BST。
 根据二叉树的性质，我们可以将 $cost$ 的表达式变为：
-$$
-cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)
-$$
-即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。
-（左子树和右子树开销计算时每个结点的深度都少了1，因此要加上频率和）
+$$ cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i) $$
+即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。 （左子树和右子树开销计算时每个结点的深度都少了 1，因此要加上频率和）
 不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。
 我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，
 哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。
@@ -1497,9 +1489,7 @@ $$
 每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。
 以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。
 举个例子，例如给出键值和频率如下表所示：
-$$
-\begin{array}{l|lllll}
-key & 1 & 2 & 3 & 4 & 5 \ \hline
+$$ \begin{array}{l|lllll} key & 1 & 2 & 3 & 4 & 5 \\ \hline p & 0.
 <a href=/3-2-5/>...</a>
 </p>
 </article>
@@ -1512,8 +1502,7 @@ key & 1 & 2 & 3 & 4 & 5 \ \hline
 <a href=/tags/searching/>Searching</a>
 </div>
 <p>3.2.6 # 解答 # 官方 BST 实现见：https://algs4.cs.princeton.edu/32bst/BST.java.html
-二叉树的高度=左右子树最大高度+1，叶结点的高度为 0。
-于是我们可以构造如下递归方法：
+二叉树的高度=左右子树最大高度+1，叶结点的高度为 0。 于是我们可以构造如下递归方法：
 private int Height(Node x) { return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right)); } 当 x 等于 null 时，说明它是叶子结点的左/右子树，应该返回 0-1=-1。
 也可以在结点中添加一个 Height 属性，记录当前结点的高度，当插入新结点时重新计算高度。
 在 Put 方法中添加计算高度的代码：
@@ -1531,8 +1520,7 @@ private Node Put(Node x, TKey key, TValue value) { if (x == null) return new Nod
 </div>
 <p>3.2.7 # 解答 # 平均查找次数 = 树所有结点的深度之和 / 结点个数 + 1。
 只要能够获得深度和，就能构造出如下用于计算平均查找次数的方法：
-public int AverageCompares() { return DepthSum(root) / Size() + 1; } 二叉树的深度之和 = 左子树的深度和 + 右子树的深度和 + 左子树的结点个数 + 右子树的结点个数
-（加上根结点会使左右子树所有结点的深度+1）
+public int AverageCompares() { return DepthSum(root) / Size() + 1; } 二叉树的深度之和 = 左子树的深度和 + 右子树的深度和 + 左子树的结点个数 + 右子树的结点个数 （加上根结点会使左右子树所有结点的深度+1）
 于是我们可以获得如下递归方法，用于计算一棵树的深度和：
 private int DepthSum(Node x) { if (x == null) return 0; return DepthSum(x.Left) + DepthSum(x.Right) + x.Size - 1; } 也可以在结点中直接添加一个 DepthSum 属性，用于记录当前结点的深度和。
 需要在每次插入新结点时重新计算查找路径上所有结点的 DepthSum。
@@ -1558,10 +1546,7 @@ private Node Put(Node x, TKey key, TValue value, int depth) { if (x == null) ret
 一个层数为 $l$ 的满二叉树，最后一层正好有 $2^{l-1}$ 个结点。
 于是深度和为 $d_1 = 0 \times 1 + 1 \times 2+2 \times 4+\cdots+(l-1)2^{l-1} =\sum_{i=1}^{l-1} i2^i$。
 用错位相减法，有：
-$$
-\begin{eqnarray*}
-d_1&=&1\times 2^1 + &2 \times 2^2 + \cdots + (l-1)2^{l-1} \
-2d_1&=& &1\times 2^2 + \cdots+(l-2)2^{l-1} +(l-1)2^{l} \
+$$ \begin{eqnarray*} d_1&=&1\times 2^1 + &2 \times 2^2 + \cdots + (l-1)2^{l-1} \newline 2d_1&=& &1\times 2^2 + \cdots+(l-2)2^{l-1} +(l-1)2^{l} \newline d_1-2d_1&=& 1 \times2^1+ &1 \times2^2+\cdots+1\times2^{l-1}-(l-1)2^l \newline d_1 &=&(l-1)2^l &-2^l+2 \newline &=&(l-2)2^l &+2 \end{eqnarray*} $$
 <a href=/3-2-8/>...</a>
 </p>
 </article>

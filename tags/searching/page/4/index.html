@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1407,9 +1407,7 @@
 然后随机生成符合要求的字符串数组，将它们全部放入符号表中。
 然后遍历 10 次生成的字符串数组，对于数组中的每个元素都进行一次命中查询。
 同时在每次命中查询的同时都进行一次未命中查询即可。
-测试结果：
-代码 # 按照要求编写代码，在 SearchCompare 类里添加一个 Random random 成员，并添加如下方法：
-随机字符串发生器：
+测试结果： 代码 # 按照要求编写代码，在 SearchCompare 类里添加一个 Random random 成员，并添加如下方法： 随机字符串发生器：
 public static string GetRandomString(int minLength, int maxLength) { int length = random.Next(minLength, maxLength); StringBuilder sb = new StringBuilder(); for (int i = 0; i &lt; length; i++) { double choice = random.NextDouble(); if (choice &lt; 0.333) sb.Append((char)random.Next('A', 'Z')); else if (choice &lt; 0.666) sb.Append((char)random.Next('a', 'z')); else sb.
 <a href=/3-1-31/>...</a>
 </p>
@@ -1422,8 +1420,7 @@ public static string GetRandomString(int minLength, int maxLength) { int length 
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.32 # 解答 # 编码实现即可，实验结果如下：
-对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
+<p>3.1.32 # 解答 # 编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
 而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
 只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
 只有两种值对性能的影响不大，性能主要由输入的键决定。
@@ -1445,8 +1442,7 @@ static void Test(IST&lt;string, int>[] sts, int n) { Stopwatch sw = new Stopwatc
 然后再建立一个长度为 10N 的数组 querys，
 前 1/2 置为 keys[0]，1/2 到 3/4 置为 keys[1]，以此类推，直到数组填满。
 然后遍历 query 数组，对符号表进行 Get() 操作。
-实验结果如下：
-代码 # static void Main(string[] args) { int n = 1000; int multiplyBy10 = 3; for (int i = 0; i &lt; multiplyBy10; i++) { Console.WriteLine("n=" + n); // 构造表 BinarySearchST&lt;string, int> bst = new BinarySearchST&lt;string, int>(n); MoveToFrontArrayST&lt;string, int> mst = new MoveToFrontArrayST&lt;string, int>(n); string[] keys = SearchCompare.
+实验结果如下： 代码 # static void Main(string[] args) { int n = 1000; int multiplyBy10 = 3; for (int i = 0; i &lt; multiplyBy10; i++) { Console.WriteLine("n=" + n); // 构造表 BinarySearchST&lt;string, int> bst = new BinarySearchST&lt;string, int>(n); MoveToFrontArrayST&lt;string, int> mst = new MoveToFrontArrayST&lt;string, int>(n); string[] keys = SearchCompare.
 <a href=/3-1-33/>...</a>
 </p>
 </article>
@@ -1458,12 +1454,11 @@ static void Test(IST&lt;string, int>[] sts, int n) { Stopwatch sw = new Stopwatc
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.34 # 解答 # 在上一题的基础上进行修改即可，链接：{% post_link 3.1.33 %}。
+<p>3.1.34 # 解答 # 在上一题的基础上进行修改即可。
 调和级数 $H_n = 1+\frac{1}{2}+\frac{1}{3} + \cdots+\frac{1}{n}$ 。
 查询数组变为前 1/2 为 key[0]，随后的 1/3 为 key[1]，以此类推。
 和上一题中的序列进行比较即可，注意删除最后的打乱步骤。
-实验结果如下：
-代码 # 首先建立一个数组计算调和级数，就像这样：
+实验结果如下： 代码 # 首先建立一个数组计算调和级数，就像这样：
 // 调和级数 double[] harmonicNumber = new double[1000 * (int)Math.Pow(10, 4)]; harmonicNumber[0] = 1; for (int i = 1; i &lt; harmonicNumber.Length; i++) { harmonicNumber[i] = harmonicNumber[i - 1] + 1 / (i + 1); } 然后修改构造查询的代码：
 // 构造查询 Array.Sort(keys); string[] queryZipf = new string[10 * n]; int queryIndex = 0, keyIndex = 0; while (queryIndex &lt; queryZipf.
 <a href=/3-1-34/>...</a>
@@ -1477,8 +1472,7 @@ static void Test(IST&lt;string, int>[] sts, int n) { Stopwatch sw = new Stopwatc
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.35 # 解答 # 实验结果：
-由于包含重复单词，因此结果会比 4 略低一些。
+<p>3.1.35 # 解答 # 实验结果： 由于包含重复单词，因此结果会比 4 略低一些。
 需要对 FrequencyCounter 做一些修改，令其只取前 n 个单词。
 代码 # static void Main(string[] args) { int n = 8000; int multiplyBy2 = 5; int repeatTimes = 5; double lastTime = -1; Console.WriteLine("n\ttime\tratio"); for (int i = 0; i &lt; multiplyBy2; i++) { Console.Write(n + "\t"); long timeSum = 0; for (int j = 0; j &lt; repeatTimes; j++) { SequentialSearchST&lt;string, int> st = new SequentialSearchST&lt;string, int>(); Stopwatch sw = Stopwatch.
 <a href=/3-1-35/>...</a>
@@ -1492,9 +1486,7 @@ static void Test(IST&lt;string, int>[] sts, int n) { Stopwatch sw = new Stopwatc
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.36 # 解答 # 实验结果如下，增长级为 O(N) ，但速度很快。
-其实只要列出《双城记》不同长度的单词数目，原因就一目了然了。
-大部分单词都集中在中间长度，因此大部分访问也集中在数组中部。
+<p>3.1.36 # 解答 # 实验结果如下，增长级为 O(N) ，但速度很快。 其实只要列出《双城记》不同长度的单词数目，原因就一目了然了。 大部分单词都集中在中间长度，因此大部分访问也集中在数组中部。
 二分查找在访问数组中部的元素时速度很快，因此结果好于预期。
 代码 # static void Main(string[] args) { int n = 8000; int multiplyBy2 = 5; int repeatTimes = 5; double lastTime = -1; Console.WriteLine("n\ttime\tratio"); for (int i = 0; i &lt; multiplyBy2; i++) { Console.Write(n + "\t"); long timeSum = 0; for (int j = 0; j &lt; repeatTimes; j++) { BinarySearchST&lt;string, int> st = new BinarySearchST&lt;string, int>(); Stopwatch sw = Stopwatch.
 <a href=/3-1-36/>...</a>
@@ -1508,8 +1500,7 @@ static void Test(IST&lt;string, int>[] sts, int n) { Stopwatch sw = new Stopwatc
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.37 # 解答 # 实验结果如下：
-M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
+<p>3.1.37 # 解答 # 实验结果如下： M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
 随着重复值的减少 Put 的耗时会大幅度提高，和实验结果显示的一样。
 M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。
 M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。
@@ -1530,11 +1521,8 @@ static void Main(string[] args) { int n = 1000000; int m = 10; int addBy10 = 3; 
 <a href=/tags/searching/>Searching</a>
 </div>
 <p>3.1.38 # 解答 # 实验结果如下：
-BinarySearchST
-SequentialSearchST
-对于 BinarySearchST ，每次比较之后以及移动元素时令 Cost 增加。
-对于 SequentialSearchST，统计每次的查找次数即可。
-然后绘制成散点图即可。
+BinarySearchST SequentialSearchST 对于 BinarySearchST ，每次比较之后以及移动元素时令 Cost 增加。
+对于 SequentialSearchST，统计每次的查找次数即可。 然后绘制成散点图即可。
 代码 # 有关绘图的函数，传入的参数为第 i 次 Put() 的开销。
 public void Draw(int[] data) { Graphics panel = this.CreateGraphics(); float unitX = (float)this.ClientRectangle.Width / data.Length; float unitY = (float)this.ClientRectangle.Height / data.Max(); int accumulation = 0; for (int i = 0; i &lt; data.Length; i++) { // Gray panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, this.ClientRectangle.Bottom - data[i] * unitY, 2, 2); // Red panel.
 <a href=/3-1-38/>...</a>
@@ -1549,9 +1537,7 @@ public void Draw(int[] data) { Graphics panel = this.CreateGraphics(); float uni
 <a href=/tags/searching/>Searching</a>
 </div>
 <p>3.1.39 # 解答 # 实验结果如下：
-BinarySearchST
-SequentialSearchST
-图像分为两段，分别代表不断向符号表中加入单词和寻找频率最大的单词两个部分。
+BinarySearchST SequentialSearchST 图像分为两段，分别代表不断向符号表中加入单词和寻找频率最大的单词两个部分。
 第一段两个图像的形状类似（注意它们的 y 轴比例不同）。
 第二段中 BinarySearchST 的表现要比 SequentialSearchST 稳定的多。
 代码 # 绘图部分代码：
@@ -1568,20 +1554,10 @@ public void Draw(int[] x, long[] y) { Graphics panel = this.CreateGraphics(); fl
 </div>
 <p>3.1.40 # 解答 # 顺序查找平均需要进行 $N/2$ 次比较，二分查找则是 $\lg N$ 次。
 列出方程可以解出 N 的大小
-$$
-\begin {eqnarray*}
-1000 \log_2 N &=& N / 2 \
-\log_2 N &=& N / 2000\
-\frac{\ln N}{\ln 2} &=& N/2000 \
-N &=& e^{\frac{\ln 2}{2000}N}\
-1 &=& Ne^{-\frac{\ln 2}{2000}N}\
-N_1 = e^{-W(-\frac{\ln 2}{2000})}=1 &\ & N_2= e^{-W_{-1}(-\frac{\ln 2}{2000})}=29718\ \
-\end {eqnarray*}
-$$
+$$ \begin {eqnarray*} 1000 \log_2 N &=& N / 2 \newline \log_2 N &=& N / 2000\newline \frac{\ln N}{\ln 2} &=& N/2000 \newline N &=& e^{\frac{\ln 2}{2000}N}\newline 1 &=& Ne^{-\frac{\ln 2}{2000}N}\newline N_1 = e^{-W(-\frac{\ln 2}{2000})}=1 &\ & N_2= e^{-W_{-1}(-\frac{\ln 2}{2000})}=29718\newline \newline \end {eqnarray*} $$
 这个方程是一个超越方程，最后的结果中出现了朗伯 W 函数。
 同理可以求得 10000 倍的 N=369939。
-实验结果如下：
-由于存在缓存优化，每次比较的耗时并不相同。
+实验结果如下： 由于存在缓存优化，每次比较的耗时并不相同。
 因此实际耗时并未达到预期，但比较次数是符合预期的。
 另请参阅 # 朗伯 W 函数-维基百科
 </p>

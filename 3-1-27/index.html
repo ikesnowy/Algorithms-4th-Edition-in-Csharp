@@ -12,8 +12,7 @@
 查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。
 令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。
 如果用大 O 记法，也可以记为 $O(n^2 / \lg n)$，如果要选择一个比较常用的上界则可以选择 $O(n^2)$。
-实验结果，两边的成本是很接近的：
-另请参阅 #  SymbolTable 库">
+实验结果，两边的成本是很接近的： 另请参阅 #  SymbolTable 库">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.27">
 <meta property="og:description" content="3.1.27 #  解答 #  事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。
@@ -26,23 +25,22 @@
 查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。
 令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。
 如果用大 O 记法，也可以记为 $O(n^2 / \lg n)$，如果要选择一个比较常用的上界则可以选择 $O(n^2)$。
-实验结果，两边的成本是很接近的：
-另请参阅 #  SymbolTable 库">
+实验结果，两边的成本是很接近的： 另请参阅 #  SymbolTable 库">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-27/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-03-03T19:20:38+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.27 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1426,17 +1424,17 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。<br>
-给出 S 的增长数量级，使得构造符号表的成本和查找的成本相同。</p>
-<p>这里假设一次数组交换和一次比较的成本是相同的。<br>
-先考虑构造符号表的成本，一次 <code>Put()</code> 需要调用一次 <code>Rank()</code> 和一次插入操作。<br>
-2.1 节插入排序的命题 B 给出了每次插入平均需要移动一半的数组元素的结论。<br>
-于是构造符号表所需的成本约为：$n\lg n + \frac{1}{2}\sum_{k=1}^{n} k=n\lg n + \frac{n(n-1)}{4} $ 。<br>
-这里查找的成本是这么计算的：$\lg0+\lg1+\cdots+\lg n &lt; n\lg n$<br>
-查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。<br>
-令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。</p>
+<p>事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。</p>
+<p>给出 S 的增长数量级，使得构造符号表的成本和查找的成本相同。</p>
+<p>这里假设一次数组交换和一次比较的成本是相同的。</p>
+<p>先考虑构造符号表的成本，一次 <code>Put()</code> 需要调用一次 <code>Rank()</code> 和一次插入操作。</p>
+<p>2.1 节插入排序的命题 B 给出了每次插入平均需要移动一半的数组元素的结论。</p>
+<p>于是构造符号表所需的成本约为：$n\lg n + \frac{1}{2}\sum_{k=1}^{n} k=n\lg n + \frac{n(n-1)}{4} $ 。</p>
+<p>这里查找的成本是这么计算的：$\lg0+\lg1+\cdots+\lg n &lt; n\lg n$</p>
+<p>查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。</p>
+<p>令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。</p>
 <p>如果用大 O 记法，也可以记为 $O(n^2 / \lg n)$，如果要选择一个比较常用的上界则可以选择 $O(n^2)$。</p>
-<p>实验结果，两边的成本是很接近的：<br>
+<p>实验结果，两边的成本是很接近的：
 <img src=/resources/3-1-27/1.png alt></p>
 <h2 id=另请参阅>
 另请参阅
@@ -1446,7 +1444,7 @@
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

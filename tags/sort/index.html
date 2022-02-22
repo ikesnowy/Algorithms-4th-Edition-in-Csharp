@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1427,9 +1427,7 @@
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.1.3 # 解答 # 你需要一个逆序的数组。
-例如：
-9 8 7 6 5 4 3 2 1
-i=0 条件满足 8 次，1 和 9 交换，1 8 7 6 5 4 3 2 9。
+例如： 9 8 7 6 5 4 3 2 1 i=0 条件满足 8 次，1 和 9 交换，1 8 7 6 5 4 3 2 9。
 i=1 条件满足 6 次，2 和 8 交换，1 2 7 6 5 4 3 8 9。
 i=2 条件满足 4 次，3 和 7 交换，1 2 3 6 5 4 7 8 9。
 i=3 条件满足 2 次，4 和 6 交换。1 2 3 4 5 6 7 8 9。
@@ -1500,24 +1498,18 @@ j > 0 && less(a[j], a[j - 1]) 第一个条件属于循环计数用的条件，�
 如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
 接下来我们证明有重复元素的情况下，这个结论仍然成立：
 首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：
-$$
-\underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted}
-$$
+$$ \underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted} $$
 其中，1，2，3 分别代表三种不同的取值及其先后顺序。
 假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。
 根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。
 第 i 次插入所需要的平均交换次数即为：
-$$
-\frac{b+c+c}{3}=\frac{b+2c}{3}
-$$
+$$ \frac{b+c+c}{3}=\frac{b+2c}{3} $$
 第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：
 如果插入的是 1，那么 b+2c 的值不会变化。
 如果插入的是 2，那么 b+2c 的值增加 1。
 如果插入的是 3，那么 b+2c 的值增加 2。
 同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：
-$$
-\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}
-$$
+$$ \frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3} $$
 <a href=/2-1-8/>...</a>
 </p>
 </article>

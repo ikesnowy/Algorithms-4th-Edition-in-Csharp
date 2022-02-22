@@ -40,8 +40,7 @@
 遍历输入的数组，把元素扔到相应的桶里面。
 把每个桶和对应的枢轴送到对应的线程进行排序。
 汇总各个桶中的结果，排序完毕。
-测试结果：
-大概能提升 5%~10% 的性能。
+测试结果： 大概能提升 5%~10% 的性能。
 代码 #  using System; using System.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.24">
@@ -83,24 +82,23 @@
 遍历输入的数组，把元素扔到相应的桶里面。
 把每个桶和对应的枢轴送到对应的线程进行排序。
 汇总各个桶中的结果，排序完毕。
-测试结果：
-大概能提升 5%~10% 的性能。
+测试结果： 大概能提升 5%~10% 的性能。
 代码 #  using System; using System.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-24/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-08-05T22:04:15+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.24 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1484,47 +1482,47 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>取样排序的想法很简单：<br>
-常规快排的枢轴只有一个。<br>
-如果用一个数组来充当枢轴，根据排序位置的不同自动选择对应的枢轴，<br>
-显然能够更好的估计中位数，以求更好的切分效果。<br>
-于是引入了「取样」的概念，假如我们从源数组中随机取了 3 个元素并对其排序，<br>
-那么这 3 个元素的中位数可以作为第一次切分的枢轴，剩余两个元素则可以充当切分后两个子数组的枢轴。<br>
-那么当取样元素到达一个合适的数量时，就能达到提升切分效率的目标。</p>
-<p>大致思路如下：<br>
-首先先从输入数组里随机取一些元素，作为「取样数组」。<br>
-用任意排序算法（比如快排）对取样数组进行排序。<br>
-（由于取样数组通常都比较小，这一步的时间消耗通常不会影响性能）<br>
-取出取样数组里面的中位数，当作枢轴对剩下的数组进行切分。<br>
-之后的切分中，根据排序区间在剩余数组中的相对位置，<br>
-用取样数组中对应位置的数作为枢轴，直到整个排序完成。</p>
-<p>论文里提到了两种实现方式。<br>
-第一种方法<br>
-取样数组和剩余数组是分开保存的。<br>
-每次切分完成后，并不把枢轴放入剩余数组中，<br>
-而是等到剩余数组全部排序完毕之后再用一次归并（merge）操作将取样数组和剩余数组归并。<br>
-第二种方法<br>
-取样数组和剩余数组保存在同一片空间里，这也是这份题解所实现的方法。<br>
-<img src=/resources/2-3-24/1.gif alt><br>
-在打乱输入数组之后，取前 2^k-1 个元素作为取样数组，用快排对其排序。<br>
-然后把取样数组的后半部分放到整个数组的末尾。<br>
-这样操作的结果是输入数组分为了四个部分：<br>
-有序的取样数组、取样数组的中位数、无序的剩余数组、有序的取样数组。<br>
-中位数则位于第一部分的末尾，我们将其作为枢轴对剩余数组进行切分，数组变为：<br>
-有序的取样数组、小于中位数的部分、枢轴、大于中位数的部分、有序的取样数组<br>
-接下来我们再对第一个部分取半，放到中位数之前；对最后一部分取半，放到中位数之后：<br>
-0 ~ 1/4 取样数组、小于中位数、1/4 ~ 1/2 取样数组、枢轴、1/2~3/4 取样数组、大于中位数、3/4~1 取样数组<br>
-你会发现枢轴前后又分别变回了初始条件，递归执行上述操作，便能对整个数组排序。<br>
-注意当取样数组用完的时候，直接变回普通的快排。</p>
-<p>现代的取样排序<br>
-这里的「现代」并不意味着更好，只是让取样排序能更好的适应多线程排序。<br>
-首先仍然是取样，取样的数量往往取决于线程的数量，比如说取了 p-1 个，就将数组分为 p 份。<br>
-对取样数组进行排序，获得 p 个区间（桶）。<br>
-遍历输入的数组，把元素扔到相应的桶里面。<br>
-把每个桶和对应的枢轴送到对应的线程进行排序。<br>
-汇总各个桶中的结果，排序完毕。</p>
-<p>测试结果：<br>
-<img src=/resources/2-3-24/2.png alt><br>
+<p>取样排序的想法很简单：</p>
+<p>常规快排的枢轴只有一个。</p>
+<p>如果用一个数组来充当枢轴，根据排序位置的不同自动选择对应的枢轴，</p>
+<p>显然能够更好的估计中位数，以求更好的切分效果。</p>
+<p>于是引入了「取样」的概念，假如我们从源数组中随机取了 3 个元素并对其排序，</p>
+<p>那么这 3 个元素的中位数可以作为第一次切分的枢轴，剩余两个元素则可以充当切分后两个子数组的枢轴。</p>
+<p>那么当取样元素到达一个合适的数量时，就能达到提升切分效率的目标。</p>
+<p>大致思路如下：</p>
+<p>首先先从输入数组里随机取一些元素，作为「取样数组」。</p>
+<p>用任意排序算法（比如快排）对取样数组进行排序。</p>
+<p>（由于取样数组通常都比较小，这一步的时间消耗通常不会影响性能）</p>
+<p>取出取样数组里面的中位数，当作枢轴对剩下的数组进行切分。</p>
+<p>之后的切分中，根据排序区间在剩余数组中的相对位置，</p>
+<p>用取样数组中对应位置的数作为枢轴，直到整个排序完成。</p>
+<p>论文里提到了两种实现方式。</p>
+<p>第一种方法</p>
+<p>取样数组和剩余数组是分开保存的。</p>
+<p>每次切分完成后，并不把枢轴放入剩余数组中，</p>
+<p>而是等到剩余数组全部排序完毕之后再用一次归并（merge）操作将取样数组和剩余数组归并。</p>
+<p>第二种方法</p>
+<p>取样数组和剩余数组保存在同一片空间里，这也是这份题解所实现的方法。</p>
+<p><img src=/resources/2-3-24/1.gif alt></p>
+<p>在打乱输入数组之后，取前 2^k-1 个元素作为取样数组，用快排对其排序。</p>
+<p>然后把取样数组的后半部分放到整个数组的末尾。</p>
+<p>这样操作的结果是输入数组分为了四个部分：</p>
+<p>有序的取样数组、取样数组的中位数、无序的剩余数组、有序的取样数组。</p>
+<p>中位数则位于第一部分的末尾，我们将其作为枢轴对剩余数组进行切分，数组变为：</p>
+<p>有序的取样数组、小于中位数的部分、枢轴、大于中位数的部分、有序的取样数组</p>
+<p>接下来我们再对第一个部分取半，放到中位数之前；对最后一部分取半，放到中位数之后：</p>
+<p>0 ~ 1/4 取样数组、小于中位数、1/4 ~ 1/2 取样数组、枢轴、1/2~3/4 取样数组、大于中位数、3/4~1 取样数组</p>
+<p>你会发现枢轴前后又分别变回了初始条件，递归执行上述操作，便能对整个数组排序。</p>
+<p>注意当取样数组用完的时候，直接变回普通的快排。</p>
+<p>现代的取样排序</p>
+<p>这里的「现代」并不意味着更好，只是让取样排序能更好的适应多线程排序。</p>
+<p>首先仍然是取样，取样的数量往往取决于线程的数量，比如说取了 p-1 个，就将数组分为 p 份。</p>
+<p>对取样数组进行排序，获得 p 个区间（桶）。</p>
+<p>遍历输入的数组，把元素扔到相应的桶里面。</p>
+<p>把每个桶和对应的枢轴送到对应的线程进行排序。</p>
+<p>汇总各个桶中的结果，排序完毕。</p>
+<p>测试结果：
+<img src=/resources/2-3-24/2.png alt>
 大概能提升 5%~10% 的性能。</p>
 <h2 id=代码>
 代码
@@ -1743,16 +1741,16 @@
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p>关于取样排序的论文（1970 年）：<br>
-<a href="https://dl.acm.org/citation.cfm?id=321600">Frazer W D, McKellar A C. Samplesort: A sampling approach to minimal storage tree sorting[J]. Journal of the ACM (JACM), 1970, 17(3): 496-507.</a><br>
-维基百科中的取样排序：<br>
-<a href=https://en.wikipedia.org/wiki/Samplesort>Samplesort-Wikipedia</a><br>
-本题用到的类库链接：<br>
+<p>关于取样排序的论文（1970 年）：
+<a href="https://dl.acm.org/citation.cfm?id=321600">Frazer W D, McKellar A C. Samplesort: A sampling approach to minimal storage tree sorting[J]. Journal of the ACM (JACM), 1970, 17(3): 496-507.</a>
+维基百科中的取样排序：
+<a href=https://en.wikipedia.org/wiki/Samplesort>Samplesort-Wikipedia</a>
+本题用到的类库链接：
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3/Quick>Quick 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

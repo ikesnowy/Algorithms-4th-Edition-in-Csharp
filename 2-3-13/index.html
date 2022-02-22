@@ -11,22 +11,14 @@
 平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？
 《算法导论》给出的结论是 $\log n$ ，具体证明如下：
 设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：
-$$
-h_n=1+\max(h_{l}+h_{r})
-$$
+$$ h_n=1+\max(h_{l}+h_{r}) $$
 其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。
 设枢轴位置为 $i$，上式可简化为：
-$$
-h_n=1+\max(h_{i-1}, h_{n-i})
-$$
+$$ h_n=1+\max(h_{i-1}, h_{n-i}) $$
 由于枢轴位置可以在 1~n 之间任意取值且概率相等，因此 BST 的平均高度（即高度的期望）为：
-$$
-E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack
-$$
+$$ E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack $$
 我们令 $Y_n=2^{h_n}$，可得：
-$$
-Y_n=2\times\max(Y_{i-1},Y_{n-i})
-$$">
+$$ Y_n=2\times\max(Y_{i-1},Y_{n-i}) $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.13">
 <meta property="og:description" content="2.3.13 #  解答 #  快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。
@@ -38,37 +30,29 @@ $$">
 平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？
 《算法导论》给出的结论是 $\log n$ ，具体证明如下：
 设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：
-$$
-h_n=1+\max(h_{l}+h_{r})
-$$
+$$ h_n=1+\max(h_{l}+h_{r}) $$
 其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。
 设枢轴位置为 $i$，上式可简化为：
-$$
-h_n=1+\max(h_{i-1}, h_{n-i})
-$$
+$$ h_n=1+\max(h_{i-1}, h_{n-i}) $$
 由于枢轴位置可以在 1~n 之间任意取值且概率相等，因此 BST 的平均高度（即高度的期望）为：
-$$
-E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack
-$$
+$$ E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack $$
 我们令 $Y_n=2^{h_n}$，可得：
-$$
-Y_n=2\times\max(Y_{i-1},Y_{n-i})
-$$">
+$$ Y_n=2\times\max(Y_{i-1},Y_{n-i}) $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-13/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-07-12T14:53:36+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.13 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1452,119 +1436,119 @@ $$">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。<br>
-在这里，我们可以将快速排序的递归树看作是一棵二叉搜索树（BST, Binary Search Tree）。<br>
-枢轴作为根结点，左子树即为左数组构造的 BST，右子树即为右数组构造的 BST。<br>
-这样题目中所求的递归深度即为所构造的 BST 的高度。</p>
+<p>快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。</p>
+<p>在这里，我们可以将快速排序的递归树看作是一棵二叉搜索树（BST, Binary Search Tree）。</p>
+<p>枢轴作为根结点，左子树即为左数组构造的 BST，右子树即为右数组构造的 BST。</p>
+<p>这样题目中所求的递归深度即为所构造的 BST 的高度。</p>
 <p>最坏情况，每次都只有枢轴和大于枢轴两部分，BST 退化为链表，高度为 $n-1$。</p>
 <p>最好情况，每次枢轴都正好平分数组，构造一棵完全二叉树，高度为 $\log n$。</p>
-<p>平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？<br>
-《算法导论》给出的结论是 $\log n$ ，具体证明如下：<br>
-设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：</p>
-<p>$$<br>
-h_n=1+\max(h_{l}+h_{r})<br>
+<p>平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？</p>
+<p>《算法导论》给出的结论是 $\log n$ ，具体证明如下：</p>
+<p>设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：</p>
+<p>$$
+h_n=1+\max(h_{l}+h_{r})
 $$</p>
-<p>其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。<br>
-设枢轴位置为 $i$，上式可简化为：</p>
-<p>$$<br>
-h_n=1+\max(h_{i-1}, h_{n-i})<br>
+<p>其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。</p>
+<p>设枢轴位置为 $i$，上式可简化为：</p>
+<p>$$
+h_n=1+\max(h_{i-1}, h_{n-i})
 $$</p>
 <p>由于枢轴位置可以在 1~n 之间任意取值且概率相等，因此 BST 的平均高度（即高度的期望）为：</p>
-<p>$$<br>
-E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack<br>
+<p>$$
+E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack
 $$</p>
 <p>我们令 $Y_n=2^{h_n}$，可得：</p>
-<p>$$<br>
-Y_n=2\times\max(Y_{i-1},Y_{n-i})<br>
+<p>$$
+Y_n=2\times\max(Y_{i-1},Y_{n-i})
 $$</p>
 <p>我们把 $Y_n$ 代入，可得：</p>
-<p>$$<br>
-\begin{aligned}<br>
-E(Y_n)<br>
-&=\sum_{i=1}^{n}\frac{1}{n}E\lbrack2\times\max(Y_{i-1}, Y_{n-i})\rbrack\<br>
-&=\frac{2}{n}\sum_{i=1}^{n}E\lbrack\max(Y_{i-1},Y_{n-i})\rbrack\<br>
-\end{aligned}<br>
+<p>$$
+\begin{aligned}
+E(Y_n)
+&=\sum_{i=1}^{n}\frac{1}{n}E\lbrack2\times\max(Y_{i-1}, Y_{n-i})\rbrack\newline
+&=\frac{2}{n}\sum_{i=1}^{n}E\lbrack\max(Y_{i-1},Y_{n-i})\rbrack\newline
+\end{aligned}
 $$</p>
 <p>接下来我们去掉最大值运算，根据最大值的性质，下式显然成立：</p>
-<p>$$<br>
-E\lbrack\max(X,Y)\rbrack\le E\lbrack\max(X,Y)+\min(X,Y)\rbrack=E\lbrack X+Y\rbrack=E\lbrack X\rbrack+E\lbrack Y\rbrack<br>
+<p>$$
+E\lbrack\max(X,Y)\rbrack\le E\lbrack\max(X,Y)+\min(X,Y)\rbrack=E\lbrack X+Y\rbrack=E\lbrack X\rbrack+E\lbrack Y\rbrack
 $$</p>
 <p>代入可得：</p>
-<p>$$<br>
-E(Y_n)<br>
-\le\frac{2}{n}\sum_{i=1}^{n}(E\lbrack Y_{i-1}\rbrack + E\lbrack Y_{n-i} \rbrack)<br>
-=\frac{2}{n}\sum_{i=0}^{n-1}2E\lbrack Y_i\rbrack<br>
-=\frac{4}{n}\sum_{i=0}^{n-1}E\lbrack Y_i\rbrack<br>
+<p>$$
+E(Y_n)
+\le\frac{2}{n}\sum_{i=1}^{n}(E\lbrack Y_{i-1}\rbrack + E\lbrack Y_{n-i} \rbrack)
+=\frac{2}{n}\sum_{i=0}^{n-1}2E\lbrack Y_i\rbrack
+=\frac{4}{n}\sum_{i=0}^{n-1}E\lbrack Y_i\rbrack
 $$</p>
 <p>大小为 0 的数组构成的 BST 的高度显然为 0，我们设 $Y_0=0$ 。接下来用一个组合数公式来构造上界：</p>
-<p>$$<br>
-\begin{align}<br>
-0&=Y_0=E\lbrack Y_0 \rbrack\le \frac{1}{4}\begin{pmatrix}3\3\end{pmatrix}=\frac{1}{4}\<br>
-1&=Y_1=E\lbrack Y_1 \rbrack\le\frac {1}{4}\begin{pmatrix}3+1\3\end{pmatrix}=1 \<br>
-\vdots \<br>
-Y_i &=E\lbrack Y_i\rbrack\le\frac{1}{4}\begin{pmatrix}i+3\3\end{pmatrix}<br>
-\end{align}<br>
+<p>$$
+\begin{align}
+0&=Y_0=E\lbrack Y_0 \rbrack\le \frac{1}{4}\begin{pmatrix}3\newline 3\end{pmatrix}=\frac{1}{4}\newline
+1&=Y_1=E\lbrack Y_1 \rbrack\le\frac {1}{4}\begin{pmatrix}3+1\newline 3\end{pmatrix}=1 \newline
+\vdots \newline
+Y_i &=E\lbrack Y_i\rbrack\le\frac{1}{4}\begin{pmatrix}i+3\newline 3\end{pmatrix}
+\end{align}
 $$</p>
 <p>注意这里的组合数公式为：</p>
-<p>$$<br>
-\begin{pmatrix}n\r\end{pmatrix}=\frac{r!}{r!(n-r)!}<br>
+<p>$$
+\begin{pmatrix}n\newline r\end{pmatrix}=\frac{r!}{r!(n-r)!}
 $$</p>
 <p>代入可得：</p>
-<p>$$<br>
-\begin{align}<br>
-E(Y_n) &\le \frac{4}{n}\sum_{i=0}^{n-1}E\lbrack Y_i\rbrack \<br>
-&\le\frac{4}{n}\sum_{i=0}^{n-1}\frac{1}{4}\begin{pmatrix}i+3\3\end{pmatrix} \<br>
-&=\frac{1}{n}\sum_{i=0}^{n-1}\begin{pmatrix}i+3\3\end{pmatrix}<br>
-\end{align}<br>
+<p>$$
+\begin{align}
+E(Y_n) &\le \frac{4}{n}\sum_{i=0}^{n-1}E\lbrack Y_i\rbrack \newline
+&\le\frac{4}{n}\sum_{i=0}^{n-1}\frac{1}{4}\begin{pmatrix}i+3\newline 3\end{pmatrix} \newline
+&=\frac{1}{n}\sum_{i=0}^{n-1}\begin{pmatrix}i+3\newline 3\end{pmatrix}
+\end{align}
 $$</p>
 <p>接下来我们去掉求和符号，首先根据组合数的性质，有以下等式成立</p>
-<p>$$<br>
-\begin{align}<br>
-\begin{pmatrix}n\k\end{pmatrix}&=\begin{pmatrix}n-1\k-1\end{pmatrix}+\begin{pmatrix}n-1\k\end{pmatrix} \<br>
-\begin{pmatrix}n\n\end{pmatrix}&=1<br>
-\end{align}<br>
+<p>$$
+\begin{align}
+\begin{pmatrix}n\newline k\end{pmatrix}&=\begin{pmatrix}n-1\newline k-1\end{pmatrix}+\begin{pmatrix}n-1\newline k\end{pmatrix} \newline
+\begin{pmatrix}n\newline n\end{pmatrix}&=1
+\end{align}
 $$</p>
 <p>我们把求和式展开得到：</p>
-<p>$$<br>
-\begin{align}<br>
-\sum_{i=0}^{n-1}\begin{pmatrix}i+3\3\end{pmatrix}<br>
-&=\begin{pmatrix}3\3\end{pmatrix} + \begin{pmatrix}4\3\end{pmatrix}+\cdots+\begin{pmatrix}n+2\3\end{pmatrix} \<br>
-&=\begin{pmatrix}4\4\end{pmatrix} + \begin{pmatrix}4\3\end{pmatrix}+\cdots+\begin{pmatrix}n+2\3\end{pmatrix} \<br>
-&=\begin{pmatrix}n+3\4\end{pmatrix}<br>
-\end{align}<br>
+<p>$$
+\begin{align}
+\sum_{i=0}^{n-1}\begin{pmatrix}i+3\newline 3\end{pmatrix}
+&=\begin{pmatrix}3\newline 3\end{pmatrix} + \begin{pmatrix}4\newline 3\end{pmatrix}+\cdots+\begin{pmatrix}n+2\newline 3\end{pmatrix} \newline
+&=\begin{pmatrix}4\newline 4\end{pmatrix} + \begin{pmatrix}4\newline 3\end{pmatrix}+\cdots+\begin{pmatrix}n+2\newline 3\end{pmatrix} \newline
+&=\begin{pmatrix}n+3\newline 4\end{pmatrix}
+\end{align}
 $$</p>
 <p>代入可得：</p>
-<p>$$<br>
-\begin{align}<br>
-E(Y_n) &\le\frac{1}{n}\sum_{i=0}^{n-1}\begin{pmatrix}i+3\3\end{pmatrix}\<br>
-&=\frac{1}{n}\begin{pmatrix}n+3\4 \end{pmatrix} \<br>
-&=\frac{1}{n}\cdot\frac{(n+3)!}{4!(n-1)!} \<br>
-&=\frac{1}{4}\cdot\frac{(n+3)!}{3!n!} \<br>
-&=\frac{(n+1)(n+2)(n+3)}{24} \<br>
-&=\frac{n^3+6n^2+11n+6}{24}<br>
-\end{align}<br>
+<p>$$
+\begin{align}
+E(Y_n) &\le\frac{1}{n}\sum_{i=0}^{n-1}\begin{pmatrix}i+3\newline 3\end{pmatrix}\newline
+&=\frac{1}{n}\begin{pmatrix}n+3\newline 4 \end{pmatrix} \newline
+&=\frac{1}{n}\cdot\frac{(n+3)!}{4!(n-1)!} \newline
+&=\frac{1}{4}\cdot\frac{(n+3)!}{3!n!} \newline
+&=\frac{(n+1)(n+2)(n+3)}{24} \newline
+&=\frac{n^3+6n^2+11n+6}{24}
+\end{align}
 $$</p>
-<p>由于 $Y_n=2^{h_n}$ ，因此 $E\lbrack Y_n \rbrack=E\lbrack 2^{h_n} \rbrack$。<br>
-由于 $f(x)=2^x$ 是个凸函数，可以应用延森不等式（凸函数的割线一定在函数上方），即 $2^{E\lbrack h_n\rbrack}\le E\lbrack Y_n\rbrack$。<br>
-于是得到结论：</p>
-<p>$$<br>
-2^{E\lbrack h_n\rbrack} \le \frac{n^3+6n^2+11n+6}{24} \<br>
-E\lbrack h_n \rbrack\le \log(\frac{n^3+6n^2+11n+6}{24})<br>
+<p>由于 $Y_n=2^{h_n}$ ，因此 $E\lbrack Y_n \rbrack=E\lbrack 2^{h_n} \rbrack$。</p>
+<p>由于 $f(x)=2^x$ 是个凸函数，可以应用延森不等式（凸函数的割线一定在函数上方），即 $2^{E\lbrack h_n\rbrack}\le E\lbrack Y_n\rbrack$。</p>
+<p>于是得到结论：</p>
+<p>$$
+2^{E\lbrack h_n\rbrack} \le \frac{n^3+6n^2+11n+6}{24} \newline
+E\lbrack h_n \rbrack\le \log(\frac{n^3+6n^2+11n+6}{24})
 $$</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p>快速排序的递归树可以视为 BST 的结论可以在下面这个 PPT 的第 5 页找到。<br>
-<a href=https://cs.nyu.edu/courses/spring18/CSCI-UA.0310-001/qsort.pdf>QuickSort-纽约大学</a><br>
-《算法导论》中关于随机 BST 高度的证明（P321 Theorem12.4）<br>
-<a href=http://bayanbox.ir/view/4177858657730907268/introduction-to-algorithms-3rd-edition.pdf>Introduction to Algorithms</a><br>
-也可以参考下面这个链接获得更详细的解释。<br>
-<a href=https://cs.stackexchange.com/questions/6342/proof-that-a-randomly-built-binary-search-tree-has-logarithmic-height>Proof that a randomly built binary search tree has logarithmic height-StackExchange</a></p>
+<p>快速排序的递归树可以视为 BST 的结论可以在下面这个 PPT 的第 5 页找到。</p>
+<p><a href=https://cs.nyu.edu/courses/spring18/CSCI-UA.0310-001/qsort.pdf>QuickSort-纽约大学</a></p>
+<p>《算法导论》中关于随机 BST 高度的证明（P321 Theorem12.4）</p>
+<p><a href=http://bayanbox.ir/view/4177858657730907268/introduction-to-algorithms-3rd-edition.pdf>Introduction to Algorithms</a></p>
+<p>也可以参考下面这个链接获得更详细的解释。</p>
+<p><a href=https://cs.stackexchange.com/questions/6342/proof-that-a-randomly-built-binary-search-tree-has-logarithmic-height>Proof that a randomly built binary search tree has logarithmic height-StackExchange</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

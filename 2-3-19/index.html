@@ -31,18 +31,18 @@ d 和 e 是最大值和次大值（同样没有对应关系）。
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-19/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-07-28T13:45:14+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.19 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1426,20 +1426,20 @@ d 和 e 是最大值和次大值（同样没有对应关系）。
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>主要介绍一下这个少于七次比较的五取样算法。<br>
-首先假设五个数字为 a b c d e<br>
-对 b c 排序，d e 排序。（两次比较）<br>
-比较 b 和 d，把较小那一组换到 b c 的位置上去。（一次比较）<br>
-此时会有 b &lt; c, b &lt; d &lt; e。<br>
-交换 a, b，重新对 b c 排序。（一次比较）<br>
-再次比较 b 和 d，把较小的那一组换到 b c 的位置上。（一次比较）<br>
-最后比较 c 和 d，较小的那一个即为中位数。（一次比较）<br>
-总共需要 6 次比较，严格小于 7 次。</p>
-<p>取样完毕后，a b 是最小值和次小值（这里没有对应关系，a 也可以是次小值）。<br>
-d 和 e 是最大值和次大值（同样没有对应关系）。<br>
-我们把 d 和 e 放到数组的最后作为哨兵，去掉右边界的判断。<br>
-同时让左右两侧指针都向中间移动两位，减少不必要的比较。</p>
-<p>测试结果，对比普通快排性能提升约 10%，和三取样快排区别不大。<br>
+<p>主要介绍一下这个少于七次比较的五取样算法。</p>
+<p>首先假设五个数字为 a b c d e</p>
+<p>对 b c 排序，d e 排序。（两次比较）</p>
+<p>比较 b 和 d，把较小那一组换到 b c 的位置上去。（一次比较）</p>
+<p>此时会有 b &lt; c, b &lt; d &lt; e。</p>
+<p>交换 a, b，重新对 b c 排序。（一次比较）</p>
+<p>再次比较 b 和 d，把较小的那一组换到 b c 的位置上。（一次比较）</p>
+<p>最后比较 c 和 d，较小的那一个即为中位数。（一次比较）</p>
+<p>总共需要 6 次比较，严格小于 7 次。</p>
+<p>取样完毕后，a b 是最小值和次小值（这里没有对应关系，a 也可以是次小值）。</p>
+<p>d 和 e 是最大值和次大值（同样没有对应关系）。</p>
+<p>我们把 d 和 e 放到数组的最后作为哨兵，去掉右边界的判断。</p>
+<p>同时让左右两侧指针都向中间移动两位，减少不必要的比较。</p>
+<p>测试结果，对比普通快排性能提升约 10%，和三取样快排区别不大。
 <img src=/resources/2-3-19/1.png alt></p>
 <h2 id=代码>
 代码
@@ -1769,12 +1769,12 @@ d 和 e 是最大值和次大值（同样没有对应关系）。<br>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3/Quick>Quick 库</a><br>
+<p><a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.3/Quick>Quick 库</a>
 <a href=https://stackoverflow.com/questions/480960/code-to-calculate-median-of-five-in-c-sharp>Code to calculate “median of five” in C#</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

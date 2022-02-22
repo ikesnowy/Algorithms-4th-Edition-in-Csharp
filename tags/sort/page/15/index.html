@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1418,8 +1418,7 @@ string s = "abcabc"; string p = s; Console.WriteLine(s.CompareTo(p));
 <p>2.5.2 # 解答 # 将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
 组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
 先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
-我们从 canCombine 开始，一个个检查是否是组合词。
-如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
+我们从 canCombine 开始，一个个检查是否是组合词。 如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
 组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。
 现在题目转化为了如何解决 ThreeSum 问题，即求 a + b = c 型问题，根据 1.4.41 中的解法求解。
 keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
@@ -1460,8 +1459,7 @@ static string[] Dedup(string[] a) { if (a.Length == 0) return a; string[] sorted
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.5.5 # 解答 # 因为选择排序会交换不相邻的元素。
-例如：
+<p>2.5.5 # 解答 # 因为选择排序会交换不相邻的元素。 例如：
 B1 B2 A A B2 B1 此时 B1 和 B2 的相对位置被改变，如果将交换限定在相邻元素之间（插入排序）。
 B1 B2 A B1 A B2 A B2 B2 此时排序就是稳定的了。
 </p>
@@ -1495,20 +1493,8 @@ B1 B2 A B1 A B2 A B2 B2 此时排序就是稳定的了。
 设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
 一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
 于是根据全概率公式，有：
-$$
-\begin{eqnarray}
-C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \
-C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \
-nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \
-nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \
-nC_n&=&2n+nC_{n-1} \
-C_n&=&2+C_{n-1} \
-C_n &=& C_1+2(n-1) \
-C_n &=& 2n-2 &lt; 2n
-\end{eqnarray}
-$$
-测试结果符合我们的预期。
-附加：找出第 $k$ 小的数平均需要的比较次数。
+$$ \begin{eqnarray} C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \newline C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \newline nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \newline nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \newline nC_n&=&2n+nC_{n-1} \newline C_n&=&2+C_{n-1} \newline C_n &=& C_1+2(n-1) \newline C_n &=& 2n-2 &lt; 2n \end{eqnarray} $$
+测试结果符合我们的预期。 附加：找出第 $k$ 小的数平均需要的比较次数。
 类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。
 首先和快速排序类似，select 方法的所有元素比较都发生在切分过程中。
 接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），
@@ -1529,8 +1515,7 @@ $$
 接下来遍历一遍记录每个单词出现的次数。
 然后按照频率排序，倒序输出即可。
 定义了一个嵌套类 Record 来记录单词及出现次数，实现的比较器按照出现次数排序。
-class Record : IComparable&lt;Record> { public string Key { get; set; } // 单词 public int Value { get; set; } // 频率 public Record(string key, int value) { this.Key = key; this.Value = value; } public int CompareTo(Record other) { return this.Value.CompareTo(other.Value); } } 测试结果（前 1% 的单词）：
-代码 # using System; using System.
+class Record : IComparable&lt;Record> { public string Key { get; set; } // 单词 public int Value { get; set; } // 频率 public Record(string key, int value) { this.Key = key; this.Value = value; } public int CompareTo(Record other) { return this.Value.CompareTo(other.Value); } } 测试结果（前 1% 的单词）： 代码 # using System; using System.
 <a href=/2-5-8/>...</a>
 </p>
 </article>

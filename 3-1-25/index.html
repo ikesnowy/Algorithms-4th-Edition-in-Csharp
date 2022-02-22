@@ -6,10 +6,7 @@
 实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
 然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
 要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。
-利用《双城记》测试的结果：
-代码 #  BinarySearchST #  cache 是一个 int 类型的变量，代表下标。
-在二分查找前先检查缓存，要注意cache超出数组大小的情况。
-如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
+利用《双城记》测试的结果： 代码 #  BinarySearchST #  cache 是一个 int 类型的变量，代表下标。 在二分查找前先检查缓存，要注意cache超出数组大小的情况。 如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
 public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&#34;argument to Get() is null&#34;); if (IsEmpty()) return default(TValue); if (this.cache < this.n && this.keys[this.cache].Equals(key)) // 缓存检查  return this.values[this.cache]; int rank = Rank(key); if (rank < this.n && this.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.25">
@@ -17,26 +14,23 @@ public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&
 实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
 然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
 要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。
-利用《双城记》测试的结果：
-代码 #  BinarySearchST #  cache 是一个 int 类型的变量，代表下标。
-在二分查找前先检查缓存，要注意cache超出数组大小的情况。
-如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
+利用《双城记》测试的结果： 代码 #  BinarySearchST #  cache 是一个 int 类型的变量，代表下标。 在二分查找前先检查缓存，要注意cache超出数组大小的情况。 如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
 public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&#34;argument to Get() is null&#34;); if (IsEmpty()) return default(TValue); if (this.cache < this.n && this.keys[this.cache].Equals(key)) // 缓存检查  return this.values[this.cache]; int rank = Rank(key); if (rank < this.n && this.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-25/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-03-02T16:10:23+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.25 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1421,10 +1415,10 @@ public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>英文原文指的是 most recently accessed key，因此指的是最近访问的键。</p>
-<p>实现比较简单，先在类中定义一个新的成员 <code>cache</code> 作为缓存，<br>
-然后修改 <code>Get</code> 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。<br>
-要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。</p>
-<p>利用《双城记》测试的结果：<br>
+<p>实现比较简单，先在类中定义一个新的成员 <code>cache</code> 作为缓存，</p>
+<p>然后修改 <code>Get</code> 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。</p>
+<p>要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。</p>
+<p>利用《双城记》测试的结果：
 <img src=/resources/3-1-25/1.png alt></p>
 <h2 id=代码>
 代码
@@ -1434,8 +1428,8 @@ public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&
 BinarySearchST
 <a class=anchor href=#binarysearchst>#</a>
 </h3>
-<p><code>cache</code> 是一个 <code>int</code> 类型的变量，代表下标。<br>
-在二分查找前先检查缓存，要注意<code>cache</code>超出数组大小的情况。<br>
+<p><code>cache</code> 是一个 <code>int</code> 类型的变量，代表下标。
+在二分查找前先检查缓存，要注意<code>cache</code>超出数组大小的情况。
 如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>public</span> TValue Get(TKey key)
 {
@@ -1458,8 +1452,8 @@ BinarySearchST
 SequentialSearchST
 <a class=anchor href=#sequentialsearchst>#</a>
 </h3>
-<p><code>cache</code> 是一个结点类型的变量，代表一个键值对。<br>
-类似的，在顺序查找前先检查缓存，如果缓存未命中则更新缓存。<br>
+<p><code>cache</code> 是一个结点类型的变量，代表一个键值对。
+类似的，在顺序查找前先检查缓存，如果缓存未命中则更新缓存。
 要注意的是如果缓存的结点被删除，需要将缓存置为 <code>null</code>。</p>
 <p><code>Get()</code> 方法</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>public</span> TValue Get(TKey key)
@@ -1503,7 +1497,7 @@ SequentialSearchST
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

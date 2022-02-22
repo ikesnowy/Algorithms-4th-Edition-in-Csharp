@@ -4,16 +4,14 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="1.3.31 #  解答 #  双向链表的插入有顺序，务必当心。
 双向链表长这样（似乎有一种画法是把空指针画成“接地”的样子）：
-删除中间那个：
-再插回去：
+删除中间那个： 再插回去：
 原则是不要让有用的结点变得无法访问。
 代码 #  DoubleNode<> #  using System; using System.Collections; using System.Collections.Generic; using System.Text; namespace _1._3._31 { /* * 1.3.31 * * 实现一个嵌套类 DoubleNode 用来构造双向链表， * 其中每个结点都含有一个指向前驱元素的应用和一项指向后续元素的引用（如果不存在则为 null）。 * 为以下任务实现若干静态方法： * 在表头插入结点。 * 在表尾插入结点。 * 从表头删除结点。 * 从表尾删除结点。 * 在指定结点之前插入新结点。 * 在指定结点之后插入新结点。 * 删除指定结点。 * */ public class DoubleLinkList<Item> : IEnumerable<Item> { private class DoubleNode<T> { public T item; public DoubleNode<T> prev; public DoubleNode<T> next; } DoubleNode<Item> first; DoubleNode<Item> last; int count; /// <summary>  /// 建立一条双向链表。  /// </summary>  public DoubleLinkList() { this.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.31">
 <meta property="og:description" content="1.3.31 #  解答 #  双向链表的插入有顺序，务必当心。
 双向链表长这样（似乎有一种画法是把空指针画成“接地”的样子）：
-删除中间那个：
-再插回去：
+删除中间那个： 再插回去：
 原则是不要让有用的结点变得无法访问。
 代码 #  DoubleNode<> #  using System; using System.Collections; using System.Collections.Generic; using System.Text; namespace _1._3._31 { /* * 1.3.31 * * 实现一个嵌套类 DoubleNode 用来构造双向链表， * 其中每个结点都含有一个指向前驱元素的应用和一项指向后续元素的引用（如果不存在则为 null）。 * 为以下任务实现若干静态方法： * 在表头插入结点。 * 在表尾插入结点。 * 从表头删除结点。 * 从表尾删除结点。 * 在指定结点之前插入新结点。 * 在指定结点之后插入新结点。 * 删除指定结点。 * */ public class DoubleLinkList<Item> : IEnumerable<Item> { private class DoubleNode<T> { public T item; public DoubleNode<T> prev; public DoubleNode<T> next; } DoubleNode<Item> first; DoubleNode<Item> last; int count; /// <summary>  /// 建立一条双向链表。  /// </summary>  public DoubleLinkList() { this.">
 <meta property="og:type" content="article">
@@ -25,12 +23,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1417,7 +1415,7 @@
 <p>双向链表的插入有顺序，务必当心。</p>
 <p>双向链表长这样（似乎有一种画法是把空指针画成“接地”的样子）：</p>
 <p><img src=/resources/1-3-31/1.png alt></p>
-<p>删除中间那个：<br>
+<p>删除中间那个：
 <img src=/resources/1-3-31/2.png alt></p>
 <p>再插回去：</p>
 <p><img src=/resources/1-3-31/3.png alt></p>

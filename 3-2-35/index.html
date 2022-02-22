@@ -2,91 +2,49 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="3.2.35 #  解答 #  根据书中已经给出的归纳关系式（中文版P255/英文版P403）：
-$$
-C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N
-$$
+<meta name=description content="3.2.35 #  解答 #  根据书中已经给出的归纳关系式（中文版 P255/英文版 P403）：
+$$ C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N $$
 整理得：
-$$
-C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N
-$$
+$$ C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N $$
 这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。
 遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：
-$$
-NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})
-$$
+$$ NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1}) $$
 用 $N+1$ 时的等式减去该式得：
-$$
-(N+1)C_{N+1}-NC_N=2N+2C_N \
-(N+1)C_{N+1}=2N+(N+2)C_N \
-\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}
-$$
+$$ (N+1)C_{N+1}-NC_N=2N+2C_N \newline (N+1)C_{N+1}=2N+(N+2)C_N \newline \frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1} $$
 令 $T_N = \frac{C_N}{N+1}$，得到：
-$$
-T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \
-T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}
-$$
+$$ T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \newline T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)} $$
 归纳得：
-$$
-\begin{aligned}
-T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \
-C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\
-C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\
-C_N&=-4N+2(N+1)(\ln N+\gamma)
-\end{aligned}">
+$$ \begin{aligned} T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \newline C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\newline C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\newline C_N&=-4N+2(N+1)(\ln N+\gamma) \end{aligned} $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.35">
-<meta property="og:description" content="3.2.35 #  解答 #  根据书中已经给出的归纳关系式（中文版P255/英文版P403）：
-$$
-C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N
-$$
+<meta property="og:description" content="3.2.35 #  解答 #  根据书中已经给出的归纳关系式（中文版 P255/英文版 P403）：
+$$ C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N $$
 整理得：
-$$
-C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N
-$$
+$$ C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N $$
 这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。
 遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：
-$$
-NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})
-$$
+$$ NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1}) $$
 用 $N+1$ 时的等式减去该式得：
-$$
-(N+1)C_{N+1}-NC_N=2N+2C_N \
-(N+1)C_{N+1}=2N+(N+2)C_N \
-\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}
-$$
+$$ (N+1)C_{N+1}-NC_N=2N+2C_N \newline (N+1)C_{N+1}=2N+(N+2)C_N \newline \frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1} $$
 令 $T_N = \frac{C_N}{N+1}$，得到：
-$$
-T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \
-T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}
-$$
+$$ T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \newline T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)} $$
 归纳得：
-$$
-\begin{aligned}
-T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \
-C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\
-C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\
-C_N&=-4N+2(N+1)(\ln N+\gamma)
-\end{aligned}">
+$$ \begin{aligned} T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \newline C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\newline C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\newline C_N&=-4N+2(N+1)(\ln N+\gamma) \end{aligned} $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-2-35/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-10-06T21:17:54+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.2.35 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1470,46 +1428,46 @@ C_N&=-4N+2(N+1)(\ln N+\gamma)
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>根据书中已经给出的归纳关系式（中文版P255/英文版P403）：<br>
-$$<br>
-C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N<br>
-$$<br>
-整理得：<br>
-$$<br>
-C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N<br>
-$$<br>
-这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。</p>
-<p>遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：<br>
-$$<br>
-NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})<br>
-$$<br>
-用 $N+1$ 时的等式减去该式得：<br>
-$$<br>
-(N+1)C_{N+1}-NC_N=2N+2C_N \<br>
-(N+1)C_{N+1}=2N+(N+2)C_N \<br>
-\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}<br>
-$$<br>
-令 $T_N = \frac{C_N}{N+1}$，得到：<br>
-$$<br>
-T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \<br>
-T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}<br>
-$$<br>
-归纳得：<br>
-$$<br>
-\begin{aligned}<br>
-T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \<br>
-C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \<br>
-C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \<br>
-C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\<br>
-C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\<br>
-C_N&=-4N+2(N+1)(\ln N+\gamma)<br>
-\end{aligned}<br>
-$$<br>
-于是平均成本为：$1+C_N/N \sim 2\ln N+2\gamma-3$ 。</p>
+<p>根据书中已经给出的归纳关系式（中文版 P255/英文版 P403）：</p>
+<p>$$
+C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N
+$$</p>
+<p>整理得：</p>
+<p>$$
+C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N
+$$</p>
+<p>这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。</p>
+<p>遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：</p>
+<p>$$
+NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})
+$$</p>
+<p>用 $N+1$ 时的等式减去该式得：</p>
+<p>$$
+(N+1)C_{N+1}-NC_N=2N+2C_N \newline
+(N+1)C_{N+1}=2N+(N+2)C_N \newline
+\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}
+$$</p>
+<p>令 $T_N = \frac{C_N}{N+1}$，得到：</p>
+<p>$$
+T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \newline
+T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}
+$$</p>
+<p>归纳得：</p>
+<p>$$
+\begin{aligned}
+T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline
+C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline
+C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \newline
+C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\newline
+C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\newline
+C_N&=-4N+2(N+1)(\ln N+\gamma)
+\end{aligned}
+$$</p>
+<p>于是平均成本为：$1+C_N/N \sim 2\ln N+2\gamma-3$ 。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

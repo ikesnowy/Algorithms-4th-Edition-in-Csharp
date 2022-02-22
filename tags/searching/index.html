@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1503,8 +1503,7 @@ keys() 方法只需要根据当前的 n 新建一个数组，把链表中的键�
 <a href=/tags/searching/>Searching</a>
 </div>
 <p>3.1.7 # 解答 # 在 FrequencyCounter 中添加一个 CountDistinct 方法，计算不重复的键数。
-public static int CountDistinct&lt;TKey>(TKey[] keys, IST&lt;TKey, int> st) { int distinct = 0; for (int i = 0; i &lt; keys.Length; i++) { if (!st.Contains(keys[i])) st.Put(keys[i], distinct++); } return distinct; } 结果如下：
-另请参阅 # SymbolTable 库
+public static int CountDistinct&lt;TKey>(TKey[] keys, IST&lt;TKey, int> st) { int distinct = 0; for (int i = 0; i &lt; keys.Length; i++) { if (!st.Contains(keys[i])) st.Put(keys[i], distinct++); } return distinct; } 结果如下： 另请参阅 # SymbolTable 库
 </p>
 </article>
 <article class="markdown book-post">
@@ -1534,8 +1533,7 @@ public static int CountDistinct&lt;TKey>(TKey[] keys, IST&lt;TKey, int> st) { in
 《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
 对 FrequencyCounter 做修改，在调用 Put 方法之前，将单词记录在字符串变量 lastPut 中。
 在读入单词结束之后输出 lastPut 和 words 变量。
-将末尾的版权信息删除后，得到的结果如下：
-代码 # public static string MostFrequentlyWord(string filename, int minLength, IST&lt;string, int> st) { int distinct = 0, words = 0; StreamReader sr = new StreamReader(File.OpenRead(filename)); string[] inputs = sr .ReadToEnd() .Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); string lastPut = ""; foreach (string s in inputs) { if (s.
+将末尾的版权信息删除后，得到的结果如下： 代码 # public static string MostFrequentlyWord(string filename, int minLength, IST&lt;string, int> st) { int distinct = 0, words = 0; StreamReader sr = new StreamReader(File.OpenRead(filename)); string[] inputs = sr .ReadToEnd() .Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); string lastPut = ""; foreach (string s in inputs) { if (s.
 <a href=/3-1-9/>...</a>
 </p>
 </article>
@@ -1547,8 +1545,7 @@ public static int CountDistinct&lt;TKey>(TKey[] keys, IST&lt;TKey, int> st) { in
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.10 # 解答 # 如图所示：
-插入新的键值对需要遍历整个链表，比较次数等于链表在插入前的键值对数目。
+<p>3.1.10 # 解答 # 如图所示： 插入新的键值对需要遍历整个链表，比较次数等于链表在插入前的键值对数目。
 修改已有的键值对则需要遍历链表直到找到该键值对，比较次数等于该键值对以及它之前所有键值对的数目。
 共比较 0 + 1 + 2 + 3 + 4 + 5 + 6 + 4 + 6 + 7 + 8 + 9 = 55 次。
 </p>

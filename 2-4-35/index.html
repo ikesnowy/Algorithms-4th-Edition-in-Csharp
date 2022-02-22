@@ -6,12 +6,8 @@
 random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
 最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
 提示已经给出了实现方案，我们用一个例子来简单说明一下。
-现在给出一个分布 p，总和 T=1，如下图所示：
-为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。
-现在我们将这个思想应用到完全二叉树上。
-每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图：
-为方便起见，我们重新排列一下之前的随机表：
-每个值的概率并没有改变，只是每个值对应的区段换了一下。
+现在给出一个分布 p，总和 T=1，如下图所示： 为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
+每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图： 为方便起见，我们重新排列一下之前的随机表： 每个值的概率并没有改变，只是每个值对应的区段换了一下。
 经过这样的变换后，你会发现，如果从根结点的角度看：
 如果随机的值小于 0.1，对应的编号就是 1。
 如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
@@ -20,20 +16,15 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 如果随机数小于当前结点，直接返回当前结点的编号。
 如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
 其他情况减去当前结点的权值并移动到左子树。
-思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
-代码 #  using System; namespace _2._4._35 { /// <summary>  /// 离散分布的取样。  /// </summary>  class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// <summary>  /// 构造一个离散取样类。  /// </summary>  /// <param name=&#34;data&#34;>取样数据。</param>  public Sample(double[] data) { // 复制权重  this.">
+思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下： 代码 #  using System; namespace _2._4._35 { /// <summary>  /// 离散分布的取样。  /// </summary>  class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// <summary>  /// 构造一个离散取样类。  /// </summary>  /// <param name=&#34;data&#34;>取样数据。</param>  public Sample(double[] data) { // 复制权重  this.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.35">
 <meta property="og:description" content="2.4.35 #  解答 #  本题有两个翻译错误。
 random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
 最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
 提示已经给出了实现方案，我们用一个例子来简单说明一下。
-现在给出一个分布 p，总和 T=1，如下图所示：
-为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。
-现在我们将这个思想应用到完全二叉树上。
-每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图：
-为方便起见，我们重新排列一下之前的随机表：
-每个值的概率并没有改变，只是每个值对应的区段换了一下。
+现在给出一个分布 p，总和 T=1，如下图所示： 为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
+每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图： 为方便起见，我们重新排列一下之前的随机表： 每个值的概率并没有改变，只是每个值对应的区段换了一下。
 经过这样的变换后，你会发现，如果从根结点的角度看：
 如果随机的值小于 0.1，对应的编号就是 1。
 如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
@@ -42,23 +33,22 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 如果随机数小于当前结点，直接返回当前结点的编号。
 如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
 其他情况减去当前结点的权值并移动到左子树。
-思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
-代码 #  using System; namespace _2._4._35 { /// <summary>  /// 离散分布的取样。  /// </summary>  class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// <summary>  /// 构造一个离散取样类。  /// </summary>  /// <param name=&#34;data&#34;>取样数据。</param>  public Sample(double[] data) { // 复制权重  this.">
+思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下： 代码 #  using System; namespace _2._4._35 { /// <summary>  /// 离散分布的取样。  /// </summary>  class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// <summary>  /// 构造一个离散取样类。  /// </summary>  /// <param name=&#34;data&#34;>取样数据。</param>  public Sample(double[] data) { // 复制权重  this.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-35/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-12-28T09:28:35+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.35 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1442,29 +1432,29 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>本题有两个翻译错误。<br>
-<code>random()</code> ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index <code>i</code> with probability <code>p[i]/T</code>）<br>
-最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）</p>
-<p>提示已经给出了实现方案，我们用一个例子来简单说明一下。<br>
-现在给出一个分布 <code>p</code>，总和 <code>T=1</code>，如下图所示：<br>
-<img src=/resources/2-4-35/1.png alt><br>
-为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。<br>
+<p>本题有两个翻译错误。</p>
+<p><code>random()</code> ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index <code>i</code> with probability <code>p[i]/T</code>）</p>
+<p>最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）</p>
+<p>提示已经给出了实现方案，我们用一个例子来简单说明一下。</p>
+<p>现在给出一个分布 <code>p</code>，总和 <code>T=1</code>，如下图所示：
+<img src=/resources/2-4-35/1.png alt></p>
+<p>为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。
 <img src=/resources/2-4-35/2.png alt></p>
-<p>现在我们将这个思想应用到完全二叉树上。<br>
-每次随机的过程其实构成了一棵选择树，我们把数组 <code>p</code> 当作一棵树，如下图：<br>
-<img src=/resources/2-4-35/3.png alt><br>
-为方便起见，我们重新排列一下之前的随机表：<br>
-<img src=/resources/2-4-35/4.png alt><br>
-每个值的概率并没有改变，只是每个值对应的区段换了一下。<br>
-经过这样的变换后，你会发现，如果从根结点的角度看：<br>
-如果随机的值小于 0.1，对应的编号就是 1。<br>
-如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。<br>
-其他情况对应编号在左子树上。<br>
-扩展到一般情况，就变成了：<br>
-如果随机数小于当前结点，直接返回当前结点的编号。<br>
-如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。<br>
-其他情况减去当前结点的权值并移动到左子树。</p>
-<p>思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：<br>
+<p>现在我们将这个思想应用到完全二叉树上。</p>
+<p>每次随机的过程其实构成了一棵选择树，我们把数组 <code>p</code> 当作一棵树，如下图：
+<img src=/resources/2-4-35/3.png alt></p>
+<p>为方便起见，我们重新排列一下之前的随机表：
+<img src=/resources/2-4-35/4.png alt></p>
+<p>每个值的概率并没有改变，只是每个值对应的区段换了一下。</p>
+<p>经过这样的变换后，你会发现，如果从根结点的角度看：</p>
+<p>如果随机的值小于 0.1，对应的编号就是 1。</p>
+<p>如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。</p>
+<p>其他情况对应编号在左子树上。</p>
+<p>扩展到一般情况，就变成了：</p>
+<p>如果随机数小于当前结点，直接返回当前结点的编号。</p>
+<p>如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。</p>
+<p>其他情况减去当前结点的权值并移动到左子树。</p>
+<p>思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
 <img src=/resources/2-4-35/5.png alt></p>
 <h2 id=代码>
 代码
@@ -1566,7 +1556,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

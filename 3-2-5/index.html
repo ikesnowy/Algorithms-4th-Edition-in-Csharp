@@ -2,22 +2,16 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="3.2.5 #  解答 #  事实上，这个问题可以归结为，如何根据频率来构造一棵最优的BST？
+<meta name=description content="3.2.5 #  解答 #  事实上，这个问题可以归结为，如何根据频率来构造一棵最优的 BST？
 如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。
-首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，
-（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
+首先我们定义某个结点的查找开销为该结点的深度加一乘以频率， （注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
 所有结点的查找开销加起来就是一整棵树的查找开销了。
-$$
-cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)
-$$
+$$ cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i) $$
 对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。
 这样的树被称为最优化二叉树，或者 Optimal BST。
 根据二叉树的性质，我们可以将 $cost$ 的表达式变为：
-$$
-cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)
-$$
-即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。
-（左子树和右子树开销计算时每个结点的深度都少了1，因此要加上频率和）
+$$ cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i) $$
+即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。 （左子树和右子树开销计算时每个结点的深度都少了 1，因此要加上频率和）
 不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。
 我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，
 哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。
@@ -27,27 +21,19 @@ $$
 每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。
 以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。
 举个例子，例如给出键值和频率如下表所示：
-$$
-\begin{array}{l|lllll}
-key & 1 & 2 & 3 & 4 & 5 \ \hline">
+$$ \begin{array}{l|lllll} key & 1 & 2 & 3 & 4 & 5 \\ \hline p & 0.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.5">
-<meta property="og:description" content="3.2.5 #  解答 #  事实上，这个问题可以归结为，如何根据频率来构造一棵最优的BST？
+<meta property="og:description" content="3.2.5 #  解答 #  事实上，这个问题可以归结为，如何根据频率来构造一棵最优的 BST？
 如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。
-首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，
-（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
+首先我们定义某个结点的查找开销为该结点的深度加一乘以频率， （注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
 所有结点的查找开销加起来就是一整棵树的查找开销了。
-$$
-cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)
-$$
+$$ cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i) $$
 对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。
 这样的树被称为最优化二叉树，或者 Optimal BST。
 根据二叉树的性质，我们可以将 $cost$ 的表达式变为：
-$$
-cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)
-$$
-即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。
-（左子树和右子树开销计算时每个结点的深度都少了1，因此要加上频率和）
+$$ cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i) $$
+即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。 （左子树和右子树开销计算时每个结点的深度都少了 1，因此要加上频率和）
 不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。
 我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，
 哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。
@@ -57,24 +43,22 @@ $$
 每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。
 以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。
 举个例子，例如给出键值和频率如下表所示：
-$$
-\begin{array}{l|lllll}
-key & 1 & 2 & 3 & 4 & 5 \ \hline">
+$$ \begin{array}{l|lllll} key & 1 & 2 & 3 & 4 & 5 \\ \hline p & 0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-2-5/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-05-25T18:27:57+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.2.5 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1458,78 +1442,78 @@ key & 1 & 2 & 3 & 4 & 5 \ \hline">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>事实上，这个问题可以归结为，如何根据频率来构造一棵最优的BST？<br>
-如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。</p>
-<p>首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，<br>
-（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）<br>
-所有结点的查找开销加起来就是一整棵树的查找开销了。<br>
-$$<br>
-cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)<br>
-$$<br>
-对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。<br>
-这样的树被称为最优化二叉树，或者 Optimal BST。</p>
-<p>根据二叉树的性质，我们可以将 $cost$ 的表达式变为：<br>
-$$<br>
-cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)<br>
-$$<br>
-即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。<br>
-（左子树和右子树开销计算时每个结点的深度都少了1，因此要加上频率和）<br>
-不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。</p>
-<p>我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，<br>
-哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。<br>
-由于二叉查找树是有序的，因此我们先对序列排序。<br>
-然后计算所有大小为 1 的子树开销，显然就等于各个节点的频率。<br>
-再计算大小为 2 的子树，注意这里只能按顺序取结点，不能跳着取（例如取第一个和第三个结点），<br>
-每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。<br>
-以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。</p>
+<p>事实上，这个问题可以归结为，如何根据频率来构造一棵最优的 BST？</p>
+<p>如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。</p>
+<p>首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，
+（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）</p>
+<p>所有结点的查找开销加起来就是一整棵树的查找开销了。</p>
+<p>$$
+cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)
+$$</p>
+<p>对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。</p>
+<p>这样的树被称为最优化二叉树，或者 Optimal BST。</p>
+<p>根据二叉树的性质，我们可以将 $cost$ 的表达式变为：</p>
+<p>$$
+cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)
+$$</p>
+<p>即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。
+（左子树和右子树开销计算时每个结点的深度都少了 1，因此要加上频率和）</p>
+<p>不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。</p>
+<p>我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，</p>
+<p>哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。</p>
+<p>由于二叉查找树是有序的，因此我们先对序列排序。</p>
+<p>然后计算所有大小为 1 的子树开销，显然就等于各个节点的频率。</p>
+<p>再计算大小为 2 的子树，注意这里只能按顺序取结点，不能跳着取（例如取第一个和第三个结点），</p>
+<p>每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。</p>
+<p>以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。</p>
 <p>举个例子，例如给出键值和频率如下表所示：</p>
-<p>$$<br>
-\begin{array}{l|lllll}<br>
-key & 1 & 2 & 3 & 4 & 5 \ \hline<br>
-p & 0.4 & 0.1 & 0.2 & 0.1 & 0.2<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|lllll}
+key & 1 & 2 & 3 & 4 & 5 \\ \hline
+p & 0.4 & 0.1 & 0.2 & 0.1 & 0.2
+\end{array}
 $$</p>
 <p>当 $s=1$ 时，各子树的开销如下表（根结点不唯一）：</p>
-<p>$$<br>
-\begin{array}{l|lllll}<br>
-subtree & [1,1] & [2,2] & [3,3] & [4,4] & [5,5] \ \hline<br>
-cost & 0.4 & 0.1 & 0.2 & 0.1 & 0.2 \<br>
-root & 1 & 2 & 3 & 4 & 5<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|lllll}
+subtree & [1,1] & [2,2] & [3,3] & [4,4] & [5,5] \\ \hline
+cost & 0.4 & 0.1 & 0.2 & 0.1 & 0.2 \\
+root & 1 & 2 & 3 & 4 & 5
+\end{array}
 $$</p>
 <p>当 $s=2$ 时，各个子树的开销如下（根结点不唯一）：</p>
-<p>$$<br>
-\begin{array}{l|cccc}<br>
-subtree & [1,2] & [2,3] & [3,4] & [4,5] \ \hline<br>
-cost & \min \begin{cases} 0+[2,2]+0.5, \\ [1,1]+0+0.5 \end{cases} =0.6 & \min \begin{cases} 0+[3,3]+0.3, \ [2,2]+0+0.3 \end{cases} =0.4 & \min \begin{cases} 0+[4,4]+0.3, \ [3,3]+0+0.3 \end{cases} =0.4 & \min \begin{cases} 0 +[5,5]+0.3, \ [4,4]+0+0.3 \end{cases} =0.4 \<br>
-root & 1 & 3 & 3 & 5<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|cccc}
+subtree & [1,2] & [2,3] & [3,4] & [4,5] \\ \hline
+cost & \min \begin{cases} 0+[2,2]+0.5, \\ \ [1,1]+0+0.5 \end{cases} =0.6 & \min \begin{cases} 0+[3,3]+0.3, \\ [2,2]+0+0.3 \end{cases} =0.4 & \min \begin{cases} 0+[4,4]+0.3, \\ [3,3]+0+0.3 \end{cases} =0.4 & \min \begin{cases} 0 +[5,5]+0.3, \\ [4,4]+0+0.3 \end{cases} =0.4 \\
+root & 1 & 3 & 3 & 5
+\end{array}
 $$</p>
 <p>当 $s=3$ 时，各个子树的开销如下表（根结点不唯一）：</p>
-<p>$$<br>
-\begin{array}{l|ccc}<br>
-subtree & [1,3] & [2,4] & [3,5] \ \hline<br>
-cost & \min \begin{cases} 0+[2,3]+0.7, \ [1,1]+[3,3]+0.7, \ [1,2]+0+0.7 \end{cases} =1.1 & \min \begin{cases} 0+[3,4]+0.4, \ [2,2]+[4,4]+0.4, \ [2,3]+0+0.4 \end{cases} =0.6 & \min \begin{cases} 0+[4,5]+0.5, \ [3,3]+[5,5]+0.5, \ [3,4]+0+0.5 \end{cases} =0.9 \<br>
-root & 1 & 3 & 3<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|ccc}
+subtree & [1,3] & [2,4] & [3,5] \\ \hline
+cost & \min \begin{cases} 0+[2,3]+0.7, \\ [1,1]+[3,3]+0.7, \\ [1,2]+0+0.7 \end{cases} =1.1 & \min \begin{cases} 0+[3,4]+0.4, \\ [2,2]+[4,4]+0.4, \\ [2,3]+0+0.4 \end{cases} =0.6 & \min \begin{cases} 0+[4,5]+0.5, \\ [3,3]+[5,5]+0.5, \\ [3,4]+0+0.5 \end{cases} =0.9 \\
+root & 1 & 3 & 3
+\end{array}
 $$</p>
 <p>当 $s=4$ 时，各个子树的开销如下表（根结点不唯一）：</p>
-<p>$$<br>
-\begin{array}{l|ll}<br>
-subtree & [1,1] & [2,2] \ \hline<br>
-cost & \min \begin{cases} 0+[2,4]+0.8, \ [1,1]+[3,4]+0.8, \ [1,2]+[4,4]+0.8, \ [1,3]+0+0.8 \end{cases} = 1.4 & \min \begin{cases} 0+[3,5]+0.5, \ [2,2]+[4,5]+0.5, \ [2,3]+[5,5]+0.5, \ [2,4]+0+0.5 \end{cases} = 1.0 \<br>
-root & 1 & 3<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|ll}
+subtree & [1,1] & [2,2] \\ \hline
+cost & \min \begin{cases} 0+[2,4]+0.8, \\ [1,1]+[3,4]+0.8, \\ [1,2]+[4,4]+0.8, \\ [1,3]+0+0.8 \end{cases} = 1.4 & \min \begin{cases} 0+[3,5]+0.5, \\ [2,2]+[4,5]+0.5, \\ [2,3]+[5,5]+0.5, \\ [2,4]+0+0.5 \end{cases} = 1.0 \\
+root & 1 & 3
+\end{array}
 $$</p>
 <p>当 $s=5$ 时，各个子树的开销如下表（根结点不唯一）：</p>
-<p>$$<br>
-\begin{array}{l|l}<br>
-subtree & [1,5] \ \hline<br>
-cost & \min \begin{cases} 0+[2,5]+1.0, \ [1,1]+[3,5]+1.0, \ [1,2]+[4,5]+1.0, \ [1,3]+[5,5]+1.0, \ [1,4]+0+1.0 \end{cases} = 2.0 \<br>
-root & 1<br>
-\end{array}<br>
+<p>$$
+\begin{array}{l|l}
+subtree & [1,5] \\ \hline
+cost & \min \begin{cases} 0+[2,5]+1.0, \\ [1,1]+[3,5]+1.0, \\ [1,2]+[4,5]+1.0, \\ [1,3]+[5,5]+1.0, \\ [1,4]+0+1.0 \end{cases} = 2.0 \\
+root & 1
+\end{array}
 $$</p>
-<p>于是最优二叉树为（不唯一）：<br>
+<p>于是最优二叉树为（不唯一）：
 <img src=/resources/3-2-5/1.jpg alt></p>
 <h2 id=另请参阅>
 另请参阅
@@ -1539,7 +1523,7 @@ $$</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

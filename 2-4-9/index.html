@@ -33,18 +33,18 @@ C 的子结点只能取 A 和 B ，故只有 A(2, 2) = 2 种情况。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-9/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-08-17T22:00:51+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.9 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1428,45 +1428,45 @@ C 的子结点只能取 A 和 B ，故只有 A(2, 2) = 2 种情况。">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>首先 A B C D E 中，根节点必须是 E （假设为最大堆）<br>
-D 只能选择 E 作为父结点。<br>
-C 可以选择 D 或者 E 作为父结点。<br>
-B 可以选择 C 或 D 或 E 作为父结点。<br>
-A 可以选择 B 或 C 或 D 或 E 作为父结点。<br>
-又由于堆的大小为 5，堆的结构固定，一共三层。<br>
-E 只能为根节点<br>
-D 可以在左侧或者右侧<br>
-当 D 在左侧时，<br>
-D 的子结点可以在 A B C 中任取两个，剩下一个当 E 的右侧子结点<br>
-总共有 A(3, 2) = 6 种<br>
-当 D 在右侧时，<br>
-C 的子结点只能取 A 和 B ，故只有 A(2, 2) = 2 种情况。<br>
-综上，最大堆总共有 6 + 2 = 8 种构造堆的方式。<br>
-最小堆的构造同理，也有 8 种构造方式。<br>
-故总共有 8 + 8 = 16 种构造方式。<br>
-构造方式（最大堆）：<br>
-<img src=/resources/2-4-9/1.png alt></p>
-<p>最大堆<br>
-B 只能作为 B 的子结点，A 可以是 B 或 A 的子结点。<br>
-根节点恒为 B<br>
-第二层结点有两种选择 A B 和 B A<br>
-第三层只有一种选择 A A<br>
-故总共有两种构造堆的方式。<br>
-最小堆<br>
-根节点恒为 A<br>
-第二层可以是 A A 或 A B<br>
-第二层是 A A 时<br>
-第三层只能选择 B B<br>
-第二层时 A B 时<br>
-第三层可选择 A B 或 B A<br>
-故总共有三种构造堆的方式。<br>
-综上所述，总共有 2 + 3 = 5 种构造方式。<br>
-构造方式（全部）：<br>
-<img src=/resources/2-4-9/2.png alt></p>
+<p>首先 A B C D E 中，根节点必须是 E （假设为最大堆）</p>
+<p>D 只能选择 E 作为父结点。</p>
+<p>C 可以选择 D 或者 E 作为父结点。</p>
+<p>B 可以选择 C 或 D 或 E 作为父结点。</p>
+<p>A 可以选择 B 或 C 或 D 或 E 作为父结点。</p>
+<p>又由于堆的大小为 5，堆的结构固定，一共三层。</p>
+<p>E 只能为根节点</p>
+<p>D 可以在左侧或者右侧</p>
+<p>当 D 在左侧时，</p>
+<p>D 的子结点可以在 A B C 中任取两个，剩下一个当 E 的右侧子结点</p>
+<p>总共有 A(3, 2) = 6 种</p>
+<p>当 D 在右侧时，</p>
+<p>C 的子结点只能取 A 和 B ，故只有 A(2, 2) = 2 种情况。</p>
+<p>综上，最大堆总共有 6 + 2 = 8 种构造堆的方式。</p>
+<p>最小堆的构造同理，也有 8 种构造方式。</p>
+<p>故总共有 8 + 8 = 16 种构造方式。</p>
+<p>构造方式（最大堆）：</p>
+<p><img src=/resources/2-4-9/1.png alt></p>
+<p>最大堆</p>
+<p>B 只能作为 B 的子结点，A 可以是 B 或 A 的子结点。</p>
+<p>根节点恒为 B</p>
+<p>第二层结点有两种选择 A B 和 B A</p>
+<p>第三层只有一种选择 A A</p>
+<p>故总共有两种构造堆的方式。</p>
+<p>最小堆</p>
+<p>根节点恒为 A</p>
+<p>第二层可以是 A A 或 A B</p>
+<p>第二层是 A A 时</p>
+<p>第三层只能选择 B B</p>
+<p>第二层时 A B 时</p>
+<p>第三层可选择 A B 或 B A</p>
+<p>故总共有三种构造堆的方式。</p>
+<p>综上所述，总共有 2 + 3 = 5 种构造方式。</p>
+<p>构造方式（全部）：</p>
+<p><img src=/resources/2-4-9/2.png alt></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

@@ -31,18 +31,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-29/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-10-27T12:01:45+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.29 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1427,17 +1427,17 @@
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>算法思想比较简单，但在实现上会有一些复杂。</p>
-<p>用一个最大堆和一个最小堆，每个堆中都保存了全部数组元素，且相同的元素之间有指针相连。<br>
-<img src=/resources/2-4-29/1.png alt><br>
-插入元素时需要构建两个完全相同的元素分别插入到两个堆中。<br>
-找到最小元素和找到最大元素只需要分别返回最大堆和最小堆的堆顶元素即可。<br>
-以删除最小元素为例，先对最小堆进行 DelMin() 操作，再通过指针找到对应最大堆的元素并删除。</p>
-<p>下面介绍删除堆中任意元素的算法。<br>
-首先将待删除元素与堆中最后一个元素交换，让堆的大小减一。<br>
-随后对交换后的元素先进行 Swim 再进行 Sink，移动到正确的位置上。<br>
-下图是一个例子，当删除最大元素 14 时，最小堆中删除元素 14 需要先 Swim。<br>
-<img src=/resources/2-4-29/2.png alt><br>
-如果堆的层数更多一些，就需要先 Swim 再 Sink。</p>
+<p>用一个最大堆和一个最小堆，每个堆中都保存了全部数组元素，且相同的元素之间有指针相连。</p>
+<p><img src=/resources/2-4-29/1.png alt></p>
+<p>插入元素时需要构建两个完全相同的元素分别插入到两个堆中。</p>
+<p>找到最小元素和找到最大元素只需要分别返回最大堆和最小堆的堆顶元素即可。</p>
+<p>以删除最小元素为例，先对最小堆进行 DelMin() 操作，再通过指针找到对应最大堆的元素并删除。</p>
+<p>下面介绍删除堆中任意元素的算法。</p>
+<p>首先将待删除元素与堆中最后一个元素交换，让堆的大小减一。</p>
+<p>随后对交换后的元素先进行 Swim 再进行 Sink，移动到正确的位置上。</p>
+<p>下图是一个例子，当删除最大元素 14 时，最小堆中删除元素 14 需要先 Swim。</p>
+<p><img src=/resources/2-4-29/2.png alt></p>
+<p>如果堆的层数更多一些，就需要先 Swim 再 Sink。</p>
 <p>现在来考虑一下实现，我们构建一个结点类，里面存放有当前结点的值、对应数组下标和另一个结点的指针。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#75715e>/// &lt;summary&gt;
 </span><span style=color:#75715e>/// 最大-最小堆中的数据结点。
@@ -1777,12 +1777,12 @@
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=https://en.wikipedia.org/wiki/Double-ended_priority_queue>Double Ended Priority Queue-Wikipedia</a><br>
+<p><a href=https://en.wikipedia.org/wiki/Double-ended_priority_queue>Double Ended Priority Queue-Wikipedia</a>
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4/PriorityQueue>PriorityQueue 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

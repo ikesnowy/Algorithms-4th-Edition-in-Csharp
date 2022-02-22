@@ -21,18 +21,18 @@ $S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&mldr;+ 2 < n$
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/1-4-32/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-05-31T09:16:28+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>1.4.32 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1416,17 +1416,17 @@ $S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&mldr;+ 2 < n$
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>首先，不需要扩容数组的的操作都只需访问数组一次，$M$ 次操作就是 $M$ 次访问。<br>
-随后我们有性质， $M$ 次栈操作后额外复制访问数组的次数小于 $2M$。<br>
-这里简单证明，设 $M$ 次操作之后栈的大小为 $n$，那么额外访问数组的次数为：<br>
-$S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&mldr;+ 2 &lt; n$<br>
-为了能使栈大小达到 $n$，$M$ 必须大于等于 $\frac{n}{2}$<br>
-因此 $2M \ge n > S$，得证。</p>
+<p>首先，不需要扩容数组的的操作都只需访问数组一次，$M$ 次操作就是 $M$ 次访问。</p>
+<p>随后我们有性质， $M$ 次栈操作后额外复制访问数组的次数小于 $2M$。</p>
+<p>这里简单证明，设 $M$ 次操作之后栈的大小为 $n$，那么额外访问数组的次数为：</p>
+<p>$S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&mldr;+ 2 &lt; n$</p>
+<p>为了能使栈大小达到 $n$，$M$ 必须大于等于 $\frac{n}{2}$</p>
+<p>因此 $2M \ge n > S$，得证。</p>
 <p>因此我们可以得到 $M$ 次操作后访问数组次数的总和 $S' = S + M &lt; 3M$。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

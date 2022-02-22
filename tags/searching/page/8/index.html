@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1481,40 +1481,19 @@ private void DeleteNode(Node x) { if (x.Prev != null) x.Prev.Next = x.Next; if (
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.35 # 解答 # 根据书中已经给出的归纳关系式（中文版P255/英文版P403）：
-$$
-C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N
-$$
+<p>3.2.35 # 解答 # 根据书中已经给出的归纳关系式（中文版 P255/英文版 P403）：
+$$ C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N $$
 整理得：
-$$
-C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N
-$$
+$$ C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N $$
 这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。
 遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：
-$$
-NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})
-$$
+$$ NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1}) $$
 用 $N+1$ 时的等式减去该式得：
-$$
-(N+1)C_{N+1}-NC_N=2N+2C_N \
-(N+1)C_{N+1}=2N+(N+2)C_N \
-\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}
-$$
+$$ (N+1)C_{N+1}-NC_N=2N+2C_N \newline (N+1)C_{N+1}=2N+(N+2)C_N \newline \frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1} $$
 令 $T_N = \frac{C_N}{N+1}$，得到：
-$$
-T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \
-T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}
-$$
+$$ T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \newline T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)} $$
 归纳得：
-$$
-\begin{aligned}
-T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
-C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \
-C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\
-C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\
-C_N&=-4N+2(N+1)(\ln N+\gamma)
-\end{aligned}
+$$ \begin{aligned} T_N &= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \newline C_N&=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \newline C_N&=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\newline C_N&=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\newline C_N&=-4N+2(N+1)(\ln N+\gamma) \end{aligned} $$
 <a href=/3-2-35/>...</a>
 </p>
 </article>
@@ -1555,8 +1534,7 @@ C_N&=-4N+2(N+1)(\ln N+\gamma)
 <p>3.2.38 # 解答 # 通过层序遍历计算结点的坐标，然后绘制即可。
 先算出最大深度，确定每一层的高度 Y，
 再将每一层的宽度分成 $2^n-1$ 份，从左到右依次对结点赋值。
-效果如下：
-代码 # 计算坐标的函数。
+效果如下： 代码 # 计算坐标的函数。
 public void DrawTree(Graphics pen, RectangleF panel) { var depth = Depth(root); // 确定最大深度。 var layerHeight = panel.Height / depth; var nowLayer = new Queue&lt;Node>(); var nextLayer = new Queue&lt;Node>(); nextLayer.Enqueue(root); for (var layer = 0; layer != depth; layer++) { var unitSizeX = (float)(panel.Width / Math.Pow(2, layer)); var temp = nowLayer; nowLayer = nextLayer; nextLayer = temp; var cursorX = 0.
 <a href=/3-2-38/>...</a>
 </p>
@@ -1569,8 +1547,7 @@ public void DrawTree(Graphics pen, RectangleF panel) { var depth = Depth(root); 
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.39 # 解答 # 测试结果：
-可以看到和公式给出的结果十分一致。
+<p>3.2.39 # 解答 # 测试结果： 可以看到和公式给出的结果十分一致。
 测试时先生成 0~2n 顺序序列，奇数插入二叉树中，偶数用于测试查找失败的情况。
 代码 # static void Main(string[] args) { var n = 10000; var trial = 100; for (var i = 0; i &lt; 3; i++) { var odds = new int[n]; var evens = new int[n]; var bst = new BSTAnalysis&lt;int, int>(); for (var j = 100; j &lt; n; j++) { evens[j] = j; odds[j] = j + 1; } Shuffle(odds); foreach (var item in odds) { bst.
 <a href=/3-2-39/>...</a>

@@ -3,54 +3,42 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="2.3.21 #  解答 #  首先引入命题 I 的结论，对于互不相同的主键值，基于比较的排序算法的下界等于所形成的比较树的高度，即：
-$$
-h \ge \log_2{N!}
-$$
+$$ h \ge \log_2{N!} $$
 那么我们题目即可转化为求证
-$$
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N!
-$$
+$$ h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! $$
 这里的 $f_i$ 为某个主键值出现的频率，即某个主键值出现的次数，因此 $f_i\ge 1$ 。
 根据题目给出的条件，如果主键互不重复，此时 $k=N$，且 $f_1=f_2=\cdots=f_k=1$ 。
 那么 $f_1!f_2!\cdots f_k!=1$ ，待证式子即为命题 I 的结论。
 那么当主键有重复时，此时 $k < N$，为使 $f_1+f_2+ \cdots + f_k=N$ ，至少存在一个 $f_m \ge 2$。
 故此时：
-$$
-f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}<N! \Rightarrow \
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare">
+$$ f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}<N! \Rightarrow \newline h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.21">
 <meta property="og:description" content="2.3.21 #  解答 #  首先引入命题 I 的结论，对于互不相同的主键值，基于比较的排序算法的下界等于所形成的比较树的高度，即：
-$$
-h \ge \log_2{N!}
-$$
+$$ h \ge \log_2{N!} $$
 那么我们题目即可转化为求证
-$$
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N!
-$$
+$$ h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! $$
 这里的 $f_i$ 为某个主键值出现的频率，即某个主键值出现的次数，因此 $f_i\ge 1$ 。
 根据题目给出的条件，如果主键互不重复，此时 $k=N$，且 $f_1=f_2=\cdots=f_k=1$ 。
 那么 $f_1!f_2!\cdots f_k!=1$ ，待证式子即为命题 I 的结论。
 那么当主键有重复时，此时 $k < N$，为使 $f_1+f_2+ \cdots + f_k=N$ ，至少存在一个 $f_m \ge 2$。
 故此时：
-$$
-f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}<N! \Rightarrow \
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare">
+$$ f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}<N! \Rightarrow \newline h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-21/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-07-31T22:11:00+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.21 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1434,24 +1422,24 @@ h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>首先引入命题 I 的结论，对于互不相同的主键值，基于比较的排序算法的下界等于所形成的比较树的高度，即：<br>
-$$<br>
-h \ge \log_2{N!}<br>
-$$<br>
-那么我们题目即可转化为求证<br>
-$$<br>
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N!<br>
-$$<br>
-这里的 $f_i$ 为某个主键值出现的频率，即某个主键值出现的次数，因此 $f_i\ge 1$ 。<br>
-根据题目给出的条件，如果主键互不重复，此时 $k=N$，且 $f_1=f_2=\cdots=f_k=1$ 。<br>
-那么 $f_1!f_2!\cdots f_k!=1$ ，待证式子即为命题 I 的结论。</p>
-<p>那么当主键有重复时，此时 $k &lt; N$，为使 $f_1+f_2+ \cdots + f_k=N$ ，至少存在一个 $f_m \ge 2$。<br>
-故此时：<br>
-$$<br>
-f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}&lt;N! \Rightarrow \<br>
-h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare<br>
-$$<br>
-得证。</p>
+<p>首先引入命题 I 的结论，对于互不相同的主键值，基于比较的排序算法的下界等于所形成的比较树的高度，即：</p>
+<p>$$
+h \ge \log_2{N!}
+$$</p>
+<p>那么我们题目即可转化为求证</p>
+<p>$$
+h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N!
+$$</p>
+<p>这里的 $f_i$ 为某个主键值出现的频率，即某个主键值出现的次数，因此 $f_i\ge 1$ 。</p>
+<p>根据题目给出的条件，如果主键互不重复，此时 $k=N$，且 $f_1=f_2=\cdots=f_k=1$ 。</p>
+<p>那么 $f_1!f_2!\cdots f_k!=1$ ，待证式子即为命题 I 的结论。</p>
+<p>那么当主键有重复时，此时 $k &lt; N$，为使 $f_1+f_2+ \cdots + f_k=N$ ，至少存在一个 $f_m \ge 2$。</p>
+<p>故此时：</p>
+<p>$$
+f_1!f_2!\cdots f_k! >1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}&lt;N! \Rightarrow \newline
+h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare
+$$</p>
+<p>得证。</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
@@ -1460,7 +1448,7 @@ $$<br>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

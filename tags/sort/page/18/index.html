@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1402,8 +1402,7 @@
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.5.31 # 解答 # 编写代码进行实验即可，实验结果如下，可以发现十分接近：
-代码 # using System; namespace _2._5._31 { class Program { /// &lt;summary> /// 计算数组中重复元素的个数。 /// &lt;/summary> /// &lt;typeparam name="T">&lt;/typeparam> /// &lt;param name="a">需要计算重复元素的数组。&lt;/param> /// &lt;returns>&lt;/returns> static int Distinct&lt;T>(T[] a) where T : IComparable&lt;T> { if (a.Length == 0) return 0; Array.Sort(a); int distinct = 1; for (int i = 1; i &lt; a.Length; i++) if (a[i].CompareTo(a[i - 1]) !
+<p>2.5.31 # 解答 # 编写代码进行实验即可，实验结果如下，可以发现十分接近： 代码 # using System; namespace _2._5._31 { class Program { /// &lt;summary> /// 计算数组中重复元素的个数。 /// &lt;/summary> /// &lt;typeparam name="T">&lt;/typeparam> /// &lt;param name="a">需要计算重复元素的数组。&lt;/param> /// &lt;returns>&lt;/returns> static int Distinct&lt;T>(T[] a) where T : IComparable&lt;T> { if (a.Length == 0) return 0; Array.Sort(a); int distinct = 1; for (int i = 1; i &lt; a.Length; i++) if (a[i].CompareTo(a[i - 1]) !
 <a href=/2-5-31/>...</a>
 </p>
 </article>
@@ -1429,7 +1428,7 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 g[n] 。
 现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 h[n] 。
 令 f[n] = g[n] + h[n]，我们按照 f[n] 对等待搜索的结点进行排序。
-同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。
+同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。 （h[n]也被称之为容许估计）
 <a href=/2-5-32/>...</a>
 </p>
 </article>
@@ -1441,8 +1440,7 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.5.33 # 解答 # 编写代码实验即可，结果如下：
-代码 # 随机交易生成器 TransactionGenerator
+<p>2.5.33 # 解答 # 编写代码实验即可，结果如下： 代码 # 随机交易生成器 TransactionGenerator
 using System; using System.Text; using SortApplication; namespace _2._5._33 { /// &lt;summary> /// 随机交易生成器。 /// &lt;/summary> class TransactionGenerator { private static Random random = new Random(); /// &lt;summary> /// 生成 n 条随机交易记录。 /// &lt;/summary> /// &lt;param name="n">交易记录的数量。&lt;/param> /// &lt;returns>&lt;/returns> public static Transaction[] Generate(int n) { Transaction[] trans = new Transaction[n]; for (int i = 0; i &lt; n; i++) { trans[i] = new Transaction (GenerateName(), GenerateDate(), random.
 <a href=/2-5-33/>...</a>
 </p>

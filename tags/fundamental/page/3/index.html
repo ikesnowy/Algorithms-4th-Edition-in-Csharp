@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1403,7 +1403,7 @@
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
 <p>1.1.21 # 解答 # 实现上没什么难度，打印表格的部分可以参考之前打印二位布尔数组的方法。
-注意整型数据之间相除得到的仍然是整型，小数部分会直接舍去，例如 2 / 3 = 0。
+注意整型数据之间相除得到的仍然是整型，小数部分会直接舍去，例如 2 / 3 的结果会是 0。
 代码 # static void Main(string[] args) { int columns = 2; int rows = int.Parse(Console.ReadLine()); //行号 string[] names = new string[rows]; //姓名 int[,] array = new int[rows, columns]; //输入的两个整数 double[] results = new double[rows]; //计算结果 for (int i = 0; i &lt; rows; ++i) { string temp = Console.ReadLine(); names[i] = temp.Split(' ')[0]; for (int j = 0; j &lt; columns; ++j) { array[i, j] = int.
 <a href=/1-1-21/>...</a>
 </p>
@@ -1454,16 +1454,14 @@
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.1.25 # 解答 # 已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数
+<p>1.1.25 # 解答 # 已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
 设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。
-那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。
-且 $r_n=0$ （此时算法终止）。
+那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。 且 $r_n=0$ （此时算法终止）。
 由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。
 可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。
 则有
-$r_{n-3}\=q_{n-1} \times r_{n-2} + r_{n-1}\=q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\=q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \=(q_{n-1} \times q_n +1)\times r_{n-1}$
+$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$
 可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除
-以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数
 <a href=/1-1-25/>...</a>
 </p>
 </article>

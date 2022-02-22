@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1429,8 +1429,7 @@
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.2.25 # 解答 # 事实上 k 的取值无关紧要，实验也证明了这一点。
-算法大致可以分为以下几个步骤 首先将数组划为 k 份，
+<p>2.2.25 # 解答 # 事实上 k 的取值无关紧要，实验也证明了这一点。 算法大致可以分为以下几个步骤 首先将数组划为 k 份，
 用一个数组 mids 记录这 k 个子数组的分割位置
 随后递归的调用 Sort 方法，将这 k 个子数组排序 随后将这 k 个子数组归并，
 每次归并时遍历取 k 个子数组中值最小的一个，
@@ -1476,8 +1475,7 @@ n rest times 2 0.331378 48576 3 0.333894 213568 6 0.603899 48576 7 0.596223 8249
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.2.28 # 解答 # 自底向上会快一些，省去了递归过程中函数重复调用的时间。
-代码 # using System; using Merge; namespace _2._2._28 { /* * 2.2.28 * * 自顶向下和自底向上。 * 对于 N=10^3、10^4、10^5 和 10^6， * 使用 SortCompare 比较自顶向下和自底向上的归并排序的性能。 * */ class Program { static void Main(string[] args) { int n = 1000; MergeSort topBottomMergeSort = new MergeSort(); MergeSortBU bottomUpMergeSort = new MergeSortBU(); int trialTimes = 100; for (int i = 0; i &lt; 4; i++) { Console.
+<p>2.2.28 # 解答 # 自底向上会快一些，省去了递归过程中函数重复调用的时间。 代码 # using System; using Merge; namespace _2._2._28 { /* * 2.2.28 * * 自顶向下和自底向上。 * 对于 N=10^3、10^4、10^5 和 10^6， * 使用 SortCompare 比较自顶向下和自底向上的归并排序的性能。 * */ class Program { static void Main(string[] args) { int n = 1000; MergeSort topBottomMergeSort = new MergeSort(); MergeSortBU bottomUpMergeSort = new MergeSortBU(); int trialTimes = 100; for (int i = 0; i &lt; 4; i++) { Console.
 <a href=/2-2-28/>...</a>
 </p>
 </article>
@@ -1527,9 +1525,7 @@ n rest times 2 0.331378 48576 3 0.333894 213568 6 0.603899 48576 7 0.596223 8249
 </div>
 <p>2.3.3 # 解答 # N / 2
 在快速排序中，一个元素要被交换，有以下两种情况
-1.该元素是枢轴，在切分的最后一步被交换
-2.该元素位于枢轴错误的一侧，需要被交换到另一侧去
-注意，以上两种情况在一次切分中只会出现一次
+该元素是枢轴，在切分的最后一步被交换 该元素位于枢轴错误的一侧，需要被交换到另一侧去 注意，以上两种情况在一次切分中只会出现一次
 首先来看第一种情况，如果一个元素变成了枢轴
 那么在之后的切分中该元素会被排除，不存在后续的交换。
 因此我们的目标应该是：

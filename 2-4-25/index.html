@@ -17,18 +17,18 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-25/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-10-07T16:31:13+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.25 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1413,9 +1413,9 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>官方实现：https://algs4.cs.princeton.edu/24pq/CubeSum.java.html</p>
-<p>注意这道题并不是要打印所有的 $a^3+b^3$ 的结果，而是需要找到 $a^3+b^3=c^3+d^3$ 这个丢番图方程的解。<br>
-因此在官方实现的基础上，每次取出最小值之后和之前的最小值比较，如果相等则输出对应的组合。<br>
-关键代码如下：</p>
+<p>注意这道题并不是要打印所有的 $a^3+b^3$ 的结果，而是需要找到 $a^3+b^3=c^3+d^3$ 这个丢番图方程的解。</p>
+<p>因此在官方实现的基础上，每次取出最小值之后和之前的最小值比较，如果相等则输出对应的组合。</p>
+<p>关键代码如下：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>CubeSum prev = <span style=color:#66d9ef>new</span> CubeSum(-<span style=color:#ae81ff>1</span>, -<span style=color:#ae81ff>1</span>);
 <span style=color:#66d9ef>long</span> pairCount = <span style=color:#ae81ff>0</span>;
 <span style=color:#66d9ef>while</span> (!pq.IsEmpty())
@@ -1430,10 +1430,10 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
         pq.Insert(<span style=color:#66d9ef>new</span> CubeSum(s.i, s.j + <span style=color:#ae81ff>1</span>));
     prev = s;
 }
-</code></pre></div><p>当然，对于 n=10^6 来说结果会非常大，程序的运行时间需要以天为单位计算（约 14 天）。<br>
-n=10^4 时，总共可以找到 41570 对数据。（result10K.txt, 下载大小 506 KB，解压后 1.93 MB）<br>
-n=10^5 时，总共可以找到 895023 对数据。(result100K.txt，下载大小 12.7 MB，解压后 47.5 MB)<br>
-n=10^6 时，总共可以找到 16953323 对数据。（result1M.txt，下载大小 280 MB，解压后 0.98 GB）</p>
+</code></pre></div><p>当然，对于 n=10^6 来说结果会非常大，程序的运行时间需要以天为单位计算（约 14 天）。</p>
+<p>n=10^4 时，总共可以找到 41570 对数据。（result10K.txt, 下载大小 506 KB，解压后 1.93 MB）</p>
+<p>n=10^5 时，总共可以找到 895023 对数据。(result100K.txt，下载大小 12.7 MB，解压后 47.5 MB)</p>
+<p>n=10^6 时，总共可以找到 16953323 对数据。（result1M.txt，下载大小 280 MB，解压后 0.98 GB）</p>
 <p>结果下载链接：<a href=https://pan.baidu.com/s/1Jl8H6tYZC8h_21jDvy7Yxw>百度云</a>、<a href=https://1drv.ms/f/s!AgRf1DW8ZhM95tEgIrRysk83jLS2kQ>Onedrive</a></p>
 <h2 id=代码>
 代码
@@ -1559,12 +1559,12 @@ n=10^6 时，总共可以找到 16953323 对数据。（result1M.txt，下载大
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=http://mathworld.wolfram.com/DiophantineEquation3rdPowers.html>Diophantine Equation-3rd Powers - Wolfram MathWorld</a><br>
-<a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4/PriorityQueue>PriorityQueue 库</a></p>
+<p><a href=http://mathworld.wolfram.com/DiophantineEquation3rdPowers.html>Diophantine Equation-3rd Powers - Wolfram MathWorld</a></p>
+<p><a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.4/PriorityQueue>PriorityQueue 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

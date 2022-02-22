@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1402,8 +1402,7 @@
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.11 # 解答 # 键的轨迹如下图所示：
-键查找使用二分查找优化，插入新的键时不必与每个键都进行比较。
+<p>3.1.11 # 解答 # 键的轨迹如下图所示： 键查找使用二分查找优化，插入新的键时不必与每个键都进行比较。
 共进行了 0 + 1 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 4 = 29 次比较。
 </p>
 </article>
@@ -1493,8 +1492,7 @@ public void Delete(TKey key) { if (key == null) throw new ArgumentNullException(
 </div>
 <p>3.1.17 # 解答 # 官方实现：https://algs4.cs.princeton.edu/31elementary/BinarySearchST.java.html
 先通过二分查找大于等于 key 的键下标 i，
-如果 keys[i] 和 key 相等则直接返回 keys[i]，
-否则返回 keys[i-1]。
+如果 keys[i] 和 key 相等则直接返回 keys[i]， 否则返回 keys[i-1]。
 public TKey Floor(TKey key) { if (key == null) throw new ArgumentNullException("argument to Floor() is null"); int i = Rank(key); if (i &lt; this.n && this.keys[i].CompareTo(key) == 0) return this.keys[i]; if (i == 0) return default(TKey); else return this.keys[i - 1]; } 另请参阅 # SymbolTable 库
 </p>
 </article>
@@ -1508,8 +1506,7 @@ public TKey Floor(TKey key) { if (key == null) throw new ArgumentNullException("
 </div>
 <p>3.1.18 # 解答 # 设 key 为目标键。
 算法初始时 lo = 0, hi = n - 1，数组已排序。
-当找到目标键时，返回的下标 mid 显然是正确的。
-（0&mldr;a[mid - 1] 都小于 a[mid]，同时 a[mid] = key）
+当找到目标键时，返回的下标 mid 显然是正确的。 （0&mldr;a[mid - 1] 都小于 a[mid]，同时 a[mid] = key）
 接下来证明：当目标键不存在时，lo 可以代表小于 key 的键的个数。
 由算法内容，当循环退出时，一定有 lo 和 hi 交叉，即 lo > hi。
 考虑最后一次循环，必然执行了 lo = mid + 1 或者 hi = mid - 1。
@@ -1539,22 +1536,9 @@ string max = ""; Queue&lt;string> queue = new Queue&lt;string>(); st.Put(max, 0)
 <a href=/tags/searching/>Searching</a>
 </div>
 <p>3.1.20 # 解答 # 国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：
-$$
-C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1
-$$
-其中 $n=2^k - 1 $ 。
-先证单调性，利用数学归纳法：
-已知对于 $N=0$，满足 $C(0) \le C(1)$。
-假设对于 $N=n$，满足 $C(n) \le C(n+1)$。
-根据递归式，有：
-$$
-\begin{eqnarray*}
-& C(n) & \le C(\lfloor n/2 \rfloor) + 1 \
-\
-& C(n+1) & \le
-\begin{cases}
-C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \
-C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数}
+$$ C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1 $$
+其中 $n=2^k - 1 $ 。 先证单调性，利用数学归纳法： 已知对于 $N=0$，满足 $C(0) \le C(1)$。 假设对于 $N=n$，满足 $C(n) \le C(n+1)$。 根据递归式，有：
+$$ \begin{eqnarray*} & C(n) & \le C(\lfloor n/2 \rfloor) + 1 \newline \newline & C(n+1) & \le \begin{cases} C(\lfloor n/2 \rfloor) +1 & \text{$n$ 是偶数} \newline C(\lfloor n/2 \rfloor + 1) + 1 & \text{$n$ 是奇数} \end{cases}\newline \newline & C(n+2) & \le C(\lfloor n/2 \rfloor + 1) + 1 \end{eqnarray*} $$
 <a href=/3-1-20/>...</a>
 </p>
 </article>

@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1404,8 +1404,7 @@
 </div>
 <p>2.1.31 # 解答 # 这里截取数据量比较大的时候的数据。
 插入排序和选择排序显然都是平方级别的。
-希尔排序猜测是线性的，实际上要比线性大一点（次平方级）。
-代码 # using System; using Sort; namespace _2._1._31 { /* * 2.1.31 * * 双倍测试。 * 编写一个能够对排序算法进行双倍测试的用例。 * 数组规模 N 的起始值为 1000， * 排序后打印 N、估计排序用时、实际排序用时以及在 N 倍增之后两次用时的比例。 * 用这段程序验证在随机输入模型下插入排序和选择排序的运行时间都是平方级别的。 * 对希尔排序的性能做出猜想并验证你的猜想。 * */ class Program { static void Main(string[] args) { int N = 1000; InsertionSort insertion = new InsertionSort(); SelectionSort selection = new SelectionSort(); ShellSort shell = new ShellSort(); double prevInsertion = 0; double prevSelection = 0; double prevShell = 0; for (int i = 0; i &lt; 10; i++) { Console.
+希尔排序猜测是线性的，实际上要比线性大一点（次平方级）。 代码 # using System; using Sort; namespace _2._1._31 { /* * 2.1.31 * * 双倍测试。 * 编写一个能够对排序算法进行双倍测试的用例。 * 数组规模 N 的起始值为 1000， * 排序后打印 N、估计排序用时、实际排序用时以及在 N 倍增之后两次用时的比例。 * 用这段程序验证在随机输入模型下插入排序和选择排序的运行时间都是平方级别的。 * 对希尔排序的性能做出猜想并验证你的猜想。 * */ class Program { static void Main(string[] args) { int N = 1000; InsertionSort insertion = new InsertionSort(); SelectionSort selection = new SelectionSort(); ShellSort shell = new ShellSort(); double prevInsertion = 0; double prevSelection = 0; double prevShell = 0; for (int i = 0; i &lt; 10; i++) { Console.
 <a href=/2-1-31/>...</a>
 </p>
 </article>
@@ -1417,8 +1416,7 @@
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.1.32 # 解答 # 基本上都是这么个样子：
-代码 # using System; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._32 { public partial class Form2 : Form { BaseSort sort; int n; double[] result; /// &lt;summary> /// 构造一个绘图结果窗口。 /// &lt;/summary> /// &lt;param name="sort">用于做测试的排序算法。&lt;/param> /// &lt;param name="n">用于测试的初始数据量。&lt;/param> public Form2(BaseSort sort, int n) { InitializeComponent(); this.sort = sort; this.n = n; this.result = Test(n); this.timer1.Interval = 1000; this.
+<p>2.1.32 # 解答 # 基本上都是这么个样子： 代码 # using System; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._32 { public partial class Form2 : Form { BaseSort sort; int n; double[] result; /// &lt;summary> /// 构造一个绘图结果窗口。 /// &lt;/summary> /// &lt;param name="sort">用于做测试的排序算法。&lt;/param> /// &lt;param name="n">用于测试的初始数据量。&lt;/param> public Form2(BaseSort sort, int n) { InitializeComponent(); this.sort = sort; this.n = n; this.result = Test(n); this.timer1.Interval = 1000; this.
 <a href=/2-1-32/>...</a>
 </p>
 </article>
@@ -1432,10 +1430,7 @@
 </div>
 <p>2.1.33 # 解答 # 这里每次结果的 Y 轴位置都是随机生成的，这样图像会好看点。
 X 轴代表消耗的时间。
-选择排序：
-插入排序：
-希尔排序：
-代码 # using System; using System.Collections.Generic; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._33 { public partial class Form2 : Form { List&lt;double> resultList; List&lt;float> resultYList; Rectangle clientRect; Rectangle drawRect; BaseSort sort; int n; /// &lt;summary> /// 构造一个绘制结果窗口。 /// &lt;/summary> /// &lt;param name="sort">用于测试的排序算法。&lt;/param> /// &lt;param name="n">测试算法是生成的数据量。&lt;/param> public Form2(BaseSort sort, int n) { InitializeComponent(); this.
+选择排序： 插入排序： 希尔排序： 代码 # using System; using System.Collections.Generic; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._33 { public partial class Form2 : Form { List&lt;double> resultList; List&lt;float> resultYList; Rectangle clientRect; Rectangle drawRect; BaseSort sort; int n; /// &lt;summary> /// 构造一个绘制结果窗口。 /// &lt;/summary> /// &lt;param name="sort">用于测试的排序算法。&lt;/param> /// &lt;param name="n">测试算法是生成的数据量。&lt;/param> public Form2(BaseSort sort, int n) { InitializeComponent(); this.
 <a href=/2-1-33/>...</a>
 </p>
 </article>
@@ -1461,8 +1456,7 @@ X 轴代表消耗的时间。
 </div>
 <p>2.1.35 # 解答 # 难点是如何生成符合这些分布的随机数。
 Java 的话官方给的 stdRandom 里面都有相应的实现。
-结果：
-代码 # 几种随机数的实现：
+结果： 代码 # 几种随机数的实现：
 using System; namespace Sort { /// &lt;summary> /// 静态类，包含用于生成排序算法测试数据的方法。 /// &lt;/summary> public static class SortUtil { public static Random UniformGenerator = new Random(); /// &lt;summary> /// 产生符合正态分布的随机数。 /// &lt;/summary> /// &lt;param name="average">正态分布的期望值 μ。&lt;/param> /// &lt;param name="standardDeviation">正态分布的标准差 σ。&lt;/param> /// &lt;returns>符合正态分布的随机数。&lt;/returns> public static double Normal(double average, double standardDeviation) { double u1 = UniformGenerator.
 <a href=/2-1-35/>...</a>
 </p>
@@ -1475,8 +1469,7 @@ using System; namespace Sort { /// &lt;summary> /// 静态类，包含用于生�
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.1.36 # 解答 # 最后结果：
-代码 # using System; using Sort; namespace _2._1._36 { /* * 2.1.36 * * 不均匀的数据。 * 编写一个测试用例， * 生成不均匀的测试数据，包括： * 一半数据是 0，一半数据是 1 * 一半数据是 0，1/4 是 1，1/4 是 2，以此类推 * 一半数据是 0，一半是随机 int 值。 * 评估并验证这些输入数据对本节讨论的算法的性能的影响。 * */ class Program { // 选择排序的耗时与输入值的内容无关，不受影响。 // 对于插入排序，以上几种情况都是重复值较多的情况，插入排序的速度会加快。 // 希尔排序本质上也是插入排序，因此也会更快一些。 static void Main(string[] args) { int n = 10000; InsertionSort insertionSort = new InsertionSort(); SelectionSort selectionSort = new SelectionSort(); ShellSort shellSort = new ShellSort(); int[] arrayInsertion = new int[n]; int[] arraySelection = new int[n]; int[] arrayShell = new int[n]; // 对照，完全随机 arrayInsertion = HalfZeroHalfOne(n); arrayInsertion.
+<p>2.1.36 # 解答 # 最后结果： 代码 # using System; using Sort; namespace _2._1._36 { /* * 2.1.36 * * 不均匀的数据。 * 编写一个测试用例， * 生成不均匀的测试数据，包括： * 一半数据是 0，一半数据是 1 * 一半数据是 0，1/4 是 1，1/4 是 2，以此类推 * 一半数据是 0，一半是随机 int 值。 * 评估并验证这些输入数据对本节讨论的算法的性能的影响。 * */ class Program { // 选择排序的耗时与输入值的内容无关，不受影响。 // 对于插入排序，以上几种情况都是重复值较多的情况，插入排序的速度会加快。 // 希尔排序本质上也是插入排序，因此也会更快一些。 static void Main(string[] args) { int n = 10000; InsertionSort insertionSort = new InsertionSort(); SelectionSort selectionSort = new SelectionSort(); ShellSort shellSort = new ShellSort(); int[] arrayInsertion = new int[n]; int[] arraySelection = new int[n]; int[] arrayShell = new int[n]; // 对照，完全随机 arrayInsertion = HalfZeroHalfOne(n); arrayInsertion.
 <a href=/2-1-36/>...</a>
 </p>
 </article>

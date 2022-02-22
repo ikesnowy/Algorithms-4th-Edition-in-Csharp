@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1462,7 +1462,7 @@ public static TKey MostFrequentlyKey&lt;TKey>(IST&lt;TKey, int> st, TKey[] keys)
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.44 # 解答 # 使用类似于 {% post_link 3-1-38 %} 的方法进行绘图，当 n=10000 时的结果如下：
+<p>3.2.44 # 解答 # 使用类似于 3.1.38 的方法进行绘图，当 n=10000 时的结果如下：
 代码 # 绘图部分：
 public void Draw(long[] data) { var panel = CreateGraphics(); var unitX = (float)ClientRectangle.Width / data.Length; var unitY = (float)ClientRectangle.Height / data.Max(); var accumulation = 0f; // f = float for (var i = 0; i &lt; data.Length; i++) { // Gray panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, ClientRectangle.Bottom - data[i] * unitY, 2, 2); // Red panel.
 <a href=/3-2-44/>...</a>
@@ -1476,7 +1476,7 @@ public void Draw(long[] data) { var panel = CreateGraphics(); var unitX = (float
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.2.45 # 解答 # 结果如下，可参考 {% post_link 3-1-39 %}。
+<p>3.2.45 # 解答 # 结果如下，可参考 3.1.39。
 SequentialSearchST
 BinarySearchST
 BST
@@ -1497,12 +1497,8 @@ Get 速度 BST 是不会比 BinarySearchST 快的。（$1.39\lg N$>$\lg N$）
 二叉搜索树一次查找平均需要 $1.39\lg N$ 次比较，二分查找则是 $N/2$，于是可以求得开销：
 二叉查找树：$1.39 \sum_{i=1}^{N-1} \lg i=1.39 \lg (N-1)!=1.39(N-1)\lg(N-1)$。
 二分查找实现的符号表：$1/2+2/2+ \cdots+(N-1)/2=N(N-1)/4$ 。
-令两式相等，可以求得快 10 倍，100 倍，1000 倍的 $N$ 值。
-例如快 10 倍的方程：
-$$
-13.9(N-1)\lg(N-1)=N(N-1)/4 \
-13.9\lg (N-1)=N/4
-$$
+令两式相等，可以求得快 10 倍，100 倍，1000 倍的 $N$ 值。 例如快 10 倍的方程：
+$$ 13.9(N-1)\lg(N-1)=N(N-1)/4 \newline 13.9\lg (N-1)=N/4 $$
 这是一个超越方程，可以简单用程序穷举出一个数值解。
 for (var i = 0d; i &lt; int.MaxValue; i++) { if (13.9 * Math.Log2(i - 1) &lt; i / 4) { Console.
 <a href=/3-2-46/>...</a>
@@ -1546,7 +1542,7 @@ using System; using System.Collections.Generic; using System.Linq; using System.
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.3.2 # 解答 # 和 {% post_link 3-3-1 %} 类似，结果如下：
+<p>3.3.2 # 解答 # 和 3.3.1 类似，结果如下：
 Y LY |--P--| L Y |--P--| LM Y |--P--| LM XY |--LP--| H M XY |--LP--| CH M XY |--------P--------| |--L--| |--X--| CH M R Y |--------P--------| |--CL--| |--X--| A H M R Y |--------P--------| |--CL--| |--X--| A EH M R Y |--------P--------| |--CL--| |--X--| A EH M RS Y 另请参阅 # BalancedSearchTree 库
 </p>
 </article>

@@ -6,20 +6,8 @@
 设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
 一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
 于是根据全概率公式，有：
-$$
-\begin{eqnarray}
-C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \
-C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \
-nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \
-nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \
-nC_n&=&2n+nC_{n-1} \
-C_n&=&2+C_{n-1} \
-C_n &=& C_1+2(n-1) \
-C_n &=& 2n-2 < 2n
-\end{eqnarray}
-$$
-测试结果符合我们的预期。
-附加：找出第 $k$ 小的数平均需要的比较次数。
+$$ \begin{eqnarray} C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \newline C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \newline nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \newline nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \newline nC_n&=&2n+nC_{n-1} \newline C_n&=&2+C_{n-1} \newline C_n &=& C_1+2(n-1) \newline C_n &=& 2n-2 < 2n \end{eqnarray} $$
+测试结果符合我们的预期。 附加：找出第 $k$ 小的数平均需要的比较次数。
 类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。
 首先和快速排序类似，select 方法的所有元素比较都发生在切分过程中。
 接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），">
@@ -29,38 +17,26 @@ $$
 设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
 一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
 于是根据全概率公式，有：
-$$
-\begin{eqnarray}
-C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \
-C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \
-nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \
-nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \
-nC_n&=&2n+nC_{n-1} \
-C_n&=&2+C_{n-1} \
-C_n &=& C_1+2(n-1) \
-C_n &=& 2n-2 < 2n
-\end{eqnarray}
-$$
-测试结果符合我们的预期。
-附加：找出第 $k$ 小的数平均需要的比较次数。
+$$ \begin{eqnarray} C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \newline C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \newline nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \newline nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \newline nC_n&=&2n+nC_{n-1} \newline C_n&=&2+C_{n-1} \newline C_n &=& C_1+2(n-1) \newline C_n &=& 2n-2 < 2n \end{eqnarray} $$
+测试结果符合我们的预期。 附加：找出第 $k$ 小的数平均需要的比较次数。
 类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。
 首先和快速排序类似，select 方法的所有元素比较都发生在切分过程中。
 接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-5-7/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-01-07T14:50:55+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.5.7 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1445,80 +1421,80 @@ $$
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>参考书中给出的快速排序性能分析方法（中文版 P186，英文版 P293）。</p>
-<p>设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。<br>
-一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，<br>
-于是根据全概率公式，有：<br>
-$$<br>
-\begin{eqnarray}<br>
-C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \<br>
-C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \<br>
-nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \<br>
-nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \<br>
-nC_n&=&2n+nC_{n-1} \<br>
-C_n&=&2+C_{n-1} \<br>
-C_n &=& C_1+2(n-1) \<br>
-C_n &=& 2n-2 &lt; 2n<br>
-\end{eqnarray}<br>
-$$<br>
-测试结果符合我们的预期。<br>
-<img src=/resources/2-5-7/1.png alt></p>
-<p>附加：找出第 $k$ 小的数平均需要的比较次数。<br>
-类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。</p>
-<p>首先和快速排序类似，<code>select</code> 方法的所有元素比较都发生在切分过程中。<br>
-接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），<br>
-当枢轴选为 $x_i$ 或 $x_j$ 时，它们会发生比较；<br>
-如果枢轴选为 $x_i$ 和 $x_j$ 之间的元素，那么它们会被切分到两侧，不可能发生比较；<br>
-如果枢轴选为小于 $x_i$ 或大于 $x_j$ 的元素，它们会被切分到同一侧，进入下次切分。<br>
-但要注意的是，<code>select</code> 只会对切分的一侧进行再切分，另一侧会被抛弃（快速排序则是两侧都会再切分）。<br>
-因此我们需要将第 $k$ 小的数 $x_k$ 纳入考虑。<br>
-如果 $x_k>x_j>x_i$ ，且枢轴选了 $x_k$ 到 $x_j$ 之间的元素，切分后 $x_i$ 和 $x_j$ 会被一起抛弃，不发生比较。<br>
-如果 $x_j > x_k > x_i$ ，枢轴的选择情况和快速排序一致。<br>
-如果 $x_j > x_i > x_k$ ，且枢轴选了 $x_i$ 到 $x_k$ 之间的元素，切分后 $x_i$ 和 $x_j$ 会被一起抛弃，不发生比较。<br>
-综上我们可以得到 $x_i$ 和 $x_j$ 之间发生比较的概率 $\frac{2}{\max(j-i+1, k-i+1,j-k+1)}$ 。<br>
-我们利用线性规划的知识把最大值函数的区域画出来，如下图所示：<br>
-<img src=/resources/2-5-7/2.png alt><br>
-对蓝色区域积分得：<br>
-$$<br>
-\begin{eqnarray}<br>
-&&\int_{0}^{k} dj \int_{0}^{j} \frac{2}{j-k+1}\ di \<br>
-&=& 2 \int_{0}^{k} \frac{j}{j-k+1} \ dj \<br>
-&&lt;& 2 k<br>
-\end{eqnarray}<br>
+<p>设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。</p>
+<p>一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，</p>
+<p>于是根据全概率公式，有：</p>
+<p>$$
+\begin{eqnarray}
+C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \newline
+C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \newline
+nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \newline
+nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \newline
+nC_n&=&2n+nC_{n-1} \newline
+C_n&=&2+C_{n-1} \newline
+C_n &=& C_1+2(n-1) \newline
+C_n &=& 2n-2 &lt; 2n
+\end{eqnarray}
 $$</p>
-<p>对红色区域积分得：<br>
-$$<br>
-\begin {eqnarray}<br>
-&& \int_{k}^{n} di \int_{i}^{n} \frac{2}{k-i+1} dj \<br>
-&=& 2\int_{k}^{n} \frac{n-i}{k-i+1} di \<br>
-&&lt;& 2(n-k)<br>
-\end {eqnarray}<br>
-$$<br>
-对绿色区域积分得：<br>
-$$<br>
-\begin{eqnarray}<br>
-&& \int_{0}^{k}di\int_{k}^{n} \frac{2}{j-i+1} dj \<br>
-&&lt;& \int_{0}^{k}di\int_{k}^{n} \frac{2}{j-i} dj \<br>
-&=& 2\int_{0}^{k} \ln (n-i) di - 2\int_{0}^{k} \ln(k-i)di \<br>
-&=& 2i\ln(n-i) \bigg|<em>{0}^{k} + 2\int</em>{0}^{k}\frac{i}{n-i} di -<br>
-\left[ i\ln(k-i) \bigg|<em>{0}^{k} + 2\int</em>{0}^{k} \frac{i}{k-i} di \right] \<br>
-&=& 2k\ln(n-k)+2\int_{0}^{k}\frac{n}{n-i}-1 \ di -2\int_{0}^{k} \frac{k}{k-i}-1 \ di \<br>
-&=& 2k\ln(n-k)+2\int_{0}^{k}\frac{n}{n-i} \ di -2k - 2\int_{0}^{k} \frac{k}{k-i} \ di +2k \<br>
-&=& 2k\ln(n-k) -2n\ln(n-i) \bigg|<em>{0}^{k} +2k\ln(k-i)\bigg|</em>{0}^{k} \<br>
-&=& 2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k<br>
-\end{eqnarray}<br>
-$$<br>
-全部相加得到：<br>
-$$<br>
-\begin{eqnarray}<br>
-&& 2k+2(n-k)+2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k \<br>
-&=& 2n + 2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k \<br>
-&=& 2n + 2k\ln(n-k)-2n\ln(n-k)+2n\ln n-2k\ln k +2k\ln n-2k\ln n \<br>
-&=& 2n + 2k\ln n-2k\ln k+2n\ln n-2n\ln(n-k) - 2k\ln n + 2k\ln(n-k) \<br>
-&=& 2n + 2k\ln \left(\frac{n}{k} \right)+2n\ln\left(\frac{n}{n-k} \right) - 2k\ln\left(\frac{n}{n-k} \right) \<br>
-&=& 2n+2k\ln\left(\frac{n}{k}\right)+2(n-k)\ln\left(\frac{n}{n-k} \right)<br>
-\end{eqnarray}<br>
-$$<br>
-于是得到了命题 U 中的结果（中文版 P221，英文版 P347）。</p>
+<p>测试结果符合我们的预期。
+<img src=/resources/2-5-7/1.png alt></p>
+<p>附加：找出第 $k$ 小的数平均需要的比较次数。</p>
+<p>类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。</p>
+<p>首先和快速排序类似，<code>select</code> 方法的所有元素比较都发生在切分过程中。</p>
+<p>接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），</p>
+<p>当枢轴选为 $x_i$ 或 $x_j$ 时，它们会发生比较；</p>
+<p>如果枢轴选为 $x_i$ 和 $x_j$ 之间的元素，那么它们会被切分到两侧，不可能发生比较；</p>
+<p>如果枢轴选为小于 $x_i$ 或大于 $x_j$ 的元素，它们会被切分到同一侧，进入下次切分。</p>
+<p>但要注意的是，<code>select</code> 只会对切分的一侧进行再切分，另一侧会被抛弃（快速排序则是两侧都会再切分）。</p>
+<p>因此我们需要将第 $k$ 小的数 $x_k$ 纳入考虑。</p>
+<p>如果 $x_k>x_j>x_i$ ，且枢轴选了 $x_k$ 到 $x_j$ 之间的元素，切分后 $x_i$ 和 $x_j$ 会被一起抛弃，不发生比较。</p>
+<p>如果 $x_j > x_k > x_i$ ，枢轴的选择情况和快速排序一致。</p>
+<p>如果 $x_j > x_i > x_k$ ，且枢轴选了 $x_i$ 到 $x_k$ 之间的元素，切分后 $x_i$ 和 $x_j$ 会被一起抛弃，不发生比较。</p>
+<p>综上我们可以得到 $x_i$ 和 $x_j$ 之间发生比较的概率 $\frac{2}{\max(j-i+1, k-i+1,j-k+1)}$ 。</p>
+<p>我们利用线性规划的知识把最大值函数的区域画出来，如下图所示：
+<img src=/resources/2-5-7/2.png alt></p>
+<p>对蓝色区域积分得：</p>
+<p>$$
+\begin{eqnarray}
+&&\int_{0}^{k} dj \int_{0}^{j} \frac{2}{j-k+1}\ di \newline
+&=& 2 \int_{0}^{k} \frac{j}{j-k+1} \ dj \newline
+&&lt;& 2 k
+\end{eqnarray}
+$$</p>
+<p>对红色区域积分得：</p>
+<p>$$
+\begin {eqnarray}
+&& \int_{k}^{n} di \int_{i}^{n} \frac{2}{k-i+1} dj \newline
+&=& 2\int_{k}^{n} \frac{n-i}{k-i+1} di \newline
+&&lt;& 2(n-k)
+\end {eqnarray}
+$$</p>
+<p>对绿色区域积分得：</p>
+<p>$$
+\begin{eqnarray}
+&& \int_{0}^{k}di\int_{k}^{n} \frac{2}{j-i+1} dj \newline
+&&lt;& \int_{0}^{k}di\int_{k}^{n} \frac{2}{j-i} dj \newline
+&=& 2\int_{0}^{k} \ln (n-i) di - 2\int_{0}^{k} \ln(k-i)di \newline
+&=& 2i\ln(n-i) \bigg|<em>{0}^{k} + 2\int</em>{0}^{k}\frac{i}{n-i} di -
+\left[ i\ln(k-i) \bigg|<em>{0}^{k} + 2\int</em>{0}^{k} \frac{i}{k-i} di \right] \newline
+&=& 2k\ln(n-k)+2\int_{0}^{k}\frac{n}{n-i}-1 \ di -2\int_{0}^{k} \frac{k}{k-i}-1 \ di \newline
+&=& 2k\ln(n-k)+2\int_{0}^{k}\frac{n}{n-i} \ di -2k - 2\int_{0}^{k} \frac{k}{k-i} \ di +2k \newline
+&=& 2k\ln(n-k) -2n\ln(n-i) \bigg|<em>{0}^{k} +2k\ln(k-i)\bigg|</em>{0}^{k} \newline
+&=& 2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k
+\end{eqnarray}
+$$</p>
+<p>全部相加得到：</p>
+<p>$$
+\begin{eqnarray}
+&& 2k+2(n-k)+2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k \newline
+&=& 2n + 2k\ln(n-k)-2n\ln(n-k)+2n\ln n -2k\ln k \newline
+&=& 2n + 2k\ln(n-k)-2n\ln(n-k)+2n\ln n-2k\ln k +2k\ln n-2k\ln n \newline
+&=& 2n + 2k\ln n-2k\ln k+2n\ln n-2n\ln(n-k) - 2k\ln n + 2k\ln(n-k) \newline
+&=& 2n + 2k\ln \left(\frac{n}{k} \right)+2n\ln\left(\frac{n}{n-k} \right) - 2k\ln\left(\frac{n}{n-k} \right) \newline
+&=& 2n+2k\ln\left(\frac{n}{k}\right)+2(n-k)\ln\left(\frac{n}{n-k} \right)
+\end{eqnarray}
+$$</p>
+<p>于是得到了命题 U 中的结果（中文版 P221，英文版 P347）。</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
@@ -1527,7 +1503,7 @@ $$<br>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

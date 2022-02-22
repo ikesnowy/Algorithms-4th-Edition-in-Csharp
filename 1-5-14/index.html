@@ -3,56 +3,44 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="1.5.14 #  解答 #  WeightedQuickUnionByHeight 的官方实现：WeightedQuickUnionByHeightUF.java。
-证明：
-一次 Union 操作只可能发生如下两种情况。
-1.两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。
-2.两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。
-现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。
+证明： 一次 Union 操作只可能发生如下两种情况。
+  两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。
+  两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。
+  现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。
 基础情况，高度 h = 0, 结点数 k = 1。
 为了使高度增加，必须用一棵高度相同的树合并，而 h = 0 时结点数一定是 1，则：
 h = 1, k = 2
 由于两棵大小不同的树合并，最大高度不会增加，只会增加结点数。
 因此，每次都使用相同高度的最小树进行合并，有：
-h = 2, k = 4
-h = 3, k = 8
-h = 4, k = 16
-&mldr;&mldr;
-递推即可得到结论，k ≥ 2^h
-因此 h <= lgk">
+h = 2, k = 4 h = 3, k = 8 h = 4, k = 16 ...... 递推即可得到结论，k ≥ 2^h">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="1.5.14">
 <meta property="og:description" content="1.5.14 #  解答 #  WeightedQuickUnionByHeight 的官方实现：WeightedQuickUnionByHeightUF.java。
-证明：
-一次 Union 操作只可能发生如下两种情况。
-1.两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。
-2.两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。
-现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。
+证明： 一次 Union 操作只可能发生如下两种情况。
+  两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。
+  两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。
+  现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。
 基础情况，高度 h = 0, 结点数 k = 1。
 为了使高度增加，必须用一棵高度相同的树合并，而 h = 0 时结点数一定是 1，则：
 h = 1, k = 2
 由于两棵大小不同的树合并，最大高度不会增加，只会增加结点数。
 因此，每次都使用相同高度的最小树进行合并，有：
-h = 2, k = 4
-h = 3, k = 8
-h = 4, k = 16
-&mldr;&mldr;
-递推即可得到结论，k ≥ 2^h
-因此 h <= lgk">
+h = 2, k = 4 h = 3, k = 8 h = 4, k = 16 ...... 递推即可得到结论，k ≥ 2^h">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/1-5-14/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-06-22T20:04:04+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>1.5.14 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1437,22 +1425,28 @@ h = 4, k = 16
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
 <p>WeightedQuickUnionByHeight 的官方实现：<a href=http://algs4.cs.princeton.edu/15uf/WeightedQuickUnionByHeightUF.java.html>WeightedQuickUnionByHeightUF.java</a>。</p>
-<p>证明：<br>
-一次 Union 操作只可能发生如下两种情况。<br>
-1.两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。<br>
-2.两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。</p>
-<p>现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。<br>
-基础情况，高度 h = 0, 结点数 k = 1。<br>
-为了使高度增加，必须用一棵高度相同的树合并，而 h = 0 时结点数一定是 1，则：<br>
-h = 1, k = 2<br>
-由于两棵大小不同的树合并，最大高度不会增加，只会增加结点数。<br>
-因此，每次都使用相同高度的最小树进行合并，有：<br>
-h = 2, k = 4<br>
-h = 3, k = 8<br>
-h = 4, k = 16<br>
-&mldr;&mldr;<br>
-递推即可得到结论，k ≥ 2^h<br>
-因此 h &lt;= lgk</p>
+<p>证明：
+一次 Union 操作只可能发生如下两种情况。</p>
+<ol>
+<li>
+<p>两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。</p>
+</li>
+<li>
+<p>两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。</p>
+</li>
+</ol>
+<p>现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。</p>
+<p>基础情况，高度 <code>h = 0</code>, 结点数 <code>k = 1</code>。</p>
+<p>为了使高度增加，必须用一棵高度相同的树合并，而 <code>h = 0</code> 时结点数一定是 <code>1</code>，则：</p>
+<p><code>h = 1, k = 2</code></p>
+<p>由于两棵大小不同的树合并，最大高度不会增加，只会增加结点数。</p>
+<p>因此，每次都使用相同高度的最小树进行合并，有：</p>
+<pre tabindex=0><code>h = 2, k = 4
+h = 3, k = 8
+h = 4, k = 16
+......
+</code></pre><p>递推即可得到结论，<code>k ≥ 2^h</code></p>
+<p>因此 <code>h &lt;= lgk</code></p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1516,7 +1510,7 @@ h = 4, k = 16<br>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

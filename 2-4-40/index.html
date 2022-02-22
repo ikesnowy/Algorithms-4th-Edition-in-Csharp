@@ -2,8 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。
-先沉后浮的实现也很简单，将 swim 方法加入，
+<meta name=description content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
 然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
 然后在 sink 方法的循环之后调用 swim。
 为了获得比较次数，你可以添加一个静态全局变量 compareCount，
@@ -12,8 +11,7 @@
 代码 #  using System; namespace PriorityQueue { /// <summary>  /// 堆排序类，提供 Floyd 优化的堆排序的静态方法。  /// </summary>  /// <typeparam name=&#34;T&#34;>需要排序的元素类型。</typeparam>  public static class HeapFloyd { /// <summary>  /// 利用堆排序对数组进行排序。  /// </summary>  /// <param name=&#34;pq&#34;>需要排序的数组。</param>  public static void Sort<T>(T[] pq) where T : IComparable<T> { int n = pq.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.40">
-<meta property="og:description" content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。
-先沉后浮的实现也很简单，将 swim 方法加入，
+<meta property="og:description" content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
 然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
 然后在 sink 方法的循环之后调用 swim。
 为了获得比较次数，你可以添加一个静态全局变量 compareCount，
@@ -23,18 +21,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-40/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-12-29T18:36:53+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.40 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1418,14 +1416,14 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>如同书上所说，可以节省约 50% 的比较次数。<br>
+<p>如同书上所说，可以节省约 50% 的比较次数。
 <img src=/resources/2-4-40/1.png alt></p>
-<p>先沉后浮的实现也很简单，将 <code>swim</code> 方法加入，<br>
-然后修改 <code>sink</code> 方法，去掉其中检查是否需要下沉的条件（<code>if(!Less(pq, k, j))</code>），<br>
-然后在 <code>sink</code> 方法的循环之后调用 <code>swim</code>。</p>
-<p>为了获得比较次数，你可以添加一个静态全局变量 <code>compareCount</code>，<br>
-然后修改 <code>Less</code> 方法，在作比较的同时使 <code>compareCount++</code> ，<br>
-每次执行 <code>Sort</code> 时先让 <code>compareCount</code> 置零，最后返回 <code>compareCount</code>。</p>
+<p>先沉后浮的实现也很简单，将 <code>swim</code> 方法加入，</p>
+<p>然后修改 <code>sink</code> 方法，去掉其中检查是否需要下沉的条件（<code>if(!Less(pq, k, j))</code>），</p>
+<p>然后在 <code>sink</code> 方法的循环之后调用 <code>swim</code>。</p>
+<p>为了获得比较次数，你可以添加一个静态全局变量 <code>compareCount</code>，</p>
+<p>然后修改 <code>Less</code> 方法，在作比较的同时使 <code>compareCount++</code> ，</p>
+<p>每次执行 <code>Sort</code> 时先让 <code>compareCount</code> 置零，最后返回 <code>compareCount</code>。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1544,7 +1542,7 @@
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

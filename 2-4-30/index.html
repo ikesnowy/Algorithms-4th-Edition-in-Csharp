@@ -29,18 +29,18 @@ using System; namespace PriorityQueue { /// <summary>  /// 面向中位数的堆
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-30/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-10-28T12:27:53+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.30 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1424,16 +1424,16 @@ using System; namespace PriorityQueue { /// <summary>  /// 面向中位数的堆
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。<br>
-如下图所示，注意 Median 和两个堆并没有直接连接，这里只是方便理解元素顺序。<br>
-<img src=/resources/2-4-30/1.png alt></p>
-<p>只要左右两个堆含有元素之差不超过 1，那么 Median 变量中存放的就是整个数组的中位数。<br>
-如果元素差大于 1，就需要进行调整，<br>
-把 Median 变量中存放的值插入到元素较少的堆，<br>
-再从元素较多的堆中取出元素放入 Median 变量，直到元素差不大于 1。</p>
-<p>插入元素时，根据插入元素的大小插入到某一个堆中去，再做一次调整。<br>
-删除中位数时，去掉中位数，然后从元素较多的一侧堆中取元素补位，再进行一次调整。<br>
-编写代码时要注意堆中只有一个元素的情况需要特殊处理。</p>
+<p>单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。</p>
+<p>如下图所示，注意 Median 和两个堆并没有直接连接，这里只是方便理解元素顺序。</p>
+<p><img src=/resources/2-4-30/1.png alt></p>
+<p>只要左右两个堆含有元素之差不超过 1，那么 Median 变量中存放的就是整个数组的中位数。</p>
+<p>如果元素差大于 1，就需要进行调整，</p>
+<p>把 Median 变量中存放的值插入到元素较少的堆，</p>
+<p>再从元素较多的堆中取出元素放入 Median 变量，直到元素差不大于 1。</p>
+<p>插入元素时，根据插入元素的大小插入到某一个堆中去，再做一次调整。</p>
+<p>删除中位数时，去掉中位数，然后从元素较多的一侧堆中取元素补位，再进行一次调整。</p>
+<p>编写代码时要注意堆中只有一个元素的情况需要特殊处理。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1605,7 +1605,7 @@ using System; namespace PriorityQueue { /// <summary>  /// 面向中位数的堆
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

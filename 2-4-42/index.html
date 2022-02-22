@@ -8,11 +8,9 @@
 现在问题是，右子结点在哪，或者说，左子树有多大？
 这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。
 就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
-在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。
-完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
+在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。 完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
 于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
-如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
+那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示： 如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
 按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
 现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
 第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。
@@ -26,11 +24,9 @@
 现在问题是，右子结点在哪，或者说，左子树有多大？
 这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。
 就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
-在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。
-完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
+在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。 完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
 于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
-如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
+那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示： 如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
 按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
 现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
 第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。
@@ -39,18 +35,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-42/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-12-31T10:26:02+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.42 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1438,53 +1434,53 @@
 前序序列与完全二叉树
 <a class=anchor href=#%e5%89%8d%e5%ba%8f%e5%ba%8f%e5%88%97%e4%b8%8e%e5%ae%8c%e5%85%a8%e4%ba%8c%e5%8f%89%e6%a0%91>#</a>
 </h2>
-<p>二叉树前序遍历的顺序是：自身，左子树，右子树。<br>
-因此对于一个前序遍历序列，第一个元素是根结点，第二个元素是左子结点。<br>
-再把左子结点找到，就可以把数组分成三部分：根结点，左子树，右子树，进而递归的构造出整个二叉树。<br>
-现在问题是，右子结点在哪，或者说，左子树有多大？</p>
-<p>这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。<br>
-就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。<br>
-在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。<br>
+<p>二叉树前序遍历的顺序是：自身，左子树，右子树。</p>
+<p>因此对于一个前序遍历序列，第一个元素是根结点，第二个元素是左子结点。</p>
+<p>再把左子结点找到，就可以把数组分成三部分：根结点，左子树，右子树，进而递归的构造出整个二叉树。</p>
+<p>现在问题是，右子结点在哪，或者说，左子树有多大？</p>
+<p>这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。</p>
+<p>就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。</p>
+<p>在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。
 <img src=/resources/2-4-42/1.png alt></p>
-<p>完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。<br>
-于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。<br>
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：<br>
-<img src=/resources/2-4-42/2.png alt><br>
-如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。<br>
-按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。<br>
-现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。<br>
-第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。<br>
-于是当 $l&lt;=2^{k-1}$ 时，左右子树大小分别为 $2^{k-1}-1+l$ 和 $2^{k-1}-1$ 。<br>
-当 $l > 2^{k-1}$ 时，左右子树大小分别为 $2^{k} - 1$ 和 $2^{k-1} -1 +l -2^{k-1}=l-1$ 。</p>
-<p>实际上，我们只要先取根结点，然后再取 $2^{k-1} -1$ 个结点给左子树，再做判断：<br>
-如果 $n-2^{k-1} &lt; 2^{k}-1$ ，那么对应第一种情况，末尾的 $2^{k-1}-1$ 个结点即为右子树。<br>
-否则就是第二种情况，前面的 $ 2^k$ 个结点就是根结点和左子树，剩下的为右子树。</p>
+<p>完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。</p>
+<p>于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。</p>
+<p>那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
+<img src=/resources/2-4-42/2.png alt></p>
+<p>如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。</p>
+<p>按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。</p>
+<p>现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。</p>
+<p>第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。</p>
+<p>于是当 $l&lt;=2^{k-1}$ 时，左右子树大小分别为 $2^{k-1}-1+l$ 和 $2^{k-1}-1$ 。</p>
+<p>当 $l > 2^{k-1}$ 时，左右子树大小分别为 $2^{k} - 1$ 和 $2^{k-1} -1 +l -2^{k-1}=l-1$ 。</p>
+<p>实际上，我们只要先取根结点，然后再取 $2^{k-1} -1$ 个结点给左子树，再做判断：</p>
+<p>如果 $n-2^{k-1} &lt; 2^{k}-1$ ，那么对应第一种情况，末尾的 $2^{k-1}-1$ 个结点即为右子树。</p>
+<p>否则就是第二种情况，前面的 $ 2^k$ 个结点就是根结点和左子树，剩下的为右子树。</p>
 <h2 id=堆排序的实现>
 堆排序的实现
 <a class=anchor href=#%e5%a0%86%e6%8e%92%e5%ba%8f%e7%9a%84%e5%ae%9e%e7%8e%b0>#</a>
 </h2>
 <p>现在我们能够根据结点总数 $n$ 来确定相应的完全二叉树，接下来则是如何进行堆排序。</p>
-<p>堆排序的第一步就是建堆，建堆时最主要的就是 <code>sink</code> 操作了。<br>
-但前序序列中除了第一个结点（根结点）之外，其他结点的左右子结点下标是不能直接通过计算得到的。<br>
-因此在前序实现中，<code>sink</code> 操作只能对根结点进行，引出了下面的递归建堆方法。<br>
-如果根结点的左右两棵子树都已经是堆了，那么只要对根结点进行 <code>sink</code> 操作即可使整个二叉树变成堆。<br>
-第一步先检查子树的大小，如果小于等于 1 则说明是叶结点，直接返回。<br>
-否则计算出左右子结点的位置，递归地建堆。<br>
-最后对根结点进行 <code>sink</code> 操作。</p>
-<p>那么这个 <code>sink</code> 操作是怎么做的呢？<br>
-计算得到了左右子结点的下标后，比较得出较大的那个，如果大于根结点则交换，否则返回。<br>
-交换后根结点变成了某一侧子树的根结点，递归地进行 <code>sink</code> 即可。</p>
-<p>接下来是排序，最主要的操作是 <code>DelMax</code>。<br>
-前序序列的根结点好找，但是最后一个结点就比较麻烦了，它既可能在左子树也可能在右子树。<br>
-但我们可以根据之前的大小关系来寻找，<br>
-如果左子树小于等于 $2^k - 1$ ，那么最后一个结点一定在左子树，否则就在右子树。<br>
-递归进行上述过程，直到到达叶子结点，该叶子结点就是最后一个结点。<br>
-之后我们将最后一个结点暂存，整个数组从后向前补缺（这一步将导致算法变成 $O(n^2)$ ），<br>
-再把第一个结点放到最后的空位上，最后把存起来的结点放到第一位，对该结点进行 <code>sink</code> 操作。<br>
-依次往复即可完成排序。</p>
-<p>测试结果：<br>
-这个算法在设计上与一般实现的比较次数大体相等，<br>
-只是移动数组耗时较长，这里只给到 $10^7$。<br>
+<p>堆排序的第一步就是建堆，建堆时最主要的就是 <code>sink</code> 操作了。</p>
+<p>但前序序列中除了第一个结点（根结点）之外，其他结点的左右子结点下标是不能直接通过计算得到的。</p>
+<p>因此在前序实现中，<code>sink</code> 操作只能对根结点进行，引出了下面的递归建堆方法。</p>
+<p>如果根结点的左右两棵子树都已经是堆了，那么只要对根结点进行 <code>sink</code> 操作即可使整个二叉树变成堆。</p>
+<p>第一步先检查子树的大小，如果小于等于 1 则说明是叶结点，直接返回。</p>
+<p>否则计算出左右子结点的位置，递归地建堆。</p>
+<p>最后对根结点进行 <code>sink</code> 操作。</p>
+<p>那么这个 <code>sink</code> 操作是怎么做的呢？</p>
+<p>计算得到了左右子结点的下标后，比较得出较大的那个，如果大于根结点则交换，否则返回。</p>
+<p>交换后根结点变成了某一侧子树的根结点，递归地进行 <code>sink</code> 即可。</p>
+<p>接下来是排序，最主要的操作是 <code>DelMax</code>。</p>
+<p>前序序列的根结点好找，但是最后一个结点就比较麻烦了，它既可能在左子树也可能在右子树。</p>
+<p>但我们可以根据之前的大小关系来寻找，</p>
+<p>如果左子树小于等于 $2^k - 1$ ，那么最后一个结点一定在左子树，否则就在右子树。</p>
+<p>递归进行上述过程，直到到达叶子结点，该叶子结点就是最后一个结点。</p>
+<p>之后我们将最后一个结点暂存，整个数组从后向前补缺（这一步将导致算法变成 $O(n^2)$ ），</p>
+<p>再把第一个结点放到最后的空位上，最后把存起来的结点放到第一位，对该结点进行 <code>sink</code> 操作。</p>
+<p>依次往复即可完成排序。</p>
+<p>测试结果：</p>
+<p>这个算法在设计上与一般实现的比较次数大体相等，</p>
+<p>只是移动数组耗时较长，这里只给到 $10^7$。
 <img src=/resources/2-4-42/3.png alt></p>
 <h2 id=代码>
 代码
@@ -1660,7 +1656,7 @@
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

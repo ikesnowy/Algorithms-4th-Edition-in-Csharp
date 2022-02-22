@@ -4,9 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="2.3.3 #  解答 #  N / 2
 在快速排序中，一个元素要被交换，有以下两种情况
-1.该元素是枢轴，在切分的最后一步被交换
-2.该元素位于枢轴错误的一侧，需要被交换到另一侧去
-注意，以上两种情况在一次切分中只会出现一次
+ 该元素是枢轴，在切分的最后一步被交换 该元素位于枢轴错误的一侧，需要被交换到另一侧去  注意，以上两种情况在一次切分中只会出现一次
 首先来看第一种情况，如果一个元素变成了枢轴
 那么在之后的切分中该元素会被排除，不存在后续的交换。
 因此我们的目标应该是：
@@ -30,9 +28,7 @@
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.3">
 <meta property="og:description" content="2.3.3 #  解答 #  N / 2
 在快速排序中，一个元素要被交换，有以下两种情况
-1.该元素是枢轴，在切分的最后一步被交换
-2.该元素位于枢轴错误的一侧，需要被交换到另一侧去
-注意，以上两种情况在一次切分中只会出现一次
+ 该元素是枢轴，在切分的最后一步被交换 该元素位于枢轴错误的一侧，需要被交换到另一侧去  注意，以上两种情况在一次切分中只会出现一次
 首先来看第一种情况，如果一个元素变成了枢轴
 那么在之后的切分中该元素会被排除，不存在后续的交换。
 因此我们的目标应该是：
@@ -55,18 +51,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-3-3/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-07-08T19:36:46+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.3.3 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1450,50 +1446,52 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>N / 2<br>
-在快速排序中，一个元素要被交换，有以下两种情况<br>
-1.该元素是枢轴，在切分的最后一步被交换<br>
-2.该元素位于枢轴错误的一侧，需要被交换到另一侧去<br>
-注意，以上两种情况在一次切分中只会出现一次</p>
-<p>首先来看第一种情况，如果一个元素变成了枢轴<br>
-那么在之后的切分中该元素会被排除，不存在后续的交换。<br>
-因此我们的目标应该是：<br>
-最大的元素总是出现在错误的一侧，同时切分的次数尽可能多。</p>
-<p>接下来我们来思考如何构造这样的数组<br>
-由于我们针对的是最大的元素，因此「错误的一侧」就是枢轴的左侧。<br>
-为了使切分的次数尽可能多，我们需要保持最大值移动的距离尽量短。<br>
-但如果每次只移动一位的话，下一次切分时最大值就会变成枢轴<br>
-例如 4 10 3 5 6，枢轴为 4，交换后数组变为：<br>
-4 3 10 5 6<br>
-随后 4 和 3 交换<br>
-3 4 10 5 6<br>
-下一次切分时 10 会变成枢轴，不再参与后续的切分。<br>
-因此我们需要让最大值每次移动两个元素。</p>
-<p>考虑下面的数组：<br>
-2 10 4 1 6 3 8 5 7 9<br>
-第一次切分的时候，枢轴为 2，10 和 1 进行交换<br>
-数组变为：<br>
-2 1 4 10 6 3 8 5 7 9<br>
-随后枢轴交换，数组变为：<br>
-1 2 4 10 6 3 8 5 7 9<br>
-第二次切分，枢轴为 4，10 和 3 进行交换。<br>
-1 2 4 3 6 10 8 5 7 9<br>
-随后枢轴交换 数组变为：<br>
-1 2 3 4 6 10 8 5 7 9<br>
-第三次切分，枢轴为 6，10 和 5 交换<br>
-1 2 3 4 6 5 8 10 7 9<br>
-随后枢轴交换，数组变为：<br>
-1 2 3 4 5 6 8 10 7 9<br>
-第四次切分，枢轴为 8，10 和 7 交换<br>
-1 2 3 4 5 6 8 7 10 9<br>
-枢轴交换，数组变为<br>
-1 2 3 4 5 6 7 8 10 9<br>
-最后一次切分，枢轴为 10，直接交换<br>
-1 2 3 4 5 6 7 8 9 10</p>
-<p>我们可以总结出要构造这样的数组的模板<br>
-a2 max a3 a1<br>
-其中 a1 &lt; a2 &lt; a3 &lt; max<br>
-max 每轮切分移动两格，总共切分 N/ 2 次。</p>
+<p>N / 2</p>
+<p>在快速排序中，一个元素要被交换，有以下两种情况</p>
+<ol>
+<li>该元素是枢轴，在切分的最后一步被交换</li>
+<li>该元素位于枢轴错误的一侧，需要被交换到另一侧去</li>
+</ol>
+<p>注意，以上两种情况在一次切分中只会出现一次</p>
+<p>首先来看第一种情况，如果一个元素变成了枢轴</p>
+<p>那么在之后的切分中该元素会被排除，不存在后续的交换。</p>
+<p>因此我们的目标应该是：</p>
+<p>最大的元素总是出现在错误的一侧，同时切分的次数尽可能多。</p>
+<p>接下来我们来思考如何构造这样的数组</p>
+<p>由于我们针对的是最大的元素，因此「错误的一侧」就是枢轴的左侧。</p>
+<p>为了使切分的次数尽可能多，我们需要保持最大值移动的距离尽量短。</p>
+<p>但如果每次只移动一位的话，下一次切分时最大值就会变成枢轴</p>
+<p>例如 <code>4 10 3 5 6</code>，枢轴为 <code>4</code>，交换后数组变为：</p>
+<p><code>4 3 10 5 6</code></p>
+<p>随后 <code>4</code> 和 <code>3</code> 交换</p>
+<p><code>3 4 10 5 6</code></p>
+<p>下一次切分时 <code>10</code> 会变成枢轴，不再参与后续的切分。</p>
+<p>因此我们需要让最大值每次移动两个元素。</p>
+<p>考虑下面的数组：</p>
+<p><code>2 10 4 1 6 3 8 5 7 9</code></p>
+<p>第一次切分的时候，枢轴为 2，10 和 1 进行交换</p>
+<p>数组变为：</p>
+<p><code>2 1 4 10 6 3 8 5 7 9</code></p>
+<p>随后枢轴交换，数组变为：</p>
+<p><code>1 2 4 10 6 3 8 5 7 9</code></p>
+<p>第二次切分，枢轴为 4，10 和 3 进行交换。</p>
+<p><code>1 2 4 3 6 10 8 5 7 9</code></p>
+<p>随后枢轴交换 数组变为：</p>
+<p><code>1 2 3 4 6 10 8 5 7 9</code></p>
+<p>第三次切分，枢轴为 <code>6</code>，<code>10</code> 和 <code>5</code> 交换</p>
+<p><code>1 2 3 4 6 5 8 10 7 9</code></p>
+<p>随后枢轴交换，数组变为：</p>
+<p><code>1 2 3 4 5 6 8 10 7 9</code></p>
+<p>第四次切分，枢轴为 <code>8</code>，<code>10</code> 和 <code>7</code> 交换</p>
+<p><code>1 2 3 4 5 6 8 7 10 9</code></p>
+<p>枢轴交换，数组变为</p>
+<p><code>1 2 3 4 5 6 7 8 10 9</code></p>
+<p>最后一次切分，枢轴为 <code>10</code>，直接交换</p>
+<p><code>1 2 3 4 5 6 7 8 9 10</code></p>
+<p>我们可以总结出要构造这样的数组的模板</p>
+<p><code>a2 max a3 a1</code></p>
+<p>其中 <code>a1 &lt; a2 &lt; a3 &lt; max</code></p>
+<p><code>max</code> 每轮切分移动两格，总共切分 <code>N / 2</code> 次。</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
@@ -1502,7 +1500,7 @@ max 每轮切分移动两格，总共切分 N/ 2 次。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1408,8 +1408,7 @@
 从 2 × (24 + 8N) +4 = 52 + 16N 字节 （100 %），
 到 2 × (24 + 32N) +4 = 52 + 64N 字节（25 %）之间变动。
 SequentialSearchST
-包含 N 个结点以及一个 int 变量
-(16 + 8 + 8 + 8)N + 4 = 4 + 40N 字节
+包含 N 个结点以及一个 int 变量 (16 + 8 + 8 + 8)N + 4 = 4 + 40N 字节
 </p>
 </article>
 <article class="markdown book-post">
@@ -1439,13 +1438,11 @@ public TValue Get(TKey key) { int i; for (i = 0; i &lt; this.n; i++) if (this.ke
 同样对于二进制就会使 $n$ 变为 $\lfloor n / 2 \rfloor$。
 当需要除以 $2$ 的 $k$ 次幂的时候，可以用右移 $k$ 位代替并减少时间开销。
 同理可以用左移 $k$ 位来代替乘以 $2$ 的 $k$ 次幂。
-注：
-这样会降低程序可读性，
+注： 这样会降低程序可读性，
 并且某些语言（C / C++）的编译器已经可以自动执行这项优化了。
 请充分考虑你的代码受众之后再决定是否采用这种写法。
 二分查找的最大查找次数 = $ \lg N + 1$ （见 3.1.20 的证明 {% post_link 3-1-20 %}）
-一个数最多被左移的次数也正好等于 $\lfloor \lg N \rfloor + 1$
-（任意正整数都能被表示为 $2 ^ k + m$ 的形式，即 $k +1$ 位二进制数）
+一个数最多被左移的次数也正好等于 $\lfloor \lg N \rfloor + 1$ （任意正整数都能被表示为 $2 ^ k + m$ 的形式，即 $k +1$ 位二进制数）
 <a href=/3-1-23/>...</a>
 </p>
 </article>
@@ -1464,8 +1461,7 @@ public TValue Get(TKey key) { int i; for (i = 0; i &lt; this.n; i++) if (this.ke
 用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。
 不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。
 但如果数组分布不够均匀，也可能表现出不如二分查找的性能。
-实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。
-代码 # SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
+实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。 代码 # SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
 public static long Time&lt;TKey>(IST&lt;TKey, int> st, TKey[] keys) { Stopwatch sw = new Stopwatch(); sw.Start(); FrequencyCounter.MostFrequentlyKey(st, keys); sw.Stop(); return sw.ElapsedMilliseconds; } 由于这里需要使用数字而非字符串作为键值，需要对官方给出的 FrequencyCounter 做一些修改：
 public static TKey MostFrequentlyKey&lt;TKey> (IST&lt;TKey, int> st, TKey[] keys) { foreach (TKey s in keys) { if (st.
 <a href=/3-1-24/>...</a>
@@ -1483,10 +1479,7 @@ public static TKey MostFrequentlyKey&lt;TKey> (IST&lt;TKey, int> st, TKey[] keys
 实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
 然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
 要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。
-利用《双城记》测试的结果：
-代码 # BinarySearchST # cache 是一个 int 类型的变量，代表下标。
-在二分查找前先检查缓存，要注意cache超出数组大小的情况。
-如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
+利用《双城记》测试的结果： 代码 # BinarySearchST # cache 是一个 int 类型的变量，代表下标。 在二分查找前先检查缓存，要注意cache超出数组大小的情况。 如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
 public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException("argument to Get() is null"); if (IsEmpty()) return default(TValue); if (this.cache &lt; this.n && this.keys[this.cache].Equals(key)) // 缓存检查 return this.values[this.cache]; int rank = Rank(key); if (rank &lt; this.n && this.
 <a href=/3-1-25/>...</a>
 </p>
@@ -1511,8 +1504,7 @@ FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/F
 对于按频率排序，我们基于已有的实现修改。
 在每次取得最大值之后，输出并删除最大值，如此循环即可获得频率排序的单词序列。
 也可以将单词-频率序列全部读出来存放到数组之中，然后用第二章的排序算法排序。
-测试结果，取 minLength = 13，只截取了部分。
-代码 # public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) { // 初始化字典 StreamReader sr = new StreamReader(File.OpenRead(dictionaryFile)); string[] words = sr.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); BinarySearchST&lt;string, int> dictionary = new BinarySearchST&lt;string, int>(); for (int i = 0; i &lt; words.
+测试结果，取 minLength = 13，只截取了部分。 代码 # public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) { // 初始化字典 StreamReader sr = new StreamReader(File.OpenRead(dictionaryFile)); string[] words = sr.ReadToEnd().Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries); BinarySearchST&lt;string, int> dictionary = new BinarySearchST&lt;string, int>(); for (int i = 0; i &lt; words.
 <a href=/3-1-26/>...</a>
 </p>
 </article>
@@ -1534,8 +1526,7 @@ FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/F
 查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。
 令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。
 如果用大 O 记法，也可以记为 $O(n^2 / \lg n)$，如果要选择一个比较常用的上界则可以选择 $O(n^2)$。
-实验结果，两边的成本是很接近的：
-另请参阅 # SymbolTable 库
+实验结果，两边的成本是很接近的： 另请参阅 # SymbolTable 库
 </p>
 </article>
 <article class="markdown book-post">
@@ -1546,8 +1537,7 @@ FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/F
 <div>
 <a href=/tags/searching/>Searching</a>
 </div>
-<p>3.1.28 # 解答 # 将重新分配数组空间的代码提前，然后添加判断语句即可。
-BinarySearchSTOrderedInsertion：
+<p>3.1.28 # 解答 # 将重新分配数组空间的代码提前，然后添加判断语句即可。 BinarySearchSTOrderedInsertion：
 /* 省略 */ if (this.n == this.keys.Length) Resize(this.n * 2); // 如果插入的键比所有键都大则直接插入末尾。 if (this.n == 0 || this.keys[this.n - 1].CompareTo(key) &lt; 0) { this.keys[this.n] = key; this.values[this.n] = value; this.n++; return; } int i = Rank(key); /* 省略 */ 另请参阅 # SymbolTable 库
 </p>
 </article>

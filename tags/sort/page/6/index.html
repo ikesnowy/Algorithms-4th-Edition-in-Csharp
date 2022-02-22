@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1405,8 +1405,7 @@
 <p>2.2.13 # 解答 # 假设对三个数进行排序，
 这三个数是：35，10，17
 三个数排序的决策树如下，
-结点代表比较对应位置上的数。
-对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
+结点代表比较对应位置上的数。 对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
 我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个
 根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点
 那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来
@@ -1416,7 +1415,7 @@ $h \ge log(n!)$
 接下来我们来计算平均路径长度
 我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和
 上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$
-由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$
+由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$ （加上 $k$ 的原因：左右子树的高度比整个树的高度小 $1$，因此每条路径的长度都必须加 $1$，总共多加了 $k$ 次）
 <a href=/2-2-13/>...</a>
 </p>
 </article>
@@ -1473,8 +1472,7 @@ Merge 方法可以直接使用前一题的实现。
 </div>
 <p>2.2.17 # 解答 # 排序方式和 2.2.16 十分类似，不再赘述，这里介绍一下归并方法。
 如 gif 图所示，先把要归并的两个链表拆出来，随后确定表头位置，然后进行归并即可。 归并结束后返回 first。
-结果分析如下图所示：
-随着有序部分的增加，对于相同大小的数组自然归并排序的耗时会缩短。
+结果分析如下图所示： 随着有序部分的增加，对于相同大小的数组自然归并排序的耗时会缩短。
 对于有序部分相同的情况，随着数组大小的倍增，耗时呈现了O(nlogn)的趋势。
 代码 # using System; using System.Diagnostics; using Merge; namespace _2._2._17 { /// &lt;summary> /// 自然的归并排序。 /// &lt;/summary> public class MergeSortNatural : BaseSort { /// &lt;summary> /// 默认构造函数。 /// &lt;/summary> public MergeSortNatural() { } /// &lt;summary> /// 利用自然的归并排序进行自底向上的排序。 /// &lt;/summary> /// &lt;typeparam name="T">用于排序的元素类型。&lt;/typeparam> /// &lt;param name="a">需要排序的数组。&lt;/param> public override void Sort&lt;T>(T[] a) { T[] aux = new T[a.
 <a href=/2-2-17/>...</a>

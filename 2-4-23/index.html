@@ -2,8 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。
-如果找到的结点比当前结点大，那么就进行交换。
+<meta name=description content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
 否则视为结点已经下沉到了合适的位置，结束循环。
 根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
 sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。
@@ -12,16 +11,10 @@ sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比�
 设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。
 根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。
 于是建堆需要的总交换次数为：
-$$
-\begin{align*}
-& h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \
-& =\sum_{k=0}^{h-1} t^k(h-k) \
-& =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \
-\end {align*}">
+$$ \begin{align*} & h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \newline & =\sum_{k=0}^{h-1} t^k(h-k) \newline & =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline \end {align*} $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.23">
-<meta property="og:description" content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。
-如果找到的结点比当前结点大，那么就进行交换。
+<meta property="og:description" content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
 否则视为结点已经下沉到了合适的位置，结束循环。
 根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
 sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。
@@ -30,27 +23,22 @@ sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比�
 设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。
 根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。
 于是建堆需要的总交换次数为：
-$$
-\begin{align*}
-& h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \
-& =\sum_{k=0}^{h-1} t^k(h-k) \
-& =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \
-\end {align*}">
+$$ \begin{align*} & h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \newline & =\sum_{k=0}^{h-1} t^k(h-k) \newline & =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline \end {align*} $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-23/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-09-18T12:51:50+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.23 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1438,95 +1426,95 @@ $$
 简单的 sink 实现
 <a class=anchor href=#%e7%ae%80%e5%8d%95%e7%9a%84-sink-%e5%ae%9e%e7%8e%b0>#</a>
 </h2>
-<p>sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。<br>
-如果找到的结点比当前结点大，那么就进行交换。<br>
-否则视为结点已经下沉到了合适的位置，结束循环。<br>
-根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。<br>
-sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。<br>
-于是 sink 操作每次最多需要 $t + 1$ 次比较。</p>
-<p>建堆过程，对 2.4.20 的证明进行推广。<br>
-设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。<br>
-根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。<br>
-于是建堆需要的总<strong>交换</strong>次数为：<br>
-$$<br>
-\begin{align*}<br>
-& h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \<br>
-& =\sum_{k=0}^{h-1} t^k(h-k) \<br>
-& =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \<br>
-\end {align*}<br>
+<p>sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。
+如果找到的结点比当前结点大，那么就进行交换。</p>
+<p>否则视为结点已经下沉到了合适的位置，结束循环。</p>
+<p>根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。</p>
+<p>sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。</p>
+<p>于是 sink 操作每次最多需要 $t + 1$ 次比较。</p>
+<p>建堆过程，对 2.4.20 的证明进行推广。</p>
+<p>设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。</p>
+<p>根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。</p>
+<p>于是建堆需要的总<strong>交换</strong>次数为：</p>
+<p>$$
+\begin{align*}
+& h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \newline
+& =\sum_{k=0}^{h-1} t^k(h-k) \newline
+& =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline
+\end {align*}
 $$</p>
-<p>其中，第一个数列是等比数列，第二个数列是等差数列和等比数列之积，可以利用错位相减法求得，即：<br>
-$$<br>
-\begin{align*}<br>
-& h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \<br>
-& =\frac{h-ht^{h}}{1-t}-\sum_{k=0}^{h-1}kt^k \<br>
-& =\frac{h-ht^{h}}{1-t} -\frac{\sum kt^k - t\sum kt^k}{1-t} \<br>
-& =\frac{h-ht^h}{1-t}-\frac{t(1-t^{h-1})}{(1-t)^2}+\frac{(h-1)t^h}{1-t} \<br>
-& =\frac{h-t^h}{1-t}-\frac{t(1-t^{h-1})}{(1-t)^2} \<br>
-& =\frac{h-ht+t^{h+1}-t}{(1-t)^2}<br>
-\end{align*}<br>
-$$<br>
-考虑到对于 $t$ 叉堆，结点数可以表示为 $n=\frac{t^{h+1}-1}{t-1}$ 。故<strong>交换</strong>次数可以化简为：<br>
-$$<br>
-\begin{align*}<br>
-& \frac{h-ht+t^{h+1}-t}{(1-t)^2} \<br>
-& =\frac{h-ht+t^{h+1}-t +1-1}{(1-t)^2} \<br>
-& =\frac{t^{h+1}-1}{(1-t)^2}+\frac{h-ht-t+1}{(1-t)^2} \<br>
-& =-\frac{n}{1-t}+\frac{h}{1-t}+\frac{1}{1-t} \<br>
-& =\frac{n-h-1}{t-1} \le n<br>
-\end{align*}<br>
+<p>其中，第一个数列是等比数列，第二个数列是等差数列和等比数列之积，可以利用错位相减法求得，即：</p>
+<p>$$
+\begin{align*}
+& h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline
+& =\frac{h-ht^{h}}{1-t}-\sum_{k=0}^{h-1}kt^k \newline
+& =\frac{h-ht^{h}}{1-t} -\frac{\sum kt^k - t\sum kt^k}{1-t} \newline
+& =\frac{h-ht^h}{1-t}-\frac{t(1-t^{h-1})}{(1-t)^2}+\frac{(h-1)t^h}{1-t} \newline
+& =\frac{h-t^h}{1-t}-\frac{t(1-t^{h-1})}{(1-t)^2} \newline
+& =\frac{h-ht+t^{h+1}-t}{(1-t)^2}
+\end{align*}
 $$</p>
-<p>故建堆所需<strong>比较</strong>次数最大为 $(t+1)n$ 。<br>
-每次删除最大元素都会对根结点调用一次 sink 操作，<br>
-因此排序所需的比较次数最多为 $(t+1)n\log_t(n)$ 。<br>
-相加得堆排序所需的总交换次数最多为 $ (t+1)n + (t+1)n\log_t(n) =(t+1)(n\log_tn+n)$ 。<br>
-利用换底公式将对数的底换成 2，得到：$\frac{t+1}{\lg t} n\log n$ 。<br>
-于是问题变为求 $f(t)= \frac{t+1}{\lg t}$ 的最小值，对其求导，得到：<br>
-$$<br>
-( \frac{t+1}{\lg t} )'=\frac{-t+t\ln t-1}{t\ln^2t}·\ln 2<br>
-$$<br>
-直接求导数的零点会比较困难，但利用勘根公式可以寻找到根所在的区间。<br>
-由于 $\ln 2$ 不影响正负，我们直接将其去掉，变为：<br>
-$$<br>
-\frac{-t+t\ln t-1}{t\ln^2t}=\frac{-1+\ln t-\frac{1}{t}}{\ln^2t}<br>
-$$<br>
-由于 $t > 1$，分母总是为正，因此导函数正负就等于下面这个函数的正负：<br>
-$$<br>
-\begin {align*}<br>
-g(t)=\ln t -1-\frac{1}{t}<br>
-\end {align*}<br>
-$$<br>
-$t = e$ 时 $g(t) &lt; 0$，$t=e+1$ 时 $g(t) > 0$。于是可以求得在 $(e, e+1)$ 上 $f(t)$ 存在极小值。<br>
-又由于 $g(t)$ 在 $(e + 1, +\infty)$ 始终为正，因此在 $(e, e+1)$ 上存在的是最小值（$t \ge 2$）。<br>
-因为 $t$ 为大于 $1$ 的正整数，且 $f(4) &lt; f(3)$，故 $t=4$ 时系数最小，此时系数为 $2.5$ 。</p>
+<p>考虑到对于 $t$ 叉堆，结点数可以表示为 $n=\frac{t^{h+1}-1}{t-1}$ 。故<strong>交换</strong>次数可以化简为：</p>
+<p>$$
+\begin{align*}
+& \frac{h-ht+t^{h+1}-t}{(1-t)^2} \newline
+& =\frac{h-ht+t^{h+1}-t +1-1}{(1-t)^2} \newline
+& =\frac{t^{h+1}-1}{(1-t)^2}+\frac{h-ht-t+1}{(1-t)^2} \newline
+& =-\frac{n}{1-t}+\frac{h}{1-t}+\frac{1}{1-t} \newline
+& =\frac{n-h-1}{t-1} \le n
+\end{align*}
+$$</p>
+<p>故建堆所需<strong>比较</strong>次数最大为 $(t+1)n$ 。</p>
+<p>每次删除最大元素都会对根结点调用一次 sink 操作，</p>
+<p>因此排序所需的比较次数最多为 $(t+1)n\log_t(n)$ 。</p>
+<p>相加得堆排序所需的总交换次数最多为 $ (t+1)n + (t+1)n\log_t(n) =(t+1)(n\log_tn+n)$ 。</p>
+<p>利用换底公式将对数的底换成 2，得到：$\frac{t+1}{\lg t} n\log n$ 。</p>
+<p>于是问题变为求 $f(t)= \frac{t+1}{\lg t}$ 的最小值，对其求导，得到：</p>
+<p>$$
+( \frac{t+1}{\lg t} )'=\frac{-t+t\ln t-1}{t\ln^2t}·\ln 2
+$$</p>
+<p>直接求导数的零点会比较困难，但利用勘根公式可以寻找到根所在的区间。</p>
+<p>由于 $\ln 2$ 不影响正负，我们直接将其去掉，变为：</p>
+<p>$$
+\frac{-t+t\ln t-1}{t\ln^2t}=\frac{-1+\ln t-\frac{1}{t}}{\ln^2t}
+$$</p>
+<p>由于 $t > 1$，分母总是为正，因此导函数正负就等于下面这个函数的正负：</p>
+<p>$$
+\begin {align*}
+g(t)=\ln t -1-\frac{1}{t}
+\end {align*}
+$$</p>
+<p>$t = e$ 时 $g(t) &lt; 0$，$t=e+1$ 时 $g(t) > 0$。于是可以求得在 $(e, e+1)$ 上 $f(t)$ 存在极小值。</p>
+<p>又由于 $g(t)$ 在 $(e + 1, +\infty)$ 始终为正，因此在 $(e, e+1)$ 上存在的是最小值（$t \ge 2$）。</p>
+<p>因为 $t$ 为大于 $1$ 的正整数，且 $f(4) &lt; f(3)$，故 $t=4$ 时系数最小，此时系数为 $2.5$ 。</p>
 <h2 id=floyd-方法>
 Floyd 方法
 <a class=anchor href=#floyd-%e6%96%b9%e6%b3%95>#</a>
 </h2>
-<p>在删除最大元素的过程中，根结点会和最后一个结点交换，然后对新的根结点执行 sink 操作。<br>
-大多数情况下，这个结点会被一路交换到树的最后一层。<br>
-因此我们省去 sink 操作中与自己比较的过程，直接和子结点中的较大者进行交换。<br>
-这样一路交换到树的底部，随后再让这个结点与自己的父结点比较，向上「回到」合适的位置。<br>
-大多数结点都不需要向上交换，<br>
-因此这样的优化可以减少比较次数（下降一层需要的比较次数从 $t+1$ 变为 $t$）。</p>
-<p>利用 Floyd 方法对于建堆没有影响（建堆也可以使用 Floyd 方法，参见「另请参阅」部分）。<br>
-于是建堆的比较次数仍为 $(t+1)n$ 。<br>
-排序的比较次数变为 $tn\log_t(n)$ 。<br>
-总的比较次数变为 $(t+1)n + tn\log_t(n)$ 。<br>
-我们仍然只关心 $n\lg n$ 的系数，系数为 $f(t)= \frac{t}{\lg t}$ 。<br>
-按照之前的方法再求一次最小值，求得 $t = 3$ 时系数最小，此时系数为 $1.89$ 。</p>
+<p>在删除最大元素的过程中，根结点会和最后一个结点交换，然后对新的根结点执行 sink 操作。</p>
+<p>大多数情况下，这个结点会被一路交换到树的最后一层。</p>
+<p>因此我们省去 sink 操作中与自己比较的过程，直接和子结点中的较大者进行交换。</p>
+<p>这样一路交换到树的底部，随后再让这个结点与自己的父结点比较，向上「回到」合适的位置。</p>
+<p>大多数结点都不需要向上交换，</p>
+<p>因此这样的优化可以减少比较次数（下降一层需要的比较次数从 $t+1$ 变为 $t$）。</p>
+<p>利用 Floyd 方法对于建堆没有影响（建堆也可以使用 Floyd 方法，参见「另请参阅」部分）。</p>
+<p>于是建堆的比较次数仍为 $(t+1)n$ 。</p>
+<p>排序的比较次数变为 $tn\log_t(n)$ 。</p>
+<p>总的比较次数变为 $(t+1)n + tn\log_t(n)$ 。</p>
+<p>我们仍然只关心 $n\lg n$ 的系数，系数为 $f(t)= \frac{t}{\lg t}$ 。</p>
+<p>按照之前的方法再求一次最小值，求得 $t = 3$ 时系数最小，此时系数为 $1.89$ 。</p>
 <h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p>Floyd 提出的堆排序优化<br>
-<a href="https://dl.acm.org/citation.cfm?id=365103">Floyd R W. Algorithm 245: treesort[J]. Communications of the ACM, 1964, 7(12): 701.</a><br>
-通过将这种方法应用到建堆获得的快速建堆方法<br>
+<p>Floyd 提出的堆排序优化
+<a href="https://dl.acm.org/citation.cfm?id=365103">Floyd R W. Algorithm 245: treesort[J]. Communications of the ACM, 1964, 7(12): 701.</a></p>
+<p>通过将这种方法应用到建堆获得的快速建堆方法
 <a href=https://www.sciencedirect.com/science/article/pii/0196677489900333>McDiarmid C J H, Reed B A. Building heaps fast[J]. Journal of algorithms, 1989, 10(3): 352-365.</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

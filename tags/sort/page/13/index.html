@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1402,8 +1402,7 @@
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.4.23 # 解答 # 简单的 sink 实现 # sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。
-如果找到的结点比当前结点大，那么就进行交换。
+<p>2.4.23 # 解答 # 简单的 sink 实现 # sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
 否则视为结点已经下沉到了合适的位置，结束循环。
 根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
 sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。
@@ -1412,12 +1411,7 @@ sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比�
 设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。
 根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。
 于是建堆需要的总交换次数为：
-$$
-\begin{align*}
-& h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \
-& =\sum_{k=0}^{h-1} t^k(h-k) \
-& =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \
-\end {align*}
+$$ \begin{align*} & h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \newline & =\sum_{k=0}^{h-1} t^k(h-k) \newline & =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline \end {align*} $$
 <a href=/2-4-23/>...</a>
 </p>
 </article>
@@ -1440,8 +1434,7 @@ $$
 标黄的代表 last 指着的位置。
 我们先从简单的说起，中间的第二种情况，新插入的结点应该放在右侧，即作为 last 的父结点的右子结点。
 如果 last 已经是右子结点了，那么就考虑第三种情况。
-此时应该向上回溯，直到在某一次回溯中，结点是从父结点的左侧回溯上来的
-（即图中路径 A-B-B，B-B 这一步是从左子树回溯上来的）。
+此时应该向上回溯，直到在某一次回溯中，结点是从父结点的左侧回溯上来的 （即图中路径 A-B-B，B-B 这一步是从左子树回溯上来的）。
 于是待插入的位置就在该父结点的右子树的最左侧结点（即图中根结点的右子结点 A）。
 最后是图中第一种情况，整棵树已经是满二叉树了。
 这种情况下会一路回溯到根结点，那么只要一路下沉到最左侧的叶子结点，把新结点插入到其左子树上即可。
@@ -1450,8 +1443,7 @@ $$
 如果是左子结点，就需要回溯，直到某一次回溯是从右子树回溯上来的，last 应该指向其左子树的最右侧结点。
 如果删除后正好变成满二叉树，那么会一直回溯到根结点，last 应该指向整棵树的最右侧结点。
 代码实现中还需要处理只有一个结点以及没有结点时的特殊情况。
-根据上面的算法，插入/删除找到相应位置所需的最大耗时为 2lgN
-（从树的一侧回溯到根结点，再下沉到另一侧的底部）。
+根据上面的算法，插入/删除找到相应位置所需的最大耗时为 2lgN （从树的一侧回溯到根结点，再下沉到另一侧的底部）。
 Sink 和 Swim 是 O(lgN) 级的，因此整个插入/删除操作是 O(lgN) 的。
 代码 # using System; namespace PriorityQueue { /// &lt;summary> /// 基于链式结构实现的最大堆。 /// &lt;/summary> /// &lt;typeparam name="Key">优先队列中保存的数据类型。&lt;/typeparam> public class MaxPQLinked&lt;Key> : IMaxPQ&lt;Key> where Key : IComparable&lt;Key> { /// &lt;summary> /// 二叉堆的根结点。 /// &lt;/summary> private TreeNode&lt;Key> root = null; /// &lt;summary> /// 二叉堆的最后一个结点。 /// &lt;/summary> private TreeNode&lt;Key> last = null; /// &lt;summary> /// 二叉堆中的结点个数。 /// &lt;/summary> private int nodesCount = 0; /// &lt;summary> /// 建立一个链式结构的最大堆。 /// &lt;/summary> public MaxPQLinked() { } /// &lt;summary> /// 删除并返回最大值。 /// &lt;/summary> /// &lt;returns>最大值。&lt;/returns> public Key DelMax() { Key result = this.
 <a href=/2-4-24/>...</a>
@@ -1484,8 +1476,7 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
 <p>2.4.26 # 解答 # 用类似于「半交换」的方法避免频繁调用 Exch() 方法。
 上浮时，先单独保存待上浮的元素，随后进行比较，
 如果当前 k 值对应的父结点（即 k/2 ）小于待上浮的元素，令 pq[k]=pq[k/2]。
-否则令当前 k 值等于待上浮的元素，终止循环。
-下沉的过程类似。
+否则令当前 k 值等于待上浮的元素，终止循环。 下沉的过程类似。
 修改后的 sink 和 swim 方法：
 /// &lt;summary> /// 使元素上浮。 /// &lt;/summary> /// &lt;param name="k">需要上浮的元素。&lt;/param> private void Swim(int k) { Key key = this.pq[k]; while (k > 1 && this.pq[k / 2].CompareTo(key) &lt; 0) { this.pq[k] = this.pq[k / 2]; k /= 2; } this.pq[k] = key; } /// &lt;summary> /// 使元素下沉。 /// &lt;/summary> /// &lt;param name="k">需要下沉的元素。&lt;/param> private void Sink(int k) { Key key = this.
 <a href=/2-4-26/>...</a>
@@ -1501,8 +1492,7 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
 </div>
 <p>2.4.27 # 解答 # 官网有解答，只要在 MaxPQ 里面加上一个记录最小值的指针就可以了。
 初始状态下这个指针为空。
-每次插入新元素的时候先更新一下这个指针。
-删除最后一个元素的时候把它重新置空即可。
+每次插入新元素的时候先更新一下这个指针。 删除最后一个元素的时候把它重新置空即可。
 具体实现见代码。
 代码 # using System; using System.Collections; using System.Collections.Generic; using System.Diagnostics; namespace PriorityQueue { /// &lt;summary> /// 包含最小元素引用的最大堆。（数组实现） /// &lt;/summary> /// &lt;typeparam name="Key">最大堆中保存的元素类型。&lt;/typeparam> public class MaxPQWithMin&lt;Key> : IMaxPQ&lt;Key>, IEnumerable&lt;Key> where Key : class, IComparable&lt;Key> { private Key[] pq; // 保存元素的数组。 private int n; // 堆中的元素数量。 private Key min; // 堆中的最小元素。 /// &lt;summary> /// 默认构造函数。 /// &lt;/summary> public MaxPQWithMin() : this(1) { } /// &lt;summary> /// 建立指定容量的最大堆。 /// &lt;/summary> /// &lt;param name="capacity">最大堆的容量。&lt;/param> public MaxPQWithMin(int capacity) { this.
 <a href=/2-4-27/>...</a>
@@ -1521,14 +1511,10 @@ CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { 
 为了方便比较，需要编写一个欧几里得距离类，
 构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。
 欧几里得距离的计算公式如下：
-$$
-d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
-$$
+$$ d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2} $$
 其中，x 和 y 分别代表两个点。
 在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：
-$$
-d=\sqrt {x^2+y^2+z^2}
-$$
+$$ d=\sqrt {x^2+y^2+z^2} $$
 同时这个类需要实现 IComparable 接口以作为最小堆的元素。
 做测试时，先随机生成 N 个点，再建立一个最小堆。
 随后开始计时，把开始的 m 个点插入。
@@ -1596,8 +1582,7 @@ using System; namespace PriorityQueue { /// &lt;summary> /// 面向中位数的�
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.4.31 # 解答 # 首先可以观察到堆有这样一个性质，从根结点到某一个叶子结点的路径是有序的，满足二分查找的条件。
-但是，
-从叶子结点到根结点的路径可以通过不断地令 k = k / 2 得到（从下往上只有一条路径）。
+但是， 从叶子结点到根结点的路径可以通过不断地令 k = k / 2 得到（从下往上只有一条路径）。
 但从根结点到叶子结点的路径却不能简单地通过 k = k * 2 得到（从上往下会有两条分支）。
 因此只通过堆本身是无法满足二分查找对于随机访问的要求的。
 为了达到 ~loglogN 次比较，我们需要对 Swim() 方法做修改，

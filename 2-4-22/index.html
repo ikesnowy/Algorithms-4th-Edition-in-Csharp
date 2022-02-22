@@ -21,18 +21,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-4-22/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-09-13T09:07:58+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.4.22 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1416,8 +1416,8 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html<br>
-截取如下：</p>
+<p>官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html</p>
+<p>截取如下：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>    <span style=color:#75715e>// helper function to double the size of the heap array
 </span><span style=color:#75715e></span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>resize</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> capacity<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
         <span style=color:#66d9ef>assert</span> capacity <span style=color:#f92672>&gt;</span> n<span style=color:#f92672>;</span>
@@ -1427,21 +1427,21 @@
         <span style=color:#f92672>}</span>
         pq <span style=color:#f92672>=</span> temp<span style=color:#f92672>;</span>
     <span style=color:#f92672>}</span>
-</code></pre></div><p>只要在队列快满时重新分配空间，再把元素复制进去即可。<br>
-在不触发重新分配空间的情况下，<br>
-每次队列操作的比较次数上限就等于命题 Q 中给出的 $\lg N+1$（插入） 和 $2\lg N$（删除）。<br>
-插入元素最多需要 $\lg N$ 次交换（比较次数-1），<br>
-删除元素最多需要 $1 + \lg N - 1 = \lg N$ 次交换 （注意开始时有一次交换）。<br>
-同时一次比较需要 $2$ 次数组访问，一次交换需要 $4$ 次数组访问（记 <code>a[i]</code> 为一次数组访问）。<br>
-换算成数组访问次数就是 $6 \lg N + 2$（插入）和 $8 \lg N$ （删除）。</p>
-<p>在触发重新分配空间的情况下，需要额外的 $2N$ 次数组访问来重新分配空间。<br>
-故上限为 $6 \lg N +2N + 2$ 和 $8 \lg N + 2N$。<br>
-如果取均摊分析，那么相当于把多出来的 $2N$ 次访问平均到 $N$ 次操作中。<br>
-设第 $n$ 次插入触发了重新分配空间，$n$ 是 $2$ 的幂。<br>
-重新分配空间进行了 $2 + 4 + 8 + 16 + &mldr; + 2n = 2n - 2$ 次数组访问。<br>
-平均到 $n$ 次插入过程，每次插入多进行 $2 - 2 / n$ 次数组访问。<br>
-于是插入的上限变为 $6 \lg N + 4 - 2 / N$。<br>
-同理删除的上限变为 $8 \lg N + 2 - 2 / N$。</p>
+</code></pre></div><p>只要在队列快满时重新分配空间，再把元素复制进去即可。</p>
+<p>在不触发重新分配空间的情况下，</p>
+<p>每次队列操作的比较次数上限就等于命题 Q 中给出的 $\lg N+1$（插入） 和 $2\lg N$（删除）。</p>
+<p>插入元素最多需要 $\lg N$ 次交换（比较次数-1），</p>
+<p>删除元素最多需要 $1 + \lg N - 1 = \lg N$ 次交换 （注意开始时有一次交换）。</p>
+<p>同时一次比较需要 $2$ 次数组访问，一次交换需要 $4$ 次数组访问（记 <code>a[i]</code> 为一次数组访问）。</p>
+<p>换算成数组访问次数就是 $6 \lg N + 2$（插入）和 $8 \lg N$ （删除）。</p>
+<p>在触发重新分配空间的情况下，需要额外的 $2N$ 次数组访问来重新分配空间。</p>
+<p>故上限为 $6 \lg N +2N + 2$ 和 $8 \lg N + 2N$。</p>
+<p>如果取均摊分析，那么相当于把多出来的 $2N$ 次访问平均到 $N$ 次操作中。</p>
+<p>设第 $n$ 次插入触发了重新分配空间，$n$ 是 $2$ 的幂。</p>
+<p>重新分配空间进行了 $2 + 4 + 8 + 16 + &mldr; + 2n = 2n - 2$ 次数组访问。</p>
+<p>平均到 $n$ 次插入过程，每次插入多进行 $2 - 2 / n$ 次数组访问。</p>
+<p>于是插入的上限变为 $6 \lg N + 4 - 2 / N$。</p>
+<p>同理删除的上限变为 $8 \lg N + 2 - 2 / N$。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1468,7 +1468,7 @@
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

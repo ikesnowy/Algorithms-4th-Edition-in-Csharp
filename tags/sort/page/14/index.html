@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1410,7 +1410,7 @@
 做比较的时候要先根据指针（下标）找到对应元素，再进行比较。
 再来看题目中给出的要求，keys[] 数组中用于保存元素（比如 keys[0] = ‘A’;），
 而 pq[] 中保存的是元素在 key[] 数组中的下标（比如 pq[1] = 0;)，
-而 qp[] 中保存的是某个下标在 pq[]中 的对应位置。（比如 qp[0] = 1）。
+而 qp[] 中保存的是某个下标在 pq[]中 的对应位置。 （比如 qp[0] = 1）。
 在这三个数组中，pq[]是一个堆，我们的堆操作都作用在这个数组上。
 keys[] 数组中的元素不随着 pq[] 中下标的移动而移动，只有当删除或添加元素时才发生变化。
 qp[]与pq[]中的索引一一对应，pq[]交换时也需要交换qp[]中的对应元素。
@@ -1446,12 +1446,8 @@ delete()：先从堆中删除元素，再把 keys 和 qp 数组中的对应元�
 random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
 最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
 提示已经给出了实现方案，我们用一个例子来简单说明一下。
-现在给出一个分布 p，总和 T=1，如下图所示：
-为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。
-现在我们将这个思想应用到完全二叉树上。
-每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图：
-为方便起见，我们重新排列一下之前的随机表：
-每个值的概率并没有改变，只是每个值对应的区段换了一下。
+现在给出一个分布 p，总和 T=1，如下图所示： 为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
+每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图： 为方便起见，我们重新排列一下之前的随机表： 每个值的概率并没有改变，只是每个值对应的区段换了一下。
 经过这样的变换后，你会发现，如果从根结点的角度看：
 如果随机的值小于 0.1，对应的编号就是 1。
 如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
@@ -1460,8 +1456,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 如果随机数小于当前结点，直接返回当前结点的编号。
 如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
 其他情况减去当前结点的权值并移动到左子树。
-思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
-代码 # using System; namespace _2._4._35 { /// &lt;summary> /// 离散分布的取样。 /// &lt;/summary> class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// &lt;summary> /// 构造一个离散取样类。 /// &lt;/summary> /// &lt;param name="data">取样数据。&lt;/param> public Sample(double[] data) { // 复制权重 this.
+思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下： 代码 # using System; namespace _2._4._35 { /// &lt;summary> /// 离散分布的取样。 /// &lt;/summary> class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// &lt;summary> /// 构造一个离散取样类。 /// &lt;/summary> /// &lt;param name="data">取样数据。&lt;/param> public Sample(double[] data) { // 复制权重 this.
 <a href=/2-4-35/>...</a>
 </p>
 </article>
@@ -1473,8 +1468,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.4.36 # 解答 # 测试结果如下：
-可以看出增长数量级约为 O(nlogn)。
+<p>2.4.36 # 解答 # 测试结果如下： 可以看出增长数量级约为 O(nlogn)。
 代码 # using System; using System.Diagnostics; using PriorityQueue; namespace _2._4._36 { class Program { static Random random = new Random(); static void Main(string[] args) { int doubleTime = 5; int repeatTime = 5; int n = 100000; for (int i = 0; i &lt; doubleTime; i++) { long totalTime = 0; Console.WriteLine("n=" + n); for (int j = 0; j &lt; repeatTime; j++) { MaxPQ&lt;int> pq = new MaxPQ&lt;int>(n); long time = Test(pq, n); Console.
 <a href=/2-4-36/>...</a>
 </p>
@@ -1489,8 +1483,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 </div>
 <p>2.4.37 # 解答 # 建立一个全局变量 isRunning ，每次 DelMax() 之前都先确认这个值是否为 true，
 设立一个 Timer 在 1 秒钟之后自动将 isRunning 置为 false。
-测试结果如下：
-随着 n 增大，一秒钟之内能执行的 DelMax() 次数会下降。
+测试结果如下： 随着 n 增大，一秒钟之内能执行的 DelMax() 次数会下降。
 代码 # using System; using System.Timers; using PriorityQueue; namespace _2._4._37 { class Program { static bool isRunning = true; static Random random = new Random(); static void Main(string[] args) { int doubleTime = 6; int repeatTime = 6; int n = 1000000; for (int i = 0; i &lt; doubleTime; i++) { int totalDelCount = 0; Console.
 <a href=/2-4-37/>...</a>
 </p>
@@ -1520,8 +1513,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.4.39 # 解答 # 结果如下，约占总耗时的 2~5%。
-代码 # using System; using System.Diagnostics; namespace _2._4._39 { /* * 2.4.39 * * 构造函数的代价。 * 对于 N=10^3、10^6 和 10^9， * 根据经验判断堆排序时构造堆所占总耗时的比例。 * */ class Program { static Random random = new Random(); static void Main(string[] args) { Console.WriteLine("n\tBuild\tSort\tRatio"); int n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存 int multiTen = 7; for (int i = 0; i &lt; multiTen; i++) { short[] data = GetRandomArray(n); Stopwatch fullSort = new Stopwatch(); Stopwatch buildHeap = new Stopwatch(); fullSort.
+<p>2.4.39 # 解答 # 结果如下，约占总耗时的 2~5%。 代码 # using System; using System.Diagnostics; namespace _2._4._39 { /* * 2.4.39 * * 构造函数的代价。 * 对于 N=10^3、10^6 和 10^9， * 根据经验判断堆排序时构造堆所占总耗时的比例。 * */ class Program { static Random random = new Random(); static void Main(string[] args) { Console.WriteLine("n\tBuild\tSort\tRatio"); int n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存 int multiTen = 7; for (int i = 0; i &lt; multiTen; i++) { short[] data = GetRandomArray(n); Stopwatch fullSort = new Stopwatch(); Stopwatch buildHeap = new Stopwatch(); fullSort.
 <a href=/2-4-39/>...</a>
 </p>
 </article>
@@ -1533,8 +1525,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.4.40 # 解答 # 如同书上所说，可以节省约 50% 的比较次数。
-先沉后浮的实现也很简单，将 swim 方法加入，
+<p>2.4.40 # 解答 # 如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
 然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
 然后在 sink 方法的循环之后调用 swim。
 为了获得比较次数，你可以添加一个静态全局变量 compareCount，
@@ -1558,8 +1549,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 先考虑 $d$ 叉堆的在数组中的保存方式，
 第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
 不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图：
-现在我们来推导某个结点的子结点的下标公式。
+接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
 结点 $i$ 的第一个子结点在哪里呢？
 首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
 以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
@@ -1567,7 +1557,7 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
 它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
 不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来：
+这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。
 <a href=/2-4-41/>...</a>
 </p>
 </article>
@@ -1585,11 +1575,9 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 现在问题是，右子结点在哪，或者说，左子树有多大？
 这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。
 就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
-在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。
-完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
+在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。 完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
 于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
-如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
+那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示： 如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
 按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
 现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
 第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。

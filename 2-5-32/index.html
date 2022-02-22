@@ -16,7 +16,7 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 g[n] 。
 现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 h[n] 。
 令 f[n] = g[n] + h[n]，我们按照 f[n] 对等待搜索的结点进行排序。
-同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。">
+同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。 （h[n]也被称之为容许估计）">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.32">
 <meta property="og:description" content="2.5.32 #  解答 #  （前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）
@@ -33,22 +33,22 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 g[n] 。
 现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 h[n] 。
 令 f[n] = g[n] + h[n]，我们按照 f[n] 对等待搜索的结点进行排序。
-同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。">
+同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。 （h[n]也被称之为容许估计）">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-5-32/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-01-26T16:04:21+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.5.32 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1434,48 +1434,48 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 </h2>
 <p>（前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）</p>
 <p>A* 算法是 Dijkstra 算法和最佳优先算法的一种结合。</p>
-<p>Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。<br>
-建立队列 <code>queue</code> ，把所有的结点加入 <code>queue</code> 中；建立数组 <code>d</code>，<code>d[v]</code> 代表起点到点 v 的距离。<br>
-开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：<br>
-从队列中取出已知距离最短的结点 <code>u</code>，检查该结点的所有边。<br>
-如果通过这个点能够以更近的距离到达 <code>v</code>，更新起点到 <code>v</code> 的距离 <code>d[v] = d[u] + distance(u, v)</code>。<br>
-等到队列为空之后数组 <code>d</code> 中就存放着起点到其他所有结点的最短距离。</p>
-<p>Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。<br>
-很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。<br>
-通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。</p>
-<p>在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 <code>g[n]</code> 。<br>
-现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 <code>h[n]</code> 。<br>
-令 <code>f[n] = g[n] + h[n]</code>，我们按照 <code>f[n]</code> 对等待搜索的结点进行排序。<br>
-同时令 <code>h[n]</code> 始终小于 <code>g[n]</code> ，保证离起点的距离 <code>g[n]</code> 权重大于离终点的估计距离 <code>h[n]</code> 。<br>
-（<code>h[n]</code>也被称之为<a href=https://en.wikipedia.org/wiki/Admissible_heuristic>容许估计</a>）<br>
-于是在离起点距离接近的条件下，离终点比较近的点会被优先搜索，减少搜索范围。</p>
-<p>接下来就是算法的具体内容，与 Dijkstra 算法不同，A* 算法不一定需要访问所有结点，<br>
-因此 A* 算法需要维护两个集合，<code>openSet</code> 保存等待搜索的结点，<code>closeSet</code> 保存已经搜索过的结点。<br>
-和 Dijkstra 算法类似，一开始 <code>openSet</code> 中只有起点，<code>closeSet</code> 则是空的。<br>
-然后重复执行如下步骤，直到 <code>openSet</code> 为空：<br>
-从 <code>openSet</code> 中取出 <code>f[n]</code> 最小的结点 <code>u</code> ，放入 <code>closeSet</code>。（标记为已访问）<br>
-如果 <code>u</code> 就是终点，算法结束。<br>
-计算结点 <code>u</code> 直接可达的周围结点，放入集合 <code>neighbors</code>。<br>
-遍历 <code>neighbors</code> 中的所有结点 <code>v</code>，做如下判断：<br>
-如果 <code>v</code> 已经存在于 <code>closeSet</code> ，忽略之。（防止走回头路）<br>
-如果经过 <code>u</code> 不能缩短起点到 <code>v</code> 的路径长度 <code>g[v]</code>，忽略之。（和 Dijkstra 算法一样的做法）<br>
-否则将 <code>v</code> 放入 <code>openSet</code>，更新 <code>g[v] = g[u] + distance(u, v)</code> ，计算 <code>f[v] = g[v] + h[v]</code>。（更新结点）<br>
-以上是 A* 算法的核心逻辑，<br>
-为了结合具体问题，我们需要自定义计算 <code>g[n]</code> 和 <code>h[n]</code> 的方法，以及获得某个结点周围结点的方法。</p>
-<p>这里有个问题，<code>openSet</code> 和 <code>closeSet</code> 应该用什么数据结构？<br>
-<code>closeSet</code> 比较简单，只需要添加和查找即可，哈希表 <code>HashSet</code> 是不二选择。<br>
-<code>openSet</code> 需要读取并删除最小元素，以及添加和查找元素，用最小堆 <code>MinPQ</code> 会是比较方便的方法。<br>
-书中给出的最小堆 <code>MinPQ</code> 没有实现 <code>Contains</code> 方法，需要自己实现一个，简单顺序查找就够用了。<br>
-同时 <code>MinPQ</code> 的 <code>Greater</code> 比较方法也需要重新实现，需要使用基于 <code>f[n]</code> 进行比较的比较器。</p>
-<p>现在我们考虑 8 字谜题如何用 A* 算法实现。<br>
-棋盘的每一个状态就是一个结点，每走一步就能进入下一个状态，结点可以这么定义：</p>
+<p>Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。</p>
+<p>建立队列 <code>queue</code> ，把所有的结点加入 <code>queue</code> 中；建立数组 <code>d</code>，<code>d[v]</code> 代表起点到点 v 的距离。</p>
+<p>开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：</p>
+<p>从队列中取出已知距离最短的结点 <code>u</code>，检查该结点的所有边。</p>
+<p>如果通过这个点能够以更近的距离到达 <code>v</code>，更新起点到 <code>v</code> 的距离 <code>d[v] = d[u] + distance(u, v)</code>。</p>
+<p>等到队列为空之后数组 <code>d</code> 中就存放着起点到其他所有结点的最短距离。</p>
+<p>Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。</p>
+<p>很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。</p>
+<p>通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。</p>
+<p>在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 <code>g[n]</code> 。</p>
+<p>现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 <code>h[n]</code> 。</p>
+<p>令 <code>f[n] = g[n] + h[n]</code>，我们按照 <code>f[n]</code> 对等待搜索的结点进行排序。</p>
+<p>同时令 <code>h[n]</code> 始终小于 <code>g[n]</code> ，保证离起点的距离 <code>g[n]</code> 权重大于离终点的估计距离 <code>h[n]</code> 。
+（<code>h[n]</code>也被称之为<a href=https://en.wikipedia.org/wiki/Admissible_heuristic>容许估计</a>）</p>
+<p>于是在离起点距离接近的条件下，离终点比较近的点会被优先搜索，减少搜索范围。</p>
+<p>接下来就是算法的具体内容，与 Dijkstra 算法不同，A* 算法不一定需要访问所有结点，</p>
+<p>因此 A* 算法需要维护两个集合，<code>openSet</code> 保存等待搜索的结点，<code>closeSet</code> 保存已经搜索过的结点。</p>
+<p>和 Dijkstra 算法类似，一开始 <code>openSet</code> 中只有起点，<code>closeSet</code> 则是空的。</p>
+<p>然后重复执行如下步骤，直到 <code>openSet</code> 为空：</p>
+<p>从 <code>openSet</code> 中取出 <code>f[n]</code> 最小的结点 <code>u</code> ，放入 <code>closeSet</code>。（标记为已访问）</p>
+<p>如果 <code>u</code> 就是终点，算法结束。</p>
+<p>计算结点 <code>u</code> 直接可达的周围结点，放入集合 <code>neighbors</code>。</p>
+<pre tabindex=0><code>遍历 `neighbors` 中的所有结点 `v`，做如下判断：
+	如果 `v` 已经存在于 `closeSet` ，忽略之。（防止走回头路）
+	如果经过 `u` 不能缩短起点到 `v` 的路径长度 `g[v]`，忽略之。（和 Dijkstra 算法一样的做法）
+	否则将 `v` 放入 `openSet`，更新 `g[v] = g[u] + distance(u, v)` ，计算 `f[v] = g[v] + h[v]`。（更新结点）
+</code></pre><p>以上是 A* 算法的核心逻辑，</p>
+<p>为了结合具体问题，我们需要自定义计算 <code>g[n]</code> 和 <code>h[n]</code> 的方法，以及获得某个结点周围结点的方法。</p>
+<p>这里有个问题，<code>openSet</code> 和 <code>closeSet</code> 应该用什么数据结构？</p>
+<p><code>closeSet</code> 比较简单，只需要添加和查找即可，哈希表 <code>HashSet</code> 是不二选择。</p>
+<p><code>openSet</code> 需要读取并删除最小元素，以及添加和查找元素，用最小堆 <code>MinPQ</code> 会是比较方便的方法。</p>
+<p>书中给出的最小堆 <code>MinPQ</code> 没有实现 <code>Contains</code> 方法，需要自己实现一个，简单顺序查找就够用了。</p>
+<p>同时 <code>MinPQ</code> 的 <code>Greater</code> 比较方法也需要重新实现，需要使用基于 <code>f[n]</code> 进行比较的比较器。</p>
+<p>现在我们考虑 8 字谜题如何用 A* 算法实现。</p>
+<p>棋盘的每一个状态就是一个结点，每走一步就能进入下一个状态，结点可以这么定义：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SearchNode</span>
 {
     <span style=color:#66d9ef>int</span>[] Board;		<span style=color:#75715e>// 棋盘状态
 </span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Steps;			<span style=color:#75715e>// 已经使用的步数
 </span><span style=color:#75715e></span>}
-</code></pre></div><p><code>g(start, goal)</code> 直接就是 <code>goal.Steps - start.Steps</code>，<code>h(start, goal)</code> 则根据题意有不同的实现。<br>
-获得周围结点的方法 <code>GetNeighbors(current)</code>，会返回一个数组，其中有从 <code>current</code> 上下左右走获得的棋盘状态。</p>
+</code></pre></div><p><code>g(start, goal)</code> 直接就是 <code>goal.Steps - start.Steps</code>，<code>h(start, goal)</code> 则根据题意有不同的实现。</p>
+<p>获得周围结点的方法 <code>GetNeighbors(current)</code>，会返回一个数组，其中有从 <code>current</code> 上下左右走获得的棋盘状态。</p>
 <p>运行结果，初始状态为：</p>
 <pre tabindex=0><code>0 1 3
 4 2 5
@@ -1655,12 +1655,12 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
 </h2>
-<p><a href=https://en.wikipedia.org/wiki/A*_search_algorithm>A* search algorithm-Wikipedia</a><br>
+<p><a href=https://en.wikipedia.org/wiki/A*_search_algorithm>A* search algorithm-Wikipedia</a>
 <a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5/SortApplication>SortApplication 库</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

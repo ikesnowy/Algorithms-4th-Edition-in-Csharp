@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1402,8 +1402,7 @@
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.5.11 # 解答 # 结果如下，其中快速排序去掉了一开始打乱数组的步骤：
-只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
+<p>2.5.11 # 解答 # 结果如下，其中快速排序去掉了一开始打乱数组的步骤： 只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
 插入排序在排序元素完全相同的数组时只会进行一次遍历，不会交换。
 选择排序第 i 次找到的最小值就是 a[i] ，只会让 a[i] 和 a[i] 交换，不会影响顺序。
 希尔排序和插入排序类似，每轮排序都不会进行交换。
@@ -1497,8 +1496,7 @@ private class CandidateComparer : IComparer&lt;string> { private static readonly
 </div>
 <p>2.5.17 # 解答 # 用一个 Wrapper 类包装准备排序的元素，在排序前同时记录元素的内容和下标。
 随后对 Wrapper 数组排序，相同的元素会被放在一起，检查它们的下标是否是递增的。
-如果不是递增的，则排序算法就是不稳定的；否则排序算法就有可能是稳定的。
-（不稳定的排序算法也可能不改变相同元素的相对位置，比如用选择排序对有序数组排序）
+如果不是递增的，则排序算法就是不稳定的；否则排序算法就有可能是稳定的。 （不稳定的排序算法也可能不改变相同元素的相对位置，比如用选择排序对有序数组排序）
 代码 # using System; using SortApplication; namespace _2._5._17 { class Program { class Wrapper&lt;T> : IComparable&lt;Wrapper&lt;T>> where T : IComparable&lt;T> { public int Index; public T Key; public Wrapper(int index, T elements) { this.Index = index; this.Key = elements; } public int CompareTo(Wrapper&lt;T> other) { return this.Key.CompareTo(other.Key); } } static void Main(string[] args) { int[] data = new int[] { 7, 7, 4, 8, 8, 5, 1, 7, 7 }; MergeSort merge = new MergeSort(); InsertionSort insertion = new InsertionSort(); ShellSort shell = new ShellSort(); SelectionSort selection = new SelectionSort(); QuickSort quick = new QuickSort(); Console.
 <a href=/2-5-17/>...</a>
 </p>
@@ -1514,8 +1512,7 @@ private class CandidateComparer : IComparer&lt;string> { private static readonly
 <p>2.5.18 # 解答 # 用和上题一样的 Wrapper 类进行排序。
 排序之后，相同的元素会被放在一起，形成一个个子数组。
 根据事先保存的原始下标对它们进行排序，即可将不稳定的排序稳定化。
-结果：
-代码 # using System; using SortApplication; namespace _2._5._18 { class Program { class Wrapper&lt;T> : IComparable&lt;Wrapper&lt;T>> where T : IComparable&lt;T> { public int Index; public T Key; public Wrapper(int index, T elements) { this.Index = index; this.Key = elements; } public int CompareTo(Wrapper&lt;T> other) { return this.Key.CompareTo(other.Key); } } static void Main(string[] args) { int[] data = new int[] { 5, 7, 3, 4, 7, 3, 6, 3, 3 }; QuickSort quick = new QuickSort(); ShellSort shell = new ShellSort(); Console.
+结果： 代码 # using System; using SortApplication; namespace _2._5._18 { class Program { class Wrapper&lt;T> : IComparable&lt;Wrapper&lt;T>> where T : IComparable&lt;T> { public int Index; public T Key; public Wrapper(int index, T elements) { this.Index = index; this.Key = elements; } public int CompareTo(Wrapper&lt;T> other) { return this.Key.CompareTo(other.Key); } } static void Main(string[] args) { int[] data = new int[] { 5, 7, 3, 4, 7, 3, 6, 3, 3 }; QuickSort quick = new QuickSort(); ShellSort shell = new ShellSort(); Console.
 <a href=/2-5-18/>...</a>
 </p>
 </article>
@@ -1527,8 +1524,7 @@ private class CandidateComparer : IComparer&lt;string> { private static readonly
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.5.19 # 解答 # 官方解答：
-Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
+<p>2.5.19 # 解答 # 官方解答： Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
 Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。
 如果能够把其中一个数组变成标准排列（即 1,2,3,4... 这样的数组），
@@ -1539,7 +1535,8 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 获得逆数组之后，对另一个数组 b 做同样的变换，令数组 bnew[i] = ainv[b[i]] 。
 即 ainv[a[i]] = i, ainv[b[i]] = bnew[i] 。
 于是问题转化为了 bnew 和标准排列之间的 Kendall Tau 距离，即 bnew 的逆序对数量。
-逆序对数量的求法见 {% post_link 2-2-19 %}。
+逆序对数量的求法见 2-2-19。
+代码 # using System; namespace _2.
 <a href=/2-5-19/>...</a>
 </p>
 </article>
@@ -1557,8 +1554,7 @@ Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
 当遇到开始事件时，计数器加一；遇到结束事件时，计数器减一。
 如果计数器加一之前计数器为 0，说明空闲状态结束，记录并更新空闲时间，当前时间为忙碌开始的时间。
 如果计数器减一之后计数器为 0，说明忙碌状态结束，记录并更新忙碌时间，当前时间为空闲开始的时间。
-测试结果：
-代码 # using System; namespace _2._5._20 { class Program { /// &lt;summary> /// 任务变化事件。 /// &lt;/summary> class JobEvent : IComparable&lt;JobEvent> { public string JobName; public int Time; public bool IsFinished = false; // false = 开始，true = 结束 public int CompareTo(JobEvent other) { return this.Time.CompareTo(other.Time); } } static void Main(string[] args) { // 输入格式： JobName 15:02 17:02 int nowRunning = 0; // 正在运行的程序数量 int maxIdle = 0; int maxBusy = 0; int items = int.
+测试结果： 代码 # using System; namespace _2._5._20 { class Program { /// &lt;summary> /// 任务变化事件。 /// &lt;/summary> class JobEvent : IComparable&lt;JobEvent> { public string JobName; public int Time; public bool IsFinished = false; // false = 开始，true = 结束 public int CompareTo(JobEvent other) { return this.Time.CompareTo(other.Time); } } static void Main(string[] args) { // 输入格式： JobName 15:02 17:02 int nowRunning = 0; // 正在运行的程序数量 int maxIdle = 0; int maxBusy = 0; int items = int.
 <a href=/2-5-20/>...</a>
 </p>
 </article>

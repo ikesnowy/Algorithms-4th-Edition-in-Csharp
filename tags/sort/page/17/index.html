@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1417,8 +1417,7 @@ using System; using System.Text; namespace _2._5._21 { class Vector : IComparabl
 </div>
 <p>2.5.22 # 解答 # 建立最小堆和最大堆，最小堆保存卖家的报价，最大堆保存买家的报价。
 如果最小堆中的最低卖出价低于最大堆的最高买入价，交易达成，交易份额较大的一方需要重新回到堆内。
-测试结果：
-代码 # using System; using SortApplication; namespace _2._5._22 { class Program { class Ticket : IComparable&lt;Ticket> { public double Price; public int Share; public int CompareTo(Ticket other) { return this.Price.CompareTo(other.Price); } } static void Main(string[] args) { // 输入格式： buy 20.05 100 MaxPQ&lt;Ticket> buyer = new MaxPQ&lt;Ticket>(); MinPQ&lt;Ticket> seller = new MinPQ&lt;Ticket>(); int n = int.Parse(Console.ReadLine()); for (int i = 0; i &lt; n; i++) { Ticket ticket = new Ticket(); string[] item = Console.
+测试结果： 代码 # using System; using SortApplication; namespace _2._5._22 { class Program { class Ticket : IComparable&lt;Ticket> { public double Price; public int Share; public int CompareTo(Ticket other) { return this.Price.CompareTo(other.Price); } } static void Main(string[] args) { // 输入格式： buy 20.05 100 MaxPQ&lt;Ticket> buyer = new MaxPQ&lt;Ticket>(); MinPQ&lt;Ticket> seller = new MinPQ&lt;Ticket>(); int n = int.Parse(Console.ReadLine()); for (int i = 0; i &lt; n; i++) { Ticket ticket = new Ticket(); string[] item = Console.
 <a href=/2-5-22/>...</a>
 </p>
 </article>
@@ -1433,9 +1432,7 @@ using System; using System.Text; namespace _2._5._21 { class Vector : IComparabl
 <p>2.5.23 # 解答 # 这里我们使用 Floyd-Rivest 算法进行优化，大致思想是：
 我们期望第 $k$ 大的元素位于 a[k] 附近，因此优先对 a[k] 附近的区域进行选择。
 每次切分时枢轴都选择 a[k]，先递归对样本区域选择，再对整个数组进行选择。
-运行示意图：
-测试结果：
-代码 # /// &lt;summary> /// Floyd–Rivest 方法优化，令 a[k] 变成第 k 小的元素。 /// &lt;/summary> /// &lt;typeparam name="T">元素类型。&lt;/typeparam> /// &lt;param name="a">需要排序的数组。&lt;/param> /// &lt;param name="k">序号&lt;/param> /// &lt;returns>&lt;/returns> static T Select&lt;T>(T[] a, int lo, int hi, int k) where T : IComparable&lt;T> { if (k &lt; 0 || k > a.Length) throw new IndexOutOfRangeException("Select elements out of bounds"); while (hi > lo) { if (hi - lo > 600) { int n = hi - lo + 1; int i = k - lo + 1; int z = (int)Math.
+运行示意图： 测试结果： 代码 # /// &lt;summary> /// Floyd–Rivest 方法优化，令 a[k] 变成第 k 小的元素。 /// &lt;/summary> /// &lt;typeparam name="T">元素类型。&lt;/typeparam> /// &lt;param name="a">需要排序的数组。&lt;/param> /// &lt;param name="k">序号&lt;/param> /// &lt;returns>&lt;/returns> static T Select&lt;T>(T[] a, int lo, int hi, int k) where T : IComparable&lt;T> { if (k &lt; 0 || k > a.Length) throw new IndexOutOfRangeException("Select elements out of bounds"); while (hi > lo) { if (hi - lo > 600) { int n = hi - lo + 1; int i = k - lo + 1; int z = (int)Math.
 <a href=/2-5-23/>...</a>
 </p>
 </article>
@@ -1480,8 +1477,7 @@ using System; using System.Text; namespace _2._5._21 { class Vector : IComparabl
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.5.26 # 解答 # 提示中已经给出了方法，使用上一题编写的比较器进行排序即可。
-效果演示：
-代码 # 绘图部分代码：
+效果演示： 代码 # 绘图部分代码：
 using System.Collections.Generic; using System.Drawing; using System.Windows.Forms; using SortApplication; namespace _2._5._26 { public partial class Form2 : Form { Graphics panel; List&lt;Point2D> points; Point2D startPoint; double maxX = 0, maxY = 0; public Form2() { InitializeComponent(); } /// &lt;summary> /// 显示并初始化绘图窗口。 /// &lt;/summary> public void Init() { Show(); this.panel = CreateGraphics(); this.points = new List&lt;Point2D>(); this.startPoint = null; } /// &lt;summary> /// 向画板中添加一个点。 /// &lt;/summary> /// &lt;param name="point">&lt;/param> public void Add(Point2D point) { this.
 <a href=/2-5-26/>...</a>
 </p>

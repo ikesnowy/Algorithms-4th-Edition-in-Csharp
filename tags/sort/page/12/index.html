@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1433,16 +1433,12 @@ public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException("Prio
 故最末端元素一定小于该第二大元素。
 因此在下沉操作时必定会和第二大元素进行交换。
 故至少发生两次交换，总共有三个元素发生了交换。
-构造的堆（n=15）
-92 和 100 交换，随后 92 和 99 交换
-构造最优情况堆的方式如下（取根结点为 100）：
-对于每个结点，左子结点大于右子结点，
+构造的堆（n=15） 92 和 100 交换，随后 92 和 99 交换
+构造最优情况堆的方式如下（取根结点为 100）： 对于每个结点，左子结点大于右子结点，
 且左子结点的子元素都小于右子树的最小值，
 （上例中省略了这部分元素，可以将它们当作负数）
-于是第一次 DelMax 的时候，只需要两次交换，三个元素被交换。
-（即 87 最后被交换到上例中 99 的位置）
-第二次 DelMax 的时候，只需要三次交换，六个元素被交换.
-（88 交换到 97 的位置）
+于是第一次 DelMax 的时候，只需要两次交换，三个元素被交换。（即 87 最后被交换到上例中 99 的位置）
+第二次 DelMax 的时候，只需要三次交换，六个元素被交换. （88 交换到 97 的位置）
 因此当 n > 7 时，连续两次 DelMax() 最少只需要 5 次交换。
 <a href=/2-4-14/>...</a>
 </p>
@@ -1471,11 +1467,8 @@ public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException("Prio
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.4.16 # 解答 # 最好情况比较简单，只需要一个所有键值完全相同的数组即可。
-最坏情况的构造方法参考了一篇论文（见「另请参阅」部分），结果如下：
-最好输入：
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-最坏输入：
-1 4 7 12 10 16 14 19 17 20 5 27 8 28 2 24 9 18 6 23 11 22 21 31 13 26 25 30 15 29 3 32
+最坏情况的构造方法参考了一篇论文（见「另请参阅」部分），结果如下： 最好输入： 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+最坏输入： 1 4 7 12 10 16 14 19 17 20 5 27 8 28 2 24 9 18 6 23 11 22 21 31 13 26 25 30 15 29 3 32
 <a href=/2-4-16/>...</a>
 </p>
 </article>
@@ -1489,8 +1482,7 @@ public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException("Prio
 </div>
 <p>2.4.17 # 解答 # 英文版原文是：insert followed by remove the minimum，因此是先插入再删除。
 大致上相当于一个缓冲区，把比较大的留下来，比较小的筛出去。
-首先我们有一个大小为 k 的优先队列，保证最小值在最前。
-接下来我们插入一个元素，可以分成两种情况。
+首先我们有一个大小为 k 的优先队列，保证最小值在最前。 接下来我们插入一个元素，可以分成两种情况。
 如果插入的元素比最小值还要小，那么这个插入的元素会在之后被删除，原队列中的元素不变。
 如果插入的元素比最小值大（或者相等），那么最小值会被删除，留下插入的元素。
 于是可以观察到这样一个逻辑，在不断的插入过程中，比较小的元素会被过滤，只留下较大的元素。
@@ -1553,23 +1545,10 @@ public MaxPQ(Key[] keys) { n = keys.length; pq = (Key[]) new Object[keys.length 
 于是某个结点 sink 时的最大交换次数即为该结点的高度。
 故某一层结点的最大交换次数为 该层结点数 × 该层的高度。
 于是总交换次数最大为：
-$$
-\begin{align*}
-& h+2(h-1)+2^2(h-2)+ \dots + 2^h(0) \
-& =\sum_{k=0}^{h-1} 2^k(h-k) \
-& =h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \
-\end {align*}
-$$
+$$ \begin{align*} & h+2(h-1)+2^2(h-2)+ \dots + 2^h(0) \newline & =\sum_{k=0}^{h-1} 2^k(h-k) \newline & =h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \newline \end {align*} $$
 第一项为等比数列的和，第二项为等差数列乘以等比数列的和。
 于是第一项可以直接通过公式求得，第二项可以利用错位相减法求得。
-$$
-\begin{align}
-& h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \
-& =h2^{h}-h-\sum_{k=0}^{h-1}k2^k \
-& =h2^{h}-h +\sum_{k=0}^{h-1} k2^k - 2\sum_{k=0}^{h-1} k2^k \
-& =h2^{h}-h+2^h - 2-(h-1)2^h \
-& =2^{h+1}-h-2 \
-& =N-h-1 \le N
+$$ \begin{align} & h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \newline & =h2^{h}-h-\sum_{k=0}^{h-1}k2^k \newline & =h2^{h}-h +\sum_{k=0}^{h-1} k2^k - 2\sum_{k=0}^{h-1} k2^k \newline & =h2^{h}-h+2^h - 2-(h-1)2^h \newline & =2^{h+1}-h-2 \newline & =N-h-1 \le N \end{align} $$
 <a href=/2-4-20/>...</a>
 </p>
 </article>

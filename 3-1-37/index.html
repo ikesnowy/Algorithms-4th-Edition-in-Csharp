@@ -2,8 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="3.1.37 #  解答 #  实验结果如下：
-M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
+<meta name=description content="3.1.37 #  解答 #  实验结果如下： M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
 随着重复值的减少 Put 的耗时会大幅度提高，和实验结果显示的一样。
 M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。
 M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。
@@ -14,8 +13,7 @@ result[i] = min + (long)(random.NextDouble() * (max - min)); 代码 #  这里构
 static void Main(string[] args) { int n = 1000000; int m = 10; int addBy10 = 3; for (int i = 0; i < addBy10; i++) { BinarySearchSTAnalysis<long, int> bst = new BinarySearchSTAnalysis<long, int>(n); long[] data = SearchCompare.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.37">
-<meta property="og:description" content="3.1.37 #  解答 #  实验结果如下：
-M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
+<meta property="og:description" content="3.1.37 #  解答 #  实验结果如下： M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
 随着重复值的减少 Put 的耗时会大幅度提高，和实验结果显示的一样。
 M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。
 M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。
@@ -27,18 +25,18 @@ static void Main(string[] args) { int n = 1000000; int m = 10; int addBy10 = 3; 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-1-37/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-03-10T19:28:37+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.1.37 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1422,21 +1420,21 @@ static void Main(string[] args) { int n = 1000000; int m = 10; int addBy10 = 3; 
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>实验结果如下：<br>
+<p>实验结果如下：
 <img src=/resources/3-1-37/1.png alt></p>
-<p>M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 <code>Put</code> 耗时较少。<br>
-随着重复值的减少 <code>Put</code> 的耗时会大幅度提高，和实验结果显示的一样。<br>
-M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。<br>
-M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。</p>
+<p>M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 <code>Put</code> 耗时较少。</p>
+<p>随着重复值的减少 <code>Put</code> 的耗时会大幅度提高，和实验结果显示的一样。</p>
+<p>M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。</p>
+<p>M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。</p>
 <p>随机数可以通过如下的方式产生：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp>result[i] = min + (<span style=color:#66d9ef>long</span>)(random.NextDouble() * (max - min));
 </code></pre></div><h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
 </h2>
-<p>这里构造了 <code>BinarySearchSTAnalysis</code> 类，在类中声明了两个 Stopwatch 对象，<br>
-一个在 <code>Put</code> 方法的开始和结束部分进行计时，<br>
-另一个在 <code>Get</code> 方法的开始和结束部分进行计时。</p>
+<p>这里构造了 <code>BinarySearchSTAnalysis</code> 类，在类中声明了两个 Stopwatch 对象，</p>
+<p>一个在 <code>Put</code> 方法的开始和结束部分进行计时，</p>
+<p>另一个在 <code>Get</code> 方法的开始和结束部分进行计时。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> Main(<span style=color:#66d9ef>string</span>[] args)
 {
     <span style=color:#66d9ef>int</span> n = <span style=color:#ae81ff>1000000</span>;
@@ -1465,7 +1463,7 @@ M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

@@ -5,8 +5,7 @@
 <meta name=description content="2.5.2 #  解答 #  将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
 组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
 先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
-我们从 canCombine 开始，一个个检查是否是组合词。
-如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
+我们从 canCombine 开始，一个个检查是否是组合词。 如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
 组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。
 现在题目转化为了如何解决 ThreeSum 问题，即求 a + b = c 型问题，根据 1.4.41 中的解法求解。
 keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
@@ -17,8 +16,7 @@ keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
 <meta property="og:description" content="2.5.2 #  解答 #  将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
 组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
 先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
-我们从 canCombine 开始，一个个检查是否是组合词。
-如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
+我们从 canCombine 开始，一个个检查是否是组合词。 如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
 组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。
 现在题目转化为了如何解决 ThreeSum 问题，即求 a + b = c 型问题，根据 1.4.41 中的解法求解。
 keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
@@ -27,18 +25,18 @@ keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-5-2/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-01-04T11:21:50+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.5.2 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1422,15 +1420,15 @@ keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>将字符串数组 <code>keywords</code> 按照长度排序，于是 <code>keywords[0]</code> 就是最短的字符串。<br>
-组合词的最短长度 <code>minLength</code> = 最短字符串的长度 * 2 = <code>keywords[0] * 2</code>。<br>
-先找到第一个长度大于等于 <code>minLength</code> 的字符串，下标为 <code>canCombine</code>。<br>
-我们从 <code>canCombine</code> 开始，一个个检查是否是组合词。<br>
-如果 <code>keywords[canCombine]</code> 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。<br>
-组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。<br>
-现在题目转化为了如何解决 ThreeSum 问题，即求 <code>a + b = c</code> 型问题，根据 1.4.41 中的解法求解。<br>
-<code>keywords[canCombine]</code> 的长度已知，<code>i</code> 从 0 到 <code>canCombine</code> 之间循环，<br>
-用二分查找确认 <code>i</code> 到 <code>canCombine</code> 之间有没有符合条件的字符串，注意多个字符串可能长度相等。</p>
+<p>将字符串数组 <code>keywords</code> 按照长度排序，于是 <code>keywords[0]</code> 就是最短的字符串。</p>
+<p>组合词的最短长度 <code>minLength</code> = 最短字符串的长度 * 2 = <code>keywords[0] * 2</code>。</p>
+<p>先找到第一个长度大于等于 <code>minLength</code> 的字符串，下标为 <code>canCombine</code>。</p>
+<p>我们从 <code>canCombine</code> 开始，一个个检查是否是组合词。
+如果 <code>keywords[canCombine]</code> 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。</p>
+<p>组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。</p>
+<p>现在题目转化为了如何解决 ThreeSum 问题，即求 <code>a + b = c</code> 型问题，根据 1.4.41 中的解法求解。</p>
+<p><code>keywords[canCombine]</code> 的长度已知，<code>i</code> 从 0 到 <code>canCombine</code> 之间循环，</p>
+<p>用二分查找确认 <code>i</code> 到 <code>canCombine</code> 之间有没有符合条件的字符串，注意多个字符串可能长度相等。</p>
 <h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
@@ -1526,7 +1524,7 @@ keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
 </code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

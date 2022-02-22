@@ -6,63 +6,51 @@
 如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
 接下来我们证明有重复元素的情况下，这个结论仍然成立：
 首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：
-$$
-\underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted}
-$$
+$$ \underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted} $$
 其中，1，2，3 分别代表三种不同的取值及其先后顺序。
 假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。
 根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。
 第 i 次插入所需要的平均交换次数即为：
-$$
-\frac{b+c+c}{3}=\frac{b+2c}{3}
-$$
+$$ \frac{b+c+c}{3}=\frac{b+2c}{3} $$
 第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：
 如果插入的是 1，那么 b+2c 的值不会变化。
 如果插入的是 2，那么 b+2c 的值增加 1。
 如果插入的是 3，那么 b+2c 的值增加 2。
 同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：
-$$
-\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}
-$$">
+$$ \frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3} $$">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.8">
 <meta property="og:description" content="2.1.8 #  解答 #  平方级别。
 如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
 接下来我们证明有重复元素的情况下，这个结论仍然成立：
 首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：
-$$
-\underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted}
-$$
+$$ \underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted} $$
 其中，1，2，3 分别代表三种不同的取值及其先后顺序。
 假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。
 根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。
 第 i 次插入所需要的平均交换次数即为：
-$$
-\frac{b+c+c}{3}=\frac{b+2c}{3}
-$$
+$$ \frac{b+c+c}{3}=\frac{b+2c}{3} $$
 第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：
 如果插入的是 1，那么 b+2c 的值不会变化。
 如果插入的是 2，那么 b+2c 的值增加 1。
 如果插入的是 3，那么 b+2c 的值增加 2。
 同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：
-$$
-\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}
-$$">
+$$ \frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3} $$">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-1-8/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-06-30T14:25:29+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>2.1.8 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1446,44 +1434,44 @@ $$">
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>平方级别。<br>
-如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。<br>
-接下来我们证明有重复元素的情况下，这个结论仍然成立：<br>
-首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：</p>
-<p>$$<br>
-\underbrace{11&mldr;1}<em>{a} \ \underbrace{22&mldr;2}</em>{b} \ \underbrace{33&mldr;3}<em>{c} \ \underbrace{13121123}</em>{unsorted}<br>
+<p>平方级别。</p>
+<p>如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。</p>
+<p>接下来我们证明有重复元素的情况下，这个结论仍然成立：</p>
+<p>首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：</p>
+<p>$$
+\underbrace{11&mldr;1}<em>{a} \ \underbrace{22&mldr;2}</em>{b} \ \underbrace{33&mldr;3}<em>{c} \ \underbrace{13121123}</em>{unsorted}
 $$</p>
-<p>其中，1，2，3 分别代表三种不同的取值及其先后顺序。<br>
-假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。<br>
-根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。<br>
-第 i 次插入所需要的平均交换次数即为：</p>
-<p>$$<br>
-\frac{b+c+c}{3}=\frac{b+2c}{3}<br>
+<p>其中，1，2，3 分别代表三种不同的取值及其先后顺序。</p>
+<p>假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。</p>
+<p>根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。</p>
+<p>第 i 次插入所需要的平均交换次数即为：</p>
+<p>$$
+\frac{b+c+c}{3}=\frac{b+2c}{3}
 $$</p>
-<p>第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：<br>
-如果插入的是 1，那么 b+2c 的值不会变化。<br>
-如果插入的是 2，那么 b+2c 的值增加 1。<br>
-如果插入的是 3，那么 b+2c 的值增加 2。<br>
-同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：</p>
-<p>$$<br>
-\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}<br>
+<p>第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：</p>
+<p>如果插入的是 1，那么 b+2c 的值不会变化。</p>
+<p>如果插入的是 2，那么 b+2c 的值增加 1。</p>
+<p>如果插入的是 3，那么 b+2c 的值增加 2。</p>
+<p>同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：</p>
+<p>$$
+\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}
 $$</p>
-<p>也就是说，平均每次插入都会使下一次插入的交换次数增加 1/3。<br>
-令 i=0，此时交换次数为 0，i+1 的交换次数即为 1/3，i+2 的交换次数即为 2/3，以此类推。<br>
-我们可以得出总交换次数：</p>
-<p>$$<br>
-\frac{1+2+3+4+&mldr;+N}{3}=\frac{N(N-1)}{6}<br>
+<p>也就是说，平均每次插入都会使下一次插入的交换次数增加 1/3。</p>
+<p>令 i=0，此时交换次数为 0，i+1 的交换次数即为 1/3，i+2 的交换次数即为 2/3，以此类推。</p>
+<p>我们可以得出总交换次数：</p>
+<p>$$
+\frac{1+2+3+4+&mldr;+N}{3}=\frac{N(N-1)}{6}
 $$</p>
-<p>由此证明，在元素取值为 3 种且出现概率相等时，插入排序的交换开销时平方级别的。<br>
-比较开销和交换开销类似，一般情况下比较次数=交换次数+1，除非插入的数是已知最小的数（移动到最左侧），这个时候比较次数和交换次数相等。<br>
-因此比较次数=交换次数+N-e，e 是一个不大于 N 的数，代表插入的数是已知最小的数这种情况发生的次数。<br>
-根据上式可以得出结论：在元素取值为 3 种且出现概率相等时，插入排序的比较开销也是平方级别的。<br>
-综合两个结论即可证明插入排序的开销在题目描述的情况下是平方级别的。<br>
-证明完毕。</p>
+<p>由此证明，在元素取值为 3 种且出现概率相等时，插入排序的交换开销时平方级别的。</p>
+<p>比较开销和交换开销类似，一般情况下比较次数=交换次数+1，除非插入的数是已知最小的数（移动到最左侧），这个时候比较次数和交换次数相等。</p>
+<p>因此比较次数=交换次数+N-e，e 是一个不大于 N 的数，代表插入的数是已知最小的数这种情况发生的次数。</p>
+<p>根据上式可以得出结论：在元素取值为 3 种且出现概率相等时，插入排序的比较开销也是平方级别的。</p>
+<p>综合两个结论即可证明插入排序的开销在题目描述的情况下是平方级别的。</p>
+<p>证明完毕。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

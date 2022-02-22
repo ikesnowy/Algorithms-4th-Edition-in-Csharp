@@ -37,18 +37,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/3-2-11/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-06-29T18:13:02+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>3.2.11 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1432,35 +1432,35 @@
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>树的高度为树中深度最大的点的深度。<br>
-因此 N 个结点最多只能构造出高度为 N-1 的树来，并不能构成高度为 N 的树。</p>
-<p>如果将题目变为用 N 个结点构造高度为 N-1 的二叉搜索树。<br>
-这样的树即为二叉搜索树的最坏情况，除唯一的叶子结点之外，每个结点有且只有一个子树。<br>
-于是除根结点外，每个结点都有两种选择，要么在左，要么在右。<br>
-因此共有 $2 ^ {n - 1}$ 种形状。</p>
-<p>接下来证明，对于某一种确定的最坏情况，在 N 个元素各不相同的情况下，输入顺序是唯一的。<br>
-证明：<br>
-就 1 2 3 这三个元素而言，构造这样一棵树：</p>
+<p>树的高度为树中深度最大的点的深度。</p>
+<p>因此 N 个结点最多只能构造出高度为 N-1 的树来，并不能构成高度为 N 的树。</p>
+<p>如果将题目变为用 N 个结点构造高度为 N-1 的二叉搜索树。</p>
+<p>这样的树即为二叉搜索树的最坏情况，除唯一的叶子结点之外，每个结点有且只有一个子树。</p>
+<p>于是除根结点外，每个结点都有两种选择，要么在左，要么在右。</p>
+<p>因此共有 $2 ^ {n - 1}$ 种形状。</p>
+<p>接下来证明，对于某一种确定的最坏情况，在 N 个元素各不相同的情况下，输入顺序是唯一的。</p>
+<p>证明：</p>
+<p>就 1 2 3 这三个元素而言，构造这样一棵树：</p>
 <pre tabindex=0><code>  2
 1   3
-</code></pre><p>可以有 2 1 3 和 2 3 1 两种序列，因为在插入 2 之后可以选择的位置有两个<br>
-但最坏情况下的二叉搜索树不存在具有两个子结点的结点，因此输入顺序是唯一的。</p>
-<p>反证：<br>
-也可以这样考虑，假设序列 A 可以构造出一棵最坏情况下的二叉树，插入顺序为 $x_1 \dots x_n$<br>
-假设存在与 A 顺序不同的序列 B，它构造出的二叉树与 A 的相同。<br>
-由于 A 和 B 的元素相同，因此 A 必然可以通过有限次元素交换得到 B。<br>
-根据最坏情况下的二叉搜索树的性质，A 中的元素 $x_n$ 必然满足 $x_1 \dots x_{n - 1}$ 的所有关系。<br>
-例如，假设 $x_1 > x_2$， 则 $x_3$ 也必然满足 $x_1 > x_3$，即后面的元素必然满足前面元素的关系。<br>
-于是 A 存在关系序列 $r_1 \dots r_{n - 1}$，只有满足这样序列的输入才能构造出对应的二叉树。<br>
-（可以将 $r$ 理解为大于号或者小于号，由于元素各不相同，因此不存在等号）<br>
-显然 A 中的任意两个元素交换会导致至少一个 $r$ 倒置，除非进行逆向交换，否则这种倒置不可能消除。<br>
-（大于号和小于号是不满足交换律的）<br>
-因此 A 和 B 必定相同，得证。</p>
+</code></pre><p>可以有 2 1 3 和 2 3 1 两种序列，因为在插入 2 之后可以选择的位置有两个</p>
+<p>但最坏情况下的二叉搜索树不存在具有两个子结点的结点，因此输入顺序是唯一的。</p>
+<p>反证：</p>
+<p>也可以这样考虑，假设序列 A 可以构造出一棵最坏情况下的二叉树，插入顺序为 $x_1 \dots x_n$</p>
+<p>假设存在与 A 顺序不同的序列 B，它构造出的二叉树与 A 的相同。</p>
+<p>由于 A 和 B 的元素相同，因此 A 必然可以通过有限次元素交换得到 B。</p>
+<p>根据最坏情况下的二叉搜索树的性质，A 中的元素 $x_n$ 必然满足 $x_1 \dots x_{n - 1}$ 的所有关系。</p>
+<p>例如，假设 $x_1 > x_2$， 则 $x_3$ 也必然满足 $x_1 > x_3$，即后面的元素必然满足前面元素的关系。</p>
+<p>于是 A 存在关系序列 $r_1 \dots r_{n - 1}$，只有满足这样序列的输入才能构造出对应的二叉树。
+（可以将 $r$ 理解为大于号或者小于号，由于元素各不相同，因此不存在等号）</p>
+<p>显然 A 中的任意两个元素交换会导致至少一个 $r$ 倒置，除非进行逆向交换，否则这种倒置不可能消除。
+（大于号和小于号是不满足交换律的）</p>
+<p>因此 A 和 B 必定相同，得证。</p>
 <p>于是每一种最坏情况下的形状都唯一对应一种输入序列，共有 $2 ^ {n - 1}$ 种构造方式。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

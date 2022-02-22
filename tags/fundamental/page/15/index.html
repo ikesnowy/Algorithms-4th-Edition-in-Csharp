@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1442,7 +1442,7 @@ using System; namespace _1._4._34 { /// &lt;summary> /// 某次猜测的结果�
 <p>1.4.35 # 解答 # 1. 一个 Node 对象包含一个 int(泛型 Item) 的引用和下一个 Node 对象的引用。push 操作创建新 Node 对象时会创建一个引用。
 因此对于第一种情况，压入 n 个 int 类型的元素创建了 N 个 Node 对象，创建了 2N 个引用。
 2. 比起上一种情况，每个 Node 对象多包含了一个指向 Integer 的引用。
-因此对于第二中情况，压入 n 个 int 类型的元素创建了 N 个 Node 对象和 N 个 Integer 对象，比起第一种情况多创建了 N 个引用。
+因此对于第二种情况，压入 n 个 int 类型的元素创建了 N 个 Node 对象和 N 个 Integer 对象，比起第一种情况多创建了 N 个引用。
 3. 对于数组来说，创建对象只有扩容时重新创建数组对象一种情况，对于 N 次 push 操作只需要 lgN 次扩容，因此创建的对象为 lgN 个。
 每次扩容都需要重新创建引用，(4 + 8 +&mldr;+ 2N)(扩容) + N(每次 push 操作) = 5N - 4 = ~5N
 <a href=/1-4-35/>...</a>
@@ -1456,8 +1456,7 @@ using System; namespace _1._4._34 { /// &lt;summary> /// 某次猜测的结果�
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.4.36 # 解答 # 1. N 个 Node对象的空间开销
-= N * (16(对象开销) + 4(int) + 8(下一个 Node 的引用) + 4(填充字节)) = 32N
+<p>1.4.36 # 解答 # 1. N 个 Node对象的空间开销 = N * (16(对象开销) + 4(int) + 8(下一个 Node 的引用) + 4(填充字节)) = 32N
 2. 比起上一题来说，空间开销变为
 = N * (16(Node 对象开销) + 8(Integer 对象引用) + (16(Integer 对象开销) + 4(int) + 4(填充字节)) + 8(下一个对象的引用) = 32N + 24N = 56N。
 3. 如果不扩容则是 4N，N 个元素最多可以维持 4N 的栈空间（少于四分之一将缩小）。
@@ -1473,8 +1472,7 @@ using System; namespace _1._4._34 { /// &lt;summary> /// 某次猜测的结果�
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.4.37 # 解答 # 数据量比较大时才会有比较明显的差距。
-代码 # FixedCapacityStackOfInts
+<p>1.4.37 # 解答 # 数据量比较大时才会有比较明显的差距。 代码 # FixedCapacityStackOfInts
 using System; using System.Collections; using System.Collections.Generic; namespace _1._4._37 { /// &lt;summary> /// 固定大小的整型数据栈。 /// &lt;/summary> class FixedCapacityStackOfInts : IEnumerable&lt;int> { private int[] a; private int N; /// &lt;summary> /// 默认构造函数。 /// &lt;/summary> /// &lt;param name="capacity">栈的大小。&lt;/param> public FixedCapacityStackOfInts(int capacity) { this.a = new int[capacity]; this.N = 0; } /// &lt;summary> /// 检查栈是否为空。 /// &lt;/summary> /// &lt;returns>&lt;/returns> public bool IsEmpty() { return this.
 <a href=/1-4-37/>...</a>
 </p>
@@ -1487,8 +1485,7 @@ using System; using System.Collections; using System.Collections.Generic; namesp
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.4.38 # 解答 # 把 DoublingTest 中调用的函数稍作修改即可。
-代码 # ThreeSum 测试类
+<p>1.4.38 # 解答 # 把 DoublingTest 中调用的函数稍作修改即可。 代码 # ThreeSum 测试类
 using System; namespace _1._4._38 { /// &lt;summary> /// ThreeSum 测试类。 /// &lt;/summary> public static class DoubleTest { private static readonly int MAXIMUM_INTEGER = 1000000; /// &lt;summary> /// 返回对 n 个随机整数的数组进行一次 ThreeSum 所需的时间。 /// &lt;/summary> /// &lt;param name="n">随机数组的长度。&lt;/param> /// &lt;returns>&lt;/returns> public static double TimeTrial(int n) { int[] a = new int[n]; Random random = new Random(DateTime.
 <a href=/1-4-38/>...</a>
 </p>
@@ -1501,8 +1498,7 @@ using System; namespace _1._4._38 { /// &lt;summary> /// ThreeSum 测试类。 /
 <div>
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
-<p>1.4.39 # 解答 # 执行 N 次后取平均即可。
-代码 # 修改后的 DoublingTest：
+<p>1.4.39 # 解答 # 执行 N 次后取平均即可。 代码 # 修改后的 DoublingTest：
 using System; using Measurement; namespace _1._4._39 { /// &lt;summary> /// ThreeSum 测试类。 /// &lt;/summary> public static class DoubleTest { private static readonly int MAXIMUM_INTEGER = 1000000; /// &lt;summary> /// 返回对 n 个随机整数的数组进行一次 ThreeSum 所需的时间。 /// &lt;/summary> /// &lt;param name="n">随机数组的长度。&lt;/param> /// &lt;param name="repeatTimes">重复测试的次数。&lt;/param> /// &lt;returns>&lt;/returns> public static double TimeTrial(int n, int repeatTimes) { int[] a = new int[n]; double sum = 0; Random random = new Random(DateTime.
 <a href=/1-4-39/>...</a>
 </p>
@@ -1523,8 +1519,7 @@ $[-M, M]​$ 中随机 $N​$ 次，有 $(2M+1)^N​$ 种随机序列（每次�
 其他不为零的 $N-3​$ 个位置有 $(2M+1)^{(N-3)}​$ 种可能。
 总共有 $((N^3)/6) \times (3M^2 + 3M + 1) \times (2M+1)^{(N-3)}​$ 种可能性
 平均值为：
-$[((N^3)/6) \times (3M^2 + 3M + 1) \times (2M+1)^{(N-3)}] / (2M+1)^N​$
-$=N^3/16M​$
+$[((N^3)/6) \times (3M^2 + 3M + 1) \times (2M+1)^{(N-3)}] / (2M+1)^N​$ $=N^3/16M​$
 $3M^2 + 3M + 1$ 的推导：
 <a href=/1-4-40/>...</a>
 </p>

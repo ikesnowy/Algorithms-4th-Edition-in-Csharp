@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1416,9 +1416,7 @@
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
 <p>1.4.24 # 解答 # 第一问：二分查找即可。
-第二问：
-按照第 1, 2, 4, 8,&mldr;, 2^k 层顺序查找，一直到 2^k > F，
-随后在 [2^(k - 1), 2^k] 范围中二分查找。
+第二问： 按照第 1, 2, 4, 8,&mldr;, 2^k 层顺序查找，一直到 2^k > F， 随后在 [2^(k - 1), 2^k] 范围中二分查找。
 代码 # 这里建立了一个结构体用于返回测试结果：
 struct testResult { public int F;// 找到的 F 值。 public int BrokenEggs;// 打碎的鸡蛋数。 } 用于测试的方法：
 /// &lt;summary> /// 扔鸡蛋，没碎返回 true，碎了返回 false。 /// &lt;/summary> /// &lt;param name="floor">扔鸡蛋的高度。&lt;/param> /// &lt;returns>&lt;/returns> static bool ThrowEgg(int floor) { return floor &lt;= F; } /// &lt;summary> /// 第一种方案。 /// &lt;/summary> /// &lt;param name="a">大楼。&lt;/param> /// &lt;returns>&lt;/returns> static testResult PlanA(int[] a) { int lo = 0; int hi = a.
@@ -1454,41 +1452,22 @@ struct testResult { public int F;// 测试得出的 F 值 public int BrokenEggs;
 <a href=/tags/fundamental/>Fundamental</a>
 </div>
 <p>1.4.26 # 解答 # 首先，我们将问题转化为证明三点
-$$
-A(a,a^3),B(b,b^3),C(c,c^3)
-$$
+$$ A(a,a^3),B(b,b^3),C(c,c^3) $$
 共线，当且仅当满足
-$$
-a+b+c=0
-$$
-证明：
-若 $A,B,C$ 三点共线，则直线 $AB$ 和 $BC$ 的斜率必定相等，有方程：
-$$
-\frac{b^3-a^3}{b-a}=\frac{c^3-b^3}{c-b}
-$$
+$$ a+b+c=0 $$
+证明： 若 $A,B,C$ 三点共线，则直线 $AB$ 和 $BC$ 的斜率必定相等，有方程：
+$$ \frac{b^3-a^3}{b-a}=\frac{c^3-b^3}{c-b} $$
 由立方差公式：
-$$
-\frac{(b-a)(b^2+ba+a^2)}{b-a}=\frac{(c-b)(c^2+cb+b^2)}{c-b}
-$$
+$$ \frac{(b-a)(b^2+ba+a^2)}{b-a}=\frac{(c-b)(c^2+cb+b^2)}{c-b} $$
 化简有：
-$$
-b^2+ba+a^2=c^2+cb+b^2\
-ba+a^2=c^2+cb
-$$
+$$ b^2+ba+a^2=c^2+cb+b^2\newline ba+a^2=c^2+cb $$
 移项，将 $c$ 视为未知数：
-$$
-c^2+cb-ba-a^2=0
-$$
+$$ c^2+cb-ba-a^2=0 $$
 利用十字相乘法进行因式分解：
-$$
-(a+b+c)(c-a)=0
-$$
+$$ (a+b+c)(c-a)=0 $$
 解得：
-$$
-c_1=-a-b,c_2=a
-$$
-显然 $c\ne a$ ，因此当且仅当 $a+b+c=0$ 时 $A,B,C$ 三点共线。
-证毕。
+$$ c_1=-a-b,c_2=a $$
+显然 $c\ne a$ ，因此当且仅当 $a+b+c=0$ 时 $A,B,C$ 三点共线。 证毕。
 </p>
 </article>
 <article class="markdown book-post">

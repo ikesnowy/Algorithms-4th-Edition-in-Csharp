@@ -13,12 +13,12 @@
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1440,8 +1440,7 @@
 遍历输入的数组，把元素扔到相应的桶里面。
 把每个桶和对应的枢轴送到对应的线程进行排序。
 汇总各个桶中的结果，排序完毕。
-测试结果：
-大概能提升 5%~10% 的性能。
+测试结果： 大概能提升 5%~10% 的性能。
 代码 # using System; using System.
 <a href=/2-3-24/>...</a>
 </p>
@@ -1455,7 +1454,7 @@
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.3.25 # 解答 # 切换到插入排序的实现比较简单，在类内添加一个成员变量 M，在 Sort 方法里添加如下代码：
-protected void Sort&lt;T>(T[] a, int lo, int hi) where T: IComparable&lt;T> { if (hi &lt;= lo) // 别越界 return; if (hi - lo &lt;= this.M) { // 调用插入排序 for (int i = lo; i &lt;= hi; i++) for (int k = i; k > lo && Less(a[k], a[k - 1]); k--) Exch(a, k, k - 1); return; } int j = Partition(a, lo, hi); Sort(a, lo, j - 1); Sort(a, j + 1, hi); } 下面放上实验结果：
+protected void Sort&lt;T>(T[] a, int lo, int hi) where T: IComparable&lt;T> { if (hi &lt;= lo) // 别越界 return; if (hi - lo &lt;= this.M) { // 调用插入排序 for (int i = lo; i &lt;= hi; i++) for (int k = i; k > lo && Less(a[k], a[k - 1]); k--) Exch(a, k, k - 1); return; } int j = Partition(a, lo, hi); Sort(a, lo, j - 1); Sort(a, j + 1, hi); } 下面放上实验结果： N=1000 N=10000 N=100000 N=1000000 小于 8 的 M 值会比较合适。
 <a href=/2-3-25/>...</a>
 </p>
 </article>
@@ -1469,11 +1468,7 @@ protected void Sort&lt;T>(T[] a, int lo, int hi) where T: IComparable&lt;T> { if
 </div>
 <p>2.3.26 # 解答 # 在切换为插入排序之前先记录一下当前子数组的大小。
 在排序类内添加一个大小为 M+1 的数组，用于记录每种数组大小出现的次数。
-结果如下（N=100000）：
-M=10
-M=20
-M=50
-代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._26 { public partial class Form2 : Form { private int M; private int N; public Form2(int m, int n) { InitializeComponent(); this.M = m; this.N = n; } /// &lt;summary> /// 启动页面时启动后台测试。 /// &lt;/summary> /// &lt;param name="sender">&lt;/param> /// &lt;param name="e">&lt;/param> private void Form2_Shown(object sender, EventArgs e) { this.
+结果如下（N=100000）： M=10 M=20 M=50 代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._26 { public partial class Form2 : Form { private int M; private int N; public Form2(int m, int n) { InitializeComponent(); this.M = m; this.N = n; } /// &lt;summary> /// 启动页面时启动后台测试。 /// &lt;/summary> /// &lt;param name="sender">&lt;/param> /// &lt;param name="e">&lt;/param> private void Form2_Shown(object sender, EventArgs e) { this.
 <a href=/2-3-26/>...</a>
 </p>
 </article>
@@ -1514,7 +1509,7 @@ protected int Sort&lt;T>(T[] a, int lo, int hi, int depth) where T: IComparable&
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.3.29 # 解答 # 在快排类内部添加一个随机数发生器，每次随机取枢轴并交换至第一位进行切分。
-private int Partition&lt;T>(T[] a, int lo, int hi) where T : IComparable&lt;T> { int i = lo, j = hi + 1; int pivot = this.RandomGenerator.Next(hi - lo) + lo; Exch(a, pivot, lo); T v = a[lo]; while (true) { while (Less(a[++i], v)) if (i == hi) break; while (Less(v, a[--j])) if (j == lo) break; if (i >= j) break; Exch(a, i, j); } Exch(a, lo, j); return j; } 测试结果：
+private int Partition&lt;T>(T[] a, int lo, int hi) where T : IComparable&lt;T> { int i = lo, j = hi + 1; int pivot = this.RandomGenerator.Next(hi - lo) + lo; Exch(a, pivot, lo); T v = a[lo]; while (true) { while (Less(a[++i], v)) if (i == hi) break; while (Less(v, a[--j])) if (j == lo) break; if (i >= j) break; Exch(a, i, j); } Exch(a, lo, j); return j; } 测试结果： 代码 # 使用随机枢轴的快排
 <a href=/2-3-29/>...</a>
 </p>
 </article>
@@ -1526,8 +1521,7 @@ private int Partition&lt;T>(T[] a, int lo, int hi) where T : IComparable&lt;T> {
 <div>
 <a href=/tags/sort/>Sort</a>
 </div>
-<p>2.3.30 # 解答 # 结果如下，在 N=5000000 时，随机选择枢轴会比事先打乱快一点。
-代码 # using System; using Quick; namespace _2._3._30 { /* * 2.3.30 * * 极端情况。 * 用初始随机化和非初始随机化的快速排序测试练习 2.1.35 和练习 2.1.36 中描述的大型非随机数组。 * 在将这些大数组排序时，乱序对快速排序的性能有何影响？ * */ class Program { static void Main(string[] args) { QuickSortInsertion insertionSort = new QuickSortInsertion(); QuickSortRandomPivot randomSort = new QuickSortRandomPivot(); int n = 5000000; // 高斯分布（正态分布） double[] arrayInsertion = SortCompare.GetNormalDistributionArray(n); double[] arraySelection = new double[n]; arrayInsertion.CopyTo(arraySelection, 0); Console.
+<p>2.3.30 # 解答 # 结果如下，在 N=5000000 时，随机选择枢轴会比事先打乱快一点。 代码 # using System; using Quick; namespace _2._3._30 { /* * 2.3.30 * * 极端情况。 * 用初始随机化和非初始随机化的快速排序测试练习 2.1.35 和练习 2.1.36 中描述的大型非随机数组。 * 在将这些大数组排序时，乱序对快速排序的性能有何影响？ * */ class Program { static void Main(string[] args) { QuickSortInsertion insertionSort = new QuickSortInsertion(); QuickSortRandomPivot randomSort = new QuickSortRandomPivot(); int n = 5000000; // 高斯分布（正态分布） double[] arrayInsertion = SortCompare.GetNormalDistributionArray(n); double[] arraySelection = new double[n]; arrayInsertion.CopyTo(arraySelection, 0); Console.
 <a href=/2-3-30/>...</a>
 </p>
 </article>
@@ -1540,11 +1534,7 @@ private int Partition&lt;T>(T[] a, int lo, int hi) where T : IComparable&lt;T> {
 <a href=/tags/sort/>Sort</a>
 </div>
 <p>2.3.31 # 解答 # 以下所有结果 T=70
-N=1000
-N=10000
-N=100000
-N=1000000
-代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._31 { public partial class Form2 : Form { private int N; private int T; public Form2(int n, int t) { InitializeComponent(); this.N = n; this.T = t; } /// &lt;summary> /// 启动页面时启动后台测试。 /// &lt;/summary> /// &lt;param name="sender">&lt;/param> /// &lt;param name="e">&lt;/param> private void Form2_Shown(object sender, EventArgs e) { this.
+N=1000 N=10000 N=100000 N=1000000 代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._31 { public partial class Form2 : Form { private int N; private int T; public Form2(int n, int t) { InitializeComponent(); this.N = n; this.T = t; } /// &lt;summary> /// 启动页面时启动后台测试。 /// &lt;/summary> /// &lt;param name="sender">&lt;/param> /// &lt;param name="e">&lt;/param> private void Form2_Shown(object sender, EventArgs e) { this.
 <a href=/2-3-31/>...</a>
 </p>
 </article>

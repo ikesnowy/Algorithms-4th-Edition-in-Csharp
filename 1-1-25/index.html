@@ -2,43 +2,39 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数
+<meta name=description content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
 设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。
-那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。
-且 $r_n=0$ （此时算法终止）。
+那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。 且 $r_n=0$ （此时算法终止）。
 由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。
 可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。
 则有
-$r_{n-3}\=q_{n-1} \times r_{n-2} + r_{n-1}\=q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\=q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \=(q_{n-1} \times q_n +1)\times r_{n-1}$
-可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除
-以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数">
+$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$
+可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="1.1.25">
-<meta property="og:description" content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数
+<meta property="og:description" content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
 设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。
-那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。
-且 $r_n=0$ （此时算法终止）。
+那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。 且 $r_n=0$ （此时算法终止）。
 由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。
 可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。
 则有
-$r_{n-3}\=q_{n-1} \times r_{n-2} + r_{n-1}\=q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\=q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \=(q_{n-1} \times q_n +1)\times r_{n-1}$
-可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除
-以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数">
+$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$
+可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alg4.ikesnowy.com/1-1-25/"><meta property="article:section" content>
 <meta property="article:published_time" content="2018-05-15T12:11:10+00:00">
-<meta property="article:modified_time" content="2022-02-22T22:22:44+08:00">
+<meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
 <title>1.1.25 | 《算法（第四版）》C# 题解</title>
 <link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.09a27e5290c5156a6a6913223ba7ef74531b37b5b52d4c4ab1dd25f52d627e89.js integrity="sha256-CaJ+UpDFFWpqaRMiO6fvdFMbN7W1LUxKsd0l9S1ifok=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
-<link rel=stylesheet href=/katex/katex.min.css>
-<script defer src=/katex/katex.min.js></script>
-<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
 </head>
 <body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -1422,28 +1418,28 @@ $r_{n-3}\=q_{n-1} \times r_{n-2} + r_{n-1}\=q_{n-1}\times (q_n \times r_{n-1})+r
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
 </h2>
-<p>已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数<br>
-设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。<br>
-那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。<br>
+<p>已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.</p>
+<p>设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。</p>
+<p>那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。
 且 $r_n=0$ （此时算法终止）。</p>
-<p>由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。<br>
-可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。<br>
-则有<br>
-$r_{n-3}\=q_{n-1} \times r_{n-2} + r_{n-1}\=q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\=q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \=(q_{n-1} \times q_n +1)\times r_{n-1}$<br>
-可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除<br>
-以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数<br>
-则 $r_{n-1}\le g$ 。</p>
-<p>因为 $g$ 是 $a,b$ 的最大公约数，由其性质可得：<br>
+<p>由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。</p>
+<p>可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。</p>
+<p>则有</p>
+<p>$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$</p>
+<p>可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除</p>
+<p>以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数</p>
+<p>则 $r_{n-1}\le g$ 。</p>
+<p>因为 $g$ 是 $a,b$ 的最大公约数，由其性质可得：
 $a=mg,b=ng$ ，其中 $m,n$ 是自然数。</p>
-<p>$r_0 \=a \bmod b \=a-q_0 \times b\qquad (q_0=\lfloor a/b \rfloor) \= mg-q_0\times ng\=(m-q_0\times n)g$</p>
-<p>可得 $r_0$ 能够被 $g$ 整除。<br>
-同理 $r_0,r_1,r_2\dots r_{n-1}$ 都可以被 $g$ 整除。<br>
-因此 $g\le r_{n-1}$</p>
+<p>$r_0 \newline =a \bmod b \newline =a-q_0 \times b\qquad (q_0=\lfloor a/b \rfloor) \newline = mg-q_0\times ng\newline =(m-q_0\times n)g$</p>
+<p>可得 $r_0$ 能够被 $g$ 整除。</p>
+<p>同理 $r_0,r_1,r_2\dots r_{n-1}$ 都可以被 $g$ 整除。</p>
+<p>因此 $g\le r_{n-1}$</p>
 <p>综上，$g=r_{n-1}$ ，证明完毕。</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3cf95d07d6d2cd39c1889c1973632d76528ed82f title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>

@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sort on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/tags/sort/</link><description>Recent content in Sort on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><language>zh-Hans</language><lastBuildDate>Sun, 27 Jan 2019 11:35:27 +0000</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/tags/sort/index.xml" rel="self" type="application/rss+xml"/><item><title>2.1.1</title><link>https://alg4.ikesnowy.com/2-1-1/</link><pubDate>Sat, 30 Jun 2018 14:08:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-1/</guid><description>2.1.1 # 解答 #</description></item><item><title>2.1.2</title><link>https://alg4.ikesnowy.com/2-1-2/</link><pubDate>Sat, 30 Jun 2018 14:15:22 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-2/</guid><description>2.1.2 # 解答 # 最多会被交换 n 次，只要将一个有序数列循环右移一位就可以构造这样的情况。
+例如：
+平均每个元素被交换了 N/N=1 次。（总共 N 个元素，总共发生了 N 次交换）。</description></item><item><title>2.1.3</title><link>https://alg4.ikesnowy.com/2-1-3/</link><pubDate>Sat, 30 Jun 2018 14:17:13 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-3/</guid><description>2.1.3 # 解答 # 你需要一个逆序的数组。
+例如：
+9 8 7 6 5 4 3 2 1
+i=0 条件满足 8 次，1 和 9 交换，1 8 7 6 5 4 3 2 9。
+i=1 条件满足 6 次，2 和 8 交换，1 2 7 6 5 4 3 8 9。
+i=2 条件满足 4 次，3 和 7 交换，1 2 3 6 5 4 7 8 9。
+i=3 条件满足 2 次，4 和 6 交换。1 2 3 4 5 6 7 8 9。</description></item><item><title>2.1.4</title><link>https://alg4.ikesnowy.com/2-1-4/</link><pubDate>Sat, 30 Jun 2018 14:18:24 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-4/</guid><description>2.1.4 # 解答 #</description></item><item><title>2.1.5</title><link>https://alg4.ikesnowy.com/2-1-5/</link><pubDate>Sat, 30 Jun 2018 14:19:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-5/</guid><description>2.1.5 # 解答 # 条件是：
+j &amp;gt; 0 &amp;amp;&amp;amp; less(a[j], a[j - 1]) 第一个条件属于循环计数用的条件，与数组元素无关；
+第二个条件当 a[j] 和 a[j - 1] 是一组逆序对时满足，因此这个条件总是为假 = 数组没有逆序对 = 数组有序。
+因此只要输入已经排好序的数组即可。
+逆序对：指序列中顺序相反的两个数，例如 1 2 3 4 5 7 6 8 9 中的 7 6。
+另请参阅 # 逆序对-维基百科</description></item><item><title>2.1.6</title><link>https://alg4.ikesnowy.com/2-1-6/</link><pubDate>Sat, 30 Jun 2018 14:22:30 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-6/</guid><description>2.1.6 # 解答 # 插入排序更快。
+选择排序无论如何都需要 $n + (n-1) + (n-2) + … + 1 = \frac{n^2}{2}$ 次比较。
+插入排序在这种情况下只需要 n 次比较。（所有主键相同 = 数组已排序）</description></item><item><title>2.1.7</title><link>https://alg4.ikesnowy.com/2-1-7/</link><pubDate>Sat, 30 Jun 2018 14:23:17 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-7/</guid><description>2.1.7 # 解答 # 假设比较的开销小于等于交换的开销，此时选择排序更快，具体比较见下表。
+排序方法 比较次数 交换次数 插入排序 ~N^2/2 ~N^2/2 选择排序 ~N^2/2 N</description></item><item><title>2.1.8</title><link>https://alg4.ikesnowy.com/2-1-8/</link><pubDate>Sat, 30 Jun 2018 14:25:29 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-8/</guid><description>2.1.8 # 解答 # 平方级别。
+如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
+接下来我们证明有重复元素的情况下，这个结论仍然成立：
+首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：
+$$
+\underbrace{11&amp;hellip;1}{a} \ \underbrace{22&amp;hellip;2}{b} \ \underbrace{33&amp;hellip;3}{c} \ \underbrace{13121123}{unsorted}
+$$
+其中，1，2，3 分别代表三种不同的取值及其先后顺序。
+假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。
+根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。
+第 i 次插入所需要的平均交换次数即为：
+$$
+\frac{b+c+c}{3}=\frac{b+2c}{3}
+$$
+第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：
+如果插入的是 1，那么 b+2c 的值不会变化。
+如果插入的是 2，那么 b+2c 的值增加 1。
+如果插入的是 3，那么 b+2c 的值增加 2。
+同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：
+$$
+\frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3}
+$$</description></item><item><title>2.1.9</title><link>https://alg4.ikesnowy.com/2-1-9/</link><pubDate>Sat, 30 Jun 2018 14:38:58 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-9/</guid><description>2.1.9 # 解答 #</description></item><item><title>2.1.10</title><link>https://alg4.ikesnowy.com/2-1-10/</link><pubDate>Sat, 30 Jun 2018 15:02:02 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-10/</guid><description>2.1.10 # 解答 # 对于部分有序的数组，插入排序比选择排序快。
+这个结论可以在中文版 P158， 英文版 P252 找到。</description></item><item><title>2.1.11</title><link>https://alg4.ikesnowy.com/2-1-11/</link><pubDate>Sat, 30 Jun 2018 15:06:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-11/</guid><description>2.1.11 # 解答 # 希尔排序的官方实现：https://algs4.cs.princeton.edu/21elementary/Shell.java.html
+只要稍作修改即可，详情见代码。
+代码 # /// &amp;lt;summary&amp;gt; /// 利用希尔排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { int n = a.Length; int[] h = new int[2]; // 预先准备好的 h 值数组 int hTemp = 1; int sequenceSize = 0; for (sequenceSize = 0; hTemp &amp;lt; n; sequenceSize++) { if (sequenceSize &amp;gt;= h.Length) // 如果数组不够大则双倍扩容 { int[] expand = new int[h.Length * 2]; for (int j = 0; j &amp;lt; h.</description></item><item><title>2.1.12</title><link>https://alg4.ikesnowy.com/2-1-12/</link><pubDate>Sat, 30 Jun 2018 15:10:47 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-12/</guid><description>2.1.12 # 解答 # 结果截图如下，同一个 h 值对应的比值在数组大小不同时保持为一个小常数：
+代码 # class Program { // 查看最后结果 // 可以发现相同的 h 在数组大小不同时所产生的比值十分接近。 static void Main(string[] args) { Random random = new Random(); ShellSort sort = new ShellSort(); int size = 100; for (int i = 0; i &amp;lt; 5; i++) { double[] a = new double[size]; for (int j = 0; j &amp;lt; size; j++) { a[j] = random.NextDouble() * 100; } Console.</description></item><item><title>2.1.13</title><link>https://alg4.ikesnowy.com/2-1-13/</link><pubDate>Sat, 30 Jun 2018 15:14:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-13/</guid><description>2.1.13 # 解答 # 可以用冒泡排序做，具体方法如下：
+翻一二两张，是逆序对就交换，否则什么也不做
+翻二三两张，是逆序对就交换，否则什么也不做
+一直到最后，可以保证最右侧的是最大花色的牌
+然后不断重复上述过程，就可以完全排序</description></item><item><title>2.1.14</title><link>https://alg4.ikesnowy.com/2-1-14/</link><pubDate>Sat, 30 Jun 2018 15:15:04 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-14/</guid><description>2.1.14 # 解答 # 用一种类似于冒泡的方法做，具体步骤为：
+重复以下步骤，直到全部完成一遍之后没有发生交换 重复以下步骤 n-1 次 如果顶端两张牌逆序，那么交换它们。 将第一张牌放到牌堆底部。 具体步骤图：
+我们将牌排成一个环，用一支笔隔开，这里我们标记笔的左侧是牌堆顶部，右侧是牌堆底部。
+那么我们能做的三个操作在这里即为：
+查看最上面两张牌 = 从笔的位置开始，逆时针查看两张牌。
+交换最上面两张牌 = 从笔的位置开始，逆时针选择两张牌并交换。
+将最上面的一张牌放到最下面 = 将笔的位置逆时针移动一位。
+下面我们开始执行开始说过的操作，目标顺序是自顶向下从小到大排列。
+初始情况如图所示：
+梅花7 和 红桃4 不是逆序对，直接将笔逆时针移动一位。
+红桃4 和 黑桃6 不是逆序对，我们将笔逆时针移动一位。
+再看 黑桃6 和 方片A，是逆序对，我们交换并将笔逆时针移动一位。
+再看 黑桃6 和 红桃J，是逆序对，我们交换并将笔逆时针移动一位。
+现在我们已经操作了 4 次，内部循环结束，我们将笔放回初始位置。
+这样一次循环之后，我们就把最大的牌放在了最下面，依次类推即可完全排序。
+另请参阅 # Sorting a deque using limited operations?-Stock Overflow</description></item><item><title>2.1.15</title><link>https://alg4.ikesnowy.com/2-1-15/</link><pubDate>Sat, 30 Jun 2018 15:25:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-15/</guid><description>2.1.15 # 解答 # 选择排序
+交换（也就是 Exch() 方法）需要一个额外空间，这里的条件满足。
+现在我们应该使交换次数最少，选择排序只需要 N 次交换，比插入排序平均 N^2/4 少（N &amp;gt; 2）。</description></item><item><title>2.1.16</title><link>https://alg4.ikesnowy.com/2-1-16/</link><pubDate>Sat, 30 Jun 2018 15:27:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-16/</guid><description>2.1.16 # 解答 # 如果移动数据时新建了对象，那么虽然值没有改变，但是数组中的对象被修改了。
+代码 # 插入排序中的 Exch() 换成了如下方式：
+string temp = new string(s[i].ToCharArray()); s[i] = s[min]; s[min] = temp; 全部程序代码如下：
+using System; namespace _2._1._16 { /* * 2.1.16 * * 验证。 * 编写一个 check() 方法， * 调用 sort() 对任意数组排序。 * 如果排序成功而且数组中的所有对象均没有被修改则返回 true， * 否则返回 false。 * 不要假设 sort() 只能通过 exch() 来移动数据， * 可以信任并使用 Array.sort()。 * */ public class Program { static void Main(string[] args) { string[] test = new string[5] { &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;d&amp;#34;, &amp;#34;c&amp;#34;, &amp;#34;e&amp;#34; }; Console.</description></item><item><title>2.1.17</title><link>https://alg4.ikesnowy.com/2-1-17/</link><pubDate>Sat, 30 Jun 2018 19:24:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-17/</guid><description>2.1.17 # 解答 # 选择排序：
+插入排序：
+代码 # 使用一个 timer 按一定时间重绘数组，排序算法里面一次循环后等待一段时间再进行下一次循环。（这并不是一个很好的方法，但对于演示来说足够了）
+这里排序算法是另开线程运行的，防止 Sleep 的时候让程序无响应。
+选择排序：
+using System; using System.Drawing; using System.Windows.Forms; using System.Threading; namespace _2._1._17 { public partial class Form2 : Form { double[] randomDoubles; public Form2(int N) { InitializeComponent(); this.randomDoubles = new double[N]; Random random = new Random(); for (int i = 0; i &amp;lt; N; i++) { this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2; } drawPanel(); this.</description></item><item><title>2.1.18</title><link>https://alg4.ikesnowy.com/2-1-18/</link><pubDate>Sat, 30 Jun 2018 19:29:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-18/</guid><description>2.1.18 # 解答 # 选择排序
+插入排序
+代码 # 与上题类似，但要特别标出移动的元素。
+选择排序：
+using System; using System.Drawing; using System.Windows.Forms; using System.Threading; namespace _2._1._18 { public partial class Form2 : Form { double[] randomDoubles; int sortI; int sortJ; int sortMin; public Form2(int N) { InitializeComponent(); this.randomDoubles = new double[N]; Random random = new Random(); for (int i = 0; i &amp;lt; N; i++) { this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2; } } /// &amp;lt;summary&amp;gt; /// 选择排序。 /// &amp;lt;/summary&amp;gt; private void SelectionSort() { for (this.</description></item><item><title>2.1.19</title><link>https://alg4.ikesnowy.com/2-1-19/</link><pubDate>Sat, 30 Jun 2018 19:32:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-19/</guid><description>2.1.19 # 解答 # 不得不说这道题意外的难。
+放上论文链接：Shellsort and Sorting Networks (Outstanding Dissertations in the Computer Sciences)
+这篇论文的第二章给出了一种构造最坏序列的方法，当然理想最坏（n^(3/2)）是达不到的了。
+最后结果是 793 次。
+@杨晗 通过随机输入获得了一个理论最坏的输入序列，见：https://github.com/YangXiaoHei/Algorithms/blob/master/Ch_2_1_Elementary_Sorts/Practise_2_1_19.java
+这个序列是：
+48, 46, 54, 97, 83, 69, 76, 25, 10, 5, 87, 12, 21, 99, 61, 33, 30, 47, 57, 4, 36, 42, 98, 66, 100, 17, 94, 81, 11, 77, 24, 89, 73, 53, 38, 7, 29, 8, 27, 23, 56, 70, 60, 85, 39, 65, 9, 75, 15, 67, 64, 22, 51, 82, 43, 3, 37, 91, 45, 13, 34, 63, 74, 71, 95, 55, 80, 92, 2, 19, 62, 40, 84, 41, 50, 88, 86, 59, 28, 44, 72, 68, 14, 35, 93, 26, 18, 78, 31, 58, 96, 6, 1, 90, 49, 16, 52, 79, 32, 20 会比较 999 次。</description></item><item><title>2.1.20</title><link>https://alg4.ikesnowy.com/2-1-20/</link><pubDate>Sat, 30 Jun 2018 19:35:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-20/</guid><description>2.1.20 # 解答 # 由于每次 h 排序都是插入排序，希尔排序最好情况就是插入排序的最好情况，也就是已排序的数组。</description></item><item><title>2.1.21</title><link>https://alg4.ikesnowy.com/2-1-21/</link><pubDate>Sat, 30 Jun 2018 19:38:13 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-21/</guid><description>2.1.21 # 解答 # 事实上官方给出来的 Date 类以及 Transaction 类都已经实现了这些接口。
+Date 类：Date.java
+Transaction 类：Transaction.java
+代码 # using System; using Sort; namespace _2._1._21 { /* * 2.1.21 * * 可比较的交易。 * 用我们的 Date 类（请见 2.1.1.4 节） * 作为模板扩展你的 Transaction 类（请见练习 1.2.13）， * 实现 Comparable 接口，使交易能够按照金额排序。 * */ class Program { static void Main(string[] args) { Transaction[] a = new Transaction[4]; a[0] = new Transaction(&amp;#34;Turing 6/17/1990 644.08&amp;#34;); a[1] = new Transaction(&amp;#34;Tarjan 3/26/2002 4121.</description></item><item><title>2.1.22</title><link>https://alg4.ikesnowy.com/2-1-22/</link><pubDate>Sat, 30 Jun 2018 19:39:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-22/</guid><description>2.1.22 # 解答 # 和上题类似，只要传入事先写好的比较器就可以了。
+代码 # using System; using Sort; namespace _2._1._22 { /* * 2.1.22 * * 交易排序测试用例。 * 编写一个 SortTransaction 类， * 在静态方法 main() 中从标准输入读取一系列交易， * 将它们排序并在标准输出中打印结果。 * */ class Program { static void Main(string[] args) { Transaction[] a = new Transaction[4]; // 样例输入 // Turing 6/17/1990 644.08 // Tarjan 3/26/2002 4121.85 // Knuth 6/14/1999 288.34 // Dijkstra 8/22/2007 2678.40 for (int i = 0; i &amp;lt; a.</description></item><item><title>2.1.23</title><link>https://alg4.ikesnowy.com/2-1-23/</link><pubDate>Sat, 30 Jun 2018 19:40:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-23/</guid><description>2.1.23 # 解答 # 方法多种多样。
+首先是冒泡，见习题 2.1.13
+插入排序也可以，如下：
+从前往后不断翻牌，
+对于翻到的每张牌，一直和之前的牌交换，
+直至前面的牌比它小或者它已经是第一张了。
+也可以用基数排序
+从前向后依次翻开牌，
+按照花色分成四堆，
+然后按花色从大到小重新排列。
+比较符合直觉的是选择排序
+寻找最小的牌并放到第一位，
+寻找范围向右缩减一位，重复上一步，直到最后一张。
+还有其他方法，这里不再赘述。</description></item><item><title>2.1.24</title><link>https://alg4.ikesnowy.com/2-1-24/</link><pubDate>Sat, 30 Jun 2018 19:42:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-24/</guid><description>2.1.24 # 解答 # 如果使用官方的实现（InsertionX.java），最后结果可能会比一般插入排序慢，因为它是用冒泡的方法找最小值的。
+一般做法是在待排序数组的最前端插入一个很小的值（比如 int.MinValue），然后对 a[1]~a[n] 排序。
+代码 # 参考官方实现的插入排序：
+using System.Collections.Generic; using System.Diagnostics; using Sort; namespace _2._1._24 { /// &amp;lt;summary&amp;gt; /// 插入排序类。 /// &amp;lt;/summary&amp;gt; public class InsertionSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public InsertionSort() { } /// &amp;lt;summary&amp;gt; /// 利用插入排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { int n = a.</description></item><item><title>2.1.25</title><link>https://alg4.ikesnowy.com/2-1-25/</link><pubDate>Sat, 30 Jun 2018 19:44:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-25/</guid><description>2.1.25 # 解答 # 使用依次赋值的方式腾出空间，到达指定位置之后再把元素插入。
+看代码会方便理解一点。
+官方实现：InsertionX.java。
+代码 # using System.Collections.Generic; using System.Diagnostics; using Sort; namespace _2._1._25 { /// &amp;lt;summary&amp;gt; /// 插入排序类。 /// &amp;lt;/summary&amp;gt; public class InsertionSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public InsertionSort() { } /// &amp;lt;summary&amp;gt; /// 利用插入排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { int n = a.</description></item><item><title>2.1.26</title><link>https://alg4.ikesnowy.com/2-1-26/</link><pubDate>Sat, 30 Jun 2018 19:44:41 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-26/</guid><description>2.1.26 # 解答 # 直接针对特殊值的话显然会快很多。
+代码 # 直接把泛型改成 int 即可。
+namespace _2._1._26 { /// &amp;lt;summary&amp;gt; /// 插入排序类。 /// &amp;lt;/summary&amp;gt; public class InsertionSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public InsertionSort() { } /// &amp;lt;summary&amp;gt; /// 利用插入排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public void Sort(int[] a) { int n = a.Length; for (int i = 0; i &amp;lt; n; i++) { for (int j = i; j &amp;gt; 0 &amp;amp;&amp;amp; a[j] &amp;lt; a[j - 1]; --j) { int t = a[j]; a[j] = a[j - 1]; a[j - 1] = t; } } } } } 另请参阅 # Sort 库</description></item><item><title>2.1.27</title><link>https://alg4.ikesnowy.com/2-1-27/</link><pubDate>Sat, 30 Jun 2018 19:45:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-27/</guid><description>2.1.27 # 解答 # 数据比较大的时候会比较明显。
+代码 # using System; using Sort; namespace _2._1._27 { /* * 2.1.27 * * 希尔排序的用时是次平方级的。 * 在你的计算机上用 SortCompare 比较希尔排序和插入排序以及选择排序。 * 测试数组的大小按照 2 的幂次递增，从 128 开始。 * */ class Program { static void Main(string[] args) { int n = 128; Random random = new Random(); double shellPrev = 1; double insertionPrev = 1; double selectionPrev = 1; while (n &amp;lt; 65538) { int[] testShell = new int[n]; int[] testInsertion = new int[n]; int[] testSelection = new int[n]; for (int i = 0; i &amp;lt; n; i++) { testShell[i] = random.</description></item><item><title>2.1.28</title><link>https://alg4.ikesnowy.com/2-1-28/</link><pubDate>Sat, 30 Jun 2018 19:46:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-28/</guid><description>2.1.28 # 解答 # 插入排序会比选择排序快上许多，当然增长级别不变。
+代码 # using System; using Sort; namespace _2._1._28 { /* * 2.1.28 * * 相等的主键。 * 对于主键仅可能取两种值的数组， * 评估和验证插入排序和选择排序的性能， * 假设两种主键值出现的概率相同。 * */ class Program { static void Main(string[] args) { int n = 1024; Random random = new Random(); double insertionPrev = 1; double selectionPrev = 1; while (n &amp;lt; 65538) { int[] testInsertion = new int[n]; int[] testSelection = new int[n]; for (int i = 0; i &amp;lt; n; i++) { testInsertion[i] = random.</description></item><item><title>2.1.29</title><link>https://alg4.ikesnowy.com/2-1-29/</link><pubDate>Sat, 30 Jun 2018 19:48:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-29/</guid><description>2.1.29 # 解答 # 当然是题目给出的递增序列更快啦，因为这个序列就是作者提出来的嘛。
+（论文链接： http://linkinghub.elsevier.com/retrieve/pii/0196677486900015）
+代码 # 修改了一下 shellsort，让它按照给定的 h 序列排序。
+using System; using System.Diagnostics; using Sort; namespace _2._1._29 { public class ShellSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public ShellSort() { } /// &amp;lt;summary&amp;gt; /// 利用希尔排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;待排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;h&amp;#34;&amp;gt;需要使用的递增序列。&amp;lt;/param&amp;gt; public void Sort&amp;lt;T&amp;gt;(T[] a, int[] h) where T : IComparable&amp;lt;T&amp;gt; { int n = a.</description></item><item><title>2.1.30</title><link>https://alg4.ikesnowy.com/2-1-30/</link><pubDate>Sat, 30 Jun 2018 20:07:20 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-30/</guid><description>2.1.30 # 解答 # 2，3，4
+t 越大的话，按照这个递增序列，10^6 次能够满足的 h 也就越少。
+代码 # using System; using Sort; using System.Diagnostics; namespace _2._1._30 { /* * 2.1.30 * * 几何级数递增序列。 * 通过实验找到一个 t，使得对于大小为 N=10^6 的任意随机数组， * 使用递增序列 1, [t], [t^2], [t^3], [t^4], ... 的希尔排序的运行时间最短。 * 给出你能找到的三个最佳 t 值以及相应的递增序列。 * 以下练习描述的是各种用于评估排序算法的测试用例。 * 它们的作用是用随机数据帮助你增进对性能特性的理解。 * 随着命令行指定的实验测试的增大， * 可以和 SortCompare 一样在它们中使用 time() 函数来得到更精确的结果。 * 在以后的几节中我们会使用这些练习来评估更为复杂的算法。 * */ class Program { // t = 2, 3, 4 // t 大于 10 之后，由于每次排序 h 缩减的太快， // 时间会越来越近似于直接插入排序。 static void Main(string[] args) { int[] array = SortCompare.</description></item><item><title>2.1.31</title><link>https://alg4.ikesnowy.com/2-1-31/</link><pubDate>Sat, 30 Jun 2018 20:10:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-31/</guid><description>2.1.31 # 解答 # 这里截取数据量比较大的时候的数据。
+插入排序和选择排序显然都是平方级别的。
+希尔排序猜测是线性的，实际上要比线性大一点（次平方级）。
+代码 # using System; using Sort; namespace _2._1._31 { /* * 2.1.31 * * 双倍测试。 * 编写一个能够对排序算法进行双倍测试的用例。 * 数组规模 N 的起始值为 1000， * 排序后打印 N、估计排序用时、实际排序用时以及在 N 倍增之后两次用时的比例。 * 用这段程序验证在随机输入模型下插入排序和选择排序的运行时间都是平方级别的。 * 对希尔排序的性能做出猜想并验证你的猜想。 * */ class Program { static void Main(string[] args) { int N = 1000; InsertionSort insertion = new InsertionSort(); SelectionSort selection = new SelectionSort(); ShellSort shell = new ShellSort(); double prevInsertion = 0; double prevSelection = 0; double prevShell = 0; for (int i = 0; i &amp;lt; 10; i++) { Console.</description></item><item><title>2.1.32</title><link>https://alg4.ikesnowy.com/2-1-32/</link><pubDate>Sat, 30 Jun 2018 20:11:34 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-32/</guid><description>2.1.32 # 解答 # 基本上都是这么个样子：
+代码 # using System; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._32 { public partial class Form2 : Form { BaseSort sort; int n; double[] result; /// &amp;lt;summary&amp;gt; /// 构造一个绘图结果窗口。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;sort&amp;#34;&amp;gt;用于做测试的排序算法。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;n&amp;#34;&amp;gt;用于测试的初始数据量。&amp;lt;/param&amp;gt; public Form2(BaseSort sort, int n) { InitializeComponent(); this.sort = sort; this.n = n; this.result = Test(n); this.timer1.Interval = 1000; this.</description></item><item><title>2.1.33</title><link>https://alg4.ikesnowy.com/2-1-33/</link><pubDate>Sat, 30 Jun 2018 20:12:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-33/</guid><description>2.1.33 # 解答 # 这里每次结果的 Y 轴位置都是随机生成的，这样图像会好看点。
+X 轴代表消耗的时间。
+选择排序：
+插入排序：
+希尔排序：
+代码 # using System; using System.Collections.Generic; using System.Drawing; using System.Linq; using System.Windows.Forms; using Sort; namespace _2._1._33 { public partial class Form2 : Form { List&amp;lt;double&amp;gt; resultList; List&amp;lt;float&amp;gt; resultYList; Rectangle clientRect; Rectangle drawRect; BaseSort sort; int n; /// &amp;lt;summary&amp;gt; /// 构造一个绘制结果窗口。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;sort&amp;#34;&amp;gt;用于测试的排序算法。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;n&amp;#34;&amp;gt;测试算法是生成的数据量。&amp;lt;/param&amp;gt; public Form2(BaseSort sort, int n) { InitializeComponent(); this.</description></item><item><title>2.1.34</title><link>https://alg4.ikesnowy.com/2-1-34/</link><pubDate>Sat, 30 Jun 2018 20:15:03 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-34/</guid><description>2.1.34 # 解答 # 代码 # using System; using Sort; namespace _2._1._34 { /* * 2.1.34 * * 罕见情况。 * 编写一个测试用例， * 调用 sort() 方法对实际应用中可能出现困难或极端情况的数组进行排序。 * 比如，数组可能已经是有序的， * 或是逆序的， * 数组中的所有主键相同， * 数组的主键只有两种值， * 大小是 0 或 1 的数组。 * */ class Program { static void Main(string[] args) { InsertionSort insertionSort = new InsertionSort(); SelectionSort selectionSort = new SelectionSort(); ShellSort shellSort = new ShellSort(); // 逆序 Console.</description></item><item><title>2.1.35</title><link>https://alg4.ikesnowy.com/2-1-35/</link><pubDate>Sat, 30 Jun 2018 20:16:34 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-35/</guid><description>2.1.35 # 解答 # 难点是如何生成符合这些分布的随机数。
+Java 的话官方给的 stdRandom 里面都有相应的实现。
+结果：
+代码 # 几种随机数的实现：
+using System; namespace Sort { /// &amp;lt;summary&amp;gt; /// 静态类，包含用于生成排序算法测试数据的方法。 /// &amp;lt;/summary&amp;gt; public static class SortUtil { public static Random UniformGenerator = new Random(); /// &amp;lt;summary&amp;gt; /// 产生符合正态分布的随机数。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;average&amp;#34;&amp;gt;正态分布的期望值 μ。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;standardDeviation&amp;#34;&amp;gt;正态分布的标准差 σ。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;符合正态分布的随机数。&amp;lt;/returns&amp;gt; public static double Normal(double average, double standardDeviation) { double u1 = UniformGenerator.</description></item><item><title>2.1.36</title><link>https://alg4.ikesnowy.com/2-1-36/</link><pubDate>Sat, 30 Jun 2018 20:18:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-36/</guid><description>2.1.36 # 解答 # 最后结果：
+代码 # using System; using Sort; namespace _2._1._36 { /* * 2.1.36 * * 不均匀的数据。 * 编写一个测试用例， * 生成不均匀的测试数据，包括： * 一半数据是 0，一半数据是 1 * 一半数据是 0，1/4 是 1，1/4 是 2，以此类推 * 一半数据是 0，一半是随机 int 值。 * 评估并验证这些输入数据对本节讨论的算法的性能的影响。 * */ class Program { // 选择排序的耗时与输入值的内容无关，不受影响。 // 对于插入排序，以上几种情况都是重复值较多的情况，插入排序的速度会加快。 // 希尔排序本质上也是插入排序，因此也会更快一些。 static void Main(string[] args) { int n = 10000; InsertionSort insertionSort = new InsertionSort(); SelectionSort selectionSort = new SelectionSort(); ShellSort shellSort = new ShellSort(); int[] arrayInsertion = new int[n]; int[] arraySelection = new int[n]; int[] arrayShell = new int[n]; // 对照，完全随机 arrayInsertion = HalfZeroHalfOne(n); arrayInsertion.</description></item><item><title>2.1.37</title><link>https://alg4.ikesnowy.com/2-1-37/</link><pubDate>Sat, 30 Jun 2018 20:19:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-37/</guid><description>2.1.37 # 解答 # 主要说一下第二个的实现，把一个数组按 10 位进行打乱即可。
+代码 # using System; using System.Collections.Generic; using Sort; namespace _2._1._37 { /* * 2.1.37 * * 部分有序。 * 编写一个测试用例，生成部分有序数组，包括： * 95% 有序，其余部分为随机值。 * 所有元素和它们的正确位置的距离都不超过 10。 * 5% 的元素随机分布在整个数组中，剩下的数据都是有序的。 * 评估并验证这些输入数据对本节讨论的算法的性能的影响。 * */ class Program { // 选择排序的性能只与数组大小有关，以上三种情况耗时都是近似的。 // 插入排序的性能与逆序对数量有关，部分有序的情况下耗时会小于完全随机。 // 希尔排序与插入排序类似。 static void Main(string[] args) { InsertionSort insertionSort = new InsertionSort(); SelectionSort selectionSort = new SelectionSort(); ShellSort shellSort = new ShellSort(); int n = 10000; int[] selectionArray = new int[n]; int[] insertionArray = new int[n]; int[] shellArray = new int[n]; // 完全随机的对照 Console.</description></item><item><title>2.1.38</title><link>https://alg4.ikesnowy.com/2-1-38/</link><pubDate>Sat, 30 Jun 2018 20:34:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-1-38/</guid><description>2.1.38 # 解答 # 这里实现了一个 Pair 类，用来排序。
+每一个元素都有相应的 key 值和 value 值，排序时只使用 key 值进行排序。
+代码 # using System; using Sort; namespace _2._1._38 { /* * 2.1.38 * * 不同类型的元素。 * 编写一个测试用例，生成由多种数据类型元素组成的数组，元素的主键值随机，包括： * 每个元素的主键均为 String 类型（至少长 10 个字符），并含有一个 double 值。 * 每个元素的主键均为 double 类型，并含有 10 个 String 值（每个都至少长 10 个字符）。 * 每个元素的主键均为 int 类型，并含有一个 int[20] 值。 * 评估并验证这些输入数据对本节讨论的算法的性能的影响。 * */ class Program { static void Main(string[] args) { int n = 10000; double[] results = TestA(n); Console.</description></item><item><title>2.2.1</title><link>https://alg4.ikesnowy.com/2-2-1/</link><pubDate>Wed, 04 Jul 2018 15:31:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-1/</guid><description>2.2.1 # 解答 #</description></item><item><title>2.2.2</title><link>https://alg4.ikesnowy.com/2-2-2/</link><pubDate>Wed, 04 Jul 2018 15:34:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-2/</guid><description>2.2.2 # 解答 #</description></item><item><title>2.2.3</title><link>https://alg4.ikesnowy.com/2-2-3/</link><pubDate>Wed, 04 Jul 2018 15:35:59 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-3/</guid><description>2.2.3 # 解答 #</description></item><item><title>2.2.4</title><link>https://alg4.ikesnowy.com/2-2-4/</link><pubDate>Wed, 04 Jul 2018 15:36:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-4/</guid><description>2.2.4 # 解答 # 是的，必须要两个子数组都有序时归并才能得到正确结果。
+如果说数组不有序的话，那么最后只能得到两个数组的混合。
+合并后的数组中，属于原有数组的元素的相对顺序不会被改变。
+例如子数组 1 3 1 和 2 8 5 原地归并。
+结果是 1 2 3 1 8 5，其中 1 3 1 和 2 8 5 的相对顺序不变。</description></item><item><title>2.2.5</title><link>https://alg4.ikesnowy.com/2-2-5/</link><pubDate>Wed, 04 Jul 2018 15:37:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-5/</guid><description>2.2.5 # 解答 # 每次归并子数组的大小和顺序如下：
+自顶向下
+2, 3, 2, 5, 2, 3, 2, 5, 10, 2, 3, 2, 5, 2, 3, 2, 5, 10, 20, 2, 3, 2, 5, 2, 3, 2, 5, 10, 2, 3, 2, 5, 2, 2, 4, 9, 19, 39
+自底向上
+2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 8, 8, 8, 8, 7, 16, 16, 32, 39</description></item><item><title>2.2.6</title><link>https://alg4.ikesnowy.com/2-2-6/</link><pubDate>Wed, 04 Jul 2018 15:38:20 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-6/</guid><description>2.2.6 # 解答 # 灰色是上限，蓝点是自顶向下，红点是自底向上。
+由于两种排序访问数组的次数是一样的，因此蓝点和红点重合。
+代码 # 给出绘图部分的代码：
+using System; using System.Windows.Forms; using System.Drawing; using Merge; namespace _2._2._6 { /* * 2.2.6 * * 编写一个程序来计算自顶向下和自底向上的归并排序访问数组的准确次数。 * 使用这个程序将 N=1 至 512 的结果绘成曲线图， * 并将其和上限 6NlgN 相比较。 * */ static class Program { /// &amp;lt;summary&amp;gt; /// 应用程序的主入口点。 /// &amp;lt;/summary&amp;gt; [STAThread] static void Main() { Application.EnableVisualStyles(); Application.SetCompatibleTextRenderingDefault(false); Compute(); Application.Run(new Form1()); } static void Compute() { MergeSort mergeSort = new MergeSort(); MergeSortBU mergeSortBU = new MergeSortBU(); int[] mergeResult = new int[10]; int[] mergeResultBU = new int[10]; int[] upperBound = new int[10]; // 进行计算 int dataSize = 1; for (int i = 0; i &amp;lt; 10; i++) { int[] dataMerge = SortCompare.</description></item><item><title>2.2.7</title><link>https://alg4.ikesnowy.com/2-2-7/</link><pubDate>Wed, 04 Jul 2018 15:39:25 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-7/</guid><description>2.2.7 # 解答 # 根据书本给出的命题 G 和命题 H（中文版 P173/176，英文版 P275/279），
+比较次数的下限 $C(N) = 1/2 \times NlgN$
+$N$ 和 $lgN$ 都是单调递增且大于零的($N&amp;gt;1$)，
+因此 $C(N)$ 也是单调递增的。</description></item><item><title>2.2.8</title><link>https://alg4.ikesnowy.com/2-2-8/</link><pubDate>Wed, 04 Jul 2018 15:40:37 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-8/</guid><description>2.2.8 # 解答 # 修改后的算法对已经有序的情况做了优化
+数组对半切分并排序后，
+如果 a[mid] &amp;lt; a[mid + 1](左半部分的最后一个元素小于右半部分的第一个元素)
+那么我们可以直接合并数组，不需要再做多余的操作
+现在的输入是一个已经排序的数组
+算法唯一的比较发生在判断 a[mid] &amp;lt; a[mid + 1] 这个条件时
+假定数组有 $N$ 个元素
+比较次数满足 $T(N) = 2 T(N / 2) + 1, T(1) = 0$
+转化为非递归形式即为：$T(N) = cN / 2 + N - 1$
+其中 $c$ 为任意正整数。</description></item><item><title>2.2.9</title><link>https://alg4.ikesnowy.com/2-2-9/</link><pubDate>Wed, 04 Jul 2018 15:42:31 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-9/</guid><description>2.2.9 # 解答 # 官方给出的归并排序实现中在 Sort 方法里初始化了 aux 数组。
+源码见：https://algs4.cs.princeton.edu/22mergesort/Merge.java.html
+C#实现和官方的实现非常类似，
+首先定义只接受一个参数的公开 Sort 方法，在这个方法里面初始化 aux 数组。
+/// &amp;lt;summary&amp;gt; /// 利用归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.Length]; Sort(a, aux, 0, a.Length - 1); } 然后建立一个私有的递归 Sort 方法做实际的排序操作。
+/// &amp;lt;summary&amp;gt; /// 自顶向下地对数组指定范围内进行归并排序，需要辅助数组。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;原数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;aux&amp;#34;&amp;gt;辅助数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;排序范围起点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;排序范围终点。&amp;lt;/param&amp;gt; private void Sort&amp;lt;T&amp;gt;(T[] a, T[] aux, int lo, int hi) where T : IComparable&amp;lt;T&amp;gt; { if (hi &amp;lt;= lo) return; int mid = lo + (hi - lo) / 2; Sort(a, aux, lo, mid); Sort(a, aux, mid + 1, hi); Merge(a, aux, lo, mid, hi); } 代码 # using System; namespace Merge { /// &amp;lt;summary&amp;gt; /// 归并排序类。 /// &amp;lt;/summary&amp;gt; public class MergeSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSort() { } /// &amp;lt;summary&amp;gt; /// 利用归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.</description></item><item><title>2.2.10</title><link>https://alg4.ikesnowy.com/2-2-10/</link><pubDate>Wed, 04 Jul 2018 15:44:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-10/</guid><description>2.2.10 # 解答 # 官方同样给出了 java 实现，如下：
+private static void merge(Comparable[] a, int lo, int mid, int hi) { for (int i = lo; i &amp;lt;= mid; i++) aux[i] = a[i]; for (int j = mid+1; j &amp;lt;= hi; j++) aux[j] = a[hi-j+mid+1]; int i = lo, j = hi; for (int k = lo; k &amp;lt;= hi; k++) if (less(aux[j], aux[i])) a[k] = aux[j--]; else a[k] = aux[i++]; } C# 实现见代码部分。</description></item><item><title>2.2.11</title><link>https://alg4.ikesnowy.com/2-2-11/</link><pubDate>Wed, 04 Jul 2018 15:45:35 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-11/</guid><description>2.2.11 # 解答 # 官方实现见：https://algs4.cs.princeton.edu/22mergesort/MergeX.java.html
+在 MergeSortX 类里添加一个 CUTOFF 字段，排序时如果数组长度小于它则直接调用插入排序进行排序。
+在调用归并方法前判断第一个有序数组的最后一个元素是否大于第二个有序数组的第一个元素，
+如果大于的话就不需要调用归并了，直接首尾相接即可。
+每次归并都需要两个数组，一个用于存放归并结果，这个数组中的内容是无关紧要的；
+另一个则保存了归并前的数组，用于实际的归并过程。
+归并结束后，前一个数组变成归并后的有序结果（也就是下一次归并时的「归并前数组」），后一个数组中的内容则不再有用。
+我们可以看到这两个数组的角色在下一次归并时正好可以互换。
+要注意的是，归并次数总是一个奇数（左侧归并+右侧归并+总归并），因此在第一次调用 Sort 方法时应该把 aux 和 a 互换传入。
+代码 # using System; namespace Merge { /// &amp;lt;summary&amp;gt; /// 优化后的归并排序类。 /// &amp;lt;/summary&amp;gt; public class MergeSortX : BaseSort { /// &amp;lt;summary&amp;gt; /// 对小于 CUTOFF 的数组使用插入排序。 /// &amp;lt;/summary&amp;gt; private static int CUTOFF = 7; /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortX() { } /// &amp;lt;summary&amp;gt; /// 设置启用插入排序的阈值，小于该阈值的数组将采用插入排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;cutoff&amp;#34;&amp;gt;新的阈值。&amp;lt;/param&amp;gt; public void SetCutOff(int cutoff) =&amp;gt; CUTOFF = cutoff; /// &amp;lt;summary&amp;gt; /// 将指定范围内的元素归并。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;src&amp;#34;&amp;gt;原始数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;dst&amp;#34;&amp;gt;目标数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;范围起点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;mid&amp;#34;&amp;gt;范围中点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;范围终点。&amp;lt;/param&amp;gt; private void Merge&amp;lt;T&amp;gt;(T[] src, T[] dst, int lo, int mid, int hi) where T : IComparable&amp;lt;T&amp;gt; { int i = lo, j = mid + 1; for (int k = lo; k &amp;lt;= hi; k++) { if (i &amp;gt; mid) dst[k] = src[j++]; else if (j &amp;gt; hi) dst[k] = src[i++]; else if (Less(src[j], src[i])) dst[k] = src[j++]; else dst[k] = src[i++]; } } /// &amp;lt;summary&amp;gt; /// 自顶向下地对数组指定范围内进行归并排序，需要辅助数组。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;src&amp;#34;&amp;gt;原数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;dst&amp;#34;&amp;gt;辅助数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;排序范围起点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;排序范围终点。&amp;lt;/param&amp;gt; private void Sort&amp;lt;T&amp;gt;(T[] src, T[] dst, int lo, int hi) where T : IComparable&amp;lt;T&amp;gt; { // 小于 CUTOFF 的数组调用插入排序 if (hi &amp;lt;= lo + CUTOFF) { InsertionSort insertion = new InsertionSort(); insertion.</description></item><item><title>2.2.12</title><link>https://alg4.ikesnowy.com/2-2-12/</link><pubDate>Wed, 04 Jul 2018 15:46:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-12/</guid><description>2.2.12 # 解答 # 中文版的翻译比较难理解。
+实际上就是另一种归并排序的实现方式。
+先把数组分成若干个大小为 M 的块 。
+对于每个块，用选择排序进行排序 。
+随后遍历数组，将各个块归并起来。
+归并时仅复制右侧数组就够了，然后倒着归并（从右到左），可以将额外空间降到 M。
+具体归并流程如下：
+复制右侧数组到 aux，现在右侧数组a[hi]~a[mid+1]中的元素可以被安全覆盖。 设定指针i,j,k，将数组 a[mid]~a[0] 和 aux[hi-mid-1]~aux[mid + 1] 归并到 a[hi - 1]~a[0]。 在这个流程中左侧数组的指针i是不会大于归并的写入指针k的。
+最坏情况下，aux用尽时 i == k，左侧数组可以直接并上去。
+代码 # using System; using Merge; namespace _2._2._12 { /// &amp;lt;summary&amp;gt; /// 归并排序类。 /// &amp;lt;/summary&amp;gt; public class MergeSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSort() { } /// &amp;lt;summary&amp;gt; /// 利用归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Sort(a, 1); } /// &amp;lt;summary&amp;gt; /// 利用分块法进行归并排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;待排序的数组内容。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;M&amp;#34;&amp;gt;分块大小。&amp;lt;/param&amp;gt; public void Sort&amp;lt;T&amp;gt;(T[] a, int M) where T : IComparable&amp;lt;T&amp;gt; { var blockNum = (a.</description></item><item><title>2.2.13</title><link>https://alg4.ikesnowy.com/2-2-13/</link><pubDate>Wed, 04 Jul 2018 15:48:28 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-13/</guid><description>2.2.13 # 解答 # 假设对三个数进行排序，
+这三个数是：35，10，17
+三个数排序的决策树如下，
+结点代表比较对应位置上的数。
+对于 35,10,17 来说，路径遵循右、左、左，最后得到的结果就是 2 3 1（10,17,35）。
+我们可以发现决策树上的每一个叶子节点都代表一种排列顺序，对于 N 个数，叶子节点就有 $N!$ 个
+根据二叉树的性质，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子节点
+那么，对于 $N$ 个数，决策树的高度 $h$ 的最小值可以通过下面这个式子得出来
+$2^h &amp;gt;= n!$
+$h \ge log(n!)$
+因此可以得到决策树高度 $h$ 的最小值是 $log(n!)$
+接下来我们来计算平均路径长度
+我们令函数 $H(k)$ 代表有 $k$ 个叶子节点的平衡决策树的所有路径长度之和
+上例中 $H(6) = 2 + 2 + 3 + 3 + 3 + 3 = 16$
+由于平衡决策树的性质，$H(k) = 2H(k / 2) + k$</description></item><item><title>2.2.14</title><link>https://alg4.ikesnowy.com/2-2-14/</link><pubDate>Wed, 04 Jul 2018 16:04:04 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-14/</guid><description>2.2.14 # 解答 # 比较两个有序队列的第一个元素，取较小的一个出队并放入额外建立的队列中。
+重复上述步骤直到两个队列都为空。
+代码 # /// &amp;lt;summary&amp;gt; /// 归并两个有序队列。输入队列将被清空。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;有序队列的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要归并的队列。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;b&amp;#34;&amp;gt;需要归并的队列。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;归并后的新队列。&amp;lt;/returns&amp;gt; static Queue&amp;lt;T&amp;gt; Merge&amp;lt;T&amp;gt;(Queue&amp;lt;T&amp;gt; a, Queue&amp;lt;T&amp;gt; b) where T : IComparable&amp;lt;T&amp;gt; { Queue&amp;lt;T&amp;gt; sortedQueue = new Queue&amp;lt;T&amp;gt;(); while (!a.IsEmpty() &amp;amp;&amp;amp; !b.IsEmpty()) { if (a.Peek().CompareTo(b.Peek()) &amp;lt; 0) sortedQueue.Enqueue(a.Dequeue()); else sortedQueue.Enqueue(b.Dequeue()); } while (!a.IsEmpty()) sortedQueue.Enqueue(a.Dequeue()); while (!b.IsEmpty()) sortedQueue.Enqueue(b.Dequeue()); return sortedQueue; }</description></item><item><title>2.2.15</title><link>https://alg4.ikesnowy.com/2-2-15/</link><pubDate>Wed, 04 Jul 2018 16:05:03 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-15/</guid><description>2.2.15 # 解答 # 程序思路题目已经给出，按照题意实现即可。
+Merge 方法可以直接使用前一题的实现。
+代码 # using System; namespace _2._2._15 { /// &amp;lt;summary&amp;gt; /// 利用队列归并实现的自底向上的归并排序。 /// &amp;lt;/summary&amp;gt; class MergeSortQueue { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortQueue() { } /// &amp;lt;summary&amp;gt; /// 利用队列归并进行自底向上的归并排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public void Sort&amp;lt;T&amp;gt;(T[] a) where T : IComparable&amp;lt;T&amp;gt; { Queue&amp;lt;Queue&amp;lt;T&amp;gt;&amp;gt; queueList = new Queue&amp;lt;Queue&amp;lt;T&amp;gt;&amp;gt;(); for (int i = 0; i &amp;lt; a.</description></item><item><title>2.2.16</title><link>https://alg4.ikesnowy.com/2-2-16/</link><pubDate>Wed, 04 Jul 2018 16:06:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-16/</guid><description>2.2.16 # 解答 # 自然归并排序的一个示例如下图所示：
+基本过程和自底向上的归并排序类似，只是每次归并的块大小不一定相同。
+时间分析
+随着有序块的变大，排序速度会加快，但增长的数量级也会变高（平均分块大小变大了）。
+代码 # using System; using System.Diagnostics; namespace Merge { /// &amp;lt;summary&amp;gt; /// 自然的归并排序。 /// &amp;lt;/summary&amp;gt; public class MergeSortNatural : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortNatural() { } /// &amp;lt;summary&amp;gt; /// 利用自然的归并排序进行自底向上的排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;用于排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.</description></item><item><title>2.2.17</title><link>https://alg4.ikesnowy.com/2-2-17/</link><pubDate>Wed, 04 Jul 2018 16:08:24 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-17/</guid><description>2.2.17 # 解答 # 排序方式和 2.2.16 十分类似，不再赘述，这里介绍一下归并方法。
+如 gif 图所示，先把要归并的两个链表拆出来，随后确定表头位置，然后进行归并即可。 归并结束后返回 first。
+结果分析如下图所示：
+随着有序部分的增加，对于相同大小的数组自然归并排序的耗时会缩短。
+对于有序部分相同的情况，随着数组大小的倍增，耗时呈现了O(nlogn)的趋势。
+代码 # using System; using System.Diagnostics; using Merge; namespace _2._2._17 { /// &amp;lt;summary&amp;gt; /// 自然的归并排序。 /// &amp;lt;/summary&amp;gt; public class MergeSortNatural : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortNatural() { } /// &amp;lt;summary&amp;gt; /// 利用自然的归并排序进行自底向上的排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;用于排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.</description></item><item><title>2.2.18</title><link>https://alg4.ikesnowy.com/2-2-18/</link><pubDate>Wed, 04 Jul 2018 16:11:22 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-18/</guid><description>2.2.18 # 解答 # 可以在用归并排序的方法做。
+将归并时取两边较小的元素改为随机取一侧的值，即可实现打乱的效果。
+算法的分析和普通归并排序一致，满足题目要求。
+代码 # 分治法打乱链表的实现。
+using System; namespace _2._2._18 { /// &amp;lt;summary&amp;gt; /// 分治法打乱链表。 /// &amp;lt;/summary&amp;gt; public class MergeShuffle { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeShuffle() { } /// &amp;lt;summary&amp;gt; /// 利用分治法打乱链表。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;链表元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;等待打乱的链表。&amp;lt;/param&amp;gt; public void Shuffle&amp;lt;T&amp;gt;(LinkedList&amp;lt;T&amp;gt; a) { int blockLen = 1; Random random = new Random(); while (blockLen &amp;lt;= a.</description></item><item><title>2.2.19</title><link>https://alg4.ikesnowy.com/2-2-19/</link><pubDate>Wed, 04 Jul 2018 16:12:31 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-19/</guid><description>2.2.19 # 解答 # 官方实现：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
+事实上只要在归并排序的时候统计 Less(aux[j], aux[i]) 满足的次数即可，这个次数就是我们要的值。
+代码 # using System; using Merge; namespace _2._2._19 { /// &amp;lt;summary&amp;gt; /// 归并排序类。 /// &amp;lt;/summary&amp;gt; public class MergeSort : BaseSort { public int Counter = 0; /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSort() { } /// &amp;lt;summary&amp;gt; /// 利用归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.</description></item><item><title>2.2.20</title><link>https://alg4.ikesnowy.com/2-2-20/</link><pubDate>Wed, 04 Jul 2018 16:21:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-20/</guid><description>2.2.20 # 解答 # 官方实现：https://algs4.cs.princeton.edu/22mergesort/Merge.java.html
+把 Sort 方法中传入的 a 数组换成一个 index 数组，将 Merge 方法中的判断改为 Less(a[aux[j]], a[aux[i]]) 即可。
+代码 # using System; using Merge; namespace _2._2._20 { /// &amp;lt;summary&amp;gt; /// 归并排序类。 /// &amp;lt;/summary&amp;gt; public class MergeSort : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSort() { } /// &amp;lt;summary&amp;gt; /// 利用归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public int[] IndexSort&amp;lt;T&amp;gt;(T[] a) where T : IComparable&amp;lt;T&amp;gt; { int[] aux = new int[a.</description></item><item><title>2.2.21</title><link>https://alg4.ikesnowy.com/2-2-21/</link><pubDate>Wed, 04 Jul 2018 16:23:19 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-21/</guid><description>2.2.21 # 解答 # 对三份列表进行归并排序（$O(nlogn)$），随后遍历一遍其中的一份表， 用二分查找检查在其余两个表中是否存在相同的姓名（$O(nlogn)$）。
+代码 # using System; using Merge; namespace _2._2._21 { /* * 2.2.21 * * 一式三份。 * 给定三个列表， * 每个列表中包含 N 个名字， * 编写一个线性对数级别的算法来判定三份列表中是否含有公共的名字， * 如果有，返回第一个被找到的这种名字。 * */ class Program { static void Main(string[] args) { string[] name1 = new string[] { &amp;#34;Noah&amp;#34;, &amp;#34;Liam&amp;#34;, &amp;#34;Jacob&amp;#34;, &amp;#34;Mason&amp;#34; }; string[] name2 = new string[] { &amp;#34;Sophia&amp;#34;, &amp;#34;Emma&amp;#34;, &amp;#34;Mason&amp;#34;, &amp;#34;Ava&amp;#34; }; string[] name3 = new string[] { &amp;#34;Mason&amp;#34;, &amp;#34;Marcus&amp;#34;, &amp;#34;Alexander&amp;#34;, &amp;#34;Ava&amp;#34; }; MergeSort mergeSort = new MergeSort(); mergeSort.</description></item><item><title>2.2.22</title><link>https://alg4.ikesnowy.com/2-2-22/</link><pubDate>Wed, 04 Jul 2018 16:24:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-22/</guid><description>2.2.22 # 解答 # 增长数量级为$O(nlogn)$。
+代码 # using System; using System.Diagnostics; namespace Merge { /// &amp;lt;summary&amp;gt; /// 三向归并排序。 /// &amp;lt;/summary&amp;gt; public class MergeSortThreeWay : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortThreeWay() { } /// &amp;lt;summary&amp;gt; /// 利用三项归并排序将数组按升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组中的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;待排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { T[] aux = new T[a.</description></item><item><title>2.2.23</title><link>https://alg4.ikesnowy.com/2-2-23/</link><pubDate>Wed, 04 Jul 2018 16:26:10 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-23/</guid><description>2.2.23 # 解答 # 阈值合适时，大约会有10%的性能提升。
+阈值在 10 以下都是比较合适的。
+代码 # using System; using Merge; namespace _2._2._23 { /* * 2.2.23 * * 改进。 * 用实验评估正文中所提到的归并排序的三项改进（请见练习 2.2.11）的效果， * 并比较正文中实现的归并排序和练习 2.2.10 所实现的归并排序之间的性能。 * 根据经验给出应该在何时为子数组切换到插入排序。 * */ class Program { static void Main(string[] args) { MergeSort mergeSort = new MergeSort(); MergeSortX mergeSortX = new MergeSortX(); MergeSortUnstable mergeSortUnstable = new MergeSortUnstable(); int n = 1000000; int cutoff = 2; int trialTime = 4; Console.</description></item><item><title>2.2.24</title><link>https://alg4.ikesnowy.com/2-2-24/</link><pubDate>Wed, 04 Jul 2018 16:27:25 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-24/</guid><description>2.2.24 # 解答 # 约为 $lgN$ 次
+代码 # using System; using Merge; namespace _2._2._24 { /* * 2.2.24 * * 改进的有序测试。 * 在实验中用大型随机数组评估练习 2.2.8 所做的修改的效果。 * 根据经验用 N（被排序的原始数组的大小）的函数描述条件语句 * （a[mid] &amp;lt;= a[mid + 1]）成立（无论数组是否有序）的次数。 * */ class Program { static void Main(string[] args) { MergeSortX mergeSortX = new MergeSortX(); int n = 10000; int trialTimes = 10; Console.WriteLine(&amp;#34;数组\t平均命中次数&amp;#34;); for (int i = 0; i &amp;lt; 4; i++) { int avgHit = 0; for (int j = 0; j &amp;lt; trialTimes; j++) { mergeSortX.</description></item><item><title>2.2.25</title><link>https://alg4.ikesnowy.com/2-2-25/</link><pubDate>Wed, 04 Jul 2018 16:28:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-25/</guid><description>2.2.25 # 解答 # 事实上 k 的取值无关紧要，实验也证明了这一点。
+算法大致可以分为以下几个步骤 首先将数组划为 k 份，
+用一个数组 mids 记录这 k 个子数组的分割位置
+随后递归的调用 Sort 方法，将这 k 个子数组排序 随后将这 k 个子数组归并，
+每次归并时遍历取 k 个子数组中值最小的一个，
+然后对应子数组的指示器 + 1 上面这一步是 $O(k)$ 的，
+可以用堆或者败者树优化为对数级别
+代码 # using System; using System.Diagnostics; namespace Merge { /// &amp;lt;summary&amp;gt; /// k 路归并排序。 /// &amp;lt;/summary&amp;gt; public class MergeSortKWay : BaseSort { /// &amp;lt;summary&amp;gt; /// 同时归并的数组数目。 /// &amp;lt;/summary&amp;gt; public int K { get; set; } /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MergeSortKWay() { this.</description></item><item><title>2.2.26</title><link>https://alg4.ikesnowy.com/2-2-26/</link><pubDate>Wed, 04 Jul 2018 16:36:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-26/</guid><description>2.2.26 # 解答 # 差距还是比较明显的，由于 Merge 会调用多次，而用于启动递归的 Sort 方法只会调用一次。
+代码 # using System; using Merge; namespace _2._2._26 { /* * 2.2.26 * * 创建数组。 * 使用 SortCompare 粗略比较在你的计算机上 * 在 merge() 中和在 sort() 中创建 aux[] 的性能差异。 * */ class Program { static void Main(string[] args) { AuxInSortMergeSort auxInSort = new AuxInSortMergeSort(); AuxInMergeMergeSort auxInMerge = new AuxInMergeMergeSort(); int[] data1 = SortCompare.GetRandomArrayInt(100000); int[] data2 = new int[data1.Length]; data1.CopyTo(data2, 0); Console.</description></item><item><title>2.2.27</title><link>https://alg4.ikesnowy.com/2-2-27/</link><pubDate>Wed, 04 Jul 2018 16:38:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-27/</guid><description>2.2.27 # 解答 # 大致上会是一个对数函数，用 Excel 做了简单的拟合。
+原始数据：
+表中的 n 代表某一个子数组用尽时两个子数组之和，rest 是另一个未用尽的子数组平均剩余长度，times 代表出现次数，表中删去了出现次数小于 100 次的数据。
+n rest times 2 0.331378 48576 3 0.333894 213568 6 0.603899 48576 7 0.596223 82496 14 0.773263 48576 15 0.796285 16960 29 0.879808 15808 30 0.883432 16960 60 0.950848 15808 61 0.</description></item><item><title>2.2.28</title><link>https://alg4.ikesnowy.com/2-2-28/</link><pubDate>Wed, 04 Jul 2018 16:44:18 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-28/</guid><description>2.2.28 # 解答 # 自底向上会快一些，省去了递归过程中函数重复调用的时间。
+代码 # using System; using Merge; namespace _2._2._28 { /* * 2.2.28 * * 自顶向下和自底向上。 * 对于 N=10^3、10^4、10^5 和 10^6， * 使用 SortCompare 比较自顶向下和自底向上的归并排序的性能。 * */ class Program { static void Main(string[] args) { int n = 1000; MergeSort topBottomMergeSort = new MergeSort(); MergeSortBU bottomUpMergeSort = new MergeSortBU(); int trialTimes = 100; for (int i = 0; i &amp;lt; 4; i++) { Console.</description></item><item><title>2.2.29</title><link>https://alg4.ikesnowy.com/2-2-29/</link><pubDate>Wed, 04 Jul 2018 16:45:29 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-29/</guid><description>2.2.29 # 解答 # 完全有序时只需要一次归并（直接输出），
+逆序时需要 n - 1 次归并（退化为插入排序），
+平均需要 n/2 次归并。
+所以分别需要 500，500000，500000000 次归并。</description></item><item><title>2.3.1</title><link>https://alg4.ikesnowy.com/2-3-1/</link><pubDate>Fri, 06 Jul 2018 14:21:37 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-1/</guid><description>2.3.1 # 解答 #</description></item><item><title>2.3.2</title><link>https://alg4.ikesnowy.com/2-3-2/</link><pubDate>Fri, 06 Jul 2018 16:51:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-2/</guid><description>2.3.2 # 解答 #</description></item><item><title>2.3.3</title><link>https://alg4.ikesnowy.com/2-3-3/</link><pubDate>Sun, 08 Jul 2018 19:36:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-3/</guid><description>2.3.3 # 解答 # N / 2
+在快速排序中，一个元素要被交换，有以下两种情况
+1.该元素是枢轴，在切分的最后一步被交换
+2.该元素位于枢轴错误的一侧，需要被交换到另一侧去
+注意，以上两种情况在一次切分中只会出现一次
+首先来看第一种情况，如果一个元素变成了枢轴
+那么在之后的切分中该元素会被排除，不存在后续的交换。
+因此我们的目标应该是：
+最大的元素总是出现在错误的一侧，同时切分的次数尽可能多。
+接下来我们来思考如何构造这样的数组
+由于我们针对的是最大的元素，因此「错误的一侧」就是枢轴的左侧。
+为了使切分的次数尽可能多，我们需要保持最大值移动的距离尽量短。
+但如果每次只移动一位的话，下一次切分时最大值就会变成枢轴
+例如 4 10 3 5 6，枢轴为 4，交换后数组变为：
+4 3 10 5 6
+随后 4 和 3 交换
+3 4 10 5 6
+下一次切分时 10 会变成枢轴，不再参与后续的切分。
+因此我们需要让最大值每次移动两个元素。
+考虑下面的数组：
+2 10 4 1 6 3 8 5 7 9
+第一次切分的时候，枢轴为 2，10 和 1 进行交换
+数组变为：
+2 1 4 10 6 3 8 5 7 9</description></item><item><title>2.3.4</title><link>https://alg4.ikesnowy.com/2-3-4/</link><pubDate>Sun, 08 Jul 2018 20:09:55 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-4/</guid><description>2.3.4 # 解答 # 每次只让枢轴变为已排序，这就是最坏情况。
+这种时候枢轴是当前子数组的最大值 / 最小值。
+由于在我们的实现中总是取子数组的第一个元素作为枢轴。
+因此一个已排序的数组可以达到最坏情况，比较次数达到 O(n^ 2)。
+如果换作取最后一个元素，最坏情况会变成逆序数组。
+我们的实现中如果碰到与枢轴相等的元素也会停止循环，
+因此如果数组中有重复的元素会减少比较次数。
+例如：
+1 2 3 4 5 6 7 8 9 10 2 3 4 5 6 7 8 9 10 11 3 4 5 6 7 8 9 10 11 12 4 5 6 7 8 9 10 11 12 13 5 6 7 8 9 10 11 12 13 14 6 7 8 9 10 11 12 13 14 15 另请参阅 # Analysis of Quicksort-khanacademy</description></item><item><title>2.3.5</title><link>https://alg4.ikesnowy.com/2-3-5/</link><pubDate>Sun, 08 Jul 2018 21:59:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-5/</guid><description>2.3.5 # 解答 # 官方实现：https://algs4.cs.princeton.edu/23quicksort/Sort2distinct.java.html
+算法 gif 动图
+代码 # namespace Quick { /// &amp;lt;summary&amp;gt; /// 用于将只有两种元素的数组排序。 /// &amp;lt;/summary&amp;gt; public class Sort2Distinct : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public Sort2Distinct() { } /// &amp;lt;summary&amp;gt; /// 对数组 a 进行排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组 a 的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { int lt = 0, gt = a.</description></item><item><title>2.3.6</title><link>https://alg4.ikesnowy.com/2-3-6/</link><pubDate>Mon, 09 Jul 2018 16:03:23 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-6/</guid><description>2.3.6 # 解答 # 运行结果如下：
+代码 # 新建一个 QuickSortAnalyze 类，在 QuickSort 的基础上添加一个 CompareCount 属性，用于记录比较次数。重写 Less 方法，每调用一次就让 CompareCount 增加 1 。
+using System; using System.Diagnostics; namespace Quick { /// &amp;lt;summary&amp;gt; /// 自动记录比较次数以及子数组数量的快速排序类。 /// &amp;lt;/summary&amp;gt; public class QuickSortAnalyze : BaseSort { /// &amp;lt;summary&amp;gt; /// 比较次数。 /// &amp;lt;/summary&amp;gt; public int CompareCount { get; set; } /// &amp;lt;summary&amp;gt; /// 是否启用打乱。 /// &amp;lt;/summary&amp;gt; public bool NeedShuffle { get; set; } /// &amp;lt;summary&amp;gt; /// 是否显示轨迹。 /// &amp;lt;/summary&amp;gt; public bool NeedPath { get; set; } /// &amp;lt;summary&amp;gt; /// 大小为 0 的子数组数量。 /// &amp;lt;/summary&amp;gt; public int Array0Num { get; set; } /// &amp;lt;summary&amp;gt; /// 大小为 1 的子数组数量。 /// &amp;lt;/summary&amp;gt; public int Array1Num { get; set; } /// &amp;lt;summary&amp;gt; /// 大小为 2 的子数组数量。 /// &amp;lt;/summary&amp;gt; public int Array2Num { get; set; } /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public QuickSortAnalyze() { this.</description></item><item><title>2.3.7</title><link>https://alg4.ikesnowy.com/2-3-7/</link><pubDate>Tue, 10 Jul 2018 15:12:35 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-7/</guid><description>2.3.7 # 解答 # 我讨厌数学= =
+证明：
+我们设 $C_0(n)$ 代表将 $n$ 个不重复元素排序时大小为 0 的数组的数量。
+同理有 $C_1(n)$ 和 $C_2(n)$ 代表大小为 1 的数组的数量以及大小为 2 的数组的数量。
+设 k 代表切分位置，显然切分位置随机且概率相等，在 1~n 之间均匀分布。
+根据条件，$C_0(n), C_1(n),C_2(n)$ 都满足下式：
+$$
+C(n)= \frac{\sum_{k=1}^{n}(C(k-1)+C(n-k))}{n}
+$$
+根据快速排序算法， $\sum_{k=1}^{n}C(k-1)=\sum_{k=1}^{n}C(n-k)$ ，因此
+$$
+C(n)=\frac{2\sum_{k=1}^{n}C(k-1)}{n}\
+nC(n)=2\sum_{k-1}^{n}C(k-1)
+$$
+同理代入 $n-1$ 有
+$$
+(n-1)C(n-1)=2\sum_{k-1}^{n-1}C(k-1)
+$$
+相减
+$$
+nC(n)-(n-1)C(n-1)=2C(n-1)\
+C(n)=\frac{n+1}{n}C(n-1)
+$$
+利用累乘法求到通项公式
+$$
+\frac{C(n)}{C(n-1)}=\frac{n+1}{n} \
+\frac{C(n)}{C(n-1)}\times\frac{C(n-1)}{C(n-2)}\times\dots\times\frac{C(m+1)}{C(m)}=
+\frac{n+1}{n}\times\frac{n}{n-1}\times\dots\times\frac{m+2}{m+1}\
+\frac{C(n)}{C(m)}=\frac{n+1}{m+1}\
+C(n)=C(m)\frac{n+1}{m+1}，n&amp;gt;m
+$$
+对于 $C_0(n)$ ，我们有初始条件 $C_0(0)=1, C_0(1)=0,C_0(2)=C_0(0)+C_0(1)=1$
+$$</description></item><item><title>2.3.8</title><link>https://alg4.ikesnowy.com/2-3-8/</link><pubDate>Tue, 10 Jul 2018 18:52:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-8/</guid><description>2.3.8 # 解答 # 每次切分都会把数组平分，共切分 logN 次（二分法），每次切分比较 N 次（i 和 j 会一位一位地从两边向中间靠拢）。
+共比较 NlogN 次。</description></item><item><title>2.3.9</title><link>https://alg4.ikesnowy.com/2-3-9/</link><pubDate>Wed, 11 Jul 2018 12:29:09 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-9/</guid><description>2.3.9 # 解答 # 切分时，枢轴左侧都是小于（或等于）枢轴的，
+右侧都是大于（或等于）枢轴的
+只有两种主键值时，
+第一次切分之后，某一侧的元素将全部相同
+（如果枢轴选了较大的，那么右侧将全部相同，反之则左侧全部相同）
+只有三种主键值时，和一般快速排序并无不同。
+但如果第一次切分时选择了中间值作为枢轴，且中间值只有一个
+那么只需要一次切分数组便会有序。</description></item><item><title>2.3.10</title><link>https://alg4.ikesnowy.com/2-3-10/</link><pubDate>Wed, 11 Jul 2018 13:29:12 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-10/</guid><description>2.3.10 # 解答 # 切比雪夫不等式（Chebyshev’s inequality）
+$$
+P(|X-\mu|\geq k\sigma)\leq \frac{1}{k^2}
+$$
+其中，$\mu$ 代表期望，$\sigma$ 代表标准差。
+对于快速排序的比较次数来说，$\mu = 2N\ln N$ ，$\sigma=0.65N$。
+（这两个结论见 2.3 节的命题 K 和命题 L）
+题目中要求比较次数大于 $0.1N^2$ ，可以求得 $k$ 的值。
+$$
+0.65kN=0.1N^2 \
+k=\frac{2N}{13}
+$$
+将 $N=1,000,000$ 代入
+$$
+P(|X-27,631,021|\geq 100,000,000,000)\leq 0.00000000004225
+$$
+另请参阅 # 切比雪夫不等式到底是个什么概念? - 马同学的回答 - 知乎</description></item><item><title>2.3.11</title><link>https://alg4.ikesnowy.com/2-3-11/</link><pubDate>Wed, 11 Jul 2018 15:45:48 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-11/</guid><description>2.3.11 # 解答 # 只有若干种元素值意味着大量的连续重复。
+（由于存在打乱这一步骤，不存在连续重复的可能性是很低的）
+接下来我们考虑这样的连续重复在修改后的快排下的性能。
+1 1 1 1 1 1 1
+对于这样的数组，枢轴选为 1，j 将会在 j = lo 处终止。
+因此最后的结果将是每次只有数组的第一个元素被排序
+已知每次切分都是 O(k - 1) 的（i 和 j 都将走完整个子数组）
+因此这样的快速排序所需时间 = $2 (N - 1 + N - 2 + \cdots + 1) = (N - 1)N$
+因此对于值相同的子数组，这样的快排运行时间是平方级别的
+那么当数组中这样的连续重复内容越多，运行时间就越接近平方级别。</description></item><item><title>2.3.12</title><link>https://alg4.ikesnowy.com/2-3-12/</link><pubDate>Wed, 11 Jul 2018 17:50:26 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-12/</guid><description>2.3.12 # 解答 #</description></item><item><title>2.3.13</title><link>https://alg4.ikesnowy.com/2-3-13/</link><pubDate>Thu, 12 Jul 2018 14:53:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-13/</guid><description>2.3.13 # 解答 # 快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。
+在这里，我们可以将快速排序的递归树看作是一棵二叉搜索树（BST, Binary Search Tree）。
+枢轴作为根结点，左子树即为左数组构造的 BST，右子树即为右数组构造的 BST。
+这样题目中所求的递归深度即为所构造的 BST 的高度。
+最坏情况，每次都只有枢轴和大于枢轴两部分，BST 退化为链表，高度为 $n-1$。
+最好情况，每次枢轴都正好平分数组，构造一棵完全二叉树，高度为 $\log n$。
+平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？
+《算法导论》给出的结论是 $\log n$ ，具体证明如下：
+设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：
+$$
+h_n=1+\max(h_{l}+h_{r})
+$$
+其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。
+设枢轴位置为 $i$，上式可简化为：
+$$
+h_n=1+\max(h_{i-1}, h_{n-i})
+$$
+由于枢轴位置可以在 1~n 之间任意取值且概率相等，因此 BST 的平均高度（即高度的期望）为：
+$$
+E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack
+$$
+我们令 $Y_n=2^{h_n}$，可得：
+$$
+Y_n=2\times\max(Y_{i-1},Y_{n-i})
+$$</description></item><item><title>2.3.14</title><link>https://alg4.ikesnowy.com/2-3-14/</link><pubDate>Sat, 14 Jul 2018 15:03:40 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-14/</guid><description>2.3.14 # 解答 # 中文版题目有误，详见官方勘误页面：https://algs4.cs.princeton.edu/errata/errata-printing3.php
+假设 $ i &amp;lt; j​$ 。
+首先，在快速排序中，如果两个元素要发生交换，意味着其中一个元素被选为枢轴。
+而且数组中的元素各不相同，那么两个特定的元素的比较最多发生一次。
+那么先考虑一个特殊情况，$i = 1, j = n$ ，即求最大值和最小值比较的概率。
+此时，一旦枢轴不是这两个元素之一，
+最大值和最小值会被分到两个不同的子数组，无法发生比较。
+因此在这种特例下第 $i$ 大的元素和第 $j $ 大的元素发生比较的概率为 $\frac{2}{n} = \frac{2}{j-i+1}$ 。
+接下来考虑一般情况，如果枢轴选择了第 $i$ 到第 $j$ 大之外的元素，
+那么第 $i$ 大和第 $j$ 大的元素会被分到同一个子数组里，重复上述过程。
+因此我们所求的概率只和从第 $i$ 大到第 $j$ 大之间的元素有关，概率为 $\frac{2}{j-i+1}$。
+（举个例子，一个箱子里有 2 个红球、1个蓝球和 7 个白球，现在摸球而不放回。
+如果摸到白球可以再摸一次，直到摸到红球或蓝球为止。
+显然在这样的规则下摸到红球或蓝球的概率为 1，即白球对概率没有影响。）
+现在我们已经得到了某两个元素比较的概率 $E(X_{ij})$，接下来我们求每两个元素比较的概率 $E(X)$。
+$$
+\begin{align}
+E(X)
+&amp;amp;= \sum_{i=1}^{n}\sum_{j=i+1}^{n}E(X_{ij})\
+&amp;amp;=\sum_{i=1}^{n}2(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n-i+1}) \
+&amp;amp;&amp;lt;2n(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n})
+\end{align}</description></item><item><title>2.3.15</title><link>https://alg4.ikesnowy.com/2-3-15/</link><pubDate>Sun, 15 Jul 2018 13:07:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-15/</guid><description>2.3.15 # 解答 # 事实上只需要修改快速排序的切分方法，分两次进行切分。
+首先选第一个螺母作为枢轴，找到对应的螺丝（$O(n)$）放到第一位，对螺丝数组进行切分。
+然后再用找到的螺丝对螺母数组进行切分。
+螺母类，实现了对螺丝类的 IComparable 接口
+/// &amp;lt;summary&amp;gt; /// 螺母类。 /// &amp;lt;/summary&amp;gt; public class Nut&amp;lt;T&amp;gt; : IComparable&amp;lt;Bolt&amp;lt;T&amp;gt;&amp;gt; where T : IComparable&amp;lt;T&amp;gt; { /// &amp;lt;summary&amp;gt; /// 螺母的值。 /// &amp;lt;/summary&amp;gt; public T Value { get; set; } /// &amp;lt;summary&amp;gt; /// 螺母的构造函数。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;value&amp;#34;&amp;gt;螺母的值。&amp;lt;/param&amp;gt; public Nut(T value) =&amp;gt; this.Value = value; /// &amp;lt;summary&amp;gt; /// 比较方法，螺母只能和螺丝比较。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;other&amp;#34;&amp;gt;需要比较的螺丝。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; public int CompareTo(Bolt&amp;lt;T&amp;gt; other) { return this.</description></item><item><title>2.3.16</title><link>https://alg4.ikesnowy.com/2-3-16/</link><pubDate>Thu, 19 Jul 2018 22:06:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-16/</guid><description>2.3.16 # 解答 # 官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBest.java.html
+类似于快速排序的结构，只要中点的两边都是最佳情况，那么整个数组就是最佳情况了。
+具体方法是：
+首先构造一个有序数组，
+然后找到中点（作为枢轴），
+对中点左右两侧子数组进行构造，
+将选择的枢轴放到开始处(a[lo])。
+代码 # 用于构造最佳数组的类。
+namespace Quick { /// &amp;lt;summary&amp;gt; /// 构建快速排序最佳情况的类。 /// &amp;lt;/summary&amp;gt; public class QuickBest { /// &amp;lt;summary&amp;gt; /// 构造函数，这个类不应该被实例化。 /// &amp;lt;/summary&amp;gt; private QuickBest() { } /// &amp;lt;summary&amp;gt; /// 构造适用于快速排序的最佳数组。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;n&amp;#34;&amp;gt;数组长度。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; public static int[] Best(int n) { int[] a = new int[n]; for (int i = 0; i &amp;lt; n; i++) { a[i] = i; } Best(a, 0, n - 1); return a; } /// &amp;lt;summary&amp;gt; /// 递归的构造数组。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要构造的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;构造的起始下标。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;构造的终止下标。&amp;lt;/param&amp;gt; private static void Best(int[] a, int lo, int hi) { if (hi &amp;lt;= lo) return; int mid = lo + (hi - lo) / 2; Best(a, lo, mid - 1); Best(a, mid + 1, hi); Exch(a, lo, mid); } /// &amp;lt;summary&amp;gt; /// 交换数组中的两个元素。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;包含要交换元素的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;x&amp;#34;&amp;gt;需要交换的第一个元素下标。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;y&amp;#34;&amp;gt;需要交换的第二个元素下标。&amp;lt;/param&amp;gt; private static void Exch(int[] a, int x, int y) { int t = a[x]; a[x] = a[y]; a[y] = t; } } } 用于测试的方法</description></item><item><title>2.3.17</title><link>https://alg4.ikesnowy.com/2-3-17/</link><pubDate>Sun, 22 Jul 2018 21:48:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-17/</guid><description>2.3.17 # 解答 # 按照题意修改代码即可，在调用 Suffle() 之后添加一段用于寻找最大值的方法（$O(n)$）。
+/// &amp;lt;summary&amp;gt; /// 用快速排序对数组 a 进行升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Shuffle(a); // 把最大元素放到最后一位 int maxIndex = 0; for (int i = 0; i &amp;lt; a.Length; i++) { if (Less(a[maxIndex], a[i])) maxIndex = i; } Exch(a, maxIndex, a.Length - 1); Sort(a, 0, a.Length - 1); Debug.Assert(IsSorted(a)); } 代码 # 修改后的快速排序类。</description></item><item><title>2.3.18</title><link>https://alg4.ikesnowy.com/2-3-18/</link><pubDate>Tue, 24 Jul 2018 18:13:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-18/</guid><description>2.3.18 # 解答 # 每次切分时都取前三个元素的中位数作为枢轴，这可以带来约 5%~10% 的性能提升。
+这里通过三次比较将前三个数排序，然后把三个数中的中位数放到数组开头，最大值放到数组末尾。
+最大值被放到了末尾，枢轴不可能大于末尾的这个数，因此右边界判断可以去掉。
+同时由于枢轴不可能小于自身，因此左边界判断也可以去掉。
+这样就可以把切分中的两个边界判断全部去掉了。
+最后对于大小为 2 的数组做特殊处理，通过一次比较直接排序并返回。
+测试结果：
+代码 # QuickSortMedian3
+using System; using System.Diagnostics; using Quick; namespace _2._3._18 { /// &amp;lt;summary&amp;gt; /// 三取样快速排序 /// &amp;lt;/summary&amp;gt; public class QuickSortMedian3 : BaseSort { /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public QuickSortMedian3() {} /// &amp;lt;summary&amp;gt; /// 用快速排序对数组 a 进行升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Shuffle(a); Sort(a, 0, a.</description></item><item><title>2.3.19</title><link>https://alg4.ikesnowy.com/2-3-19/</link><pubDate>Sat, 28 Jul 2018 13:45:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-19/</guid><description>2.3.19 # 解答 # 主要介绍一下这个少于七次比较的五取样算法。
+首先假设五个数字为 a b c d e
+对 b c 排序，d e 排序。（两次比较）
+比较 b 和 d，把较小那一组换到 b c 的位置上去。（一次比较）
+此时会有 b &amp;lt; c, b &amp;lt; d &amp;lt; e。
+交换 a, b，重新对 b c 排序。（一次比较）
+再次比较 b 和 d，把较小的那一组换到 b c 的位置上。（一次比较）
+最后比较 c 和 d，较小的那一个即为中位数。（一次比较）
+总共需要 6 次比较，严格小于 7 次。
+取样完毕后，a b 是最小值和次小值（这里没有对应关系，a 也可以是次小值）。
+d 和 e 是最大值和次大值（同样没有对应关系）。
+我们把 d 和 e 放到数组的最后作为哨兵，去掉右边界的判断。</description></item><item><title>2.3.20</title><link>https://alg4.ikesnowy.com/2-3-20/</link><pubDate>Sun, 29 Jul 2018 21:47:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-20/</guid><description>2.3.20 # 解答 # 事实上就是用一个栈保存每次切分后的子数组下标。
+关键代码如下：
+/// &amp;lt;summary&amp;gt; /// 用快速排序对数组 a 进行升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Shuffle(a); Stack&amp;lt;int&amp;gt; stack = new Stack&amp;lt;int&amp;gt;(); stack.Push(0); stack.Push(a.Length - 1); while (stack.Count != 0) { // 压入顺序是先 lo，再 hi，故弹出顺序是先 hi 再 lo int hi = stack.Pop(); int lo = stack.Pop(); if (hi &amp;lt;= lo) continue; int j = Partition(a, lo, hi); // 让较大的子数组先入栈（先排序较小的子数组） if (j - lo &amp;gt; hi - j) { stack.</description></item><item><title>2.3.21</title><link>https://alg4.ikesnowy.com/2-3-21/</link><pubDate>Tue, 31 Jul 2018 22:11:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-21/</guid><description>2.3.21 # 解答 # 首先引入命题 I 的结论，对于互不相同的主键值，基于比较的排序算法的下界等于所形成的比较树的高度，即：
+$$
+h \ge \log_2{N!}
+$$
+那么我们题目即可转化为求证
+$$
+h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N!
+$$
+这里的 $f_i$ 为某个主键值出现的频率，即某个主键值出现的次数，因此 $f_i\ge 1$ 。
+根据题目给出的条件，如果主键互不重复，此时 $k=N$，且 $f_1=f_2=\cdots=f_k=1$ 。
+那么 $f_1!f_2!\cdots f_k!=1$ ，待证式子即为命题 I 的结论。
+那么当主键有重复时，此时 $k &amp;lt; N$，为使 $f_1+f_2+ \cdots + f_k=N$ ，至少存在一个 $f_m \ge 2$。
+故此时：
+$$
+f_1!f_2!\cdots f_k! &amp;gt;1\Rightarrow \frac{N!}{f_1!f_2!\cdots f_k!}&amp;lt;N! \Rightarrow \
+h \ge \log_2 (\frac{N!}{f_1!f_2!\cdots f_k!}) \ge \log_2 N! \ \blacksquare</description></item><item><title>2.3.22</title><link>https://alg4.ikesnowy.com/2-3-22/</link><pubDate>Thu, 02 Aug 2018 11:31:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-22/</guid><description>2.3.22 # 解答 # 官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
+快速三向切分 # 论文引用见「另请参阅」部分。
+算法演示
+Ninther 算法 # 官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
+该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。
+这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：
+$$
+y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace
+$$
+现在对于九个数，我们以三个为一组，取三个中位数：
+$$
+y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \
+y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \
+y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace
+$$
+接下来取这三个中位数的中位数，有：
+$$
+y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace
+$$
+我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。</description></item><item><title>2.3.23</title><link>https://alg4.ikesnowy.com/2-3-23/</link><pubDate>Sat, 04 Aug 2018 20:23:21 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-23/</guid><description>2.3.23 # 解答 # 官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
+见 2.3.22 的解答，其中已经包含了这些改动。
+代码 # QuickBentleyMcIlroy
+using System; using System.Diagnostics; namespace Quick { public class QuickBentleyMcIlroy : BaseSort { /// &amp;lt;summary&amp;gt; /// 小于这个数值的数组调用插入排序。 /// &amp;lt;/summary&amp;gt; private readonly int INSERTION_SORT_CUTOFF = 8; /// &amp;lt;summary&amp;gt; /// 小于这个数值的数组调用中位数作为枢轴。 /// &amp;lt;/summary&amp;gt; private readonly int MEDIAN_OF_3_CUTOFF = 40; /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public QuickBentleyMcIlroy() { } /// &amp;lt;summary&amp;gt; /// 用快速排序对数组 a 进行升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Sort(a, 0, a.</description></item><item><title>2.3.24</title><link>https://alg4.ikesnowy.com/2-3-24/</link><pubDate>Sun, 05 Aug 2018 22:04:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-24/</guid><description>2.3.24 # 解答 # 取样排序的想法很简单：
+常规快排的枢轴只有一个。
+如果用一个数组来充当枢轴，根据排序位置的不同自动选择对应的枢轴，
+显然能够更好的估计中位数，以求更好的切分效果。
+于是引入了「取样」的概念，假如我们从源数组中随机取了 3 个元素并对其排序，
+那么这 3 个元素的中位数可以作为第一次切分的枢轴，剩余两个元素则可以充当切分后两个子数组的枢轴。
+那么当取样元素到达一个合适的数量时，就能达到提升切分效率的目标。
+大致思路如下：
+首先先从输入数组里随机取一些元素，作为「取样数组」。
+用任意排序算法（比如快排）对取样数组进行排序。
+（由于取样数组通常都比较小，这一步的时间消耗通常不会影响性能）
+取出取样数组里面的中位数，当作枢轴对剩下的数组进行切分。
+之后的切分中，根据排序区间在剩余数组中的相对位置，
+用取样数组中对应位置的数作为枢轴，直到整个排序完成。
+论文里提到了两种实现方式。
+第一种方法
+取样数组和剩余数组是分开保存的。
+每次切分完成后，并不把枢轴放入剩余数组中，
+而是等到剩余数组全部排序完毕之后再用一次归并（merge）操作将取样数组和剩余数组归并。
+第二种方法
+取样数组和剩余数组保存在同一片空间里，这也是这份题解所实现的方法。
+在打乱输入数组之后，取前 2^k-1 个元素作为取样数组，用快排对其排序。
+然后把取样数组的后半部分放到整个数组的末尾。
+这样操作的结果是输入数组分为了四个部分：
+有序的取样数组、取样数组的中位数、无序的剩余数组、有序的取样数组。
+中位数则位于第一部分的末尾，我们将其作为枢轴对剩余数组进行切分，数组变为：
+有序的取样数组、小于中位数的部分、枢轴、大于中位数的部分、有序的取样数组
+接下来我们再对第一个部分取半，放到中位数之前；对最后一部分取半，放到中位数之后：
+0 ~ 1/4 取样数组、小于中位数、1/4 ~ 1/2 取样数组、枢轴、1/2~3/4 取样数组、大于中位数、3/4~1 取样数组
+你会发现枢轴前后又分别变回了初始条件，递归执行上述操作，便能对整个数组排序。
+注意当取样数组用完的时候，直接变回普通的快排。
+现代的取样排序
+这里的「现代」并不意味着更好，只是让取样排序能更好的适应多线程排序。
+首先仍然是取样，取样的数量往往取决于线程的数量，比如说取了 p-1 个，就将数组分为 p 份。
+对取样数组进行排序，获得 p 个区间（桶）。
+遍历输入的数组，把元素扔到相应的桶里面。
+把每个桶和对应的枢轴送到对应的线程进行排序。
+汇总各个桶中的结果，排序完毕。
+测试结果：
+大概能提升 5%~10% 的性能。
+代码 # using System; using System.</description></item><item><title>2.3.25</title><link>https://alg4.ikesnowy.com/2-3-25/</link><pubDate>Mon, 06 Aug 2018 19:10:28 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-25/</guid><description>2.3.25 # 解答 # 切换到插入排序的实现比较简单，在类内添加一个成员变量 M，在 Sort 方法里添加如下代码：
+protected void Sort&amp;lt;T&amp;gt;(T[] a, int lo, int hi) where T: IComparable&amp;lt;T&amp;gt; { if (hi &amp;lt;= lo) // 别越界 return; if (hi - lo &amp;lt;= this.M) { // 调用插入排序 for (int i = lo; i &amp;lt;= hi; i++) for (int k = i; k &amp;gt; lo &amp;amp;&amp;amp; Less(a[k], a[k - 1]); k--) Exch(a, k, k - 1); return; } int j = Partition(a, lo, hi); Sort(a, lo, j - 1); Sort(a, j + 1, hi); } 下面放上实验结果：</description></item><item><title>2.3.26</title><link>https://alg4.ikesnowy.com/2-3-26/</link><pubDate>Mon, 06 Aug 2018 21:14:41 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-26/</guid><description>2.3.26 # 解答 # 在切换为插入排序之前先记录一下当前子数组的大小。
+在排序类内添加一个大小为 M+1 的数组，用于记录每种数组大小出现的次数。
+结果如下（N=100000）：
+M=10
+M=20
+M=50
+代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._26 { public partial class Form2 : Form { private int M; private int N; public Form2(int m, int n) { InitializeComponent(); this.M = m; this.N = n; } /// &amp;lt;summary&amp;gt; /// 启动页面时启动后台测试。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;sender&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;e&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; private void Form2_Shown(object sender, EventArgs e) { this.</description></item><item><title>2.3.27</title><link>https://alg4.ikesnowy.com/2-3-27/</link><pubDate>Mon, 06 Aug 2018 21:42:23 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-27/</guid><description>2.3.27 # 解答 # 实验结果如下：
+P.S. 测试机上的缓存是 L1 128K，L2 512K，L3 4MB。
+代码 # QuickSortIgnore
+using System; using System.Diagnostics; using Quick; namespace _2._3._27 { /// &amp;lt;summary&amp;gt; /// 快速排序类。 /// &amp;lt;/summary&amp;gt; public class QuickSortIgnore : BaseSort { /// &amp;lt;summary&amp;gt; /// 切换到插入排序的阈值。 /// &amp;lt;/summary&amp;gt; public int M { get; set; } /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public QuickSortIgnore() { this.M = 10; } /// &amp;lt;summary&amp;gt; /// 用快速排序对数组 a 进行升序排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public override void Sort&amp;lt;T&amp;gt;(T[] a) { Shuffle(a); Sort(a, 0, a.</description></item><item><title>2.3.28</title><link>https://alg4.ikesnowy.com/2-3-28/</link><pubDate>Mon, 06 Aug 2018 22:21:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-28/</guid><description>2.3.28 # 解答 # 对 Sort 方法做修改，添加一个层层传递的 depth 参数，每加一层 depth 就加一，结束时取左右较大的 depth 返回。
+protected int Sort&amp;lt;T&amp;gt;(T[] a, int lo, int hi, int depth) where T: IComparable&amp;lt;T&amp;gt; { if (hi &amp;lt;= lo) // 别越界 return depth; if (hi - lo &amp;lt;= this.M) { // 调用插入排序 for (int i = lo; i &amp;lt;= hi; i++) for (int k = i; k &amp;gt; lo &amp;amp;&amp;amp; Less(a[k], a[k - 1]); k--) Exch(a, k, k - 1); return depth; } int j = Partition(a, lo, hi); int left = Sort(a, lo, j - 1, depth + 1); int right = Sort(a, j + 1, hi, depth + 1); return Less(left, right) ?</description></item><item><title>2.3.29</title><link>https://alg4.ikesnowy.com/2-3-29/</link><pubDate>Mon, 06 Aug 2018 22:40:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-29/</guid><description>2.3.29 # 解答 # 在快排类内部添加一个随机数发生器，每次随机取枢轴并交换至第一位进行切分。
+private int Partition&amp;lt;T&amp;gt;(T[] a, int lo, int hi) where T : IComparable&amp;lt;T&amp;gt; { int i = lo, j = hi + 1; int pivot = this.RandomGenerator.Next(hi - lo) + lo; Exch(a, pivot, lo); T v = a[lo]; while (true) { while (Less(a[++i], v)) if (i == hi) break; while (Less(v, a[--j])) if (j == lo) break; if (i &amp;gt;= j) break; Exch(a, i, j); } Exch(a, lo, j); return j; } 测试结果：</description></item><item><title>2.3.30</title><link>https://alg4.ikesnowy.com/2-3-30/</link><pubDate>Mon, 06 Aug 2018 23:00:22 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-30/</guid><description>2.3.30 # 解答 # 结果如下，在 N=5000000 时，随机选择枢轴会比事先打乱快一点。
+代码 # using System; using Quick; namespace _2._3._30 { /* * 2.3.30 * * 极端情况。 * 用初始随机化和非初始随机化的快速排序测试练习 2.1.35 和练习 2.1.36 中描述的大型非随机数组。 * 在将这些大数组排序时，乱序对快速排序的性能有何影响？ * */ class Program { static void Main(string[] args) { QuickSortInsertion insertionSort = new QuickSortInsertion(); QuickSortRandomPivot randomSort = new QuickSortRandomPivot(); int n = 5000000; // 高斯分布（正态分布） double[] arrayInsertion = SortCompare.GetNormalDistributionArray(n); double[] arraySelection = new double[n]; arrayInsertion.CopyTo(arraySelection, 0); Console.</description></item><item><title>2.3.31</title><link>https://alg4.ikesnowy.com/2-3-31/</link><pubDate>Tue, 07 Aug 2018 09:37:23 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-3-31/</guid><description>2.3.31 # 解答 # 以下所有结果 T=70
+N=1000
+N=10000
+N=100000
+N=1000000
+代码 # using System; using System.ComponentModel; using System.Drawing; using System.Linq; using System.Windows.Forms; using Quick; namespace _2._3._31 { public partial class Form2 : Form { private int N; private int T; public Form2(int n, int t) { InitializeComponent(); this.N = n; this.T = t; } /// &amp;lt;summary&amp;gt; /// 启动页面时启动后台测试。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;sender&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;e&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; private void Form2_Shown(object sender, EventArgs e) { this.</description></item><item><title>2.4.1</title><link>https://alg4.ikesnowy.com/2-4-1/</link><pubDate>Fri, 10 Aug 2018 20:40:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-1/</guid><description>2.4.1 # 解答 # R R P O T Y I I U Q E U 优先队列的变化如下：
+输入命令 优先队列 输出 P P R P R I P R I O P R I O * P I O R R P I O R * P I O R * I O P I I O I * I I O T I I T * I I T Y I I Y * I I Y * I I * I Q Q U Q U E Q U E * Q E U * E Q * E U U * U E E</description></item><item><title>2.4.2</title><link>https://alg4.ikesnowy.com/2-4-2/</link><pubDate>Fri, 10 Aug 2018 20:56:44 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-2/</guid><description>2.4.2 # 解答 # 这种方式只能取出一次最大值，这个最大值就是输入序列里面的最大值。
+当需要继续取出最大值时（即继续取第二大、第三大、第 i 大的元素），
+这个方法就不再适用了（或者说不能在常数时间内完成）。</description></item><item><title>2.4.3</title><link>https://alg4.ikesnowy.com/2-4-3/</link><pubDate>Sun, 12 Aug 2018 20:49:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-3/</guid><description>2.4.3 # 解答 # 有序数组的官方版本：https://algs4.cs.princeton.edu/24pq/OrderedArrayMaxPQ.java.html
+无序数组的官方版本：https://algs4.cs.princeton.edu/24pq/UnorderedArrayMaxPQ.java.html
+实现 insert() delMax() 有序数组 N 1 有序链表 N 1 无序数组 1 N 无序链表 1 N 在库文件中定义了如下接口，所有的（最大）优先队列都会实现它。
+using System; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 实现优先队列 API 的接口。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;优先队列容纳的元素。&amp;lt;/typeparam&amp;gt; public interface IMaxPQ&amp;lt;Key&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { /// &amp;lt;summary&amp;gt; /// 向优先队列中插入一个元素。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;v&amp;#34;&amp;gt;插入元素的类型。&amp;lt;/param&amp;gt; void Insert(Key v); /// &amp;lt;summary&amp;gt; /// 返回最大元素。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; Key Max(); /// &amp;lt;summary&amp;gt; /// 删除并返回最大元素。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; Key DelMax(); /// &amp;lt;summary&amp;gt; /// 返回队列是否为空。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; bool IsEmpty(); /// &amp;lt;summary&amp;gt; /// 返回队列中的元素个数。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; int Size(); } } 于是我们就可以使用这样的方法测试所有类型的优先队列：</description></item><item><title>2.4.4</title><link>https://alg4.ikesnowy.com/2-4-4/</link><pubDate>Sun, 12 Aug 2018 21:25:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-4/</guid><description>2.4.4 # 解答 # 是的。
+例如这个数组：9 8 7 6 5，画成二叉堆如下：</description></item><item><title>2.4.5</title><link>https://alg4.ikesnowy.com/2-4-5/</link><pubDate>Mon, 13 Aug 2018 21:47:12 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-5/</guid><description>2.4.5 # 解答 #</description></item><item><title>2.4.6</title><link>https://alg4.ikesnowy.com/2-4-6/</link><pubDate>Tue, 14 Aug 2018 21:47:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-6/</guid><description>2.4.6 # 解答 # 官方给出的最大堆实现：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
+运行示意图：
+运行结果：
+P R P R P I R P I O P O I R P I O P O I O I O I I I I T I I I I Y I I I I I Q U Q U Q E Q E E U E 代码 # 最大堆的实现
+using System; using System.Collections; using System.Collections.Generic; using System.Diagnostics; using System.</description></item><item><title>2.4.7</title><link>https://alg4.ikesnowy.com/2-4-7/</link><pubDate>Thu, 16 Aug 2018 22:34:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-7/</guid><description>2.4.7 # 解答 # k = 2 时，
+只可能出现在位置 2、3 上（根节点的子结点，深度为 2，根节点深度为 1）
+k = 3 时，
+可以直接是根节点的子结点（第 2 或第 3 位，深度为 2），
+也可以是第二大元素的子结点（第 4~7 位，也就是深度为 3 的所有位置）
+k = 4 时，
+可以直接是根节点的子结点（深度为 2 的点）
+也可以是第二大元素的子结点（深度为 3 的点）
+也可以是第三大元素的子结点（深度为 4 的点）
+故范围为第 2~15 位。
+不难看出第 k 大元素只可能出现在深度＜k 的位置（$k \ge 2$）
+即位置小于 $2 ^ k - 1, (k \ge 2)$</description></item><item><title>2.4.8</title><link>https://alg4.ikesnowy.com/2-4-8/</link><pubDate>Fri, 17 Aug 2018 20:42:58 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-8/</guid><description>2.4.8 # 解答 # 不难看出第 k 大元素只可能出现在深度＜k 的位置（$ k \ge 2$）
+即位置小于 $ 2^k - 1, (k \ge 2)$。
+出现范围为 $[2, \min {2^k -1, n}]$，其中 n 为堆的大小。</description></item><item><title>2.4.9</title><link>https://alg4.ikesnowy.com/2-4-9/</link><pubDate>Fri, 17 Aug 2018 22:00:51 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-9/</guid><description>2.4.9 # 解答 # 首先 A B C D E 中，根节点必须是 E （假设为最大堆）
+D 只能选择 E 作为父结点。
+C 可以选择 D 或者 E 作为父结点。
+B 可以选择 C 或 D 或 E 作为父结点。
+A 可以选择 B 或 C 或 D 或 E 作为父结点。
+又由于堆的大小为 5，堆的结构固定，一共三层。
+E 只能为根节点
+D 可以在左侧或者右侧
+当 D 在左侧时，
+D 的子结点可以在 A B C 中任取两个，剩下一个当 E 的右侧子结点
+总共有 A(3, 2) = 6 种
+当 D 在右侧时，
+C 的子结点只能取 A 和 B ，故只有 A(2, 2) = 2 种情况。</description></item><item><title>2.4.10</title><link>https://alg4.ikesnowy.com/2-4-10/</link><pubDate>Sat, 18 Aug 2018 20:38:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-10/</guid><description>2.4.10 # 解答 # 左子树位于 $2k+1$，右子树位于 $2k+2$，父结点位于 $\lfloor (i-1)/2 \rfloor$ 。</description></item><item><title>2.4.11</title><link>https://alg4.ikesnowy.com/2-4-11/</link><pubDate>Sat, 18 Aug 2018 20:49:09 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-11/</guid><description>2.4.11 # 解答 # 有大量插入操作，选择插入操作为常数级别的无序数组实现较为合适。</description></item><item><title>2.4.12</title><link>https://alg4.ikesnowy.com/2-4-12/</link><pubDate>Sat, 18 Aug 2018 21:50:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-12/</guid><description>2.4.12 # 解答 # 堆实现会略优于有序数组实现。
+有序数组，查找最大元素操作是 O(1) 的，插入/删除元素是 O(N) 的。
+堆要看具体实现，基于数组的实现和有序数组类似，但插入/删除元素的效率更优。
+注：
+官网给出的堆实现会在插入 / 删除操作之后对整个数组进行检查，
+确认是否为最大堆（isMaxHeap 方法）。
+在测试时务必删除/注释掉这部分代码。</description></item><item><title>2.4.13</title><link>https://alg4.ikesnowy.com/2-4-13/</link><pubDate>Sun, 19 Aug 2018 17:13:22 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-13/</guid><description>2.4.13 # 解答 # 在官方实现的基础上直接删除 j&amp;lt;N 语句，随后在 DelMax() 方法中在 Sink(1) 之前让 pq[n + 1] = pq[1] 即可。
+首先保存最大值，然后把堆中的第一个元素和最后一个元素交换，随后使 n = n - 1。
+随后让 pq[n + 1] = pq[1]，这样在下沉操作时就不会下沉到 pq[n + 1]了。（相等的元素是不会交换的）
+故之后的 Sink() 语句中不再需要进行边界判断，直接删去即可。
+修改后 DelMax() 的代码如下：
+public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException(&amp;#34;Priority Queue Underflow&amp;#34;); Key max = this.pq[1]; Exch(1, this.n--); pq[n + 1] = pq[1]; Sink(1); this.pq[this.n + 1] = default(Key); if ((this.n &amp;gt; 0) &amp;amp;&amp;amp; (this.</description></item><item><title>2.4.14</title><link>https://alg4.ikesnowy.com/2-4-14/</link><pubDate>Mon, 20 Aug 2018 21:58:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-14/</guid><description>2.4.14 # 解答 # 对于 n &amp;lt;= 2 的堆
+第一步让最大元素和末端元素交换。
+第二步下沉时由于 n &amp;lt;= 1，不需要交换。
+故总共发生了一次交换，两个元素发生了交换。
+对于 n = 3 的堆
+第一步让最大元素和末端元素交换。
+第二步如果末端元素大于另一侧的子结点，那么就不需要交换。
+故最优情况时总共发生一次交换，两个元素被交换。
+对于 n &amp;gt; 3 的堆。
+第一步需要让最末端元素和最大元素交换。
+由于堆中第二大的元素必定位于根节点之后。
+故最末端元素一定小于该第二大元素。
+因此在下沉操作时必定会和第二大元素进行交换。
+故至少发生两次交换，总共有三个元素发生了交换。
+构造的堆（n=15）
+92 和 100 交换，随后 92 和 99 交换
+构造最优情况堆的方式如下（取根结点为 100）：
+对于每个结点，左子结点大于右子结点，
+且左子结点的子元素都小于右子树的最小值，
+（上例中省略了这部分元素，可以将它们当作负数）
+于是第一次 DelMax 的时候，只需要两次交换，三个元素被交换。
+（即 87 最后被交换到上例中 99 的位置）
+第二次 DelMax 的时候，只需要三次交换，六个元素被交换.
+（88 交换到 97 的位置）
+因此当 n &amp;gt; 7 时，连续两次 DelMax() 最少只需要 5 次交换。</description></item><item><title>2.4.15</title><link>https://alg4.ikesnowy.com/2-4-15/</link><pubDate>Tue, 21 Aug 2018 11:02:23 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-15/</guid><description>2.4.15 # 解答 # MinPQ 的官方实现见：https://algs4.cs.princeton.edu/24pq/MinPQ.java.html
+事实上只需要把 MaxPQ 中的比较调换方向即可。
+在线性时间内检测是否是面向最小元素的堆的方法：
+/// &amp;lt;summary&amp;gt; /// 确定以 k 为根节点的二叉树是不是一个最小堆。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;需要检查的二叉树根节点。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; private bool IsMinHeap(int k) { if (k &amp;gt; this.n) return true; int left = 2 * k; int right = 2 * k + 1; if (left &amp;lt;= this.n &amp;amp;&amp;amp; Greater(k, left)) return false; if (right &amp;lt;= this.n &amp;amp;&amp;amp; Greater(k, right)) return false; return IsMinHeap(left) &amp;amp;&amp;amp; IsMinHeap(right); } 用递归方法遍历整个二叉树，确认都满足堆的性质。由于每个结点都只会被比较三次（与父结点比较一次，与每个子结点各比较一次），由于 3N~N，因此这个方法是 O(n) 的。</description></item><item><title>2.4.16</title><link>https://alg4.ikesnowy.com/2-4-16/</link><pubDate>Sat, 08 Sep 2018 10:44:54 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-16/</guid><description>2.4.16 # 解答 # 最好情况比较简单，只需要一个所有键值完全相同的数组即可。
+最坏情况的构造方法参考了一篇论文（见「另请参阅」部分），结果如下：
+最好输入：
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+最坏输入：
+1 4 7 12 10 16 14 19 17 20 5 27 8 28 2 24 9 18 6 23 11 22 21 31 13 26 25 30 15 29 3 32</description></item><item><title>2.4.17</title><link>https://alg4.ikesnowy.com/2-4-17/</link><pubDate>Sun, 09 Sep 2018 10:40:49 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-17/</guid><description>2.4.17 # 解答 # 英文版原文是：insert followed by remove the minimum，因此是先插入再删除。
+大致上相当于一个缓冲区，把比较大的留下来，比较小的筛出去。
+首先我们有一个大小为 k 的优先队列，保证最小值在最前。
+接下来我们插入一个元素，可以分成两种情况。
+如果插入的元素比最小值还要小，那么这个插入的元素会在之后被删除，原队列中的元素不变。
+如果插入的元素比最小值大（或者相等），那么最小值会被删除，留下插入的元素。
+于是可以观察到这样一个逻辑，在不断的插入过程中，比较小的元素会被过滤，只留下较大的元素。
+那么我们可以把题目转化为：
+向一个优先队列插入 N 个元素，保证队列的大小不超过 k，如果超过 k 了就删除最小值。
+那么前 k 次插入不受影响，之后的 N-k 次插入就会按照之前说过的流程进行。
+最后只留下 N 个元素中较大的 k 个元素，得证。</description></item><item><title>2.4.18</title><link>https://alg4.ikesnowy.com/2-4-18/</link><pubDate>Sun, 09 Sep 2018 14:28:19 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-18/</guid><description>2.4.18 # 解答 # 首先看第一种情况，一次 insert() 接一次 delMax()。
+由于插入的数比堆中的所有元素都大，这个元素会一路上升到根结点。
+记上升路径上的点为 $a_1,a_2,a_3, \dots , a_k$，其中 $a_k$是插入的结点，$a_1$ 是根结点。
+插入完成后路径上点的次序变为 $a_k, a_1, a_2, \dots, a_{k-1}$ 。
+随后进行一次 delMax()，先做交换，次序变为 $a_{k-1}, a_1, \dots, a_{k-2}, a_k$ 。
+由于 $a_1$ 是堆中原来的最大值，下沉时一定会和它交换。
+根据定义，二叉堆是父结点总是优于子结点的完全二叉树，因此以后续结点作为根结点的子树也都是堆。
+故同理 $a_{k-1}$ 会和 $a_2, a_3, \dots,a_{k-2}$ 交换，即沿原路径返回。
+因此这种情况下前后堆不发生改变。
+然后看第二种情况，操作顺序为 insert() insert() delMax() delMax()。
+根据之前的结论，插入最大结点之后立即删除最大元素不会使堆发生变化，中间的两个操作抵消。
+序列变为：insert() delMax()。
+同理再次利用刚才的结论，操作抵消，堆不发生变化。
+故第二种情况也不会使堆发生改变。</description></item><item><title>2.4.19</title><link>https://alg4.ikesnowy.com/2-4-19/</link><pubDate>Sun, 09 Sep 2018 16:42:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-19/</guid><description>2.4.19 # 解答 # 官方实现已经包含了这部分的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
+相应的构造函数（Java）
+public MaxPQ(Key[] keys) { n = keys.length; pq = (Key[]) new Object[keys.length + 1]; for (int i = 0; i &amp;lt; n; i++) pq[i+1] = keys[i]; for (int k = n/2; k &amp;gt;= 1; k--) sink(k); assert isMaxHeap(); } 代码 # 构造函数（C#）
+/// &amp;lt;summary&amp;gt; /// 从已有元素建立一个最大堆。（O(n)） /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;keys&amp;#34;&amp;gt;已有元素。&amp;lt;/param&amp;gt; public MaxPQ(Key[] keys) { this.n = keys.Length; this.pq = new Key[keys.</description></item><item><title>2.4.20</title><link>https://alg4.ikesnowy.com/2-4-20/</link><pubDate>Sun, 09 Sep 2018 22:00:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-20/</guid><description>2.4.20 # 解答 # 官网给出了解答：https://algs4.cs.princeton.edu/24pq/
+首先介绍第一种解法。
+设叶子结点的高度为 $0$，根结点的高度为 $ h ​$。
+于是某个结点 sink 时的最大交换次数即为该结点的高度。
+故某一层结点的最大交换次数为 该层结点数 × 该层的高度。
+于是总交换次数最大为：
+$$
+\begin{align*}
+&amp;amp; h+2(h-1)+2^2(h-2)+ \dots + 2^h(0) \
+&amp;amp; =\sum_{k=0}^{h-1} 2^k(h-k) \
+&amp;amp; =h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \
+\end {align*}
+$$
+第一项为等比数列的和，第二项为等差数列乘以等比数列的和。
+于是第一项可以直接通过公式求得，第二项可以利用错位相减法求得。
+$$
+\begin{align}
+&amp;amp; h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \
+&amp;amp; =h2^{h}-h-\sum_{k=0}^{h-1}k2^k \
+&amp;amp; =h2^{h}-h +\sum_{k=0}^{h-1} k2^k - 2\sum_{k=0}^{h-1} k2^k \
+&amp;amp; =h2^{h}-h+2^h - 2-(h-1)2^h \
+&amp;amp; =2^{h+1}-h-2 \
+&amp;amp; =N-h-1 \le N</description></item><item><title>2.4.21</title><link>https://alg4.ikesnowy.com/2-4-21/</link><pubDate>Mon, 10 Sep 2018 21:48:47 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-21/</guid><description>2.4.21 # 解答 # 给元素添上序号组成结点，按照序号排序即可，每个结点可以用类似于这样的实现：
+class ElemType&amp;lt;T&amp;gt; : IComparable&amp;lt;ElemType&amp;lt;T&amp;gt;&amp;gt; { private int key; private T element; public ElemType(int key) =&amp;gt; this.key = key; public int CompareTo(ElemType&amp;lt;T&amp;gt; other) { return this.key.CompareTo(other.key); } } 栈：
+用最大元素在最前的优先队列。
+每个结点都包含一个元素和一个序号，
+插入新元素时序号递增，这样最后插入的元素总在最前。
+队列：
+用最小元素在最前的优先队列。
+每个结点都包含一个元素和一个序号，
+插入新元素时序号递增，这样最先插入的元素总在最前。
+随机队列：
+优先队列的选择任意
+每个结点都包含一个元素和一个序号，
+插入新元素时随机指定一个序号，这样元素的顺序就是任意的了。</description></item><item><title>2.4.22</title><link>https://alg4.ikesnowy.com/2-4-22/</link><pubDate>Thu, 13 Sep 2018 09:07:58 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-22/</guid><description>2.4.22 # 解答 # 官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
+截取如下：
+// helper function to double the size of the heap array private void resize(int capacity) { assert capacity &amp;gt; n; Key[] temp = (Key[]) new Object[capacity]; for (int i = 1; i &amp;lt;= n; i++) { temp[i] = pq[i]; } pq = temp; } 只要在队列快满时重新分配空间，再把元素复制进去即可。
+在不触发重新分配空间的情况下，
+每次队列操作的比较次数上限就等于命题 Q 中给出的 $\lg N+1$（插入） 和 $2\lg N$（删除）。
+插入元素最多需要 $\lg N$ 次交换（比较次数-1），
+删除元素最多需要 $1 + \lg N - 1 = \lg N$ 次交换 （注意开始时有一次交换）。</description></item><item><title>2.4.23</title><link>https://alg4.ikesnowy.com/2-4-23/</link><pubDate>Tue, 18 Sep 2018 12:51:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-23/</guid><description>2.4.23 # 解答 # 简单的 sink 实现 # sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。
+如果找到的结点比当前结点大，那么就进行交换。
+否则视为结点已经下沉到了合适的位置，结束循环。
+根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
+sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。
+于是 sink 操作每次最多需要 $t + 1$ 次比较。
+建堆过程，对 2.4.20 的证明进行推广。
+设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。
+根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。
+于是建堆需要的总交换次数为：
+$$
+\begin{align*}
+&amp;amp; h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \
+&amp;amp; =\sum_{k=0}^{h-1} t^k(h-k) \
+&amp;amp; =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \
+\end {align*}</description></item><item><title>2.4.24</title><link>https://alg4.ikesnowy.com/2-4-24/</link><pubDate>Fri, 05 Oct 2018 19:20:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-24/</guid><description>2.4.24 # 解答 # 链式实现，每个结点都包含一个指向父结点的指针和两个指向子结点的指针。
+交换结点可以直接用交换两个结点的值来实现（与数组的实现一样），而不是对两个结点的指针进行交换。
+于是 Sink() 和 Swim() 操作就比较简单，直接按照定义实现即可。
+比较困难的是删除和插入结点，或者更具体的说，
+如何找到按照完全二叉树定义下序号向后/向前一位的结点？
+我们首先在堆里面维护两个指针，一个指向根结点（root），另一个指向当前最后一个结点（last）。
+当需要插入新结点时，我们需要找到 last 的后一位的父结点，然后把新的结点插入为该结点的左子结点。
+这段话可能比较绕，下面这个示意图可以帮助理解，有三种情况：
+标黄的代表 last 指着的位置。
+我们先从简单的说起，中间的第二种情况，新插入的结点应该放在右侧，即作为 last 的父结点的右子结点。
+如果 last 已经是右子结点了，那么就考虑第三种情况。
+此时应该向上回溯，直到在某一次回溯中，结点是从父结点的左侧回溯上来的
+（即图中路径 A-B-B，B-B 这一步是从左子树回溯上来的）。
+于是待插入的位置就在该父结点的右子树的最左侧结点（即图中根结点的右子结点 A）。
+最后是图中第一种情况，整棵树已经是满二叉树了。
+这种情况下会一路回溯到根结点，那么只要一路下沉到最左侧的叶子结点，把新结点插入到其左子树上即可。
+删除结点同理，也是这三种情况，只是需要找前一个结点，判断条件中的左右正好相反。
+如果已经是右子结点了，只需要把 last 改为其父结点的左子树即可。
+如果是左子结点，就需要回溯，直到某一次回溯是从右子树回溯上来的，last 应该指向其左子树的最右侧结点。
+如果删除后正好变成满二叉树，那么会一直回溯到根结点，last 应该指向整棵树的最右侧结点。
+代码实现中还需要处理只有一个结点以及没有结点时的特殊情况。
+根据上面的算法，插入/删除找到相应位置所需的最大耗时为 2lgN
+（从树的一侧回溯到根结点，再下沉到另一侧的底部）。
+Sink 和 Swim 是 O(lgN) 级的，因此整个插入/删除操作是 O(lgN) 的。
+代码 # using System; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 基于链式结构实现的最大堆。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;优先队列中保存的数据类型。&amp;lt;/typeparam&amp;gt; public class MaxPQLinked&amp;lt;Key&amp;gt; : IMaxPQ&amp;lt;Key&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { /// &amp;lt;summary&amp;gt; /// 二叉堆的根结点。 /// &amp;lt;/summary&amp;gt; private TreeNode&amp;lt;Key&amp;gt; root = null; /// &amp;lt;summary&amp;gt; /// 二叉堆的最后一个结点。 /// &amp;lt;/summary&amp;gt; private TreeNode&amp;lt;Key&amp;gt; last = null; /// &amp;lt;summary&amp;gt; /// 二叉堆中的结点个数。 /// &amp;lt;/summary&amp;gt; private int nodesCount = 0; /// &amp;lt;summary&amp;gt; /// 建立一个链式结构的最大堆。 /// &amp;lt;/summary&amp;gt; public MaxPQLinked() { } /// &amp;lt;summary&amp;gt; /// 删除并返回最大值。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;最大值。&amp;lt;/returns&amp;gt; public Key DelMax() { Key result = this.</description></item><item><title>2.4.25</title><link>https://alg4.ikesnowy.com/2-4-25/</link><pubDate>Sun, 07 Oct 2018 16:31:13 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-25/</guid><description>2.4.25 # 解答 # 官方实现：https://algs4.cs.princeton.edu/24pq/CubeSum.java.html
+注意这道题并不是要打印所有的 $a^3+b^3$ 的结果，而是需要找到 $a^3+b^3=c^3+d^3$ 这个丢番图方程的解。
+因此在官方实现的基础上，每次取出最小值之后和之前的最小值比较，如果相等则输出对应的组合。
+关键代码如下：
+CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) { CubeSum s = pq.DelMin(); if (s.sum == prev.sum) // 如果与之前的数相等 { Console.WriteLine(s + &amp;#34; = &amp;#34; + prev.i + &amp;#34;^3 + &amp;#34; + prev.j + &amp;#34;^3&amp;#34;); pairCount++; } if (s.j &amp;lt; n) pq.Insert(new CubeSum(s.i, s.j + 1)); prev = s; } 当然，对于 n=10^6 来说结果会非常大，程序的运行时间需要以天为单位计算（约 14 天）。</description></item><item><title>2.4.26</title><link>https://alg4.ikesnowy.com/2-4-26/</link><pubDate>Mon, 15 Oct 2018 18:26:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-26/</guid><description>2.4.26 # 解答 # 用类似于「半交换」的方法避免频繁调用 Exch() 方法。
+上浮时，先单独保存待上浮的元素，随后进行比较，
+如果当前 k 值对应的父结点（即 k/2 ）小于待上浮的元素，令 pq[k]=pq[k/2]。
+否则令当前 k 值等于待上浮的元素，终止循环。
+下沉的过程类似。
+修改后的 sink 和 swim 方法：
+/// &amp;lt;summary&amp;gt; /// 使元素上浮。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;需要上浮的元素。&amp;lt;/param&amp;gt; private void Swim(int k) { Key key = this.pq[k]; while (k &amp;gt; 1 &amp;amp;&amp;amp; this.pq[k / 2].CompareTo(key) &amp;lt; 0) { this.pq[k] = this.pq[k / 2]; k /= 2; } this.pq[k] = key; } /// &amp;lt;summary&amp;gt; /// 使元素下沉。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;需要下沉的元素。&amp;lt;/param&amp;gt; private void Sink(int k) { Key key = this.</description></item><item><title>2.4.27</title><link>https://alg4.ikesnowy.com/2-4-27/</link><pubDate>Sat, 20 Oct 2018 11:19:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-27/</guid><description>2.4.27 # 解答 # 官网有解答，只要在 MaxPQ 里面加上一个记录最小值的指针就可以了。
+初始状态下这个指针为空。
+每次插入新元素的时候先更新一下这个指针。
+删除最后一个元素的时候把它重新置空即可。
+具体实现见代码。
+代码 # using System; using System.Collections; using System.Collections.Generic; using System.Diagnostics; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 包含最小元素引用的最大堆。（数组实现） /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;最大堆中保存的元素类型。&amp;lt;/typeparam&amp;gt; public class MaxPQWithMin&amp;lt;Key&amp;gt; : IMaxPQ&amp;lt;Key&amp;gt;, IEnumerable&amp;lt;Key&amp;gt; where Key : class, IComparable&amp;lt;Key&amp;gt; { private Key[] pq; // 保存元素的数组。 private int n; // 堆中的元素数量。 private Key min; // 堆中的最小元素。 /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MaxPQWithMin() : this(1) { } /// &amp;lt;summary&amp;gt; /// 建立指定容量的最大堆。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;capacity&amp;#34;&amp;gt;最大堆的容量。&amp;lt;/param&amp;gt; public MaxPQWithMin(int capacity) { this.</description></item><item><title>2.4.28</title><link>https://alg4.ikesnowy.com/2-4-28/</link><pubDate>Mon, 22 Oct 2018 09:19:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-28/</guid><description>2.4.28 # 解答 # 开始时让 N=10^5，在 M=10^4 不变的情况下令 N 不断翻倍，求出算法增长的数量级。
+再根据求出的增长的数量级估计 N=10^8 时所需要的时间。
+为了方便比较，需要编写一个欧几里得距离类，
+构造时输入一个点的坐标，内部自动计算并保存这个点到原点的欧几里得距离。
+欧几里得距离的计算公式如下：
+$$
+d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
+$$
+其中，x 和 y 分别代表两个点。
+在本题中，y 始终是原点，且使用三维坐标系，因此公式可以简化为：
+$$
+d=\sqrt {x^2+y^2+z^2}
+$$
+同时这个类需要实现 IComparable 接口以作为最小堆的元素。
+做测试时，先随机生成 N 个点，再建立一个最小堆。
+随后开始计时，把开始的 m 个点插入。
+剩余的 n-m 个点则是先删除最小值再插入，这样可以保证最小堆的大小不变。
+最后再把堆中的所有元素输出，停止计时。
+用不断倍增的的 N 值做上述测试，获得每次的耗时，进而求得算法增长的数量级。
+求得的结果如下：
+可以推出当 N=10^8 时耗时为 $ 398 \ ms × 1000 = 398 \ s $
+代码 # 欧几里得距离类，EuclideanDistance3D
+using System; namespace _2._4._28 { /// &amp;lt;summary&amp;gt; /// 点到原点的欧几里得距离。 /// &amp;lt;/summary&amp;gt; class EuclideanDistance3D : IComparable&amp;lt;EuclideanDistance3D&amp;gt; { private readonly int x, y, z; private double distance; /// &amp;lt;summary&amp;gt; /// 计算点到原点的欧几里得距离。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;x&amp;#34;&amp;gt;x 轴坐标。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;y&amp;#34;&amp;gt;y 轴坐标。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;z&amp;#34;&amp;gt;z 轴坐标。&amp;lt;/param&amp;gt; public EuclideanDistance3D(int x, int y, int z) { this.</description></item><item><title>2.4.29</title><link>https://alg4.ikesnowy.com/2-4-29/</link><pubDate>Sat, 27 Oct 2018 12:01:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-29/</guid><description>2.4.29 # 解答 # 算法思想比较简单，但在实现上会有一些复杂。
+用一个最大堆和一个最小堆，每个堆中都保存了全部数组元素，且相同的元素之间有指针相连。
+插入元素时需要构建两个完全相同的元素分别插入到两个堆中。
+找到最小元素和找到最大元素只需要分别返回最大堆和最小堆的堆顶元素即可。
+以删除最小元素为例，先对最小堆进行 DelMin() 操作，再通过指针找到对应最大堆的元素并删除。
+下面介绍删除堆中任意元素的算法。
+首先将待删除元素与堆中最后一个元素交换，让堆的大小减一。
+随后对交换后的元素先进行 Swim 再进行 Sink，移动到正确的位置上。
+下图是一个例子，当删除最大元素 14 时，最小堆中删除元素 14 需要先 Swim。
+如果堆的层数更多一些，就需要先 Swim 再 Sink。
+现在来考虑一下实现，我们构建一个结点类，里面存放有当前结点的值、对应数组下标和另一个结点的指针。
+/// &amp;lt;summary&amp;gt; /// 最大-最小堆中的数据结点。 /// &amp;lt;/summary&amp;gt; private sealed class MinMaxNode : IComparable&amp;lt;MinMaxNode&amp;gt; { /// &amp;lt;summary&amp;gt; /// 结点的值。 /// &amp;lt;/summary&amp;gt; public Key Key { get; set; } /// &amp;lt;summary&amp;gt; /// 结点在当前数组中的下标。 /// &amp;lt;/summary&amp;gt; public readonly int Index; /// &amp;lt;summary&amp;gt; /// 指向孪生结点的引用。 /// &amp;lt;/summary&amp;gt; public MinMaxNode Pair { get; set; } /// &amp;lt;summary&amp;gt; /// 这个类不能在外部实例化。 /// &amp;lt;/summary&amp;gt; private MinMaxNode(Key key, int index) { this.</description></item><item><title>2.4.30</title><link>https://alg4.ikesnowy.com/2-4-30/</link><pubDate>Sun, 28 Oct 2018 12:27:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-30/</guid><description>2.4.30 # 解答 # 单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。
+如下图所示，注意 Median 和两个堆并没有直接连接，这里只是方便理解元素顺序。
+只要左右两个堆含有元素之差不超过 1，那么 Median 变量中存放的就是整个数组的中位数。
+如果元素差大于 1，就需要进行调整，
+把 Median 变量中存放的值插入到元素较少的堆，
+再从元素较多的堆中取出元素放入 Median 变量，直到元素差不大于 1。
+插入元素时，根据插入元素的大小插入到某一个堆中去，再做一次调整。
+删除中位数时，去掉中位数，然后从元素较多的一侧堆中取元素补位，再进行一次调整。
+编写代码时要注意堆中只有一个元素的情况需要特殊处理。
+代码 # 面向中位数的堆（MedianPQ.cs）
+using System; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 面向中位数的堆。 /// &amp;lt;/summary&amp;gt; public class MedianPQ&amp;lt;Key&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { /// &amp;lt;summary&amp;gt; /// 最大堆（保存前半段元素）。 /// &amp;lt;/summary&amp;gt; private MaxPQ&amp;lt;Key&amp;gt; maxPQ; /// &amp;lt;summary&amp;gt; /// 最小堆（保存后半段元素）。 /// &amp;lt;/summary&amp;gt; private MinPQ&amp;lt;Key&amp;gt; minPQ; /// &amp;lt;summary&amp;gt; /// 中位数。 /// &amp;lt;/summary&amp;gt; private Key median; /// &amp;lt;summary&amp;gt; /// 堆的大小 /// &amp;lt;/summary&amp;gt; private int n; /// &amp;lt;summary&amp;gt; /// 默认构造函数，构造一个面向中位数的堆。 /// &amp;lt;/summary&amp;gt; public MedianPQ() { this.</description></item><item><title>2.4.31</title><link>https://alg4.ikesnowy.com/2-4-31/</link><pubDate>Fri, 02 Nov 2018 16:05:44 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-31/</guid><description>2.4.31 # 解答 # 首先可以观察到堆有这样一个性质，从根结点到某一个叶子结点的路径是有序的，满足二分查找的条件。
+但是，
+从叶子结点到根结点的路径可以通过不断地令 k = k / 2 得到（从下往上只有一条路径）。
+但从根结点到叶子结点的路径却不能简单地通过 k = k * 2 得到（从上往下会有两条分支）。
+因此只通过堆本身是无法满足二分查找对于随机访问的要求的。
+为了达到 ~loglogN 次比较，我们需要对 Swim() 方法做修改，
+即，先通过一个数组来保存路径，再对这个数组进行二分查找，从而获得合适的祖先结点。
+路径的长度是 ~logN（完全二叉树的性质），于是二分查找的比较次数即为 ~loglogN。
+删除操作原本就是 ~2logN 的，不需要修改。
+注意这样的方法仅仅只是减少了比较次数，
+为了保持堆的有序，即使找到了结点的合适位置也不能直接插入，
+仍然需要将路径上的结点依次下移，空出位置后再插入结点，复杂度仍然是 ~logN。
+由于增加了保存路径等操作（建立了大量的小数组），实际算法的运行时间是增加的。
+也可以用空间换时间，由于在堆中下标为 k 的结点到根结点的路径是唯一确定的。
+因此可以提前计算好路径，用一个数组保存起来（数组的数组），在 Swim 中取出对应路径进行二分查找。
+当然这样是很不划算的，除非元素比较的开销非常大。
+代码 # 修改后的 Swim() 方法，注意输入的路径是从下往上的。
+/// &amp;lt;summary&amp;gt; /// 使元素上浮。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;需要上浮的元素。&amp;lt;/param&amp;gt; private void Swim(int k) { if (k == 1) return; // 获取路径 int heapHeight = (int)(Math.</description></item><item><title>2.4.32</title><link>https://alg4.ikesnowy.com/2-4-32/</link><pubDate>Fri, 02 Nov 2018 16:42:03 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-32/</guid><description>2.4.32 # 解答 # 官网解答见：https://algs4.cs.princeton.edu/24pq/
+如果这样的话，堆排序的只需要 ~nloglogn 次比较即可。
+根据 2.3 中的证明，基于比较的排序的下界是 ~nlogn。
+因此不存在这样的最小堆。
+注意上题的方法不能用于下沉操作，因为我们不能预知下沉的路径。</description></item><item><title>2.4.33</title><link>https://alg4.ikesnowy.com/2-4-33/</link><pubDate>Fri, 02 Nov 2018 20:56:58 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-33/</guid><description>2.4.33 # 解答 # 官方实现见：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
+书中算法 2.6 给出的是一个最大堆的实现，但本题给出的部分解答却是最小堆的。
+同时官网给出的解答是最大堆的，这里选择和官网保持一致，给出最大堆的实现。
+初看起来可能会比较难理解，但其实就是以指针为元素的堆。
+堆中存放的只是指向元素的指针（如果元素在数组里那就变成了下标）。
+做比较的时候要先根据指针（下标）找到对应元素，再进行比较。
+再来看题目中给出的要求，keys[] 数组中用于保存元素（比如 keys[0] = ‘A’;），
+而 pq[] 中保存的是元素在 key[] 数组中的下标（比如 pq[1] = 0;)，
+而 qp[] 中保存的是某个下标在 pq[]中 的对应位置。（比如 qp[0] = 1）。
+在这三个数组中，pq[]是一个堆，我们的堆操作都作用在这个数组上。
+keys[] 数组中的元素不随着 pq[] 中下标的移动而移动，只有当删除或添加元素时才发生变化。
+qp[]与pq[]中的索引一一对应，pq[]交换时也需要交换qp[]中的对应元素。
+代码 # using System; using System.Collections; using System.Collections.Generic; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 索引优先队列。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;优先队列中包含的元素。&amp;lt;/typeparam&amp;gt; public class IndexMaxPQ&amp;lt;Key&amp;gt; : IEnumerable&amp;lt;int&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { /// &amp;lt;summary&amp;gt; /// 优先队列中的元素。 /// &amp;lt;/summary&amp;gt; private int n; /// &amp;lt;summary&amp;gt; /// 索引最大堆。 /// &amp;lt;/summary&amp;gt; private int[] pq; /// &amp;lt;summary&amp;gt; /// pq 的逆索引，pq[qp[i]]=qp[pq[i]]=i /// &amp;lt;/summary&amp;gt; private int[] qp; /// &amp;lt;summary&amp;gt; /// 实际元素。 /// &amp;lt;/summary&amp;gt; private Key[] keys; /// &amp;lt;summary&amp;gt; /// 建立指定大小的面向索引的最大堆。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;capacity&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; public IndexMaxPQ(int capacity) { if (capacity &amp;lt; 0) throw new ArgumentOutOfRangeException(); this.</description></item><item><title>2.4.34</title><link>https://alg4.ikesnowy.com/2-4-34/</link><pubDate>Thu, 27 Dec 2018 19:25:26 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-34/</guid><description>2.4.34 # 解答 # 这里给出最大堆的实现，原因同 2.4.33。
+maxIndex()：pq[1] 就是最小元素的下标。
+change()：首先修改 keys 数组中对应的元素，然后对堆中该下标进行重排序。
+delete()：先从堆中删除元素，再把 keys 和 qp 数组中的对应元素初始化。
+代码 # /// &amp;lt;summary&amp;gt; /// 返回最大元素对应的索引。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; public int MaxIndex() { if (this.n == 0) throw new ArgumentOutOfRangeException(&amp;#34;Priority Queue Underflow&amp;#34;); return this.pq[1]; } /// &amp;lt;summary&amp;gt; /// 将与索引 &amp;lt;paramref name=&amp;#34;i&amp;#34;/&amp;gt; 相关联的元素换成 &amp;lt;paramref name=&amp;#34;k&amp;#34;/&amp;gt;。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;i&amp;#34;&amp;gt;要修改关联元素的索引。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;用于替换的新元素。&amp;lt;/param&amp;gt; public void ChangeKey(int i, Key k) { if (!</description></item><item><title>2.4.35</title><link>https://alg4.ikesnowy.com/2-4-35/</link><pubDate>Fri, 28 Dec 2018 09:28:35 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-35/</guid><description>2.4.35 # 解答 # 本题有两个翻译错误。
+random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
+最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
+提示已经给出了实现方案，我们用一个例子来简单说明一下。
+现在给出一个分布 p，总和 T=1，如下图所示：
+为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。
+现在我们将这个思想应用到完全二叉树上。
+每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图：
+为方便起见，我们重新排列一下之前的随机表：
+每个值的概率并没有改变，只是每个值对应的区段换了一下。
+经过这样的变换后，你会发现，如果从根结点的角度看：
+如果随机的值小于 0.1，对应的编号就是 1。
+如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
+其他情况对应编号在左子树上。
+扩展到一般情况，就变成了：
+如果随机数小于当前结点，直接返回当前结点的编号。
+如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
+其他情况减去当前结点的权值并移动到左子树。
+思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
+代码 # using System; namespace _2._4._35 { /// &amp;lt;summary&amp;gt; /// 离散分布的取样。 /// &amp;lt;/summary&amp;gt; class Sample { public double[] P; public double[] SumP; private double T = 0; private Random random = new Random(); /// &amp;lt;summary&amp;gt; /// 构造一个离散取样类。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;data&amp;#34;&amp;gt;取样数据。&amp;lt;/param&amp;gt; public Sample(double[] data) { // 复制权重 this.</description></item><item><title>2.4.36</title><link>https://alg4.ikesnowy.com/2-4-36/</link><pubDate>Fri, 28 Dec 2018 18:41:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-36/</guid><description>2.4.36 # 解答 # 测试结果如下：
+可以看出增长数量级约为 O(nlogn)。
+代码 # using System; using System.Diagnostics; using PriorityQueue; namespace _2._4._36 { class Program { static Random random = new Random(); static void Main(string[] args) { int doubleTime = 5; int repeatTime = 5; int n = 100000; for (int i = 0; i &amp;lt; doubleTime; i++) { long totalTime = 0; Console.WriteLine(&amp;#34;n=&amp;#34; + n); for (int j = 0; j &amp;lt; repeatTime; j++) { MaxPQ&amp;lt;int&amp;gt; pq = new MaxPQ&amp;lt;int&amp;gt;(n); long time = Test(pq, n); Console.</description></item><item><title>2.4.37</title><link>https://alg4.ikesnowy.com/2-4-37/</link><pubDate>Fri, 28 Dec 2018 19:23:27 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-37/</guid><description>2.4.37 # 解答 # 建立一个全局变量 isRunning ，每次 DelMax() 之前都先确认这个值是否为 true，
+设立一个 Timer 在 1 秒钟之后自动将 isRunning 置为 false。
+测试结果如下：
+随着 n 增大，一秒钟之内能执行的 DelMax() 次数会下降。
+代码 # using System; using System.Timers; using PriorityQueue; namespace _2._4._37 { class Program { static bool isRunning = true; static Random random = new Random(); static void Main(string[] args) { int doubleTime = 6; int repeatTime = 6; int n = 1000000; for (int i = 0; i &amp;lt; doubleTime; i++) { int totalDelCount = 0; Console.</description></item><item><title>2.4.38</title><link>https://alg4.ikesnowy.com/2-4-38/</link><pubDate>Fri, 28 Dec 2018 19:49:03 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-38/</guid><description>2.4.38 # 解答 # 直接构造相应的数组测试即可。
+测试结果如下：
+最大堆来说顺序时会比较慢，因为每次插入都要一路上升到顶部。
+逆序的时候则是删除比较慢，最后一个元素是最小的元素，交换后需要一路下沉到底部。
+由于元素相同的时候我们选择不交换（less(i, j) 返回 false），较多的重复元素并不会影响性能。
+代码 # using System; using System.Linq; using System.Diagnostics; using PriorityQueue; namespace _2._4._38 { /* * 2.4.38 * * 练习测试。 * 编写一个练习用例， * 用算法 2.6 中实现的优先队列的接口方法处理实际应用中可能出现的高难度或是极端情况。 * 例如，元素已经有序、元素全部逆序、元素全部相同或是所有元素只有两个值。 * */ class Program { static Random random = new Random(); static void Main(string[] args) { int n = 200000; int repeatTimes = 5; int doubleTimes = 4; for (int i = 0; i &amp;lt; doubleTimes; i++) { Console.</description></item><item><title>2.4.39</title><link>https://alg4.ikesnowy.com/2-4-39/</link><pubDate>Sat, 29 Dec 2018 16:12:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-39/</guid><description>2.4.39 # 解答 # 结果如下，约占总耗时的 2~5%。
+代码 # using System; using System.Diagnostics; namespace _2._4._39 { /* * 2.4.39 * * 构造函数的代价。 * 对于 N=10^3、10^6 和 10^9， * 根据经验判断堆排序时构造堆所占总耗时的比例。 * */ class Program { static Random random = new Random(); static void Main(string[] args) { Console.WriteLine(&amp;#34;n\tBuild\tSort\tRatio&amp;#34;); int n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存 int multiTen = 7; for (int i = 0; i &amp;lt; multiTen; i++) { short[] data = GetRandomArray(n); Stopwatch fullSort = new Stopwatch(); Stopwatch buildHeap = new Stopwatch(); fullSort.</description></item><item><title>2.4.40</title><link>https://alg4.ikesnowy.com/2-4-40/</link><pubDate>Sat, 29 Dec 2018 18:36:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-40/</guid><description>2.4.40 # 解答 # 如同书上所说，可以节省约 50% 的比较次数。
+先沉后浮的实现也很简单，将 swim 方法加入，
+然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
+然后在 sink 方法的循环之后调用 swim。
+为了获得比较次数，你可以添加一个静态全局变量 compareCount，
+然后修改 Less 方法，在作比较的同时使 compareCount++ ，
+每次执行 Sort 时先让 compareCount 置零，最后返回 compareCount。
+代码 # using System; namespace PriorityQueue { /// &amp;lt;summary&amp;gt; /// 堆排序类，提供 Floyd 优化的堆排序的静态方法。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的元素类型。&amp;lt;/typeparam&amp;gt; public static class HeapFloyd { /// &amp;lt;summary&amp;gt; /// 利用堆排序对数组进行排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;pq&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; public static void Sort&amp;lt;T&amp;gt;(T[] pq) where T : IComparable&amp;lt;T&amp;gt; { int n = pq.</description></item><item><title>2.4.41</title><link>https://alg4.ikesnowy.com/2-4-41/</link><pubDate>Sat, 29 Dec 2018 19:34:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-41/</guid><description>2.4.41 # 解答 # 多叉堆和二叉堆的实现上并没有很大的区别，
+只不过下沉（Sink）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。
+于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。
+先考虑 $d$ 叉堆的在数组中的保存方式，
+第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
+不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
+接下来我们对其标号，根结点为 1，以此类推，如下图：
+现在我们来推导某个结点的子结点的下标公式。
+结点 $i$ 的第一个子结点在哪里呢？
+首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
+以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
+2 号结点前面没有更多兄弟结点，于是第一个子结点下标即为 $2 + d - 1 + 1= 2 + d$。
+3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
+它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
+不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
+这个规律也可以从图上（$d=3$）看出来：</description></item><item><title>2.4.42</title><link>https://alg4.ikesnowy.com/2-4-42/</link><pubDate>Mon, 31 Dec 2018 10:26:02 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-4-42/</guid><description>2.4.42 # 解答 # 前序序列与完全二叉树 # 二叉树前序遍历的顺序是：自身，左子树，右子树。
+因此对于一个前序遍历序列，第一个元素是根结点，第二个元素是左子结点。
+再把左子结点找到，就可以把数组分成三部分：根结点，左子树，右子树，进而递归的构造出整个二叉树。
+现在问题是，右子结点在哪，或者说，左子树有多大？
+这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。
+就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
+在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。
+完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
+于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
+那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
+如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
+按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
+现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
+第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。
+于是当 $l&amp;lt;=2^{k-1}$ 时，左右子树大小分别为 $2^{k-1}-1+l$ 和 $2^{k-1}-1$ 。
+当 $l &amp;gt; 2^{k-1}$ 时，左右子树大小分别为 $2^{k} - 1$ 和 $2^{k-1} -1 +l -2^{k-1}=l-1$ 。</description></item><item><title>2.5.1</title><link>https://alg4.ikesnowy.com/2-5-1/</link><pubDate>Thu, 03 Jan 2019 16:21:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-1/</guid><description>2.5.1 # 解答 # 如果比较的两个 String 引用的是同一个对象，那么就直接返回相等，不必再逐字符比较。
+一个例子：
+string s = &amp;#34;abcabc&amp;#34;; string p = s; Console.WriteLine(s.CompareTo(p));</description></item><item><title>2.5.2</title><link>https://alg4.ikesnowy.com/2-5-2/</link><pubDate>Fri, 04 Jan 2019 11:21:50 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-2/</guid><description>2.5.2 # 解答 # 将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
+组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
+先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
+我们从 canCombine 开始，一个个检查是否是组合词。
+如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
+组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。
+现在题目转化为了如何解决 ThreeSum 问题，即求 a + b = c 型问题，根据 1.4.41 中的解法求解。
+keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
+用二分查找确认 i 到 canCombine 之间有没有符合条件的字符串，注意多个字符串可能长度相等。
+代码 # using System; using System.Collections.Generic; namespace _2._5._2 { /* * 2.5.2 * * 编写一段程序，从标准输入读入一列单词并打印出其中所有由两个单词组成的组合词。 * 例如，如果输入的单词为 after、thought 和 afterthought， * 那么 afterthought 就是一个组合词。 * */ class Program { /// &amp;lt;summary&amp;gt; /// 根据字符串长度进行比较。 /// &amp;lt;/summary&amp;gt; class StringLengthComparer : IComparer&amp;lt;string&amp;gt; { public int Compare(string x, string y) { return x.</description></item><item><title>2.5.3</title><link>https://alg4.ikesnowy.com/2-5-3/</link><pubDate>Fri, 04 Jan 2019 18:56:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-3/</guid><description>2.5.3 # 解答 # 这样会破坏相等的传递性。
+例如 a = 0.005, b=0.000, c=-0.005，则 a == b, c == b，但是 a != c。</description></item><item><title>2.5.4</title><link>https://alg4.ikesnowy.com/2-5-4/</link><pubDate>Fri, 04 Jan 2019 19:18:27 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-4/</guid><description>2.5.4 # 解答 # 先排序，然后用书中的代码进行去重。
+static string[] Dedup(string[] a) { if (a.Length == 0) return a; string[] sorted = new string[a.Length]; for (int i = 0; i &amp;lt; a.Length; i++) { sorted[i] = a[i]; } Array.Sort(sorted); // sorted = sorted.Distinct().ToArray(); string[] distinct = new string[sorted.Length]; distinct[0] = sorted[0]; int j = 1; for (int i = 1; i &amp;lt; sorted.Length; i++) { if (sorted[i].CompareTo(sorted[i - 1]) != 0) distinct[j++] = sorted[i]; } return distinct; }</description></item><item><title>2.5.5</title><link>https://alg4.ikesnowy.com/2-5-5/</link><pubDate>Fri, 04 Jan 2019 19:33:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-5/</guid><description>2.5.5 # 解答 # 因为选择排序会交换不相邻的元素。
+例如：
+B1 B2 A A B2 B1 此时 B1 和 B2 的相对位置被改变，如果将交换限定在相邻元素之间（插入排序）。
+B1 B2 A B1 A B2 A B2 B2 此时排序就是稳定的了。</description></item><item><title>2.5.6</title><link>https://alg4.ikesnowy.com/2-5-6/</link><pubDate>Mon, 07 Jan 2019 10:28:40 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-6/</guid><description>2.5.6 # 解答 # 非递归官网实现见：https://algs4.cs.princeton.edu/23quicksort/QuickPedantic.java.html
+原本是和快速排序一块介绍的，将数组重新排列，使得 a[k] 正好是第 k 小的元素，k 从 0 开始。
+具体思路类似于二分查找，
+先切分，如果切分位置小于 k，那么在右半部分继续切分，否则在左半部分继续切分。
+直到切分位置正好等于 k，直接返回 a[k] 。
+代码 # /// &amp;lt;summary&amp;gt; /// 使 a[k] 变为第 k 小的数，k 从 0 开始。 /// a[0] ~ a[k-1] 都小于等于 a[k], a[k+1]~a[n-1] 都大于等于 a[k] /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要调整的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;序号。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;起始下标。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;终止下标。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; static T Select&amp;lt;T&amp;gt;(T[] a, int k, int lo, int hi) where T : IComparable&amp;lt;T&amp;gt; { if (k &amp;gt; a.</description></item><item><title>2.5.7</title><link>https://alg4.ikesnowy.com/2-5-7/</link><pubDate>Mon, 07 Jan 2019 14:50:55 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-7/</guid><description>2.5.7 # 解答 # 参考书中给出的快速排序性能分析方法（中文版 P186，英文版 P293）。
+设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
+一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
+于是根据全概率公式，有：
+$$
+\begin{eqnarray}
+C_n&amp;amp;=&amp;amp;\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \
+C_n&amp;amp;=&amp;amp;n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \
+nC_n&amp;amp;=&amp;amp;n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \
+nC_n-(n-1)C_{n-1}&amp;amp;=&amp;amp;2n+C_{n-1} \
+nC_n&amp;amp;=&amp;amp;2n+nC_{n-1} \
+C_n&amp;amp;=&amp;amp;2+C_{n-1} \
+C_n &amp;amp;=&amp;amp; C_1+2(n-1) \
+C_n &amp;amp;=&amp;amp; 2n-2 &amp;lt; 2n
+\end{eqnarray}
+$$
+测试结果符合我们的预期。
+附加：找出第 $k$ 小的数平均需要的比较次数。
+类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。
+首先和快速排序类似，select 方法的所有元素比较都发生在切分过程中。
+接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），</description></item><item><title>2.5.8</title><link>https://alg4.ikesnowy.com/2-5-8/</link><pubDate>Tue, 08 Jan 2019 10:40:27 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-8/</guid><description>2.5.8 # 解答 # 官网实现见：https://algs4.cs.princeton.edu/25applications/Frequency.java.html
+用到的数据来自（右键另存为）：https://introcs.cs.princeton.edu/java/data/tale.txt
+先把所有单词读入，然后排序，一样的单词会被放在一起，
+接下来遍历一遍记录每个单词出现的次数。
+然后按照频率排序，倒序输出即可。
+定义了一个嵌套类 Record 来记录单词及出现次数，实现的比较器按照出现次数排序。
+class Record : IComparable&amp;lt;Record&amp;gt; { public string Key { get; set; } // 单词 public int Value { get; set; } // 频率 public Record(string key, int value) { this.Key = key; this.Value = value; } public int CompareTo(Record other) { return this.Value.CompareTo(other.Value); } } 测试结果（前 1% 的单词）：
+代码 # using System; using System.</description></item><item><title>2.5.9</title><link>https://alg4.ikesnowy.com/2-5-9/</link><pubDate>Tue, 08 Jan 2019 14:41:55 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-9/</guid><description>2.5.9 # 解答 # 右侧给出的是道琼斯指数，官方数据（右键另存为）：DJI
+设计一个类保存日期和交易量，然后按照交易量排序即可。
+/// &amp;lt;summary&amp;gt; /// 道琼斯指数。 /// &amp;lt;/summary&amp;gt; class DJIA : IComparable&amp;lt;DJIA&amp;gt; { public string Date { get; set; } public long Volume { get; set; } public DJIA(string date, long vol) { this.Date = date; this.Volume = vol; } public int CompareTo(DJIA other) { return this.Volume.CompareTo(other.Volume); } }</description></item><item><title>2.5.10</title><link>https://alg4.ikesnowy.com/2-5-10/</link><pubDate>Tue, 08 Jan 2019 15:39:04 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-10/</guid><description>2.5.10 # 解答 # 用一个 int 数组来保存版本号，按顺序进行比较。
+如果两个版本号不等长且前缀相同，那么较长的版本号比较高，例如：1.2.1 和 1.2。
+using System; namespace _2._5._10 { /// &amp;lt;summary&amp;gt; /// 版本号。 /// &amp;lt;/summary&amp;gt; class Version : IComparable&amp;lt;Version&amp;gt; { private int[] versionNumber; public Version(string version) { string[] versions = version.Split(&amp;#39;.&amp;#39;); this.versionNumber = new int[versions.Length]; for (int i = 0; i &amp;lt; versions.Length; i++) { this.versionNumber[i] = int.Parse(versions[i]); } } public int CompareTo(Version other) { for (int i = 0; i &amp;lt; this.</description></item><item><title>2.5.11</title><link>https://alg4.ikesnowy.com/2-5-11/</link><pubDate>Tue, 08 Jan 2019 19:08:28 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-11/</guid><description>2.5.11 # 解答 # 结果如下，其中快速排序去掉了一开始打乱数组的步骤：
+只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
+插入排序在排序元素完全相同的数组时只会进行一次遍历，不会交换。
+选择排序第 i 次找到的最小值就是 a[i] ，只会让 a[i] 和 a[i] 交换，不会影响顺序。
+希尔排序和插入排序类似，每轮排序都不会进行交换。
+归并排序是稳定的，就本例而言，只会从左到右依次归并，不会发生顺序变化。
+快速排序在遇到相同元素时会交换，因此顺序会发生变化，且每次都是对半切分。
+堆排序在删除最大元素时会将第一个元素和最后一个元素交换，使元素顺序发生变化。
+代码 # using System; using SortApplication; namespace _2._5._11 { class Program { /// &amp;lt;summary&amp;gt; /// 用来排序的元素，记录有自己的初始下标。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;&amp;lt;/typeparam&amp;gt; class Item&amp;lt;T&amp;gt; : IComparable&amp;lt;Item&amp;lt;T&amp;gt;&amp;gt; where T : IComparable&amp;lt;T&amp;gt; { public int Index; public T Key; public Item(int index, T key) { this.Index = index; this.</description></item><item><title>2.5.12</title><link>https://alg4.ikesnowy.com/2-5-12/</link><pubDate>Wed, 09 Jan 2019 11:29:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-12/</guid><description>2.5.12 # 解答 # 官方解答：https://algs4.cs.princeton.edu/25applications/SPT.java.html
+把任务按照处理时间升序排序即可。
+建立 Job 类，保存任务的名称和处理时间，并实现了 IConparable&amp;lt;Job&amp;gt; 接口。
+class Job : IComparable&amp;lt;Job&amp;gt; { public string Name; public double Time; public Job(string name, double time) { this.Name = name; this.Time = time; } public int CompareTo(Job other) { return this.Time.CompareTo(other.Time); } } 代码 # using System; namespace _2._5._12 { class Program { class Job : IComparable&amp;lt;Job&amp;gt; { public string Name; public double Time; public Job(string name, double time) { this.</description></item><item><title>2.5.13</title><link>https://alg4.ikesnowy.com/2-5-13/</link><pubDate>Thu, 10 Jan 2019 10:29:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-13/</guid><description>2.5.13 # 解答 # 官方解答见：https://algs4.cs.princeton.edu/25applications/LPT.java.html
+使用上题的 Job 类，在本题建立 Processor 类来代表处理器，定义如下：
+class Processor : IComparable&amp;lt;Processor&amp;gt; { private List&amp;lt;Job&amp;gt; jobs = new List&amp;lt;Job&amp;gt;(); private double busyTime = 0; public Processor() { } public void Add(Job job) { this.jobs.Add(job); this.busyTime += job.Time; } public int CompareTo(Processor other) { return this.busyTime.CompareTo(other.busyTime); } public override string ToString() { StringBuilder sb = new StringBuilder(); Job[] nowList = this.jobs.ToArray(); for (int i = 0; i &amp;lt; nowList.</description></item><item><title>2.5.14</title><link>https://alg4.ikesnowy.com/2-5-14/</link><pubDate>Fri, 11 Jan 2019 13:52:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-14/</guid><description>2.5.14 # 解答 # 官方解答：https://algs4.cs.princeton.edu/25applications/Domain.java.html
+按照逆域名排序，例如输入的是 com.google 和 com.apple ，
+比较的时候是按照 google.com 和 apple.com 进行比较的。
+排序结果自然是 apple.com, google.com。
+编写的 Domain 类，CompareTo() 中是按照倒序进行比较的。
+using System; using System.Text; namespace _2._5._14 { /// &amp;lt;summary&amp;gt; /// 域名类。 /// &amp;lt;/summary&amp;gt; class Domain : IComparable&amp;lt;Domain&amp;gt; { private string[] fields; private int n; /// &amp;lt;summary&amp;gt; /// 构造一个域名。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;url&amp;#34;&amp;gt;域名的 url。&amp;lt;/param&amp;gt; public Domain(string url) { this.fields = url.</description></item><item><title>2.5.15</title><link>https://alg4.ikesnowy.com/2-5-15/</link><pubDate>Fri, 11 Jan 2019 18:55:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-15/</guid><description>2.5.15 # 解答 # 利用上一题的逆域名排序将域名相同的电子邮件分在一起。
+代码 # using System; namespace _2._5._15 { class Program { static void Main(string[] args) { // 利用上一题的逆域名排序，将相同的域名放在一起。 Domain[] emails = new Domain[5]; emails[0] = new Domain(&amp;#34;wayne@cs.princeton.edu&amp;#34;); emails[1] = new Domain(&amp;#34;windy@apple.com&amp;#34;); emails[2] = new Domain(&amp;#34;rs@cs.princeton.edu&amp;#34;); emails[3] = new Domain(&amp;#34;ike@ee.princeton.edu&amp;#34;); emails[4] = new Domain(&amp;#34;admin@princeton.edu&amp;#34;); Array.Sort(emails); for (int i = 0; i &amp;lt; emails.Length; i++) { Console.WriteLine(emails[i]); } } } }</description></item><item><title>2.5.16</title><link>https://alg4.ikesnowy.com/2-5-16/</link><pubDate>Sat, 12 Jan 2019 16:07:04 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-16/</guid><description>2.5.16 # 解答 # 官方解答：https://algs4.cs.princeton.edu/25applications/California.java.html
+数据来源：https://introcs.cs.princeton.edu/java/data/california-gov.txt
+建立一个 string 的比较器，按照题目给定的顺序比较。
+private class CandidateComparer : IComparer&amp;lt;string&amp;gt; { private static readonly string order = &amp;#34;RWQOJMVAHBSGZXNTCIEKUPDYFL&amp;#34;; public int Compare(string x, string y) { int n = Math.Min(x.Length, y.Length); for (int i = 0; i &amp;lt; n; i++) { int a = order.IndexOf(x[i]); int b = order.IndexOf(y[i]); if (a != b) return a.CompareTo(b); } return x.Length.CompareTo(y.Length); } } 代码 # using System; using System.</description></item><item><title>2.5.17</title><link>https://alg4.ikesnowy.com/2-5-17/</link><pubDate>Sat, 12 Jan 2019 18:05:49 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-17/</guid><description>2.5.17 # 解答 # 用一个 Wrapper 类包装准备排序的元素，在排序前同时记录元素的内容和下标。
+随后对 Wrapper 数组排序，相同的元素会被放在一起，检查它们的下标是否是递增的。
+如果不是递增的，则排序算法就是不稳定的；否则排序算法就有可能是稳定的。
+（不稳定的排序算法也可能不改变相同元素的相对位置，比如用选择排序对有序数组排序）
+代码 # using System; using SortApplication; namespace _2._5._17 { class Program { class Wrapper&amp;lt;T&amp;gt; : IComparable&amp;lt;Wrapper&amp;lt;T&amp;gt;&amp;gt; where T : IComparable&amp;lt;T&amp;gt; { public int Index; public T Key; public Wrapper(int index, T elements) { this.Index = index; this.Key = elements; } public int CompareTo(Wrapper&amp;lt;T&amp;gt; other) { return this.Key.CompareTo(other.Key); } } static void Main(string[] args) { int[] data = new int[] { 7, 7, 4, 8, 8, 5, 1, 7, 7 }; MergeSort merge = new MergeSort(); InsertionSort insertion = new InsertionSort(); ShellSort shell = new ShellSort(); SelectionSort selection = new SelectionSort(); QuickSort quick = new QuickSort(); Console.</description></item><item><title>2.5.18</title><link>https://alg4.ikesnowy.com/2-5-18/</link><pubDate>Mon, 14 Jan 2019 13:05:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-18/</guid><description>2.5.18 # 解答 # 用和上题一样的 Wrapper 类进行排序。
+排序之后，相同的元素会被放在一起，形成一个个子数组。
+根据事先保存的原始下标对它们进行排序，即可将不稳定的排序稳定化。
+结果：
+代码 # using System; using SortApplication; namespace _2._5._18 { class Program { class Wrapper&amp;lt;T&amp;gt; : IComparable&amp;lt;Wrapper&amp;lt;T&amp;gt;&amp;gt; where T : IComparable&amp;lt;T&amp;gt; { public int Index; public T Key; public Wrapper(int index, T elements) { this.Index = index; this.Key = elements; } public int CompareTo(Wrapper&amp;lt;T&amp;gt; other) { return this.Key.CompareTo(other.Key); } } static void Main(string[] args) { int[] data = new int[] { 5, 7, 3, 4, 7, 3, 6, 3, 3 }; QuickSort quick = new QuickSort(); ShellSort shell = new ShellSort(); Console.</description></item><item><title>2.5.19</title><link>https://alg4.ikesnowy.com/2-5-19/</link><pubDate>Mon, 14 Jan 2019 17:36:46 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-19/</guid><description>2.5.19 # 解答 # 官方解答：
+Kendall Tau：https://algs4.cs.princeton.edu/25applications/KendallTau.java.html
+Inversion：https://algs4.cs.princeton.edu/22mergesort/Inversions.java.html
+由书中 2.5.3.2 节得，两个数组之间的 Kendall Tau 距离即为两数组之间顺序不同的数对数目。
+如果能够把其中一个数组变成标准排列（即 1,2,3,4... 这样的数组），
+那么此时 Kendall Tau 距离就等于另一个数组中的逆序对数量。
+现在我们来解决如何把一个数组 a 变成标准排列的方法。
+也就是找到函数 $ f(x) ​$，使得 $ f(a[i])=i ​$ ，这样的函数其实就是数组 a 的逆数组。
+如下图所示，逆数组 ainv 即为满足 ainv[a[i]] = i 的数组。
+获得逆数组之后，对另一个数组 b 做同样的变换，令数组 bnew[i] = ainv[b[i]] 。
+即 ainv[a[i]] = i, ainv[b[i]] = bnew[i] 。
+于是问题转化为了 bnew 和标准排列之间的 Kendall Tau 距离，即 bnew 的逆序对数量。
+逆序对数量的求法见 {% post_link 2-2-19 %}。</description></item><item><title>2.5.20</title><link>https://alg4.ikesnowy.com/2-5-20/</link><pubDate>Mon, 14 Jan 2019 18:18:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-20/</guid><description>2.5.20 # 解答 # 我们以事件为单位进行处理，每个事件包含任务名，记录时刻和开始/结束标记。
+随后按照时间从小到大排序，遍历事件数组。
+设开始的时候机器空闲，设置计数器，作为当前正在运行的任务数量。
+当遇到开始事件时，计数器加一；遇到结束事件时，计数器减一。
+如果计数器加一之前计数器为 0，说明空闲状态结束，记录并更新空闲时间，当前时间为忙碌开始的时间。
+如果计数器减一之后计数器为 0，说明忙碌状态结束，记录并更新忙碌时间，当前时间为空闲开始的时间。
+测试结果：
+代码 # using System; namespace _2._5._20 { class Program { /// &amp;lt;summary&amp;gt; /// 任务变化事件。 /// &amp;lt;/summary&amp;gt; class JobEvent : IComparable&amp;lt;JobEvent&amp;gt; { public string JobName; public int Time; public bool IsFinished = false; // false = 开始，true = 结束 public int CompareTo(JobEvent other) { return this.Time.CompareTo(other.Time); } } static void Main(string[] args) { // 输入格式： JobName 15:02 17:02 int nowRunning = 0; // 正在运行的程序数量 int maxIdle = 0; int maxBusy = 0; int items = int.</description></item><item><title>2.5.21</title><link>https://alg4.ikesnowy.com/2-5-21/</link><pubDate>Tue, 15 Jan 2019 13:16:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-21/</guid><description>2.5.21 # 解答 # 与之前的版本号比较十分类似，对数组进行包装，然后按照次序依次比较即可。
+using System; using System.Text; namespace _2._5._21 { class Vector : IComparable&amp;lt;Vector&amp;gt; { private int[] data; public int Length { get; set; } public Vector(int[] data) { this.data = data; this.Length = data.Length; } public int CompareTo(Vector other) { int maxN = Math.Max(this.Length, other.Length); for (int i = 0; i &amp;lt; maxN; i++) { int comp = this.data[i].CompareTo(other.data[i]); if (comp != 0) return comp; } return this.</description></item><item><title>2.5.22</title><link>https://alg4.ikesnowy.com/2-5-22/</link><pubDate>Tue, 15 Jan 2019 13:33:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-22/</guid><description>2.5.22 # 解答 # 建立最小堆和最大堆，最小堆保存卖家的报价，最大堆保存买家的报价。
+如果最小堆中的最低卖出价低于最大堆的最高买入价，交易达成，交易份额较大的一方需要重新回到堆内。
+测试结果：
+代码 # using System; using SortApplication; namespace _2._5._22 { class Program { class Ticket : IComparable&amp;lt;Ticket&amp;gt; { public double Price; public int Share; public int CompareTo(Ticket other) { return this.Price.CompareTo(other.Price); } } static void Main(string[] args) { // 输入格式： buy 20.05 100 MaxPQ&amp;lt;Ticket&amp;gt; buyer = new MaxPQ&amp;lt;Ticket&amp;gt;(); MinPQ&amp;lt;Ticket&amp;gt; seller = new MinPQ&amp;lt;Ticket&amp;gt;(); int n = int.Parse(Console.ReadLine()); for (int i = 0; i &amp;lt; n; i++) { Ticket ticket = new Ticket(); string[] item = Console.</description></item><item><title>2.5.23</title><link>https://alg4.ikesnowy.com/2-5-23/</link><pubDate>Mon, 21 Jan 2019 19:59:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-23/</guid><description>2.5.23 # 解答 # 这里我们使用 Floyd-Rivest 算法进行优化，大致思想是：
+我们期望第 $k$ 大的元素位于 a[k] 附近，因此优先对 a[k] 附近的区域进行选择。
+每次切分时枢轴都选择 a[k]，先递归对样本区域选择，再对整个数组进行选择。
+运行示意图：
+测试结果：
+代码 # /// &amp;lt;summary&amp;gt; /// Floyd–Rivest 方法优化，令 a[k] 变成第 k 小的元素。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要排序的数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;k&amp;#34;&amp;gt;序号&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; static T Select&amp;lt;T&amp;gt;(T[] a, int lo, int hi, int k) where T : IComparable&amp;lt;T&amp;gt; { if (k &amp;lt; 0 || k &amp;gt; a.Length) throw new IndexOutOfRangeException(&amp;#34;Select elements out of bounds&amp;#34;); while (hi &amp;gt; lo) { if (hi - lo &amp;gt; 600) { int n = hi - lo + 1; int i = k - lo + 1; int z = (int)Math.</description></item><item><title>2.5.24</title><link>https://alg4.ikesnowy.com/2-5-24/</link><pubDate>Wed, 23 Jan 2019 20:05:47 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-24/</guid><description>2.5.24 # 解答 # 官方解答：https://algs4.cs.princeton.edu/25applications/StableMinPQ.java.html
+在元素插入的同时记录插入顺序，比较的时候把插入顺序也纳入比较。
+对于值一样的元素，插入顺序在前的的元素比较小。
+交换的时候需要同时交换插入次序。
+代码 # using System; using System.Collections; using System.Collections.Generic; namespace SortApplication { /// &amp;lt;summary&amp;gt; /// 稳定的最小堆。（数组实现） /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;最小堆中保存的元素类型。&amp;lt;/typeparam&amp;gt; public class MinPQStable&amp;lt;Key&amp;gt; : IMinPQ&amp;lt;Key&amp;gt;, IEnumerable&amp;lt;Key&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { protected Key[] pq; // 保存元素的数组。 protected int n; // 堆中的元素数量。 private long[] time; // 元素的插入次序。 private long timeStamp = 1; // 元素插入次序计数器。 /// &amp;lt;summary&amp;gt; /// 默认构造函数。 /// &amp;lt;/summary&amp;gt; public MinPQStable() : this(1) { } /// &amp;lt;summary&amp;gt; /// 建立指定容量的最小堆。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;capacity&amp;#34;&amp;gt;最小堆的容量。&amp;lt;/param&amp;gt; public MinPQStable(int capacity) { this.</description></item><item><title>2.5.25</title><link>https://alg4.ikesnowy.com/2-5-25/</link><pubDate>Thu, 24 Jan 2019 13:44:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-25/</guid><description>2.5.25 # 解答 # 官方解答见：https://algs4.cs.princeton.edu/25applications/Point2D.java.html
+这些比较器都以嵌套类的形式在 Point2D 中定义。
+静态比较器直接在类中以静态成员的方式声明。
+非静态比较器则需要提供工厂方法，该方法新建并返回对应的比较器对象。
+代码 # /// &amp;lt;summary&amp;gt; /// 按照 X 顺序比较。 /// &amp;lt;/summary&amp;gt; private class XOrder : Comparer&amp;lt;Point2D&amp;gt; { public override int Compare(Point2D x, Point2D y) { if (x.X &amp;lt; y.X) return -1; if (x.X &amp;gt; y.X) return 1; return 0; } } /// &amp;lt;summary&amp;gt; /// 按照 Y 顺序比较。 /// &amp;lt;/summary&amp;gt; private class YOrder : Comparer&amp;lt;Point2D&amp;gt; { public override int Compare(Point2D x, Point2D y) { if (x.</description></item><item><title>2.5.26</title><link>https://alg4.ikesnowy.com/2-5-26/</link><pubDate>Thu, 24 Jan 2019 16:32:59 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-26/</guid><description>2.5.26 # 解答 # 提示中已经给出了方法，使用上一题编写的比较器进行排序即可。
+效果演示：
+代码 # 绘图部分代码：
+using System.Collections.Generic; using System.Drawing; using System.Windows.Forms; using SortApplication; namespace _2._5._26 { public partial class Form2 : Form { Graphics panel; List&amp;lt;Point2D&amp;gt; points; Point2D startPoint; double maxX = 0, maxY = 0; public Form2() { InitializeComponent(); } /// &amp;lt;summary&amp;gt; /// 显示并初始化绘图窗口。 /// &amp;lt;/summary&amp;gt; public void Init() { Show(); this.panel = CreateGraphics(); this.points = new List&amp;lt;Point2D&amp;gt;(); this.startPoint = null; } /// &amp;lt;summary&amp;gt; /// 向画板中添加一个点。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;point&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; public void Add(Point2D point) { this.</description></item><item><title>2.5.27</title><link>https://alg4.ikesnowy.com/2-5-27/</link><pubDate>Thu, 24 Jan 2019 18:11:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-27/</guid><description>2.5.27 # 解答 # 类似于索引排序的做法，访问数组都通过一层索引来间接实现。
+首先创建一个数组 index，令 index[i] = i。
+排序时的交换变成 index 数组中元素的交换，
+读取元素时使用 a[index[i]] 而非 a[i] 。
+代码 # /// &amp;lt;summary&amp;gt; /// 间接排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;keys&amp;#34;&amp;gt;&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; static int[] IndirectSort&amp;lt;T&amp;gt;(T[] keys) where T : IComparable&amp;lt;T&amp;gt; { int n = keys.Length; int[] index = new int[n]; for (int i = 0; i &amp;lt; n; i++) index[i] = i; for (int i = 0; i &amp;lt; n; i++) for (int j = i; j &amp;gt; 0 &amp;amp;&amp;amp; keys[index[j]].</description></item><item><title>2.5.28</title><link>https://alg4.ikesnowy.com/2-5-28/</link><pubDate>Thu, 24 Jan 2019 18:31:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-28/</guid><description>2.5.28 # 解答 # 官方解答：https://algs4.cs.princeton.edu/25applications/FileSorter.java.html
+先获得目录里的所有文件名，然后排序输出即可。
+代码 # using System; using System.IO; namespace _2._5._28 { class Program { // 官方解答：https://algs4.cs.princeton.edu/25applications/FileSorter.java.html static void Main(string[] args) { // 输入 ./ 获得当前目录文件。 string directoryName = Console.ReadLine(); if (!Directory.Exists(directoryName)) { Console.WriteLine(directoryName + &amp;#34; doesn&amp;#39;t exist or isn&amp;#39;t a directory&amp;#34;); return; } string[] directoryFiles = Directory.GetFiles(directoryName); Array.Sort(directoryFiles); for (int i = 0; i &amp;lt; directoryFiles.Length; i++) Console.WriteLine(directoryFiles[i]); } } }</description></item><item><title>2.5.29</title><link>https://alg4.ikesnowy.com/2-5-29/</link><pubDate>Thu, 24 Jan 2019 19:21:06 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-29/</guid><description>2.5.29 # 解答 # 首先定义一系列比较器，分别根据文件大小、文件名和最后修改日期比较。
+然后修改 Less 的实现，接受一个比较器数组，使用数组中的比较器依次比较，直到比较结果为两者不相同。
+最后使用插入排序作为稳定排序，传入比较器数组用于 Less 函数。
+代码 # using System; using System.IO; using System.Collections.Generic; namespace _2._5._29 { class Program { class FileSizeComparer : Comparer&amp;lt;FileInfo&amp;gt; { public override int Compare(FileInfo x, FileInfo y) { return x.Length.CompareTo(y.Length); } } class FileNameComparer : Comparer&amp;lt;FileInfo&amp;gt; { public override int Compare(FileInfo x, FileInfo y) { return x.FullName.CompareTo(y.FullName); } } class FileTimeStampComparer : Comparer&amp;lt;FileInfo&amp;gt; { public override int Compare(FileInfo x, FileInfo y) { return x.</description></item><item><title>2.5.30</title><link>https://alg4.ikesnowy.com/2-5-30/</link><pubDate>Thu, 24 Jan 2019 20:39:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-30/</guid><description>2.5.30 # 解答 # 不妨按照升序排序，$x_{ij}$ 代表第 $i$ 行第 $j$ 列的元素。
+首先保证每列都是有序的。
+对第一行排序，对于第一行的元素 $x_{1i}$ ，排序结果无非两种。
+要么 $x_{1i}$ 不改变，要么和更小的元素进行交换。
+显然，无论哪种情况，第 $i$ 列都是有序的。
+因此对第一行排序之后，第一行有序，每一列都分别有序。
+之后我们对第二行排序，考虑元素 $x_{11}$。
+此时 $x_{11}$ 小于第一列的所有其他元素，也小于第一行的所有其他元素。
+又每一列都分别有序，因此 $x_{11}$ 是整个矩阵的最小值，第二行不存在比它小的元素。
+考虑使用选择排序，我们把第二行的最小值和 $x_{21}$ 交换，第一列仍然有序。
+现在去掉第一列，对剩下的矩阵做一样的操作，可以将第二行依次排序。
+同时保证第二行的元素都小于同列的第一行元素。
+接下来的行都可以依次类推，最终将整个矩阵的所有行排序，定理得证。</description></item><item><title>2.5.31</title><link>https://alg4.ikesnowy.com/2-5-31/</link><pubDate>Fri, 25 Jan 2019 13:42:06 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-31/</guid><description>2.5.31 # 解答 # 编写代码进行实验即可，实验结果如下，可以发现十分接近：
+代码 # using System; namespace _2._5._31 { class Program { /// &amp;lt;summary&amp;gt; /// 计算数组中重复元素的个数。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;a&amp;#34;&amp;gt;需要计算重复元素的数组。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; static int Distinct&amp;lt;T&amp;gt;(T[] a) where T : IComparable&amp;lt;T&amp;gt; { if (a.Length == 0) return 0; Array.Sort(a); int distinct = 1; for (int i = 1; i &amp;lt; a.Length; i++) if (a[i].CompareTo(a[i - 1]) !</description></item><item><title>2.5.32</title><link>https://alg4.ikesnowy.com/2-5-32/</link><pubDate>Sat, 26 Jan 2019 16:04:21 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-32/</guid><description>2.5.32 # 解答 # （前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）
+A* 算法是 Dijkstra 算法和最佳优先算法的一种结合。
+Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。
+建立队列 queue ，把所有的结点加入 queue 中；建立数组 d，d[v] 代表起点到点 v 的距离。
+开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：
+从队列中取出已知距离最短的结点 u，检查该结点的所有边。
+如果通过这个点能够以更近的距离到达 v，更新起点到 v 的距离 d[v] = d[u] + distance(u, v)。
+等到队列为空之后数组 d 中就存放着起点到其他所有结点的最短距离。
+Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。
+很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。
+通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。
+在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 g[n] 。
+现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 h[n] 。
+令 f[n] = g[n] + h[n]，我们按照 f[n] 对等待搜索的结点进行排序。
+同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。</description></item><item><title>2.5.33</title><link>https://alg4.ikesnowy.com/2-5-33/</link><pubDate>Sun, 27 Jan 2019 11:35:27 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-5-33/</guid><description>2.5.33 # 解答 # 编写代码实验即可，结果如下：
+代码 # 随机交易生成器 TransactionGenerator
+using System; using System.Text; using SortApplication; namespace _2._5._33 { /// &amp;lt;summary&amp;gt; /// 随机交易生成器。 /// &amp;lt;/summary&amp;gt; class TransactionGenerator { private static Random random = new Random(); /// &amp;lt;summary&amp;gt; /// 生成 n 条随机交易记录。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;n&amp;#34;&amp;gt;交易记录的数量。&amp;lt;/param&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; public static Transaction[] Generate(int n) { Transaction[] trans = new Transaction[n]; for (int i = 0; i &amp;lt; n; i++) { trans[i] = new Transaction (GenerateName(), GenerateDate(), random.</description></item></channel></rss>

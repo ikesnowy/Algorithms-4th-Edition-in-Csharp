@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Searching on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/tags/searching/</link><description>Recent content in Searching on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><language>zh-Hans</language><lastBuildDate>Sun, 16 Jan 2022 13:45:15 +0000</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/tags/searching/index.xml" rel="self" type="application/rss+xml"/><item><title>3.1.1</title><link>https://alg4.ikesnowy.com/3-1-1/</link><pubDate>Tue, 12 Feb 2019 13:49:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-1/</guid><description>3.1.1 # 解答 # 官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
+ST.java：https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/ST.java.html
+建立一个符号表，然后把键值放进去，读取计算即可。
+和上一章节用过的方法类似，先定义了一个接口 IST&amp;lt;Key, Value&amp;gt; ，包含书中提到的基本 API。
+然后定义类 ST ，用标准库里面的 Dictionary 实现了 IST 。
+代码 # using System.Collections; using System.Collections.Generic; namespace SymbolTable { /// &amp;lt;summary&amp;gt; 利用库函数实现的标准符号表。 &amp;lt;/summary&amp;gt; public class ST&amp;lt;Key, Value&amp;gt; : IST&amp;lt;Key, Value&amp;gt;, IEnumerable&amp;lt;Key&amp;gt; { private Dictionary&amp;lt;Key, Value&amp;gt; st; /// &amp;lt;summary&amp;gt; 新建一个符号表。 &amp;lt;/summary&amp;gt; public ST() =&amp;gt; this.st = new Dictionary&amp;lt;Key, Value&amp;gt;(); /// &amp;lt;summary&amp;gt; 检查符号表中是否存在与键 &amp;lt;paramref name=&amp;#34;key&amp;#34;/&amp;gt; 对应的值。 &amp;lt;/summary&amp;gt; public virtual bool Contains(Key key) =&amp;gt; this.</description></item><item><title>3.1.2</title><link>https://alg4.ikesnowy.com/3-1-2/</link><pubDate>Tue, 12 Feb 2019 13:54:18 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-2/</guid><description>3.1.2 # 解答 # 官方解答：https://algs4.cs.princeton.edu/31elementary/ArrayST.java.html
+建立两个数组，分别存放键和值，一一对应。
+添加时直接将新键值对放到数组最后即可。
+删除时将待删除的键值对和位于最后的键值对交换，然后将其置空即可。
+代码 # using System; using System.Collections.Generic; namespace SymbolTable { /// &amp;lt;summary&amp;gt; /// 符号表（数组实现）。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;键类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Value&amp;#34;&amp;gt;值类型。&amp;lt;/typeparam&amp;gt; public class ArrayST&amp;lt;Key, Value&amp;gt; : IST&amp;lt;Key, Value&amp;gt; { private Key[] keys; // 键数组 private Value[] values; // 值数组 private int n = 0; // 键值对数目 /// &amp;lt;summary&amp;gt; /// 建立基于数组实现的符号表。 /// &amp;lt;/summary&amp;gt; public ArrayST() : this(8) { } /// &amp;lt;summary&amp;gt; /// 建立基于数组实现的符号表。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;initCapacity&amp;#34;&amp;gt;初始大小。&amp;lt;/param&amp;gt; public ArrayST(int initCapacity) { this.</description></item><item><title>3.1.3</title><link>https://alg4.ikesnowy.com/3-1-3/</link><pubDate>Tue, 12 Feb 2019 21:41:41 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-3/</guid><description>3.1.3 # 解答 # 基于无序链表的官方实现：https://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html
+有序符号表的 API 见书中表 3.1.4（中文版 P230，英文版 P366）。
+在官方实现的基础上修改 Put 方法，先找到合适位置再插入新的键值对，保证链表有序。
+为方便插入操作，可以使用双向链表作为基础进行实现。
+表中同时维护开头和末尾引用，加快获得最值的速度。
+代码 # using System; using System.Collections.Generic; namespace SymbolTable { /// &amp;lt;summary&amp;gt; /// 基于有序链表的有序符号表实现。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Key&amp;#34;&amp;gt;符号表键类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;typeparam name=&amp;#34;Value&amp;#34;&amp;gt;符号表值类型。&amp;lt;/typeparam&amp;gt; public class OrderedSequentialSearchST&amp;lt;Key, Value&amp;gt; : IST&amp;lt;Key, Value&amp;gt;, IOrderedST&amp;lt;Key, Value&amp;gt; where Key : IComparable&amp;lt;Key&amp;gt; { /// &amp;lt;summary&amp;gt; /// 符号表结点。 /// &amp;lt;/summary&amp;gt; private class Node { public Key Key { get; set; } // 键。 public Value Value { get; set; } // 值。 public Node Next { get; set; } // 后继。 public Node Prev { get; set; } // 前驱。 } private Node first = null; // 起始结点。 private Node tail = null; // 末尾结点。 private int n = 0; // 键值对数量。 /// &amp;lt;summary&amp;gt; /// 构造基于有序链表的有序符号表。 /// &amp;lt;/summary&amp;gt; public OrderedSequentialSearchST() { } /// &amp;lt;summary&amp;gt; /// 大于等于 key 的最小值。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;returns&amp;gt;&amp;lt;/returns&amp;gt; public Key Ceiling(Key key) { Node pointer = this.</description></item><item><title>3.1.4</title><link>https://alg4.ikesnowy.com/3-1-4/</link><pubDate>Wed, 13 Feb 2019 17:22:52 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-4/</guid><description>3.1.4 # 解答 # 利用 Time 类型记录时间，用 Event 来记录事件内容。
+Time 类型包含时分秒三个 int 变量，同时实现 IComparable 接口。
+Event 类型只包含事件的名称，相当于对 string 做了一个封装。
+随后以 Time 为键类型，Event 为值类型，利用上一题编写的有序符号表进行操作。
+代码 # Time 类
+using System; using System.Text; namespace _3._1._4 { /// &amp;lt;summary&amp;gt; /// 时间类。 /// &amp;lt;/summary&amp;gt; public class Time : IComparable&amp;lt;Time&amp;gt; { public int Hour { get; set; } public int Minute { get; set; } public int Second { get; set; } public Time() : this(0, 0, 0) { } public Time(int hour, int minute, int second) { this.</description></item><item><title>3.1.5</title><link>https://alg4.ikesnowy.com/3-1-5/</link><pubDate>Fri, 15 Feb 2019 20:32:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-5/</guid><description>3.1.5 # 解答 # 官方解答：https://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html
+size() 方法只需要直接返回当前的 n 值即可。
+delete() 方法需要遍历链表，找到对应结点并删除。
+keys() 方法只需要根据当前的 n 新建一个数组，把链表中的键值存入即可。
+代码 # /// &amp;lt;summary&amp;gt; /// 从表中删去键 &amp;lt;paramref name=&amp;#34;key&amp;#34;/&amp;gt; 及其对应的值。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;key&amp;#34;&amp;gt;要删除的键。&amp;lt;/param&amp;gt; public void Delete(Key key) { if (key == null) throw new ArgumentNullException(&amp;#34;key can&amp;#39;t be null&amp;#34;); Node before = null, target = this.first; while (target != null &amp;amp;&amp;amp; !target.Key.Equals(key)) { before = target; target = target.Next; } if (target !</description></item><item><title>3.1.6</title><link>https://alg4.ikesnowy.com/3-1-6/</link><pubDate>Sun, 17 Feb 2019 13:56:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-6/</guid><description>3.1.6 # 解答 # FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+每个单词都会被放进符号表一次，
+因此 Put 的调用次数就等于单词总数 W +1（注意寻找最大值的时候有一次 Put 调用）
+对于重复的单词，输入时会先调用 Get 获得当前计数之后再 Put 回去。
+寻找最大值时，对于符号表中的每个键值都会调用两次 Get。
+重复的单词数量 = (W - D)。
+因此 Get 方法的调用次数 = (W - D) + 2D</description></item><item><title>3.1.7</title><link>https://alg4.ikesnowy.com/3-1-7/</link><pubDate>Sun, 17 Feb 2019 15:00:28 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-7/</guid><description>3.1.7 # 解答 # 在 FrequencyCounter 中添加一个 CountDistinct 方法，计算不重复的键数。
+public static int CountDistinct&amp;lt;TKey&amp;gt;(TKey[] keys, IST&amp;lt;TKey, int&amp;gt; st) { int distinct = 0; for (int i = 0; i &amp;lt; keys.Length; i++) { if (!st.Contains(keys[i])) st.Put(keys[i], distinct++); } return distinct; } 结果如下：
+另请参阅 # SymbolTable 库</description></item><item><title>3.1.8</title><link>https://alg4.ikesnowy.com/3-1-8/</link><pubDate>Sun, 17 Feb 2019 15:20:54 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-8/</guid><description>3.1.8 # 解答 # FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
+官网给出的数据末尾有完整的版权说明，因此使用频率最高的单词变成了版权方的名字 Gutenberg-tm。
+去掉末尾的版权声明之后，获得的单词是：Monseigneur
+另请参阅 # SymbolTable 库</description></item><item><title>3.1.9</title><link>https://alg4.ikesnowy.com/3-1-9/</link><pubDate>Tue, 19 Feb 2019 13:11:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-9/</guid><description>3.1.9 # 解答 # FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
+对 FrequencyCounter 做修改，在调用 Put 方法之前，将单词记录在字符串变量 lastPut 中。
+在读入单词结束之后输出 lastPut 和 words 变量。
+将末尾的版权信息删除后，得到的结果如下：
+代码 # public static string MostFrequentlyWord(string filename, int minLength, IST&amp;lt;string, int&amp;gt; st) { int distinct = 0, words = 0; StreamReader sr = new StreamReader(File.OpenRead(filename)); string[] inputs = sr .ReadToEnd() .Split(new char[] { &amp;#39; &amp;#39;, &amp;#39;\r&amp;#39;, &amp;#39;\n&amp;#39; }, StringSplitOptions.RemoveEmptyEntries); string lastPut = &amp;#34;&amp;#34;; foreach (string s in inputs) { if (s.</description></item><item><title>3.1.10</title><link>https://alg4.ikesnowy.com/3-1-10/</link><pubDate>Tue, 19 Feb 2019 21:05:51 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-10/</guid><description>3.1.10 # 解答 # 如图所示：
+插入新的键值对需要遍历整个链表，比较次数等于链表在插入前的键值对数目。
+修改已有的键值对则需要遍历链表直到找到该键值对，比较次数等于该键值对以及它之前所有键值对的数目。
+共比较 0 + 1 + 2 + 3 + 4 + 5 + 6 + 4 + 6 + 7 + 8 + 9 = 55 次。</description></item><item><title>3.1.11</title><link>https://alg4.ikesnowy.com/3-1-11/</link><pubDate>Wed, 20 Feb 2019 20:29:43 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-11/</guid><description>3.1.11 # 解答 # 键的轨迹如下图所示：
+键查找使用二分查找优化，插入新的键时不必与每个键都进行比较。
+共进行了 0 + 1 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 4 = 29 次比较。</description></item><item><title>3.1.12</title><link>https://alg4.ikesnowy.com/3-1-12/</link><pubDate>Sat, 23 Feb 2019 18:38:29 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-12/</guid><description>3.1.12 # 解答 # 建立类 Item：
+public class Item&amp;lt;TKey, TValue&amp;gt; : IComparable&amp;lt;Item&amp;lt;TKey, TValue&amp;gt;&amp;gt; where TKey : IComparable&amp;lt;TKey&amp;gt; { public TKey Key { get; set; } public TValue Value { get; set; } public int CompareTo(Item&amp;lt;TKey, TValue&amp;gt; other) { return this.Key.CompareTo(other.Key); } } 之后修改 BinarySearchST，将其中的 TKey[] keys 和 TValue[] values 数组用 Item[] items 数组代替。
+例如 keys[i] 变为 items[i].Key，values[i] 变为 items[i].Value。
+添加一个构造函数，调用之前编写的归并排序实现。
+/// &amp;lt;summary&amp;gt; /// 根据已有的键值对构造一个符号表。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;items&amp;#34;&amp;gt;已有的键值对。&amp;lt;/param&amp;gt; public ItemBinarySearchST(Item&amp;lt;TKey, TValue&amp;gt;[] items) { this.</description></item><item><title>3.1.13</title><link>https://alg4.ikesnowy.com/3-1-13/</link><pubDate>Sat, 23 Feb 2019 19:55:28 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-13/</guid><description>3.1.13 # 解答 # Get() 调用次数比 Put() 调用次数多了三个数量级，
+BinarySearchST 和 SequentialSearchST 的平均 Put() 开销是一样的，
+因此选择平均 Get() 开销更小的 BinarySearchST。</description></item><item><title>3.1.14</title><link>https://alg4.ikesnowy.com/3-1-14/</link><pubDate>Sat, 23 Feb 2019 20:31:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-14/</guid><description>3.1.14 # 解答 # 根据上题给出的结论，选择 BinarySearchST。
+由于 BinarySearchST 和 SequentialSearchST 执行 Put() 的开销相同
+因此选择 Get() 开销更低的 BinarySearchST。</description></item><item><title>3.1.15</title><link>https://alg4.ikesnowy.com/3-1-15/</link><pubDate>Sat, 23 Feb 2019 21:00:45 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-15/</guid><description>3.1.15 # 解答 # 假设先全部 Put()，再进行查找操作。
+即分别进行 $1$, $10 ^ 3$, $10 ^ 6$ 次插入
+$N = 1$ 时，可以直接得出比例 $0.1 %$。
+$N = 10 ^ 3$ 时，
+插入耗时 $= 1 + 2 + &amp;hellip; + 10 ^ 3 = 500500$，
+查询耗时 $= 10 ^ 6 * \lg(10 ^ 3) = 9965784$，
+比例为 $4.782 %$。
+$N = 10 ^ 6$ 时
+插入耗时 $= 1 + 2 + &amp;hellip; + 10 ^ 6 = 500000500000$，</description></item><item><title>3.1.16</title><link>https://alg4.ikesnowy.com/3-1-16/</link><pubDate>Sun, 24 Feb 2019 18:48:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-16/</guid><description>3.1.16 # 解答 # 官方实现：https://algs4.cs.princeton.edu/31elementary/BinarySearchST.java.html
+先通过二分查找获得下标，然后后面的元素依次向前移动一位。
+public void Delete(TKey key) { if (key == null) throw new ArgumentNullException(&amp;#34;argument to Delete() is null&amp;#34;); if (IsEmpty()) return; int i = Rank(key); if (i == this.n &amp;amp;&amp;amp; this.keys[i].CompareTo(key) != 0) return; for (int j = i; j &amp;lt; this.n - 1; j++) { this.keys[j] = this.keys[j + 1]; this.values[j] = this.values[j + 1]; } this.n--; this.keys[this.n] = default(TKey); this.values[this.n] = default(TValue); if (this.</description></item><item><title>3.1.17</title><link>https://alg4.ikesnowy.com/3-1-17/</link><pubDate>Sun, 24 Feb 2019 18:48:24 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-17/</guid><description>3.1.17 # 解答 # 官方实现：https://algs4.cs.princeton.edu/31elementary/BinarySearchST.java.html
+先通过二分查找大于等于 key 的键下标 i，
+如果 keys[i] 和 key 相等则直接返回 keys[i]，
+否则返回 keys[i-1]。
+public TKey Floor(TKey key) { if (key == null) throw new ArgumentNullException(&amp;#34;argument to Floor() is null&amp;#34;); int i = Rank(key); if (i &amp;lt; this.n &amp;amp;&amp;amp; this.keys[i].CompareTo(key) == 0) return this.keys[i]; if (i == 0) return default(TKey); else return this.keys[i - 1]; } 另请参阅 # SymbolTable 库</description></item><item><title>3.1.18</title><link>https://alg4.ikesnowy.com/3-1-18/</link><pubDate>Sun, 24 Feb 2019 20:36:02 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-18/</guid><description>3.1.18 # 解答 # 设 key 为目标键。
+算法初始时 lo = 0, hi = n - 1，数组已排序。
+当找到目标键时，返回的下标 mid 显然是正确的。
+（0&amp;hellip;a[mid - 1] 都小于 a[mid]，同时 a[mid] = key）
+接下来证明：当目标键不存在时，lo 可以代表小于 key 的键的个数。
+由算法内容，当循环退出时，一定有 lo 和 hi 交叉，即 lo &amp;gt; hi。
+考虑最后一次循环，必然执行了 lo = mid + 1 或者 hi = mid - 1。
+即最后一次循环之后 lo = mid + 1 &amp;gt; hi 或 hi = mid - 1 &amp;lt; lo。
+又由于 mid = (lo + hi) / 2，代入有：</description></item><item><title>3.1.19</title><link>https://alg4.ikesnowy.com/3-1-19/</link><pubDate>Mon, 25 Feb 2019 16:30:42 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-19/</guid><description>3.1.19 # 解答 # 将频率和当前最大频率相同的单词都放到一个队列里即可。
+string max = &amp;#34;&amp;#34;; Queue&amp;lt;string&amp;gt; queue = new Queue&amp;lt;string&amp;gt;(); st.Put(max, 0); foreach (string s in st.Keys()) { if (st.Get(s) &amp;gt; st.Get(max)) { max = s; queue.Clear(); queue.Enqueue(s); } else if (st.Get(s) == st.Get(max)) { queue.Enqueue(s); } } 另请参阅 # SymbolTable 库</description></item><item><title>3.1.20</title><link>https://alg4.ikesnowy.com/3-1-20/</link><pubDate>Tue, 26 Feb 2019 20:52:55 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-20/</guid><description>3.1.20 # 解答 # 国内的书中关于命题 B 的证明有错误，新版的证明结论已经改为：
+$$
+C(n)=C(2^k-1) \le k = \lg (n+1) \le \lg n +1
+$$
+其中 $n=2^k - 1 $ 。
+先证单调性，利用数学归纳法：
+已知对于 $N=0$，满足 $C(0) \le C(1)$。
+假设对于 $N=n$，满足 $C(n) \le C(n+1)$。
+根据递归式，有：
+$$
+\begin{eqnarray*}
+&amp;amp; C(n) &amp;amp; \le C(\lfloor n/2 \rfloor) + 1 \
+\
+&amp;amp; C(n+1) &amp;amp; \le
+\begin{cases}
+C(\lfloor n/2 \rfloor) +1 &amp;amp; \text{$n$ 是偶数} \
+C(\lfloor n/2 \rfloor + 1) + 1 &amp;amp; \text{$n$ 是奇数}</description></item><item><title>3.1.21</title><link>https://alg4.ikesnowy.com/3-1-21/</link><pubDate>Thu, 28 Feb 2019 19:39:05 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-21/</guid><description>3.1.21 # 解答 # BinarySearchST
+包含一个键数组和一个值数组，以及一个 int 变量。
+数组长度变化范围为 N~4N ，故总大小：
+从 2 × (24 + 8N) +4 = 52 + 16N 字节 （100 %），
+到 2 × (24 + 32N) +4 = 52 + 64N 字节（25 %）之间变动。
+SequentialSearchST
+包含 N 个结点以及一个 int 变量
+(16 + 8 + 8 + 8)N + 4 = 4 + 40N 字节</description></item><item><title>3.1.22</title><link>https://alg4.ikesnowy.com/3-1-22/</link><pubDate>Thu, 28 Feb 2019 20:03:44 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-22/</guid><description>3.1.22 # 解答 # 对 Get() 做修改，得到 MoveToFrontArrayST。
+public TValue Get(TKey key) { int i; for (i = 0; i &amp;lt; this.n; i++) if (this.keys[i].Equals(key)) break; if (i == this.n) return default(TValue); TKey toFrontKey = this.keys[i]; TValue toFrontValue = this.values[i]; for (int j = i; j &amp;gt; 0; j--) this.keys[j] = this.keys[j - 1]; for (int j = i; j &amp;gt; 0; j--) this.values[j] = this.values[j - 1]; this.</description></item><item><title>3.1.23</title><link>https://alg4.ikesnowy.com/3-1-23/</link><pubDate>Thu, 28 Feb 2019 20:42:58 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-23/</guid><description>3.1.23 # 解答 # 这里的右移操作可以理解为 「小数点前移一位」
+即数字依次向右退一位，个位上的数字被舍弃。
+对于十进制，小数点前移一位会使 $n$ 变为 $\lfloor n / 10 \rfloor$。
+同样对于二进制就会使 $n$ 变为 $\lfloor n / 2 \rfloor$。
+当需要除以 $2$ 的 $k$ 次幂的时候，可以用右移 $k$ 位代替并减少时间开销。
+同理可以用左移 $k$ 位来代替乘以 $2$ 的 $k$ 次幂。
+注：
+这样会降低程序可读性，
+并且某些语言（C / C++）的编译器已经可以自动执行这项优化了。
+请充分考虑你的代码受众之后再决定是否采用这种写法。
+二分查找的最大查找次数 = $ \lg N + 1$ （见 3.1.20 的证明 {% post_link 3-1-20 %}）
+一个数最多被左移的次数也正好等于 $\lfloor \lg N \rfloor + 1$
+（任意正整数都能被表示为 $2 ^ k + m$ 的形式，即 $k +1$ 位二进制数）</description></item><item><title>3.1.24</title><link>https://alg4.ikesnowy.com/3-1-24/</link><pubDate>Sat, 02 Mar 2019 14:57:26 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-24/</guid><description>3.1.24 # 解答 # FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+二分查找总是与中间值进行比较，现在改为与数组中第 x% 位置上的元素比较。
+具体而言，$\frac{k_x-k_{lo}}{k_{hi}-k_{lo}}$ 代表数组在均匀情况下目标值 $k_x$ 的相对位置（一个比率，在数组第 x% 的位置上）。
+那么相对应的下标就等于 $lo+\frac{k_x-k_{lo}}{k_{hi}-k_{lo}} \times (hi - lo)$。
+用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。
+不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。
+但如果数组分布不够均匀，也可能表现出不如二分查找的性能。
+实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。
+代码 # SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
+public static long Time&amp;lt;TKey&amp;gt;(IST&amp;lt;TKey, int&amp;gt; st, TKey[] keys) { Stopwatch sw = new Stopwatch(); sw.Start(); FrequencyCounter.MostFrequentlyKey(st, keys); sw.Stop(); return sw.ElapsedMilliseconds; } 由于这里需要使用数字而非字符串作为键值，需要对官方给出的 FrequencyCounter 做一些修改：
+public static TKey MostFrequentlyKey&amp;lt;TKey&amp;gt; (IST&amp;lt;TKey, int&amp;gt; st, TKey[] keys) { foreach (TKey s in keys) { if (st.</description></item><item><title>3.1.25</title><link>https://alg4.ikesnowy.com/3-1-25/</link><pubDate>Sat, 02 Mar 2019 16:10:23 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-25/</guid><description>3.1.25 # 解答 # 英文原文指的是 most recently accessed key，因此指的是最近访问的键。
+实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
+然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
+要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。
+利用《双城记》测试的结果：
+代码 # BinarySearchST # cache 是一个 int 类型的变量，代表下标。
+在二分查找前先检查缓存，要注意cache超出数组大小的情况。
+如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
+public TValue Get(TKey key) { if (key == null) throw new ArgumentNullException(&amp;#34;argument to Get() is null&amp;#34;); if (IsEmpty()) return default(TValue); if (this.cache &amp;lt; this.n &amp;amp;&amp;amp; this.keys[this.cache].Equals(key)) // 缓存检查 return this.values[this.cache]; int rank = Rank(key); if (rank &amp;lt; this.n &amp;amp;&amp;amp; this.</description></item><item><title>3.1.26</title><link>https://alg4.ikesnowy.com/3-1-26/</link><pubDate>Sun, 03 Mar 2019 10:29:06 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-26/</guid><description>3.1.26 # 解答 # 字典文件：https://introcs.cs.princeton.edu/java/data/web2.txt
+《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
+浏览器可能会直接打开 txt，此时右键链接-目标另存为即可下载。
+FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+我们利用 BinarySearchST 会自动对键排序的性质来实现字典序排序。
+首先将字典存到一个符号表中，按照 “单词-序号” 的形式保存。
+然后读入文件，如果读入的单词存在于字典中，
+则将其以 “序号-单词” 的形式存到 BinarySearchST 中去。
+读入完毕后，遍历 BinarySearchST 即可获得字典序的单词列表。
+对于按频率排序，我们基于已有的实现修改。
+在每次取得最大值之后，输出并删除最大值，如此循环即可获得频率排序的单词序列。
+也可以将单词-频率序列全部读出来存放到数组之中，然后用第二章的排序算法排序。
+测试结果，取 minLength = 13，只截取了部分。
+代码 # public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) { // 初始化字典 StreamReader sr = new StreamReader(File.OpenRead(dictionaryFile)); string[] words = sr.ReadToEnd().Split(new char[] { &amp;#39; &amp;#39;, &amp;#39;\r&amp;#39;, &amp;#39;\n&amp;#39; }, StringSplitOptions.RemoveEmptyEntries); BinarySearchST&amp;lt;string, int&amp;gt; dictionary = new BinarySearchST&amp;lt;string, int&amp;gt;(); for (int i = 0; i &amp;lt; words.</description></item><item><title>3.1.27</title><link>https://alg4.ikesnowy.com/3-1-27/</link><pubDate>Sun, 03 Mar 2019 19:20:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-27/</guid><description>3.1.27 # 解答 # 事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。
+给出 S 的增长数量级，使得构造符号表的成本和查找的成本相同。
+这里假设一次数组交换和一次比较的成本是相同的。
+先考虑构造符号表的成本，一次 Put() 需要调用一次 Rank() 和一次插入操作。
+2.1 节插入排序的命题 B 给出了每次插入平均需要移动一半的数组元素的结论。
+于是构造符号表所需的成本约为：$n\lg n + \frac{1}{2}\sum_{k=1}^{n} k=n\lg n + \frac{n(n-1)}{4} $ 。
+这里查找的成本是这么计算的：$\lg0+\lg1+\cdots+\lg n &amp;lt; n\lg n$
+查找所需的成本比较简单，一次二分查找的比较次数约为 $\lg n$，总成本就是 $S\lg n$ 。
+令两边相等，解方程即可得到 $S=n+\frac{n(n-1)}{4\lg n}$ 。
+如果用大 O 记法，也可以记为 $O(n^2 / \lg n)$，如果要选择一个比较常用的上界则可以选择 $O(n^2)$。
+实验结果，两边的成本是很接近的：
+另请参阅 # SymbolTable 库</description></item><item><title>3.1.28</title><link>https://alg4.ikesnowy.com/3-1-28/</link><pubDate>Mon, 04 Mar 2019 20:20:42 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-28/</guid><description>3.1.28 # 解答 # 将重新分配数组空间的代码提前，然后添加判断语句即可。
+BinarySearchSTOrderedInsertion：
+/* 省略 */ if (this.n == this.keys.Length) Resize(this.n * 2); // 如果插入的键比所有键都大则直接插入末尾。 if (this.n == 0 || this.keys[this.n - 1].CompareTo(key) &amp;lt; 0) { this.keys[this.n] = key; this.values[this.n] = value; this.n++; return; } int i = Rank(key); /* 省略 */ 另请参阅 # SymbolTable 库</description></item><item><title>3.1.29</title><link>https://alg4.ikesnowy.com/3-1-29/</link><pubDate>Mon, 04 Mar 2019 21:14:12 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-29/</guid><description>3.1.29 # 解答 # 官方实现：https://algs4.cs.princeton.edu/31elementary/TestBinarySearchST.java.html
+官方实现中有几处错误，需要做一些修改。
+/* 省略 */ Console.WriteLine(&amp;#34;Testing Select()&amp;#34;); Console.WriteLine(&amp;#34;-----------------------------------&amp;#34;); for (int i = 0; i &amp;lt; st.Size(); i++) // 循环条件不能有 &amp;#39;=&amp;#39; Console.WriteLine(i + &amp;#34; &amp;#34; + st.Select(i)); Console.WriteLine(); /* 省略 */ while (!st.IsEmpty()) st.Delete(st.Select(st.Size() / 2)); Console.WriteLine(&amp;#34;After deleting the remaining keys&amp;#34;); Console.WriteLine(&amp;#34;-----------------------------------&amp;#34;); // 异常处理 try { foreach (string s in st.Keys()) Console.WriteLine(s + &amp;#34; &amp;#34; + st.Get(s)); } catch (Exception ex) { Console.WriteLine(&amp;#34;Exception: &amp;#34; + ex.</description></item><item><title>3.1.30</title><link>https://alg4.ikesnowy.com/3-1-30/</link><pubDate>Tue, 05 Mar 2019 12:57:24 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-30/</guid><description>3.1.30 # 解答 # 官方实现：https://algs4.cs.princeton.edu/31elementary/BinarySearchST.java.html。
+首先在 BinarySearchST 中添加如下方法。
+/// &amp;lt;summary&amp;gt; 检查符号表结构是否有效。 &amp;lt;/summary&amp;gt; private bool Check() =&amp;gt; IsSorted() &amp;amp;&amp;amp; RankCheck(); /// &amp;lt;summary&amp;gt; 检查 &amp;lt;see cref=&amp;#34;keys&amp;#34;/&amp;gt; 数组是否有序。 &amp;lt;/summary&amp;gt; private bool IsSorted() { for (int i = 1; i &amp;lt; Size(); i++) if (this.keys[i].CompareTo(this.keys[i - 1]) &amp;lt; 0) return false; return true; } /// &amp;lt;summary&amp;gt; 检查 Rank(Select(i)) = i 是否成立。 &amp;lt;/summary&amp;gt; private bool RankCheck() { for (int i = 0; i &amp;lt; Size(); i++) if (i !</description></item><item><title>3.1.31</title><link>https://alg4.ikesnowy.com/3-1-31/</link><pubDate>Thu, 07 Mar 2019 13:03:18 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-31/</guid><description>3.1.31 # 解答 # 性能测试方法构造如下：
+先编写一个随机字符串方法，生成一个长度大于 50 的字符串（作为未命中访问）。
+然后随机生成符合要求的字符串数组，将它们全部放入符号表中。
+然后遍历 10 次生成的字符串数组，对于数组中的每个元素都进行一次命中查询。
+同时在每次命中查询的同时都进行一次未命中查询即可。
+测试结果：
+代码 # 按照要求编写代码，在 SearchCompare 类里添加一个 Random random 成员，并添加如下方法：
+随机字符串发生器：
+public static string GetRandomString(int minLength, int maxLength) { int length = random.Next(minLength, maxLength); StringBuilder sb = new StringBuilder(); for (int i = 0; i &amp;lt; length; i++) { double choice = random.NextDouble(); if (choice &amp;lt; 0.333) sb.Append((char)random.Next(&amp;#39;A&amp;#39;, &amp;#39;Z&amp;#39;)); else if (choice &amp;lt; 0.666) sb.Append((char)random.Next(&amp;#39;a&amp;#39;, &amp;#39;z&amp;#39;)); else sb.</description></item><item><title>3.1.32</title><link>https://alg4.ikesnowy.com/3-1-32/</link><pubDate>Fri, 08 Mar 2019 10:13:25 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-32/</guid><description>3.1.32 # 解答 # 编码实现即可，实验结果如下：
+对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
+而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
+只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
+只有两种值对性能的影响不大，性能主要由输入的键决定。
+代码 # 测试方法，IST 代表一个符号表。
+static void Test(IST&amp;lt;string, int&amp;gt;[] sts, int n) { Stopwatch sw = new Stopwatch(); string[] data = SearchCompare.GetRandomArrayString(n, 3, 10); string item1 = &amp;#34;item1&amp;#34;; Array.Sort(data); // 有序的数组 Console.Write(&amp;#34;Sorted Array: &amp;#34;); sw.Start(); for (int i = 0; i &amp;lt; n; i++) { sts[0].Put(data[i], i); } sw.Stop(); Console.WriteLine(sw.ElapsedMilliseconds); // 逆序的数组 Console.</description></item><item><title>3.1.33</title><link>https://alg4.ikesnowy.com/3-1-33/</link><pubDate>Sat, 09 Mar 2019 19:27:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-33/</guid><description>3.1.33 # 解答 # 概率分布的实现方式：
+假设存有键的数组为 keys，对 keys 排序。
+然后再建立一个长度为 10N 的数组 querys，
+前 1/2 置为 keys[0]，1/2 到 3/4 置为 keys[1]，以此类推，直到数组填满。
+然后遍历 query 数组，对符号表进行 Get() 操作。
+实验结果如下：
+代码 # static void Main(string[] args) { int n = 1000; int multiplyBy10 = 3; for (int i = 0; i &amp;lt; multiplyBy10; i++) { Console.WriteLine(&amp;#34;n=&amp;#34; + n); // 构造表 BinarySearchST&amp;lt;string, int&amp;gt; bst = new BinarySearchST&amp;lt;string, int&amp;gt;(n); MoveToFrontArrayST&amp;lt;string, int&amp;gt; mst = new MoveToFrontArrayST&amp;lt;string, int&amp;gt;(n); string[] keys = SearchCompare.</description></item><item><title>3.1.34</title><link>https://alg4.ikesnowy.com/3-1-34/</link><pubDate>Sun, 10 Mar 2019 12:55:51 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-34/</guid><description>3.1.34 # 解答 # 在上一题的基础上进行修改即可，链接：{% post_link 3.1.33 %}。
+调和级数 $H_n = 1+\frac{1}{2}+\frac{1}{3} + \cdots+\frac{1}{n}$ 。
+查询数组变为前 1/2 为 key[0]，随后的 1/3 为 key[1]，以此类推。
+和上一题中的序列进行比较即可，注意删除最后的打乱步骤。
+实验结果如下：
+代码 # 首先建立一个数组计算调和级数，就像这样：
+// 调和级数 double[] harmonicNumber = new double[1000 * (int)Math.Pow(10, 4)]; harmonicNumber[0] = 1; for (int i = 1; i &amp;lt; harmonicNumber.Length; i++) { harmonicNumber[i] = harmonicNumber[i - 1] + 1 / (i + 1); } 然后修改构造查询的代码：
+// 构造查询 Array.Sort(keys); string[] queryZipf = new string[10 * n]; int queryIndex = 0, keyIndex = 0; while (queryIndex &amp;lt; queryZipf.</description></item><item><title>3.1.35</title><link>https://alg4.ikesnowy.com/3-1-35/</link><pubDate>Sun, 10 Mar 2019 19:02:13 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-35/</guid><description>3.1.35 # 解答 # 实验结果：
+由于包含重复单词，因此结果会比 4 略低一些。
+需要对 FrequencyCounter 做一些修改，令其只取前 n 个单词。
+代码 # static void Main(string[] args) { int n = 8000; int multiplyBy2 = 5; int repeatTimes = 5; double lastTime = -1; Console.WriteLine(&amp;#34;n\ttime\tratio&amp;#34;); for (int i = 0; i &amp;lt; multiplyBy2; i++) { Console.Write(n + &amp;#34;\t&amp;#34;); long timeSum = 0; for (int j = 0; j &amp;lt; repeatTimes; j++) { SequentialSearchST&amp;lt;string, int&amp;gt; st = new SequentialSearchST&amp;lt;string, int&amp;gt;(); Stopwatch sw = Stopwatch.</description></item><item><title>3.1.36</title><link>https://alg4.ikesnowy.com/3-1-36/</link><pubDate>Sun, 10 Mar 2019 19:05:51 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-36/</guid><description>3.1.36 # 解答 # 实验结果如下，增长级为 O(N) ，但速度很快。
+其实只要列出《双城记》不同长度的单词数目，原因就一目了然了。
+大部分单词都集中在中间长度，因此大部分访问也集中在数组中部。
+二分查找在访问数组中部的元素时速度很快，因此结果好于预期。
+代码 # static void Main(string[] args) { int n = 8000; int multiplyBy2 = 5; int repeatTimes = 5; double lastTime = -1; Console.WriteLine(&amp;#34;n\ttime\tratio&amp;#34;); for (int i = 0; i &amp;lt; multiplyBy2; i++) { Console.Write(n + &amp;#34;\t&amp;#34;); long timeSum = 0; for (int j = 0; j &amp;lt; repeatTimes; j++) { BinarySearchST&amp;lt;string, int&amp;gt; st = new BinarySearchST&amp;lt;string, int&amp;gt;(); Stopwatch sw = Stopwatch.</description></item><item><title>3.1.37</title><link>https://alg4.ikesnowy.com/3-1-37/</link><pubDate>Sun, 10 Mar 2019 19:28:37 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-37/</guid><description>3.1.37 # 解答 # 实验结果如下：
+M=10 的时候随机的数字集中在 1024 到 2048 之间，重复值较多，因此 Put 耗时较少。
+随着重复值的减少 Put 的耗时会大幅度提高，和实验结果显示的一样。
+M=20 的时候数字在 1048576~2097152 之间随机，基本上没有重复值了。
+M=30 的时候和 M=20 的情况类似，都是重复值几乎没有的情况。
+随机数可以通过如下的方式产生：
+result[i] = min + (long)(random.NextDouble() * (max - min)); 代码 # 这里构造了 BinarySearchSTAnalysis 类，在类中声明了两个 Stopwatch 对象，
+一个在 Put 方法的开始和结束部分进行计时，
+另一个在 Get 方法的开始和结束部分进行计时。
+static void Main(string[] args) { int n = 1000000; int m = 10; int addBy10 = 3; for (int i = 0; i &amp;lt; addBy10; i++) { BinarySearchSTAnalysis&amp;lt;long, int&amp;gt; bst = new BinarySearchSTAnalysis&amp;lt;long, int&amp;gt;(n); long[] data = SearchCompare.</description></item><item><title>3.1.38</title><link>https://alg4.ikesnowy.com/3-1-38/</link><pubDate>Mon, 18 Mar 2019 17:57:35 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-38/</guid><description>3.1.38 # 解答 # 实验结果如下：
+BinarySearchST
+SequentialSearchST
+对于 BinarySearchST ，每次比较之后以及移动元素时令 Cost 增加。
+对于 SequentialSearchST，统计每次的查找次数即可。
+然后绘制成散点图即可。
+代码 # 有关绘图的函数，传入的参数为第 i 次 Put() 的开销。
+public void Draw(int[] data) { Graphics panel = this.CreateGraphics(); float unitX = (float)this.ClientRectangle.Width / data.Length; float unitY = (float)this.ClientRectangle.Height / data.Max(); int accumulation = 0; for (int i = 0; i &amp;lt; data.Length; i++) { // Gray panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, this.ClientRectangle.Bottom - data[i] * unitY, 2, 2); // Red panel.</description></item><item><title>3.1.39</title><link>https://alg4.ikesnowy.com/3-1-39/</link><pubDate>Tue, 19 Mar 2019 16:53:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-39/</guid><description>3.1.39 # 解答 # 实验结果如下：
+BinarySearchST
+SequentialSearchST
+图像分为两段，分别代表不断向符号表中加入单词和寻找频率最大的单词两个部分。
+第一段两个图像的形状类似（注意它们的 y 轴比例不同）。
+第二段中 BinarySearchST 的表现要比 SequentialSearchST 稳定的多。
+代码 # 绘图部分代码：
+public void Draw(int[] x, long[] y) { Graphics panel = this.CreateGraphics(); float unitX = (float)this.ClientRectangle.Width / x.Max(); float unitY = (float)this.ClientRectangle.Height / y.Max(); for (int i = 0; i &amp;lt; x.Length; i++) { panel.FillEllipse( Brushes.Black, x[i] * unitX, this.ClientRectangle.Height - y[i] * unitY, 2, 2); } } 另请参阅 # SymbolTable 库</description></item><item><title>3.1.40</title><link>https://alg4.ikesnowy.com/3-1-40/</link><pubDate>Sun, 24 Mar 2019 19:39:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-40/</guid><description>3.1.40 # 解答 # 顺序查找平均需要进行 $N/2$ 次比较，二分查找则是 $\lg N$ 次。
+列出方程可以解出 N 的大小
+$$
+\begin {eqnarray*}
+1000 \log_2 N &amp;amp;=&amp;amp; N / 2 \
+\log_2 N &amp;amp;=&amp;amp; N / 2000\
+\frac{\ln N}{\ln 2} &amp;amp;=&amp;amp; N/2000 \
+N &amp;amp;=&amp;amp; e^{\frac{\ln 2}{2000}N}\
+1 &amp;amp;=&amp;amp; Ne^{-\frac{\ln 2}{2000}N}\
+N_1 = e^{-W(-\frac{\ln 2}{2000})}=1 &amp;amp;\ &amp;amp; N_2= e^{-W_{-1}(-\frac{\ln 2}{2000})}=29718\ \
+\end {eqnarray*}
+$$
+这个方程是一个超越方程，最后的结果中出现了朗伯 W 函数。
+同理可以求得 10000 倍的 N=369939。
+实验结果如下：
+由于存在缓存优化，每次比较的耗时并不相同。
+因此实际耗时并未达到预期，但比较次数是符合预期的。
+另请参阅 # 朗伯 W 函数-维基百科</description></item><item><title>3.1.41</title><link>https://alg4.ikesnowy.com/3-1-41/</link><pubDate>Sun, 24 Mar 2019 21:11:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-41/</guid><description>3.1.41 # 解答 # 英文版描述为 1, 2, and 10 times faster。
+即一样快，快一倍和快十倍（一个例子）。
+和上题类似，也是解超越方程。
+插值查找的平均查找次数为 $\lg(\lg(N))$。
+可以解得 N = 1, 4, 58。
+实验结果如下：
+由于 N 太小，可以看到插值查找的运行时间几乎没有变化。</description></item><item><title>3.2.1</title><link>https://alg4.ikesnowy.com/3-2-1/</link><pubDate>Sun, 14 Apr 2019 20:04:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-1/</guid><description>3.2.1 # 解答 # 构造出的树如下图所示：
+总比较次数：0 + 1 + 1 + 2 + 2 + 3 + 1 + 2 + 4 + 3 + 4 + 5 = 28 次
+另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.2</title><link>https://alg4.ikesnowy.com/3-2-2/</link><pubDate>Fri, 19 Apr 2019 21:07:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-2/</guid><description>3.2.2 # 解答 # 用这样的序列就可以构造出最坏情况：
+&amp;quot;A X C S E R H&amp;quot;, &amp;quot;X A S C R E H&amp;quot;, &amp;quot;A C E H R S X&amp;quot;, &amp;quot;X S R H E C A&amp;quot;, &amp;quot;X A S R H E C&amp;quot;, &amp;quot;A X S R H E C&amp;quot; 构造出来的树看起来像这样：</description></item><item><title>3.2.3</title><link>https://alg4.ikesnowy.com/3-2-3/</link><pubDate>Wed, 01 May 2019 20:49:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-3/</guid><description>3.2.3 # 解答 # 官方答案：第一个插入的是 H，且 C 在 A 和 E 之前插入，S 在 R 和 X 之前插入的树。
+对序列排序，得到 A C E H R S X 。
+最优情况需要树两侧平衡，因此 H 为根结点，C 和 S 分别为 H 的子结点。
+同理，A 和 E 为 C 的子结点，R 和 X 为 S 的子结点。</description></item><item><title>3.2.4</title><link>https://alg4.ikesnowy.com/3-2-4/</link><pubDate>Thu, 02 May 2019 18:49:26 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-4/</guid><description>3.2.4 # 解答 # d 是错误的。
+要点是追踪序列中的左右顺序，
+如果向右查找，那么后面的树一定都比它大，反之都比它小。
+例如 d 选项，2-&amp;gt;7 向右查找，但后面的 8 比 7 大，应该挂在 7 的右子树上，不可能在 7 的左子树里。</description></item><item><title>3.2.5</title><link>https://alg4.ikesnowy.com/3-2-5/</link><pubDate>Sat, 25 May 2019 18:27:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-5/</guid><description>3.2.5 # 解答 # 事实上，这个问题可以归结为，如何根据频率来构造一棵最优的BST？
+如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。
+首先我们定义某个结点的查找开销为该结点的深度加一乘以频率，
+（注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
+所有结点的查找开销加起来就是一整棵树的查找开销了。
+$$
+cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i)
+$$
+对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。
+这样的树被称为最优化二叉树，或者 Optimal BST。
+根据二叉树的性质，我们可以将 $cost$ 的表达式变为：
+$$
+cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i)
+$$
+即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。
+（左子树和右子树开销计算时每个结点的深度都少了1，因此要加上频率和）
+不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。
+我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，
+哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。
+由于二叉查找树是有序的，因此我们先对序列排序。
+然后计算所有大小为 1 的子树开销，显然就等于各个节点的频率。
+再计算大小为 2 的子树，注意这里只能按顺序取结点，不能跳着取（例如取第一个和第三个结点），
+每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。
+以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。
+举个例子，例如给出键值和频率如下表所示：
+$$
+\begin{array}{l|lllll}
+key &amp;amp; 1 &amp;amp; 2 &amp;amp; 3 &amp;amp; 4 &amp;amp; 5 \ \hline</description></item><item><title>3.2.6</title><link>https://alg4.ikesnowy.com/3-2-6/</link><pubDate>Sun, 26 May 2019 09:45:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-6/</guid><description>3.2.6 # 解答 # 官方 BST 实现见：https://algs4.cs.princeton.edu/32bst/BST.java.html
+二叉树的高度=左右子树最大高度+1，叶结点的高度为 0。
+于是我们可以构造如下递归方法：
+private int Height(Node x) { return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right)); } 当 x 等于 null 时，说明它是叶子结点的左/右子树，应该返回 0-1=-1。
+也可以在结点中添加一个 Height 属性，记录当前结点的高度，当插入新结点时重新计算高度。
+在 Put 方法中添加计算高度的代码：
+private Node Put(Node x, TKey key, TValue value) { if (x == null) return new Node(key, value, 1, 0); int cmp = key.CompareTo(x.Key); if (cmp &amp;lt; 0) x.Left = Put(x.</description></item><item><title>3.2.7</title><link>https://alg4.ikesnowy.com/3-2-7/</link><pubDate>Thu, 13 Jun 2019 21:45:13 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-7/</guid><description>3.2.7 # 解答 # 平均查找次数 = 树所有结点的深度之和 / 结点个数 + 1。
+只要能够获得深度和，就能构造出如下用于计算平均查找次数的方法：
+public int AverageCompares() { return DepthSum(root) / Size() + 1; } 二叉树的深度之和 = 左子树的深度和 + 右子树的深度和 + 左子树的结点个数 + 右子树的结点个数
+（加上根结点会使左右子树所有结点的深度+1）
+于是我们可以获得如下递归方法，用于计算一棵树的深度和：
+private int DepthSum(Node x) { if (x == null) return 0; return DepthSum(x.Left) + DepthSum(x.Right) + x.Size - 1; } 也可以在结点中直接添加一个 DepthSum 属性，用于记录当前结点的深度和。
+需要在每次插入新结点时重新计算查找路径上所有结点的 DepthSum。
+private Node Put(Node x, TKey key, TValue value, int depth) { if (x == null) return new Node(key, value, 1, depth); var cmp = key.</description></item><item><title>3.2.8</title><link>https://alg4.ikesnowy.com/3-2-8/</link><pubDate>Fri, 14 Jun 2019 23:03:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-8/</guid><description>3.2.8 # 解答 # 假设输入的完全二叉树结点数目为 $n$。
+完全二叉树总是可以分成两部分，一个满二叉树，以及多余的结点。
+于是完全二叉树中满二叉树的部分层数为 $l = \lfloor \log_2 (n+1) \rfloor$。（根结点位于第一层）
+满二叉树占的结点数量为 $n_1 = 2^l -1$，多余结点数量为 $n_2=n-n_1$。
+又因为深度等于层数 - 1，多余结点正好在满二叉树的下一层，因此多余结点的深度即为 $l$。
+于是多余结点的深度和 $d_2 = l \times n_2$。
+接下来计算满二叉树的深度和。
+一个层数为 $l$ 的满二叉树，最后一层正好有 $2^{l-1}$ 个结点。
+于是深度和为 $d_1 = 0 \times 1 + 1 \times 2+2 \times 4+\cdots+(l-1)2^{l-1} =\sum_{i=1}^{l-1} i2^i$。
+用错位相减法，有：
+$$
+\begin{eqnarray*}
+d_1&amp;amp;=&amp;amp;1\times 2^1 + &amp;amp;2 \times 2^2 + \cdots + (l-1)2^{l-1} \
+2d_1&amp;amp;=&amp;amp; &amp;amp;1\times 2^2 + \cdots+(l-2)2^{l-1} +(l-1)2^{l} \</description></item><item><title>3.2.9</title><link>https://alg4.ikesnowy.com/3-2-9/</link><pubDate>Thu, 20 Jun 2019 14:06:16 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-9/</guid><description>3.2.9 # 解答 # 比较简单，可以按照如下步骤解决：
+生成 n 个数。 生成这 n 个数的全排列。 生成 n! 棵二叉搜索树，取其中结构不同的部分。 全排列可以通过递归方式生成，方法类似于 DFS。
+开始 pool 中存有所有的数，遍历 pool ，每次取一个数放入 path 中，然后递归选择下一个。
+static void Permutation(List&amp;lt;int&amp;gt; pool, List&amp;lt;int&amp;gt; path, List&amp;lt;int[]&amp;gt; result) { if (pool.Count == 0) { result.Add(path.ToArray()); return; } for (var i = 0; i &amp;lt; pool.Count; i++) { var item = pool[i]; path.Add(item); pool.RemoveAt(i); Permutation(pool, path, result); pool.Insert(i, item); path.Remove(item); } } 有了 n! 棵二叉树之后，我们需要过滤掉结构相同的树。</description></item><item><title>3.2.10</title><link>https://alg4.ikesnowy.com/3-2-10/</link><pubDate>Fri, 28 Jun 2019 21:46:20 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-10/</guid><description>3.2.10 # 解答 # 官方实现：https://algs4.cs.princeton.edu/32bst/TestBST.java.html
+测试结果：
+size = 10 min = A max = X Testing keys() --------------------------- A 8 C 4 E 12 H 5 L 11 M 9 P 10 R 3 S 0 X 7 Testing select --------------------------- 0 A 1 C 2 E 3 H 4 L 5 M 6 P 7 R 8 S 9 X key rank floor ceil --------------------------- A 0 A A B 1 A C C 1 C C D 2 C E E 2 E E F 3 E H G 3 E H H 3 H H I 4 H L J 4 H L K 4 H L L 4 L L M 5 M M N 6 M P O 6 M P P 6 P P Q 7 P R R 7 R R S 8 S S T 9 S X U 9 S X V 9 S X W 9 S X X 9 X X Y 10 X Z 10 X range search --------------------------- A-Z (11)A C E H L M P R S X Z-A (0) X-X (1)X 0-Z (11)A C E H L M P R S X B-G (3)C E C-L (4)C E H L After deleting the smallest 3 keys --------------------------- H 5 L 11 M 9 P 10 R 3 S 0 X 7 After deleting the remaining keys --------------------------- After adding back the keys --------------------------- A 8 C 4 E 12 H 5 L 11 M 9 P 10 R 3 S 0 X 7</description></item><item><title>3.2.11</title><link>https://alg4.ikesnowy.com/3-2-11/</link><pubDate>Sat, 29 Jun 2019 18:13:02 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-11/</guid><description>3.2.11 # 解答 # 树的高度为树中深度最大的点的深度。
+因此 N 个结点最多只能构造出高度为 N-1 的树来，并不能构成高度为 N 的树。
+如果将题目变为用 N 个结点构造高度为 N-1 的二叉搜索树。
+这样的树即为二叉搜索树的最坏情况，除唯一的叶子结点之外，每个结点有且只有一个子树。
+于是除根结点外，每个结点都有两种选择，要么在左，要么在右。
+因此共有 $2 ^ {n - 1}$ 种形状。
+接下来证明，对于某一种确定的最坏情况，在 N 个元素各不相同的情况下，输入顺序是唯一的。
+证明：
+就 1 2 3 这三个元素而言，构造这样一棵树：
+2 1 3 可以有 2 1 3 和 2 3 1 两种序列，因为在插入 2 之后可以选择的位置有两个
+但最坏情况下的二叉搜索树不存在具有两个子结点的结点，因此输入顺序是唯一的。
+反证：
+也可以这样考虑，假设序列 A 可以构造出一棵最坏情况下的二叉树，插入顺序为 $x_1 \dots x_n$
+假设存在与 A 顺序不同的序列 B，它构造出的二叉树与 A 的相同。
+由于 A 和 B 的元素相同，因此 A 必然可以通过有限次元素交换得到 B。</description></item><item><title>3.2.12</title><link>https://alg4.ikesnowy.com/3-2-12/</link><pubDate>Sat, 06 Jul 2019 22:26:32 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-12/</guid><description>3.2.12 # 解答 # 二叉树的大小=左子树的大小+右子树的大小+1
+根据上述表达式可以构造出一个递归的 Size() 方法，并删除结点中的 Size 。
+Rank() 和 Select() 仍然可以正常工作，但最坏情况下的耗时可能会达到 $O(n)$ 和 $O(n^2 )$。</description></item><item><title>3.2.13</title><link>https://alg4.ikesnowy.com/3-2-13/</link><pubDate>Sat, 27 Jul 2019 17:02:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-13/</guid><description>3.2.13 # 解答 # 官方实现：https://algs4.cs.princeton.edu/32bst/NonrecursiveBST.java.html
+Get 方法可以很方便的改成非递归形式。
+while (cur != null) { var cmp = key.CompareTo(cur.Key); if (cmp &amp;lt; 0) cur = cur.Left; else if (cmp &amp;gt; 0) cur = cur.Right; else return cur.Value; } Put 方法结构类似，但需要注意更新路径上各个结点的 Size 属性。
+var path = new Stack&amp;lt;Node&amp;gt;(); var cur = x; while (cur != null) { path.Push(cur); var cmp = key.CompareTo(cur.Key); if (cmp &amp;lt; 0) cur = cur.Left; else if (cmp &amp;gt; 0) cur = cur.</description></item><item><title>3.2.14</title><link>https://alg4.ikesnowy.com/3-2-14/</link><pubDate>Sun, 28 Jul 2019 21:02:01 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-14/</guid><description>3.2.14 # 解答 # 就 min，max 和 select 而言，它们是尾递归的，可以直接转换成迭代形式。
+（简单的说，尾递归就是所有递归操作都出现在 return 语句上，且返回值不需要参与其他运算）
+例如 min，递归形式为：
+if (x.Left == null) return x; return Min(x.Left); 递归调用获得的值直接返回，不再参与运算，可以直接转换为递推：
+while (true) { if (x.Left == null) return x; x = x.Left; } ceiling 和 floor 会略微复杂一些，具体见代码。
+代码 # min 和 max 比较简单，用一个 while 循环就可以转换为递推形式，例如 min。
+while (x != null) { if (x.Left == null) return x; x = x.Left; } return x; floor 和 ceiling 则要稍微复杂一点，需要记录当前找到的最小/最大值，例如 floor。</description></item><item><title>3.2.15</title><link>https://alg4.ikesnowy.com/3-2-15/</link><pubDate>Sun, 18 Aug 2019 11:14:40 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-15/</guid><description>3.2.15 # 解答 # 比较简单，这里比较/取值都算一次访问，因此 keys 的访问序列会出现重复元素。
+函数 路径 floor(Q) E Q select(5) E Q ceiling(Q) E Q rank(J) E Q J size(D, T) E Q T E D keys(D, T) E D E Q J J M Q T S S T</description></item><item><title>3.2.16</title><link>https://alg4.ikesnowy.com/3-2-16/</link><pubDate>Thu, 22 Aug 2019 19:58:59 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-16/</guid><description>3.2.16 # 解答 # 在高德纳的《计算机程序设计艺术》第一卷里出现了这个公式，编号为 $2.3.4.5(3)$。
+书中的证明简单直接：
+考虑二叉树中的某个叶子结点 $V$，设根结点到它的路径长度为 $k$，现在将 $V$ 删去。
+对于二叉树的内部路径长度 $I$ 和外部路径长度 $E$ ：
+由于 $V$ 被删去，$E$ 将会减少 $2(k+1)$，$I$ 将会减少 $k$，但此时 $V$ 变成了一个外部结点，$E$ 又会加上 $k$。
+因此最后 $E$ 减少了 $k+2$，$I$ 减少了 $k$，重复 $N$ 次操作之后就可以得到 $E = I + 2N$。
+另请参阅 # 《计算机程序设计艺术：第一卷 基本算法》（第三版）P400</description></item><item><title>3.2.17</title><link>https://alg4.ikesnowy.com/3-2-17/</link><pubDate>Sun, 25 Aug 2019 22:03:30 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-17/</guid><description>3.2.17 # 解答 # 像这样，有一些字母是重复的，因此删除后树形状不变：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------I---------------| A |-------S-------| |---Q |---Y |-O |-U N T I---------------| |-------S-------| |---Q |---Y |-O |-U N T I---------------| |-------T-------| |---Q |---Y |-O U N I---------------| |-------T-------| |---Q U |-O N I-------| |---T---| |-O U N I-------| |---T |-O N I-------| |---T |-O N I-------| |---T |-O N I---| |-O N |-O N N</description></item><item><title>3.2.18</title><link>https://alg4.ikesnowy.com/3-2-18/</link><pubDate>Sun, 25 Aug 2019 22:05:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-18/</guid><description>3.2.18 # 解答 # 和上一题类似，只是删除顺序不同：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N E-------------------------------| |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |-------S-------| |---Q |---Y |-O |-U N T |-------S-------| |---Q |---Y O |-U T |-------S-------| Q |---Y |-U T S-------| |---Y |-U T |---Y |-U T |---Y |-U T |-Y U Y</description></item><item><title>3.2.19</title><link>https://alg4.ikesnowy.com/3-2-19/</link><pubDate>Sun, 25 Aug 2019 22:06:01 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-19/</guid><description>3.2.19 # 解答 # 类似于这样的序列：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------I---------------| A |-------S-------| |---Q |---Y |-O |-U N T |---------------N---------------| A |-------S-------| |---Q |---Y O |-U T |---------------O---------------| A |-------S-------| Q |---Y |-U T |---------------Q---------------| A S-------| |---Y |-U T |-------S-------| A |---Y |-U T |---T---| A |-Y U |-U-| A Y |-Y A A</description></item><item><title>3.2.20</title><link>https://alg4.ikesnowy.com/3-2-20/</link><pubDate>Sat, 28 Sep 2019 19:58:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-20/</guid><description>3.2.20 # 解答 # 勘误：英文版为 keys() 方法（而非 Size() 方法）。
+先来观察一下 keys() 方法的实现：
+public IEnumerable&amp;lt;TKey&amp;gt; Keys(TKey lo, TKey hi) { var queue = new Queue&amp;lt;TKey&amp;gt;(); Keys(root, queue, lo, hi); return queue; } private void Keys(Node x, Queue&amp;lt;TKey&amp;gt; queue, TKey lo, TKey hi) { var cmplo = lo.CompareTo(x.Key); var cmphi = hi.CompareTo(x.Key); if (cmplo &amp;lt; 0) Keys(x.Left, queue, lo, hi); if (cmplo &amp;lt;= 0 &amp;amp;&amp;amp; cmphi &amp;gt;= 0) queue.Enqueue(x.Key); if (cmphi &amp;gt; 0) Keys(x.</description></item><item><title>3.2.21</title><link>https://alg4.ikesnowy.com/3-2-21/</link><pubDate>Wed, 02 Oct 2019 18:54:18 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-21/</guid><description>3.2.21 # 解答 # 要注意保持每个键的出现概率相等，可以先随机一个排名，然后从树中将对应排名的键取出来。
+private static readonly Random Random = new Random(); public TKey RandomKey() { var rank = Random.Next(1, Size() + 1); return GetKeyWithRank(root, rank); } private TKey GetKeyWithRank(Node x, int rank) { var left = (x.Left == null ? 0 : x.Left.Size) + 1; if (left &amp;gt; rank) { return GetKeyWithRank(x.Left, rank); } else if (left == rank) { return x.Key; } else { return GetKeyWithRank(x.</description></item><item><title>3.2.22</title><link>https://alg4.ikesnowy.com/3-2-22/</link><pubDate>Wed, 02 Oct 2019 19:09:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-22/</guid><description>3.2.22 # 解答 # 这里的前驱和后继指的是二叉树中序遍历序列里结点的前驱和后继。
+由于二叉搜索树的性质，它的中序遍历序列是递增有序的。
+因此一个结点如果有左子树，要么前驱就是左子树中最大的结点（最右侧）；
+同理结点如果有右子树，要么后继就是右子树中最小的结点（最左侧）。
+于是结点的前驱不会有右子节点，后继不会有左子节点，得证。</description></item><item><title>3.2.23</title><link>https://alg4.ikesnowy.com/3-2-23/</link><pubDate>Thu, 03 Oct 2019 14:56:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-23/</guid><description>3.2.23 # 解答 # 不满足，反例如下：
+|-------10 |---5---| 3 |-8-| 6 9 Delete 5 then delete 3 |-------10 6---| 8-| 9 Delete 3 then delete 5 |---10 |-8-| 6 9 这里先删除 3 会使 5 的左子树为空，导致删除 5 的时候采取的策略被改变（尽管 5 的右子树没有任何变化）。
+另请参阅 # Deletion procedure for a Binary Search Tree-Stackoverflow</description></item><item><title>3.2.24</title><link>https://alg4.ikesnowy.com/3-2-24/</link><pubDate>Thu, 03 Oct 2019 16:29:12 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-24/</guid><description>3.2.24 # 解答 # 根据命题 D （英文版 P404，中文版 P255），一次插入所需的比较次数平均为 $ 1.39\lg N$。
+(我们这里要求和，因此可以直接使用平均值进行计算）
+于是构造一棵二叉查找树所需的比较次数为：
+$$
+1.39C= 1.39\sum_{i=0}^N \lg i=1.39 \times(\lg 1 + \lg2+\cdots+\lg N)
+$$
+根据对数恒等式，有：
+$$
+C=\lg 1 + \lg2+\cdots+\lg N=\lg(1\times2\times3\times\cdots\times N)=\lg(N!)
+$$
+于是有 $ 1.39C=1.39\lg(N!) &amp;gt; \lg(N!)$ ，得证。</description></item><item><title>3.2.25</title><link>https://alg4.ikesnowy.com/3-2-25/</link><pubDate>Thu, 03 Oct 2019 18:05:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-25/</guid><description>3.2.25 # 解答 # 官方实现：https://algs4.cs.princeton.edu/32bst/PerfectBalance.java.html
+先排序，然后视其为中序序列，每次取中间的键作为根结点，左半数组是左子树，右半数组是右子树，递归构造。
+private Node BuildTree(KeyValuePair&amp;lt;TKey, TValue&amp;gt;[] init, int lo, int hi)// init is sorted { if (lo &amp;gt; hi) { return null; } var mid = (hi - lo) / 2 + lo; var current = new Node(init[mid].Key, init[mid].Value, 1); current.Left = BuildTree(init, lo, mid - 1); current.Right = BuildTree(init, mid + 1, hi); if (current.Left != null) { current.Size += current.Left.Size; } if (current.</description></item><item><title>3.2.26</title><link>https://alg4.ikesnowy.com/3-2-26/</link><pubDate>Thu, 03 Oct 2019 19:54:56 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-26/</guid><description>3.2.26 # 解答 # 在 {% post_link 3-2-9 3.2.9 %} 的代码基础上进行修改，统计每种形状的出现次数，以此获得准确的概率。
+概率如下，基本呈现一个对称的图形。
+原始数据：
+n=2 50% 50% n=3 16.666666% 16.666666% 33.333332% 16.666666% 16.666666% n=4 8.333333% 16.666666% 37.5% 12.5% 8.333333% 16.666666% n=5 0.8333333% 0.8333333% 1.6666666% 0.8333333% 0.8333333% 2.5% 2.5% 2.5% 2.5% 0.8333333% 0.8333333% 1.6666666% 0.8333333% 0.8333333% 3.3333333% 3.3333333% 6.6666665% 3.3333333% 3.3333333% 5% 5% 5% 5% 3.3333333% 3.3333333% 6.6666665% 3.3333333% 3.3333333% 0.8333333% 0.8333333% 1.6666666% 0.8333333% 0.8333333% 2.5% 2.5% 2.5% 2.5% 0.8333333% 0.</description></item><item><title>3.2.27</title><link>https://alg4.ikesnowy.com/3-2-27/</link><pubDate>Fri, 04 Oct 2019 15:17:21 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-27/</guid><description>3.2.27 # 解答 # 二叉查找树的内存开销=对象开销+根结点引用+N个结点
+=对象开销+根结点引用+N×(对象开销+父类型引用+左/右子树引用+键/值引用+结点数)
+=16+8+N×(16+8+16+16+4+4)=24+64N 字节
+BinarySearchST：对象开销+键/值数组引用+键/值数组+计数器（一个 int）。
+=16+16+(16+4+4+8N)×2+4+4=88+16N 字节。
+SequentialSearchST：对象开销+头结点引用+N个结点+计数器
+=对象开销+头结点引用+N×(对象开销+父类型引用+next引用+键/值引用)+计数器
+=16+8+N×(16+8+8+16)+4+4=32+48N 字节
+示意图如下：
+其中，对象开销 16 字节，其他均为引用，各占 8 字节。
+《双城记》中不重复的单词有 26436 个（不包括最后的版权声明），全部是原文的子字符串，每个占 40 字节。
+一个 Integer 占 24 字节，于是估计的内存消耗为：24+(64+40+24)×26436=3383832 字节。</description></item><item><title>3.2.28</title><link>https://alg4.ikesnowy.com/3-2-28/</link><pubDate>Sat, 05 Oct 2019 21:44:20 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-28/</guid><description>3.2.28 # 解答 # 修改一下 Put 和 Get 方法，在实际操作之前先检查缓存是否符合要求，然后在操作之后更新缓存。
+代码 # private Node _cache; public override TValue Get(TKey key) { if (_cache != null &amp;amp;&amp;amp; _cache.Key.CompareTo(key) == 0) { return _cache.Value; } return Get(root, key).Value; } protected override Node Get(Node x, TKey key) { if (key == null) { throw new ArgumentNullException(&amp;#34;calls get() with a null key&amp;#34;); } if (x == null) { return null; } var cmp = key.</description></item><item><title>3.2.29</title><link>https://alg4.ikesnowy.com/3-2-29/</link><pubDate>Sat, 05 Oct 2019 22:14:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-29/</guid><description>3.2.29 # 解答 # 本题在原书后续印刷中已修改，这里仍采用中文版的题目。
+部分解答：https://algs4.cs.princeton.edu/32bst/BST.java.html（isSizeConsistent()）
+如果根结点记录的结点数=左子树的结点数+右子树的结点数+1，就符合要求。
+按照这个题意编制递归方法即可。
+先写边界，当输入为 null 时，显然符合要求。
+然后计算左子树的 Size 和右子树的 Size 加起来是否等于根结点的 Size + 1，
+以及左子树和右子树是否符合同样的条件。
+代码 # protected static bool IsBinaryTree(Node x) { if (x == null) { return true; // 空树显然符合二叉树条件。 } var size = 1; // 包括当前结点本身。 if (x.Left != null) { size += x.Left.Size; } if (x.Right != null) { size += x.Right.Size; } return IsBinaryTree(x.Left) &amp;amp;&amp;amp; IsBinaryTree(x.</description></item><item><title>3.2.30</title><link>https://alg4.ikesnowy.com/3-2-30/</link><pubDate>Sat, 05 Oct 2019 22:23:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-30/</guid><description>3.2.30 # 解答 # 本题在原书后续印刷中已修改，这里仍然采用中文版的题目。
+与上一题非常类似，条件有：
+根结点必须在 min 和 max 范围内，
+且左右子树要么不存在，要么小于/大于根结点的键，
+左右子树同样满足上述条件。
+代码 # protected static bool IsOrdered(Node x, TKey min, TKey max) { if (x == null) { return true; // 空树显然是满足要求的。 } return IsOrdered(x.Left, min, max) &amp;amp;&amp;amp; IsOrdered(x.Right, min, max) &amp;amp;&amp;amp; // 左右子树都满足要求。 x.Key.CompareTo(max) &amp;lt;= 0 &amp;amp;&amp;amp; x.Key.CompareTo(min) &amp;gt;= 0 &amp;amp;&amp;amp; // 当前结点位于范围内。 (x.Left == null || x.Left.Key.CompareTo(x.Key) &amp;lt; 0) &amp;amp;&amp;amp; (x.</description></item><item><title>3.2.31</title><link>https://alg4.ikesnowy.com/3-2-31/</link><pubDate>Sat, 05 Oct 2019 22:52:34 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-31/</guid><description>3.2.31 # 解答 # 本题在原书后续印刷中已删除，这里仍然采用中文版的题目。
+注意这个题并没有递归的要求，直接广度优先搜索即可，随时记录和检查已找到的键。
+代码 # protected static bool HasNoDuplicates(Node x) { var keys = new List&amp;lt;TKey&amp;gt;(); // 也可以用 HashSet 之类的数据结构提高效率。 var queue = new Queue&amp;lt;Node&amp;gt;(); queue.Enqueue(x); while (queue.Count &amp;gt; 0) { var node = queue.Dequeue(); if (node == null) { continue; } if (keys.Contains(node.Key)) { return false; } keys.Add(node.Key); queue.Enqueue(node.Left); queue.Enqueue(node.Right); } return true; } 另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.32</title><link>https://alg4.ikesnowy.com/3-2-32/</link><pubDate>Sat, 05 Oct 2019 23:02:06 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-32/</guid><description>3.2.32 # 解答 # 本题在原书后续印刷中已修改，这里仍然采用中文版的题目。
+官网解答见：https://algs4.cs.princeton.edu/32bst/BST.java.html （isBST()）
+书中已经给出了答案，当然在 Java 和 C# 里，&amp;amp;&amp;amp; 总是从左向右计算的，而且遇到 false 会直接返回结果。
+如果数据结构中存在环，IsOrdered 有可能会陷入无限递归的情况，因此调用顺序比较重要。
+代码 # public static bool IsBST(BST&amp;lt;TKey, TValue&amp;gt; bst) { return IsBinaryTree(bst) &amp;amp;&amp;amp; IsOrdered(bst) &amp;amp;&amp;amp; HasNoDuplicates(bst); } 另请参阅 # Boolean logical operators (C# reference)
+Equality, Relational, and Conditional Operators
+BinarySearchTree 库</description></item><item><title>3.2.33</title><link>https://alg4.ikesnowy.com/3-2-33/</link><pubDate>Sun, 06 Oct 2019 10:21:05 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-33/</guid><description>3.2.33 # 解答 # 官网解答见：https://algs4.cs.princeton.edu/32bst/BST.java.html （isRankConsistent()）
+按照题目要求实现即可，分为两步进行测试。
+代码 # public static bool IsRankConsistent(BST&amp;lt;TKey, TValue&amp;gt; bst) { for (var i = 0; i &amp;lt; bst.Size(); i++) { if (i != bst.Rank(bst.Select(i))) { return false; } } foreach (var key in bst.Keys()) { if (key.CompareTo(bst.Select(bst.Rank(key))) != 0) { return false; } } return true; } 另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.34</title><link>https://alg4.ikesnowy.com/3-2-34/</link><pubDate>Sun, 06 Oct 2019 11:57:43 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-34/</guid><description>3.2.34 # 解答 # 其实就是将所有的结点按照中序序列排成了一个双向链表，对树进行修改时要同时更新这个双向链表。
+当插入新结点时，插到左侧的结点会变为父结点的新前驱，同理右侧会变为新后继。
+注意要更新父结点原来的前驱和后继结点（如果有）。
+删除结点时较为简单，只要更新需要删除结点的前驱和后继结点即可。
+原本操作 left 和 right 的代码不需要更改，只需要加上对 prev 和 next 做操作的代码即可。
+Prev 方法实现如下（Next 类似），修改了内部的 Get 方法使之返回 Node 而非 TValue。
+public TKey Prev(TKey key) { var node = Get(root, key); if (node == null || node.Prev == null) return null; return node.Prev.Key; } 代码 # 处理结点关系的几个方法。
+private void DeleteNode(Node x) { if (x.Prev != null) x.Prev.Next = x.Next; if (x.Next != null) x.</description></item><item><title>3.2.35</title><link>https://alg4.ikesnowy.com/3-2-35/</link><pubDate>Sun, 06 Oct 2019 21:17:54 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-35/</guid><description>3.2.35 # 解答 # 根据书中已经给出的归纳关系式（中文版P255/英文版P403）：
+$$
+C_N=N-1+(C_0+C_{N-1})/N+(C_1+C_{N-2})/N+\cdots+(C_{N-1}+C_0)/N
+$$
+整理得：
+$$
+C_N=N-1+(C_0+C_1+\cdots+C_{N-1})/N+(C_{N-1}+\cdots+C_1+C_0)/N
+$$
+这和快速排序的式子基本一致，只是 $N+1$ 变成了 $N-1$。
+遵循相同的推导过程，我们可以获得类似的结果，两边同乘以 $N$：
+$$
+NC_N=N(N-1)+2(C_0+C_1+\cdots+C_{N-1})
+$$
+用 $N+1$ 时的等式减去该式得：
+$$
+(N+1)C_{N+1}-NC_N=2N+2C_N \
+(N+1)C_{N+1}=2N+(N+2)C_N \
+\frac{C_{N+1}}{N+2}=\frac{2N}{(N+1)(N+2)} + \frac{C_N}{N+1}
+$$
+令 $T_N = \frac{C_N}{N+1}$，得到：
+$$
+T_{N+1}=\frac{2N}{(N+1)(N+2)} + T_N \
+T_{N+1}-T_{N} = \frac{2N}{(N+1)(N+2)}
+$$
+归纳得：
+$$
+\begin{aligned}
+T_N &amp;amp;= 2 \sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
+C_N&amp;amp;=2(N+1)\sum_{i=2}^{N} \frac{i-1}{i(i+1)} \
+C_N&amp;amp;=2(N+1)\sum_{i=2}^{N}(i-1) (\frac{1}{i}-\frac{1}{i+1}) \
+C_N&amp;amp;=-2(N-1)+ 2(N+1)\sum_{i=2}^{N}\frac{1}{i}\
+C_N&amp;amp;=-2(N-1)+ 2(N+1)(-1+\sum_{i=1}^{N}\frac{1}{i})\
+C_N&amp;amp;=-4N+2(N+1)(\ln N+\gamma)
+\end{aligned}</description></item><item><title>3.2.36</title><link>https://alg4.ikesnowy.com/3-2-36/</link><pubDate>Mon, 07 Oct 2019 15:41:43 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-36/</guid><description>3.2.36 # 解答 # 用一个栈来模拟递归即可，将路径上的结点记录到栈里。
+注意 Queue&amp;lt;TKey&amp;gt; 不算额外空间，因为它在keys执行完毕之后不会被回收。
+代码 # private void Keys(Node x, Queue&amp;lt;TKey&amp;gt; queue, TKey lo, TKey hi) { var stack = new Stack&amp;lt;Node&amp;gt;(); while (x != null || stack.Count &amp;gt; 0) { if (x != null) { var cmpLo = lo.CompareTo(x.Key); var cmpHi = hi.CompareTo(x.Key); if (cmpHi &amp;gt;= 0) stack.Push(x); if (cmpLo &amp;lt; 0) x = x.Left; else x = null; } else { x = stack.</description></item><item><title>3.2.37</title><link>https://alg4.ikesnowy.com/3-2-37/</link><pubDate>Tue, 08 Oct 2019 21:08:06 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-37/</guid><description>3.2.37 # 解答 # 二叉树层序遍历，出队一个结点，打印它，将结点的左右子树入队，循环即可。
+代码 # private void PrintLevel(Node x) { var queue = new Queue&amp;lt;Node&amp;gt;(); queue.Enqueue(x); while (queue.Count &amp;gt; 0) { var node = queue.Dequeue(); if (node.Left != null) queue.Enqueue(node.Left); if (node.Right != null) queue.Enqueue(node.Right); Console.Write(node.Key + &amp;#34;, &amp;#34;); } } 另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.38</title><link>https://alg4.ikesnowy.com/3-2-38/</link><pubDate>Fri, 25 Oct 2019 00:08:47 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-38/</guid><description>3.2.38 # 解答 # 通过层序遍历计算结点的坐标，然后绘制即可。
+先算出最大深度，确定每一层的高度 Y，
+再将每一层的宽度分成 $2^n-1$ 份，从左到右依次对结点赋值。
+效果如下：
+代码 # 计算坐标的函数。
+public void DrawTree(Graphics pen, RectangleF panel) { var depth = Depth(root); // 确定最大深度。 var layerHeight = panel.Height / depth; var nowLayer = new Queue&amp;lt;Node&amp;gt;(); var nextLayer = new Queue&amp;lt;Node&amp;gt;(); nextLayer.Enqueue(root); for (var layer = 0; layer != depth; layer++) { var unitSizeX = (float)(panel.Width / Math.Pow(2, layer)); var temp = nowLayer; nowLayer = nextLayer; nextLayer = temp; var cursorX = 0.</description></item><item><title>3.2.39</title><link>https://alg4.ikesnowy.com/3-2-39/</link><pubDate>Thu, 31 Oct 2019 21:19:22 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-39/</guid><description>3.2.39 # 解答 # 测试结果：
+可以看到和公式给出的结果十分一致。
+测试时先生成 0~2n 顺序序列，奇数插入二叉树中，偶数用于测试查找失败的情况。
+代码 # static void Main(string[] args) { var n = 10000; var trial = 100; for (var i = 0; i &amp;lt; 3; i++) { var odds = new int[n]; var evens = new int[n]; var bst = new BSTAnalysis&amp;lt;int, int&amp;gt;(); for (var j = 100; j &amp;lt; n; j++) { evens[j] = j; odds[j] = j + 1; } Shuffle(odds); foreach (var item in odds) { bst.</description></item><item><title>3.2.40</title><link>https://alg4.ikesnowy.com/3-2-40/</link><pubDate>Sat, 02 Nov 2019 19:33:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-40/</guid><description>3.2.40 # 解答 # 书中的结论是 1986 年 L. Devroye 给出的，原式为 $H_n \rightarrow c\log(n)$。
+其中 $c$ 是方程 $c\log \frac{2e}{c}=1$ 的最大解，约为 $4.31107$。
+2002 年 Michael Drmota 给出了一个跟精确的公式：$\mathrm{E}(H_n)=c\log n-\frac{3c}{2(c-1)}\log \log n + O(1)$。
+测试结果如下，误差基本稳定在一个常数。
+代码 # static void Main(string[] args) { var n = 10000; var trials = 100; for (var i = 0; i &amp;lt; 3; i++) { var items = new int[n]; for (var j = 0; j &amp;lt; n; j++) { items[j] = j; } var aveHeight = 0d; for (var j = 0; j &amp;lt; trials; j++) { var bst = new BST&amp;lt;int, int&amp;gt;(); Shuffle(items); foreach (var item in items) { bst.</description></item><item><title>3.2.41</title><link>https://alg4.ikesnowy.com/3-2-41/</link><pubDate>Mon, 04 Nov 2019 22:11:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-41/</guid><description>3.2.41 # 解答 # 大体上和标准 BST 实现差不多，做如下变换即可：
+x.Key =&amp;gt; _nodes[x].Key; x.Value =&amp;gt; _nodes[x].Value; x.Left =&amp;gt; _left[x]; x.Right =&amp;gt; _right[x]; 由于使用了数组，在正常「删除」二叉树结点之后，还需要手工「垃圾回收」，如下图所示：
+性能比较：
+可见数组实现在删除节点时有巨大的性能差距。
+代码 # private readonly Node[] _nodes; private readonly int[] _left; private readonly int[] _right; private int _size; private int _root; /// &amp;lt;summary&amp;gt; /// 二叉搜索树的结点。 /// &amp;lt;/summary&amp;gt; private class Node { public TKey Key { get; set; } public TValue Value { get; set; } } /// &amp;lt;summary&amp;gt; /// 建立一个以数组为基础的二叉搜索树。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;maxSize&amp;#34;&amp;gt;二叉搜索树中的结点数。&amp;lt;/param&amp;gt; public BSTArray(int maxSize) { _nodes = new Node[maxSize]; _left = new int[maxSize]; _right = new int[maxSize]; for (var i = 0; i &amp;lt; maxSize; i++) { _left[i] = -1; _right[i] = -1; } _size = 0; _root = 0; } /// &amp;lt;summary&amp;gt; /// 向符号表插入键值对。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;key&amp;#34;&amp;gt;键。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;value&amp;#34;&amp;gt;值。&amp;lt;/param&amp;gt; public void Put(TKey key, TValue value) { if (_size == _nodes.</description></item><item><title>3.2.42</title><link>https://alg4.ikesnowy.com/3-2-42/</link><pubDate>Sun, 08 Dec 2019 14:36:10 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-42/</guid><description>3.2.42 # 解答 # 按照题意实现即可，关键点有两个：
+一是选择前驱的实现方式，只要选择左子树中的最大结点即可。
+if (_random.NextDouble() &amp;lt; 0.5) { x = Min(t.Right); x.Right = DeleteMin(t.Right); x.Left = t.Left; } else { x = Max(t.Left); x.Left = DeleteMax(t.Left); x.Right = t.Right; } 二是内部路径长度的计算方式，需要用层序遍历把所有结点的深度加起来。
+var internalPath = 0; var nowLayer = new Queue&amp;lt;Node&amp;gt;(); var nextLayer = new Queue&amp;lt;Node&amp;gt;(); nextLayer.Enqueue(root); var depth = 0; while (nextLayer.Count &amp;gt; 0) { var temp = nowLayer; nowLayer = nextLayer; nextLayer = temp; while (nowLayer.</description></item><item><title>3.2.43</title><link>https://alg4.ikesnowy.com/3-2-43/</link><pubDate>Sat, 28 Dec 2019 17:01:36 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-43/</guid><description>3.2.43 # 解答 # 依照题意实现即可，put/get 大约 10 倍差距。
+MostFrequentlyKey 的实现：
+public static TKey MostFrequentlyKey&amp;lt;TKey&amp;gt;(IST&amp;lt;TKey, int&amp;gt; st, TKey[] keys) { foreach (var s in keys) { if (st.Contains(s)) st.Put(s, st.Get(s) + 1); else st.Put(s, 1); } var max = keys[0]; foreach (var s in st.Keys()) if (st.Get(s) &amp;gt; st.Get(max)) max = s; return max; } 另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.44</title><link>https://alg4.ikesnowy.com/3-2-44/</link><pubDate>Sun, 12 Jan 2020 14:00:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-44/</guid><description>3.2.44 # 解答 # 使用类似于 {% post_link 3-1-38 %} 的方法进行绘图，当 n=10000 时的结果如下：
+代码 # 绘图部分：
+public void Draw(long[] data) { var panel = CreateGraphics(); var unitX = (float)ClientRectangle.Width / data.Length; var unitY = (float)ClientRectangle.Height / data.Max(); var accumulation = 0f; // f = float for (var i = 0; i &amp;lt; data.Length; i++) { // Gray panel.FillEllipse(Brushes.Gray, (i + 1) * unitX, ClientRectangle.Bottom - data[i] * unitY, 2, 2); // Red panel.</description></item><item><title>3.2.45</title><link>https://alg4.ikesnowy.com/3-2-45/</link><pubDate>Sun, 12 Jan 2020 19:59:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-45/</guid><description>3.2.45 # 解答 # 结果如下，可参考 {% post_link 3-1-39 %}。
+SequentialSearchST
+BinarySearchST
+BST
+可以看到 BST 的曲线更为平滑，插入和查找部分耗时十分接近。
+另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.46</title><link>https://alg4.ikesnowy.com/3-2-46/</link><pubDate>Sun, 12 Jan 2020 20:40:03 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-46/</guid><description>3.2.46 # 解答 # 翻译有些问题，其实指的是用 N 个 double 构造一个 BST 和 BinarySearchST 的速度对比。
+Get 速度 BST 是不会比 BinarySearchST 快的。（$1.39\lg N$&amp;gt;$\lg N$）
+二叉搜索树一次查找平均需要 $1.39\lg N$ 次比较，二分查找则是 $N/2$，于是可以求得开销：
+二叉查找树：$1.39 \sum_{i=1}^{N-1} \lg i=1.39 \lg (N-1)!=1.39(N-1)\lg(N-1)$。
+二分查找实现的符号表：$1/2+2/2+ \cdots+(N-1)/2=N(N-1)/4$ 。
+令两式相等，可以求得快 10 倍，100 倍，1000 倍的 $N$ 值。
+例如快 10 倍的方程：
+$$
+13.9(N-1)\lg(N-1)=N(N-1)/4 \
+13.9\lg (N-1)=N/4
+$$
+这是一个超越方程，可以简单用程序穷举出一个数值解。
+for (var i = 0d; i &amp;lt; int.MaxValue; i++) { if (13.9 * Math.Log2(i - 1) &amp;lt; i / 4) { Console.</description></item><item><title>3.2.47</title><link>https://alg4.ikesnowy.com/3-2-47/</link><pubDate>Tue, 28 Jan 2020 20:25:42 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-47/</guid><description>3.2.47 # 解答 # 如下图所示，内部路径平均长度是比较符合规律的：
+方差：
+代码 # 一次测试：
+private int Test(int n) { var data = GetRandomInt(n); var bst = new BST&amp;lt;int, int&amp;gt;(); foreach (var d in data) { bst.Put(d, d); } return bst.AverageInternalPathLength(); } 求解内部路径长度：
+public int AverageInternalPathLength() =&amp;gt; InternalPath() / Size() + 1; private int InternalPath() { var internalPath = 0; var nowLayer = new Queue&amp;lt;Node&amp;gt;(); var nextLayer = new Queue&amp;lt;Node&amp;gt;(); nextLayer.Enqueue(root); var depth = 0; while (nextLayer.</description></item><item><title>3.3.1</title><link>https://alg4.ikesnowy.com/3-3-1/</link><pubDate>Mon, 06 Sep 2021 00:22:07 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-1/</guid><description>3.3.1 # 解答 # 结果如下：
+E AE |--E--| A S |--E--| A SY |--ES--| A Q Y |--ES--| A Q UY |--------S--------| |--E--| |--U--| A Q T Y |--------S--------| |--E--| |--U--| A IQ T Y |--------S--------| |--EO--| |--U--| A I Q T Y |--------S--------| |--EO--| |--U--| A IN Q T Y 代码 # 2-3 树的实现
+using System; using System.Collections.Generic; using System.Linq; using System.Text; // ReSharper disable CognitiveComplexity namespace BalancedSearchTree { /// &amp;lt;summary&amp;gt; /// 2-3 树。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;TKey&amp;#34;&amp;gt;键。&amp;lt;/typeparam&amp;gt; /// &amp;lt;typeparam name=&amp;#34;TValue&amp;#34;&amp;gt;值。&amp;lt;/typeparam&amp;gt; public class TwoThreeBst&amp;lt;TKey, TValue&amp;gt; : IOrderedSt&amp;lt;TKey, TValue&amp;gt; where TKey : IComparable&amp;lt;TKey&amp;gt; { private int _count; private Node _root; /// &amp;lt;inheritdoc /&amp;gt; public void Put(TKey key, TValue value) { if (_root == null) { _root = new Node(null); _root.</description></item><item><title>3.3.2</title><link>https://alg4.ikesnowy.com/3-3-2/</link><pubDate>Mon, 06 Sep 2021 20:39:54 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-2/</guid><description>3.3.2 # 解答 # 和 {% post_link 3-3-1 %} 类似，结果如下：
+Y LY |--P--| L Y |--P--| LM Y |--P--| LM XY |--LP--| H M XY |--LP--| CH M XY |--------P--------| |--L--| |--X--| CH M R Y |--------P--------| |--CL--| |--X--| A H M R Y |--------P--------| |--CL--| |--X--| A EH M R Y |--------P--------| |--CL--| |--X--| A EH M RS Y 另请参阅 # BalancedSearchTree 库</description></item><item><title>3.3.3</title><link>https://alg4.ikesnowy.com/3-3-3/</link><pubDate>Mon, 06 Sep 2021 21:29:17 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-3/</guid><description>3.3.3 # 解答 # 题目给出的序列就可以，如下（只有根结点的 2-3 树的高度是 0，以此类推）：
+S ES |--E--| A S |--E--| AC S |--E--| AC HS |--ES--| AC H X |--ES--| AC HM X SEACHXM 排序后是 ACEHMSX，符合条件的一种情况即为 AC 为左子结点，HM 为中间结点，X 为右侧结点，ES 为根节点。
+也可以是其他的模式，总共有 2880 种符合条件的组合（result.txt），共三种模式，结果如下：
+864 |--CM--| A EH SX 1152 |--EM--| AC H SX 864 |--ES--| AC HM X 可以观察到树的形状是没有变化的，只是键在各结点中的分布有些变化。
+代码 # using System; using System.IO; using BalancedSearchTree; var input = &amp;#34;ACEHMSX&amp;#34;; var output = File.</description></item><item><title>3.3.4</title><link>https://alg4.ikesnowy.com/3-3-4/</link><pubDate>Sun, 24 Oct 2021 23:18:48 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-4/</guid><description>3.3.4 # 解答 # 一棵高度为 $h$ 的完美二叉树有：$1 + 2 + 2^2 + &amp;hellip; + 2^{h}= 2^{h+1} - 1$ 个结点，反向得到 $N$ 个结点的完美二叉树高度为 $\log_2{(N+1)} -1$。
+一棵高度为 $h$ 的完美三叉树有：$1+3+3^2+&amp;hellip;+3^h= \frac{3^{h+1} - 1}{2}$ 个结点，反向得到 $N$ 个结点的完美三叉树高度为 $\log_3{(2N+1) - 1}$。
+由于 2-3 树本身介于完美二叉树和完美三叉树之间，$N$ 个结点的 2-3 树高度就会介于 $N$ 个结点的完美二叉树和完美三叉树之间，即：$\sim\lfloor log_3N \rfloor \le h \le \sim\lfloor log_2{N} \rfloor$。
+另请参阅 # 完美二叉树, 完全二叉树和完满二叉树 - veli - 博客园 (cnblogs.com)</description></item><item><title>3.3.5</title><link>https://alg4.ikesnowy.com/3-3-5/</link><pubDate>Sun, 16 Jan 2022 13:45:15 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-5/</guid><description>3.3.5 # 解答 # 注：英文版原文使用的是 “ignore the order of the subtrees”，也就是忽略子树的顺序。
+我们将 N=6 时的树形简记为 [{3}, {2, 2, 3}]，代表根结点是一个 3-结点，第二层有两个 2-结点和一个 3-结点。
+一个 N=6 的示例：
+// 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY 考虑插入元素的两种效用，一种是使 2-结点变成 3-结点（当前结点或者它的父结点）；另一种是使树高增加，被插入元素的 3-结点（及其父 3-结点）变回 2-结点。这两种操作的顺序不影响最后的树形。
+于是 N=7 时，我们有两种树形。
+[{3}, {2, 3, 3}]（插入到某个 2-结点）。
+// 'D', 'G', 'K', 'O', 'S', 'Y', 'L' // before |--GO--| D K SY // after |--GO--| D KL SY [{2}, {2, 2}, {2, 2, 2, 2}]（插入到 3-结点，变成满二叉树）。</description></item></channel></rss>

@@ -1,0 +1,15 @@
+{
+  "name": "《算法（第四版）》C# 题解",
+  "short_name": "《算法（第四版）》C# 题解",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

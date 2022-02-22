@@ -1,0 +1,1585 @@
+<!doctype html><html lang=zh-hans dir=" ltr">
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Searching">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alg4.ikesnowy.com/tags/searching/">
+<title>Searching | 《算法（第四版）》C# 题解</title>
+<link rel=manifest href=/manifest.json>
+<link rel=icon href=/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
+<script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.b2a0767f9469ac20ee81edb4b1787ac657456f9dbeef4bd12acd4710e5939568.js integrity="sha256-sqB2f5RprCDuge20sXh6xldFb52+70vRKs1HEOWTlWg=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/searching/index.xml title="《算法（第四版）》C# 题解">
+<script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
+<link rel=stylesheet href=/katex/katex.min.css>
+<script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body,window.katexOption)></script>
+</head>
+<body dir=" ltr">
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/><span>《算法（第四版）》C# 题解</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=/1-1-1/>1.1.1</a>
+</li>
+<li>
+<a href=/1-1-2/>1.1.2</a>
+</li>
+<li>
+<a href=/1-1-3/>1.1.3</a>
+</li>
+<li>
+<a href=/1-1-4/>1.1.4</a>
+</li>
+<li>
+<a href=/1-1-5/>1.1.5</a>
+</li>
+<li>
+<a href=/1-1-6/>1.1.6</a>
+</li>
+<li>
+<a href=/1-1-7/>1.1.7</a>
+</li>
+<li>
+<a href=/1-1-8/>1.1.8</a>
+</li>
+<li>
+<a href=/1-1-9/>1.1.9</a>
+</li>
+<li>
+<a href=/1-1-10/>1.1.10</a>
+</li>
+<li>
+<a href=/1-1-11/>1.1.11</a>
+</li>
+<li>
+<a href=/1-1-12/>1.1.12</a>
+</li>
+<li>
+<a href=/1-1-13/>1.1.13</a>
+</li>
+<li>
+<a href=/1-1-14/>1.1.14</a>
+</li>
+<li>
+<a href=/1-1-15/>1.1.15</a>
+</li>
+<li>
+<a href=/1-1-16/>1.1.16</a>
+</li>
+<li>
+<a href=/1-1-17/>1.1.17</a>
+</li>
+<li>
+<a href=/1-1-18/>1.1.18</a>
+</li>
+<li>
+<a href=/1-1-19/>1.1.19</a>
+</li>
+<li>
+<a href=/1-1-20/>1.1.20</a>
+</li>
+<li>
+<a href=/1-1-21/>1.1.21</a>
+</li>
+<li>
+<a href=/1-1-22/>1.1.22</a>
+</li>
+<li>
+<a href=/1-1-23/>1.1.23</a>
+</li>
+<li>
+<a href=/1-1-24/>1.1.24</a>
+</li>
+<li>
+<a href=/1-1-25/>1.1.25</a>
+</li>
+<li>
+<a href=/1-1-26/>1.1.26</a>
+</li>
+<li>
+<a href=/1-1-27/>1.1.27</a>
+</li>
+<li>
+<a href=/1-1-28/>1.1.28</a>
+</li>
+<li>
+<a href=/1-1-29/>1.1.29</a>
+</li>
+<li>
+<a href=/1-1-30/>1.1.30</a>
+</li>
+<li>
+<a href=/1-1-31/>1.1.31</a>
+</li>
+<li>
+<a href=/1-1-32/>1.1.32</a>
+</li>
+<li>
+<a href=/1-1-33/>1.1.33</a>
+</li>
+<li>
+<a href=/1-1-34/>1.1.34</a>
+</li>
+<li>
+<a href=/1-1-35/>1.1.35</a>
+</li>
+<li>
+<a href=/1-1-36/>1.1.36</a>
+</li>
+<li>
+<a href=/1-1-37/>1.1.37</a>
+</li>
+<li>
+<a href=/1-1-38/>1.1.38</a>
+</li>
+<li>
+<a href=/1-1-39/>1.1.39</a>
+</li>
+<li>
+<a href=/1-2-1/>1.2.1</a>
+</li>
+<li>
+<a href=/1-2-2/>1.2.2</a>
+</li>
+<li>
+<a href=/1-2-3/>1.2.3</a>
+</li>
+<li>
+<a href=/1-2-4/>1.2.4</a>
+</li>
+<li>
+<a href=/1-2-5/>1.2.5</a>
+</li>
+<li>
+<a href=/1-2-6/>1.2.6</a>
+</li>
+<li>
+<a href=/1-2-7/>1.2.7</a>
+</li>
+<li>
+<a href=/1-2-8/>1.2.8</a>
+</li>
+<li>
+<a href=/1-2-9/>1.2.9</a>
+</li>
+<li>
+<a href=/1-2-10/>1.2.10</a>
+</li>
+<li>
+<a href=/1-2-11/>1.2.11</a>
+</li>
+<li>
+<a href=/1-2-12/>1.2.12</a>
+</li>
+<li>
+<a href=/1-2-13/>1.2.13</a>
+</li>
+<li>
+<a href=/1-2-14/>1.2.14</a>
+</li>
+<li>
+<a href=/1-2-15/>1.2.15</a>
+</li>
+<li>
+<a href=/1-2-16/>1.2.16</a>
+</li>
+<li>
+<a href=/1-2-17/>1.2.17</a>
+</li>
+<li>
+<a href=/1-2-18/>1.2.18</a>
+</li>
+<li>
+<a href=/1-2-19/>1.2.19</a>
+</li>
+<li>
+<a href=/1-3-1/>1.3.1</a>
+</li>
+<li>
+<a href=/1-3-2/>1.3.2</a>
+</li>
+<li>
+<a href=/1-3-3/>1.3.3</a>
+</li>
+<li>
+<a href=/1-3-4/>1.3.4</a>
+</li>
+<li>
+<a href=/1-3-5/>1.3.5</a>
+</li>
+<li>
+<a href=/1-3-6/>1.3.6</a>
+</li>
+<li>
+<a href=/1-3-7/>1.3.7</a>
+</li>
+<li>
+<a href=/1-3-8/>1.3.8</a>
+</li>
+<li>
+<a href=/1-3-9/>1.3.9</a>
+</li>
+<li>
+<a href=/1-3-10/>1.3.10</a>
+</li>
+<li>
+<a href=/1-3-11/>1.3.11</a>
+</li>
+<li>
+<a href=/1-3-12/>1.3.12</a>
+</li>
+<li>
+<a href=/1-3-13/>1.3.13</a>
+</li>
+<li>
+<a href=/1-3-14/>1.3.14</a>
+</li>
+<li>
+<a href=/1-3-15/>1.3.15</a>
+</li>
+<li>
+<a href=/1-3-16/>1.3.16</a>
+</li>
+<li>
+<a href=/1-3-17/>1.3.17</a>
+</li>
+<li>
+<a href=/1-3-18/>1.3.18</a>
+</li>
+<li>
+<a href=/1-3-19/>1.3.19</a>
+</li>
+<li>
+<a href=/1-3-20/>1.3.20</a>
+</li>
+<li>
+<a href=/1-3-21/>1.3.21</a>
+</li>
+<li>
+<a href=/1-3-22/>1.3.22</a>
+</li>
+<li>
+<a href=/1-3-23/>1.3.23</a>
+</li>
+<li>
+<a href=/1-3-24/>1.3.24</a>
+</li>
+<li>
+<a href=/1-3-25/>1.3.25</a>
+</li>
+<li>
+<a href=/1-3-26/>1.3.26</a>
+</li>
+<li>
+<a href=/1-3-27/>1.3.27</a>
+</li>
+<li>
+<a href=/1-3-28/>1.3.28</a>
+</li>
+<li>
+<a href=/1-3-29/>1.3.29</a>
+</li>
+<li>
+<a href=/1-3-30/>1.3.30</a>
+</li>
+<li>
+<a href=/1-3-31/>1.3.31</a>
+</li>
+<li>
+<a href=/1-3-32/>1.3.32</a>
+</li>
+<li>
+<a href=/1-3-33/>1.3.33</a>
+</li>
+<li>
+<a href=/1-3-34/>1.3.34</a>
+</li>
+<li>
+<a href=/1-3-35/>1.3.35</a>
+</li>
+<li>
+<a href=/1-3-36/>1.3.36</a>
+</li>
+<li>
+<a href=/1-3-37/>1.3.37</a>
+</li>
+<li>
+<a href=/1-3-38/>1.3.38</a>
+</li>
+<li>
+<a href=/1-3-39/>1.3.39</a>
+</li>
+<li>
+<a href=/1-3-40/>1.3.40</a>
+</li>
+<li>
+<a href=/1-3-41/>1.3.41</a>
+</li>
+<li>
+<a href=/1-3-42/>1.3.42</a>
+</li>
+<li>
+<a href=/1-3-43/>1.3.43</a>
+</li>
+<li>
+<a href=/1-3-44/>1.3.44</a>
+</li>
+<li>
+<a href=/1-3-45/>1.3.45</a>
+</li>
+<li>
+<a href=/1-3-46/>1.3.46</a>
+</li>
+<li>
+<a href=/1-3-47/>1.3.47</a>
+</li>
+<li>
+<a href=/1-3-48/>1.3.48</a>
+</li>
+<li>
+<a href=/1-3-49/>1.3.49</a>
+</li>
+<li>
+<a href=/1-3-50/>1.3.50</a>
+</li>
+<li>
+<a href=/1-4-1/>1.4.1</a>
+</li>
+<li>
+<a href=/1-4-2/>1.4.2</a>
+</li>
+<li>
+<a href=/1-4-3/>1.4.3</a>
+</li>
+<li>
+<a href=/1-4-4/>1.4.4</a>
+</li>
+<li>
+<a href=/1-4-5/>1.4.5</a>
+</li>
+<li>
+<a href=/1-4-6/>1.4.6</a>
+</li>
+<li>
+<a href=/1-4-7/>1.4.7</a>
+</li>
+<li>
+<a href=/1-4-8/>1.4.8</a>
+</li>
+<li>
+<a href=/1-4-9/>1.4.9</a>
+</li>
+<li>
+<a href=/1-4-10/>1.4.10</a>
+</li>
+<li>
+<a href=/1-4-11/>1.4.11</a>
+</li>
+<li>
+<a href=/1-4-12/>1.4.12</a>
+</li>
+<li>
+<a href=/1-4-13/>1.4.13</a>
+</li>
+<li>
+<a href=/1-4-14/>1.4.14</a>
+</li>
+<li>
+<a href=/1-4-15/>1.4.15</a>
+</li>
+<li>
+<a href=/1-4-16/>1.4.16</a>
+</li>
+<li>
+<a href=/1-4-17/>1.4.17</a>
+</li>
+<li>
+<a href=/1-4-18/>1.4.18</a>
+</li>
+<li>
+<a href=/1-4-19/>1.4.19</a>
+</li>
+<li>
+<a href=/1-4-20/>1.4.20</a>
+</li>
+<li>
+<a href=/1-4-21/>1.4.21</a>
+</li>
+<li>
+<a href=/1-4-22/>1.4.22</a>
+</li>
+<li>
+<a href=/1-4-23/>1.4.23</a>
+</li>
+<li>
+<a href=/1-4-24/>1.4.24</a>
+</li>
+<li>
+<a href=/1-4-25/>1.4.25</a>
+</li>
+<li>
+<a href=/1-4-26/>1.4.26</a>
+</li>
+<li>
+<a href=/1-4-27/>1.4.27</a>
+</li>
+<li>
+<a href=/1-4-28/>1.4.28</a>
+</li>
+<li>
+<a href=/1-4-29/>1.4.29</a>
+</li>
+<li>
+<a href=/1-4-30/>1.4.30</a>
+</li>
+<li>
+<a href=/1-4-31/>1.4.31</a>
+</li>
+<li>
+<a href=/1-4-32/>1.4.32</a>
+</li>
+<li>
+<a href=/1-4-33/>1.4.33</a>
+</li>
+<li>
+<a href=/1-4-34/>1.4.34</a>
+</li>
+<li>
+<a href=/1-4-35/>1.4.35</a>
+</li>
+<li>
+<a href=/1-4-36/>1.4.36</a>
+</li>
+<li>
+<a href=/1-4-37/>1.4.37</a>
+</li>
+<li>
+<a href=/1-4-38/>1.4.38</a>
+</li>
+<li>
+<a href=/1-4-39/>1.4.39</a>
+</li>
+<li>
+<a href=/1-4-40/>1.4.40</a>
+</li>
+<li>
+<a href=/1-4-41/>1.4.41</a>
+</li>
+<li>
+<a href=/1-4-42/>1.4.42</a>
+</li>
+<li>
+<a href=/1-4-43/>1.4.43</a>
+</li>
+<li>
+<a href=/1-4-44/>1.4.44</a>
+</li>
+<li>
+<a href=/1-4-45/>1.4.45</a>
+</li>
+<li>
+<a href=/1-5-1/>1.5.1</a>
+</li>
+<li>
+<a href=/1-5-2/>1.5.2</a>
+</li>
+<li>
+<a href=/1-5-3/>1.5.3</a>
+</li>
+<li>
+<a href=/1-5-4/>1.5.4</a>
+</li>
+<li>
+<a href=/1-5-5/>1.5.5</a>
+</li>
+<li>
+<a href=/1-5-6/>1.5.6</a>
+</li>
+<li>
+<a href=/1-5-7/>1.5.7</a>
+</li>
+<li>
+<a href=/1-5-8/>1.5.8</a>
+</li>
+<li>
+<a href=/1-5-9/>1.5.9</a>
+</li>
+<li>
+<a href=/1-5-10/>1.5.10</a>
+</li>
+<li>
+<a href=/1-5-11/>1.5.11</a>
+</li>
+<li>
+<a href=/1-5-12/>1.5.12</a>
+</li>
+<li>
+<a href=/1-5-13/>1.5.13</a>
+</li>
+<li>
+<a href=/1-5-14/>1.5.14</a>
+</li>
+<li>
+<a href=/1-5-15/>1.5.15</a>
+</li>
+<li>
+<a href=/1-5-16/>1.5.16</a>
+</li>
+<li>
+<a href=/1-5-17/>1.5.17</a>
+</li>
+<li>
+<a href=/1-5-18/>1.5.18</a>
+</li>
+<li>
+<a href=/1-5-19/>1.5.19</a>
+</li>
+<li>
+<a href=/1-5-20/>1.5.20</a>
+</li>
+<li>
+<a href=/1-5-21/>1.5.21</a>
+</li>
+<li>
+<a href=/1-5-22/>1.5.22</a>
+</li>
+<li>
+<a href=/1-5-23/>1.5.23</a>
+</li>
+<li>
+<a href=/1-5-24/>1.5.24</a>
+</li>
+<li>
+<a href=/1-5-25/>1.5.25</a>
+</li>
+<li>
+<a href=/1-5-26/>1.5.26</a>
+</li>
+<li>
+<a href=/2-1-1/>2.1.1</a>
+</li>
+<li>
+<a href=/2-1-2/>2.1.2</a>
+</li>
+<li>
+<a href=/2-1-3/>2.1.3</a>
+</li>
+<li>
+<a href=/2-1-4/>2.1.4</a>
+</li>
+<li>
+<a href=/2-1-5/>2.1.5</a>
+</li>
+<li>
+<a href=/2-1-6/>2.1.6</a>
+</li>
+<li>
+<a href=/2-1-7/>2.1.7</a>
+</li>
+<li>
+<a href=/2-1-8/>2.1.8</a>
+</li>
+<li>
+<a href=/2-1-9/>2.1.9</a>
+</li>
+<li>
+<a href=/2-1-10/>2.1.10</a>
+</li>
+<li>
+<a href=/2-1-11/>2.1.11</a>
+</li>
+<li>
+<a href=/2-1-12/>2.1.12</a>
+</li>
+<li>
+<a href=/2-1-13/>2.1.13</a>
+</li>
+<li>
+<a href=/2-1-14/>2.1.14</a>
+</li>
+<li>
+<a href=/2-1-15/>2.1.15</a>
+</li>
+<li>
+<a href=/2-1-16/>2.1.16</a>
+</li>
+<li>
+<a href=/2-1-17/>2.1.17</a>
+</li>
+<li>
+<a href=/2-1-18/>2.1.18</a>
+</li>
+<li>
+<a href=/2-1-19/>2.1.19</a>
+</li>
+<li>
+<a href=/2-1-20/>2.1.20</a>
+</li>
+<li>
+<a href=/2-1-21/>2.1.21</a>
+</li>
+<li>
+<a href=/2-1-22/>2.1.22</a>
+</li>
+<li>
+<a href=/2-1-23/>2.1.23</a>
+</li>
+<li>
+<a href=/2-1-24/>2.1.24</a>
+</li>
+<li>
+<a href=/2-1-25/>2.1.25</a>
+</li>
+<li>
+<a href=/2-1-26/>2.1.26</a>
+</li>
+<li>
+<a href=/2-1-27/>2.1.27</a>
+</li>
+<li>
+<a href=/2-1-28/>2.1.28</a>
+</li>
+<li>
+<a href=/2-1-29/>2.1.29</a>
+</li>
+<li>
+<a href=/2-1-30/>2.1.30</a>
+</li>
+<li>
+<a href=/2-1-31/>2.1.31</a>
+</li>
+<li>
+<a href=/2-1-32/>2.1.32</a>
+</li>
+<li>
+<a href=/2-1-33/>2.1.33</a>
+</li>
+<li>
+<a href=/2-1-34/>2.1.34</a>
+</li>
+<li>
+<a href=/2-1-35/>2.1.35</a>
+</li>
+<li>
+<a href=/2-1-36/>2.1.36</a>
+</li>
+<li>
+<a href=/2-1-37/>2.1.37</a>
+</li>
+<li>
+<a href=/2-1-38/>2.1.38</a>
+</li>
+<li>
+<a href=/2-2-1/>2.2.1</a>
+</li>
+<li>
+<a href=/2-2-2/>2.2.2</a>
+</li>
+<li>
+<a href=/2-2-3/>2.2.3</a>
+</li>
+<li>
+<a href=/2-2-4/>2.2.4</a>
+</li>
+<li>
+<a href=/2-2-5/>2.2.5</a>
+</li>
+<li>
+<a href=/2-2-6/>2.2.6</a>
+</li>
+<li>
+<a href=/2-2-7/>2.2.7</a>
+</li>
+<li>
+<a href=/2-2-8/>2.2.8</a>
+</li>
+<li>
+<a href=/2-2-9/>2.2.9</a>
+</li>
+<li>
+<a href=/2-2-10/>2.2.10</a>
+</li>
+<li>
+<a href=/2-2-11/>2.2.11</a>
+</li>
+<li>
+<a href=/2-2-12/>2.2.12</a>
+</li>
+<li>
+<a href=/2-2-13/>2.2.13</a>
+</li>
+<li>
+<a href=/2-2-14/>2.2.14</a>
+</li>
+<li>
+<a href=/2-2-15/>2.2.15</a>
+</li>
+<li>
+<a href=/2-2-16/>2.2.16</a>
+</li>
+<li>
+<a href=/2-2-17/>2.2.17</a>
+</li>
+<li>
+<a href=/2-2-18/>2.2.18</a>
+</li>
+<li>
+<a href=/2-2-19/>2.2.19</a>
+</li>
+<li>
+<a href=/2-2-20/>2.2.20</a>
+</li>
+<li>
+<a href=/2-2-21/>2.2.21</a>
+</li>
+<li>
+<a href=/2-2-22/>2.2.22</a>
+</li>
+<li>
+<a href=/2-2-23/>2.2.23</a>
+</li>
+<li>
+<a href=/2-2-24/>2.2.24</a>
+</li>
+<li>
+<a href=/2-2-25/>2.2.25</a>
+</li>
+<li>
+<a href=/2-2-26/>2.2.26</a>
+</li>
+<li>
+<a href=/2-2-27/>2.2.27</a>
+</li>
+<li>
+<a href=/2-2-28/>2.2.28</a>
+</li>
+<li>
+<a href=/2-2-29/>2.2.29</a>
+</li>
+<li>
+<a href=/2-3-1/>2.3.1</a>
+</li>
+<li>
+<a href=/2-3-2/>2.3.2</a>
+</li>
+<li>
+<a href=/2-3-3/>2.3.3</a>
+</li>
+<li>
+<a href=/2-3-4/>2.3.4</a>
+</li>
+<li>
+<a href=/2-3-5/>2.3.5</a>
+</li>
+<li>
+<a href=/2-3-6/>2.3.6</a>
+</li>
+<li>
+<a href=/2-3-7/>2.3.7</a>
+</li>
+<li>
+<a href=/2-3-8/>2.3.8</a>
+</li>
+<li>
+<a href=/2-3-9/>2.3.9</a>
+</li>
+<li>
+<a href=/2-3-10/>2.3.10</a>
+</li>
+<li>
+<a href=/2-3-11/>2.3.11</a>
+</li>
+<li>
+<a href=/2-3-12/>2.3.12</a>
+</li>
+<li>
+<a href=/2-3-13/>2.3.13</a>
+</li>
+<li>
+<a href=/2-3-14/>2.3.14</a>
+</li>
+<li>
+<a href=/2-3-15/>2.3.15</a>
+</li>
+<li>
+<a href=/2-3-16/>2.3.16</a>
+</li>
+<li>
+<a href=/2-3-17/>2.3.17</a>
+</li>
+<li>
+<a href=/2-3-18/>2.3.18</a>
+</li>
+<li>
+<a href=/2-3-19/>2.3.19</a>
+</li>
+<li>
+<a href=/2-3-20/>2.3.20</a>
+</li>
+<li>
+<a href=/2-3-21/>2.3.21</a>
+</li>
+<li>
+<a href=/2-3-22/>2.3.22</a>
+</li>
+<li>
+<a href=/2-3-23/>2.3.23</a>
+</li>
+<li>
+<a href=/2-3-24/>2.3.24</a>
+</li>
+<li>
+<a href=/2-3-25/>2.3.25</a>
+</li>
+<li>
+<a href=/2-3-26/>2.3.26</a>
+</li>
+<li>
+<a href=/2-3-27/>2.3.27</a>
+</li>
+<li>
+<a href=/2-3-28/>2.3.28</a>
+</li>
+<li>
+<a href=/2-3-29/>2.3.29</a>
+</li>
+<li>
+<a href=/2-3-30/>2.3.30</a>
+</li>
+<li>
+<a href=/2-3-31/>2.3.31</a>
+</li>
+<li>
+<a href=/2-4-1/>2.4.1</a>
+</li>
+<li>
+<a href=/2-4-2/>2.4.2</a>
+</li>
+<li>
+<a href=/2-4-3/>2.4.3</a>
+</li>
+<li>
+<a href=/2-4-4/>2.4.4</a>
+</li>
+<li>
+<a href=/2-4-5/>2.4.5</a>
+</li>
+<li>
+<a href=/2-4-6/>2.4.6</a>
+</li>
+<li>
+<a href=/2-4-7/>2.4.7</a>
+</li>
+<li>
+<a href=/2-4-8/>2.4.8</a>
+</li>
+<li>
+<a href=/2-4-9/>2.4.9</a>
+</li>
+<li>
+<a href=/2-4-10/>2.4.10</a>
+</li>
+<li>
+<a href=/2-4-11/>2.4.11</a>
+</li>
+<li>
+<a href=/2-4-12/>2.4.12</a>
+</li>
+<li>
+<a href=/2-4-13/>2.4.13</a>
+</li>
+<li>
+<a href=/2-4-14/>2.4.14</a>
+</li>
+<li>
+<a href=/2-4-15/>2.4.15</a>
+</li>
+<li>
+<a href=/2-4-16/>2.4.16</a>
+</li>
+<li>
+<a href=/2-4-17/>2.4.17</a>
+</li>
+<li>
+<a href=/2-4-18/>2.4.18</a>
+</li>
+<li>
+<a href=/2-4-19/>2.4.19</a>
+</li>
+<li>
+<a href=/2-4-20/>2.4.20</a>
+</li>
+<li>
+<a href=/2-4-21/>2.4.21</a>
+</li>
+<li>
+<a href=/2-4-22/>2.4.22</a>
+</li>
+<li>
+<a href=/2-4-23/>2.4.23</a>
+</li>
+<li>
+<a href=/2-4-24/>2.4.24</a>
+</li>
+<li>
+<a href=/2-4-25/>2.4.25</a>
+</li>
+<li>
+<a href=/2-4-26/>2.4.26</a>
+</li>
+<li>
+<a href=/2-4-27/>2.4.27</a>
+</li>
+<li>
+<a href=/2-4-28/>2.4.28</a>
+</li>
+<li>
+<a href=/2-4-29/>2.4.29</a>
+</li>
+<li>
+<a href=/2-4-30/>2.4.30</a>
+</li>
+<li>
+<a href=/2-4-31/>2.4.31</a>
+</li>
+<li>
+<a href=/2-4-32/>2.4.32</a>
+</li>
+<li>
+<a href=/2-4-33/>2.4.33</a>
+</li>
+<li>
+<a href=/2-4-34/>2.4.34</a>
+</li>
+<li>
+<a href=/2-4-35/>2.4.35</a>
+</li>
+<li>
+<a href=/2-4-36/>2.4.36</a>
+</li>
+<li>
+<a href=/2-4-37/>2.4.37</a>
+</li>
+<li>
+<a href=/2-4-38/>2.4.38</a>
+</li>
+<li>
+<a href=/2-4-39/>2.4.39</a>
+</li>
+<li>
+<a href=/2-4-40/>2.4.40</a>
+</li>
+<li>
+<a href=/2-4-41/>2.4.41</a>
+</li>
+<li>
+<a href=/2-4-42/>2.4.42</a>
+</li>
+<li>
+<a href=/2-5-1/>2.5.1</a>
+</li>
+<li>
+<a href=/2-5-2/>2.5.2</a>
+</li>
+<li>
+<a href=/2-5-3/>2.5.3</a>
+</li>
+<li>
+<a href=/2-5-4/>2.5.4</a>
+</li>
+<li>
+<a href=/2-5-5/>2.5.5</a>
+</li>
+<li>
+<a href=/2-5-6/>2.5.6</a>
+</li>
+<li>
+<a href=/2-5-7/>2.5.7</a>
+</li>
+<li>
+<a href=/2-5-8/>2.5.8</a>
+</li>
+<li>
+<a href=/2-5-9/>2.5.9</a>
+</li>
+<li>
+<a href=/2-5-10/>2.5.10</a>
+</li>
+<li>
+<a href=/2-5-11/>2.5.11</a>
+</li>
+<li>
+<a href=/2-5-12/>2.5.12</a>
+</li>
+<li>
+<a href=/2-5-13/>2.5.13</a>
+</li>
+<li>
+<a href=/2-5-14/>2.5.14</a>
+</li>
+<li>
+<a href=/2-5-15/>2.5.15</a>
+</li>
+<li>
+<a href=/2-5-16/>2.5.16</a>
+</li>
+<li>
+<a href=/2-5-17/>2.5.17</a>
+</li>
+<li>
+<a href=/2-5-18/>2.5.18</a>
+</li>
+<li>
+<a href=/2-5-19/>2.5.19</a>
+</li>
+<li>
+<a href=/2-5-20/>2.5.20</a>
+</li>
+<li>
+<a href=/2-5-21/>2.5.21</a>
+</li>
+<li>
+<a href=/2-5-22/>2.5.22</a>
+</li>
+<li>
+<a href=/2-5-23/>2.5.23</a>
+</li>
+<li>
+<a href=/2-5-24/>2.5.24</a>
+</li>
+<li>
+<a href=/2-5-25/>2.5.25</a>
+</li>
+<li>
+<a href=/2-5-26/>2.5.26</a>
+</li>
+<li>
+<a href=/2-5-27/>2.5.27</a>
+</li>
+<li>
+<a href=/2-5-28/>2.5.28</a>
+</li>
+<li>
+<a href=/2-5-29/>2.5.29</a>
+</li>
+<li>
+<a href=/2-5-30/>2.5.30</a>
+</li>
+<li>
+<a href=/2-5-31/>2.5.31</a>
+</li>
+<li>
+<a href=/2-5-32/>2.5.32</a>
+</li>
+<li>
+<a href=/2-5-33/>2.5.33</a>
+</li>
+<li>
+<a href=/3-1-1/>3.1.1</a>
+</li>
+<li>
+<a href=/3-1-2/>3.1.2</a>
+</li>
+<li>
+<a href=/3-1-3/>3.1.3</a>
+</li>
+<li>
+<a href=/3-1-4/>3.1.4</a>
+</li>
+<li>
+<a href=/3-1-5/>3.1.5</a>
+</li>
+<li>
+<a href=/3-1-6/>3.1.6</a>
+</li>
+<li>
+<a href=/3-1-7/>3.1.7</a>
+</li>
+<li>
+<a href=/3-1-8/>3.1.8</a>
+</li>
+<li>
+<a href=/3-1-9/>3.1.9</a>
+</li>
+<li>
+<a href=/3-1-10/>3.1.10</a>
+</li>
+<li>
+<a href=/3-1-11/>3.1.11</a>
+</li>
+<li>
+<a href=/3-1-12/>3.1.12</a>
+</li>
+<li>
+<a href=/3-1-13/>3.1.13</a>
+</li>
+<li>
+<a href=/3-1-14/>3.1.14</a>
+</li>
+<li>
+<a href=/3-1-15/>3.1.15</a>
+</li>
+<li>
+<a href=/3-1-16/>3.1.16</a>
+</li>
+<li>
+<a href=/3-1-17/>3.1.17</a>
+</li>
+<li>
+<a href=/3-1-18/>3.1.18</a>
+</li>
+<li>
+<a href=/3-1-19/>3.1.19</a>
+</li>
+<li>
+<a href=/3-1-20/>3.1.20</a>
+</li>
+<li>
+<a href=/3-1-21/>3.1.21</a>
+</li>
+<li>
+<a href=/3-1-22/>3.1.22</a>
+</li>
+<li>
+<a href=/3-1-23/>3.1.23</a>
+</li>
+<li>
+<a href=/3-1-24/>3.1.24</a>
+</li>
+<li>
+<a href=/3-1-25/>3.1.25</a>
+</li>
+<li>
+<a href=/3-1-26/>3.1.26</a>
+</li>
+<li>
+<a href=/3-1-27/>3.1.27</a>
+</li>
+<li>
+<a href=/3-1-28/>3.1.28</a>
+</li>
+<li>
+<a href=/3-1-29/>3.1.29</a>
+</li>
+<li>
+<a href=/3-1-30/>3.1.30</a>
+</li>
+<li>
+<a href=/3-1-31/>3.1.31</a>
+</li>
+<li>
+<a href=/3-1-32/>3.1.32</a>
+</li>
+<li>
+<a href=/3-1-33/>3.1.33</a>
+</li>
+<li>
+<a href=/3-1-34/>3.1.34</a>
+</li>
+<li>
+<a href=/3-1-35/>3.1.35</a>
+</li>
+<li>
+<a href=/3-1-36/>3.1.36</a>
+</li>
+<li>
+<a href=/3-1-37/>3.1.37</a>
+</li>
+<li>
+<a href=/3-1-38/>3.1.38</a>
+</li>
+<li>
+<a href=/3-1-39/>3.1.39</a>
+</li>
+<li>
+<a href=/3-1-40/>3.1.40</a>
+</li>
+<li>
+<a href=/3-1-41/>3.1.41</a>
+</li>
+<li>
+<a href=/3-2-1/>3.2.1</a>
+</li>
+<li>
+<a href=/3-2-2/>3.2.2</a>
+</li>
+<li>
+<a href=/3-2-3/>3.2.3</a>
+</li>
+<li>
+<a href=/3-2-4/>3.2.4</a>
+</li>
+<li>
+<a href=/3-2-5/>3.2.5</a>
+</li>
+<li>
+<a href=/3-2-6/>3.2.6</a>
+</li>
+<li>
+<a href=/3-2-7/>3.2.7</a>
+</li>
+<li>
+<a href=/3-2-8/>3.2.8</a>
+</li>
+<li>
+<a href=/3-2-9/>3.2.9</a>
+</li>
+<li>
+<a href=/3-2-10/>3.2.10</a>
+</li>
+<li>
+<a href=/3-2-11/>3.2.11</a>
+</li>
+<li>
+<a href=/3-2-12/>3.2.12</a>
+</li>
+<li>
+<a href=/3-2-13/>3.2.13</a>
+</li>
+<li>
+<a href=/3-2-14/>3.2.14</a>
+</li>
+<li>
+<a href=/3-2-15/>3.2.15</a>
+</li>
+<li>
+<a href=/3-2-16/>3.2.16</a>
+</li>
+<li>
+<a href=/3-2-17/>3.2.17</a>
+</li>
+<li>
+<a href=/3-2-18/>3.2.18</a>
+</li>
+<li>
+<a href=/3-2-19/>3.2.19</a>
+</li>
+<li>
+<a href=/3-2-20/>3.2.20</a>
+</li>
+<li>
+<a href=/3-2-21/>3.2.21</a>
+</li>
+<li>
+<a href=/3-2-22/>3.2.22</a>
+</li>
+<li>
+<a href=/3-2-23/>3.2.23</a>
+</li>
+<li>
+<a href=/3-2-24/>3.2.24</a>
+</li>
+<li>
+<a href=/3-2-25/>3.2.25</a>
+</li>
+<li>
+<a href=/3-2-26/>3.2.26</a>
+</li>
+<li>
+<a href=/3-2-27/>3.2.27</a>
+</li>
+<li>
+<a href=/3-2-28/>3.2.28</a>
+</li>
+<li>
+<a href=/3-2-29/>3.2.29</a>
+</li>
+<li>
+<a href=/3-2-30/>3.2.30</a>
+</li>
+<li>
+<a href=/3-2-31/>3.2.31</a>
+</li>
+<li>
+<a href=/3-2-32/>3.2.32</a>
+</li>
+<li>
+<a href=/3-2-33/>3.2.33</a>
+</li>
+<li>
+<a href=/3-2-34/>3.2.34</a>
+</li>
+<li>
+<a href=/3-2-35/>3.2.35</a>
+</li>
+<li>
+<a href=/3-2-36/>3.2.36</a>
+</li>
+<li>
+<a href=/3-2-37/>3.2.37</a>
+</li>
+<li>
+<a href=/3-2-38/>3.2.38</a>
+</li>
+<li>
+<a href=/3-2-39/>3.2.39</a>
+</li>
+<li>
+<a href=/3-2-40/>3.2.40</a>
+</li>
+<li>
+<a href=/3-2-41/>3.2.41</a>
+</li>
+<li>
+<a href=/3-2-42/>3.2.42</a>
+</li>
+<li>
+<a href=/3-2-43/>3.2.43</a>
+</li>
+<li>
+<a href=/3-2-44/>3.2.44</a>
+</li>
+<li>
+<a href=/3-2-45/>3.2.45</a>
+</li>
+<li>
+<a href=/3-2-46/>3.2.46</a>
+</li>
+<li>
+<a href=/3-2-47/>3.2.47</a>
+</li>
+<li>
+<a href=/3-3-1/>3.3.1</a>
+</li>
+<li>
+<a href=/3-3-2/>3.3.2</a>
+</li>
+<li>
+<a href=/3-3-3/>3.3.3</a>
+</li>
+<li>
+<a href=/3-3-4/>3.3.4</a>
+</li>
+<li>
+<a href=/3-3-5/>3.3.5</a>
+</li>
+<li>
+<a href=/thanks/>特别感谢</a>
+</li>
+<li>
+<a href=/run-solution-code/>如何：运行题解代码</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Searching</strong>
+<label for=toc-control>
+</label>
+</div>
+</header>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-10/>3.2.10</a>
+</h2>
+<h5>2019-6-28</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.10 # 解答 # 官方实现：https://algs4.cs.princeton.edu/32bst/TestBST.java.html
+测试结果：
+size = 10 min = A max = X Testing keys() --------------------------- A 8 C 4 E 12 H 5 L 11 M 9 P 10 R 3 S 0 X 7 Testing select --------------------------- 0 A 1 C 2 E 3 H 4 L 5 M 6 P 7 R 8 S 9 X key rank floor ceil --------------------------- A 0 A A B 1 A C C 1 C C D 2 C E E 2 E E F 3 E H G 3 E H H 3 H H I 4 H L J 4 H L K 4 H L L 4 L L M 5 M M N 6 M P O 6 M P P 6 P P Q 7 P R R 7 R R S 8 S S T 9 S X U 9 S X V 9 S X W 9 S X X 9 X X Y 10 X Z 10 X range search --------------------------- A-Z (11)A C E H L M P R S X Z-A (0) X-X (1)X 0-Z (11)A C E H L M P R S X B-G (3)C E C-L (4)C E H L After deleting the smallest 3 keys --------------------------- H 5 L 11 M 9 P 10 R 3 S 0 X 7 After deleting the remaining keys --------------------------- After adding back the keys --------------------------- A 8 C 4 E 12 H 5 L 11 M 9 P 10 R 3 S 0 X 7
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-11/>3.2.11</a>
+</h2>
+<h5>2019-6-29</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.11 # 解答 # 树的高度为树中深度最大的点的深度。
+因此 N 个结点最多只能构造出高度为 N-1 的树来，并不能构成高度为 N 的树。
+如果将题目变为用 N 个结点构造高度为 N-1 的二叉搜索树。
+这样的树即为二叉搜索树的最坏情况，除唯一的叶子结点之外，每个结点有且只有一个子树。
+于是除根结点外，每个结点都有两种选择，要么在左，要么在右。
+因此共有 $2 ^ {n - 1}$ 种形状。
+接下来证明，对于某一种确定的最坏情况，在 N 个元素各不相同的情况下，输入顺序是唯一的。
+证明：
+就 1 2 3 这三个元素而言，构造这样一棵树：
+2 1 3 可以有 2 1 3 和 2 3 1 两种序列，因为在插入 2 之后可以选择的位置有两个
+但最坏情况下的二叉搜索树不存在具有两个子结点的结点，因此输入顺序是唯一的。
+反证：
+也可以这样考虑，假设序列 A 可以构造出一棵最坏情况下的二叉树，插入顺序为 $x_1 \dots x_n$
+假设存在与 A 顺序不同的序列 B，它构造出的二叉树与 A 的相同。
+由于 A 和 B 的元素相同，因此 A 必然可以通过有限次元素交换得到 B。
+<a href=/3-2-11/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-12/>3.2.12</a>
+</h2>
+<h5>2019-7-6</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.12 # 解答 # 二叉树的大小=左子树的大小+右子树的大小+1
+根据上述表达式可以构造出一个递归的 Size() 方法，并删除结点中的 Size 。
+Rank() 和 Select() 仍然可以正常工作，但最坏情况下的耗时可能会达到 $O(n)$ 和 $O(n^2 )$。
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-13/>3.2.13</a>
+</h2>
+<h5>2019-7-27</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.13 # 解答 # 官方实现：https://algs4.cs.princeton.edu/32bst/NonrecursiveBST.java.html
+Get 方法可以很方便的改成非递归形式。
+while (cur != null) { var cmp = key.CompareTo(cur.Key); if (cmp &lt; 0) cur = cur.Left; else if (cmp > 0) cur = cur.Right; else return cur.Value; } Put 方法结构类似，但需要注意更新路径上各个结点的 Size 属性。
+var path = new Stack&lt;Node>(); var cur = x; while (cur != null) { path.Push(cur); var cmp = key.CompareTo(cur.Key); if (cmp &lt; 0) cur = cur.Left; else if (cmp > 0) cur = cur.
+<a href=/3-2-13/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-14/>3.2.14</a>
+</h2>
+<h5>2019-7-28</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.14 # 解答 # 就 min，max 和 select 而言，它们是尾递归的，可以直接转换成迭代形式。
+（简单的说，尾递归就是所有递归操作都出现在 return 语句上，且返回值不需要参与其他运算）
+例如 min，递归形式为：
+if (x.Left == null) return x; return Min(x.Left); 递归调用获得的值直接返回，不再参与运算，可以直接转换为递推：
+while (true) { if (x.Left == null) return x; x = x.Left; } ceiling 和 floor 会略微复杂一些，具体见代码。
+代码 # min 和 max 比较简单，用一个 while 循环就可以转换为递推形式，例如 min。
+while (x != null) { if (x.Left == null) return x; x = x.Left; } return x; floor 和 ceiling 则要稍微复杂一点，需要记录当前找到的最小/最大值，例如 floor。
+<a href=/3-2-14/>...</a>
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-15/>3.2.15</a>
+</h2>
+<h5>2019-8-18</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.15 # 解答 # 比较简单，这里比较/取值都算一次访问，因此 keys 的访问序列会出现重复元素。
+函数 路径 floor(Q) E Q select(5) E Q ceiling(Q) E Q rank(J) E Q J size(D, T) E Q T E D keys(D, T) E D E Q J J M Q T S S T
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-16/>3.2.16</a>
+</h2>
+<h5>2019-8-22</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.16 # 解答 # 在高德纳的《计算机程序设计艺术》第一卷里出现了这个公式，编号为 $2.3.4.5(3)$。
+书中的证明简单直接：
+考虑二叉树中的某个叶子结点 $V$，设根结点到它的路径长度为 $k$，现在将 $V$ 删去。
+对于二叉树的内部路径长度 $I$ 和外部路径长度 $E$ ：
+由于 $V$ 被删去，$E$ 将会减少 $2(k+1)$，$I$ 将会减少 $k$，但此时 $V$ 变成了一个外部结点，$E$ 又会加上 $k$。
+因此最后 $E$ 减少了 $k+2$，$I$ 减少了 $k$，重复 $N$ 次操作之后就可以得到 $E = I + 2N$。
+另请参阅 # 《计算机程序设计艺术：第一卷 基本算法》（第三版）P400
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-17/>3.2.17</a>
+</h2>
+<h5>2019-8-25</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.17 # 解答 # 像这样，有一些字母是重复的，因此删除后树形状不变：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------I---------------| A |-------S-------| |---Q |---Y |-O |-U N T I---------------| |-------S-------| |---Q |---Y |-O |-U N T I---------------| |-------T-------| |---Q |---Y |-O U N I---------------| |-------T-------| |---Q U |-O N I-------| |---T---| |-O U N I-------| |---T |-O N I-------| |---T |-O N I-------| |---T |-O N I---| |-O N |-O N N
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-18/>3.2.18</a>
+</h2>
+<h5>2019-8-25</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.18 # 解答 # 和上一题类似，只是删除顺序不同：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N E-------------------------------| |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |-------S-------| |---Q |---Y |-O |-U N T |-------S-------| |---Q |---Y O |-U T |-------S-------| Q |---Y |-U T S-------| |---Y |-U T |---Y |-U T |---Y |-U T |-Y U Y
+</p>
+</article>
+<article class="markdown book-post">
+<h2>
+<a href=/3-2-19/>3.2.19</a>
+</h2>
+<h5>2019-8-25</h5>
+<div>
+<a href=/tags/searching/>Searching</a>
+</div>
+<p>3.2.19 # 解答 # 类似于这样的序列：
+|-------------------------------E-------------------------------| A |---------------S---------------| |-------Q |-------Y I---| |---U |-O T N |---------------I---------------| A |-------S-------| |---Q |---Y |-O |-U N T |---------------N---------------| A |-------S-------| |---Q |---Y O |-U T |---------------O---------------| A |-------S-------| Q |---Y |-U T |---------------Q---------------| A S-------| |---Y |-U T |-------S-------| A |---Y |-U T |---T---| A |-Y U |-U-| A Y |-Y A A
+</p>
+</article>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/tags/searching/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/5/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 6" class=page-link role=button>6</a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/7/ aria-label="Page 7" class=page-link role=button>7</a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/8/ aria-label="Page 8" class=page-link role=button>8</a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/7/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/searching/page/10/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+</main>
+</body>
+</html>

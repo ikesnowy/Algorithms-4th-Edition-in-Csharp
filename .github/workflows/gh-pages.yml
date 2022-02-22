@@ -26,7 +26,6 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        working-directory: "./docs"
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:

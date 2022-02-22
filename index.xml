@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>帮助 on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/</link><description>Recent content in 帮助 on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 31 May 2018 11:55:24 +0000</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/index.xml" rel="self" type="application/rss+xml"/><item><title>1.1.1</title><link>https://alg4.ikesnowy.com/1-1-1/</link><pubDate>Mon, 14 May 2018 19:01:25 +0000</pubDate><guid>https://alg4.ikesnowy.com/1-1-1/</guid><description>1.1.1 # 解答 # a.7
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>帮助 on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/</link><description>Recent content in 帮助 on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 31 May 2018 11:55:24 +0000</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/index.xml" rel="self" type="application/rss+xml"/><item><title>特别感谢</title><link>https://alg4.ikesnowy.com/thanks/</link><pubDate>Thu, 24 Jan 2019 10:56:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/thanks/</guid><description>代码避免不了 bug，题解也避免不了错误，感谢你们对于题解中问题的指出！
+（排名不分先后）
+@杨晗 ，1.3.49 等 。⬅ 他写了一份 Java 版的题解，做的比我多，点此进入
+第一章 # @ljdhhp ，1.3.31 #539
+@ShuXin ，1.4.15 #321
+@雨碎江南 ，1.4.8，1.4.18 #437
+@张越 ，1.4.19
+@5ME，1.1.1 #592
+@Hao Liu, 公式渲染问题 #596, #594
+第二章 # @雨碎江南 ，2.2.12 #532
+@cx666 , 2.2.12 #588
+@TianDao ，2.3.20 #587
+@wssb ，2.2.16，2.4.13
+@miyuexingchen ，2.4.6 #521
+@玉垒浮云 ，2.4.35 #590
+第三章 # @雨碎江南 ，3.1.24 #538</description></item><item><title>1.1.1</title><link>https://alg4.ikesnowy.com/1-1-1/</link><pubDate>Mon, 14 May 2018 19:01:25 +0000</pubDate><guid>https://alg4.ikesnowy.com/1-1-1/</guid><description>1.1.1 # 解答 # a.7
 b.200.0000002
 c.True
 代码 # static void Main(string[] args) { int a = (0 + 15) / 2; double b = 2.0e-6 * 100000000.1; bool c = true &amp;amp;&amp;amp; false || true &amp;amp;&amp;amp; true; Console.WriteLine($&amp;#34;a.{a}&amp;#34;); Console.WriteLine($&amp;#34;b.{b}&amp;#34;); Console.WriteLine($&amp;#34;c.{c}&amp;#34;); }</description></item><item><title>1.1.2</title><link>https://alg4.ikesnowy.com/1-1-2/</link><pubDate>Mon, 14 May 2018 19:21:04 +0000</pubDate><guid>https://alg4.ikesnowy.com/1-1-2/</guid><description>1.1.2 # 解答 # Name Type Value a System.Double 1.618 b System.Double 10 c System.Boolean True d System.String 33 代码 # static void Main(string[] args) { //var 变量名 = 初始值 根据初始值自动判断变量类型 var a = (1 + 2.236) / 2; var b = 1 + 2 + 3 + 4.0; var c = 4.</description></item><item><title>1.1.3</title><link>https://alg4.ikesnowy.com/1-1-3/</link><pubDate>Mon, 14 May 2018 19:33:26 +0000</pubDate><guid>https://alg4.ikesnowy.com/1-1-3/</guid><description>1.1.3 # 解答 # 简单的 if 判断即可。
@@ -2170,22 +2185,7 @@ S ES |--E--| A S |--E--| AC S |--E--| AC HS |--ES--| AC H X |--ES--| AC HM X SEA
 // 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY 考虑插入元素的两种效用，一种是使 2-结点变成 3-结点（当前结点或者它的父结点）；另一种是使树高增加，被插入元素的 3-结点（及其父 3-结点）变回 2-结点。这两种操作的顺序不影响最后的树形。
 于是 N=7 时，我们有两种树形。
 [{3}, {2, 3, 3}]（插入到某个 2-结点）。
-// 'D', 'G', 'K', 'O', 'S', 'Y', 'L' // before |--GO--| D K SY // after |--GO--| D KL SY [{2}, {2, 2}, {2, 2, 2, 2}]（插入到 3-结点，变成满二叉树）。</description></item><item><title>特别感谢</title><link>https://alg4.ikesnowy.com/thanks/</link><pubDate>Thu, 24 Jan 2019 10:56:53 +0000</pubDate><guid>https://alg4.ikesnowy.com/thanks/</guid><description>代码避免不了 bug，题解也避免不了错误，感谢你们对于题解中问题的指出！
-（排名不分先后）
-@杨晗 ，1.3.49 等 。⬅ 他写了一份 Java 版的题解，做的比我多，点此进入
-第一章 # @ljdhhp ，1.3.31 #539
-@ShuXin ，1.4.15 #321
-@雨碎江南 ，1.4.8，1.4.18 #437
-@张越 ，1.4.19
-@5ME，1.1.1 #592
-@Hao Liu, 公式渲染问题 #596, #594
-第二章 # @雨碎江南 ，2.2.12 #532
-@cx666 , 2.2.12 #588
-@TianDao ，2.3.20 #587
-@wssb ，2.2.16，2.4.13
-@miyuexingchen ，2.4.6 #521
-@玉垒浮云 ，2.4.35 #590
-第三章 # @雨碎江南 ，3.1.24 #538</description></item><item><title>如何：运行题解代码</title><link>https://alg4.ikesnowy.com/run-solution-code/</link><pubDate>Mon, 14 May 2018 12:38:40 +0000</pubDate><guid>https://alg4.ikesnowy.com/run-solution-code/</guid><description>本文将介绍如何下载题解项目并运行代码。
+// 'D', 'G', 'K', 'O', 'S', 'Y', 'L' // before |--GO--| D K SY // after |--GO--| D KL SY [{2}, {2, 2}, {2, 2, 2, 2}]（插入到 3-结点，变成满二叉树）。</description></item><item><title>如何：运行题解代码</title><link>https://alg4.ikesnowy.com/run-solution-code/</link><pubDate>Mon, 14 May 2018 12:38:40 +0000</pubDate><guid>https://alg4.ikesnowy.com/run-solution-code/</guid><description>本文将介绍如何下载题解项目并运行代码。
 在开始之前，请确保你的电脑上已经安装了 Visual Studio 2015（及以上版本）并启用了 .NET Framework 4.7。
 下载 Visual Studio：https://visualstudio.microsoft.com/zh-hans/downloads/
 下载全部代码 # 点击这个链接，下载 GitHub Extension 并安装。 点击本页底部的 GitHub 图标，进入题解源代码页。 点击右上角的「Clone or Download」，选择「Open in Visual Studio」。

@@ -8,10 +8,6 @@ googleAnalytics = 'UA-121852990-1'
 #  information on 'doc' type pages.
 enableGitInfo = true
 
-[markup]
-[markup.goldmark.renderer]
-  hardWraps = true
-
 [languages]
 [languages.zh]
   languageName = '中文'

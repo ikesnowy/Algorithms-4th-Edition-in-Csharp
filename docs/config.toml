@@ -1,7 +1,8 @@
 baseURL = 'https://alg4.ikesnowy.com/'
-languageCode = 'zh-Hans'
+defaultContentLanguage = 'zh'
 title = '《算法（第四版）》C# 题解'
 theme = 'hugo-book-modified'
+googleAnalytics = 'UA-121852990-1'
 
 # (Optional) Set this to true to enable 'Last Modified by' date and git author
 #  information on 'doc' type pages.
@@ -11,6 +12,11 @@ enableGitInfo = true
 [markup.goldmark.renderer]
   hardWraps = true
 
+[languages]
+[languages.zh]
+  languageName = '中文'
+  contentDir = 'content'
+
 [params]
   BookTheme = 'auto'
   BookToc=false
@@ -19,5 +25,6 @@ enableGitInfo = true
   BookSection = '*'
   BookComments = false
   BookDateFormat = '2006-1-2'
-  BookRepo = 'https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/'
+  BookRepo = 'https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp'
   BookCommitPath = 'commit'
+  BookEditPath = 'edit/master/docs'

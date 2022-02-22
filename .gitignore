@@ -21,8 +21,9 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-docs/
 log.txt
+public/
+_gen/
 
 # Visual Studio 2015 cache/options directory
 .vs/

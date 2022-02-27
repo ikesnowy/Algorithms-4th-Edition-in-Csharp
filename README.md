@@ -55,7 +55,7 @@ Program.cs 是程序的运行代码。
 
 ### 运行/开发环境：
 
-Visual Studio 2019 + .NET Core 3.1
+Rider + .Net 6
 
 需要绘图的部分只能在 Windows 上运行。
 

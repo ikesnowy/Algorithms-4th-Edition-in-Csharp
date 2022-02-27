@@ -16,7 +16,7 @@ namespace _1._1._32
             //新建一个文件选取窗口
             var openfiledialog = new OpenFileDialog();
             //设置要读取的文件类型
-            openfiledialog.Filter = "文本文档(*.txt)|*.txt";
+            openfiledialog.Filter = @"文本文档(*.txt)|*.txt";
             //设置初始位置为“我的文档”
             openfiledialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             //不允许多选
@@ -45,32 +45,32 @@ namespace _1._1._32
                 //打开文件并读取全部数字
                 var stringNums = File.ReadAllLines(InputFilePath.Text);
                 //建立 double 数组
-                var Numbers = new double[stringNums.Length];
+                var numbers = new double[stringNums.Length];
                 //将数字从 string 转换为 double
                 for (var i = 0; i < stringNums.Length; i++)
                 {
-                    Numbers[i] = double.Parse(stringNums[i]);
+                    numbers[i] = double.Parse(stringNums[i]);
                 }
 
                 try
                 {
-                    var N = int.Parse(InputN.Text);
-                    if (N <= 0)
+                    var n = int.Parse(InputN.Text);
+                    if (n <= 0)
                     {
-                        ErrorLabel.Text = "N 必须大于 0";
+                        ErrorLabel.Text = @"N 必须大于 0";
                         return;
                     }
-                    var L = double.Parse(InputL.Text);
-                    var R = double.Parse(InputR.Text);
-                    Program.StartDrawing(Numbers, N, L, R);
+                    var l = double.Parse(InputL.Text);
+                    var r = double.Parse(InputR.Text);
+                    Program.StartDrawing(numbers, n, l, r);
                 }
                 catch (FormatException fex)
                 {
-                    ErrorLabel.Text = "格式有误（是否漏填了某项？）" + fex.Message;
+                    ErrorLabel.Text = @"格式有误（是否漏填了某项？）" + fex.Message;
                 }
                 catch (OverflowException oex)
                 {
-                    ErrorLabel.Text = "数据过大（输入的内容太多）" + oex.Message;
+                    ErrorLabel.Text = @"数据过大（输入的内容太多）" + oex.Message;
                 }
             }
             catch (Exception ex)

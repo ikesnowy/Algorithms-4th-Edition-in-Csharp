@@ -1,58 +1,41 @@
 ﻿using System;
 using Generics;
 
-namespace _1._3._19
+var first = new Node<string> { Item = "first" };
+var second = new Node<string> { Item = "second" };
+var third = new Node<string> { Item = "third" };
+
+first.Next = second;
+second.Next = third;
+third.Next = null;
+
+var current = first;
+while (current != null)
 {
-    class Program
+    Console.Write(current.Item + " ");
+    current = current.Next;
+}
+
+DeleteLast(first);
+Console.WriteLine();
+
+current = first;
+while (current != null)
+{
+    Console.Write(current.Item + " ");
+    current = current.Next;
+}
+
+Console.WriteLine();
+
+static void DeleteLast(Node<string> first)
+{
+    var current = first;
+
+    while (current.Next.Next != null)
     {
-        static void Main(string[] args)
-        {
-            var first = new Node<string>()
-            {
-                item = "first"
-            };
-            var second = new Node<string>()
-            {
-                item = "second"
-            };
-            var third = new Node<string>()
-            {
-                item = "third"
-            };
-
-            first.next = second;
-            second.next = third;
-            third.next = null;
-
-            var current = first;
-            while (current != null)
-            {
-                Console.Write(current.item + " ");
-                current = current.next;
-            }
-
-            DeleteLast(first);
-            Console.WriteLine();
-
-            current = first;
-            while (current != null)
-            {
-                Console.Write(current.item + " ");
-                current = current.next;
-            }
-            Console.WriteLine();
-        }
-
-        static void DeleteLast(Node<string> first)
-        {
-            var current = first;
-
-            while (current.next.next != null)
-            {
-                current = current.next;
-            }
-
-            current.next = null;
-        }
+        current = current.Next;
     }
+
+    current.Next = null;
 }

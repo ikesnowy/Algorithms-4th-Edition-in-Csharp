@@ -1,26 +1,17 @@
 ﻿using System;
 
-namespace _1._1._20
+const int n = 4;
+Console.WriteLine($@"{FactorialLn(n)}");
+
+// ln(N!) =
+// ln(N * (N - 1) * ... * 1) =
+// ln(N) + ln((N - 1)!)
+static double FactorialLn(int n)
 {
-    class Program
+    if (n == 1)
     {
-        static void Main(string[] args)
-        {
-            var N = 4;
-            Console.WriteLine($"{factorialLn(N)}");
-        }
-
-        // ln(N!) =
-        // ln(N * (N - 1) * ... * 1) =
-        // ln(N) + ln((N - 1)!)
-        public static double factorialLn(int N)
-        {
-            if (N == 1)
-            {
-                return 0;
-            }
-
-            return Math.Log(N) + factorialLn(N - 1);
-        }
+        return 0;
     }
+
+    return Math.Log(n) + FactorialLn(n - 1);
 }

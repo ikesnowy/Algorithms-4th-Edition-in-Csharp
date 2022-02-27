@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+// ReSharper disable PossibleNullReferenceException
+// ReSharper disable CognitiveComplexity
 
 namespace Geometry
 {
@@ -13,17 +15,17 @@ namespace Geometry
         /// 以 X 坐标升序排序。
         /// </summary>
         /// <value>以 X 坐标升序排序的静态比较器。</value>
-        public readonly static Comparer<Point2D> X_Order = new XOrder();
+        public static readonly Comparer<Point2D> XOrderComparer = new XOrder();
         /// <summary>
         /// 以 Y 坐标升序排序。
         /// </summary>
         /// <value>以 Y 坐标升序排序的静态比较器。</value>
-        public readonly static Comparer<Point2D> Y_Order = new YOrder();
+        public static readonly Comparer<Point2D> YOrderComparer = new YOrder();
         /// <summary>
         /// 以极半径升序排序。
         /// </summary>
         /// <value>以极半径升序排序的静态比较器。</value>
-        public readonly static Comparer<Point2D> R_Order = new ROrder();
+        public static readonly Comparer<Point2D> ROrderComparer = new ROrder();
 
         /// <summary>
         /// 二维点的 X 坐标。
@@ -57,7 +59,7 @@ namespace Geometry
 
             if (double.IsNaN(x) || double.IsNaN(y))
             {
-                throw new ArgumentNullException("Coordinate cannot be NaN");
+                throw new ArgumentNullException(nameof(x), @"Coordinate cannot be NaN");
             }
 
             X = x;
@@ -102,7 +104,7 @@ namespace Geometry
         /// <param name="b">第二个点。</param>
         /// <param name="c">第三个点。</param>
         /// <returns>如果 {顺时针, 共线, 逆时针} 则返回 {-1, 0, 1}</returns>
-        public static int CCW(Point2D a, Point2D b, Point2D c)
+        public static int Ccw(Point2D a, Point2D b, Point2D c)
         {
             var area2 = (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
             if (area2 < 0)
@@ -247,16 +249,16 @@ namespace Geometry
         /// </summary>
         private class Atan2Order : Comparer<Point2D>
         {
-            private Point2D parent;
-            public Atan2Order() { }
+            private readonly Point2D _parent;
+
             public Atan2Order(Point2D parent)
             {
-                this.parent = parent;
+                _parent = parent;
             }
             public override int Compare(Point2D x, Point2D y)
             {
-                double angle1 = parent.AngleTo(x);
-                double angle2 = parent.AngleTo(y);
+                double angle1 = _parent.AngleTo(x);
+                double angle2 = _parent.AngleTo(y);
                 if (angle1 < angle2)
                 {
                     return -1;
@@ -275,20 +277,20 @@ namespace Geometry
         /// <summary>
         /// 按照极角顺序比较。
         /// </summary>
-        private class PolorOrder : Comparer<Point2D>
+        private class PolarOrder : Comparer<Point2D>
         {
-            private Point2D parent;
-            public PolorOrder() { }
-            public PolorOrder(Point2D parent)
+            private readonly Point2D _parent;
+
+            public PolarOrder(Point2D parent)
             {
-                this.parent = parent;
+                _parent = parent;
             }
             public override int Compare(Point2D q1, Point2D q2)
             {
-                var dx1 = q1.X - parent.X;
-                var dy1 = q1.Y - parent.Y;
-                var dx2 = q2.X - parent.X;
-                var dy2 = q2.Y - parent.Y;
+                var dx1 = q1.X - _parent.X;
+                var dy1 = q1.Y - _parent.Y;
+                var dx2 = q2.X - _parent.X;
+                var dy2 = q2.Y - _parent.Y;
 
                 if (dy2 >= 0 && dy2 < 0)
                 {
@@ -315,7 +317,7 @@ namespace Geometry
                 }
                 else
                 {
-                    return -CCW(parent, q1, q2);
+                    return -Ccw(_parent, q1, q2);
                 }
             }
         }
@@ -325,16 +327,16 @@ namespace Geometry
         /// </summary>
         private class DistanceToOrder : Comparer<Point2D>
         {
-            private Point2D parent;
-            public DistanceToOrder() { }
+            private readonly Point2D _parent;
+
             public DistanceToOrder(Point2D parent)
             {
-                this.parent = parent;
+                _parent = parent;
             }
             public override int Compare(Point2D p, Point2D q)
             {
-                double dist1 = parent.DistanceSquareTo(p);
-                double dist2 = parent.DistanceSquareTo(q);
+                double dist1 = _parent.DistanceSquareTo(p);
+                double dist2 = _parent.DistanceSquareTo(q);
 
                 if (dist1 < dist2)
                 {
@@ -357,7 +359,7 @@ namespace Geometry
         /// <returns>以到当前点的极角为关键字的升序比较器。</returns>
         public Comparer<Point2D> Polor_Order()
         {
-            return new PolorOrder(this);
+            return new PolarOrder(this);
         }
 
         /// <summary>
@@ -398,7 +400,7 @@ namespace Geometry
                 return false;
             }
             var that = (Point2D)obj;
-            return X == that.X && Y == that.Y;
+            return Math.Abs(X - that.X) < float.Epsilon * 5 && Math.Abs(Y - that.Y) < float.Epsilon * 5;
         }
 
         /// <summary>

@@ -9,27 +9,27 @@ namespace _1._3._31
      /// <summary>
      /// 双向链表。
      /// </summary>
-     /// <typeparam name="Item">链表中要存放的元素。</typeparam>
-    public class DoubleLinkList<Item> : IEnumerable<Item>
+     /// <typeparam name="TItem">链表中要存放的元素。</typeparam>
+    public class DoubleLinkList<TItem> : IEnumerable<TItem>
     {
         private class DoubleNode<T>
         {
-            public T item;
-            public DoubleNode<T> prev;
-            public DoubleNode<T> next;
+            public T Item;
+            public DoubleNode<T> Prev;
+            public DoubleNode<T> Next;
         }
-        DoubleNode<Item> first;
-        DoubleNode<Item> last;
-        int count;
+        DoubleNode<TItem> _first;
+        DoubleNode<TItem> _last;
+        int _count;
 
         /// <summary>
         /// 建立一条双向链表。
         /// </summary>
         public DoubleLinkList()
         {
-            first = null;
-            last = null;
-            count = 0;
+            _first = null;
+            _last = null;
+            _count = 0;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace _1._3._31
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return count == 0;
+            return _count == 0;
         }
 
         /// <summary>
@@ -47,55 +47,55 @@ namespace _1._3._31
         /// <returns></returns>
         public int Size()
         {
-            return count;
+            return _count;
         }
 
         /// <summary>
         /// 在表头插入一个元素。
         /// </summary>
         /// <param name="item">要插入的元素。</param>
-        public void InsertFront(Item item)
+        public void InsertFront(TItem item)
         {
-            var node = new DoubleNode<Item>()
+            var node = new DoubleNode<TItem>
             {
-                item = item,
-                next = first,
-                prev = null
+                Item = item,
+                Next = _first,
+                Prev = null
             };
-            if (first != null)
+            if (_first != null)
             {
-                first.prev = node;
+                _first.Prev = node;
             }
             else
             {
-                last = node;
+                _last = node;
             }
-            first = node;
-            count++;
+            _first = node;
+            _count++;
         }
 
         /// <summary>
         /// 在表尾插入一个元素。
         /// </summary>
         /// <param name="item">要插入表尾的元素。</param>
-        public void InsertRear(Item item)
+        public void InsertRear(TItem item)
         {
-            var node = new DoubleNode<Item>()
+            var node = new DoubleNode<TItem>
             {
-                item = item,
-                next = null,
-                prev = last
+                Item = item,
+                Next = null,
+                Prev = _last
             };
-            if (last != null)
+            if (_last != null)
             {
-                last.next = node;
+                _last.Next = node;
             }
             else
             {
-                first = node;
+                _first = node;
             }
-            last = node;
-            count++;
+            _last = node;
+            _count++;
         }
 
         /// <summary>
@@ -103,17 +103,17 @@ namespace _1._3._31
         /// </summary>
         /// <param name="index">要检索的下标。</param>
         /// <returns></returns>
-        public Item At(int index)
+        public TItem At(int index)
         {
-            if (index >= count || index < 0)
+            if (index >= _count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            var current = first;
+            var current = _first;
             for (var i = 0; i < index; i++)
             {
-                current = current.next;
+                current = current.Next;
             }
-            return current.item;
+            return current.Item;
         }
 
         /// <summary>
@@ -121,15 +121,15 @@ namespace _1._3._31
         /// </summary>
         /// <param name="index">要查找的下标。</param>
         /// <returns></returns>
-        private DoubleNode<Item> Find(int index)
+        private DoubleNode<TItem> Find(int index)
         {
-            if (index >= count || index < 0)
+            if (index >= _count || index < 0)
                 throw new IndexOutOfRangeException();
 
-            var current = first;
+            var current = _first;
             for (var i = 0; i < index; i++)
             {
-                current = current.next;
+                current = current.Next;
             }
             return current;
         }
@@ -139,7 +139,7 @@ namespace _1._3._31
         /// </summary>
         /// <param name="item">要插入的元素。</param>
         /// <param name="index">插入位置的下标。</param>
-        public void InsertBefore(Item item, int index)
+        public void InsertBefore(TItem item, int index)
         {
             if (index == 0)
             {
@@ -147,19 +147,19 @@ namespace _1._3._31
                 return;
             }
 
-            if (index >= count || index < 0)
+            if (index >= _count || index < 0)
                 throw new IndexOutOfRangeException();
 
             var current = Find(index);
-            var node = new DoubleNode<Item>()
+            var node = new DoubleNode<TItem>
             {
-                next = current,
-                prev = current.prev,
-                item = item
+                Next = current,
+                Prev = current.Prev,
+                Item = item
             };
-            current.prev.next = node;
-            current.prev = node;
-            count++;
+            current.Prev.Next = node;
+            current.Prev = node;
+            _count++;
         }
 
         /// <summary>
@@ -167,48 +167,48 @@ namespace _1._3._31
         /// </summary>
         /// <param name="item">要插入的元素。</param>
         /// <param name="index">查找元素的下标。</param>
-        public void InsertAfter(Item item, int index)
+        public void InsertAfter(TItem item, int index)
         {
-            if (index == count - 1)
+            if (index == _count - 1)
             {
                 InsertRear(item);
                 return;
             }
 
-            if (index >= count || index < 0)
+            if (index >= _count || index < 0)
                 throw new IndexOutOfRangeException();
 
             var current = Find(index);
-            var node = new DoubleNode<Item>()
+            var node = new DoubleNode<TItem>
             {
-                prev = current,
-                next = current.next,
-                item = item
+                Prev = current,
+                Next = current.Next,
+                Item = item
             };
-            current.next.prev = node;
-            current.next = node;
-            count++;
+            current.Next.Prev = node;
+            current.Next = node;
+            _count++;
         }
 
         /// <summary>
         /// 删除表头元素。
         /// </summary>
         /// <returns></returns>
-        public Item DeleteFront()
+        public TItem DeleteFront()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            var temp = first.item;
-            first = first.next;
-            count--;
+            var temp = _first.Item;
+            _first = _first.Next;
+            _count--;
             if (IsEmpty())
             {
-                last = null;
+                _last = null;
             }
             else
             {
-                first.prev = null;
+                _first.Prev = null;
             }
             return temp;
         }
@@ -217,21 +217,21 @@ namespace _1._3._31
         /// 删除表尾的元素。
         /// </summary>
         /// <returns></returns>
-        public Item DeleteRear()
+        public TItem DeleteRear()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("List underflow");
 
-            var temp = last.item;
-            last = last.prev;
-            count--;
+            var temp = _last.Item;
+            _last = _last.Prev;
+            _count--;
             if (IsEmpty())
             {
-                first = null;
+                _first = null;
             }
             else
             {
-                last.next = null;
+                _last.Next = null;
             }
             return temp;
         }
@@ -241,9 +241,9 @@ namespace _1._3._31
         /// </summary>
         /// <param name="index">要删除元素的下标。</param>
         /// <returns></returns>
-        public Item Delete(int index)
+        public TItem Delete(int index)
         {
-            if (index < 0 || index >= count)
+            if (index < 0 || index >= _count)
                 throw new IndexOutOfRangeException();
 
             if (index == 0)
@@ -251,16 +251,16 @@ namespace _1._3._31
                 return DeleteFront();
             }
 
-            if (index == count - 1)
+            if (index == _count - 1)
             {
                 return DeleteRear();
             }
 
             var current = Find(index);
-            var temp = current.item;
-            current.prev.next = current.next;
-            current.next.prev = current.prev;
-            count--;
+            var temp = current.Item;
+            current.Prev.Next = current.Next;
+            current.Next.Prev = current.Prev;
+            _count--;
             return temp;
         }
 
@@ -277,9 +277,9 @@ namespace _1._3._31
             return s.ToString();
         }
 
-        public IEnumerator<Item> GetEnumerator()
+        public IEnumerator<TItem> GetEnumerator()
         {
-            return new DoubleLinkListEnumerator(first);
+            return new DoubleLinkListEnumerator(_first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -287,39 +287,39 @@ namespace _1._3._31
             return GetEnumerator();
         }
 
-        private class DoubleLinkListEnumerator : IEnumerator<Item>
+        private class DoubleLinkListEnumerator : IEnumerator<TItem>
         {
-            DoubleNode<Item> current;
-            DoubleNode<Item> first;
+            DoubleNode<TItem> _current;
+            DoubleNode<TItem> _first;
 
-            public DoubleLinkListEnumerator(DoubleNode<Item> first)
+            public DoubleLinkListEnumerator(DoubleNode<TItem> first)
             {
-                current = new DoubleNode<Item>();
-                current.next = first;
-                this.first = current;
+                _current = new DoubleNode<TItem>();
+                _current.Next = first;
+                _first = _current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            TItem IEnumerator<TItem>.Current => _current.Item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => _current.Item;
 
             void IDisposable.Dispose()
             {
-                current = null;
-                first = null;
+                _current = null;
+                _first = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (current.next == null)
+                if (_current.Next == null)
                     return false;
-                current = current.next;
+                _current = _current.Next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                current = first;
+                _current = _first;
             }
         }
     }

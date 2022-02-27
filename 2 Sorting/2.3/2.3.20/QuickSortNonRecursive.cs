@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Quick;
+// ReSharper disable CognitiveComplexity
 
 namespace _2._3._20
 {
@@ -10,11 +11,6 @@ namespace _2._3._20
     /// </summary>
     public class QuickSortNonRecursive : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickSortNonRecursive() { }
-
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
         /// </summary>

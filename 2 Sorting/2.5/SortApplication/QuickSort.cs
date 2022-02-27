@@ -1,4 +1,5 @@
 ﻿using System;
+// ReSharper disable CognitiveComplexity
 
 namespace SortApplication
 {
@@ -7,11 +8,6 @@ namespace SortApplication
     /// </summary>
     public class QuickSort : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickSort() { }
-
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
         /// </summary>

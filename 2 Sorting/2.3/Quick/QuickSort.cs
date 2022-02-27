@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+// ReSharper disable CognitiveComplexity
 
 namespace Quick
 {
@@ -8,11 +9,6 @@ namespace Quick
     /// </summary>
     public class QuickSort : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickSort() { }
-
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
         /// </summary>

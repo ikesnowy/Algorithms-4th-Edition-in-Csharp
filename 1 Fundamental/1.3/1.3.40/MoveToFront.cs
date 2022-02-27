@@ -6,17 +6,17 @@ namespace _1._3._40
     /// <summary>
     /// 前移编码队列。
     /// </summary>
-    /// <typeparam name="Item">需要前移编码的元素类型。</typeparam>
-    class MoveToFront<Item>
+    /// <typeparam name="TItem">需要前移编码的元素类型。</typeparam>
+    class MoveToFront<TItem>
     {
         private class Node<T>
         {
-            public T item;
-            public Node<T> next;
+            public T Item;
+            public Node<T> Next;
         }
 
-        private Node<Item> first;
-        private int count;
+        private Node<TItem> _first;
+        private int _count;
 
         /// <summary>
         /// 检查编码组是否为空。
@@ -24,7 +24,7 @@ namespace _1._3._40
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return first == null;
+            return _first == null;
         }
 
         /// <summary>
@@ -32,8 +32,8 @@ namespace _1._3._40
         /// </summary>
         public MoveToFront()
         {
-            first = null;
-            count = 0;
+            _first = null;
+            _count = 0;
         }
 
         /// <summary>
@@ -41,21 +41,21 @@ namespace _1._3._40
         /// </summary>
         /// <param name="item">要寻找的元素。</param>
         /// <returns></returns>
-        private Node<Item> Find(Item item)
+        private Node<TItem> Find(TItem item)
         {
             if (IsEmpty())
             {
                 return null;
             }
 
-            var current = first;
-            while (current.next != null)
+            var current = _first;
+            while (current.Next != null)
             {
-                if (current.next.item.Equals(item))
+                if (current.Next.Item.Equals(item))
                 {
                     return current;
                 }
-                current = current.next;
+                current = current.Next;
             }
             return null;
         }
@@ -64,26 +64,26 @@ namespace _1._3._40
         /// 前移编码插入。
         /// </summary>
         /// <param name="item">需要插入的元素。</param>
-        public void Insert(Item item)
+        public void Insert(TItem item)
         {
             var temp = Find(item);
             if (temp == null)
             {
-                temp = new Node<Item>()
+                temp = new Node<TItem>
                 {
-                    item = item,
-                    next = first
+                    Item = item,
+                    Next = _first
                 };
 
-                first = temp;
-                count++;
+                _first = temp;
+                _count++;
             }
-            else if (temp != null && count != 1)
+            else if (_count != 1)
             {
-                var target = temp.next;
-                temp.next = temp.next.next;
-                target.next = first;
-                first = target;
+                var target = temp.Next;
+                temp.Next = temp.Next.Next;
+                target.Next = _first;
+                _first = target;
             }
         }
 
@@ -91,25 +91,25 @@ namespace _1._3._40
         /// 查看第一个元素。
         /// </summary>
         /// <returns></returns>
-        public Item Peek()
+        public TItem Peek()
         {
-            if (first == null)
+            if (_first == null)
             {
                 throw new InvalidOperationException();
             }
 
-            return first.item;
+            return _first.Item;
         }
 
         public override string ToString()
         {
             var s = new StringBuilder();
-            var current = first;
+            var current = _first;
             while (current != null)
             {
-                s.Append(current.item.ToString());
+                s.Append(current.Item.ToString());
                 s.Append(" ");
-                current = current.next;
+                current = current.Next;
             }
 
             return s.ToString();

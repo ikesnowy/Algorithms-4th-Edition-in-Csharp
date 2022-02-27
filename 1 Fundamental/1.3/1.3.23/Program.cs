@@ -1,51 +1,42 @@
 ﻿using System;
 using Generics;
 
-namespace _1._3._23
+// x.next = t        x 的下一个是 t
+// t.next = x.next   t 的下一个和 x 的下一个相同（也就是 t）
+// 于是 t.next = t, 遍历会出现死循环。
+var first = new Node<string>();
+var second = new Node<string>();
+var third = new Node<string>();
+var fourth = new Node<string>();
+
+first.Item = "first";
+second.Item = "second";
+third.Item = "third";
+fourth.Item = "fourth";
+
+first.Next = second;
+second.Next = third;
+third.Next = fourth;
+fourth.Next = null;
+
+var current = first;
+while (current != null)
 {
-    class Program
-    {
-        // x.next = t        x 的下一个是 t
-        // t.next = x.next   t 的下一个和 x 的下一个相同（也就是 t）
-        // 于是 t.next = t, 遍历会出现死循环。
-        static void Main(string[] args)
-        {
-            var first = new Node<string>();
-            var second = new Node<string>();
-            var third = new Node<string>();
-            var fourth = new Node<string>();
+    Console.Write(current.Item + " ");
+    current = current.Next;
+}
 
-            first.item = "first";
-            second.item = "second";
-            third.item = "third";
-            fourth.item = "fourth";
+var t = new Node<string>();
+t.Item = "t";
 
-            first.next = second;
-            second.next = third;
-            third.next = fourth;
-            fourth.next = null;
+second.Next = t;
+t.Next = second.Next;
 
-            var current = first;
-            while (current != null)
-            {
-                Console.Write(current.item + " ");
-                current = current.next;
-            }
+Console.WriteLine();
 
-            var t = new Node<string>();
-            t.item = "t";
-
-            second.next = t;
-            t.next = second.next;
-
-            Console.WriteLine();
-
-            current = first;
-            while (current != null)
-            {
-                Console.Write(current.item + " ");
-                current = current.next;
-            }
-        }
-    }
+current = first;
+while (current != null)
+{
+    Console.Write(current.Item + " ");
+    current = current.Next;
 }

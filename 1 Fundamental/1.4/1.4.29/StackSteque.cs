@@ -3,29 +3,29 @@
     /// <summary>
     /// 用两个栈模拟的 Steque。
     /// </summary>
-    /// <typeparam name="Item">Steque 中的元素类型。</typeparam>
-    class StackSteque<Item>
+    /// <typeparam name="TItem">Steque 中的元素类型。</typeparam>
+    class StackSteque<TItem>
     {
-        Stack<Item> H;
-        Stack<Item> T;
+        private readonly Stack<TItem> _h;
+        private readonly Stack<TItem> _t;
 
         /// <summary>
         /// 初始化一个 Steque
         /// </summary>
         public StackSteque()
         {
-            H = new Stack<Item>();
-            T = new Stack<Item>();
+            _h = new Stack<TItem>();
+            _t = new Stack<TItem>();
         }
 
         /// <summary>
         /// 向栈中添加一个元素。
         /// </summary>
         /// <param name="item"></param>
-        public void Push(Item item)
+        public void Push(TItem item)
         {
             ReverseT();
-            H.Push(item);
+            _h.Push(item);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@
         /// </summary>
         private void ReverseT()
         {
-            while (!T.IsEmpty())
+            while (!_t.IsEmpty())
             {
-                H.Push(T.Pop());
+                _h.Push(_t.Pop());
             }
         }
 
@@ -44,9 +44,9 @@
         /// </summary>
         private void ReverseH()
         {
-            while (!H.IsEmpty())
+            while (!_h.IsEmpty())
             {
-                T.Push(H.Pop());
+                _t.Push(_h.Pop());
             }
         }
 
@@ -54,20 +54,20 @@
         /// 从 Steque 中弹出一个元素。
         /// </summary>
         /// <returns></returns>
-        public Item Pop()
+        public TItem Pop()
         {
             ReverseT();
-            return H.Pop();
+            return _h.Pop();
         }
 
         /// <summary>
         /// 在 Steque 尾部添加一个元素。
         /// </summary>
         /// <param name="item"></param>
-        public void Enqueue(Item item)
+        public void Enqueue(TItem item)
         {
             ReverseH();
-            T.Push(item);
+            _t.Push(item);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return H.IsEmpty() && T.IsEmpty();
+            return _h.IsEmpty() && _t.IsEmpty();
         }
     }
 }

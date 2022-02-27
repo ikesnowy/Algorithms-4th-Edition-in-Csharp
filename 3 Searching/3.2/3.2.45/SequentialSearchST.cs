@@ -9,18 +9,18 @@ namespace _3._2._45
     /// </summary>
     /// <typeparam name="TKey">键类型。</typeparam>
     /// <typeparam name="TValue">值类型。</typeparam>
-    public class SequentialSearchST<TKey, TValue> : IST<TKey, TValue>
+    public class SequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>
     {
         /// <summary>
         /// 符号表中的元素个数。
         /// </summary>
         /// <value>符号表中的元素个数。</value>
-        private int n;
+        private int _n;
         /// <summary>
         /// 链表头结点。
         /// </summary>
         /// <value>链表头结点。</value>
-        private Node first;
+        private Node _first;
 
         /// <summary>
         /// 链表结点。
@@ -40,11 +40,6 @@ namespace _3._2._45
         }
 
         /// <summary>
-        /// 构造空的符号表。
-        /// </summary>
-        public SequentialSearchST() { }
-
-        /// <summary>
         /// 检查键 <paramref name="key"/> 是否已被包含在符号表中。
         /// </summary>
         /// <param name="key">需要检查的键。</param>
@@ -53,8 +48,8 @@ namespace _3._2._45
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to contains() can't be null!");
-            for (var pointer = first; pointer != null; pointer = pointer.Next)
+                throw new ArgumentNullException(nameof(key), @"argument to contains() can't be null!");
+            for (var pointer = _first; pointer != null; pointer = pointer.Next)
                 if (pointer.Key.Equals(key))
                     return true;
             return false;
@@ -67,8 +62,8 @@ namespace _3._2._45
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("key can't be null");
-            Node before = null, target = first;
+                throw new ArgumentNullException(nameof(key), @"key can't be null");
+            Node before = null, target = _first;
             while (target != null && !target.Key.Equals(key))
             {
                 before = target;
@@ -87,13 +82,13 @@ namespace _3._2._45
         private void Delete(Node before, Node target)
         {
             if (target == null)
-                throw new ArgumentNullException("target can't be null");
+                throw new ArgumentNullException(nameof(target), @"target can't be null");
 
             if (before == null)
-                first = target.Next;
+                _first = target.Next;
             else
                 before.Next = target.Next;
-            n--;
+            _n--;
         }
 
         /// <summary>
@@ -104,8 +99,8 @@ namespace _3._2._45
         public TValue Get(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("key can't be null");
-            for (var pointer = first; pointer != null; pointer = pointer.Next)
+                throw new ArgumentNullException(nameof(key), @"key can't be null");
+            for (var pointer = _first; pointer != null; pointer = pointer.Next)
                 if (pointer.Key.Equals(key))
                     return pointer.Value;
             return default(TValue);
@@ -115,7 +110,7 @@ namespace _3._2._45
         /// 符号表是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => n == 0;
+        public bool IsEmpty() => _n == 0;
 
         /// <summary>
         /// 获得所有的键。
@@ -123,9 +118,9 @@ namespace _3._2._45
         /// <returns>包含所有键的集合。</returns>
         public IEnumerable<TKey> Keys()
         {
-            var keys = new TKey[n];
-            var pointer = first;
-            for (var i = 0; i < n; i++)
+            var keys = new TKey[_n];
+            var pointer = _first;
+            for (var i = 0; i < _n; i++)
             {
                 keys[i] = pointer.Key;
                 pointer = pointer.Next;
@@ -142,13 +137,13 @@ namespace _3._2._45
         public void Put(TKey key, TValue value)
         {
             if (key == null)
-                throw new ArgumentNullException("key can't be null!");
+                throw new ArgumentNullException(nameof(key), @"key can't be null!");
             if (value == null)
             {
                 Delete(key);
                 return;
             }
-            for (var pointer = first; pointer != null; pointer = pointer.Next)
+            for (var pointer = _first; pointer != null; pointer = pointer.Next)
             {
                 if (pointer.Key.Equals(key))
                 {
@@ -157,14 +152,14 @@ namespace _3._2._45
                 }
             }
 
-            first = new Node(key, value, first);
-            n++;
+            _first = new Node(key, value, _first);
+            _n++;
         }
 
         /// <summary>
         /// 获取符号表中的键值对数量。
         /// </summary>
         /// <returns>当前符号表中的键值对数量。</returns>
-        public int Size() => n;
+        public int Size() => _n;
     }
 }

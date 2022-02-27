@@ -10,11 +10,6 @@ namespace _2._3._17
     public class QuickSortX : BaseSort
     {
         /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickSortX() { }
-
-        /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
         /// </summary>
         /// <typeparam name="T">需要排序的类型。</typeparam>
@@ -66,12 +61,18 @@ namespace _2._3._17
             var v = a[lo];
             while (true)
             {
-                while (Less(a[++i], v)) ;
-             //     if (i == hi)
-             //         break;
-                while (Less(v, a[--j])) ;
-             //     if (j == lo)
-             //         break;
+                while (Less(a[++i], v))
+                {
+                }
+
+                // if (i == hi)
+                //     break;
+                while (Less(v, a[--j]))
+                {
+                }
+
+                //     if (j == lo)
+                //         break;
                 if (i >= j)
                     break;
                 Exch(a, i, j);

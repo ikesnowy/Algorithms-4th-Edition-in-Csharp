@@ -1,4 +1,5 @@
 ﻿using System;
+// ReSharper disable CognitiveComplexity
 
 namespace _2._3._15
 {
@@ -61,12 +62,7 @@ namespace _2._3._15
     /// </summary>
     public class BoltsAndNuts
     {
-        private readonly Random random = new Random();
-
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public BoltsAndNuts() { }
+        private readonly Random _random = new();
 
         /// <summary>
         /// 对螺丝和螺母排序。
@@ -171,7 +167,7 @@ namespace _2._3._15
         {
             for (var i = 0; i < a.Length; i++)
             {
-                var r = i + random.Next(a.Length - i);
+                var r = i + _random.Next(a.Length - i);
                 var temp = a[i];
                 a[i] = a[r];
                 a[r] = temp;
@@ -182,8 +178,9 @@ namespace _2._3._15
         /// 交换两个元素。
         /// </summary>
         /// <typeparam name="T">元素类型。</typeparam>
-        /// <param name="a">需要交换的第一个元素。</param>
-        /// <param name="b">需要交换的第二个元素。</param>
+        /// <param name="a">需要交换的数组。</param>
+        /// <param name="lo">需要交换的第一个元素。</param>
+        /// <param name="hi">需要交换的第二个元素。</param>
         private void Exch<T>(T[] a, int lo, int hi)
         {
             var t = a[lo];

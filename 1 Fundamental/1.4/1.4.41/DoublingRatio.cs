@@ -13,7 +13,7 @@ namespace _1._4._41
         /// <returns>读入的整型数组</returns>
         private static int[] ReadAllInts(string inputString)
         {
-            var split = new char[1] { '\n' };
+            var split = new[] { '\n' };
             var input = inputString.Split(split, StringSplitOptions.RemoveEmptyEntries);
             var a = new int[input.Length];
             for (var i = 0; i < a.Length; i++)
@@ -26,36 +26,36 @@ namespace _1._4._41
         /// <summary>
         /// 使用给定的数组进行一次测试，返回耗时（毫秒）。
         /// </summary>
-        /// <param name="Count">要测试的方法。</param>
+        /// <param name="count">要测试的方法。</param>
         /// <param name="a">测试用的数组。</param>
         /// <returns>耗时（秒）。</returns>
-        public static double TimeTrial(Count Count, int[] a)
+        public static double TimeTrial(Count count, int[] a)
         {
             var timer = new Stopwatch();
-            Count(a);
+            count(a);
             return timer.ElapsedTimeMillionSeconds();
         }
 
         /// <summary>
         /// 对 TwoSum、TwoSumFast、ThreeSum 或 ThreeSumFast 的 Count 方法做测试。
         /// </summary>
-        /// <param name="Count">相应类的 Count 方法。</param>
+        /// <param name="count">相应类的 Count 方法。</param>
         /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
-        public static double Test(Count Count)
+        public static double Test(Count count)
         {
             double ratio = 0;
             double times = 3;
 
             // 1K
             var a = ReadAllInts(TestCase.Properties.Resources._1Kints);
-            var prevTime = TimeTrial(Count, a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"1000\t{prevTime / 1000}\t");
+            var prevTime = TimeTrial(count, a);
+            Console.WriteLine(@"数据量	耗时	比值");
+            Console.WriteLine($@"1000	{prevTime / 1000}	");
 
             // 2K
             a = ReadAllInts(TestCase.Properties.Resources._2Kints);
-            var time = TimeTrial(Count, a);
-            Console.WriteLine($"2000\t{time / 1000}\t{time / prevTime}");
+            var time = TimeTrial(count, a);
+            Console.WriteLine($@"2000	{time / 1000}	{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -68,8 +68,8 @@ namespace _1._4._41
 
             // 4K
             a = ReadAllInts(TestCase.Properties.Resources._4Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"4000\t{time / 1000}\t{time / prevTime}");
+            time = TimeTrial(count, a);
+            Console.WriteLine($@"4000	{time / 1000}	{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -82,8 +82,8 @@ namespace _1._4._41
 
             // 8K
             a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"8000\t{time / 1000}\t{time / prevTime}");
+            time = TimeTrial(count, a);
+            Console.WriteLine($@"8000	{time / 1000}	{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -92,7 +92,6 @@ namespace _1._4._41
             {
                 times--;
             }
-            prevTime = time;
 
             return ratio / times;
         }
@@ -100,23 +99,23 @@ namespace _1._4._41
         /// <summary>
         /// 对 TwoSumFast 的 Count 方法做测试。
         /// </summary>
-        /// <param name="Count">TwoSumFast 的 Count 方法</param>
+        /// <param name="count">TwoSumFast 的 Count 方法</param>
         /// <returns>随着数据量倍增，方法耗时增加的比率。</returns>
-        public static double TestTwoSumFast(Count Count)
+        public static double TestTwoSumFast(Count count)
         {
             double ratio = 0;
             double times = 2;
 
             // 8K
             var a = ReadAllInts(TestCase.Properties.Resources._8Kints);
-            var prevTime = TimeTrial(Count, a);
-            Console.WriteLine("数据量\t耗时\t比值");
-            Console.WriteLine($"8000\t{prevTime / 1000}\t");
+            var prevTime = TimeTrial(count, a);
+            Console.WriteLine(@"数据量	耗时	比值");
+            Console.WriteLine($@"8000	{prevTime / 1000}	");
 
             // 16K
             a = ReadAllInts(TestCase.Properties.Resources._16Kints);
-            var time = TimeTrial(Count, a);
-            Console.WriteLine($"16000\t{time / 1000}\t{time / prevTime}");
+            var time = TimeTrial(count, a);
+            Console.WriteLine($@"16000	{time / 1000}	{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -129,8 +128,8 @@ namespace _1._4._41
 
             // 32K
             a = ReadAllInts(TestCase.Properties.Resources._32Kints);
-            time = TimeTrial(Count, a);
-            Console.WriteLine($"32000\t{time / 1000}\t{time / prevTime}");
+            time = TimeTrial(count, a);
+            Console.WriteLine($@"32000	{time / 1000}	{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -139,7 +138,6 @@ namespace _1._4._41
             {
                 times--;
             }
-            prevTime = time;
 
             return ratio / times;
         }

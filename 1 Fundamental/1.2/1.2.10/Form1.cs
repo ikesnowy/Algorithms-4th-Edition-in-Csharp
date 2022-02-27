@@ -14,28 +14,28 @@ namespace _1._2._10
         {
             try
             {
-                var N = int.Parse(InputN.Text);
+                var n = int.Parse(InputN.Text);
                 var max = int.Parse(InputMax.Text);
 
-                if (N < 0)
+                if (n < 0)
                 {
-                    ErrorLabel.Text = "操作数不可小于 0";
+                    ErrorLabel.Text = @"操作数不可小于 0";
                     return;
                 }
-                var drawPad = new Form2(N, max);
+                var drawPad = new Form2(n, max);
                 drawPad.Show();
             }
             catch (ArgumentNullException)
             {
-                ErrorLabel.Text = "不能输入空值";
+                ErrorLabel.Text = @"不能输入空值";
             }
             catch (FormatException)
             {
-                ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = @"格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                ErrorLabel.Text = "输入值过大";
+                ErrorLabel.Text = @"输入值过大";
             }
         }
     }

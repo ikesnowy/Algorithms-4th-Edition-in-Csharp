@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using BinarySearchTree;
+// ReSharper disable CognitiveComplexity
 
 namespace _3._2._7
 {
-    public class BSTRecursive<TKey, TValue> : IST<TKey, TValue>, IOrderedST<TKey, TValue>
+    public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue>
         where TKey : IComparable<TKey>
     {
         /// <summary>
         /// 二叉查找树的根结点。
         /// </summary>
-        private Node root;
+        private Node _root;
 
         /// <summary>
         /// 二叉树结点类型。
@@ -63,17 +64,12 @@ namespace _3._2._7
         }
 
         /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public BSTRecursive() { }
-
-        /// <summary>
         /// 二叉搜索树的平均查找次数。
         /// </summary>
         /// <returns>二叉搜索树的平均查找次数。</returns>
         public int AverageCompares()
         {
-            return DepthSum(root) / Size() + 1;
+            return DepthSum(_root) / Size() + 1;
         }
 
         /// <summary>
@@ -96,13 +92,13 @@ namespace _3._2._7
         public void Put(TKey key, TValue value)
         {
             if (key == null)
-                throw new ArgumentNullException("calls Put() with a null key");
+                throw new ArgumentNullException(nameof(key), @"calls Put() with a null key");
             if (value == null)
             {
                 Delete(key);
                 return;
             }
-            root = Put(root, key, value);
+            _root = Put(_root, key, value);
         }
 
         /// <summary>
@@ -132,7 +128,7 @@ namespace _3._2._7
         /// </summary>
         /// <param name="key">需要查找的键。</param>
         /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-        public TValue Get(TKey key) => Get(root, key);
+        public TValue Get(TKey key) => Get(_root, key);
 
         /// <summary>
         /// 递归查找 <paramref name="key"/> 所对应的值。
@@ -143,7 +139,7 @@ namespace _3._2._7
         private TValue Get(Node x, TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("calls get() with a null key");
+                throw new ArgumentNullException(nameof(key), @"calls get() with a null key");
             if (x == null)
                 return default;
             var cmp = key.CompareTo(x.Key);
@@ -164,7 +160,7 @@ namespace _3._2._7
         {
             if (key == null)
                 throw new InvalidOperationException("Symbol Table Underflow");
-            root = Delete(root, key);
+            _root = Delete(_root, key);
         }
 
         /// <summary>
@@ -206,7 +202,7 @@ namespace _3._2._7
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to Contains is null!");
+                throw new ArgumentNullException(nameof(key), @"argument to Contains is null!");
             return Get(key) != null;
         }
 
@@ -214,13 +210,13 @@ namespace _3._2._7
         /// 二叉查找树是否为空。
         /// </summary>
         /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-        public bool IsEmpty() => Size(root) == 0;
+        public bool IsEmpty() => Size(_root) == 0;
 
         /// <summary>
         /// 获取二叉查找树的结点数量。
         /// </summary>
         /// <returns>二叉查找树的结点数量。</returns>
-        public int Size() => Size(root);
+        public int Size() => Size(_root);
 
         /// <summary>
         /// 获取某个结点为根的二叉树结点数量。
@@ -243,9 +239,9 @@ namespace _3._2._7
         public int Size(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException("first argument to Size() is null");
+                throw new ArgumentNullException(nameof(lo), @"first argument to Size() is null");
             if (hi == null)
-                throw new ArgumentNullException("second argument to Size() is null");
+                throw new ArgumentNullException(nameof(hi), @"second argument to Size() is null");
 
             if (lo.CompareTo(hi) > 0)
                 return 0;
@@ -275,12 +271,12 @@ namespace _3._2._7
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException("first argument to keys() is null");
+                throw new ArgumentNullException(nameof(lo), @"first argument to keys() is null");
             if (hi == null)
-                throw new ArgumentNullException("second argument to keys() is null");
+                throw new ArgumentNullException(nameof(hi), @"second argument to keys() is null");
 
             var queue = new Queue<TKey>();
-            Keys(root, queue, lo, hi);
+            Keys(_root, queue, lo, hi);
             return queue;
         }
 
@@ -314,7 +310,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            return Min(root).Key;
+            return Min(_root).Key;
         }
 
         /// <summary>
@@ -338,7 +334,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            return Max(root).Key;
+            return Max(_root).Key;
         }
 
         /// <summary>
@@ -361,10 +357,10 @@ namespace _3._2._7
         public TKey Floor(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to floor is null");
+                throw new ArgumentNullException(nameof(key), @"argument to floor is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls floor with empty symbol table");
-            var x = Floor(root, key);
+            var x = Floor(_root, key);
             if (x == null)
                 return default;
             else
@@ -401,10 +397,10 @@ namespace _3._2._7
         public TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to ceiling is null");
+                throw new ArgumentNullException(nameof(key), @"argument to ceiling is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls ceiling with empty symbol table");
-            var x = Ceiling(root, key);
+            var x = Ceiling(_root, key);
             if (x == null)
                 return default;
             return x.Key;
@@ -441,8 +437,8 @@ namespace _3._2._7
         public int Rank(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException("argument to rank() is null");
-            return Rank(root, key);
+                throw new ArgumentNullException(nameof(key), @"argument to rank() is null");
+            return Rank(_root, key);
         }
 
         /// <summary>
@@ -473,13 +469,14 @@ namespace _3._2._7
         {
             if (k < 0 || k >= Size())
                 throw new ArgumentException("argument to select() is invaild: " + k);
-            var x = Select(root, k);
+            var x = Select(_root, k);
             return x.Key;
         }
 
         /// <summary>
         /// 挑拣出排名为 <paramref name="k"/> 的结点。
         /// </summary>
+        /// <param name="x">根结点。</param>
         /// <param name="k">要挑拣的排名。</param>
         /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
         private Node Select(Node x, int k)
@@ -503,7 +500,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol table underflow");
-            root = DeleteMin(root);
+            _root = DeleteMin(_root);
         }
 
         /// <summary>
@@ -528,7 +525,7 @@ namespace _3._2._7
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Symbol Table Underflow");
-            root = DeleteMax(root);
+            _root = DeleteMax(_root);
         }
 
         /// <summary>
@@ -554,14 +551,14 @@ namespace _3._2._7
             if (IsEmpty())
                 return string.Empty;
 
-            var maxDepth = Depth(root);
+            var maxDepth = Depth(_root);
             int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
 
             //BST
             var sb = new StringBuilder();
             var nowLayer = new Queue<Node>();
             var nextLayer = new Queue<Node>();
-            nextLayer.Enqueue(root);
+            nextLayer.Enqueue(_root);
 
             while (layer != maxDepth)
             {

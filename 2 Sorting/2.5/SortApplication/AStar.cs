@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+// ReSharper disable CognitiveComplexity
 
 namespace SortApplication
 {
@@ -12,7 +14,7 @@ namespace SortApplication
         /// <summary>
         /// 相等比较器。
         /// </summary>
-        private readonly IEqualityComparer<T> equalityComparer;
+        private readonly IEqualityComparer<T> _equalityComparer;
 
         /// <summary>
         /// 默认相等比较器。
@@ -21,6 +23,7 @@ namespace SortApplication
         {
             public bool Equals(T x, T y)
             {
+                Debug.Assert(x != null, nameof(x) + " != null");
                 return x.Equals(y);
             }
 
@@ -35,20 +38,20 @@ namespace SortApplication
         /// </summary>
         class FScoreComparer : IComparer<T>
         {
-            Dictionary<T, int> fScore;
+            readonly Dictionary<T, int> _fScore;
 
             public FScoreComparer(Dictionary<T, int> fScore)
             {
-                this.fScore = fScore;
+                _fScore = fScore;
             }
 
             public int Compare(T x, T y)
             {
-                if (!fScore.ContainsKey(x))
-                    fScore[x] = int.MaxValue;
-                if (!fScore.ContainsKey(y))
-                    fScore[y] = int.MaxValue;
-                return fScore[x].CompareTo(fScore[y]);
+                if (!_fScore.ContainsKey(x!))
+                    _fScore[x] = int.MaxValue;
+                if (!_fScore.ContainsKey(y!))
+                    _fScore[y] = int.MaxValue;
+                return _fScore[x].CompareTo(_fScore[y]);
             }
         }
 
@@ -63,7 +66,7 @@ namespace SortApplication
         /// <param name="equalityComparer">用于确定状态之间相等的比较器。</param>
         protected AStar(IEqualityComparer<T> equalityComparer)
         {
-            this.equalityComparer = equalityComparer;
+            _equalityComparer = equalityComparer;
         }
 
         /// <summary>
@@ -74,12 +77,12 @@ namespace SortApplication
         /// <returns><paramref name="start"/> 至 <paramref name="goal"/> 之间的最短路径。</returns>
         public T[] GetPath(T start, T goal)
         {
-            var comeFrom = new Dictionary<T, T>(equalityComparer);
-            var gScore = new Dictionary<T, int>(equalityComparer);
-            var fScore = new Dictionary<T, int>(equalityComparer);
+            var comeFrom = new Dictionary<T, T>(_equalityComparer);
+            var gScore = new Dictionary<T, int>(_equalityComparer);
+            var fScore = new Dictionary<T, int>(_equalityComparer);
 
-            var openSet = new MinPQ<T>(new FScoreComparer(fScore), equalityComparer);
-            var closeSet = new HashSet<T>(equalityComparer);
+            var openSet = new MinPq<T>(new FScoreComparer(fScore), _equalityComparer);
+            var closeSet = new HashSet<T>(_equalityComparer);
 
             openSet.Insert(start);
             gScore.Add(start, 0);
@@ -87,7 +90,7 @@ namespace SortApplication
             while (!openSet.IsEmpty())
             {
                 var current = openSet.DelMin();
-                if (equalityComparer.Equals(current, goal))
+                if (_equalityComparer.Equals(current, goal))
                     return ReconstructPath(comeFrom, current);
 
                 closeSet.Add(current);
@@ -119,8 +122,7 @@ namespace SortApplication
         /// <summary>
         /// 倒回重建最佳路径。
         /// </summary>
-        /// <param name="status">包含所有状态的数组。</param>
-        /// <param name="from">记载了状态之间顺序的数组。</param>
+        /// <param name="comeFrom">包含所有状态的数组。</param>
         /// <param name="current">当前状态位置。</param>
         /// <returns>重建之后的最短路径。</returns>
         private T[] ReconstructPath(Dictionary<T, T> comeFrom, T current)

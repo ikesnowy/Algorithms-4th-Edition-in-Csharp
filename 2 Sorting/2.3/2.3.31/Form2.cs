@@ -9,14 +9,14 @@ namespace _2._3._31
 {
     public partial class Form2 : Form
     {
-        private int N;
-        private int T;
+        private readonly int _n;
+        private readonly int _;
 
         public Form2(int n, int t)
         {
             InitializeComponent();
-            N = n;
-            T = t;
+            _n = n;
+            _ = t;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace _2._3._31
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            Text = "正在绘图";
+            Text = @"正在绘图";
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -40,13 +40,13 @@ namespace _2._3._31
             var worker = sender as BackgroundWorker;
             var quick = new QuickSort();
 
-            var percentPerTrial = 100.0 / T;
-            var totalTime = new double[T];
-            for (var i = 0; i < T; i++)
+            var percentPerTrial = 100.0 / _;
+            var totalTime = new double[_];
+            for (var i = 0; i < _; i++)
             {
-                var data = SortCompare.GetRandomArrayDouble(N);
+                var data = SortCompare.GetRandomArrayDouble(_n);
                 totalTime[i] = SortCompare.Time(quick, data);
-                worker.ReportProgress((int)(percentPerTrial * i));
+                worker?.ReportProgress((int)(percentPerTrial * i));
             }
 
             e.Result = totalTime;
@@ -59,7 +59,7 @@ namespace _2._3._31
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Text = "正在测试，已完成 " + e.ProgressPercentage + " %";
+            Text = @"正在测试，已完成 " + e.ProgressPercentage + @" %";
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace _2._3._31
             var counts = e.Result as double[];
 
             //获取最大值
-            var max = counts.Max();
+            var max = counts!.Max();
             //计算间距
             var unit = Width / (3.0 * counts.Length + 1);
             double marginTop = 100;
@@ -107,7 +107,7 @@ namespace _2._3._31
             //释放资源
             graphics.Dispose();
 
-            Text = "绘图结果，最高耗时：" + counts.Max() + " 最低耗时：" + counts.Min();
+            Text = @"绘图结果，最高耗时：" + counts.Max() + @" 最低耗时：" + counts.Min();
         }
     }
 }

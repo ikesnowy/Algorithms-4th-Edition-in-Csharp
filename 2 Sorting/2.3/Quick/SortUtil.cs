@@ -1,4 +1,5 @@
 ﻿using System;
+// ReSharper disable CognitiveComplexity
 
 namespace Quick
 {
@@ -11,7 +12,7 @@ namespace Quick
         /// <summary>
         /// 随机数发生器，所有对象共享同一个随机数发生器。
         /// </summary>
-        public static Random UniformGenerator = new Random();
+        public static Random UniformGenerator = new();
 
         /// <summary>
         /// 产生符合正态分布的随机数。
@@ -79,10 +80,10 @@ namespace Quick
         {
             if (probabilities == null)
             {
-                throw new ArgumentNullException("Argument array is null");
+                throw new ArgumentNullException(nameof(probabilities), "Argument array is null");
             }
 
-            var EPSION = 1E-14;
+            var epsion = 1E-14;
             double sum = 0;
             for (var i = 0; i < probabilities.Length; i++)
             {
@@ -94,7 +95,7 @@ namespace Quick
                 sum += probabilities[i];
             }
 
-            if (sum > 1.0 + EPSION || sum < 1.0 - EPSION)
+            if (sum > 1.0 + epsion || sum < 1.0 - epsion)
             {
                 throw new ArgumentException("sum of array entries does not equal 1.0:" + sum);
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+// ReSharper disable CognitiveComplexity
 
 namespace Merge
 {
@@ -8,11 +9,6 @@ namespace Merge
     /// </summary>
     public class MergeSortThreeWay : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public MergeSortThreeWay() { }
-
         /// <summary>
         /// 利用三项归并排序将数组按升序排序。
         /// </summary>

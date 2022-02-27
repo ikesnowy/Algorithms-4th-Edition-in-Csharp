@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace Geometry
@@ -13,17 +14,17 @@ namespace Geometry
         /// 优先以起点升序排序，起点相同时按照终点升序排序。
         /// </summary>
         /// <value>优先以起点升序排序，起点相同时按照终点升序排序。</value>
-        public static readonly Comparer<Interval1D> Min_Order = new MinEndpointComparer();
+        public static readonly Comparer<Interval1D> MinOrder = new MinEndpointComparer();
         /// <summary>
         /// 优先以终点升序排序，起点相同时按照起点升序排序。
         /// </summary>
         /// <value>优先以终点升序排序，起点相同时按照起点升序排序。</value>
-        public static readonly Comparer<Interval1D> Max_Order = new MaxEndpointComparer();
+        public static readonly Comparer<Interval1D> MaxOrder = new MaxEndpointComparer();
         /// <summary>
         /// 以区间长度升序排序。
         /// </summary>
         /// <value>以区间长度升序排序。</value>
-        public static readonly Comparer<Interval1D> Length_Order = new LengthComparer();
+        public static readonly Comparer<Interval1D> LengthOrder = new LengthComparer();
 
         /// <summary>
         /// 区间起点。
@@ -114,9 +115,9 @@ namespace Geometry
         /// <param name="y">绘制一维区间的 y轴 坐标。</param>
         public void Draw(Graphics g, int y)
         {
-            var A = new Point((int)Min, y);
-            var B = new Point((int)Max, y);
-            g.DrawLine(Pens.Black, A, B);
+            var a = new Point((int)Min, y);
+            var b = new Point((int)Max, y);
+            g.DrawLine(Pens.Black, a, b);
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace Geometry
                 return false;
             }
             var that = (Interval1D)obj;
-            return Min == that.Min && Max == that.Max;
+            return Math.Abs(Min - that.Min) < double.Epsilon * 5 && Math.Abs(Max - that.Max) < double.Epsilon * 5;
         }
 
         /// <summary>
@@ -167,6 +168,8 @@ namespace Geometry
         {
             public override int Compare(Interval1D a, Interval1D b)
             {
+                Debug.Assert(a != null, nameof(a) + " != null");
+                Debug.Assert(b != null, nameof(b) + " != null");
                 if (a.Min < b.Min)
                 {
                     return -1;
@@ -194,6 +197,8 @@ namespace Geometry
         {
             public override int Compare(Interval1D a, Interval1D b)
             {
+                Debug.Assert(a != null, nameof(a) + " != null");
+                Debug.Assert(b != null, nameof(b) + " != null");
                 if (a.Max < b.Max)
                 {
                     return -1;
@@ -221,7 +226,9 @@ namespace Geometry
         {
             public override int Compare(Interval1D a, Interval1D b)
             {
+                Debug.Assert(a != null, nameof(a) + " != null");
                 var alen = a.Length();
+                Debug.Assert(b != null, nameof(b) + " != null");
                 var blen = b.Length();
 
                 if (alen < blen)

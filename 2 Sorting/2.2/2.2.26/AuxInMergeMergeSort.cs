@@ -9,11 +9,6 @@ namespace _2._2._26
     public class AuxInMergeMergeSort : BaseSort
     {
         /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public AuxInMergeMergeSort() { }
-
-        /// <summary>
         /// 利用归并排序将数组按升序排序。
         /// </summary>
         /// <typeparam name="T">数组元素类型。</typeparam>
@@ -28,7 +23,6 @@ namespace _2._2._26
         /// </summary>
         /// <typeparam name="T">需要排序的元素类型。</typeparam>
         /// <param name="a">原数组。</param>
-        /// <param name="aux">辅助数组。</param>
         /// <param name="lo">排序范围起点。</param>
         /// <param name="hi">排序范围终点。</param>
         private void Sort<T>(T[] a, int lo, int hi) where T : IComparable<T>
@@ -46,7 +40,6 @@ namespace _2._2._26
         /// </summary>
         /// <typeparam name="T">数组元素类型。</typeparam>
         /// <param name="a">原数组。</param>
-        /// <param name="aux">辅助数组。</param>
         /// <param name="lo">范围起点。</param>
         /// <param name="mid">范围中点。</param>
         /// <param name="hi">范围终点。</param>

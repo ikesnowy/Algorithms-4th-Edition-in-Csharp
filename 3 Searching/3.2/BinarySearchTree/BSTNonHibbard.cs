@@ -1,10 +1,11 @@
 ﻿using System;
+// ReSharper disable CognitiveComplexity
 
 namespace BinarySearchTree
 {
-    public class BSTNonHibbard<TKey, TValue> : BST<TKey, TValue> where TKey : IComparable<TKey>
+    public class BstNonHibbard<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparable<TKey>
     {
-        private readonly Random _random = new Random();
+        private readonly Random _random = new();
 
         /// <summary>
         /// 从二叉查找树中删除键为 <paramref name="key"/> 的结点。

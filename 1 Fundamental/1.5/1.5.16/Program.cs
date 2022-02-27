@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
 using UnionFind;
+// ReSharper disable PossibleLossOfFraction
 
 namespace _1._5._16
 {
@@ -22,8 +23,8 @@ namespace _1._5._16
             char[] split = { '\n', '\r' };
             var input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
             var size = int.Parse(input[0]);
-            var quickFind = new QuickFindUF(size);
-            var quickUnion = new QuickUnionUF(size);
+            var quickFind = new QuickFindUf(size);
+            var quickUnion = new QuickUnionUf(size);
 
             string[] pair;
             int p, q;
@@ -91,8 +92,8 @@ namespace _1._5._16
 
             for (var i = 0; i < cost.Length; i++)
             {
-                grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (cost[i] * unitY));
-                redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - ((total[i] / (i + 1)) * unitY));
+                grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - cost[i] * unitY);
+                redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - total[i] / (i + 1) * unitY);
             }
 
             // 绘制点。

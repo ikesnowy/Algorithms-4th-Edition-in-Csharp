@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Quick;
+// ReSharper disable CognitiveComplexity
 
 namespace _2._3._19
 {
@@ -9,11 +10,6 @@ namespace _2._3._19
     /// </summary>
     public class QuickSortMedian5 : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickSortMedian5() {}
-
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
         /// </summary>
@@ -121,8 +117,14 @@ namespace _2._3._19
             var v = a[lo];
             while (true)
             {
-                while (Less(a[++i], v)) ;
-                while (Less(v, a[--j])) ;
+                while (Less(a[++i], v))
+                {
+                }
+
+                while (Less(v, a[--j]))
+                {
+                }
+
                 if (i >= j)
                     break;
                 Exch(a, i, j);

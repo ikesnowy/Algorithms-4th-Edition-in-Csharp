@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,14 +10,14 @@ namespace _2._3._26
 {
     public partial class Form2 : Form
     {
-        private int M;
-        private int N;
+        private readonly int _m;
+        private readonly int _n;
 
         public Form2(int m, int n)
         {
             InitializeComponent();
-            M = m;
-            N = n;
+            _m = m;
+            _n = n;
         }
 
         /// <summary>
@@ -26,7 +27,7 @@ namespace _2._3._26
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            Text = "正在绘图";
+            Text = @"正在绘图";
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -40,10 +41,10 @@ namespace _2._3._26
             var worker = sender as BackgroundWorker;
             var quickSortInsertion = new QuickSortInsertion
             {
-                M = M
+                M = _m
             };
-            var data = SortCompare.GetRandomArrayInt(N);
-            worker.ReportProgress(50);
+            var data = SortCompare.GetRandomArrayInt(_n);
+            worker?.ReportProgress(50);
             quickSortInsertion.Sort(data);
             e.Result = quickSortInsertion.Counts;
         }
@@ -55,7 +56,7 @@ namespace _2._3._26
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
+            Text = @"正在绘图，已完成 " + e.ProgressPercentage + @" %";
         }
 
         /// <summary>
@@ -77,6 +78,7 @@ namespace _2._3._26
             graphics.ScaleTransform(1, -1);
 
             var countsOrigin = e.Result as int[];
+            Debug.Assert(countsOrigin != null, nameof(countsOrigin) + " != null");
             var counts = new int[countsOrigin.Length - 1];
             for (var i = 0; i < counts.Length; i++)
             {
@@ -108,7 +110,7 @@ namespace _2._3._26
             //释放资源
             graphics.Dispose();
 
-            Text = "绘图结果，最高次数：" + counts.Max() + " 最低次数：" + counts.Min();
+            Text = @"绘图结果，最高次数：" + counts.Max() + @" 最低次数：" + counts.Min();
         }
     }
 }

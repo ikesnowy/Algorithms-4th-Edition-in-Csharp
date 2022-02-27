@@ -1,4 +1,5 @@
 ﻿using System;
+// ReSharper disable CognitiveComplexity
 
 namespace _1._4._38
 {
@@ -24,7 +25,7 @@ namespace _1._4._38
                         {
                             if ((long)a[i] + a[j] + a[k] == 0)
                             {
-                                Console.WriteLine($"{a[i]} + {a[j]} + {a[k]}");
+                                Console.WriteLine($@"{a[i]} + {a[j]} + {a[k]}");
                             }
                         }
                     }

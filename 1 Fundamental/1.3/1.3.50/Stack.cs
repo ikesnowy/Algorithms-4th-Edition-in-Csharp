@@ -8,37 +8,37 @@ namespace _1._3._50
     /// <summary>
     /// 链栈。
     /// </summary>
-    /// <typeparam name="Item">栈中保存的元素。</typeparam>
-    public class Stack<Item> : IEnumerable<Item>
+    /// <typeparam name="TItem">栈中保存的元素。</typeparam>
+    public class Stack<TItem> : IEnumerable<TItem>
     {
-        private Node<Item> first;
-        private int count;
-        private int popcount;
-        private int pushcount;
+        private Node<TItem> _first;
+        private int _count;
+        private int _popCount;
+        private int _pushCount;
 
         /// <summary>
         /// 默认构造函数。
         /// </summary>
         public Stack()
         {
-            first = null;
-            popcount = 0;
-            pushcount = 0;
-            count = 0;
+            _first = null;
+            _popCount = 0;
+            _pushCount = 0;
+            _count = 0;
         }
 
         /// <summary>
         /// 复制构造函数。
         /// </summary>
         /// <param name="s"></param>
-        public Stack(Stack<Item> s)
+        public Stack(Stack<TItem> s)
         {
-            if (s.first != null)
+            if (s._first != null)
             {
-                first = new Node<Item>(s.first);
-                for (var x = first; x.next != null; x = x.next)
+                _first = new Node<TItem>(s._first);
+                for (var x = _first; x.Next != null; x = x.Next)
                 {
-                    x.next = new Node<Item>(x.next);
+                    x.Next = new Node<TItem>(x.Next);
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace _1._3._50
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return first == null;
+            return _first == null;
         }
 
         /// <summary>
@@ -58,35 +58,35 @@ namespace _1._3._50
         /// <returns></returns>
         public int Size()
         {
-            return count;
+            return _count;
         }
 
         /// <summary>
         /// 将一个元素压入栈中。
         /// </summary>
         /// <param name="item">要压入栈中的元素。</param>
-        public void Push(Item item)
+        public void Push(TItem item)
         {
-            var oldFirst = first;
-            first = new Node<Item>();
-            first.item = item;
-            first.next = oldFirst;
-            count++;
-            pushcount++;
+            var oldFirst = _first;
+            _first = new Node<TItem>();
+            _first.Item = item;
+            _first.Next = oldFirst;
+            _count++;
+            _pushCount++;
         }
 
         /// <summary>
         /// 将一个元素从栈中弹出，返回弹出的元素。
         /// </summary>
         /// <returns></returns>
-        public Item Pop()
+        public TItem Pop()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            var item = first.item;
-            first = first.next;
-            count--;
-            popcount++;
+            var item = _first.Item;
+            _first = _first.Next;
+            _count--;
+            _popCount++;
             return item;
         }
 
@@ -94,11 +94,11 @@ namespace _1._3._50
         /// 返回栈顶元素（但不弹出它）。
         /// </summary>
         /// <returns></returns>
-        public Item Peek()
+        public TItem Peek()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack Underflow");
-            return first.item;
+            return _first.Item;
         }
 
         /// <summary>
@@ -107,24 +107,24 @@ namespace _1._3._50
         /// <param name="s1">第一个栈。</param>
         /// <param name="s2">第二个栈（将被删除）。</param>
         /// <returns></returns>
-        public static Stack<Item> Catenation(Stack<Item> s1, Stack<Item> s2)
+        public static Stack<TItem> Catenation(Stack<TItem> s1, Stack<TItem> s2)
         {
             if (s1.IsEmpty())
             {
-                s1.first = s2.first;
-                s1.count = s2.count;
+                s1._first = s2._first;
+                s1._count = s2._count;
             }
             else
             {
-                var last = s1.first;
-                while (last.next != null)
+                var last = s1._first;
+                while (last.Next != null)
                 {
-                    last = last.next;
+                    last = last.Next;
                 }
-                last.next = s2.first;
-                s1.count += s2.count;
+                last.Next = s2._first;
+                s1._count += s2._count;
             }
-            s2 = null;
+
             return s1;
         }
 
@@ -132,11 +132,11 @@ namespace _1._3._50
         /// 创建栈的浅表副本。
         /// </summary>
         /// <returns></returns>
-        public Stack<Item> Copy()
+        public Stack<TItem> Copy()
         {
-            var temp = new Stack<Item>();
-            temp.first = first;
-            temp.count = count;
+            var temp = new Stack<TItem>();
+            temp._first = _first;
+            temp._count = _count;
             return temp;
         }
 
@@ -151,7 +151,7 @@ namespace _1._3._50
             return s.ToString();
         }
 
-        public IEnumerator<Item> GetEnumerator()
+        public IEnumerator<TItem> GetEnumerator()
         {
             return new StackEnumerator(this);
         }
@@ -161,46 +161,46 @@ namespace _1._3._50
             return GetEnumerator();
         }
 
-        private class StackEnumerator : IEnumerator<Item>
+        private class StackEnumerator : IEnumerator<TItem>
         {
-            private Stack<Item> s;
-            private int popcount;
-            private int pushcount;
-            private Node<Item> current;
+            private Stack<TItem> _s;
+            private readonly int _popcount;
+            private readonly int _pushcount;
+            private Node<TItem> _current;
 
-            public StackEnumerator(Stack<Item> s)
+            public StackEnumerator(Stack<TItem> s)
             {
-                this.s = s;
-                current = s.first;
-                popcount = s.popcount;
-                pushcount = s.pushcount;
+                _s = s;
+                _current = s._first;
+                _popcount = s._popCount;
+                _pushcount = s._pushCount;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            TItem IEnumerator<TItem>.Current => _current.Item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => _current.Item;
 
             void IDisposable.Dispose()
             {
-                current = null;
-                s = null;
+                _current = null;
+                _s = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (s.popcount != popcount || s.pushcount != pushcount)
+                if (_s._popCount != _popcount || _s._pushCount != _pushcount)
                     throw new InvalidOperationException("Stack has been modified");
 
-                if (current.next == null)
+                if (_current.Next == null)
                     return false;
 
-                current = current.next;
+                _current = _current.Next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                current = s.first;
+                _current = _s._first;
             }
         }
     }

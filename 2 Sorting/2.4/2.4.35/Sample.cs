@@ -9,9 +9,8 @@ namespace _2._4._35
     {
         public double[] P;
         public double[] SumP;
-
-        private double T = 0;
-        private Random random = new Random();
+        public double T;
+        private readonly Random _random = new();
 
         /// <summary>
         /// 构造一个离散取样类。
@@ -41,21 +40,19 @@ namespace _2._4._35
         /// <returns></returns>
         public int Random()
         {
-            var weight = random.NextDouble() * T;
+            var weight = _random.NextDouble() * T;
             var index = 1;
             while (index * 2 <= P.Length)
             {
                 // 找到结点
-                if (weight <= P[index])
-                    break;
-                
+                if (weight <= P[index]) break;
+
                 // 减去当前结点，向子结点搜寻
                 weight -= P[index];
                 index *= 2;
 
                 // 在左子树范围内
-                if (weight <= SumP[index] + P[index])
-                    continue;
+                if (weight <= SumP[index] + P[index]) continue;
 
                 // 在右子树范围内，减去左子树
                 weight -= SumP[index] + P[index];

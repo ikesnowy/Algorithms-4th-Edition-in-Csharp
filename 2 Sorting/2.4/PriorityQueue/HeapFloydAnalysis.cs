@@ -5,10 +5,9 @@ namespace PriorityQueue
     /// <summary>
     /// 堆排序类，提供 Floyd 优化的堆排序的静态方法，同时记录比较次数。
     /// </summary>
-    /// <typeparam name="T">需要排序的元素类型。</typeparam>
     public static class HeapFloydAnalysis
     {
-        private static long compareCount;
+        private static long _compareCount;
 
         /// <summary>
         /// 利用堆排序对数组进行排序。返回比较次数。
@@ -16,7 +15,7 @@ namespace PriorityQueue
         /// <param name="pq">需要排序的数组。</param>
         public static long Sort<T>(T[] pq) where T : IComparable<T>
         {
-            compareCount = 0;
+            _compareCount = 0;
             var n = pq.Length;
             // 建堆
             for (var k = n / 2; k >= 1; k--)
@@ -29,7 +28,7 @@ namespace PriorityQueue
                 Exch(pq, 1, n--);
                 SinkThenSwim(pq, 1, n);
             }
-            return compareCount;
+            return _compareCount;
         }
 
         /// <summary>
@@ -75,6 +74,7 @@ namespace PriorityQueue
         /// <summary>
         /// 使元素上浮。
         /// </summary>
+        /// <param name="pq">优先队列。</param>
         /// <param name="k">需要上浮的元素。</param>
         private static void Swim<T>(T[] pq, int k) where T : IComparable<T>
         {
@@ -94,7 +94,7 @@ namespace PriorityQueue
         /// <returns>如果下标为 <paramref name="a"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
         private static bool Less<T>(T[] pq, int a, int b) where T : IComparable<T>
         {
-            compareCount++;
+            _compareCount++;
             return pq[a - 1].CompareTo(pq[b - 1]) < 0;
         }
 

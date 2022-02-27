@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
 using UnionFind;
+// ReSharper disable PossibleLossOfFraction
 
 namespace _1._5._26
 {
@@ -24,9 +25,9 @@ namespace _1._5._26
         static void Compute()
         {
             var size = 200;
-            var quickFind = new QuickFindUF(size);
-            var quickUnion = new QuickUnionUF(size);
-            var weightedQuickUnion = new WeightedQuickUnionUF(size);
+            var quickFind = new QuickFindUf(size);
+            var quickUnion = new QuickUnionUf(size);
+            var weightedQuickUnion = new WeightedQuickUnionUf(size);
             var connections = ErdosRenyi.Generate(size);
 
             var quickFindResult = new int[size];
@@ -100,7 +101,7 @@ namespace _1._5._26
             for (var i = 0; i < cost.Length; i++)
             {
                 grayPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - (cost[i] * unitY));
-                redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - ((total[i] / (i + 1)) * unitY));
+                redPoints[i] = new PointF(center.Left + unitX * (i + 1), center.Bottom - total[i] / (i + 1) * unitY);
             }
 
             // 绘制点。

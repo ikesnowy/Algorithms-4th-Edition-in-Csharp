@@ -14,22 +14,22 @@ namespace _2._3._26
         {
             try
             {
-                var N = int.Parse(InputN.Text);
-                var M = int.Parse(InputM.Text);
-                var panel = new Form2(M, N);
+                var n = int.Parse(InputN.Text);
+                var m = int.Parse(InputM.Text);
+                var panel = new Form2(m, n);
                 panel.ShowDialog();
             }
             catch (ArgumentNullException)
             {
-                ErrorLabel.Text = "输入值不能为空。";
+                ErrorLabel.Text = @"输入值不能为空。";
             }
             catch (FormatException)
             {
-                ErrorLabel.Text = "格式错误（是否输入了空值？）";
+                ErrorLabel.Text = @"格式错误（是否输入了空值？）";
             }
             catch (OverflowException)
             {
-                ErrorLabel.Text = "数据过大";
+                ErrorLabel.Text = @"数据过大";
             }
         }
     }

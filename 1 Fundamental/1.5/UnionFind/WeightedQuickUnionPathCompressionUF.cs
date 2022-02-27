@@ -3,19 +3,19 @@
     /// <summary>
     /// 使用路径压缩的加权 quick-union 并查集。
     /// </summary>
-    public class WeightedQuickUnionPathCompressionUF : WeightedQuickUnionUF
+    public class WeightedQuickUnionPathCompressionUf : WeightedQuickUnionUf
     {
         /// <summary>
         /// 新建一个大小为 n 的并查集。
         /// </summary>
         /// <param name="n">新建并查集的大小。</param>
-        public WeightedQuickUnionPathCompressionUF(int n) : base(n)
+        public WeightedQuickUnionPathCompressionUf(int n) : base(n)
         {
-            size = new int[n];
+            Size = new int[n];
 
             for (var i = 0; i < n; i++)
             {
-                size[i] = 1;
+                Size[i] = 1;
             }
         }
 
@@ -28,14 +28,14 @@
         {
             Validate(p);
             var root = p;
-            while (root != parent[p])
+            while (root != Parent[p])
             {
-                root = parent[p];
+                root = Parent[p];
             }
             while (p != root)
             {
-                var newP = parent[p];
-                parent[p] = root;
+                var newP = Parent[p];
+                Parent[p] = root;
                 p = newP;
             }
             return root;

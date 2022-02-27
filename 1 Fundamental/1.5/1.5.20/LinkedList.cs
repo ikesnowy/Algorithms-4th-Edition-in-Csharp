@@ -8,32 +8,32 @@ namespace _1._5._20
     /// <summary>
     /// 链表类。
     /// </summary>
-    /// <typeparam name="Item">链表存放的元素类型。</typeparam>
-    public class LinkedList<Item> : IEnumerable<Item>
+    /// <typeparam name="TItem">链表存放的元素类型。</typeparam>
+    public class LinkedList<TItem> : IEnumerable<TItem>
     {
-        private Node<Item> first;
-        private int count;
+        private Node<TItem> _first;
+        private int _count;
 
         /// <summary>
         /// 建立一条链表。
         /// </summary>
         public LinkedList()
         {
-            first = null;
-            count = 0;
+            _first = null;
+            _count = 0;
         }
 
         /// <summary>
         /// 在表头插入一个元素。
         /// </summary>
         /// <param name="item">要插入的元素。</param>
-        public void Insert(Item item)
+        public void Insert(TItem item)
         {
-            var n = new Node<Item>();
-            n.item = item;
-            n.next = first;
-            first = n;
-            count++;
+            var n = new Node<TItem>();
+            n.Item = item;
+            n.Next = _first;
+            _first = n;
+            _count++;
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace _1._5._20
         /// </summary>
         /// <param name="item">要插入的元素。</param>
         /// <param name="position">要插入的位置。（从 0 开始）</param>
-        public void Insert(Item item, int position)
+        public void Insert(TItem item, int position)
         {
-            if (position > count)
+            if (position > _count)
             {
                 throw new IndexOutOfRangeException();
             }
@@ -53,18 +53,18 @@ namespace _1._5._20
                 return;
             }
 
-            var n = new Node<Item>();
-            n.item = item;
+            var n = new Node<TItem>();
+            n.Item = item;
 
-            var front = first;
+            var front = _first;
             for (var i = 1; i < position; i++)
             {
-                front = front.next;
+                front = front.Next;
             }
 
-            n.next = front.next;
-            front.next = n;
-            count++;
+            n.Next = front.Next;
+            front.Next = n;
+            _count++;
         }
 
         /// <summary>
@@ -72,20 +72,20 @@ namespace _1._5._20
         /// </summary>
         /// <param name="index">元素下标。</param>
         /// <returns></returns>
-        public Item Find(int index)
+        public TItem Find(int index)
         {
-            if (index >= count)
+            if (index >= _count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var current = first;
+            var current = _first;
             for (var i = 0; i < index; i++)
             {
-                current = current.next;
+                current = current.Next;
             }
 
-            return current.item;
+            return current.Item;
         }
 
         /// <summary>
@@ -93,20 +93,20 @@ namespace _1._5._20
         /// </summary>
         /// <param name="index">需要修改的元素下标。</param>
         /// <param name="value">新的值。</param>
-        public void Motify(int index, Item value)
+        public void Motify(int index, TItem value)
         {
-            if (index >= count)
+            if (index >= _count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var current = first;
+            var current = _first;
             for (var i = 0; i < index; i++)
             {
-                current = current.next;
+                current = current.Next;
             }
 
-            current.item = value;
+            current.Item = value;
         }
 
         /// <summary>
@@ -114,30 +114,30 @@ namespace _1._5._20
         /// </summary>
         /// <param name="index">需要删除元素的位置。</param>
         /// <returns>被删除元素的值。</returns>
-        public Item Delete(int index)
+        public TItem Delete(int index)
         {
-            if (index >= count)
+            if (index >= _count)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            var front = first;
-            var temp = first.item;
+            var front = _first;
+            var temp = _first.Item;
             if (index == 0)
             {
-                count--;
-                first = first.next;
+                _count--;
+                _first = _first.Next;
                 return temp;
             }
 
             for (var i = 1; i < index; i++)
             {
-                front = front.next;
+                front = front.Next;
             }
 
-            temp = front.next.item;
-            front.next = front.next.next;
-            count--;
+            temp = front.Next.Item;
+            front.Next = front.Next.Next;
+            _count--;
             return temp;
         }
 
@@ -147,7 +147,7 @@ namespace _1._5._20
         /// <returns></returns>
         public bool IsEmpty()
         {
-            return count == 0;
+            return _count == 0;
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace _1._5._20
         /// <returns></returns>
         public int Size()
         {
-            return count;
+            return _count;
         }
 
         /// <summary>
@@ -176,9 +176,9 @@ namespace _1._5._20
             return s.ToString();
         }
 
-        public IEnumerator<Item> GetEnumerator()
+        public IEnumerator<TItem> GetEnumerator()
         {
-            return new LinkedListEnumerator(first);
+            return new LinkedListEnumerator(_first);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -186,39 +186,39 @@ namespace _1._5._20
             return GetEnumerator();
         }
 
-        private class LinkedListEnumerator : IEnumerator<Item>
+        private class LinkedListEnumerator : IEnumerator<TItem>
         {
-            Node<Item> current;
-            Node<Item> first;
+            Node<TItem> _current;
+            Node<TItem> _first;
 
-            public LinkedListEnumerator(Node<Item> first)
+            public LinkedListEnumerator(Node<TItem> first)
             {
-                current = new Node<Item>();
-                current.next = first;
-                this.first = current;
+                _current = new Node<TItem>();
+                _current.Next = first;
+                _first = _current;
             }
 
-            Item IEnumerator<Item>.Current => current.item;
+            TItem IEnumerator<TItem>.Current => _current.Item;
 
-            object IEnumerator.Current => current.item;
+            object IEnumerator.Current => _current.Item;
 
             void IDisposable.Dispose()
             {
-                first = null;
-                current = null;
+                _first = null;
+                _current = null;
             }
 
             bool IEnumerator.MoveNext()
             {
-                if (current.next == null)
+                if (_current.Next == null)
                     return false;
-                current = current.next;
+                _current = _current.Next;
                 return true;
             }
 
             void IEnumerator.Reset()
             {
-                current = first;
+                _current = _first;
             }
         }
     }

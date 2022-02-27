@@ -5,7 +5,7 @@ namespace _3._2._38
 {
     public partial class Form2 : Form
     {
-        private readonly BSTDrawing<int, int> _bst = new BSTDrawing<int,int>();
+        private readonly BstDrawing<int, int> _bst = new();
 
         public Form2()
         {
@@ -18,7 +18,7 @@ namespace _3._2._38
             {
                 _bst.Put(key, key);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -36,7 +36,7 @@ namespace _3._2._38
             {
                 _bst.Delete(key);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

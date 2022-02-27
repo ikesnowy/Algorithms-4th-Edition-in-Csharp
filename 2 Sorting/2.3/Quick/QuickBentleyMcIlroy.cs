@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+// ReSharper disable CognitiveComplexity
 
 namespace Quick
 {
@@ -11,17 +12,12 @@ namespace Quick
         /// <summary>
         /// 小于这个数值的数组调用插入排序。
         /// </summary>
-        private readonly int INSERTION_SORT_CUTOFF = 8;
+        private readonly int _insertionSortCutoff = 8;
 
         /// <summary>
         /// 小于这个数值的数组调用中位数作为枢轴。
         /// </summary>
-        private readonly int MEDIAN_OF_3_CUTOFF = 40;
-
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public QuickBentleyMcIlroy() { }
+        private readonly int _medianOf3Cutoff = 40;
 
         /// <summary>
         /// 用快速排序对数组 a 进行升序排序。
@@ -45,12 +41,12 @@ namespace Quick
         {
             var n = hi - lo + 1;
 
-            if (n <= INSERTION_SORT_CUTOFF)
+            if (n <= _insertionSortCutoff)
             {
                 InsertionSort(a, lo, hi);
                 return;
             }
-            else if (n <= MEDIAN_OF_3_CUTOFF)
+            else if (n <= _medianOf3Cutoff)
             {
                 // 对于较小的数组，直接选择左中右三个元素中的中位数作为枢轴。
                 var m = Median3(a, lo, lo + n / 2, hi);
@@ -74,7 +70,10 @@ namespace Quick
             var v = a[lo];
             while (true)
             {
-                while (Less(a[++i], v)) ;
+                while (Less(a[++i], v))
+                {
+                }
+
                 while (Less(v, a[--j]))
                     if (j == lo)
                         break;

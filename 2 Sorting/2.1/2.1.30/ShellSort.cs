@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using Sort;
+// ReSharper disable CognitiveComplexity
 
 namespace _2._1._30
 {
     public class ShellSort : BaseSort
     {
-        /// <summary>
-        /// 默认构造函数。
-        /// </summary>
-        public ShellSort() { }
-
         /// <summary>
         /// 利用希尔排序将数组按升序排序，使用几何级数序列。
         /// </summary>
@@ -51,7 +47,7 @@ namespace _2._1._30
             var h = new int[2];   // 预先准备好的 h 值数组
 
             var hTemp = 1;
-            var hLength = 0;
+            int hLength;
             for (hLength = 0; hTemp < n; hLength++)
             {
                 if (hLength >= h.Length)  // 如果数组不够大则双倍扩容

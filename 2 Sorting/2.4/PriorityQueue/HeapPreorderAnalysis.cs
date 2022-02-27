@@ -5,10 +5,9 @@ namespace PriorityQueue
     /// <summary>
     /// 前序堆排序类，提供堆排序的静态方法。
     /// </summary>
-    /// <typeparam name="T">需要排序的元素类型。</typeparam>
     public static class HeapPreorderAnalysis
     {
-        private static long compareTimes = 0;
+        private static long _compareTimes;
 
         /// <summary>
         /// 利用堆排序对数组进行排序。
@@ -16,13 +15,13 @@ namespace PriorityQueue
         /// <param name="pq">需要排序的数组。</param>
         public static long Sort<T>(T[] pq) where T : IComparable<T>
         {
-            compareTimes = 0;
+            _compareTimes = 0;
             var n = pq.Length;
             BuildTree(pq, 0, pq.Length);
             // 排序
             while (n > 1)
             {
-                var tail = GetTail(pq, 0, n);
+                var tail = GetTail<T>(0, n);
                 var temp = pq[tail];
                 for (var i = tail + 1; i < n; i++)
                     pq[i - 1] = pq[i];
@@ -31,18 +30,17 @@ namespace PriorityQueue
                 pq[0] = temp;
                 Sink(pq, 0, n);
             }
-            return compareTimes;
+            return _compareTimes;
         }
 
         /// <summary>
         /// 递归获得堆的最后一个元素。
         /// </summary>
         /// <typeparam name="T">堆中元素类型。</typeparam>
-        /// <param name="pq">堆的前序遍历数组。</param>
         /// <param name="p">当前位置。</param>
         /// <param name="n">堆的元素数目。</param>
         /// <returns>最后一个元素的下标。</returns>
-        private static int GetTail<T>(T[] pq, int p, int n)
+        private static int GetTail<T>(int p, int n)
         {
             if (n <= 1)
                 return p;
@@ -54,13 +52,13 @@ namespace PriorityQueue
             {
                 // 叶子结点全在左侧
                 left = n - right - 1;
-                return GetTail(pq, p + 1, left);
+                return GetTail<T>(p + 1, left);
             }
             else
             {
                 left = (int)Math.Pow(2, k) - 1;
                 right = n - left - 1;
-                return GetTail(pq, p + 1 + left, right);
+                return GetTail<T>(p + 1 + left, right);
             }
         }
 
@@ -149,7 +147,7 @@ namespace PriorityQueue
         /// <returns></returns>
         private static bool Less<T>(T[] pq, int a, int b) where T : IComparable<T>
         {
-            compareTimes++;
+            _compareTimes++;
             return pq[a].CompareTo(pq[b]) < 0;
         }
 

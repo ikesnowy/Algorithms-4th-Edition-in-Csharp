@@ -18,7 +18,7 @@ namespace BinarySearchTree
         /// <param name="keys">包含重复元素的数组。</param>
         /// <param name="st">用于计算的符号表。</param>
         /// <returns><paramref name="keys"/> 中的不重复元素数量。</returns>
-        public static int CountDistinct<TKey>(TKey[] keys, IST<TKey, int> st)
+        public static int CountDistinct<TKey>(TKey[] keys, ISt<TKey, int> st)
         {
             var distinct = 0;
             for (var i = 0; i < keys.Length; i++)
@@ -36,7 +36,7 @@ namespace BinarySearchTree
         /// <param name="st">用于计算的符号表。</param>
         /// <param name="keys">所有的键。</param>
         /// <returns><paramref name="keys"/> 中出现频率最高的键。</returns>
-        public static TKey MostFrequentlyKey<TKey>(IST<TKey, int> st, TKey[] keys)
+        public static TKey MostFrequentlyKey<TKey>(ISt<TKey, int> st, TKey[] keys)
         {
             foreach (var s in keys)
             {
@@ -61,22 +61,20 @@ namespace BinarySearchTree
         /// <param name="minLength">字符串最小长度。</param>
         /// <param name="st">用于计算的符号表。</param>
         /// <returns>文本文档出现频率最高的字符串。</returns>
-        public static string MostFrequentlyWord(string filename, int minLength, IST<string, int> st)
+        public static string MostFrequentlyWord(string filename, int minLength, ISt<string, int> st)
         {
-            int distinct = 0, words = 0;
             var sr = new StreamReader(File.OpenRead(filename));
 
             var inputs = 
                 sr
                 .ReadToEnd()
-                .Split(new char[] { ' ', '\r', '\n' }, 
+                .Split(new[] { ' ', '\r', '\n' }, 
                 StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var s in inputs)
             {
                 if (s.Length < minLength)
                     continue;
-                words++;
                 if (st.Contains(s))
                 {
                     st.Put(s, st.Get(s) + 1);
@@ -84,7 +82,6 @@ namespace BinarySearchTree
                 else
                 {
                     st.Put(s, 1);
-                    distinct++;
                 }
             }
 
@@ -105,15 +102,14 @@ namespace BinarySearchTree
         /// <param name="minLength">字符串最小长度。</param>
         /// <param name="st">用于计算的符号表。</param>
         /// <returns>文本文档出现频率最高的字符串。</returns>
-        public static string MostFrequentlyWord(string filename, int counts, int minLength, IST<string, int> st)
+        public static string MostFrequentlyWord(string filename, int counts, int minLength, ISt<string, int> st)
         {
-            int distinct = 0, words = 0;
             var sr = new StreamReader(File.OpenRead(filename));
 
             var inputs =
                 sr
                 .ReadToEnd()
-                .Split(new char[] { ' ', '\r', '\n' },
+                .Split(new[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             for (var i = 0; i < counts && i < inputs.Length; i++)
@@ -123,7 +119,7 @@ namespace BinarySearchTree
                     counts++;
                     continue;
                 }
-                words++;
+
                 if (st.Contains(inputs[i]))
                 {
                     st.Put(inputs[i], st.Get(inputs[i]) + 1);
@@ -131,7 +127,6 @@ namespace BinarySearchTree
                 else
                 {
                     st.Put(inputs[i], 1);
-                    distinct++;
                 }
             }
 
@@ -146,8 +141,8 @@ namespace BinarySearchTree
 
         /// <summary>
         /// 计算指定文本文档中出现频率最高的字符串，
-        /// 保存 <see cref="IST{TKey, TValue}.Get(TKey)"/> 
-        /// 和 <see cref="IST{TKey, TValue}.Put(TKey, TValue)"/>
+        /// 保存 <see cref="ISt{TKey,TValue}.Get(TKey)"/> 
+        /// 和 <see cref="ISt{TKey,TValue}.Put(TKey, TValue)"/>
         /// 的调用次数以及对应的耗时。
         /// </summary>
         /// <param name="filename">文件名。</param>
@@ -155,27 +150,25 @@ namespace BinarySearchTree
         /// <param name="st">用于计算的符号表。</param>
         /// <param name="callIndex">调用次数。</param>
         /// <param name="timeRecord">对应耗时。</param>
-        public static void MostFrequentlyWordAnalysis(string filename, int minLength, IST<string, int> st, out int[] callIndex, out long[] timeRecord)
+        public static void MostFrequentlyWordAnalysis(string filename, int minLength, ISt<string, int> st, out int[] callIndex, out long[] timeRecord)
         {
             var call = new List<int>();
             var time = new List<long>();
             var sw = Stopwatch.StartNew();
 
             var callTime = 0;
-            int distinct = 0, words = 0;
             var sr = new StreamReader(File.OpenRead(filename));
 
             var inputs =
                 sr
                 .ReadToEnd()
-                .Split(new char[] { ' ', '\r', '\n' },
+                .Split(new[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             for (var i = 0; i < inputs.Length; i++)
             {
                 if (inputs[i].Length < minLength)
                     continue;
-                words++;
                 if (st.Contains(inputs[i]))
                 {
                     st.Put(inputs[i], st.Get(inputs[i]) + 1);
@@ -189,7 +182,6 @@ namespace BinarySearchTree
                     callTime++;
                     time.Add(sw.ElapsedMilliseconds);
                     call.Add(callTime);
-                    distinct++;
                 }
             }
 
@@ -218,22 +210,20 @@ namespace BinarySearchTree
         /// <param name="minLength">字符串最小长度。</param>
         /// <param name="st">用于计算的符号表。</param>
         /// <returns>文本文档出现频率最高的字符串数组。</returns>
-        public static string[] MostFrequentlyWords(string filename, int minLength, IST<string, int> st)
+        public static string[] MostFrequentlyWords(string filename, int minLength, ISt<string, int> st)
         {
-            int distinct = 0, words = 0;
             var sr = new StreamReader(File.OpenRead(filename));
 
             var inputs =
                 sr
                 .ReadToEnd()
-                .Split(new char[] { ' ', '\r', '\n' },
+                .Split(new[] { ' ', '\r', '\n' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var s in inputs)
             {
                 if (s.Length < minLength)
                     continue;
-                words++;
                 if (st.Contains(s))
                 {
                     st.Put(s, st.Get(s) + 1);
@@ -241,7 +231,6 @@ namespace BinarySearchTree
                 else
                 {
                     st.Put(s, 1);
-                    distinct++;
                 }
             }
 

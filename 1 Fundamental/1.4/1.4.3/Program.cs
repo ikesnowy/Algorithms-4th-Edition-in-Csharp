@@ -49,7 +49,6 @@ namespace _1._4._3
             canvas.DrawLine(Pens.Black, center.X, center.Y + center.Height, center.X + center.Width, center.Y + center.Height);
             // 对 X 轴 10 等分，对 Y 轴 10 等分
             var xaxisUnit = center.Width / 10;
-            var yaxisUnit = center.Height / 10;
             // 标记 X 轴坐标值
             for (var i = 1; i <= 8; i += i)
             {
@@ -59,12 +58,12 @@ namespace _1._4._3
             canvas.TranslateTransform(0, linear.ClientRectangle.Height);
             canvas.ScaleTransform(1, -1);
             // 计算单位长度
-            var Unit = center.Height / testResult[3];
+            var unit = center.Height / testResult[3];
             // 标记
             var result = new PointF[4];
             for (int i = 0, j = 1; i < 4 && j <= 8; i++, j += j)
             {
-                result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + Unit * testResult[i]));
+                result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + unit * testResult[i]));
             }
             // 链接
             canvas.DrawLines(Pens.Black, result);
@@ -91,7 +90,6 @@ namespace _1._4._3
             canvas.DrawLine(Pens.Black, center.X, center.Y + center.Height, center.X + center.Width, center.Y + center.Height);
             // 对 X 轴 10 等分，对 Y 轴 10 等分
             var xaxisUnit = center.Width / 10;
-            var yaxisUnit = center.Height / 10;
             // 标记 X 轴坐标值
             for (var i = 1; i <= 8; i += i)
             {
@@ -101,12 +99,12 @@ namespace _1._4._3
             canvas.TranslateTransform(0, log.ClientRectangle.Height);
             canvas.ScaleTransform(1, -1);
             // 计算单位长度
-            var Unit = center.Height / testResult[3];
+            var unit = center.Height / testResult[3];
             // 标记
             var result = new PointF[4];
             for (int i = 0, j = 1; i < 4 && j <= 8; i++, j += j)
             {
-                result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + Unit * testResult[i]));
+                result[i] = new PointF(center.X + j * xaxisUnit, (float)(center.Y + unit * testResult[i]));
             }
             // 链接
             canvas.DrawLines(Pens.Black, result);

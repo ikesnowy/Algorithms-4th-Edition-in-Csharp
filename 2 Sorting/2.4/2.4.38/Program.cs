@@ -12,7 +12,7 @@ for (var i = 0; i < doubleTimes; i++)
     Console.WriteLine("number=" + n);
     // 升序数组
     long totalTime = 0;
-    Console.Write(@"Ascending:	");
+    Console.Write("Ascending:\t");
     for (var j = 0; j < repeatTimes; j++)
     {
         var pq = new MaxPq<int>(n);
@@ -25,7 +25,7 @@ for (var i = 0; i < doubleTimes; i++)
     Console.WriteLine("Average:" + totalTime / repeatTimes);
     // 降序数组
     totalTime = 0;
-    Console.Write(@"Descending:	");
+    Console.Write("Descending:\t");
     for (var j = 0; j < repeatTimes; j++)
     {
         var pq = new MaxPq<int>(n);
@@ -38,7 +38,7 @@ for (var i = 0; i < doubleTimes; i++)
     Console.WriteLine("Average:" + totalTime / repeatTimes);
     // 全部元素相同
     totalTime = 0;
-    Console.Write(@"All Same:	");
+    Console.Write("All Same:\t");
     for (var j = 0; j < repeatTimes; j++)
     {
         var pq = new MaxPq<int>(n);
@@ -51,7 +51,7 @@ for (var i = 0; i < doubleTimes; i++)
     Console.WriteLine("Average:" + totalTime / repeatTimes);
     // 只有两个值
     totalTime = 0;
-    Console.Write(@"Binary Dist.:	");
+    Console.Write("Binary Dist.:\t");
     for (var j = 0; j < repeatTimes; j++)
     {
         var pq = new MaxPq<int>(n);

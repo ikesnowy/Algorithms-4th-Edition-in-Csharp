@@ -5,12 +5,12 @@ var game = new Game(1000);
 var a = PlayGameA(game);
 game.Restart();
 var b = PlayGameB(game);
-Console.WriteLine($@"SecretNumber:{game.SecretNumber}");
-Console.WriteLine(@"TestResultA:");
-Console.WriteLine($@"SecretNumber:{a.SecretNumber}, TryTimes:{a.TryTimes}");
+Console.WriteLine($"SecretNumber:{game.SecretNumber}");
+Console.WriteLine("TestResultA:");
+Console.WriteLine($"SecretNumber:{a.SecretNumber}, TryTimes:{a.TryTimes}");
 Console.WriteLine();
-Console.WriteLine(@"TestResultB:");
-Console.WriteLine($@"SecretNumber:{b.SecretNumber}, TryTimes:{b.TryTimes}");
+Console.WriteLine("TestResultB:");
+Console.WriteLine($"SecretNumber:{b.SecretNumber}, TryTimes:{b.TryTimes}");
 
 // 方案一，用二分查找实现，需要猜测 2lgN 次。
 static TestResult PlayGameA(Game game)

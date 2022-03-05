@@ -20,10 +20,10 @@ while (n < 65538)
 
     Console.WriteLine("数组大小：" + n);
 
-    Console.Write(@"Insertion Sort:");
+    Console.Write("Insertion Sort:");
     var insertionNow = SortCompare.Time(new InsertionSort(), testInsertion);
     Console.WriteLine(insertionNow + "\tNow/Prev=" + insertionNow / insertionPrev);
-    Console.Write(@"Selection Sort:");
+    Console.Write("Selection Sort:");
     var selectionNow = SortCompare.Time(new SelectionSort(), testSelection);
     Console.WriteLine(selectionNow + "\tNow/Prev=" + selectionNow / selectionPrev);
     Console.WriteLine();

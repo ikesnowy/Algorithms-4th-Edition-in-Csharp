@@ -2,7 +2,7 @@
 using _2._3._29;
 using Quick;
 
-Console.WriteLine(@"M	N	shuffle	random	shuffle/random");
+Console.WriteLine("M\tN\tshuffle\trandom\tshuffle/random");
 Trial(10);
 Trial(20);
 Trial(50);

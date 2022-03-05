@@ -30,10 +30,9 @@ static void PrintArray2D(bool[,] array, int rows, int columns)
     {
         for (var j = 0; j < columns; j++)
         {
-            Console.Write($@"	{array[i, j]}");
+            Console.Write($"\t{array[i, j]}");
         }
 
-        Console.Write(@"
-");
+        Console.WriteLine();
     }
 }

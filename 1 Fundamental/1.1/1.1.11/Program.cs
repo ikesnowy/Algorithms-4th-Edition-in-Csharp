@@ -12,29 +12,27 @@ static void PrintArray2D(bool[,] array)
     //输出列号
     for (var i = 0; i < columns; i++)
     {
-        Console.Write($@"	{i + 1}");
+        Console.Write($"\t{i + 1}");
     }
 
-    Console.Write(@"
-");
+    Console.WriteLine();
 
     for (var i = 0; i < rows; i++)
     {
         // 输出行号
-        Console.Write($@"{i + 1}");
+        Console.Write($"{i + 1}");
         for (var j = 0; j < columns; j++)
         {
             if (array[i, j])
             {
-                Console.Write($@"	*");
+                Console.Write("\t*");
             }
             else
             {
-                Console.Write($@"	 ");
+                Console.Write("\t ");
             }
         }
 
-        Console.Write(@"
-");
+        Console.WriteLine();
     }
 }

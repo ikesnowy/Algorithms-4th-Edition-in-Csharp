@@ -83,10 +83,9 @@ static void PrintMatrix(double[,] a)
     {
         for (var j = 0; j < a.GetLength(1); j++)
         {
-            Console.Write($@"	{a[i, j]}");
+            Console.Write($"\t{a[i, j]}");
         }
 
-        Console.Write(@"
-");
+        Console.WriteLine();
     }
 }

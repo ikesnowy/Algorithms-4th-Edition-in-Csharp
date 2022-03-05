@@ -85,9 +85,9 @@ namespace Quick
             {
                 for (var i = 0; i < a.Length; i++)
                 {
-                    Console.Write(@"  ");
+                    Console.Write("  ");
                 }
-                Console.WriteLine(@"	lo	j	hi");
+                Console.WriteLine("\tlo\tj\thi");
             }
             Sort(a, 0, a.Length - 1);
             Debug.Assert(IsSorted(a));

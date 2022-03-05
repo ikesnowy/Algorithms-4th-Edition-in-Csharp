@@ -66,7 +66,7 @@ namespace SymbolTable
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
             Node before = null, target = _first;
             while (target != null && !target.Key.Equals(key))
             {
@@ -105,7 +105,7 @@ namespace SymbolTable
         public TValue Get(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
 
             if (_cache != null && _cache.Key.Equals(key)) // 检查缓存
                 return _cache.Value;
@@ -117,7 +117,7 @@ namespace SymbolTable
                     return pointer.Value;
                 }
             }
-            return default(TValue);
+            return default;
         }
 
         /// <summary>

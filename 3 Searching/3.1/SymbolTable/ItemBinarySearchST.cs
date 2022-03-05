@@ -65,10 +65,10 @@ namespace SymbolTable
         public TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to Ceiling is null");
             var i = Rank(key);
             if (i == _n)
-                return default(TKey);
+                return default;
             else
                 return _items[i].Key;
         }
@@ -81,7 +81,7 @@ namespace SymbolTable
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
             return !Get(key).Equals(default(TKey));
         }
 
@@ -93,7 +93,7 @@ namespace SymbolTable
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Delete() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Delete() is null");
             if (IsEmpty())
                 return;
 
@@ -108,8 +108,8 @@ namespace SymbolTable
             }
 
             _n--;
-            _items[_n].Key = default(TKey);
-            _items[_n].Value = default(TValue);
+            _items[_n].Key = default;
+            _items[_n].Value = default;
 
             if (_n > 0 && _n == _items.Length / 4)
                 Resize(_n / 2);
@@ -134,12 +134,12 @@ namespace SymbolTable
         public TKey Floor(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Floor() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Floor() is null");
             var i = Rank(key);
             if (i < _n && _items[i].Key.CompareTo(key) == 0)
                 return _items[i].Key;
             if (i == 0)
-                return default(TKey);
+                return default;
             else
                 return _items[i - 1].Key;
         }
@@ -155,11 +155,11 @@ namespace SymbolTable
             if (key == null)
                 throw new ArgumentNullException(nameof(key), "argument to Get() is null");
             if (IsEmpty())
-                return default(TValue);
+                return default;
             var rank = Rank(key);
             if (rank < _n && _items[rank].Key.Equals(key))
                 return _items[rank].Value;
-            return default(TValue);
+            return default;
         }
 
         /// <summary>

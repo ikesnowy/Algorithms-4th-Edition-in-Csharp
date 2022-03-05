@@ -5,7 +5,7 @@ using BinarySearchTree;
 
 for (var n = 2; n <= 6; n++)
 {
-    Console.WriteLine($@"n={n}");
+    Console.WriteLine($"n={n}");
     var list = new List<int>();
     for (var i = 0; i < n; i++)
     {
@@ -38,7 +38,7 @@ for (var n = 2; n <= 6; n++)
     foreach (var pattern in trees)
     {
         //Console.Write(pattern.Key);
-        Console.WriteLine(100 * pattern.Value / (float)cases.Count + @"%");
+        Console.WriteLine(100 * pattern.Value / (float)cases.Count + "%");
     }
 
     Console.WriteLine();

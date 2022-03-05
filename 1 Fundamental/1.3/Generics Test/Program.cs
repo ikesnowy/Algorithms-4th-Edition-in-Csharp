@@ -26,7 +26,7 @@ foreach (var n in s)
         Console.WriteLine(stack.Pop());
 }
 
-Console.WriteLine($@"({stack.Size()}) left on stack");
+Console.WriteLine($"({stack.Size()}) left on stack");
 Console.WriteLine(stack);
 Console.WriteLine();
 
@@ -40,7 +40,7 @@ foreach (var n in s)
         Console.WriteLine(queue.Dequeue());
 }
 
-Console.WriteLine($@"({queue.Size()}) left on queue");
+Console.WriteLine($"({queue.Size()}) left on queue");
 Console.WriteLine(queue);
 
 var link = new LinkedList<string>();

@@ -15,4 +15,4 @@ for (var i = 0; i < a.Length - 1; i++) //N
     }
 }
 
-Console.WriteLine($@"Min Pair: {minA} {minB}, Min Value: {minDiff}");
+Console.WriteLine($"Min Pair: {minA} {minB}, Min Value: {minDiff}");

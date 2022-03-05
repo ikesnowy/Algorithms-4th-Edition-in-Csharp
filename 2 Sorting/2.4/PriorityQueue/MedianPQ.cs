@@ -35,7 +35,7 @@ namespace PriorityQueue
         {
             _maxPq = new MaxPq<TKey>();
             _minPq = new MinPq<TKey>();
-            _median = default(TKey);
+            _median = default;
             _n = 0;
         }
 
@@ -48,7 +48,7 @@ namespace PriorityQueue
             _maxPq = new MaxPq<TKey>((capacity - 1) / 2);
             _minPq = new MinPq<TKey>((capacity - 1) / 2);
             _n = 0;
-            _median = default(TKey);
+            _median = default;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace PriorityQueue
             if (keys.Length == 0)
             {
                 _n = 0;
-                _median = default(TKey);
+                _median = default;
                 return;
             }
 
@@ -117,7 +117,7 @@ namespace PriorityQueue
             if (_n == 1)
             {
                 _n--;
-                _median = default(TKey);
+                _median = default;
                 return median;
             }
 

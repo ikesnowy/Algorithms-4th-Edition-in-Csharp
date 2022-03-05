@@ -6,7 +6,7 @@ using PriorityQueue;
 var n = 1000000;
 
 var pq = new MinPq<CubeSum>();
-Console.WriteLine(@"正在初始化");
+Console.WriteLine("正在初始化");
 for (var i = 0; i <= n; i++)
 {
     pq.Insert(new CubeSum(i, i));
@@ -14,7 +14,7 @@ for (var i = 0; i <= n; i++)
 
 var ostream = new FileStream("./result.txt", FileMode.Create, FileAccess.Write);
 var sw = new StreamWriter(ostream);
-Console.WriteLine(@"正在写入文件……");
+Console.WriteLine("正在写入文件……");
 var prev = new CubeSum(-1, -1);
 long pairCount = 0;
 while (!pq.IsEmpty())
@@ -34,4 +34,4 @@ while (!pq.IsEmpty())
 sw.WriteLine("共找到" + pairCount + "对数据");
 Console.WriteLine("共找到" + pairCount + "对数据");
 sw.Close();
-Console.WriteLine(@"结果已经保存到程序所在目录下的 result.txt 文件中");
+Console.WriteLine("结果已经保存到程序所在目录下的 result.txt 文件中");

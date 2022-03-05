@@ -33,7 +33,7 @@ static void Dfs(int[] parent, int root, int level)
         {
             for (var j = 0; j < level; j++)
             {
-                Console.Write(@"    ");
+                Console.Write("    ");
             }
 
             Console.WriteLine("|---- " + i);

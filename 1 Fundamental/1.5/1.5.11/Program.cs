@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using _1._5._11;
+using TestCase;
 using UnionFind;
 
 char[] split = { '\n', '\r' };
-var input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
+var input = File.ReadAllText(DataFiles.MediumUf).Split(split, StringSplitOptions.RemoveEmptyEntries);
 var size = int.Parse(input[0]);
 
 var quickFind = new QuickFindUf(size);
@@ -17,5 +19,5 @@ for (var i = 1; i < size; i++)
     weightedQuickFind.Union(p, q);
 }
 
-Console.WriteLine(@"quick-find: " + quickFind.ArrayVisitCount);
-Console.WriteLine(@"weighted quick-find: " + weightedQuickFind.ArrayVisitCount);
+Console.WriteLine("quick-find: " + quickFind.ArrayVisitCount);
+Console.WriteLine("weighted quick-find: " + weightedQuickFind.ArrayVisitCount);

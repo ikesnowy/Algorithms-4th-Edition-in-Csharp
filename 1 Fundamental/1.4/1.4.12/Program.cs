@@ -16,7 +16,7 @@ for (int i = 0, j = 0; i < a.Length && j < b.Length;)
     }
     else
     {
-        Console.WriteLine($@"Common Element:{a[i]}, First index: (a[{i}], b[{j}])");
+        Console.WriteLine($"Common Element:{a[i]}, First index: (a[{i}], b[{j}])");
         i++;
         j++;
     }

@@ -9,9 +9,9 @@ for (var i = 0; i < 3; i++)
     var bst = new Bst<int, int>();
     var bstArray = new BstArray<int, int>(n);
 
-    Console.WriteLine(@"BST");
+    Console.WriteLine("BST");
     Test(n, bst);
-    Console.WriteLine(@"BST Array");
+    Console.WriteLine("BST Array");
     Test(n, bstArray);
 
     n *= 10;
@@ -33,7 +33,7 @@ static void Test(int n, ISt<int, int> st)
     }
 
     sw.Stop();
-    Console.WriteLine(@"Random Put " + n + @":" + sw.ElapsedMilliseconds + @"ms");
+    Console.WriteLine("Random Put " + n + ":" + sw.ElapsedMilliseconds + "ms");
 
     Shuffle(data);
     sw.Restart();
@@ -43,7 +43,7 @@ static void Test(int n, ISt<int, int> st)
     }
 
     sw.Stop();
-    Console.WriteLine(@"Random Get " + n + @":" + sw.ElapsedMilliseconds + @"ms");
+    Console.WriteLine("Random Get " + n + ":" + sw.ElapsedMilliseconds + "ms");
 
     Shuffle(data);
     sw.Restart();
@@ -53,7 +53,7 @@ static void Test(int n, ISt<int, int> st)
     }
 
     sw.Stop();
-    Console.WriteLine(@"Random Delete " + n + @":" + sw.ElapsedMilliseconds + @"ms");
+    Console.WriteLine("Random Delete " + n + ":" + sw.ElapsedMilliseconds + "ms");
 }
 
 static void Shuffle<T>(T[] a)

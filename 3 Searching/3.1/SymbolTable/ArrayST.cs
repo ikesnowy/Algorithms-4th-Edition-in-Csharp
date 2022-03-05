@@ -60,8 +60,8 @@ namespace SymbolTable
                 {
                     _keys[i] = _keys[_n - 1];
                     _values[i] = _values[_n - 1];
-                    _keys[_n - 1] = default(TKey);
-                    _values[_n - 1] = default(TValue);
+                    _keys[_n - 1] = default;
+                    _values[_n - 1] = default;
                     _n--;
                     if (_n > 0 && _n == _keys.Length / 4)
                         Resize(_keys.Length / 2);
@@ -80,7 +80,7 @@ namespace SymbolTable
             for (var i = 0; i < _n; i++)
                 if (_keys[i].Equals(key))
                     return _values[i];
-            return default(TValue);
+            return default;
         }
 
         /// <summary>

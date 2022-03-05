@@ -1,7 +1,7 @@
 ﻿using System;
 using _2._3._28;
 
-Console.WriteLine(@"M	N	Depth");
+Console.WriteLine("M\tN\tDepth");
 Trial(10);
 Trial(20);
 Trial(50);

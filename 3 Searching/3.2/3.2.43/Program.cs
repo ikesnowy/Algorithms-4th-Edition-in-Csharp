@@ -21,4 +21,4 @@ for (var j = 0; j < trials; j++)
 
 putTime /= trials;
 setTime /= trials;
-Console.WriteLine($@"Put: {putTime}ms Get: {setTime}ms ratio: {(double)putTime / setTime}");
+Console.WriteLine($"Put: {putTime}ms Get: {setTime}ms ratio: {(double)putTime / setTime}");

@@ -4,10 +4,10 @@ using SortApplication;
 var data = new[] { 5, 7, 3, 4, 7, 3, 6, 3, 3 };
 var quick = new QuickSort();
 var shell = new ShellSort();
-Console.WriteLine(@"Quick Sort");
+Console.WriteLine("Quick Sort");
 Stabilize(data, quick);
 Console.WriteLine();
-Console.WriteLine(@"Shell Sort");
+Console.WriteLine("Shell Sort");
 Stabilize(data, shell);
 
 static void Stabilize<T>(T[] data, BaseSort sort) where T : IComparable<T>
@@ -20,14 +20,14 @@ static void Stabilize<T>(T[] data, BaseSort sort) where T : IComparable<T>
 
     sort.Sort(items);
 
-    Console.Write(@"Index:	");
+    Console.Write("Index:\t");
     for (var i = 0; i < items.Length; i++)
     {
         Console.Write(items[i].Index + " ");
     }
 
     Console.WriteLine();
-    Console.Write(@"Elem:	");
+    Console.Write("Elem:\t");
     for (var i = 0; i < items.Length; i++)
     {
         Console.Write(items[i].Key + " ");
@@ -57,14 +57,14 @@ static void Stabilize<T>(T[] data, BaseSort sort) where T : IComparable<T>
         index++;
     }
 
-    Console.Write(@"Index:	");
+    Console.Write("Index:\t");
     for (var i = 0; i < items.Length; i++)
     {
         Console.Write(items[i].Index + " ");
     }
 
     Console.WriteLine();
-    Console.Write(@"Elem:	");
+    Console.Write("Elem:\t");
     for (var i = 0; i < items.Length; i++)
     {
         Console.Write(items[i].Key + " ");

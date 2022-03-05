@@ -11,17 +11,17 @@ var start = new SearchNode { Status = new[] { 0, 1, 3, 4, 2, 5, 7, 8, 6 }, Steps
 
 var goal = new SearchNode { Status = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 0 }, Steps = 0 };
 
-Console.WriteLine(@"Missing Tiles");
+Console.WriteLine("Missing Tiles");
 var path = tiles.GetPath(start, goal);
 foreach (var s in path)
     PrintMatrix(s.Status);
 
-Console.WriteLine(@"Manhattan");
+Console.WriteLine("Manhattan");
 path = manhattan.GetPath(start, goal);
 foreach (var s in path)
     PrintMatrix(s.Status);
 
-Console.WriteLine(@"Square Manhattan");
+Console.WriteLine("Square Manhattan");
 path = manhattanSquare.GetPath(start, goal);
 foreach (var s in path)
     PrintMatrix(s.Status);

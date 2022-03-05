@@ -77,7 +77,7 @@ namespace _3._2._6
         public void Put(TKey key, TValue value)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"calls Put() with a null key");
+                throw new ArgumentNullException(nameof(key), "calls Put() with a null key");
             if (value == null)
             {
                 Delete(key);
@@ -125,7 +125,7 @@ namespace _3._2._6
         private TValue Get(Node x, TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"calls get() with a null key");
+                throw new ArgumentNullException(nameof(key), "calls get() with a null key");
             if (x == null)
                 return default;
             var cmp = key.CompareTo(x.Key);
@@ -188,7 +188,7 @@ namespace _3._2._6
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Contains is null!");
+                throw new ArgumentNullException(nameof(key), "argument to Contains is null!");
             return Get(key) != null;
         }
 
@@ -225,9 +225,9 @@ namespace _3._2._6
         public int Size(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to Size() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to Size() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to Size() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to Size() is null");
 
             if (lo.CompareTo(hi) > 0)
                 return 0;
@@ -278,9 +278,9 @@ namespace _3._2._6
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to keys() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to keys() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to keys() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to keys() is null");
 
             var queue = new Queue<TKey>();
             Keys(_root, queue, lo, hi);
@@ -364,7 +364,7 @@ namespace _3._2._6
         public TKey Floor(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to floor is null");
+                throw new ArgumentNullException(nameof(key), "argument to floor is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls floor with empty symbol table");
             var x = Floor(_root, key);
@@ -404,7 +404,7 @@ namespace _3._2._6
         public TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls ceiling with empty symbol table");
             var x = Ceiling(_root, key);
@@ -444,7 +444,7 @@ namespace _3._2._6
         public int Rank(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to rank() is null");
+                throw new ArgumentNullException(nameof(key), "argument to rank() is null");
             return Rank(_root, key);
         }
 

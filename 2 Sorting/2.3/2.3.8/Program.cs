@@ -4,7 +4,7 @@ using Quick;
 // 约为 NlogN 次
 var sort = new QuickSortAnalyze();
 var n = 100;
-Console.WriteLine(@"N	Compare	NlogN");
+Console.WriteLine("N\tCompare\tNlogN");
 for (var i = 0; i < 4; i++)
 {
     var a = new int[n];

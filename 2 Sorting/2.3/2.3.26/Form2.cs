@@ -27,7 +27,7 @@ namespace _2._3._26
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            Text = @"正在绘图";
+            Text = "正在绘图";
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -56,7 +56,7 @@ namespace _2._3._26
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Text = @"正在绘图，已完成 " + e.ProgressPercentage + @" %";
+            Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace _2._3._26
             //释放资源
             graphics.Dispose();
 
-            Text = @"绘图结果，最高次数：" + counts.Max() + @" 最低次数：" + counts.Min();
+            Text = "绘图结果，最高次数：" + counts.Max() + " 最低次数：" + counts.Min();
         }
     }
 }

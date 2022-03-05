@@ -66,7 +66,7 @@ namespace SymbolTable
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
             Node before = null, target = _first;
             while (target != null && !target.Key.Equals(key))
             {
@@ -103,11 +103,11 @@ namespace SymbolTable
         public TValue Get(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
             for (var pointer = _first; pointer != null; pointer = pointer.Next)
                 if (pointer.Key.Equals(key))
                     return pointer.Value;
-            return default(TValue);
+            return default;
         }
 
         /// <summary>

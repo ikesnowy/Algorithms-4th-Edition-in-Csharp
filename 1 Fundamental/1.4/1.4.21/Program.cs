@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using Measurement;
+using TestCase;
 
 var split = new[] { '\n' };
-var input = TestCase.Properties.Resources._2Kints.Split(split, StringSplitOptions.RemoveEmptyEntries);
+var input = File.ReadAllText(DataFiles._2KInts).Split(split, StringSplitOptions.RemoveEmptyEntries);
 var a = new int[input.Length];
 for (var i = 0; i < input.Length; i++)
 {

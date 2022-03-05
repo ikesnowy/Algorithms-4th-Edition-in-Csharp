@@ -20,7 +20,7 @@ for (var i = 0; i < 3; i++)
         bst.Put(item, item);
     }
 
-    Console.WriteLine(@"n:" + n);
+    Console.WriteLine("n:" + n);
     // hit
     Shuffle(odds);
     Test(bst, odds, trial, "hit");
@@ -62,11 +62,11 @@ static void Test(BstAnalysis<int, int> bst, int[] testCases, int trials, string 
     var expect = 2 * Math.Log(testCases.Length) + 2 * 0.5772156649 - 3;
     Console.WriteLine(
         label
-        + @": ActualAverage: "
+        + ": ActualAverage: "
         + testAverage
-        + @"\tExpectAverage: "
+        + "\tExpectAverage: "
         + expect
-        + @"\tStandardDeviation:"
+        + "\tStandardDeviation:"
         + testStandardDeviation);
 }
 

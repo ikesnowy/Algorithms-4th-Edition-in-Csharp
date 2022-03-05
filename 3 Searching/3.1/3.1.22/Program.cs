@@ -12,7 +12,7 @@ foreach (var s in st.Keys())
 }
 
 st.Get("beta");
-Console.WriteLine(@"Get(""beta"")");
+Console.WriteLine("Get(\"beta\")");
 
 foreach (var s in st.Keys())
 {

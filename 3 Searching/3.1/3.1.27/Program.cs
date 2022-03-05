@@ -8,8 +8,8 @@ for (var i = 0; i < n; i++)
     data[i] = i;
 Shuffle(data);
 
-Console.WriteLine(@"	比较	交换	总和");
-Console.Write(@"Put()	");
+Console.WriteLine("\t比较\t交换\t总和");
+Console.Write("Put()\t");
 var bst = new BinarySearchSt<int, int>(n);
 for (var i = 0; i < n; i++)
 {
@@ -20,7 +20,7 @@ Console.WriteLine(bst.Compares + "\t" + bst.Exchanges + "\t" + (bst.Compares + b
 bst.Compares = 0;
 bst.Exchanges = 0;
 
-Console.Write(@"Get()	");
+Console.Write("Get()\t");
 var s = (int)(n + (n * n - n) / (4 * Math.Log(n, 2)));
 var query = new int[s];
 for (var i = 0; i < s; i++)

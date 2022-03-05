@@ -59,10 +59,10 @@ namespace _3._2._45
         public TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to Ceiling is null");
             var i = Rank(key);
             if (i == _n)
-                return default(TKey);
+                return default;
             else
                 return _keys[i];
         }
@@ -75,7 +75,7 @@ namespace _3._2._45
         public bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"key can't be null");
+                throw new ArgumentNullException(nameof(key), "key can't be null");
             return !Get(key).Equals(default(TValue));
         }
 
@@ -87,7 +87,7 @@ namespace _3._2._45
         public void Delete(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Delete() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Delete() is null");
             if (IsEmpty())
                 return;
 
@@ -103,8 +103,8 @@ namespace _3._2._45
             }
 
             _n--;
-            _keys[_n] = default(TKey);
-            _values[_n] = default(TValue);
+            _keys[_n] = default;
+            _values[_n] = default;
 
             if (_n > 0 && _n == _keys.Length / 4)
                 Resize(_keys.Length / 2);
@@ -131,12 +131,12 @@ namespace _3._2._45
         public TKey Floor(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Floor() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Floor() is null");
             var i = Rank(key);
             if (i < _n && _keys[i].CompareTo(key) == 0)
                 return _keys[i];
             if (i == 0)
-                return default(TKey);
+                return default;
             else
                 return _keys[i - 1];
         }
@@ -150,13 +150,13 @@ namespace _3._2._45
         public TValue Get(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Get() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Get() is null");
             if (IsEmpty())
-                return default(TValue);
+                return default;
             var rank = Rank(key);
             if (rank < _n && _keys[rank].Equals(key))
                 return _values[rank];
-            return default(TValue);
+            return default;
         }
 
         /// <summary>
@@ -180,9 +180,9 @@ namespace _3._2._45
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to Keys() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to Keys() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"Second argument to Keys() is null");
+                throw new ArgumentNullException(nameof(hi), "Second argument to Keys() is null");
 
             var list = new List<TKey>();
             if (lo.CompareTo(hi) > 0)
@@ -227,7 +227,7 @@ namespace _3._2._45
         public void Put(TKey key, TValue value)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"first argument to Put() is null");
+                throw new ArgumentNullException(nameof(key), "first argument to Put() is null");
             if (value == null)
             {
                 Delete(key);
@@ -266,7 +266,7 @@ namespace _3._2._45
         public int Rank(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Rank() is null");
+                throw new ArgumentNullException(nameof(key), "argument to Rank() is null");
             int lo = 0, hi = _n - 1;
             while (lo <= hi)
             {
@@ -310,9 +310,9 @@ namespace _3._2._45
         public int Size(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to Size() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to Size() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to Size() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to Size() is null");
 
             if (lo.CompareTo(hi) > 0)
                 return 0;
@@ -330,7 +330,7 @@ namespace _3._2._45
         private void Resize(int capacity)
         {
             if (capacity < _n)
-                throw new ArgumentOutOfRangeException(nameof(capacity), @"分配容量不能小于表中元素数量。");
+                throw new ArgumentOutOfRangeException(nameof(capacity), "分配容量不能小于表中元素数量。");
             var tempKeys = new TKey[capacity];
             var tempValues = new TValue[capacity];
             for (var i = 0; i < _n; i++)

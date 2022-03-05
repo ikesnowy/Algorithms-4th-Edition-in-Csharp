@@ -106,7 +106,7 @@ namespace BinarySearchTree
         public virtual void Put(TKey key, TValue value)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"calls Put() with a null key");
+                throw new ArgumentNullException(nameof(key), "calls Put() with a null key");
             if (value == null)
             {
                 Delete(key);
@@ -177,7 +177,7 @@ namespace BinarySearchTree
         protected virtual Node Get(Node x, TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"calls get() with a null key");
+                throw new ArgumentNullException(nameof(key), "calls get() with a null key");
             if (x == null)
                 return default;
             var cmp = key.CompareTo(x.Key);
@@ -241,7 +241,7 @@ namespace BinarySearchTree
         public virtual bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Contains is null!");
+                throw new ArgumentNullException(nameof(key), "argument to Contains is null!");
             var result = Get(key);
             if (default(TValue) != null)
             {
@@ -283,9 +283,9 @@ namespace BinarySearchTree
         public virtual int Size(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to Size() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to Size() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to Size() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to Size() is null");
 
             if (lo.CompareTo(hi) > 0)
                 return 0;
@@ -334,9 +334,9 @@ namespace BinarySearchTree
         public virtual IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to keys() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to keys() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to keys() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to keys() is null");
 
             var queue = new Queue<TKey>();
             Keys(Root, queue, lo, hi);
@@ -420,7 +420,7 @@ namespace BinarySearchTree
         public virtual TKey Floor(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to floor is null");
+                throw new ArgumentNullException(nameof(key), "argument to floor is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls floor with empty symbol table");
             var x = Floor(Root, key);
@@ -460,7 +460,7 @@ namespace BinarySearchTree
         public virtual TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls ceiling with empty symbol table");
             var x = Ceiling(Root, key);
@@ -500,7 +500,7 @@ namespace BinarySearchTree
         public virtual int Rank(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to rank() is null");
+                throw new ArgumentNullException(nameof(key), "argument to rank() is null");
             return Rank(Root, key);
         }
 

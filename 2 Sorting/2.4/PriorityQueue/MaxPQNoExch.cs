@@ -67,7 +67,7 @@ namespace PriorityQueue
             Exch(1, _n--);
             _pq[_n + 1] = _pq[1];
             Sink(1);
-            _pq[_n + 1] = default(TKey);
+            _pq[_n + 1] = default;
             if ((_n > 0) && (_n == _pq.Length / 4))
                 Resize(_pq.Length / 2);
 

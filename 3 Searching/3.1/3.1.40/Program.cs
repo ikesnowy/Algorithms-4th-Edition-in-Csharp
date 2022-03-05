@@ -9,7 +9,7 @@ using System.Diagnostics;
 // 10000 * logN = N / 2
 // N = 369939 左右
 
-Console.WriteLine(@"n	sst(compare/time)	bst(compare/time)	ratio(compare/time)");
+Console.WriteLine("n\tsst(compare/time)\tbst(compare/time)\tratio(compare/time)");
 Test(29718, 29718);
 Test(369939, 369939);
 long binarySearchCompare;

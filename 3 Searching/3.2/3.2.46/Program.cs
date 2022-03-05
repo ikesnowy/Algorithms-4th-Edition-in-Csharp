@@ -16,14 +16,14 @@ using BinarySearchTree;
 // 100 倍：139(N-1)lg(N-1) = N(N-1)/4, N = 7115
 // 1000 倍：1390(N-1)lg(N-1) = N(N-1)/4, N = 91651
 
-Console.WriteLine(@"N	Array	Tree	Ratio");
+Console.WriteLine("N\tArray\tTree\tRatio");
 Test(499);
 Test(7115);
 Test(91651);
 
 static void Test(int n)
 {
-    Console.Write(n + @"	");
+    Console.Write(n + "\t");
     var data = new double[n];
     var random = new Random(n);
     for (var i = 0; i < n; i++)
@@ -39,13 +39,13 @@ static void Test(int n)
     }
 
     var binarySearchTime = (double)binarySearch.CompareAndExchangeTimes;
-    Console.Write(binarySearchTime + @"	");
+    Console.Write(binarySearchTime + "\t");
     foreach (var d in data)
     {
         bst.Put(d, 1);
     }
 
     var binaryTreeTime = (double)bst.CompareTimes;
-    Console.Write(binaryTreeTime + @"	");
+    Console.Write(binaryTreeTime + "\t");
     Console.WriteLine(binarySearchTime / binaryTreeTime);
 }

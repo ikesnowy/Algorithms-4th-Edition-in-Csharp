@@ -16,7 +16,7 @@ else if (rightSide != -1)
 }
 else
 {
-    Console.WriteLine(@"No Result");
+    Console.WriteLine("No Result");
 }
 
 static int BinarySearchAscending(int[] a, int key, int lo, int hi)

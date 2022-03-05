@@ -67,7 +67,7 @@ namespace _1._3._14
             if (IsEmpty())
                 throw new InvalidOperationException("Queue underflow");
             var item = _q[_first];
-            _q[_first] = default(TItem);
+            _q[_first] = default;
             _count--;
             _first++;
             if (_first == _q.Length)

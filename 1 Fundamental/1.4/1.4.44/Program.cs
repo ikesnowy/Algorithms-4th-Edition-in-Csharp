@@ -13,13 +13,13 @@ for (times = 0; times < 500; times++)
         if (IsDuplicated(a, i))
         {
             dupNum += i;
-            Console.WriteLine($@"生成{i + 1}个数字后发生重复");
+            Console.WriteLine($"生成{i + 1}个数字后发生重复");
             break;
         }
     }
 }
 
-Console.WriteLine($@"√(πN/2)={Math.Sqrt(Math.PI * n / 2.0)}，平均生成{dupNum / times}个数字后出现重复");
+Console.WriteLine($"√(πN/2)={Math.Sqrt(Math.PI * n / 2.0)}，平均生成{dupNum / times}个数字后出现重复");
 
 // 检查是否有重复的数字出现。
 static bool IsDuplicated(int[] a, int i)

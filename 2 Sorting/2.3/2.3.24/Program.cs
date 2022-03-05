@@ -9,7 +9,7 @@ const int kSteps = 10; // 取样 k 值的递增次数。
 const int trialTimes = 1; // 每次实验的重复次数。
 const int trialLevel = 2; // 双倍递增的次数。
 
-Console.WriteLine(@"k	n		sample	normal	ratio");
+Console.WriteLine("k\tn\t\tsample\tnormal\tratio");
 for (var i = 0; i < kSteps; i++)
 {
     var array = arraySize;

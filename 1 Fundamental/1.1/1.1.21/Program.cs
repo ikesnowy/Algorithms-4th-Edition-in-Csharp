@@ -39,15 +39,14 @@ static void PrintArray2D(string[] names, int[,] array, double[] results)
 
     for (var i = 0; i < rows; i++)
     {
-        Console.Write($@"	{names[i]}");
+        Console.Write($"\t{names[i]}");
         for (var j = 0; j < columns - 1; j++)
         {
-            Console.Write($@"	{array[i, j]}");
+            Console.Write($"\t{array[i, j]}");
         }
 
-        Console.Write($@"	{array[i, columns - 1]}");
-        Console.Write($@"	{results[i]:N3}"); // 变量名:N3 保留三位小数
-        Console.Write(@"
-");
+        Console.Write($"\t{array[i, columns - 1]}");
+        Console.Write($"\t{results[i]:N3}"); // 变量名:N3 保留三位小数
+        Console.WriteLine();
     }
 }

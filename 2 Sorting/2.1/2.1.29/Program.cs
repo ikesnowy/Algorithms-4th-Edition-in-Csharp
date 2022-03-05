@@ -22,12 +22,12 @@ for (var i = 0; i < 10; i++)
     var array2 = new int[n];
     array1.CopyTo(array2, 0);
 
-    Console.Write(@"	new sequence");
+    Console.Write("\tnew sequence");
     timer.Restart();
     shellSort.Sort(array1, h1);
     Console.WriteLine("\ttime:" + timer.ElapsedMilliseconds);
 
-    Console.Write(@"	origin sequence");
+    Console.Write("\torigin sequence");
     timer.Restart();
     shellSort.Sort(array2, h2);
     Console.WriteLine("\ttime:" + timer.ElapsedMilliseconds);

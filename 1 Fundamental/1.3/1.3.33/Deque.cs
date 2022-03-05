@@ -119,7 +119,7 @@ namespace _1._3._33
             }
             else
             {
-                _last.Next.Item = default(TItem);
+                _last.Next.Item = default;
                 _last.Next = null;
             }
             return temp;
@@ -146,7 +146,7 @@ namespace _1._3._33
             }
             else
             {
-                _first.Prev.Item = default(TItem);
+                _first.Prev.Item = default;
                 _first.Prev = null;
             }
 

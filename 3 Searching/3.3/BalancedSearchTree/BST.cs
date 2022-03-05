@@ -194,7 +194,7 @@ namespace BalancedSearchTree
         public virtual bool Contains(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Contains is null!");
+                throw new ArgumentNullException(nameof(key), "argument to Contains is null!");
             var result = Get(key);
             if (default(TValue) != null)
             {
@@ -410,7 +410,7 @@ namespace BalancedSearchTree
         public virtual TKey Ceiling(TKey key)
         {
             if (key == null)
-                throw new ArgumentNullException(nameof(key), @"argument to Ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to Ceiling is null");
             if (IsEmpty())
                 throw new InvalidOperationException("calls ceiling with empty symbol table");
             var x = Ceiling(Root, key);

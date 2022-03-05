@@ -26,5 +26,5 @@ for (var n = 125; n < 10000; n += n)
         a[i] = random.Next(2 * m) - m;
     }
 
-    Console.WriteLine($@"N={n}, 计算值={Math.Pow(n, 3) / (16 * m)}, 实际值={ThreeSum.Count(a)}");
+    Console.WriteLine($"N={n}, 计算值={Math.Pow(n, 3) / (16 * m)}, 实际值={ThreeSum.Count(a)}");
 }

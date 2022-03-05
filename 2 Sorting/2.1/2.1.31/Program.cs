@@ -18,7 +18,7 @@ for (var i = 0; i < 10; i++)
     var arrayBak = new int[n];
     array.CopyTo(arrayBak, 0);
 
-    Console.WriteLine(@"	Insertion Sort");
+    Console.WriteLine("\tInsertion Sort");
     var now = SortCompare.Time(insertion, array);
     Console.WriteLine("\t\tActual Time(ms):" + now);
     if (i != 0)
@@ -31,7 +31,7 @@ for (var i = 0; i < 10; i++)
 
     arrayBak.CopyTo(array, 0);
 
-    Console.WriteLine(@"	Selection Sort");
+    Console.WriteLine("\tSelection Sort");
     now = SortCompare.Time(selection, array);
     Console.WriteLine("\t\tActual Time(ms):" + now);
     if (i != 0)
@@ -44,7 +44,7 @@ for (var i = 0; i < 10; i++)
 
     arrayBak.CopyTo(array, 0);
 
-    Console.WriteLine(@"	Shell Sort");
+    Console.WriteLine("\tShell Sort");
     now = SortCompare.Time(shell, array);
     Console.WriteLine("\t\tActual Time(ms):" + now);
     if (i != 0)

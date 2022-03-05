@@ -18,7 +18,7 @@ var multiBy10 = 5;
 var repeatTime = 100;
 var random = new Random();
 var n = 10000;
-Console.WriteLine(@"number	Average Compare");
+Console.WriteLine("number\tAverage Compare");
 for (var i = 0; i < multiBy10; i++)
 {
     long totalCompare = 0;

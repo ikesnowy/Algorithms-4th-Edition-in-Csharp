@@ -3,7 +3,7 @@ using Merge;
 
 var mergeSort = new MergeSortNatural();
 
-Console.WriteLine(@"总长度	有序	时间	比率");
+Console.WriteLine("总长度\t有序\t时间\t比率");
 var maxSorted = 256;
 var repeatTime = 4;
 double previousTime = 1;

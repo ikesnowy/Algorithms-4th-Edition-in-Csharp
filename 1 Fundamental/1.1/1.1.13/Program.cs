@@ -13,9 +13,9 @@ for (var i = 0; i < m; i++)
     }
 }
 
-Console.WriteLine(@"Origin");
+Console.WriteLine("Origin");
 PrintArray2D(array, m, n);
-Console.WriteLine(@"Transposed");
+Console.WriteLine("Transposed");
 PrintArrayTranspose2D(array, m, n);
 
 // 转置输出
@@ -26,11 +26,10 @@ static void PrintArrayTranspose2D(int[,] array, int rows, int columns)
     {
         for (var j = 0; j < rows; j++)
         {
-            Console.Write($@"	{array[j, i]}");
+            Console.Write($"\t{array[j, i]}");
         }
 
-        Console.Write(@"
-");
+        Console.WriteLine();
     }
 }
 
@@ -41,10 +40,9 @@ static void PrintArray2D(int[,] array, int rows, int columns)
     {
         for (var j = 0; j < columns; j++)
         {
-            Console.Write($@"	{array[i, j]}");
+            Console.Write($"\t{array[i, j]}");
         }
 
-        Console.Write(@"
-");
+        Console.WriteLine();
     }
 }

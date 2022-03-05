@@ -6,7 +6,7 @@ var n = 8000;
 var multiplyBy2 = 5;
 var repeatTimes = 5;
 double lastTime = -1;
-Console.WriteLine(@"n	time	ratio");
+Console.WriteLine("n\ttime\tratio");
 for (var i = 0; i < multiplyBy2; i++)
 {
     Console.Write(n + "\t");
@@ -23,7 +23,7 @@ for (var i = 0; i < multiplyBy2; i++)
     timeSum /= repeatTimes;
     Console.Write(timeSum + "\t");
     if (lastTime < 0)
-        Console.WriteLine(@"--");
+        Console.WriteLine("--");
     else
         Console.WriteLine(timeSum / lastTime);
     lastTime = timeSum;

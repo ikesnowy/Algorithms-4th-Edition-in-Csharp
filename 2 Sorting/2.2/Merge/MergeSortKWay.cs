@@ -29,7 +29,7 @@ namespace Merge
         public override void Sort<T>(T[] a)
         {
             if (K > a.Length)
-                throw new ArgumentOutOfRangeException(nameof(a), @"数组长度不能小于 K 值！");
+                throw new ArgumentOutOfRangeException(nameof(a), "数组长度不能小于 K 值！");
 
             var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1);
@@ -98,7 +98,7 @@ namespace Merge
                 var isInit = true;
                 if (pointers[K - 1] > hi)
                 {
-                    min = default(T);                 // 初始化以避免编译错误
+                    min = default;                 // 初始化以避免编译错误
                 }
                 else
                 {

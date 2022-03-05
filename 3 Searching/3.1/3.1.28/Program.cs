@@ -9,7 +9,7 @@ var bst = new BinarySearchSt<int, int>();
 var bstOrdered = new BinarySearchStOrderedInsertion<int, int>();
 
 Console.WriteLine("n = " + n);
-Console.Write(@"Origin: ");
+Console.Write("Origin: ");
 sw.Start();
 for (var i = 0; i < n; i++)
 {
@@ -18,7 +18,7 @@ for (var i = 0; i < n; i++)
 sw.Stop();
 Console.WriteLine(sw.ElapsedMilliseconds);
 
-Console.Write(@"Modified: ");
+Console.Write("Modified: ");
 sw.Restart();
 for (var i = 0; i < n; i++)
 {

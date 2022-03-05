@@ -6,7 +6,7 @@ var n = 40;
 var t = 4;
 
 // quick-find
-Console.WriteLine(@"Quick-Find");
+Console.WriteLine("Quick-Find");
 long last = 0;
 long now;
 for (var i = 0; i < t; i++, n *= 2)
@@ -29,7 +29,7 @@ for (var i = 0; i < t; i++, n *= 2)
 }
 
 // quick-union
-Console.WriteLine(@"Quick-Union");
+Console.WriteLine("Quick-Union");
 n = 40;
 for (var i = 0; i < t; i++, n *= 2)
 {
@@ -51,7 +51,7 @@ for (var i = 0; i < t; i++, n *= 2)
 }
 
 // 加权 quick-union
-Console.WriteLine(@"Weighted Quick-Union");
+Console.WriteLine("Weighted Quick-Union");
 n = 40;
 for (var i = 0; i < t; i++, n *= 2)
 {

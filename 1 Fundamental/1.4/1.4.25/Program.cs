@@ -10,12 +10,12 @@ for (var i = 0; i < 100000; i++)
 // 第一问：第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),..., √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)
 // k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
 var a = PlanA(building);
-Console.WriteLine($@"Plan A: F={a.F}, Broken Eggs={a.BrokenEggs}, Throw Times={a.ThrowTimes}");
+Console.WriteLine($"Plan A: F={a.F}, Broken Eggs={a.BrokenEggs}, Throw Times={a.ThrowTimes}");
 
 // 第二问：按照第 1, 3, 6, 10,..., 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
 // 随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
 var b = PlanB(building);
-Console.WriteLine($@"Plan B: F={b.F}, Broken Eggs={b.BrokenEggs}, Throw Times={b.ThrowTimes}");
+Console.WriteLine($"Plan B: F={b.F}, Broken Eggs={b.BrokenEggs}, Throw Times={b.ThrowTimes}");
 
 // 扔鸡蛋，没碎返回 true，碎了返回 false。
 static bool ThrowEgg(int floor)

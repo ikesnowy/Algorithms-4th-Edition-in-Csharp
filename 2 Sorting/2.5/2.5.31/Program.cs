@@ -9,7 +9,7 @@ var random = new Random();
 for (var i = 0; i < nMultipleBy10; i++)
 {
     Console.WriteLine("n=" + n);
-    Console.WriteLine(@"	m	emprical	theoretical");
+    Console.WriteLine("\tm\temprical\ttheoretical");
     var m = n / 2;
     for (var j = 0; j < mMultipleBy2; j++)
     {

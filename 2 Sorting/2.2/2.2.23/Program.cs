@@ -7,8 +7,8 @@ var mergeSortUnstable = new MergeSortUnstable();
 var n = 1000000;
 var cutoff = 2;
 var trialTime = 4;
-Console.WriteLine(@"归并排序改进前与改进后的比较：");
-Console.WriteLine(@"数组	耗时1	耗时2	阈值	比率");
+Console.WriteLine("归并排序改进前与改进后的比较：");
+Console.WriteLine("数组\t耗时1\t耗时2\t阈值\t比率");
 for (var i = 0; i < 20; i++)
 {
     double mergeSortTime = 0;
@@ -31,8 +31,8 @@ for (var i = 0; i < 20; i++)
 }
 
 n = 100000;
-Console.WriteLine(@"稳定归并排序与不稳定版本的比较：");
-Console.WriteLine(@"数组	耗时1	耗时2	比率");
+Console.WriteLine("稳定归并排序与不稳定版本的比较：");
+Console.WriteLine("数组\t耗时1\t耗时2\t比率");
 for (var i = 0; i < 6; i++)
 {
     double mergeSortTime = 0;

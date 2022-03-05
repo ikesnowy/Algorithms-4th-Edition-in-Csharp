@@ -5,7 +5,7 @@ using PriorityQueue;
 
 var random = new Random();
 
-Console.WriteLine(@"number	origin	pre-order	Ratio");
+Console.WriteLine("number\torigin\tpre-order\tRatio");
 
 var n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存
 var multiTen = 7;

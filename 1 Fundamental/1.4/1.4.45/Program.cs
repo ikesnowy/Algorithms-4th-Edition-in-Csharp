@@ -21,13 +21,13 @@ for (times = 0; times < 20; times++)
         if (IsAllGenerated(a))
         {
             randomSize += i;
-            Console.WriteLine($@"生成{i}次后所有可能均出现过了");
+            Console.WriteLine($"生成{i}次后所有可能均出现过了");
             break;
         }
     }
 }
 
-Console.WriteLine($@"NHN={n * HarmonicSum(n)}，平均生成{randomSize / times}个数字后所有可能都出现");
+Console.WriteLine($"NHN={n * HarmonicSum(n)}，平均生成{randomSize / times}个数字后所有可能都出现");
 
 // 计算 N 阶调和级数的和。
 static double HarmonicSum(int n)

@@ -76,7 +76,7 @@ namespace PriorityQueue
             Exch(index, _n--);
             Swim(index);
             Sink(index);
-            _keys[i] = default(TKey);
+            _keys[i] = default;
             _qp[i] = -1;
         }
 
@@ -93,7 +93,7 @@ namespace PriorityQueue
             Sink(1);
 
             _qp[max] = -1;
-            _keys[max] = default(TKey);
+            _keys[max] = default;
             _pq[_n + 1] = -1;
             return max;
         }

@@ -15,10 +15,10 @@ static int RankInternal(int key, int[] a, int lo, int hi, int number)
 
     for (var i = 0; i < number; i++)
     {
-        Console.Write(@" ");
+        Console.Write(" ");
     }
 
-    Console.WriteLine($@"{number}: {lo} {hi}");
+    Console.WriteLine($"{number}: {lo} {hi}");
 
     if (lo > hi)
     {

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using Measurement;
+using TestCase;
 
 var splits = new[] { '\n' };
-var testCase = TestCase.Properties.Resources._16Kints.Split(splits, StringSplitOptions.RemoveEmptyEntries);
+var testCase = File.ReadAllText(DataFiles._16KInts).Split(splits, StringSplitOptions.RemoveEmptyEntries);
 var testArray = new int[testCase.Length + 2];
 // 样例第一个和最后一个相等
 testArray[0] = 1;
@@ -13,11 +15,11 @@ for (var i = 1; i <= testCase.Length; i++)
 }
 
 var timer = new Stopwatch();
-Console.WriteLine($@"Count:{CountEqual(testArray)}");
-Console.WriteLine($@"Time:{timer.ElapsedTime()} seconds");
+Console.WriteLine($"Count:{CountEqual(testArray)}");
+Console.WriteLine($"Time:{timer.ElapsedTime()} seconds");
 timer = new Stopwatch();
-Console.WriteLine($@"Count:{CountEqualLog(testArray)}");
-Console.WriteLine($@"Time:{timer.ElapsedTime()} seconds");
+Console.WriteLine($"Count:{CountEqualLog(testArray)}");
+Console.WriteLine($"Time:{timer.ElapsedTime()} seconds");
 
 static int CountEqual(int[] a)
 {

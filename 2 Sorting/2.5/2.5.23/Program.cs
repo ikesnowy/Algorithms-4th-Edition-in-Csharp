@@ -14,7 +14,7 @@ for (var i = 0; i < n; i++)
 Shuffle(a);
 
 var sw = new Stopwatch();
-Console.WriteLine(@"Normal:");
+Console.WriteLine("Normal:");
 for (var i = 0; i < repeatTime; i++)
 {
     sw.Start();
@@ -26,7 +26,7 @@ for (var i = 0; i < repeatTime; i++)
 
 Console.WriteLine(sw.ElapsedMilliseconds / repeatTime);
 
-Console.WriteLine(@"Sampled:");
+Console.WriteLine("Sampled:");
 sw.Reset();
 for (var i = 0; i < repeatTime; i++)
 {

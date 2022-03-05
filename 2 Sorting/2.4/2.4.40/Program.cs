@@ -5,7 +5,7 @@ using PriorityQueue;
 
 var random = new Random();
 
-Console.WriteLine(@"number	Origin	Floyd	Ratio");
+Console.WriteLine("number\tOrigin\tFloyd\tRatio");
 
 var n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存
 var multiTen = 7;

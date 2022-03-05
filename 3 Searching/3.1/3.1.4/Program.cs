@@ -33,7 +33,7 @@ Console.WriteLine("Min()=" + st.Min());
 Console.WriteLine("Get(09:00:13)=" + st.Get(new Time { Hour = 9, Minute = 0, Second = 13 }));
 Console.WriteLine("Floor(09:05:00)=" + st.Floor(new Time { Hour = 9, Minute = 5, Second = 0 }));
 Console.WriteLine("Select(7)=" + st.Select(7));
-Console.WriteLine(@"Keys(09:15:00, 09:25:00)");
+Console.WriteLine("Keys(09:15:00, 09:25:00)");
 foreach (var t in
     st.Keys(
         new Time { Hour = 9, Minute = 15, Second = 0 },

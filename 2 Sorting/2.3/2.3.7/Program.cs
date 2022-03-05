@@ -31,7 +31,7 @@ using Quick;
 // C0(n)=C1(n)=(n+1)/3, C2(n)=(n+1)/6
 var n = 1000;
 var sort = new QuickSortAnalyze();
-Console.WriteLine(@"n	0	1	2");
+Console.WriteLine("n\t0\t1\t2");
 for (var i = 0; i < 5; i++)
 {
     var a = new int[n];

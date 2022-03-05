@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using BinarySearchTree;
+using TestCase;
 
 var bst = new Bst<string, int>();
-var tale = BinarySearchTree.Properties.Resources.tale.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+var tale = File.ReadAllText(DataFiles.Tale).Split(' ', StringSplitOptions.RemoveEmptyEntries);
 var distinctCount = FrequencyCounter.CountDistinct(tale, bst);
-Console.WriteLine(@"distinctCount: " + distinctCount);
+Console.WriteLine("distinctCount: " + distinctCount);
 
 // 二叉查找树的内存开销 = 对象开销 + 根结点引用 + N个结点
 //     = 对象开销 + 根结点引用 + N×(对象开销 + 父类型引用 + 左 / 右子树引用 + 键 / 值引用 + 结点数)

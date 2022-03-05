@@ -55,7 +55,7 @@ namespace SymbolTable
         {
             var i = Rank(key);
             if (i == _n)
-                return default(double);
+                return default;
             else
                 return _keys[i];
         }
@@ -91,8 +91,8 @@ namespace SymbolTable
             }
 
             _n--;
-            _keys[_n] = default(double);
-            _values[_n] = default(int);
+            _keys[_n] = default;
+            _values[_n] = default;
 
             if (_n > 0 && _n == _keys.Length / 4)
                 Resize(_n / 2);
@@ -119,7 +119,7 @@ namespace SymbolTable
             if (i < _n && _keys[i].CompareTo(key) == 0)
                 return _keys[i];
             if (i == 0)
-                return default(double);
+                return default;
             else
                 return _keys[i - 1];
         }
@@ -132,11 +132,11 @@ namespace SymbolTable
         public int Get(double key)
         {
             if (IsEmpty())
-                return default(int);
+                return default;
             var rank = Rank(key);
             if (rank < _n && _keys[rank].Equals(key))
                 return _values[rank];
-            return default(int);
+            return default;
         }
 
         /// <summary>

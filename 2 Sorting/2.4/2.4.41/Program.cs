@@ -5,7 +5,7 @@ using PriorityQueue;
 
 var random = new Random();
 
-Console.WriteLine(@"number	2-way	3-way	Ratio	4-way	Ratio");
+Console.WriteLine("number\t2-way\t3-way\tRatio\t4-way\tRatio");
 
 var n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存
 var multiTen = 7;

@@ -29,7 +29,7 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void Form2_Shown(object sender, EventArgs e)
         {
-            Text = @"正在绘图";
+            Text = "正在绘图";
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -61,7 +61,7 @@ namespace _2._3._25
         /// <param name="e"></param>
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Text = @"正在绘图，已完成 " + e.ProgressPercentage + @" %";
+            Text = "正在绘图，已完成 " + e.ProgressPercentage + " %";
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace _2._3._25
 
             graphics.Dispose();
 
-            Text = @"绘图结果";
+            Text = "绘图结果";
             var min = 0;
             for (var i = 0; i < result.Length; i++)
             {
@@ -122,7 +122,7 @@ namespace _2._3._25
                     min = i;
             }
             var report = "M " + min + "\r\ntime " + result[min];
-            MessageBox.Show(report, @"最优结果");
+            MessageBox.Show(report, "最优结果");
         }
     }
 }

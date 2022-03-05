@@ -1,7 +1,7 @@
 ﻿using System;
 using Quick;
 
-Console.WriteLine(@"N	准确值	估计值	比值");
+Console.WriteLine("N\t准确值\t估计值\t比值");
 var sort = new QuickSortAnalyze();
 var n = 100;
 var trialTime = 500;

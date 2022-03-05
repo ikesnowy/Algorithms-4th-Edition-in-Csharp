@@ -289,9 +289,9 @@ namespace BinarySearchTree
         public IEnumerable<TKey> Keys(TKey lo, TKey hi)
         {
             if (lo == null)
-                throw new ArgumentNullException(nameof(lo), @"first argument to keys() is null");
+                throw new ArgumentNullException(nameof(lo), "first argument to keys() is null");
             if (hi == null)
-                throw new ArgumentNullException(nameof(hi), @"second argument to keys() is null");
+                throw new ArgumentNullException(nameof(hi), "second argument to keys() is null");
 
             var queue = new Queue<TKey>();
             Keys(_root, queue, lo, hi);
@@ -396,7 +396,7 @@ namespace BinarySearchTree
         {
             if (key == null)
             {
-                throw new ArgumentNullException(nameof(key), @"argument to floor is null");
+                throw new ArgumentNullException(nameof(key), "argument to floor is null");
             }
 
             if (IsEmpty())
@@ -452,7 +452,7 @@ namespace BinarySearchTree
         {
             if (key == null)
             {
-                throw new ArgumentNullException(nameof(key), @"argument to ceiling is null");
+                throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
             }
 
             if (IsEmpty())
@@ -504,7 +504,7 @@ namespace BinarySearchTree
         {
             if (key == null)
             {
-                throw new ArgumentNullException(nameof(key), @"argument to rank() is null");
+                throw new ArgumentNullException(nameof(key), "argument to rank() is null");
             }
             return Rank(_root, key);
         }

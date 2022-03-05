@@ -13,5 +13,5 @@ pq.DelMax();
 pq.DelMax();
 if (pq.Min() == null)
 {
-    Console.WriteLine(@"null");
+    Console.WriteLine("null");
 }

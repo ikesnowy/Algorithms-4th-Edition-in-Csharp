@@ -10,7 +10,7 @@ for (var i = 0; i < 100; i++)
     sort.Sort(data);
 }
 
-Console.WriteLine(@"n	rest	times");
+Console.WriteLine("n\trest\ttimes");
 for (var i = 0; i < sort.NArraySize.Length; i++)
 {
     if (sort.NArraySize[i] != 0)

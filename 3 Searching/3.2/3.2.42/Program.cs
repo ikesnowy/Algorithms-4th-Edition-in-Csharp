@@ -4,7 +4,7 @@ using BinarySearchTree;
 var random = new Random();
 for (var n = 100; n <= 10000; n *= 10)
 {
-    Console.WriteLine(@"n = " + n + @" sqrt(n) = " + (int)(Math.Sqrt(n)));
+    Console.WriteLine("n = " + n + " sqrt(n) = " + (int)(Math.Sqrt(n)));
     var data = new int[n * n + n];
     for (var i = 0; i < data.Length; i++)
     {
@@ -25,8 +25,8 @@ for (var n = 100; n <= 10000; n *= 10)
 
     var avePathHibbardBefore = bstHibbard.AverageInternalPathLength();
     var avePathNonHibbardBefore = bstNonHibbard.AverageInternalPathLength();
-    Console.WriteLine(@"stage	Hibbard	NonHibbard");
-    Console.WriteLine(@"before	" + avePathHibbardBefore + @"	" + avePathNonHibbardBefore);
+    Console.WriteLine("stage\tHibbard\tNonHibbard");
+    Console.WriteLine("before\t" + avePathHibbardBefore + "\t" + avePathNonHibbardBefore);
 
     // test
     for (var i = n; i < n * n; i++)
@@ -41,9 +41,9 @@ for (var n = 100; n <= 10000; n *= 10)
 
     var avePathHibbardAfter = bstHibbard.AverageInternalPathLength();
     var avePathNonHibbardAfter = bstNonHibbard.AverageInternalPathLength();
-    Console.WriteLine($@"after	{avePathHibbardAfter}	{avePathNonHibbardAfter}");
+    Console.WriteLine($"after\t{avePathHibbardAfter}\t{avePathNonHibbardAfter}");
     Console.WriteLine(
-        $@"diff	{(avePathHibbardAfter - avePathHibbardBefore)}	{(avePathNonHibbardAfter - avePathNonHibbardBefore)}");
+        $"diff\t{(avePathHibbardAfter - avePathHibbardBefore)}\t{(avePathNonHibbardAfter - avePathNonHibbardBefore)}");
     Console.WriteLine();
 }
 

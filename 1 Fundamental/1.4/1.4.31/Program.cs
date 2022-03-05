@@ -8,7 +8,7 @@ deque.PushRight("second");
 deque.PushRight("third");
 deque.PushRight("fourth");
 
-Console.WriteLine($@"size:{deque.Size()}");
+Console.WriteLine($"size:{deque.Size()}");
 while (!deque.IsEmpty())
 {
     Console.WriteLine(deque.PopLeft());

@@ -12,10 +12,10 @@ foreach (var key in testCase)
     constantHeight.Put(key, key);
 }
 
-Console.WriteLine(@"Recursive Height Method:");
+Console.WriteLine("Recursive Height Method:");
 Console.WriteLine(recursiveHeight);
-Console.WriteLine(@"Height: " + recursiveHeight.Height());
+Console.WriteLine("Height: " + recursiveHeight.Height());
 
-Console.WriteLine(@"Constant Height Method");
+Console.WriteLine("Constant Height Method");
 Console.WriteLine(constantHeight);
-Console.WriteLine(@"Height: " + constantHeight.Height());
+Console.WriteLine("Height: " + constantHeight.Height());

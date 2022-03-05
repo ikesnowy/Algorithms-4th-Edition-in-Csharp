@@ -17,4 +17,4 @@ for (var i = 0; i < a.Length; i++)
     }
 }
 
-Console.WriteLine($@"MaxDiff Pair: {min} {max}, Max Difference: {Math.Abs(max - min)}");
+Console.WriteLine($"MaxDiff Pair: {min} {max}, Max Difference: {Math.Abs(max - min)}");

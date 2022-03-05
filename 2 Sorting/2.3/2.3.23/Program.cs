@@ -8,7 +8,7 @@ var arraySize = 800000; // 初始数组大小。
 const int trialTimes = 1; // 每次实验的重复次数。
 const int trialLevel = 8; // 双倍递增的次数。
 
-Console.WriteLine(@"n		3way	normal	ratio");
+Console.WriteLine("n\t\t3way\tnormal\tratio");
 for (var i = 0; i < trialLevel; i++)
 {
     double timeBentleyMcIlroy = 0;

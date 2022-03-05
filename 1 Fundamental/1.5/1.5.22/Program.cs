@@ -13,7 +13,7 @@ for (var n = 2000; n < 100000; n *= 2)
     var weightedQuickUnionUf = new WeightedQuickUnionUf(n);
 
     // quick-find
-    Console.WriteLine(@"quick-find");
+    Console.WriteLine("quick-find");
     var nowTime = RunTest(quickFindUf);
     if (lastTimeQuickFind == 0)
     {
@@ -29,7 +29,7 @@ for (var n = 2000; n < 100000; n *= 2)
     Console.WriteLine();
 
     // quick-union
-    Console.WriteLine(@"quick-union");
+    Console.WriteLine("quick-union");
     nowTime = RunTest(quickUnionUf);
     if (lastTimeQuickUnion == 0)
     {
@@ -45,7 +45,7 @@ for (var n = 2000; n < 100000; n *= 2)
     Console.WriteLine();
 
     // weighted-quick-union
-    Console.WriteLine(@"weighted-quick-union");
+    Console.WriteLine("weighted-quick-union");
     nowTime = RunTest(weightedQuickUnionUf);
     if (lastTimeWeightedQuickUnion == 0)
     {

@@ -9,8 +9,8 @@ var data = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.Re
 
 var repeatTimes = 1;
 
-Console.WriteLine(@"BinarySearchST");
-Console.WriteLine(@"Origin	Cached	Ratio");
+Console.WriteLine("BinarySearchST");
+Console.WriteLine("Origin\tCached\tRatio");
 long bstTimes = 0, bstcTimes = 0;
 
 var bst = new BinarySearchSt<string, int>();
@@ -20,8 +20,8 @@ bstTimes += SearchCompare.Time(bst, data);
 bstcTimes += SearchCompare.Time(bstc, data);
 Console.WriteLine(bstTimes / repeatTimes + "\t" + bstcTimes / repeatTimes + "\t" + (double)bstTimes / bstcTimes);
 
-Console.WriteLine(@"SequentialSearchST");
-Console.WriteLine(@"Origin	Cached	Ratio");
+Console.WriteLine("SequentialSearchST");
+Console.WriteLine("Origin\tCached\tRatio");
 long sstTimes = 0, sstcTimes = 0;
 
 var sst = new SequentialSearchSt<string, int>();

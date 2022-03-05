@@ -9,12 +9,12 @@ for (var i = 0; i < 100000; i++)
 
 // 第一问：二分查找即可
 var a = PlanA(building);
-Console.WriteLine($@"Plan A: F={a.F}, Broken Eggs={a.BrokenEggs}");
+Console.WriteLine($"Plan A: F={a.F}, Broken Eggs={a.BrokenEggs}");
 
 // 第二问：按照第 1, 2, 4, 8,..., 2^k 层顺序查找，一直到 2^k > F，
 // 随后在 [2^(k - 1), 2^k] 范围中二分查找。
 var b = PlanB(building);
-Console.WriteLine($@"Plan B: F={b.F}, Broken Eggs={b.BrokenEggs}");
+Console.WriteLine($"Plan B: F={b.F}, Broken Eggs={b.BrokenEggs}");
 
 static bool ThrowEgg(int floor)
 {

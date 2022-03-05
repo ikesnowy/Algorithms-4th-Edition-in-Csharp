@@ -67,7 +67,7 @@ namespace PriorityQueue
             var max = Pq[1];
             Exch(1, N--);
             Sink(1);
-            Pq[N + 1] = default(TKey);
+            Pq[N + 1] = default;
             if ((N > 0) && (N == Pq.Length / 4))
                 Resize(Pq.Length / 2);
 
@@ -97,17 +97,17 @@ namespace PriorityQueue
         {
             if (k == N)
             {
-                Pq[N--] = default(TKey);
+                Pq[N--] = default;
                 return;
             }
             else if (N <= 2)
             {
                 Exch(1, k);
-                Pq[N--] = default(TKey);
+                Pq[N--] = default;
                 return;
             }
             Exch(k, N--);
-            Pq[N + 1] = default(TKey);
+            Pq[N + 1] = default;
             Swim(k);
             Sink(k);
         }

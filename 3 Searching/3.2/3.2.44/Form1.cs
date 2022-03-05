@@ -22,7 +22,7 @@ namespace _3._2._44
             }
             else
             {
-                label2.Text = @"请输入正确格式的数字！";
+                label2.Text = "请输入正确格式的数字！";
             }
         }
 

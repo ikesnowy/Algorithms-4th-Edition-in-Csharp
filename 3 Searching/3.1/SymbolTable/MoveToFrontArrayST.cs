@@ -60,8 +60,8 @@ namespace SymbolTable
                 {
                     _keys[i] = _keys[_n - 1];
                     _values[i] = _values[_n - 1];
-                    _keys[_n - 1] = default(TKey);
-                    _values[_n - 1] = default(TValue);
+                    _keys[_n - 1] = default;
+                    _values[_n - 1] = default;
                     _n--;
                     if (_n > 0 && _n == _keys.Length / 4)
                         Resize(_keys.Length / 2);
@@ -83,7 +83,7 @@ namespace SymbolTable
                     break;
 
             if (i == _n)
-                return default(TValue);
+                return default;
 
             var toFrontKey = _keys[i];
             var toFrontValue = _values[i];

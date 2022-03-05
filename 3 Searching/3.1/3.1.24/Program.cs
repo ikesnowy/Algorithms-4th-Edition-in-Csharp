@@ -7,7 +7,7 @@ var n = 2000;
 for (var i = 0; i < multiplyBy2; i++)
 {
     Console.WriteLine("n=" + n);
-    Console.WriteLine(@"Binary	Interp	Ratio");
+    Console.WriteLine("Binary\tInterp\tRatio");
     long bstTimes = 0, istTimes = 0;
 
     for (var j = 0; j < repeatTimes; j++)

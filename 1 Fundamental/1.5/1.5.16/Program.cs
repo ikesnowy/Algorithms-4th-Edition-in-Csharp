@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
+using TestCase;
 using UnionFind;
 // ReSharper disable PossibleLossOfFraction
 
@@ -21,7 +23,7 @@ namespace _1._5._16
         static void Compute()
         {
             char[] split = { '\n', '\r' };
-            var input = TestCase.Properties.Resources.mediumUF.Split(split, StringSplitOptions.RemoveEmptyEntries);
+            var input = File.ReadAllText(DataFiles.MediumUf).Split(split, StringSplitOptions.RemoveEmptyEntries);
             var size = int.Parse(input[0]);
             var quickFind = new QuickFindUf(size);
             var quickUnion = new QuickUnionUf(size);

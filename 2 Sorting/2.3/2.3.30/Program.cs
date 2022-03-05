@@ -10,7 +10,7 @@ var n = 5000000;
 var arrayInsertion = SortCompare.GetNormalDistributionArray(n);
 var arraySelection = new double[n];
 arrayInsertion.CopyTo(arraySelection, 0);
-Console.WriteLine(@"Normal Distribution:");
+Console.WriteLine("Normal Distribution:");
 Console.WriteLine("Insertion: " + SortCompare.Time(insertionSort, arrayInsertion));
 Console.WriteLine("Random Pivot: " + SortCompare.Time(randomSort, arraySelection));
 Console.WriteLine();
@@ -18,7 +18,7 @@ Console.WriteLine();
 // 泊松分布
 arrayInsertion = SortCompare.GetPossionDistributionArray(n);
 arrayInsertion.CopyTo(arraySelection, 0);
-Console.WriteLine(@"Poission Distribution:");
+Console.WriteLine("Poission Distribution:");
 Console.WriteLine("Insertion: " + SortCompare.Time(insertionSort, arrayInsertion));
 Console.WriteLine("Random Pivot: " + SortCompare.Time(randomSort, arraySelection));
 Console.WriteLine();
@@ -26,7 +26,7 @@ Console.WriteLine();
 // 几何分布
 arrayInsertion = SortCompare.GetGeometricDistributionArray(n, 0.3);
 arrayInsertion.CopyTo(arraySelection, 0);
-Console.WriteLine(@"Geometric Distribution:");
+Console.WriteLine("Geometric Distribution:");
 Console.WriteLine("Insertion: " + SortCompare.Time(insertionSort, arrayInsertion));
 Console.WriteLine("Random Pivot: " + SortCompare.Time(randomSort, arraySelection));
 Console.WriteLine();
@@ -34,7 +34,7 @@ Console.WriteLine();
 // 离散分布
 arrayInsertion = SortCompare.GetDiscretDistributionArray(n, new[] { 0.1, 0.2, 0.3, 0.1, 0.1, 0.1, 0.1 });
 arrayInsertion.CopyTo(arraySelection, 0);
-Console.WriteLine(@"Discret Distribution:");
+Console.WriteLine("Discret Distribution:");
 Console.WriteLine("Insertion: " + SortCompare.Time(insertionSort, arrayInsertion));
 Console.WriteLine("Random Pivot: " + SortCompare.Time(randomSort, arraySelection));
 Console.WriteLine();
@@ -43,7 +43,7 @@ Console.WriteLine();
 var arrayNormalInsertion = HalfZeroHalfOne(n);
 var arrayRandomPivot = new int[n];
 arrayNormalInsertion.CopyTo(arrayRandomPivot, 0);
-Console.WriteLine(@"half 0 and half 1");
+Console.WriteLine("half 0 and half 1");
 Console.WriteLine("Insertion:" + SortCompare.Time(insertionSort, arrayNormalInsertion));
 Console.WriteLine("Random Pivot:" + SortCompare.Time(randomSort, arrayRandomPivot));
 Console.WriteLine();
@@ -51,7 +51,7 @@ Console.WriteLine();
 // 一半是 0， 1/4 是 1， 1/8 是 2……
 arrayNormalInsertion = HalfAndHalf(n);
 arrayNormalInsertion.CopyTo(arrayRandomPivot, 0);
-Console.WriteLine(@"half and half and half ...");
+Console.WriteLine("half and half and half ...");
 Console.WriteLine("Insertion Sort:" + SortCompare.Time(insertionSort, arrayNormalInsertion));
 Console.WriteLine("Random Pivot:" + SortCompare.Time(randomSort, arrayRandomPivot));
 Console.WriteLine();
@@ -59,7 +59,7 @@ Console.WriteLine();
 // 一半是 0，一半是随机 int 值
 arrayNormalInsertion = HalfZeroHalfRandom(n);
 arrayNormalInsertion.CopyTo(arrayRandomPivot, 0);
-Console.WriteLine(@"half 0 half random");
+Console.WriteLine("half 0 half random");
 Console.WriteLine("Insertion Sort:" + SortCompare.Time(insertionSort, arrayNormalInsertion));
 Console.WriteLine("Random Pivot:" + SortCompare.Time(randomSort, arrayRandomPivot));
 

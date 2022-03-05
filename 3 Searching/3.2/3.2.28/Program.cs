@@ -12,7 +12,7 @@ for (var i = 0; i < 1000000; i++)
 }
 
 watch.Stop();
-Console.WriteLine(@"bstCached: " + watch.ElapsedMilliseconds + @" ms");
+Console.WriteLine("bstCached: " + watch.ElapsedMilliseconds + " ms");
 
 watch.Restart();
 for (var i = 0; i < 1000000; i++)
@@ -21,7 +21,7 @@ for (var i = 0; i < 1000000; i++)
 }
 
 watch.Stop();
-Console.WriteLine(@"bst:" + watch.ElapsedMilliseconds + @" ms");
+Console.WriteLine("bst:" + watch.ElapsedMilliseconds + " ms");
 
 T BuildTree<T>() where T : Bst<int, int>, new()
 {

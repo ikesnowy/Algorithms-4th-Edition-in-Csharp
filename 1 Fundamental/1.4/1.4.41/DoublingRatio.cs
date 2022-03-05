@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Measurement;
+using TestCase;
 
 namespace _1._4._41
 {
@@ -47,15 +49,15 @@ namespace _1._4._41
             double times = 3;
 
             // 1K
-            var a = ReadAllInts(TestCase.Properties.Resources._1Kints);
+            var a = ReadAllInts(File.ReadAllText(DataFiles._1KInts));
             var prevTime = TimeTrial(count, a);
-            Console.WriteLine(@"数据量	耗时	比值");
-            Console.WriteLine($@"1000	{prevTime / 1000}	");
+            Console.WriteLine("数据量\t耗时\t比值");
+            Console.WriteLine($"1000\t{prevTime / 1000}\t");
 
             // 2K
-            a = ReadAllInts(TestCase.Properties.Resources._2Kints);
+            a = ReadAllInts(File.ReadAllText(DataFiles._2KInts));
             var time = TimeTrial(count, a);
-            Console.WriteLine($@"2000	{time / 1000}	{time / prevTime}");
+            Console.WriteLine($"2000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -67,9 +69,9 @@ namespace _1._4._41
             prevTime = time;
 
             // 4K
-            a = ReadAllInts(TestCase.Properties.Resources._4Kints);
+            a = ReadAllInts(File.ReadAllText(DataFiles._4KInts));
             time = TimeTrial(count, a);
-            Console.WriteLine($@"4000	{time / 1000}	{time / prevTime}");
+            Console.WriteLine($"4000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -81,9 +83,9 @@ namespace _1._4._41
             prevTime = time;
 
             // 8K
-            a = ReadAllInts(TestCase.Properties.Resources._8Kints);
+            a = ReadAllInts(File.ReadAllText(DataFiles._8KInts));
             time = TimeTrial(count, a);
-            Console.WriteLine($@"8000	{time / 1000}	{time / prevTime}");
+            Console.WriteLine($"8000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -107,15 +109,15 @@ namespace _1._4._41
             double times = 2;
 
             // 8K
-            var a = ReadAllInts(TestCase.Properties.Resources._8Kints);
+            var a = ReadAllInts(File.ReadAllText(DataFiles._8KInts));
             var prevTime = TimeTrial(count, a);
-            Console.WriteLine(@"数据量	耗时	比值");
-            Console.WriteLine($@"8000	{prevTime / 1000}	");
+            Console.WriteLine("数据量\t耗时\t比值");
+            Console.WriteLine($"8000\t{prevTime / 1000}\t");
 
             // 16K
-            a = ReadAllInts(TestCase.Properties.Resources._16Kints);
+            a = ReadAllInts(File.ReadAllText(DataFiles._16KInts));
             var time = TimeTrial(count, a);
-            Console.WriteLine($@"16000	{time / 1000}	{time / prevTime}");
+            Console.WriteLine($"16000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;
@@ -127,9 +129,9 @@ namespace _1._4._41
             prevTime = time;
 
             // 32K
-            a = ReadAllInts(TestCase.Properties.Resources._32Kints);
+            a = ReadAllInts(File.ReadAllText(DataFiles._32KInts));
             time = TimeTrial(count, a);
-            Console.WriteLine($@"32000	{time / 1000}	{time / prevTime}");
+            Console.WriteLine($"32000\t{time / 1000}\t{time / prevTime}");
             if (prevTime != 0)
             {
                 ratio += time / prevTime;

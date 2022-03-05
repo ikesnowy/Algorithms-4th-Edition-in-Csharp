@@ -74,7 +74,7 @@ namespace SymbolTable
             }
 
             // 输出字典序
-            Console.WriteLine(@"Alphabet");
+            Console.WriteLine("Alphabet");
             foreach (var i in stDictionary.Keys())
             {
                 var s = stDictionary.Get(i);
@@ -82,7 +82,7 @@ namespace SymbolTable
             }
 
             // 频率序
-            Console.WriteLine(@"Frequency");
+            Console.WriteLine("Frequency");
             var n = stFrequency.Size();
             for (var i = 0; i < n; i++)
             {

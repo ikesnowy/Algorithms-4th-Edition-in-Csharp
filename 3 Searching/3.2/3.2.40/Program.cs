@@ -30,10 +30,10 @@ for (var i = 0; i < 3; i++)
     var c = 4.31107d;
     var expectHeightLuc = c * Math.Log(n);
     var expectHeightMichael = c * Math.Log(n) - (3 * c / (2 * (c - 1))) * Math.Log(Math.Log(n));
-    Console.WriteLine(@"n:" + n);
-    Console.WriteLine(@"Actual Height:" + aveHeight);
-    Console.WriteLine(@"Devroye: " + expectHeightLuc + @"	Diff: " + (float)(expectHeightLuc - aveHeight));
-    Console.WriteLine(@"Michael: " + expectHeightMichael + @"	Diff: " + (float)(expectHeightMichael - aveHeight));
+    Console.WriteLine("n:" + n);
+    Console.WriteLine("Actual Height:" + aveHeight);
+    Console.WriteLine("Devroye: " + expectHeightLuc + "\tDiff: " + (float)(expectHeightLuc - aveHeight));
+    Console.WriteLine("Michael: " + expectHeightMichael + "\tDiff: " + (float)(expectHeightMichael - aveHeight));
 
     n *= 10;
 }

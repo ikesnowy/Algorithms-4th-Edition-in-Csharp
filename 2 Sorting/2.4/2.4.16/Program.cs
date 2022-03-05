@@ -12,20 +12,20 @@ var bestCase = new int[size];
 for (var i = 0; i < size; i++)
     bestCase[i] = 1;
 
-Console.WriteLine(@"Best Input");
+Console.WriteLine("Best Input");
 for (var i = 0; i < size; i++)
     Console.Write(bestCase[i] + " ");
 Console.WriteLine();
-Console.Write(@"Best Compare Times: ");
+Console.Write("Best Compare Times: ");
 Console.WriteLine(HeapAnalysis.Sort(bestCase));
 
 Console.WriteLine();
 
 var pq = new MaxPqWorstCase(size);
 var worstCase = pq.MakeWorst(size);
-Console.WriteLine(@"Worst Input");
+Console.WriteLine("Worst Input");
 for (var i = 0; i < worstCase.Length; i++)
     Console.Write(worstCase[i] + " ");
 Console.WriteLine();
-Console.Write(@"Worst Compare Times: ");
+Console.Write("Worst Compare Times: ");
 Console.WriteLine(HeapAnalysis.Sort(worstCase));

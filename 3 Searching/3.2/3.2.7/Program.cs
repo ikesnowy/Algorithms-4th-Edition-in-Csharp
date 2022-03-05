@@ -12,10 +12,10 @@ foreach (var key in testCase)
     constantAvgCompare.Put(key, key);
 }
 
-Console.WriteLine(@"Recursive AvgCompare Method");
+Console.WriteLine("Recursive AvgCompare Method");
 Console.WriteLine(recursiveAvgCompare);
-Console.WriteLine(@"Avg Compare: " + recursiveAvgCompare.AverageCompares());
+Console.WriteLine("Avg Compare: " + recursiveAvgCompare.AverageCompares());
 
-Console.WriteLine(@"Constant AvgCompare Method");
+Console.WriteLine("Constant AvgCompare Method");
 Console.WriteLine(constantAvgCompare);
-Console.WriteLine(@"Avg Compare: " + constantAvgCompare.AverageCompares());
+Console.WriteLine("Avg Compare: " + constantAvgCompare.AverageCompares());

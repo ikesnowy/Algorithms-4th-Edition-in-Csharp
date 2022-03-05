@@ -36,7 +36,7 @@ namespace SymbolTable
             var pointer = _first;
             while (pointer != null && Less(pointer.Key, key))
                 pointer = pointer.Next;
-            return pointer == null ? default(TKey) : pointer.Key;
+            return pointer == null ? default : pointer.Key;
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace SymbolTable
             var pointer = _tail;
             while (pointer != null && Greater(pointer.Key, key))
                 pointer = pointer.Prev;
-            return pointer == null ? default(TKey) : pointer.Key;
+            return pointer == null ? default : pointer.Key;
         }
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace SymbolTable
                 pointer = pointer.Next;
 
             if (pointer == null)
-                return default(TValue);
+                return default;
             else if (pointer.Key.Equals(key))
                 return pointer.Value;
             else
-                return default(TValue);
+                return default;
         }
 
         /// <summary>
@@ -169,13 +169,13 @@ namespace SymbolTable
         /// 最大的键。
         /// </summary>
         /// <returns>最大的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public TKey Max() => _tail == null ? default(TKey) : _tail.Key;
+        public TKey Max() => _tail == null ? default : _tail.Key;
 
         /// <summary>
         /// 最小的键。
         /// </summary>
         /// <returns>最小的键，不存在则返回 <c>default(Key)</c>。</returns>
-        public TKey Min() => _first == null ? default(TKey) : _first.Key;
+        public TKey Min() => _first == null ? default : _first.Key;
 
         /// <summary>
         /// 向符号表插入键值对，重复值将被替换。

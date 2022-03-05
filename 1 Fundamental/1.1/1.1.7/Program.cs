@@ -2,21 +2,19 @@
 
 static void A()
 {
-    Console.WriteLine(@"a");
+    Console.WriteLine("a");
     var t = 9.0;
     while (Math.Abs(t - 9.0 / t) > .001)
     {
         t = (9.0 / t + t) / 2.0;
     }
 
-    Console.Write($@"{t:N5}
-"); // :N5代表保留5位小数，同理可使用N1、N2……
+    Console.WriteLine($"{t:N5}"); // :N5代表保留5位小数，同理可使用N1、N2……
 }
 
 static void B()
 {
-    Console.WriteLine(@"
-b");
+    Console.WriteLine("\nb");
     var sum = 0;
     for (var i = 1; i < 1000; i++)
     {
@@ -31,8 +29,7 @@ b");
 
 static void C()
 {
-    Console.WriteLine(@"
-c");
+    Console.WriteLine("\nc");
     var sum = 0;
     for (var i = 1; i < 1000; i *= 2)
     {

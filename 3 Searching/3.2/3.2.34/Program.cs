@@ -13,7 +13,7 @@ bst.Put(8, 8);
 var key = bst.Min();
 while (key != 0)
 {
-    Console.Write(key + @" ");
+    Console.Write(key + " ");
     key = bst.Next(key);
 }
 
@@ -21,6 +21,6 @@ Console.WriteLine();
 key = bst.Max();
 while (key != 0)
 {
-    Console.Write(key + @" ");
+    Console.Write(key + " ");
     key = bst.Prev(key);
 }

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 
 var random = new Random();
-Console.WriteLine(@"number	Build	Sort	Ratio");
+Console.WriteLine("number\tBuild\tSort\tRatio");
 var n = 1000; // 当数据量到达 10^9 时会需要 2G 左右的内存
 var multiTen = 7;
 for (var i = 0; i < multiTen; i++)

@@ -38,19 +38,17 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 <meta property="og:url" content="https://alg4.ikesnowy.com/2-5-32/"><meta property="article:section" content>
 <meta property="article:published_time" content="2019-01-26T16:04:21+00:00">
 <meta property="article:modified_time" content="2022-02-23T01:01:43+08:00">
-<title>2.5.32 | 《算法（第四版）》C# 题解</title>
-<link rel=manifest href=/manifest.json>
+<title>2.5.32 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script>
+<script defer src=/zh.search.min.1b7731efd1f0b0a28dc4adf61f1b4fbff4b6c565564a2e90b5f56e9557d25536.js integrity="sha256-G3cx79HwsKKNxK32HxtPv/S2xWVWSi6QtfVulVfSVTY=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-121852990-1","auto"),ga("send","pageview"))</script>
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
-</head>
-<body dir=" ltr">
+</head><body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
 <main class="container flex">
@@ -60,1360 +58,905 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 <h2 class=book-brand>
 <a class="flex align-center" href=/><span>《算法（第四版）》C# 题解</span>
 </a>
-</h2>
-<div class=book-search>
+</h2><div class=book-search>
 <input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-</div>
-<ul>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul>
 <li>
 <a href=/thanks/>特别感谢</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-1/>1.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-2/>1.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-3/>1.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-4/>1.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-5/>1.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-6/>1.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-7/>1.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-8/>1.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-9/>1.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-10/>1.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-11/>1.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-12/>1.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-13/>1.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-14/>1.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-15/>1.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-16/>1.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-17/>1.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-18/>1.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-19/>1.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-20/>1.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-21/>1.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-22/>1.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-23/>1.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-24/>1.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-25/>1.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-26/>1.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-27/>1.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-28/>1.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-29/>1.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-30/>1.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-31/>1.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-32/>1.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-33/>1.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-34/>1.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-35/>1.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-36/>1.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-37/>1.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-38/>1.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-39/>1.1.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-1/>1.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-2/>1.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-3/>1.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-4/>1.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-5/>1.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-6/>1.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-7/>1.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-8/>1.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-9/>1.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-10/>1.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-11/>1.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-12/>1.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-13/>1.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-14/>1.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-15/>1.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-16/>1.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-17/>1.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-18/>1.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-19/>1.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-1/>1.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-2/>1.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-3/>1.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-4/>1.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-5/>1.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-6/>1.3.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-7/>1.3.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-8/>1.3.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-9/>1.3.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-10/>1.3.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-11/>1.3.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-12/>1.3.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-13/>1.3.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-14/>1.3.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-15/>1.3.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-16/>1.3.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-17/>1.3.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-18/>1.3.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-19/>1.3.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-20/>1.3.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-21/>1.3.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-22/>1.3.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-23/>1.3.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-24/>1.3.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-25/>1.3.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-26/>1.3.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-27/>1.3.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-28/>1.3.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-29/>1.3.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-30/>1.3.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-31/>1.3.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-32/>1.3.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-33/>1.3.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-34/>1.3.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-35/>1.3.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-36/>1.3.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-37/>1.3.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-38/>1.3.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-39/>1.3.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-40/>1.3.40</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-41/>1.3.41</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-42/>1.3.42</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-43/>1.3.43</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-44/>1.3.44</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-45/>1.3.45</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-46/>1.3.46</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-47/>1.3.47</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-48/>1.3.48</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-49/>1.3.49</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-50/>1.3.50</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-1/>1.4.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-2/>1.4.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-3/>1.4.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-4/>1.4.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-5/>1.4.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-6/>1.4.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-7/>1.4.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-8/>1.4.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-9/>1.4.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-10/>1.4.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-11/>1.4.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-12/>1.4.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-13/>1.4.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-14/>1.4.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-15/>1.4.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-16/>1.4.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-17/>1.4.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-18/>1.4.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-19/>1.4.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-20/>1.4.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-21/>1.4.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-22/>1.4.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-23/>1.4.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-24/>1.4.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-25/>1.4.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-26/>1.4.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-27/>1.4.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-28/>1.4.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-29/>1.4.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-30/>1.4.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-31/>1.4.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-32/>1.4.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-33/>1.4.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-34/>1.4.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-35/>1.4.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-36/>1.4.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-37/>1.4.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-38/>1.4.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-39/>1.4.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-40/>1.4.40</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-41/>1.4.41</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-42/>1.4.42</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-43/>1.4.43</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-44/>1.4.44</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-45/>1.4.45</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-1/>1.5.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-2/>1.5.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-3/>1.5.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-4/>1.5.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-5/>1.5.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-6/>1.5.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-7/>1.5.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-8/>1.5.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-9/>1.5.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-10/>1.5.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-11/>1.5.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-12/>1.5.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-13/>1.5.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-14/>1.5.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-15/>1.5.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-16/>1.5.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-17/>1.5.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-18/>1.5.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-19/>1.5.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-20/>1.5.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-21/>1.5.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-22/>1.5.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-23/>1.5.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-24/>1.5.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-25/>1.5.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-26/>1.5.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-1/>2.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-2/>2.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-3/>2.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-4/>2.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-5/>2.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-6/>2.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-7/>2.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-8/>2.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-9/>2.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-10/>2.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-11/>2.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-12/>2.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-13/>2.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-14/>2.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-15/>2.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-16/>2.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-17/>2.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-18/>2.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-19/>2.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-20/>2.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-21/>2.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-22/>2.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-23/>2.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-24/>2.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-25/>2.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-26/>2.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-27/>2.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-28/>2.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-29/>2.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-30/>2.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-31/>2.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-32/>2.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-33/>2.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-34/>2.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-35/>2.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-36/>2.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-37/>2.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-38/>2.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-1/>2.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-2/>2.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-3/>2.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-4/>2.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-5/>2.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-6/>2.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-7/>2.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-8/>2.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-9/>2.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-10/>2.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-11/>2.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-12/>2.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-13/>2.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-14/>2.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-15/>2.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-16/>2.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-17/>2.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-18/>2.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-19/>2.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-20/>2.2.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-21/>2.2.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-22/>2.2.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-23/>2.2.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-24/>2.2.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-25/>2.2.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-26/>2.2.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-27/>2.2.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-28/>2.2.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-29/>2.2.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-1/>2.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-2/>2.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-3/>2.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-4/>2.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-5/>2.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-6/>2.3.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-7/>2.3.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-8/>2.3.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-9/>2.3.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-10/>2.3.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-11/>2.3.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-12/>2.3.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-13/>2.3.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-14/>2.3.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-15/>2.3.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-16/>2.3.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-17/>2.3.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-18/>2.3.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-19/>2.3.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-20/>2.3.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-21/>2.3.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-22/>2.3.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-23/>2.3.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-24/>2.3.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-25/>2.3.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-26/>2.3.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-27/>2.3.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-28/>2.3.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-29/>2.3.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-30/>2.3.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-31/>2.3.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-1/>2.4.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-2/>2.4.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-3/>2.4.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-4/>2.4.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-5/>2.4.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-6/>2.4.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-7/>2.4.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-8/>2.4.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-9/>2.4.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-10/>2.4.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-11/>2.4.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-12/>2.4.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-13/>2.4.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-14/>2.4.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-15/>2.4.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-16/>2.4.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-17/>2.4.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-18/>2.4.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-19/>2.4.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-20/>2.4.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-21/>2.4.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-22/>2.4.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-23/>2.4.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-24/>2.4.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-25/>2.4.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-26/>2.4.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-27/>2.4.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-28/>2.4.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-29/>2.4.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-30/>2.4.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-31/>2.4.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-32/>2.4.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-33/>2.4.33</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-34/>2.4.34</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-35/>2.4.35</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-36/>2.4.36</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-37/>2.4.37</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-38/>2.4.38</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-39/>2.4.39</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-40/>2.4.40</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-41/>2.4.41</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-42/>2.4.42</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-1/>2.5.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-2/>2.5.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-3/>2.5.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-4/>2.5.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-5/>2.5.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-6/>2.5.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-7/>2.5.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-8/>2.5.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-9/>2.5.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-10/>2.5.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-11/>2.5.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-12/>2.5.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-13/>2.5.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-14/>2.5.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-15/>2.5.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-16/>2.5.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-17/>2.5.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-18/>2.5.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-19/>2.5.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-20/>2.5.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-21/>2.5.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-22/>2.5.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-23/>2.5.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-24/>2.5.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-25/>2.5.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-26/>2.5.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-27/>2.5.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-28/>2.5.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-29/>2.5.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-30/>2.5.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-31/>2.5.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-32/ class=active>2.5.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-33/>2.5.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-1/>3.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-2/>3.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-3/>3.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-4/>3.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-5/>3.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-6/>3.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-7/>3.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-8/>3.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-9/>3.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-10/>3.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-11/>3.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-12/>3.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-13/>3.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-14/>3.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-15/>3.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-16/>3.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-17/>3.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-18/>3.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-19/>3.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-20/>3.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-21/>3.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-22/>3.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-23/>3.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-24/>3.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-25/>3.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-26/>3.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-27/>3.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-28/>3.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-29/>3.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-30/>3.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-31/>3.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-32/>3.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-33/>3.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-34/>3.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-35/>3.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-36/>3.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-37/>3.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-38/>3.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-39/>3.1.39</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-40/>3.1.40</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-41/>3.1.41</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-1/>3.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-2/>3.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-3/>3.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-4/>3.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-5/>3.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-6/>3.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-7/>3.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-8/>3.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-9/>3.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-10/>3.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-11/>3.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-12/>3.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-13/>3.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-14/>3.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-15/>3.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-16/>3.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-17/>3.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-18/>3.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-19/>3.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-20/>3.2.20</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-21/>3.2.21</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-22/>3.2.22</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-23/>3.2.23</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-24/>3.2.24</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-25/>3.2.25</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-26/>3.2.26</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-27/>3.2.27</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-28/>3.2.28</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-29/>3.2.29</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-30/>3.2.30</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-31/>3.2.31</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-32/>3.2.32</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-33/>3.2.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-34/>3.2.34</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-35/>3.2.35</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-36/>3.2.36</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-37/>3.2.37</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-38/>3.2.38</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-39/>3.2.39</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-40/>3.2.40</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-41/>3.2.41</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-42/>3.2.42</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-43/>3.2.43</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-44/>3.2.44</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-45/>3.2.45</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-46/>3.2.46</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-47/>3.2.47</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-1/>3.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-2/>3.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-3/>3.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-4/>3.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-5/>3.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/run-solution-code/>如何：运行题解代码</a>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
+</li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
 <header class=book-header>
 <div class="flex align-center justify-between">
 <label for=menu-control>
@@ -1422,260 +965,208 @@ Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的�
 <strong>2.5.32</strong>
 <label for=toc-control>
 </label>
-</div>
-</header>
-<article class=markdown><h1 id=2532>
+</div></header><article class=markdown><h1 id=2532>
 2.5.32
 <a class=anchor href=#2532>#</a>
-</h1>
-<h2 id=解答>
+</h1><h2 id=解答>
 解答
 <a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a>
-</h2>
-<p>（前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）</p>
-<p>A* 算法是 Dijkstra 算法和最佳优先算法的一种结合。</p>
-<p>Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。</p>
-<p>建立队列 <code>queue</code> ，把所有的结点加入 <code>queue</code> 中；建立数组 <code>d</code>，<code>d[v]</code> 代表起点到点 v 的距离。</p>
-<p>开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：</p>
-<p>从队列中取出已知距离最短的结点 <code>u</code>，检查该结点的所有边。</p>
-<p>如果通过这个点能够以更近的距离到达 <code>v</code>，更新起点到 <code>v</code> 的距离 <code>d[v] = d[u] + distance(u, v)</code>。</p>
-<p>等到队列为空之后数组 <code>d</code> 中就存放着起点到其他所有结点的最短距离。</p>
-<p>Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。</p>
-<p>很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。</p>
-<p>通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。</p>
-<p>在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 <code>g[n]</code> 。</p>
-<p>现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 <code>h[n]</code> 。</p>
-<p>令 <code>f[n] = g[n] + h[n]</code>，我们按照 <code>f[n]</code> 对等待搜索的结点进行排序。</p>
-<p>同时令 <code>h[n]</code> 始终小于 <code>g[n]</code> ，保证离起点的距离 <code>g[n]</code> 权重大于离终点的估计距离 <code>h[n]</code> 。
-（<code>h[n]</code>也被称之为<a href=https://en.wikipedia.org/wiki/Admissible_heuristic>容许估计</a>）</p>
-<p>于是在离起点距离接近的条件下，离终点比较近的点会被优先搜索，减少搜索范围。</p>
-<p>接下来就是算法的具体内容，与 Dijkstra 算法不同，A* 算法不一定需要访问所有结点，</p>
-<p>因此 A* 算法需要维护两个集合，<code>openSet</code> 保存等待搜索的结点，<code>closeSet</code> 保存已经搜索过的结点。</p>
-<p>和 Dijkstra 算法类似，一开始 <code>openSet</code> 中只有起点，<code>closeSet</code> 则是空的。</p>
-<p>然后重复执行如下步骤，直到 <code>openSet</code> 为空：</p>
-<p>从 <code>openSet</code> 中取出 <code>f[n]</code> 最小的结点 <code>u</code> ，放入 <code>closeSet</code>。（标记为已访问）</p>
-<p>如果 <code>u</code> 就是终点，算法结束。</p>
-<p>计算结点 <code>u</code> 直接可达的周围结点，放入集合 <code>neighbors</code>。</p>
-<pre tabindex=0><code>遍历 `neighbors` 中的所有结点 `v`，做如下判断：
+</h2><p>（前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）</p><p>A* 算法是 Dijkstra 算法和最佳优先算法的一种结合。</p><p>Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。</p><p>建立队列 <code>queue</code> ，把所有的结点加入 <code>queue</code> 中；建立数组 <code>d</code>，<code>d[v]</code> 代表起点到点 v 的距离。</p><p>开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：</p><p>从队列中取出已知距离最短的结点 <code>u</code>，检查该结点的所有边。</p><p>如果通过这个点能够以更近的距离到达 <code>v</code>，更新起点到 <code>v</code> 的距离 <code>d[v] = d[u] + distance(u, v)</code>。</p><p>等到队列为空之后数组 <code>d</code> 中就存放着起点到其他所有结点的最短距离。</p><p>Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。</p><p>很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。</p><p>通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。</p><p>在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 <code>g[n]</code> 。</p><p>现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 <code>h[n]</code> 。</p><p>令 <code>f[n] = g[n] + h[n]</code>，我们按照 <code>f[n]</code> 对等待搜索的结点进行排序。</p><p>同时令 <code>h[n]</code> 始终小于 <code>g[n]</code> ，保证离起点的距离 <code>g[n]</code> 权重大于离终点的估计距离 <code>h[n]</code> 。
+（<code>h[n]</code>也被称之为<a href=https://en.wikipedia.org/wiki/Admissible_heuristic>容许估计</a>）</p><p>于是在离起点距离接近的条件下，离终点比较近的点会被优先搜索，减少搜索范围。</p><p>接下来就是算法的具体内容，与 Dijkstra 算法不同，A* 算法不一定需要访问所有结点，</p><p>因此 A* 算法需要维护两个集合，<code>openSet</code> 保存等待搜索的结点，<code>closeSet</code> 保存已经搜索过的结点。</p><p>和 Dijkstra 算法类似，一开始 <code>openSet</code> 中只有起点，<code>closeSet</code> 则是空的。</p><p>然后重复执行如下步骤，直到 <code>openSet</code> 为空：</p><p>从 <code>openSet</code> 中取出 <code>f[n]</code> 最小的结点 <code>u</code> ，放入 <code>closeSet</code>。（标记为已访问）</p><p>如果 <code>u</code> 就是终点，算法结束。</p><p>计算结点 <code>u</code> 直接可达的周围结点，放入集合 <code>neighbors</code>。</p><pre tabindex=0><code>遍历 `neighbors` 中的所有结点 `v`，做如下判断：
 	如果 `v` 已经存在于 `closeSet` ，忽略之。（防止走回头路）
 	如果经过 `u` 不能缩短起点到 `v` 的路径长度 `g[v]`，忽略之。（和 Dijkstra 算法一样的做法）
 	否则将 `v` 放入 `openSet`，更新 `g[v] = g[u] + distance(u, v)` ，计算 `f[v] = g[v] + h[v]`。（更新结点）
-</code></pre><p>以上是 A* 算法的核心逻辑，</p>
-<p>为了结合具体问题，我们需要自定义计算 <code>g[n]</code> 和 <code>h[n]</code> 的方法，以及获得某个结点周围结点的方法。</p>
-<p>这里有个问题，<code>openSet</code> 和 <code>closeSet</code> 应该用什么数据结构？</p>
-<p><code>closeSet</code> 比较简单，只需要添加和查找即可，哈希表 <code>HashSet</code> 是不二选择。</p>
-<p><code>openSet</code> 需要读取并删除最小元素，以及添加和查找元素，用最小堆 <code>MinPQ</code> 会是比较方便的方法。</p>
-<p>书中给出的最小堆 <code>MinPQ</code> 没有实现 <code>Contains</code> 方法，需要自己实现一个，简单顺序查找就够用了。</p>
-<p>同时 <code>MinPQ</code> 的 <code>Greater</code> 比较方法也需要重新实现，需要使用基于 <code>f[n]</code> 进行比较的比较器。</p>
-<p>现在我们考虑 8 字谜题如何用 A* 算法实现。</p>
-<p>棋盘的每一个状态就是一个结点，每走一步就能进入下一个状态，结点可以这么定义：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SearchNode</span>
-{
-    <span style=color:#66d9ef>int</span>[] Board;		<span style=color:#75715e>// 棋盘状态
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Steps;			<span style=color:#75715e>// 已经使用的步数
-</span><span style=color:#75715e></span>}
-</code></pre></div><p><code>g(start, goal)</code> 直接就是 <code>goal.Steps - start.Steps</code>，<code>h(start, goal)</code> 则根据题意有不同的实现。</p>
-<p>获得周围结点的方法 <code>GetNeighbors(current)</code>，会返回一个数组，其中有从 <code>current</code> 上下左右走获得的棋盘状态。</p>
-<p>运行结果，初始状态为：</p>
-<pre tabindex=0><code>0 1 3
+</code></pre><p>以上是 A* 算法的核心逻辑，</p><p>为了结合具体问题，我们需要自定义计算 <code>g[n]</code> 和 <code>h[n]</code> 的方法，以及获得某个结点周围结点的方法。</p><p>这里有个问题，<code>openSet</code> 和 <code>closeSet</code> 应该用什么数据结构？</p><p><code>closeSet</code> 比较简单，只需要添加和查找即可，哈希表 <code>HashSet</code> 是不二选择。</p><p><code>openSet</code> 需要读取并删除最小元素，以及添加和查找元素，用最小堆 <code>MinPQ</code> 会是比较方便的方法。</p><p>书中给出的最小堆 <code>MinPQ</code> 没有实现 <code>Contains</code> 方法，需要自己实现一个，简单顺序查找就够用了。</p><p>同时 <code>MinPQ</code> 的 <code>Greater</code> 比较方法也需要重新实现，需要使用基于 <code>f[n]</code> 进行比较的比较器。</p><p>现在我们考虑 8 字谜题如何用 A* 算法实现。</p><p>棋盘的每一个状态就是一个结点，每走一步就能进入下一个状态，结点可以这么定义：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SearchNode</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span>[] Board;		<span style=color:#75715e>// 棋盘状态</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> Steps;			<span style=color:#75715e>// 已经使用的步数</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>g(start, goal)</code> 直接就是 <code>goal.Steps - start.Steps</code>，<code>h(start, goal)</code> 则根据题意有不同的实现。</p><p>获得周围结点的方法 <code>GetNeighbors(current)</code>，会返回一个数组，其中有从 <code>current</code> 上下左右走获得的棋盘状态。</p><p>运行结果，初始状态为：</p><pre tabindex=0><code>0 1 3
 4 2 5
 7 9 6
-</code></pre><p><img src=/resources/2-5-32/1.png alt> <img src=/resources/2-5-32/2.png alt> <img src=/resources/2-5-32/3.png alt></p>
-<h2 id=代码>
+</code></pre><p><img src=/resources/2-5-32/1.png alt> <img src=/resources/2-5-32/2.png alt> <img src=/resources/2-5-32/3.png alt></p><h2 id=代码>
 代码
 <a class=anchor href=#%e4%bb%a3%e7%a0%81>#</a>
-</h2>
-<p>A* 算法的泛型实现</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> System;
-<span style=color:#66d9ef>using</span> System.Collections.Generic;
-
-<span style=color:#66d9ef>namespace</span> SortApplication
-{
-    <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>    <span style=color:#75715e>/// A* 搜索器。
-</span><span style=color:#75715e></span>    <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>    <span style=color:#75715e>/// &lt;typeparam name=&#34;T&#34;&gt;&lt;/typeparam&gt;
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AStar</span>&lt;T&gt; <span style=color:#66d9ef>where</span> T : IComparable&lt;T&gt;
-    {
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 相等比较器。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> IEqualityComparer&lt;T&gt; equalityComparer;
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 默认相等比较器。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DefaultEqualityComparer</span> : IEqualityComparer&lt;T&gt;
-        {
-            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool</span> Equals(T x, T y)
-            {
-                <span style=color:#66d9ef>return</span> x.Equals(y);
-            }
-
-            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> GetHashCode(T obj)
-            {
-                <span style=color:#66d9ef>return</span> obj.GetHashCode();
-            }
-        }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 根据 FScore 进行比较的比较器。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FScoreComparer</span> : IComparer&lt;T&gt;
-        {
-            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore;
-
-            <span style=color:#66d9ef>public</span> FScoreComparer(Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore)
-            {
-                <span style=color:#66d9ef>this</span>.fScore = fScore;
-            }
-
-            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> Compare(T x, T y)
-            {
-                <span style=color:#66d9ef>if</span> (!<span style=color:#66d9ef>this</span>.fScore.ContainsKey(x))
-                    <span style=color:#66d9ef>this</span>.fScore[x] = <span style=color:#66d9ef>int</span>.MaxValue;
-                <span style=color:#66d9ef>if</span> (!<span style=color:#66d9ef>this</span>.fScore.ContainsKey(y))
-                    <span style=color:#66d9ef>this</span>.fScore[y] = <span style=color:#66d9ef>int</span>.MaxValue;
-                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.fScore[x].CompareTo(<span style=color:#66d9ef>this</span>.fScore[y]);
-            }
-        }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 新建一个 Astar 寻路器，使用元素默认相等比较器。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>protected</span> AStar() : <span style=color:#66d9ef>this</span>(<span style=color:#66d9ef>new</span> DefaultEqualityComparer()) { }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 新建一个 AStar 寻路器。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;equalityComparer&#34;&gt;用于确定状态之间相等的比较器。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>protected</span> AStar(IEqualityComparer&lt;T&gt; equalityComparer)
-        {
-            <span style=color:#66d9ef>this</span>.equalityComparer = equalityComparer;
-        }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 获得最短路径。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;起始状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;终止状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> T[] GetPath(T start, T goal)
-        {
-            Dictionary&lt;T, T&gt; comeFrom = <span style=color:#66d9ef>new</span> Dictionary&lt;T, T&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
-            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; gScore = <span style=color:#66d9ef>new</span> Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
-            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore = <span style=color:#66d9ef>new</span> Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
-
-            MinPQ&lt;T&gt; openSet = <span style=color:#66d9ef>new</span> MinPQ&lt;T&gt;(<span style=color:#66d9ef>new</span> FScoreComparer(fScore), <span style=color:#66d9ef>this</span>.equalityComparer);
-            HashSet&lt;T&gt; closeSet = <span style=color:#66d9ef>new</span> HashSet&lt;T&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
-
-            openSet.Insert(start);
-            gScore.Add(start, <span style=color:#ae81ff>0</span>);
-            fScore.Add(start, HeuristicDistance(start, goal));
-            <span style=color:#66d9ef>while</span> (!openSet.IsEmpty())
-            {
-                T current = openSet.DelMin();
-                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.equalityComparer.Equals(current, goal))
-                    <span style=color:#66d9ef>return</span> ReconstructPath(comeFrom, current);
-
-                closeSet.Add(current);
-
-                T[] neighbors = GetNeighbors(current);
-                <span style=color:#66d9ef>foreach</span> (T neighbor <span style=color:#66d9ef>in</span> neighbors)
-                {
-                    <span style=color:#66d9ef>if</span> (closeSet.Contains(neighbor))
-                        <span style=color:#66d9ef>continue</span>;
-
-                    <span style=color:#66d9ef>int</span> gScoreTentative = gScore[current] + ActualDistance(current, neighbor);
-
-                    <span style=color:#75715e>// 新状态
-</span><span style=color:#75715e></span>                    <span style=color:#66d9ef>if</span> (!openSet.Contains(neighbor))
-                        openSet.Insert(neighbor);
-                    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (gScoreTentative &gt;= gScore[neighbor])
-                        <span style=color:#66d9ef>continue</span>;
-
-                    <span style=color:#75715e>// 记录新状态
-</span><span style=color:#75715e></span>                    comeFrom[neighbor] = current;
-                    gScore[neighbor] = gScoreTentative;
-                    fScore[neighbor] = gScore[neighbor] + HeuristicDistance(neighbor, goal);
-                }
-            }
-
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
-        }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 倒回重建最佳路径。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;status&#34;&gt;包含所有状态的数组。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;from&#34;&gt;记载了状态之间顺序的数组。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;current&#34;&gt;当前状态位置。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>private</span> T[] ReconstructPath(Dictionary&lt;T, T&gt; comeFrom, T current)
-        {
-            Stack&lt;T&gt; pathReverse = <span style=color:#66d9ef>new</span> Stack&lt;T&gt;();
-            <span style=color:#66d9ef>while</span> (comeFrom.ContainsKey(current))
-            {
-                pathReverse.Push(current);
-                current = comeFrom[current];
-            }
-            T[] path = <span style=color:#66d9ef>new</span> T[pathReverse.Count];
-            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; path.Length; i++)
-            {
-                path[i] = pathReverse.Pop();
-            }
-            <span style=color:#66d9ef>return</span> path;
-        }
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 计算两个状态之间的估计距离，即 h(n)。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;初始状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;目标状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>int</span> HeuristicDistance(T start, T goal);
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 计算两个状态之间的实际距离，即 g(n)。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;初始状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;目标状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>int</span> ActualDistance(T start, T goal);
-
-        <span style=color:#75715e>/// &lt;summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// 获得当前状态的周围状态。
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;current&#34;&gt;当前状态。&lt;/param&gt;
-</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> T[] GetNeighbors(T current);
-    }
-}
-</code></pre></div><h2 id=另请参阅>
+</h2><p>A* 算法的泛型实现</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>using</span> System;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> System.Collections.Generic;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>namespace</span> SortApplication
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/// A* 搜索器。</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;typeparam name=&#34;T&#34;&gt;&lt;/typeparam&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AStar</span>&lt;T&gt; <span style=color:#66d9ef>where</span> T : IComparable&lt;T&gt;
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 相等比较器。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> IEqualityComparer&lt;T&gt; equalityComparer;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 默认相等比较器。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DefaultEqualityComparer</span> : IEqualityComparer&lt;T&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool</span> Equals(T x, T y)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> x.Equals(y);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> GetHashCode(T obj)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> obj.GetHashCode();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 根据 FScore 进行比较的比较器。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FScoreComparer</span> : IComparer&lt;T&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> FScoreComparer(Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>this</span>.fScore = fScore;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> Compare(T x, T y)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (!<span style=color:#66d9ef>this</span>.fScore.ContainsKey(x))
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>this</span>.fScore[x] = <span style=color:#66d9ef>int</span>.MaxValue;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (!<span style=color:#66d9ef>this</span>.fScore.ContainsKey(y))
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>this</span>.fScore[y] = <span style=color:#66d9ef>int</span>.MaxValue;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.fScore[x].CompareTo(<span style=color:#66d9ef>this</span>.fScore[y]);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 新建一个 Astar 寻路器，使用元素默认相等比较器。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> AStar() : <span style=color:#66d9ef>this</span>(<span style=color:#66d9ef>new</span> DefaultEqualityComparer()) { }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 新建一个 AStar 寻路器。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;equalityComparer&#34;&gt;用于确定状态之间相等的比较器。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> AStar(IEqualityComparer&lt;T&gt; equalityComparer)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.equalityComparer = equalityComparer;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 获得最短路径。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;起始状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;终止状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> T[] GetPath(T start, T goal)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Dictionary&lt;T, T&gt; comeFrom = <span style=color:#66d9ef>new</span> Dictionary&lt;T, T&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
+</span></span><span style=display:flex><span>            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; gScore = <span style=color:#66d9ef>new</span> Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
+</span></span><span style=display:flex><span>            Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt; fScore = <span style=color:#66d9ef>new</span> Dictionary&lt;T, <span style=color:#66d9ef>int</span>&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            MinPQ&lt;T&gt; openSet = <span style=color:#66d9ef>new</span> MinPQ&lt;T&gt;(<span style=color:#66d9ef>new</span> FScoreComparer(fScore), <span style=color:#66d9ef>this</span>.equalityComparer);
+</span></span><span style=display:flex><span>            HashSet&lt;T&gt; closeSet = <span style=color:#66d9ef>new</span> HashSet&lt;T&gt;(<span style=color:#66d9ef>this</span>.equalityComparer);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            openSet.Insert(start);
+</span></span><span style=display:flex><span>            gScore.Add(start, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>            fScore.Add(start, HeuristicDistance(start, goal));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span> (!openSet.IsEmpty())
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                T current = openSet.DelMin();
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.equalityComparer.Equals(current, goal))
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>return</span> ReconstructPath(comeFrom, current);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                closeSet.Add(current);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                T[] neighbors = GetNeighbors(current);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>foreach</span> (T neighbor <span style=color:#66d9ef>in</span> neighbors)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (closeSet.Contains(neighbor))
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>int</span> gScoreTentative = gScore[current] + ActualDistance(current, neighbor);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#75715e>// 新状态</span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (!openSet.Contains(neighbor))
+</span></span><span style=display:flex><span>                        openSet.Insert(neighbor);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (gScoreTentative &gt;= gScore[neighbor])
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#75715e>// 记录新状态</span>
+</span></span><span style=display:flex><span>                    comeFrom[neighbor] = current;
+</span></span><span style=display:flex><span>                    gScore[neighbor] = gScoreTentative;
+</span></span><span style=display:flex><span>                    fScore[neighbor] = gScore[neighbor] + HeuristicDistance(neighbor, goal);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 倒回重建最佳路径。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;status&#34;&gt;包含所有状态的数组。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;from&#34;&gt;记载了状态之间顺序的数组。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;current&#34;&gt;当前状态位置。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> T[] ReconstructPath(Dictionary&lt;T, T&gt; comeFrom, T current)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Stack&lt;T&gt; pathReverse = <span style=color:#66d9ef>new</span> Stack&lt;T&gt;();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span> (comeFrom.ContainsKey(current))
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                pathReverse.Push(current);
+</span></span><span style=display:flex><span>                current = comeFrom[current];
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            T[] path = <span style=color:#66d9ef>new</span> T[pathReverse.Count];
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; path.Length; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                path[i] = pathReverse.Pop();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> path;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 计算两个状态之间的估计距离，即 h(n)。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;初始状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;目标状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>int</span> HeuristicDistance(T start, T goal);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 计算两个状态之间的实际距离，即 g(n)。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;start&#34;&gt;初始状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;goal&#34;&gt;目标状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> <span style=color:#66d9ef>int</span> ActualDistance(T start, T goal);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// 获得当前状态的周围状态。</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;/summary&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;param name=&#34;current&#34;&gt;当前状态。&lt;/param&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>abstract</span> T[] GetNeighbors(T current);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=另请参阅>
 另请参阅
 <a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a>
-</h2>
-<p><a href=https://en.wikipedia.org/wiki/A*_search_algorithm>A* search algorithm-Wikipedia</a>
-<a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5/SortApplication>SortApplication 库</a></p>
-</article>
-<footer class=book-footer>
+</h2><p><a href=https://en.wikipedia.org/wiki/A*_search_algorithm>A* search algorithm-Wikipedia</a>
+<a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/2%20Sorting/2.5/SortApplication>SortApplication 库</a></p></article><footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 <div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener>
 <img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-2-22</span>
 </a>
-</div>
-<div>
+</div><div>
 <a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/edit/master/docs/content/2-5-32.md target=_blank rel=noopener>
 <img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>编辑本页</span>
 </a>
-</div>
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-</main>
-</body>
-</html>
+</div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><label for=menu-control class="hidden book-menu-overlay"></label>
+</div></main></body></html>

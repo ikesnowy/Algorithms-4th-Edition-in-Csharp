@@ -8,19 +8,17 @@
 <meta property="og:description" content>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alg4.ikesnowy.com/tags/fundamental/">
-<title>Fundamental | 《算法（第四版）》C# 题解</title>
-<link rel=manifest href=/manifest.json>
+<title>Fundamental | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json>
 <link rel=icon href=/favicon.svg type=image/x-icon>
 <link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous>
 <script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.ad3e29155ef34df8b347a9341a84f8746bcd2b72c8dbf124476bca0f716a3255.js integrity="sha256-rT4pFV7zTfizR6k0GoT4dGvNK3LI2/EkR2vKD3FqMlU=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-121852990-1','auto'),ga('send','pageview'))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
+<script defer src=/zh.search.min.1b7731efd1f0b0a28dc4adf61f1b4fbff4b6c565564a2e90b5f56e9557d25536.js integrity="sha256-G3cx79HwsKKNxK32HxtPv/S2xWVWSi6QtfVulVfSVTY=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-121852990-1","auto"),ga("send","pageview"))</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解">
 <script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script>
-</head>
-<body dir=" ltr">
+</head><body dir=" ltr">
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
 <main class="container flex">
@@ -30,1360 +28,905 @@
 <h2 class=book-brand>
 <a class="flex align-center" href=/><span>《算法（第四版）》C# 题解</span>
 </a>
-</h2>
-<div class=book-search>
+</h2><div class=book-search>
 <input type=text id=book-search-input placeholder=搜索 aria-label=搜索 maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-</div>
-<ul>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul>
 <li>
 <a href=/thanks/>特别感谢</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-1/>1.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-2/>1.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-3/>1.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-4/>1.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-5/>1.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-6/>1.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-7/>1.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-8/>1.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-9/>1.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-10/>1.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-11/>1.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-12/>1.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-13/>1.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-14/>1.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-15/>1.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-16/>1.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-17/>1.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-18/>1.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-19/>1.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-20/>1.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-21/>1.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-22/>1.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-23/>1.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-24/>1.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-25/>1.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-26/>1.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-27/>1.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-28/>1.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-29/>1.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-30/>1.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-31/>1.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-32/>1.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-33/>1.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-34/>1.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-35/>1.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-36/>1.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-37/>1.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-38/>1.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-1-39/>1.1.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-1/>1.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-2/>1.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-3/>1.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-4/>1.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-5/>1.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-6/>1.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-7/>1.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-8/>1.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-9/>1.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-10/>1.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-11/>1.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-12/>1.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-13/>1.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-14/>1.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-15/>1.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-16/>1.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-17/>1.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-18/>1.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-2-19/>1.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-1/>1.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-2/>1.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-3/>1.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-4/>1.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-5/>1.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-6/>1.3.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-7/>1.3.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-8/>1.3.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-9/>1.3.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-10/>1.3.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-11/>1.3.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-12/>1.3.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-13/>1.3.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-14/>1.3.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-15/>1.3.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-16/>1.3.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-17/>1.3.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-18/>1.3.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-19/>1.3.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-20/>1.3.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-21/>1.3.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-22/>1.3.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-23/>1.3.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-24/>1.3.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-25/>1.3.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-26/>1.3.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-27/>1.3.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-28/>1.3.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-29/>1.3.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-30/>1.3.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-31/>1.3.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-32/>1.3.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-33/>1.3.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-34/>1.3.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-35/>1.3.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-36/>1.3.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-37/>1.3.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-38/>1.3.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-39/>1.3.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-40/>1.3.40</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-41/>1.3.41</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-42/>1.3.42</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-43/>1.3.43</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-44/>1.3.44</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-45/>1.3.45</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-46/>1.3.46</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-47/>1.3.47</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-48/>1.3.48</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-49/>1.3.49</a>
-</li>
-<li>
+</li><li>
 <a href=/1-3-50/>1.3.50</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-1/>1.4.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-2/>1.4.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-3/>1.4.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-4/>1.4.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-5/>1.4.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-6/>1.4.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-7/>1.4.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-8/>1.4.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-9/>1.4.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-10/>1.4.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-11/>1.4.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-12/>1.4.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-13/>1.4.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-14/>1.4.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-15/>1.4.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-16/>1.4.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-17/>1.4.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-18/>1.4.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-19/>1.4.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-20/>1.4.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-21/>1.4.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-22/>1.4.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-23/>1.4.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-24/>1.4.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-25/>1.4.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-26/>1.4.26</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-27/>1.4.27</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-28/>1.4.28</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-29/>1.4.29</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-30/>1.4.30</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-31/>1.4.31</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-32/>1.4.32</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-33/>1.4.33</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-34/>1.4.34</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-35/>1.4.35</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-36/>1.4.36</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-37/>1.4.37</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-38/>1.4.38</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-39/>1.4.39</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-40/>1.4.40</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-41/>1.4.41</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-42/>1.4.42</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-43/>1.4.43</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-44/>1.4.44</a>
-</li>
-<li>
+</li><li>
 <a href=/1-4-45/>1.4.45</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-1/>1.5.1</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-2/>1.5.2</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-3/>1.5.3</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-4/>1.5.4</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-5/>1.5.5</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-6/>1.5.6</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-7/>1.5.7</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-8/>1.5.8</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-9/>1.5.9</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-10/>1.5.10</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-11/>1.5.11</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-12/>1.5.12</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-13/>1.5.13</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-14/>1.5.14</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-15/>1.5.15</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-16/>1.5.16</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-17/>1.5.17</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-18/>1.5.18</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-19/>1.5.19</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-20/>1.5.20</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-21/>1.5.21</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-22/>1.5.22</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-23/>1.5.23</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-24/>1.5.24</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-25/>1.5.25</a>
-</li>
-<li>
+</li><li>
 <a href=/1-5-26/>1.5.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-1/>2.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-2/>2.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-3/>2.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-4/>2.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-5/>2.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-6/>2.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-7/>2.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-8/>2.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-9/>2.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-10/>2.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-11/>2.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-12/>2.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-13/>2.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-14/>2.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-15/>2.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-16/>2.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-17/>2.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-18/>2.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-19/>2.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-20/>2.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-21/>2.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-22/>2.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-23/>2.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-24/>2.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-25/>2.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-26/>2.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-27/>2.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-28/>2.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-29/>2.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-30/>2.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-31/>2.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-32/>2.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-33/>2.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-34/>2.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-35/>2.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-36/>2.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-37/>2.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/2-1-38/>2.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-1/>2.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-2/>2.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-3/>2.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-4/>2.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-5/>2.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-6/>2.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-7/>2.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-8/>2.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-9/>2.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-10/>2.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-11/>2.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-12/>2.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-13/>2.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-14/>2.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-15/>2.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-16/>2.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-17/>2.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-18/>2.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-19/>2.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-20/>2.2.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-21/>2.2.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-22/>2.2.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-23/>2.2.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-24/>2.2.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-25/>2.2.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-26/>2.2.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-27/>2.2.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-28/>2.2.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-2-29/>2.2.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-1/>2.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-2/>2.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-3/>2.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-4/>2.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-5/>2.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-6/>2.3.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-7/>2.3.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-8/>2.3.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-9/>2.3.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-10/>2.3.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-11/>2.3.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-12/>2.3.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-13/>2.3.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-14/>2.3.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-15/>2.3.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-16/>2.3.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-17/>2.3.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-18/>2.3.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-19/>2.3.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-20/>2.3.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-21/>2.3.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-22/>2.3.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-23/>2.3.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-24/>2.3.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-25/>2.3.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-26/>2.3.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-27/>2.3.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-28/>2.3.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-29/>2.3.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-30/>2.3.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-3-31/>2.3.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-1/>2.4.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-2/>2.4.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-3/>2.4.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-4/>2.4.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-5/>2.4.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-6/>2.4.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-7/>2.4.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-8/>2.4.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-9/>2.4.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-10/>2.4.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-11/>2.4.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-12/>2.4.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-13/>2.4.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-14/>2.4.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-15/>2.4.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-16/>2.4.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-17/>2.4.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-18/>2.4.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-19/>2.4.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-20/>2.4.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-21/>2.4.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-22/>2.4.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-23/>2.4.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-24/>2.4.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-25/>2.4.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-26/>2.4.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-27/>2.4.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-28/>2.4.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-29/>2.4.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-30/>2.4.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-31/>2.4.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-32/>2.4.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-33/>2.4.33</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-34/>2.4.34</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-35/>2.4.35</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-36/>2.4.36</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-37/>2.4.37</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-38/>2.4.38</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-39/>2.4.39</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-40/>2.4.40</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-41/>2.4.41</a>
-</li>
-<li>
+</li><li>
 <a href=/2-4-42/>2.4.42</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-1/>2.5.1</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-2/>2.5.2</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-3/>2.5.3</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-4/>2.5.4</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-5/>2.5.5</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-6/>2.5.6</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-7/>2.5.7</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-8/>2.5.8</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-9/>2.5.9</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-10/>2.5.10</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-11/>2.5.11</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-12/>2.5.12</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-13/>2.5.13</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-14/>2.5.14</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-15/>2.5.15</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-16/>2.5.16</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-17/>2.5.17</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-18/>2.5.18</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-19/>2.5.19</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-20/>2.5.20</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-21/>2.5.21</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-22/>2.5.22</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-23/>2.5.23</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-24/>2.5.24</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-25/>2.5.25</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-26/>2.5.26</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-27/>2.5.27</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-28/>2.5.28</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-29/>2.5.29</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-30/>2.5.30</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-31/>2.5.31</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-32/>2.5.32</a>
-</li>
-<li>
+</li><li>
 <a href=/2-5-33/>2.5.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-1/>3.1.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-2/>3.1.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-3/>3.1.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-4/>3.1.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-5/>3.1.5</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-6/>3.1.6</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-7/>3.1.7</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-8/>3.1.8</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-9/>3.1.9</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-10/>3.1.10</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-11/>3.1.11</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-12/>3.1.12</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-13/>3.1.13</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-14/>3.1.14</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-15/>3.1.15</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-16/>3.1.16</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-17/>3.1.17</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-18/>3.1.18</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-19/>3.1.19</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-20/>3.1.20</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-21/>3.1.21</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-22/>3.1.22</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-23/>3.1.23</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-24/>3.1.24</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-25/>3.1.25</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-26/>3.1.26</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-27/>3.1.27</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-28/>3.1.28</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-29/>3.1.29</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-30/>3.1.30</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-31/>3.1.31</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-32/>3.1.32</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-33/>3.1.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-34/>3.1.34</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-35/>3.1.35</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-36/>3.1.36</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-37/>3.1.37</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-38/>3.1.38</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-39/>3.1.39</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-40/>3.1.40</a>
-</li>
-<li>
+</li><li>
 <a href=/3-1-41/>3.1.41</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-1/>3.2.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-2/>3.2.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-3/>3.2.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-4/>3.2.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-5/>3.2.5</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-6/>3.2.6</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-7/>3.2.7</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-8/>3.2.8</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-9/>3.2.9</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-10/>3.2.10</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-11/>3.2.11</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-12/>3.2.12</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-13/>3.2.13</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-14/>3.2.14</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-15/>3.2.15</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-16/>3.2.16</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-17/>3.2.17</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-18/>3.2.18</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-19/>3.2.19</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-20/>3.2.20</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-21/>3.2.21</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-22/>3.2.22</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-23/>3.2.23</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-24/>3.2.24</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-25/>3.2.25</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-26/>3.2.26</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-27/>3.2.27</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-28/>3.2.28</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-29/>3.2.29</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-30/>3.2.30</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-31/>3.2.31</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-32/>3.2.32</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-33/>3.2.33</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-34/>3.2.34</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-35/>3.2.35</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-36/>3.2.36</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-37/>3.2.37</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-38/>3.2.38</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-39/>3.2.39</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-40/>3.2.40</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-41/>3.2.41</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-42/>3.2.42</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-43/>3.2.43</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-44/>3.2.44</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-45/>3.2.45</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-46/>3.2.46</a>
-</li>
-<li>
+</li><li>
 <a href=/3-2-47/>3.2.47</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-1/>3.3.1</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-2/>3.3.2</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-3/>3.3.3</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-4/>3.3.4</a>
-</li>
-<li>
+</li><li>
 <a href=/3-3-5/>3.3.5</a>
-</li>
-<li>
+</li><li>
 <a href=/run-solution-code/>如何：运行题解代码</a>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
+</li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
 <header class=book-header>
 <div class="flex align-center justify-between">
 <label for=menu-control>
@@ -1392,46 +935,31 @@
 <strong>Fundamental</strong>
 <label for=toc-control>
 </label>
-</div>
-</header>
-<article class="markdown book-post">
+</div></header><article class="markdown book-post">
 <h2>
 <a href=/1-4-23/>1.4.23</a>
-</h2>
-<h5>2018-5-23</h5>
-<div>
+</h2><h5>2018-5-23</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.23 # 解答 # 根据书中的提示，将二分查找中判断相等的条件改为两个数的差小于等于 $1/N^2$。
+</div><p>1.4.23 # 解答 # 根据书中的提示，将二分查找中判断相等的条件改为两个数的差小于等于 $1/N^2$。
 代码 # // 将二分查找中的相等判定条件修改为差值小于 x，其中 x = 1/N^2。 /// &lt;summary> /// 二分查找。 /// &lt;/summary> /// &lt;param name="a">查找范围。&lt;/param> /// &lt;param name="key">关键字。&lt;/param> /// &lt;returns>结果的下标，没有结果时返回 -1。&lt;/returns> static int BinarySearch(double[] a, double key) { int lo = 0; int hi = a.Length - 1; double threshold = 1.0 / (a.Length * a.Length); while (lo &lt;= hi) { int mid = lo + (hi - lo) / 2; if (Math.
 <a href=/1-4-23/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-24/>1.4.24</a>
-</h2>
-<h5>2018-5-23</h5>
-<div>
+</h2><h5>2018-5-23</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.24 # 解答 # 第一问：二分查找即可。
+</div><p>1.4.24 # 解答 # 第一问：二分查找即可。
 第二问： 按照第 1, 2, 4, 8,&mldr;, 2^k 层顺序查找，一直到 2^k > F， 随后在 [2^(k - 1), 2^k] 范围中二分查找。
 代码 # 这里建立了一个结构体用于返回测试结果：
 struct testResult { public int F;// 找到的 F 值。 public int BrokenEggs;// 打碎的鸡蛋数。 } 用于测试的方法：
 /// &lt;summary> /// 扔鸡蛋，没碎返回 true，碎了返回 false。 /// &lt;/summary> /// &lt;param name="floor">扔鸡蛋的高度。&lt;/param> /// &lt;returns>&lt;/returns> static bool ThrowEgg(int floor) { return floor &lt;= F; } /// &lt;summary> /// 第一种方案。 /// &lt;/summary> /// &lt;param name="a">大楼。&lt;/param> /// &lt;returns>&lt;/returns> static testResult PlanA(int[] a) { int lo = 0; int hi = a.
 <a href=/1-4-24/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-25/>1.4.25</a>
-</h2>
-<h5>2018-5-23</h5>
-<div>
+</h2><h5>2018-5-23</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.25 # 解答 # 第一问：
+</div><p>1.4.25 # 解答 # 第一问：
 第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),&mldr;, √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k &lt;= √(N)。
 k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
 第二问：
@@ -1439,19 +967,13 @@ k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多�
 随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
 代码 # 这里我们同样定义了一个结构体：
 struct testResult { public int F;// 测试得出的 F 值 public int BrokenEggs;// 碎掉的鸡蛋数。 public int ThrowTimes;// 扔鸡蛋的次数。 } 之后是测试用的方法：
-/// &lt;summary> /// 扔鸡蛋，没碎返回 true，碎了返回 false。 /// &lt;/summary> /// &lt;param name="floor">扔鸡蛋的高度。&lt;/param> /// &lt;returns>&lt;/returns> static bool ThrowEgg(int floor) { return floor &lt;= F; } /// &lt;summary> /// 第一种方案。 /// &lt;/summary> /// &lt;param name="a">大楼。&lt;/param> /// &lt;returns>&lt;/returns> static testResult PlanA(int[] a) { int lo = 0; int hi = 0; int eggs = 0; int throwTimes = 0; testResult result = new testResult(); while (ThrowEgg(hi)) { throwTimes++; lo = hi; hi += (int)Math.
 <a href=/1-4-25/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-26/>1.4.26</a>
-</h2>
-<h5>2018-5-23</h5>
-<div>
+</h2><h5>2018-5-23</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.26 # 解答 # 首先，我们将问题转化为证明三点
+</div><p>1.4.26 # 解答 # 首先，我们将问题转化为证明三点
 $$ A(a,a^3),B(b,b^3),C(c,c^3) $$
 共线，当且仅当满足
 $$ a+b+c=0 $$
@@ -1468,139 +990,92 @@ $$ (a+b+c)(c-a)=0 $$
 解得：
 $$ c_1=-a-b,c_2=a $$
 显然 $c\ne a$ ，因此当且仅当 $a+b+c=0$ 时 $A,B,C$ 三点共线。 证毕。
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-27/>1.4.27</a>
-</h2>
-<h5>2018-5-23</h5>
-<div>
+</h2><h5>2018-5-23</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.27 # 解答 # 实现比较简单，想象两个栈背靠背接在一起，左侧栈负责出队，右侧栈负责入队。
+</div><p>1.4.27 # 解答 # 实现比较简单，想象两个栈背靠背接在一起，左侧栈负责出队，右侧栈负责入队。
 当左侧栈为空时就把右侧栈中的元素倒到左侧栈，这个过程是 O(n) 的。
 但在这个过程之前必然有 n 个元素入栈，均摊后即为 O(1)。
 代码 # namespace _1._4._27 { /// &lt;summary> /// 用两个栈模拟的队列。 /// &lt;/summary> /// &lt;typeparam name="Item">队列中的元素。&lt;/typeparam> class StackQueue&lt;Item> { Stack&lt;Item> H;//用于保存出队元素 Stack&lt;Item> T;//用于保存入队元素 /// &lt;summary> /// 构造一个队列。 /// &lt;/summary> public StackQueue() { this.H = new Stack&lt;Item>(); this.T = new Stack&lt;Item>(); } /// &lt;summary> /// 将栈 T 中的元素依次弹出并压入栈 H 中。 /// &lt;/summary> private void Reverse() { while (!
 <a href=/1-4-27/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-28/>1.4.28</a>
-</h2>
-<h5>2018-5-31</h5>
-<div>
+</h2><h5>2018-5-31</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.28 # 解答 # 每次入队的时候将队列倒转，这样入队的元素就是第一个了。
-代码 # namespace _1._4._28 { /// &lt;summary> /// 用一条队列模拟的栈。 /// &lt;/summary> /// &lt;typeparam name="Item">栈中保存的元素。&lt;/typeparam> class QueueStack&lt;Item> { Queue&lt;Item> queue; /// &lt;summary> /// 初始化一个栈。 /// &lt;/summary> public QueueStack() { this.queue = new Queue&lt;Item>(); } /// &lt;summary> /// 向栈中添加一个元素。 /// &lt;/summary> /// &lt;param name="item">&lt;/param> public void Push(Item item) { this.queue.Enqueue(item); int size = this.
+</div><p>1.4.28 # 解答 # 每次入队的时候将队列倒转，这样入队的元素就是第一个了。
+代码 # namespace _1._4._28 { /// &lt;summary> /// 用一条队列模拟的栈。 /// &lt;/summary> /// &lt;typeparam name="Item">栈中保存的元素。&lt;/typeparam> class QueueStack&lt;Item> { Queue&lt;Item> queue; /// &lt;summary> /// 初始化一个栈。 /// &lt;/summary> public QueueStack() { this.queue = new Queue&lt;Item>(); } /// &lt;summary> /// 向栈中添加一个元素。 /// &lt;/summary> /// &lt;param name="item">&lt;/param> public void Push(Item item) { this.
 <a href=/1-4-28/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-29/>1.4.29</a>
-</h2>
-<h5>2018-5-31</h5>
-<div>
+</h2><h5>2018-5-31</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.29 # 解答 # 和用两个栈实现队列的方法类似。
+</div><p>1.4.29 # 解答 # 和用两个栈实现队列的方法类似。
 push 的时候把右侧栈内容倒到左侧栈，之后再入栈。
 pop 的时候也做相同操作，右侧栈内容进左侧栈，之后再出栈。
 enqueue 的时候则将左侧栈内容倒到右侧栈，之后再入队。
 代码 # namespace _1._4._29 { /// &lt;summary> /// 用两个栈模拟的 Steque。 /// &lt;/summary> /// &lt;typeparam name="Item">Steque 中的元素类型。&lt;/typeparam> class StackSteque&lt;Item> { Stack&lt;Item> H; Stack&lt;Item> T; /// &lt;summary> /// 初始化一个 Steque /// &lt;/summary> public StackSteque() { this.H = new Stack&lt;Item>(); this.T = new Stack&lt;Item>(); } /// &lt;summary> /// 向栈中添加一个元素。 /// &lt;/summary> /// &lt;param name="item">&lt;/param> public void Push(Item item) { ReverseT(); this.
 <a href=/1-4-29/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-30/>1.4.30</a>
-</h2>
-<h5>2018-5-31</h5>
-<div>
+</h2><h5>2018-5-31</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.30 # 解答 # steque 作为队列的头部，stack 作为队列的尾部。
+</div><p>1.4.30 # 解答 # steque 作为队列的头部，stack 作为队列的尾部。
 pushLeft：直接 push 到 steque 中即可。
 pushRight：如果 stack 为空，则直接 enqueue 到 steque 中，否则就 push 到 stack 中。
 popLeft：如果 steque 为空，则将 stack 中的元素倒到 steque 中去（steque.push(stack.pop())），然后再从 steque 中 pop。
 popRight：如果 stack 为空，则将 steque 中的元素倒到 stack 中去，然后再从 stack 中 pop。
 代码 # namespace _1._4._30 { /// &lt;summary> /// 用一个栈和一个 Steque 模拟的双向队列。 /// &lt;/summary> /// &lt;typeparam name="Item">双向队列中保存的元素类型。&lt;/typeparam> class Deque&lt;Item> { Stack&lt;Item> stack;//代表队列尾部 Steque&lt;Item> steque;//代表队列头部 /// &lt;summary> /// 创建一条空的双向队列。 /// &lt;/summary> public Deque() { this.
 <a href=/1-4-30/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-31/>1.4.31</a>
-</h2>
-<h5>2018-5-31</h5>
-<div>
+</h2><h5>2018-5-31</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.31 # 解答 # 三个栈分别命名为左中右。
+</div><p>1.4.31 # 解答 # 三个栈分别命名为左中右。
 左侧栈和右侧栈负责模拟队列，和用两个栈模拟队列的方法类似。
 由于是双向队列，左栈和右栈会频繁的倒来倒去，因此每次都只倒一半的元素可以有效减少开销。
 有一侧栈为空时，另一侧栈中上半部分先移动到中间栈中，下半部分倒到另一侧栈里，再从中间栈拿回上半部分元素。
 这样可以确保接下来的 pop 操作一定是常数级别的。
-代码 # namespace _1._4._31 { /// &lt;summary> /// 用三个栈模拟的双向队列。 /// &lt;/summary> /// &lt;typeparam name="Item">双向队列中的元素。&lt;/typeparam> class Deque&lt;Item> { Stack&lt;Item> left; Stack&lt;Item> middle; Stack&lt;Item> right; /// &lt;summary> /// 构造一条新的双向队列。 /// &lt;/summary> public Deque() { this.left = new Stack&lt;Item>(); this.middle = new Stack&lt;Item>(); this.right = new Stack&lt;Item>(); } /// &lt;summary> /// 向双向队列左侧插入一个元素。 /// &lt;/summary> /// &lt;param name="item">要插入的元素。&lt;/param> public void PushLeft(Item item) { this.
+代码 # namespace _1._4._31 { /// &lt;summary> /// 用三个栈模拟的双向队列。 /// &lt;/summary> /// &lt;typeparam name="Item">双向队列中的元素。&lt;/typeparam> class Deque&lt;Item> { Stack&lt;Item> left; Stack&lt;Item> middle; Stack&lt;Item> right; /// &lt;summary> /// 构造一条新的双向队列。 /// &lt;/summary> public Deque() { this.left = new Stack&lt;Item>(); this.middle = new Stack&lt;Item>(); this.
 <a href=/1-4-31/>...</a>
-</p>
-</article>
-<article class="markdown book-post">
+</p></article><article class="markdown book-post">
 <h2>
 <a href=/1-4-32/>1.4.32</a>
-</h2>
-<h5>2018-5-31</h5>
-<div>
+</h2><h5>2018-5-31</h5><div>
 <a href=/tags/fundamental/>Fundamental</a>
-</div>
-<p>1.4.32 # 解答 # 首先，不需要扩容数组的的操作都只需访问数组一次，$M$ 次操作就是 $M$ 次访问。
+</div><p>1.4.32 # 解答 # 首先，不需要扩容数组的的操作都只需访问数组一次，$M$ 次操作就是 $M$ 次访问。
 随后我们有性质， $M$ 次栈操作后额外复制访问数组的次数小于 $2M$。
 这里简单证明，设 $M$ 次操作之后栈的大小为 $n$，那么额外访问数组的次数为：
 $S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&mldr;+ 2 &lt; n$
 为了能使栈大小达到 $n$，$M$ 必须大于等于 $\frac{n}{2}$
 因此 $2M \ge n > S$，得证。
-因此我们可以得到 $M$ 次操作后访问数组次数的总和 $S' = S + M &lt; 3M$。
-</p>
-</article>
-<ul class="pagination pagination-default">
+因此我们可以得到 $M$ 次操作后访问数组次数的总和 $S&rsquo; = S + M &lt; 3M$。
+</p></article><ul class="pagination pagination-default">
 <li class=page-item>
 <a href=/tags/fundamental/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/13/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/12/ aria-label="Page 12" class=page-link role=button>12</a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/13/ aria-label="Page 13" class=page-link role=button>13</a>
-</li>
-<li class="page-item active">
+</li><li class="page-item active">
 <a aria-current=page aria-label="Page 14" class=page-link role=button>14</a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/15/ aria-label="Page 15" class=page-link role=button>15</a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/16/ aria-label="Page 16" class=page-link role=button>16</a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/15/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class=page-item>
+</li><li class=page-item>
 <a href=/tags/fundamental/page/18/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
-<footer class=book-footer>
+</li></ul><footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-</main>
-</body>
-</html>
+</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><label for=menu-control class="hidden book-menu-overlay"></label>
+</div></main></body></html>

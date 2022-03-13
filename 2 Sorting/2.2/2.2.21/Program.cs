@@ -28,7 +28,7 @@ static int BinarySearch<T>(T key, T[] array, int lo, int hi) where T : IComparab
         var mid = lo + (hi - lo) / 2;
         if (array[mid].Equals(key))
             return mid;
-        else if (array[mid].CompareTo(key) < 0)
+        if (array[mid].CompareTo(key) < 0)
             lo = mid + 1;
         else
             hi = mid - 1;

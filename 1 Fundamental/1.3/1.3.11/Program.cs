@@ -12,7 +12,8 @@ foreach (var n in input)
     {
         continue;
     }
-    else if (n == "+")
+
+    if (n == "+")
     {
         stack.Push(stack.Pop() + stack.Pop());
     }

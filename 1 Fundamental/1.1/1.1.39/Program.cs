@@ -67,14 +67,12 @@ static int RankInternal(int key, int[] a, int lo, int hi, int number)
     {
         return RankInternal(key, a, lo, mid - 1, number + 1);
     }
-    else if (key > a[mid])
+
+    if (key > a[mid])
     {
         return RankInternal(key, a, mid + 1, hi, number + 1);
     }
-    else
-    {
-        return mid;
-    }
+    return mid;
 }
 
 static void PrintMatrix(double[,] a)

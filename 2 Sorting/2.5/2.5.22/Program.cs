@@ -48,7 +48,7 @@ while (!buyer.IsEmpty() && !seller.IsEmpty())
 
 }
 
-class Ticket : IComparable<Ticket>
+internal class Ticket : IComparable<Ticket>
 {
     public double Price;
     public int Share;

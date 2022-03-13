@@ -1,7 +1,7 @@
 ﻿using System;
 using Generics;
 
-var q = new Queue<string>();
+var q = new Generics.Queue<string>();
 q.Enqueue("first");
 q.Enqueue("second");
 q.Enqueue("third");

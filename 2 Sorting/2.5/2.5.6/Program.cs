@@ -23,10 +23,9 @@ static T Select<T>(T[] a, int k, int lo, int hi) where T : IComparable<T>
     var i = Partition(a, lo, hi);
     if (i > k)
         return Select(a, k, lo, i - 1);
-    else if (i < k)
+    if (i < k)
         return Select(a, k, i + 1, hi);
-    else
-        return a[i];
+    return a[i];
 }
 
 // 对数组进行切分，返回切分的位置。

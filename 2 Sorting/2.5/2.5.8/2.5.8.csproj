@@ -6,13 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="tale.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="tale.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <ProjectReference Include="..\..\..\0 Data\TestCase\TestCase.csproj" />
   </ItemGroup>
 
 </Project>

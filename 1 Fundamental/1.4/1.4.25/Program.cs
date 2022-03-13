@@ -105,7 +105,7 @@ static TestResult PlanB(int[] a)
     return result;
 }
 
-struct TestResult
+internal struct TestResult
 {
     public int F; // 测试得出的 F 值
     public int BrokenEggs; // 碎掉的鸡蛋数。

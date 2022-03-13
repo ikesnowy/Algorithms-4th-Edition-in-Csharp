@@ -57,7 +57,7 @@ static void InsertionSort<T>(T[] keys, Comparer<T>[] comparers)
     }
 }
 
-class FileSizeComparer : Comparer<FileInfo>
+internal class FileSizeComparer : Comparer<FileInfo>
 {
     public override int Compare(FileInfo x, FileInfo y)
     {
@@ -65,7 +65,7 @@ class FileSizeComparer : Comparer<FileInfo>
     }
 }
 
-class FileNameComparer : Comparer<FileInfo>
+internal class FileNameComparer : Comparer<FileInfo>
 {
     public override int Compare(FileInfo x, FileInfo y)
     {
@@ -73,7 +73,7 @@ class FileNameComparer : Comparer<FileInfo>
     }
 }
 
-class FileTimeStampComparer : Comparer<FileInfo>
+internal class FileTimeStampComparer : Comparer<FileInfo>
 {
     public override int Compare(FileInfo x, FileInfo y)
     {

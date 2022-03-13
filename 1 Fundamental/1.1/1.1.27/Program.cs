@@ -1,6 +1,6 @@
 ﻿using System;
 
-int binomialCalled = 0; // 计算递归调用次数
+var binomialCalled = 0; // 计算递归调用次数
 double?[,] binomialCache; // 保存计算结果的数组
 
 binomialCache = new double?[101, 51];
@@ -18,9 +18,7 @@ double? Binomial(int n, int k, double p)
     {
         return binomialCache[n, k];
     }
-    else
-    {
-        binomialCache[n, k] = (1.0 - p) * Binomial(n - 1, k, p) + p * Binomial(n - 1, k - 1, p);
-        return binomialCache[n, k];
-    }
+
+    binomialCache[n, k] = (1.0 - p) * Binomial(n - 1, k, p) + p * Binomial(n - 1, k - 1, p);
+    return binomialCache[n, k];
 }

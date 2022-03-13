@@ -32,7 +32,7 @@ for (var i = m - 1; i >= m * 0.99; i--)
     Console.WriteLine(records[i].Value + " " + records[i].Key);
 }
 
-class Record : IComparable<Record>
+internal class Record : IComparable<Record>
 {
     public string Key { get; set; } // 单词
     public int Value { get; set; } // 频率

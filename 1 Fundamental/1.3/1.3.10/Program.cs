@@ -13,7 +13,8 @@ foreach (var n in input)
     {
         continue;
     }
-    else if (n == "+" || n == "-" || n == "*" || n == "/")
+
+    if (n == "+" || n == "-" || n == "*" || n == "/")
     {
         stack.Push(n);
     }

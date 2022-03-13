@@ -1,49 +1,48 @@
 ﻿using System;
 
-namespace Measurement
+namespace Measurement;
+
+/// <summary>
+/// 用二分查找优化的方法查找数组中和为零的二元组。
+/// </summary>
+public static class TwoSumFast
 {
     /// <summary>
-    /// 用二分查找优化的方法查找数组中和为零的二元组。
+    /// 打印出数组中所有和为零的整数对。
     /// </summary>
-    public static class TwoSumFast
+    /// <param name="a">查找范围。</param>
+    public static void PrintAll(int[] a)
     {
-        /// <summary>
-        /// 打印出数组中所有和为零的整数对。
-        /// </summary>
-        /// <param name="a">查找范围。</param>
-        public static void PrintAll(int[] a)
+        var n = a.Length;
+        Array.Sort(a);
+        for (var i = 0; i < n; i++)
         {
-            var n = a.Length;
-            Array.Sort(a);
-            for (var i = 0; i < n; i++)
+            var j = Array.BinarySearch(a, -a[i]);
+            if (j > i)
             {
-                var j = Array.BinarySearch(a, -a[i]);
-                if (j > i)
-                {
-                    Console.WriteLine(a[i] + " " + a[j]);
-                }
+                Console.WriteLine(a[i] + " " + a[j]);
             }
         }
+    }
 
-        /// <summary>
-        /// 计算数组中和为零的整数对数量。
-        /// </summary>
-        /// <param name="a">查找范围。</param>
-        /// <returns>数组中和为零的整数对数量。</returns>
-        public static int Count(int[] a)
+    /// <summary>
+    /// 计算数组中和为零的整数对数量。
+    /// </summary>
+    /// <param name="a">查找范围。</param>
+    /// <returns>数组中和为零的整数对数量。</returns>
+    public static int Count(int[] a)
+    {
+        var n = a.Length;
+        Array.Sort(a);
+        var count = 0;
+        for (var i = 0; i < n; i++)
         {
-            var n = a.Length;
-            Array.Sort(a);
-            var count = 0;
-            for (var i = 0; i < n; i++)
+            var j = Array.BinarySearch(a, -a[i]);
+            if (i < j)
             {
-                var j = Array.BinarySearch(a, -a[i]);
-                if (i < j)
-                {
-                    count++;
-                }
+                count++;
             }
-            return count;
         }
+        return count;
     }
 }

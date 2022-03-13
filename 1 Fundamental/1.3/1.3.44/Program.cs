@@ -9,4 +9,4 @@ buffer.Insert('4');
 buffer.Left(2);
 buffer.Delete();
 buffer.Insert('5');
-System.Console.WriteLine(buffer.Getstring());
+System.Console.WriteLine(buffer.GetString());

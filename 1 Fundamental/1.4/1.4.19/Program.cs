@@ -41,10 +41,8 @@ static int MinimumRow(int[,] matrix, int rowStart, int rowLength, int colStart, 
     {
         return MinimumCol(matrix, rowStart, rowLength, mid + 1, colLength / 2 + 1);
     }
-    else
-    {
-        return MinimumCol(matrix, rowStart, rowLength, colStart, colLength / 2 + 1);
-    }
+
+    return MinimumCol(matrix, rowStart, rowLength, colStart, colLength / 2 + 1);
 }
 
 static int MinimumCol(int[,] matrix, int rowStart, int rowLength, int colStart, int colLength)
@@ -75,8 +73,6 @@ static int MinimumCol(int[,] matrix, int rowStart, int rowLength, int colStart, 
     {
         return MinimumRow(matrix, mid + 1, rowLength / 2 + 1, colStart, colLength);
     }
-    else
-    {
-        return MinimumRow(matrix, rowStart, rowLength / 2 + 1, colStart, colLength);
-    }
+
+    return MinimumRow(matrix, rowStart, rowLength / 2 + 1, colStart, colLength);
 }

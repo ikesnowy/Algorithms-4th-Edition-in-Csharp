@@ -45,7 +45,7 @@ static void PrintMatrix(int[] current)
 /// <summary>
 /// 用于检查状态相同的比较器。
 /// </summary>
-class BoardEqualityComparer : IEqualityComparer<SearchNode>
+internal class BoardEqualityComparer : IEqualityComparer<SearchNode>
 {
     public bool Equals(SearchNode x, SearchNode y)
     {
@@ -70,7 +70,7 @@ class BoardEqualityComparer : IEqualityComparer<SearchNode>
     }
 }
 
-class SquareOfManhattanDistance : AStarSolverFor8Puzzles
+internal class SquareOfManhattanDistance : AStarSolverFor8Puzzles
 {
     public SquareOfManhattanDistance(IEqualityComparer<SearchNode> e) : base(e)
     {
@@ -101,7 +101,7 @@ class SquareOfManhattanDistance : AStarSolverFor8Puzzles
     }
 }
 
-class ManhattanDistance : AStarSolverFor8Puzzles
+internal class ManhattanDistance : AStarSolverFor8Puzzles
 {
     public ManhattanDistance(IEqualityComparer<SearchNode> e) : base(e)
     {
@@ -132,7 +132,7 @@ class ManhattanDistance : AStarSolverFor8Puzzles
     }
 }
 
-class TilesInWrongPlace : AStarSolverFor8Puzzles
+internal class TilesInWrongPlace : AStarSolverFor8Puzzles
 {
     public TilesInWrongPlace(IEqualityComparer<SearchNode> e) : base(e)
     {

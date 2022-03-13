@@ -36,7 +36,7 @@ bool CheckStability<T>(T[] input, BaseSort sort) where T : IComparable<T>
     return true;
 }
 
-class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
+internal class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
 {
     public readonly int Index;
     public T Key;

@@ -2,49 +2,48 @@
 using System.Text;
 // ReSharper disable StringCompareToIsCultureSpecific
 
-namespace _2._5._14
+namespace _2._5._14;
+
+/// <summary>
+/// 域名类。
+/// </summary>
+internal class Domain : IComparable<Domain>
 {
+    private readonly string[] _fields;
+    private readonly int _n;
+
     /// <summary>
-    /// 域名类。
+    /// 构造一个域名。
     /// </summary>
-    class Domain : IComparable<Domain>
+    /// <param name="url">域名的 url。</param>
+    public Domain(string url)
     {
-        private readonly string[] _fields;
-        private readonly int _n;
+        _fields = url.Split('.');
+        _n = _fields.Length;
+    }
 
-        /// <summary>
-        /// 构造一个域名。
-        /// </summary>
-        /// <param name="url">域名的 url。</param>
-        public Domain(string url)
+    public int CompareTo(Domain other)
+    {
+        var minLength = Math.Min(_n, other._n);
+        for (var i = 0; i < minLength; i++)
         {
-            _fields = url.Split('.');
-            _n = _fields.Length;
+            var c = _fields[minLength - i - 1].CompareTo(other._fields[minLength - i - 1]);
+            if (c != 0)
+                return c;
         }
 
-        public int CompareTo(Domain other)
-        {
-            var minLength = Math.Min(_n, other._n);
-            for (var i = 0; i < minLength; i++)
-            {
-                var c = _fields[minLength - i - 1].CompareTo(other._fields[minLength - i - 1]);
-                if (c != 0)
-                    return c;
-            }
+        return _n.CompareTo(other._n);
+    }
 
-            return _n.CompareTo(other._n);
-        }
-
-        public override string ToString()
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        for (var i = 0; i < _fields.Length; i++)
         {
-            var sb = new StringBuilder();
-            for (var i = 0; i < _fields.Length; i++)
-            {
-                if (i != 0)
-                    sb.Append('.');
-                sb.Append(_fields[i]);
-            }
-            return sb.ToString();
+            if (i != 0)
+                sb.Append('.');
+            sb.Append(_fields[i]);
         }
+        return sb.ToString();
     }
 }

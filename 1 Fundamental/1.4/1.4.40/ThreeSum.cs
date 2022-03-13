@@ -1,61 +1,60 @@
 ﻿using System;
 
-namespace _1._4._40
+namespace _1._4._40;
+
+/// <summary>
+/// 用暴力方法寻找数组中和为零的三元组。
+/// </summary>
+public static class ThreeSum
 {
     /// <summary>
-    /// 用暴力方法寻找数组中和为零的三元组。
+    /// 输出所有和为零的三元组。
     /// </summary>
-    public static class ThreeSum
+    /// <param name="a">输入数组。</param>
+    public static void PrintAll(int[] a)
     {
-        /// <summary>
-        /// 输出所有和为零的三元组。
-        /// </summary>
-        /// <param name="a">输入数组。</param>
-        public static void PrintAll(int[] a)
+        var n = a.Length;
+        for (var i = 0; i < n; i++)
         {
-            var n = a.Length;
-            for (var i = 0; i < n; i++)
-            {
-                Console.WriteLine($"for number \"{a[i]}\"");
-                var count = 0;
-                for (var j = i + 1; j < n; j++)
-                {
-                    for (var k = j + 1; k < n; k++)
-                    {
-                        if ((long)a[i] + a[j] + a[k] == 0)
-                        {
-                            Console.WriteLine($"{a[i]} + {a[j]} + {a[k]}");
-                            count++;
-                        }
-                    }
-                }
-                Console.WriteLine($"Count:{count}");
-            }
-        }
-
-        /// <summary>
-        /// 计算和为零的三元组的数量。
-        /// </summary>
-        /// <param name="a">输入数组。</param>
-        /// <returns></returns>
-        public static int Count(int[] a)
-        {
-            var n = a.Length;
+            Console.WriteLine($"for number \"{a[i]}\"");
             var count = 0;
-            for (var i = 0; i < n; i++)
+            for (var j = i + 1; j < n; j++)
             {
-                for (var j = i + 1; j < n; j++)
+                for (var k = j + 1; k < n; k++)
                 {
-                    for (var k = j + 1; k < n; k++)
+                    if ((long)a[i] + a[j] + a[k] == 0)
                     {
-                        if ((long)a[i] + a[j] + a[k] == 0)
-                        {
-                            count++;
-                        }
+                        Console.WriteLine($"{a[i]} + {a[j]} + {a[k]}");
+                        count++;
                     }
                 }
             }
-            return count;
+            Console.WriteLine($"Count:{count}");
         }
+    }
+
+    /// <summary>
+    /// 计算和为零的三元组的数量。
+    /// </summary>
+    /// <param name="a">输入数组。</param>
+    /// <returns></returns>
+    public static int Count(int[] a)
+    {
+        var n = a.Length;
+        var count = 0;
+        for (var i = 0; i < n; i++)
+        {
+            for (var j = i + 1; j < n; j++)
+            {
+                for (var k = j + 1; k < n; k++)
+                {
+                    if ((long)a[i] + a[j] + a[k] == 0)
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
     }
 }

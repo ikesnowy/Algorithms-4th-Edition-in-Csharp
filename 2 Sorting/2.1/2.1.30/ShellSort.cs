@@ -3,96 +3,95 @@ using System.Diagnostics;
 using Sort;
 // ReSharper disable CognitiveComplexity
 
-namespace _2._1._30
+namespace _2._1._30;
+
+public class ShellSort : BaseSort
 {
-    public class ShellSort : BaseSort
+    /// <summary>
+    /// 利用希尔排序将数组按升序排序，使用几何级数序列。
+    /// </summary>
+    /// <typeparam name="T">待排序的元素类型。</typeparam>
+    /// <param name="a">待排序的数组。</param>
+    /// <param name="t">几何级数的底数。</param>
+    public void Sort<T>(T[] a, int t) where T : IComparable<T>
     {
-        /// <summary>
-        /// 利用希尔排序将数组按升序排序，使用几何级数序列。
-        /// </summary>
-        /// <typeparam name="T">待排序的元素类型。</typeparam>
-        /// <param name="a">待排序的数组。</param>
-        /// <param name="t">几何级数的底数。</param>
-        public void Sort<T>(T[] a, int t) where T : IComparable<T>
+        var n = a.Length;
+        var h = 1;
+        while (h <= a.Length)
         {
-            var n = a.Length;
-            var h = 1;
-            while (h <= a.Length)
-            {
-                h *= t;
-            }
-
-            while (h >= 1)
-            {
-                for (var i = h; i < n; i++)
-                {
-                    for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
-                    {
-                        Exch(a, j, j - h);
-                    }
-                }
-                Debug.Assert(IsHSorted(a, h));
-                h /= t;
-            }
-            Debug.Assert(IsSorted(a));
+            h *= t;
         }
 
-        /// <summary>
-        /// 利用希尔排序将数组按升序排序。
-        /// </summary>
-        /// <param name="a">需要排序的数组。</param>
-        public override void Sort<T>(T[] a)
+        while (h >= 1)
         {
-            var n = a.Length;
-            var h = new int[2];   // 预先准备好的 h 值数组
-
-            var hTemp = 1;
-            int hLength;
-            for (hLength = 0; hTemp < n; hLength++)
+            for (var i = h; i < n; i++)
             {
-                if (hLength >= h.Length)  // 如果数组不够大则双倍扩容
+                for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
                 {
-                    var expand = new int[h.Length * 2];
-                    for (var j = 0; j < h.Length; j++)
-                    {
-                        expand[j] = h[j];
-                    }
-                    h = expand;
+                    Exch(a, j, j - h);
                 }
-                h[hLength] = hTemp;
-                hTemp = hTemp * 3 + 1;
             }
+            Debug.Assert(IsHSorted(a, h));
+            h /= t;
+        }
+        Debug.Assert(IsSorted(a));
+    }
 
-            for (var t = hLength - 1; t >= 0; t--)
+    /// <summary>
+    /// 利用希尔排序将数组按升序排序。
+    /// </summary>
+    /// <param name="a">需要排序的数组。</param>
+    public override void Sort<T>(T[] a)
+    {
+        var n = a.Length;
+        var h = new int[2];   // 预先准备好的 h 值数组
+
+        var hTemp = 1;
+        int hLength;
+        for (hLength = 0; hTemp < n; hLength++)
+        {
+            if (hLength >= h.Length)  // 如果数组不够大则双倍扩容
             {
-                for (var i = h[t]; i < n; i++)
+                var expand = new int[h.Length * 2];
+                for (var j = 0; j < h.Length; j++)
                 {
-                    for (var j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
-                    {
-                        Exch(a, j, j - h[t]);
-                    }
+                    expand[j] = h[j];
                 }
-                Debug.Assert(IsHSorted(a, h[t]));
+                h = expand;
             }
-            Debug.Assert(IsSorted(a));
+            h[hLength] = hTemp;
+            hTemp = hTemp * 3 + 1;
         }
 
-        /// <summary>
-        /// 检查一次希尔排序后的子数组是否有序。
-        /// </summary>
-        /// <param name="a">排序后的数组。</param>
-        /// <param name="h">子数组间隔。</param>
-        /// <returns>是否有序。</returns>
-        private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
+        for (var t = hLength - 1; t >= 0; t--)
         {
-            for (var i = h; i < a.Length; i++)
+            for (var i = h[t]; i < n; i++)
             {
-                if (Less(a[i], a[i - h]))
+                for (var j = i; j >= h[t] && Less(a[j], a[j - h[t]]); j -= h[t])
                 {
-                    return false;
+                    Exch(a, j, j - h[t]);
                 }
             }
-            return true;
+            Debug.Assert(IsHSorted(a, h[t]));
         }
+        Debug.Assert(IsSorted(a));
+    }
+
+    /// <summary>
+    /// 检查一次希尔排序后的子数组是否有序。
+    /// </summary>
+    /// <param name="a">排序后的数组。</param>
+    /// <param name="h">子数组间隔。</param>
+    /// <returns>是否有序。</returns>
+    private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
+    {
+        for (var i = h; i < a.Length; i++)
+        {
+            if (Less(a[i], a[i - h]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

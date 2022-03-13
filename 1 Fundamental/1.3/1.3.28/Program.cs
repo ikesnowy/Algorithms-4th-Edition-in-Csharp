@@ -24,6 +24,5 @@ static int Max(Node<int> first, int max = 0)
         return max;
     if (max < first.Item)
         return Max(first.Next, first.Item);
-    else
-        return Max(first.Next, max);
+    return Max(first.Next, max);
 }

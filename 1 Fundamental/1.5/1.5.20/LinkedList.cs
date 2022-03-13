@@ -3,223 +3,222 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace _1._5._20
+namespace _1._5._20;
+
+/// <summary>
+/// 链表类。
+/// </summary>
+/// <typeparam name="TItem">链表存放的元素类型。</typeparam>
+public class LinkedList<TItem> : IEnumerable<TItem>
 {
+    private Node<TItem> _first;
+    private int _count;
+
     /// <summary>
-    /// 链表类。
+    /// 建立一条链表。
     /// </summary>
-    /// <typeparam name="TItem">链表存放的元素类型。</typeparam>
-    public class LinkedList<TItem> : IEnumerable<TItem>
+    public LinkedList()
     {
-        private Node<TItem> _first;
-        private int _count;
+        _first = null;
+        _count = 0;
+    }
 
-        /// <summary>
-        /// 建立一条链表。
-        /// </summary>
-        public LinkedList()
+    /// <summary>
+    /// 在表头插入一个元素。
+    /// </summary>
+    /// <param name="item">要插入的元素。</param>
+    public void Insert(TItem item)
+    {
+        var n = new Node<TItem>();
+        n.Item = item;
+        n.Next = _first;
+        _first = n;
+        _count++;
+    }
+
+    /// <summary>
+    /// 在指定位置前面插入一个元素。
+    /// </summary>
+    /// <param name="item">要插入的元素。</param>
+    /// <param name="position">要插入的位置。（从 0 开始）</param>
+    public void Insert(TItem item, int position)
+    {
+        if (position > _count)
         {
-            _first = null;
-            _count = 0;
+            throw new IndexOutOfRangeException();
+        }
+        if (position == 0)
+        {
+            Insert(item);
+            return;
         }
 
-        /// <summary>
-        /// 在表头插入一个元素。
-        /// </summary>
-        /// <param name="item">要插入的元素。</param>
-        public void Insert(TItem item)
+        var n = new Node<TItem>();
+        n.Item = item;
+
+        var front = _first;
+        for (var i = 1; i < position; i++)
         {
-            var n = new Node<TItem>();
-            n.Item = item;
-            n.Next = _first;
-            _first = n;
-            _count++;
+            front = front.Next;
         }
 
-        /// <summary>
-        /// 在指定位置前面插入一个元素。
-        /// </summary>
-        /// <param name="item">要插入的元素。</param>
-        /// <param name="position">要插入的位置。（从 0 开始）</param>
-        public void Insert(TItem item, int position)
+        n.Next = front.Next;
+        front.Next = n;
+        _count++;
+    }
+
+    /// <summary>
+    /// 获取指定位置的元素。
+    /// </summary>
+    /// <param name="index">元素下标。</param>
+    /// <returns></returns>
+    public TItem Find(int index)
+    {
+        if (index >= _count)
         {
-            if (position > _count)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            if (position == 0)
-            {
-                Insert(item);
-                return;
-            }
-
-            var n = new Node<TItem>();
-            n.Item = item;
-
-            var front = _first;
-            for (var i = 1; i < position; i++)
-            {
-                front = front.Next;
-            }
-
-            n.Next = front.Next;
-            front.Next = n;
-            _count++;
+            throw new IndexOutOfRangeException();
         }
 
-        /// <summary>
-        /// 获取指定位置的元素。
-        /// </summary>
-        /// <param name="index">元素下标。</param>
-        /// <returns></returns>
-        public TItem Find(int index)
+        var current = _first;
+        for (var i = 0; i < index; i++)
         {
-            if (index >= _count)
-            {
-                throw new IndexOutOfRangeException();
-            }
-
-            var current = _first;
-            for (var i = 0; i < index; i++)
-            {
-                current = current.Next;
-            }
-
-            return current.Item;
+            current = current.Next;
         }
 
-        /// <summary>
-        /// 修改指定下标上元素的值。
-        /// </summary>
-        /// <param name="index">需要修改的元素下标。</param>
-        /// <param name="value">新的值。</param>
-        public void Motify(int index, TItem value)
+        return current.Item;
+    }
+
+    /// <summary>
+    /// 修改指定下标上元素的值。
+    /// </summary>
+    /// <param name="index">需要修改的元素下标。</param>
+    /// <param name="value">新的值。</param>
+    public void Motify(int index, TItem value)
+    {
+        if (index >= _count)
         {
-            if (index >= _count)
-            {
-                throw new IndexOutOfRangeException();
-            }
-
-            var current = _first;
-            for (var i = 0; i < index; i++)
-            {
-                current = current.Next;
-            }
-
-            current.Item = value;
+            throw new IndexOutOfRangeException();
         }
 
-        /// <summary>
-        /// 删除指定位置的元素，返回该元素。
-        /// </summary>
-        /// <param name="index">需要删除元素的位置。</param>
-        /// <returns>被删除元素的值。</returns>
-        public TItem Delete(int index)
+        var current = _first;
+        for (var i = 0; i < index; i++)
         {
-            if (index >= _count)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            current = current.Next;
+        }
 
-            var front = _first;
-            var temp = _first.Item;
-            if (index == 0)
-            {
-                _count--;
-                _first = _first.Next;
-                return temp;
-            }
+        current.Item = value;
+    }
 
-            for (var i = 1; i < index; i++)
-            {
-                front = front.Next;
-            }
+    /// <summary>
+    /// 删除指定位置的元素，返回该元素。
+    /// </summary>
+    /// <param name="index">需要删除元素的位置。</param>
+    /// <returns>被删除元素的值。</returns>
+    public TItem Delete(int index)
+    {
+        if (index >= _count)
+        {
+            throw new IndexOutOfRangeException();
+        }
 
-            temp = front.Next.Item;
-            front.Next = front.Next.Next;
+        var front = _first;
+        var temp = _first.Item;
+        if (index == 0)
+        {
             _count--;
+            _first = _first.Next;
             return temp;
         }
 
-        /// <summary>
-        /// 检查链表是否为空。
-        /// </summary>
-        /// <returns></returns>
-        public bool IsEmpty()
+        for (var i = 1; i < index; i++)
         {
-            return _count == 0;
+            front = front.Next;
         }
 
-        /// <summary>
-        /// 获取链表中元素的数量。
-        /// </summary>
-        /// <returns></returns>
-        public int Size()
+        temp = front.Next.Item;
+        front.Next = front.Next.Next;
+        _count--;
+        return temp;
+    }
+
+    /// <summary>
+    /// 检查链表是否为空。
+    /// </summary>
+    /// <returns></returns>
+    public bool IsEmpty()
+    {
+        return _count == 0;
+    }
+
+    /// <summary>
+    /// 获取链表中元素的数量。
+    /// </summary>
+    /// <returns></returns>
+    public int Size()
+    {
+        return _count;
+    }
+
+    /// <summary>
+    /// 将链表转化成单个字符串，元素之间用空格隔开。
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        var s = new StringBuilder();
+
+        foreach (var i in this)
         {
-            return _count;
+            s.Append(i);
+            s.Append(" ");
         }
 
-        /// <summary>
-        /// 将链表转化成单个字符串，元素之间用空格隔开。
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        return s.ToString();
+    }
+
+    public IEnumerator<TItem> GetEnumerator()
+    {
+        return new LinkedListEnumerator(_first);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    private class LinkedListEnumerator : IEnumerator<TItem>
+    {
+        private Node<TItem> _current;
+        private Node<TItem> _first;
+
+        public LinkedListEnumerator(Node<TItem> first)
         {
-            var s = new StringBuilder();
-
-            foreach (var i in this)
-            {
-                s.Append(i);
-                s.Append(" ");
-            }
-
-            return s.ToString();
+            _current = new Node<TItem>();
+            _current.Next = first;
+            _first = _current;
         }
 
-        public IEnumerator<TItem> GetEnumerator()
+        TItem IEnumerator<TItem>.Current => _current.Item;
+
+        object IEnumerator.Current => _current.Item;
+
+        void IDisposable.Dispose()
         {
-            return new LinkedListEnumerator(_first);
+            _first = null;
+            _current = null;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        bool IEnumerator.MoveNext()
         {
-            return GetEnumerator();
+            if (_current.Next == null)
+                return false;
+            _current = _current.Next;
+            return true;
         }
 
-        private class LinkedListEnumerator : IEnumerator<TItem>
+        void IEnumerator.Reset()
         {
-            Node<TItem> _current;
-            Node<TItem> _first;
-
-            public LinkedListEnumerator(Node<TItem> first)
-            {
-                _current = new Node<TItem>();
-                _current.Next = first;
-                _first = _current;
-            }
-
-            TItem IEnumerator<TItem>.Current => _current.Item;
-
-            object IEnumerator.Current => _current.Item;
-
-            void IDisposable.Dispose()
-            {
-                _first = null;
-                _current = null;
-            }
-
-            bool IEnumerator.MoveNext()
-            {
-                if (_current.Next == null)
-                    return false;
-                _current = _current.Next;
-                return true;
-            }
-
-            void IEnumerator.Reset()
-            {
-                _current = _first;
-            }
+            _current = _first;
         }
     }
 }

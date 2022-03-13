@@ -1,58 +1,57 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Sort
+namespace Sort;
+
+/// <summary>
+/// 希尔排序类。
+/// </summary>
+public class ShellSort : BaseSort
 {
     /// <summary>
-    /// 希尔排序类。
+    /// 利用希尔排序将数组按升序排序。
     /// </summary>
-    public class ShellSort : BaseSort
+    /// <param name="a">需要排序的数组。</param>
+    public override void Sort<T>(T[] a)
     {
-        /// <summary>
-        /// 利用希尔排序将数组按升序排序。
-        /// </summary>
-        /// <param name="a">需要排序的数组。</param>
-        public override void Sort<T>(T[] a)
+        var n = a.Length;
+
+        var h = 1;
+        while (h < n / 3)
         {
-            var n = a.Length;
-
-            var h = 1;
-            while (h < n / 3)
-            {
-                h = 3 * h + 1;
-            }
-
-            while (h >= 1)
-            {
-                for (var i = h; i < n; i++)
-                {
-                    for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
-                    {
-                        Exch(a, j, j - h);
-                    }
-                }
-                Debug.Assert(IsHSorted(a, h));
-                h /= 3;
-            }
-            Debug.Assert(IsSorted(a));
+            h = 3 * h + 1;
         }
 
-        /// <summary>
-        /// 检查一次希尔排序后的子数组是否有序。
-        /// </summary>
-        /// <param name="a">排序后的数组。</param>
-        /// <param name="h">子数组间隔。</param>
-        /// <returns>是否有序。</returns>
-        private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
+        while (h >= 1)
         {
-            for (var i = h; i < a.Length; i++)
+            for (var i = h; i < n; i++)
             {
-                if (Less(a[i], a[i - h]))
+                for (var j = i; j >= h && Less(a[j], a[j - h]); j -= h)
                 {
-                    return false;
+                    Exch(a, j, j - h);
                 }
             }
-            return true;
+            Debug.Assert(IsHSorted(a, h));
+            h /= 3;
         }
+        Debug.Assert(IsSorted(a));
+    }
+
+    /// <summary>
+    /// 检查一次希尔排序后的子数组是否有序。
+    /// </summary>
+    /// <param name="a">排序后的数组。</param>
+    /// <param name="h">子数组间隔。</param>
+    /// <returns>是否有序。</returns>
+    private bool IsHSorted<T>(T[] a, int h) where T : IComparable<T>
+    {
+        for (var i = h; i < a.Length; i++)
+        {
+            if (Less(a[i], a[i - h]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

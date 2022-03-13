@@ -73,7 +73,7 @@ for (var i = 0; i < input.Length; i++)
     Console.Write(input[i]);
 }
 
-struct Number
+internal struct Number
 {
     public int Value;
     public int Position;

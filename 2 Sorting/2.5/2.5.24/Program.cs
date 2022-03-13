@@ -16,7 +16,7 @@ while (!pq.IsEmpty())
     Console.WriteLine(w.Value + " " + w.Index);
 }
 
-class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
+internal class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
 {
     public T Value;
     public readonly int Index;

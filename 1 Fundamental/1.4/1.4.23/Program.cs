@@ -26,7 +26,8 @@ static int BinarySearch(double[] a, double key)
         {
             return mid;
         }
-        else if (a[mid] < key)
+
+        if (a[mid] < key)
         {
             lo = mid + 1;
         }

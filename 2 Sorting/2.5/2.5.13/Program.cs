@@ -52,7 +52,7 @@ internal class Job : IComparable<Job>
     }
 }
 
-class Processor : IComparable<Processor>
+internal class Processor : IComparable<Processor>
 {
     private readonly List<Job> _jobs = new();
     private double _busyTime;

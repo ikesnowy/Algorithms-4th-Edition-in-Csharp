@@ -42,7 +42,8 @@ static TestResult PlayGameA(Game game)
             result.SecretNumber = hi;
             return result;
         }
-        else if (guessResult == GuessResult.Hot)
+
+        if (guessResult == GuessResult.Hot)
         {
             lo = mid;
         }
@@ -87,7 +88,8 @@ static TestResult PlayGameB(Game game)
             result.SecretNumber = nowGuess;
             break;
         }
-        else if (guessResult == GuessResult.Hot)
+
+        if (guessResult == GuessResult.Hot)
         {
             if (isRightSide)
             {
@@ -134,7 +136,7 @@ static TestResult PlayGameB(Game game)
 /// <summary>
 /// 某种方案的测试结果，包含猜测结果和尝试次数。
 /// </summary>
-struct TestResult
+internal struct TestResult
 {
     public int SecretNumber; // 猜测到的数字。
     public int TryTimes; // 尝试次数。

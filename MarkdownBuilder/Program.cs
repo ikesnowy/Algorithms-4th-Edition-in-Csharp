@@ -3,11 +3,11 @@ using System.IO;
 using System.Text;
 
 Console.WriteLine("当前节：");
-string section = Console.ReadLine();
+var section = Console.ReadLine();
 Console.WriteLine("题目总数：");
-int questionNum = int.Parse(Console.ReadLine()!);
+var questionNum = int.Parse(Console.ReadLine()!);
 
-StringBuilder sb = new StringBuilder();
+var sb = new StringBuilder();
 sb.AppendLine("# 写在前面")
     .AppendLine()
     .AppendLine("整个项目都托管在了 Github 上：<https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp>")

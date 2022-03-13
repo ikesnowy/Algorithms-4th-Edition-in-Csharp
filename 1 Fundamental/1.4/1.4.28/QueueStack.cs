@@ -1,52 +1,51 @@
-﻿namespace _1._4._28
+﻿namespace _1._4._28;
+
+/// <summary>
+/// 用一条队列模拟的栈。
+/// </summary>
+/// <typeparam name="TItem">栈中保存的元素。</typeparam>
+internal class QueueStack<TItem>
 {
+    private readonly Queue<TItem> _queue;
+
     /// <summary>
-    /// 用一条队列模拟的栈。
+    /// 初始化一个栈。
     /// </summary>
-    /// <typeparam name="TItem">栈中保存的元素。</typeparam>
-    class QueueStack<TItem>
+    public QueueStack()
     {
-        readonly Queue<TItem> _queue;
+        _queue = new Queue<TItem>();
+    }
 
-        /// <summary>
-        /// 初始化一个栈。
-        /// </summary>
-        public QueueStack()
+    /// <summary>
+    /// 向栈中添加一个元素。
+    /// </summary>
+    /// <param name="item"></param>
+    public void Push(TItem item)
+    {
+        _queue.Enqueue(item);
+        var size = _queue.Size();
+        // 倒转队列
+        for (var i = 0; i < size - 1; i++)
         {
-            _queue = new Queue<TItem>();
+            _queue.Enqueue(_queue.Dequeue());
         }
+    }
 
-        /// <summary>
-        /// 向栈中添加一个元素。
-        /// </summary>
-        /// <param name="item"></param>
-        public void Push(TItem item)
-        {
-            _queue.Enqueue(item);
-            var size = _queue.Size();
-            // 倒转队列
-            for (var i = 0; i < size - 1; i++)
-            {
-                _queue.Enqueue(_queue.Dequeue());
-            }
-        }
+    /// <summary>
+    /// 从栈中弹出一个元素。
+    /// </summary>
+    /// <returns></returns>
+    public TItem Pop()
+    {
+        return _queue.Dequeue();
+    }
 
-        /// <summary>
-        /// 从栈中弹出一个元素。
-        /// </summary>
-        /// <returns></returns>
-        public TItem Pop()
-        {
-            return _queue.Dequeue();
-        }
-
-        /// <summary>
-        /// 确定栈是否为空。
-        /// </summary>
-        /// <returns></returns>
-        public bool IsEmpty()
-        {
-            return _queue.IsEmpty();
-        }
+    /// <summary>
+    /// 确定栈是否为空。
+    /// </summary>
+    /// <returns></returns>
+    public bool IsEmpty()
+    {
+        return _queue.IsEmpty();
     }
 }

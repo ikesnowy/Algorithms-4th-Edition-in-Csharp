@@ -45,7 +45,8 @@ static int BinarySearch(string[] keys, int length, int lo, int hi)
                 mid--;
             return mid + 1;
         }
-        else if (length > keys[mid].Length)
+
+        if (length > keys[mid].Length)
             lo = mid + 1;
         else
             hi = mid - 1;

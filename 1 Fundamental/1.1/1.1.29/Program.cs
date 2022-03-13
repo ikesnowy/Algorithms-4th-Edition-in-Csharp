@@ -72,12 +72,10 @@ static int RankInternal(int key, int[] a, int lo, int hi)
     {
         return RankInternal(key, a, lo, mid - 1);
     }
-    else if (key > a[mid])
+
+    if (key > a[mid])
     {
         return RankInternal(key, a, mid + 1, hi);
     }
-    else
-    {
-        return mid;
-    }
+    return mid;
 }

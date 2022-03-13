@@ -1,12 +1,11 @@
 ﻿using System.Windows.Forms;
 
-namespace _1._1._31
+namespace _1._1._31;
+
+public partial class Form2 : Form
 {
-    public partial class Form2 : Form
+    public Form2()
     {
-        public Form2()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

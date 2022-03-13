@@ -73,7 +73,7 @@ static void Stabilize<T>(T[] data, BaseSort sort) where T : IComparable<T>
     Console.WriteLine();
 }
 
-class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
+internal class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
 {
     public readonly int Index;
     public T Key;

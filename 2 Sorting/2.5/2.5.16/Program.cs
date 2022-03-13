@@ -18,7 +18,7 @@ for (var i = 0; i < names.Length; i++)
 }
 
 // 官方解答：https://algs4.cs.princeton.edu/25applications/California.java.html
-class CandidateComparer : IComparer<string>
+internal class CandidateComparer : IComparer<string>
 {
     private const string Order = "RWQOJMVAHBSGZXNTCIEKUPDYFL";
 

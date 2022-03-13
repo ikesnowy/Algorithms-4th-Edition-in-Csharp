@@ -42,7 +42,7 @@ static void Test(BaseSort sort, int n, int constant)
 /// 用来排序的元素，记录有自己的初始下标。
 /// </summary>
 /// <typeparam name="T"></typeparam>
-class Item<T> : IComparable<Item<T>> where T : IComparable<T>
+internal class Item<T> : IComparable<Item<T>> where T : IComparable<T>
 {
     public readonly int Index;
     public T Key;

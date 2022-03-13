@@ -1,59 +1,58 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace _3._2._38
+namespace _3._2._38;
+
+public partial class Form2 : Form
 {
-    public partial class Form2 : Form
+    private readonly BstDrawing<int, int> _bst = new();
+
+    public Form2()
     {
-        private readonly BstDrawing<int, int> _bst = new();
+        InitializeComponent();
+    }
 
-        public Form2()
+    public bool AddNode(int key)
+    {
+        try
         {
-            InitializeComponent();
+            _bst.Put(key, key);
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        finally
+        {
+            RefreshPanel();
         }
 
-        public bool AddNode(int key)
-        {
-            try
-            {
-                _bst.Put(key, key);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                RefreshPanel();
-            }
+        return true;
+    }
 
-            return true;
+    public bool DeleteNode(int key)
+    {
+        try
+        {
+            _bst.Delete(key);
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        finally
+        {
+            RefreshPanel();
         }
 
-        public bool DeleteNode(int key)
-        {
-            try
-            {
-                _bst.Delete(key);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                RefreshPanel();
-            }
+        return true;
+    }
 
-            return true;
-        }
-
-        public void RefreshPanel()
-        {
-            var pen = CreateGraphics();
-            pen.Clear(BackColor);
-            _bst.DrawTree(pen, ClientRectangle);
-            pen.Dispose();
-        }
+    public void RefreshPanel()
+    {
+        var pen = CreateGraphics();
+        pen.Clear(BackColor);
+        _bst.DrawTree(pen, ClientRectangle);
+        pen.Dispose();
     }
 }

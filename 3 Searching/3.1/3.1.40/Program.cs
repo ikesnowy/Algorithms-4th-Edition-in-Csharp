@@ -110,7 +110,7 @@ int BinarySearch<T>(T[] a, T key) where T : IComparable<T>
     return -1;
 }
 
-class TestNode : IComparable<TestNode>
+internal class TestNode : IComparable<TestNode>
 {
     public long Value { get; init; }
 

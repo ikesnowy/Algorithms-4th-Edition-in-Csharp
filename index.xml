@@ -692,11 +692,12 @@ private static void merge(Comparable[] a, int lo, int mid, int hi) { for (int i 
 在 MergeSortX 类里添加一个 CUTOFF 字段，排序时如果数组长度小于它则直接调用插入排序进行排序。
 在调用归并方法前判断第一个有序数组的最后一个元素是否大于第二个有序数组的第一个元素，
 如果大于的话就不需要调用归并了，直接首尾相接即可。
-每次归并都需要两个数组，一个用于存放归并结果，这个数组中的内容是无关紧要的；
-另一个则保存了归并前的数组，用于实际的归并过程。
+归并的空间优化类似于左手倒右手，从一个数组读数据写到另一个数组中去，下一次归并的时候就可以反过来操作，从而节省数组空间。
+每次归并都需要两个数组，一个用于存放归并结果，这个数组中的内容是无关紧要的（Merge() 方法中的 dst 数组）
+另一个则保存了归并前的数组，用于实际的归并过程（src 数组）。
 归并结束后，前一个数组变成归并后的有序结果（也就是下一次归并时的「归并前数组」），后一个数组中的内容则不再有用。
 我们可以看到这两个数组的角色在下一次归并时正好可以互换。
-要注意的是，归并次数总是一个奇数（左侧归并+右侧归并+总归并），因此在第一次调用 Sort 方法时应该把 aux 和 a 互换传入。
+要注意的是，交换次数总是一个奇数（左侧排序+右侧排序+总归并），因此在第一次调用 Sort 方法时应该把 aux 和 a 互换传入。
 代码 # public class MergeSortX : BaseSort { /// &amp;lt;summary&amp;gt; /// 对小于 CUTOFF 的数组使用插入排序。 /// &amp;lt;/summary&amp;gt; private static int _cutoff = 7; /// &amp;lt;summary&amp;gt; /// 设置启用插入排序的阈值，小于该阈值的数组将采用插入排序。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;cutoff&amp;#34;&amp;gt;新的阈值。&amp;lt;/param&amp;gt; public void SetCutOff(int cutoff) =&amp;gt; _cutoff = cutoff; /// &amp;lt;summary&amp;gt; /// 将指定范围内的元素归并。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;数组元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;src&amp;#34;&amp;gt;原始数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;dst&amp;#34;&amp;gt;目标数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;范围起点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;mid&amp;#34;&amp;gt;范围中点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;范围终点。&amp;lt;/param&amp;gt; private void Merge&amp;lt;T&amp;gt;(T[] src, T[] dst, int lo, int mid, int hi) where T : IComparable&amp;lt;T&amp;gt; { int i = lo, j = mid + 1; for (var k = lo; k &amp;lt;= hi; k++) { if (i &amp;gt; mid) dst[k] = src[j++]; else if (j &amp;gt; hi) dst[k] = src[i++]; else if (Less(src[j], src[i])) dst[k] = src[j++]; else dst[k] = src[i++]; } } /// &amp;lt;summary&amp;gt; /// 自顶向下地对数组指定范围内进行归并排序，需要辅助数组。 /// &amp;lt;/summary&amp;gt; /// &amp;lt;typeparam name=&amp;#34;T&amp;#34;&amp;gt;需要排序的元素类型。&amp;lt;/typeparam&amp;gt; /// &amp;lt;param name=&amp;#34;src&amp;#34;&amp;gt;原数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;dst&amp;#34;&amp;gt;辅助数组。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;lo&amp;#34;&amp;gt;排序范围起点。&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;hi&amp;#34;&amp;gt;排序范围终点。&amp;lt;/param&amp;gt; private void Sort&amp;lt;T&amp;gt;(T[] src, T[] dst, int lo, int hi) where T : IComparable&amp;lt;T&amp;gt; { // 小于 CUTOFF 的数组调用插入排序 if (hi &amp;lt;= lo + _cutoff) { var insertion = new InsertionSort(); insertion.</description></item><item><title>2.2.12</title><link>https://alg4.ikesnowy.com/2-2-12/</link><pubDate>Wed, 04 Jul 2018 15:46:39 +0000</pubDate><guid>https://alg4.ikesnowy.com/2-2-12/</guid><description>2.2.12 # 解答 # 中文版的翻译比较难理解。
 实际上就是另一种归并排序的实现方式。
 先把数组分成若干个大小为 M 的块 。

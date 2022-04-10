@@ -2,7 +2,7 @@ baseURL = 'https://alg4.ikesnowy.com/'
 defaultContentLanguage = 'zh'
 title = '《算法（第四版）》C# 题解'
 theme = 'hugo-book-modified'
-googleAnalytics = 'UA-121852990-1'
+googleAnalytics = 'G-71SCLB4WQT'
 
 # (Optional) Set this to true to enable 'Last Modified by' date and git author
 #  information on 'doc' type pages.

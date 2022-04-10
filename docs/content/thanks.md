@@ -40,6 +40,8 @@ weight: 1
 
 [@玉垒浮云](https://github.com/YuLeiFuYun) ，2.4.35 [#590](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/590)
 
+[@Hao Liu](https://github.com/Higurashi-kagome), 2.3.22 [#614](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/pull/614)
+
 ## 第三章
 
 [@雨碎江南](https://github.com/consoles) ，3.1.24 [#538](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/538)

@@ -73,29 +73,48 @@ public class QuickBentleyMcIlroy : BaseSort
         {
             while (Less(a[++i], v))
             {
+                if (i == hi)
+                {
+                    break;
+                }
             }
 
             while (Less(v, a[--j]))
-                if (j == lo)
-                    break;
+            {
+            }
 
             if (i == j && IsEqual(a[i], v))
+            {
                 Exch(a, ++p, i);
+            }
+
             if (i >= j)
+            {
                 break;
+            }
 
             Exch(a, i, j);
             if (IsEqual(a[i], v))
+            {
                 Exch(a, ++p, i);
+            }
+
             if (IsEqual(a[j], v))
+            {
                 Exch(a, --q, j);
+            }
         }
 
         i = j + 1;
         for (var k = lo; k <= p; k++)
+        {
             Exch(a, k, j--);
+        }
+
         for (var k = hi; k >= q; k--)
+        {
             Exch(a, k, i++);
+        }
 
         Sort(a, lo, j);
         Sort(a, i, hi);

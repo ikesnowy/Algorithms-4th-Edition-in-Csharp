@@ -5,4 +5,8 @@
     <RootNamespace>_3._3._6</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BalancedSearchTree\BalancedSearchTree.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -29,7 +29,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         _root.Color = Color.Black;
     }
 
-    private Node Put(Node h, TKey key, TValue value)
+    protected virtual Node Put(Node h, TKey key, TValue value)
     {
         if (h == null)
         {
@@ -81,7 +81,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Get(_root, key);
     }
 
-    private TValue Get(Node x, TKey key)
+    protected TValue Get(Node x, TKey key)
     {
         while (x != null)
         {
@@ -123,7 +123,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
     }
 
-    private Node Delete(Node h, TKey key)
+    protected Node Delete(Node h, TKey key)
     {
         if (key.CompareTo(h.Key) < 0)
         {
@@ -240,7 +240,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return queue;
     }
 
-    private void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    protected void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
         {
@@ -276,7 +276,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Min(_root).Key;
     }
 
-    private Node Min(Node x)
+    protected Node Min(Node x)
     {
         if (x.Left == null)
         {
@@ -297,7 +297,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Max(_root).Key;
     }
 
-    private Node Max(Node x)
+    protected Node Max(Node x)
     {
         if (x.Right == null)
         {
@@ -329,7 +329,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Key;
     }
 
-    private Node Floor(Node x, TKey key)
+    protected Node Floor(Node x, TKey key)
     {
         if (x == null)
         {
@@ -378,7 +378,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Key;
     }
 
-    private Node Ceiling(Node x, TKey key)
+    protected Node Ceiling(Node x, TKey key)
     {
         if (x == null)
         {
@@ -416,7 +416,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Rank(_root, key);
     }
 
-    private int Rank(Node x, TKey key)
+    protected int Rank(Node x, TKey key)
     {
         if (x == null)
         {
@@ -447,7 +447,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Select(_root, k);
     }
 
-    private TKey Select(Node x, int rank)
+    protected TKey Select(Node x, int rank)
     {
         if (x == null)
         {
@@ -487,7 +487,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
     }
 
-    private Node DeleteMin(Node h)
+    protected Node DeleteMin(Node h)
     {
         if (h.Left == null)
         {
@@ -528,7 +528,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    protected int Depth(Node x)
     {
         if (x == null)
             return 0;
@@ -642,7 +642,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return result.ToString();
     }
 
-    private Node DeleteMax(Node h)
+    protected Node DeleteMax(Node h)
     {
         if (IsRed(h.Left))
         {
@@ -664,7 +664,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Balance(h);
     }
 
-    private static bool IsRed(Node x)
+    protected static bool IsRed(Node x)
     {
         if (x == null)
         {
@@ -674,7 +674,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Color == Color.Red;
     }
 
-    private static int Size(Node x)
+    protected static int Size(Node x)
     {
         if (x == null)
         {
@@ -684,7 +684,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Size;
     }
 
-    private Node RotateRight(Node h)
+    protected virtual Node RotateRight(Node h)
     {
         if (h == null || IsRed(h.Left) == false)
         {
@@ -701,7 +701,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x;
     }
 
-    private Node RotateLeft(Node h)
+    protected virtual Node RotateLeft(Node h)
     {
         if (h == null || IsRed(h.Right) == false)
         {
@@ -718,14 +718,14 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x;
     }
 
-    private void FlipColors(Node h)
+    protected virtual void FlipColors(Node h)
     {
         h.Color = Flip(h.Color);
         h.Left.Color = Flip(h.Left.Color);
         h.Right.Color = Flip(h.Right.Color);
     }
 
-    private Node MoveRedLeft(Node h)
+    protected Node MoveRedLeft(Node h)
     {
         FlipColors(h);
         if (IsRed(h.Right.Left))
@@ -738,7 +738,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return h;
     }
 
-    private Node MoveRedRight(Node h)
+    protected Node MoveRedRight(Node h)
     {
         FlipColors(h);
         if (IsRed(h.Left.Left))
@@ -750,7 +750,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return h;
     }
 
-    private Node Balance(Node h)
+    protected Node Balance(Node h)
     {
         if (IsRed(h.Right) && !IsRed(h.Left))
         {
@@ -771,12 +771,12 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return h;
     }
 
-    private Color Flip(Color color)
+    protected Color Flip(Color color)
     {
         return color == Color.Red ? Color.Black : Color.Red;
     }
 
-    private class Node
+    protected class Node
     {
         public Node(TKey key, TValue value, Color color, int size)
         {
@@ -794,7 +794,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         public int Size { get; set; }
     }
 
-    private enum Color : byte
+    protected enum Color : byte
     {
         Black = 0,
         Red = 1,

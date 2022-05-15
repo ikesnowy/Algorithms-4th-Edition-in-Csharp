@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.3.6 #  解答 #  由 3.3.5 可知，$N=6$ 时的树形只有一种。
-因此我们只需要将 $N=6$ 记为概率 1，利用乘法原理（或者说分步计数）计算之后的概率即可。
-$N=6$ 的树形，底部共有 7 个位置可以插入：
-// 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY $N=7$ #  如果向 2-结点插入（示例中的 D 或 K），每个 2-结点有两个子树，概率均等，概率 $2/7 \times 2 = 4/7$，可以得到以下树形（记为 7-1）：
-// after |--GO--| D KL SY 如果向 3-结点插入（3-结点有三个子树，概率均等，概率 $3/7$），可以得到以下树形（记为 7-2）：
- |--------O--------| |--G--| |--S--| D K Q Y $N=8$ #  向 7-1 的唯一一个 2-结点插入（示例中的 D），概率 $4/7 \times 2/8= 1/7$，可以得到以下树形（记为 8-1）："><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.3.6"><meta property="og:description" content="3.3.6 #  解答 #  由 3.3.5 可知，$N=6$ 时的树形只有一种。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.3.6"><meta property="og:description" content="3.3.6 #  解答 #  由 3.3.5 可知，$N=6$ 时的树形只有一种。
 因此我们只需要将 $N=6$ 记为概率 1，利用乘法原理（或者说分步计数）计算之后的概率即可。
 $N=6$ 的树形，底部共有 7 个位置可以插入：
 // 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY $N=7$ #  如果向 2-结点插入（示例中的 D 或 K），每个 2-结点有两个子树，概率均等，概率 $2/7 \times 2 = 4/7$，可以得到以下树形（记为 7-1）：

@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.25 #  解答 #  官方实现：https://algs4.cs.princeton.edu/24pq/CubeSum.java.html
-注意这道题并不是要打印所有的 $a^3+b^3$ 的结果，而是需要找到 $a^3+b^3=c^3+d^3$ 这个丢番图方程的解。
-因此在官方实现的基础上，每次取出最小值之后和之前的最小值比较，如果相等则输出对应的组合。
-关键代码如下：
-CubeSum prev = new CubeSum(-1, -1); long pairCount = 0; while (!pq.IsEmpty()) {  CubeSum s = pq.DelMin();  if (s.sum == prev.sum)	// 如果与之前的数相等  {  Console.WriteLine(s + &#34; = &#34; + prev.i + &#34;^3 + &#34; + prev.j + &#34;^3&#34;);  pairCount++;  }  if (s.j < n)  pq.Insert(new CubeSum(s.i, s.j + 1));  prev = s; } 当然，对于 n=10^6 来说结果会非常大，程序的运行时间需要以天为单位计算（约 14 天）。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.25"><meta property="og:description" content="2.4.25 #  解答 #  官方实现：https://algs4.cs.princeton.edu/24pq/CubeSum.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.25"><meta property="og:description" content="2.4.25 #  解答 #  官方实现：https://algs4.cs.princeton.edu/24pq/CubeSum.java.html
 注意这道题并不是要打印所有的 $a^3+b^3$ 的结果，而是需要找到 $a^3+b^3=c^3+d^3$ 这个丢番图方程的解。
 因此在官方实现的基础上，每次取出最小值之后和之前的最小值比较，如果相等则输出对应的组合。
 关键代码如下：

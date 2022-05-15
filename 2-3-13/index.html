@@ -1,20 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.3.13 #  解答 #  快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。
-在这里，我们可以将快速排序的递归树看作是一棵二叉搜索树（BST, Binary Search Tree）。
-枢轴作为根结点，左子树即为左数组构造的 BST，右子树即为右数组构造的 BST。
-这样题目中所求的递归深度即为所构造的 BST 的高度。
-最坏情况，每次都只有枢轴和大于枢轴两部分，BST 退化为链表，高度为 $n-1$。
-最好情况，每次枢轴都正好平分数组，构造一棵完全二叉树，高度为 $\log n$。
-平均情况，问题转化为：一个由 $n$ 个元素随机构造的 BST 的平均高度是多少？
-《算法导论》给出的结论是 $\log n$ ，具体证明如下：
-设由 $n$ 个结点随机构成的 BST 的高度为 $h_n$，那么有：
-$$ h_n=1+\max(h_{l}+h_{r}) $$
-其中，$h_l$ 和 $h_r$ 分别代表左数组和右数组构造的 BST 的高度。
-设枢轴位置为 $i$，上式可简化为：
-$$ h_n=1+\max(h_{i-1}, h_{n-i}) $$
-由于枢轴位置可以在 1~n 之间任意取值且概率相等，因此 BST 的平均高度（即高度的期望）为：
-$$ E(h_n)=\frac{1}{n}\sum_{i=1}^{n}\lbrack 1+\max(h_{i-1}, h_{n-i}) \rbrack $$
-我们令 $Y_n=2^{h_n}$，可得：
-$$ Y_n=2\times\max(Y_{i-1},Y_{n-i}) $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.13"><meta property="og:description" content="2.3.13 #  解答 #  快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.13"><meta property="og:description" content="2.3.13 #  解答 #  快速排序先将数组分为 （小于枢轴）枢轴（大于枢轴）三部分，然后再分别递归的排序左右两部分数组。
 在这里，我们可以将快速排序的递归树看作是一棵二叉搜索树（BST, Binary Search Tree）。
 枢轴作为根结点，左子树即为左数组构造的 BST，右子树即为右数组构造的 BST。
 这样题目中所求的递归深度即为所构造的 BST 的高度。

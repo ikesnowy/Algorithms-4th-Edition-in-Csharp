@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.25 #  解答 #  官方解答见：https://algs4.cs.princeton.edu/25applications/Point2D.java.html
-这些比较器都以嵌套类的形式在 Point2D 中定义。
-静态比较器直接在类中以静态成员的方式声明。
-非静态比较器则需要提供工厂方法，该方法新建并返回对应的比较器对象。
-代码 #  /// <summary> /// 按照 X 顺序比较。 /// </summary> private class XOrderComparer : Comparer<Point2D> {  public override int Compare(Point2D x, Point2D y)  {  if (x.X < y.X)  {  return -1;  }   if (x.X > y.X)  {  return 1;  }   return 0;  } }  /// <summary> /// 按照 Y 顺序比较。 /// </summary> private class YOrderComparer : Comparer<Point2D> {  public override int Compare(Point2D x, Point2D y)  {  if (x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.25"><meta property="og:description" content="2.5.25 #  解答 #  官方解答见：https://algs4.cs.princeton.edu/25applications/Point2D.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.25"><meta property="og:description" content="2.5.25 #  解答 #  官方解答见：https://algs4.cs.princeton.edu/25applications/Point2D.java.html
 这些比较器都以嵌套类的形式在 Point2D 中定义。
 静态比较器直接在类中以静态成员的方式声明。
 非静态比较器则需要提供工厂方法，该方法新建并返回对应的比较器对象。

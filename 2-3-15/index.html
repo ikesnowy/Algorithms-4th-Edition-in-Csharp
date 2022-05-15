@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.3.15 #  解答 #  事实上只需要修改快速排序的切分方法，分两次进行切分。
-首先选第一个螺母作为枢轴，找到对应的螺丝（$O(n)$）放到第一位，对螺丝数组进行切分。
-然后再用找到的螺丝对螺母数组进行切分。
-螺母类，实现了对螺丝类的 IComparable 接口
-public class Nut<T> : IComparable<Bolt<T>> where T : IComparable<T> {  /// <summary>  /// 螺母的值。  /// </summary>  public T Value { get; set; }   /// <summary>  /// 螺母的构造函数。  /// </summary>  /// <param name=&#34;value&#34;>螺母的值。</param>  public Nut(T value) => Value = value;   /// <summary>  /// 比较方法，螺母只能和螺丝比较。  /// </summary>  /// <param name=&#34;other&#34;>需要比较的螺丝。</param>  /// <returns></returns>  public int CompareTo(Bolt<T> other)  {  return Value."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.15"><meta property="og:description" content="2.3.15 #  解答 #  事实上只需要修改快速排序的切分方法，分两次进行切分。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.15"><meta property="og:description" content="2.3.15 #  解答 #  事实上只需要修改快速排序的切分方法，分两次进行切分。
 首先选第一个螺母作为枢轴，找到对应的螺丝（$O(n)$）放到第一位，对螺丝数组进行切分。
 然后再用找到的螺丝对螺母数组进行切分。
 螺母类，实现了对螺丝类的 IComparable 接口

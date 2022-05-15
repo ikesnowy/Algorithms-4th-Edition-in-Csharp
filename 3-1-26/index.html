@@ -1,16 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.26 #  解答 #  字典文件：https://introcs.cs.princeton.edu/java/data/web2.txt
-《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
-浏览器可能会直接打开 txt，此时右键链接-目标另存为即可下载。
-FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
-我们利用 BinarySearchST 会自动对键排序的性质来实现字典序排序。
-首先将字典存到一个符号表中，按照 “单词-序号” 的形式保存。
-然后读入文件，如果读入的单词存在于字典中，
-则将其以 “序号-单词” 的形式存到 BinarySearchST 中去。
-读入完毕后，遍历 BinarySearchST 即可获得字典序的单词列表。
-对于按频率排序，我们基于已有的实现修改。
-在每次取得最大值之后，输出并删除最大值，如此循环即可获得频率排序的单词序列。
-也可以将单词-频率序列全部读出来存放到数组之中，然后用第二章的排序算法排序。
-测试结果，取 minLength = 13，只截取了部分。 代码 #  public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) {  // 初始化字典  var sr = new StreamReader(File.OpenRead(dictionaryFile));  var words = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);  var dictionary = new BinarySearchSt<string, int>();  for (var i = 0; i < words."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.26"><meta property="og:description" content="3.1.26 #  解答 #  字典文件：https://introcs.cs.princeton.edu/java/data/web2.txt
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.26"><meta property="og:description" content="3.1.26 #  解答 #  字典文件：https://introcs.cs.princeton.edu/java/data/web2.txt
 《双城记》：https://introcs.cs.princeton.edu/java/data/tale.txt
 浏览器可能会直接打开 txt，此时右键链接-目标另存为即可下载。
 FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html

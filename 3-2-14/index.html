@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.14 #  解答 #  就 min，max 和 select 而言，它们是尾递归的，可以直接转换成迭代形式。 （简单的说，尾递归就是所有递归操作都出现在 return 语句上，且返回值不需要参与其他运算）
-例如 min，递归形式为：
-if (x.Left == null)  return x; return Min(x.Left); 递归调用获得的值直接返回，不再参与运算，可以直接转换为递推：
-while (true) {  if (x.Left == null) return x;  x = x.Left; } ceiling 和 floor 会略微复杂一些，具体见代码。
-代码 #  min 和 max 比较简单，用一个 while 循环就可以转换为递推形式，例如 min。
-while (x != null) {  if (x.Left == null) return x;  x = x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.14"><meta property="og:description" content="3.2.14 #  解答 #  就 min，max 和 select 而言，它们是尾递归的，可以直接转换成迭代形式。 （简单的说，尾递归就是所有递归操作都出现在 return 语句上，且返回值不需要参与其他运算）
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.14"><meta property="og:description" content="3.2.14 #  解答 #  就 min，max 和 select 而言，它们是尾递归的，可以直接转换成迭代形式。 （简单的说，尾递归就是所有递归操作都出现在 return 语句上，且返回值不需要参与其他运算）
 例如 min，递归形式为：
 if (x.Left == null)  return x; return Min(x.Left); 递归调用获得的值直接返回，不再参与运算，可以直接转换为递推：
 while (true) {  if (x.Left == null) return x;  x = x.Left; } ceiling 和 floor 会略微复杂一些，具体见代码。

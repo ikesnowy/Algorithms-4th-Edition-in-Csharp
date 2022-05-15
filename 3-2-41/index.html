@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.41 #  解答 #  大体上和标准 BST 实现差不多，做如下变换即可：
-x.Key => _nodes[x].Key; x.Value => _nodes[x].Value; x.Left => _left[x]; x.Right => _right[x]; 由于使用了数组，在正常「删除」二叉树结点之后，还需要手工「垃圾回收」，如下图所示：
-性能比较：
-可见数组实现在删除节点时有巨大的性能差距。
-代码 #  private readonly Node[] _nodes; private readonly int[] _left; private readonly int[] _right; private int _size; private int _root;  /// <summary> /// 二叉搜索树的结点。 /// </summary> private class Node {  public TKey Key { get; set; }  public TValue Value { get; set; } }  /// <summary> /// 建立一个以数组为基础的二叉搜索树。 /// </summary> /// <param name=&#34;maxSize&#34;>二叉搜索树中的结点数。</param> public BSTArray(int maxSize) {  _nodes = new Node[maxSize];  _left = new int[maxSize];  _right = new int[maxSize];  for (var i = 0; i < maxSize; i++)  {  _left[i] = -1;  _right[i] = -1;  }  _size = 0;  _root = 0; }  /// <summary> /// 向符号表插入键值对。 /// </summary> /// <param name=&#34;key&#34;>键。</param> /// <param name=&#34;value&#34;>值。</param> public void Put(TKey key, TValue value) {  if (_size == _nodes."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.41"><meta property="og:description" content="3.2.41 #  解答 #  大体上和标准 BST 实现差不多，做如下变换即可：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.41"><meta property="og:description" content="3.2.41 #  解答 #  大体上和标准 BST 实现差不多，做如下变换即可：
 x.Key => _nodes[x].Key; x.Value => _nodes[x].Value; x.Left => _left[x]; x.Right => _right[x]; 由于使用了数组，在正常「删除」二叉树结点之后，还需要手工「垃圾回收」，如下图所示：
 性能比较：
 可见数组实现在删除节点时有巨大的性能差距。

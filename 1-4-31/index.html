@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.31 #  解答 #  三个栈分别命名为左中右。
-左侧栈和右侧栈负责模拟队列，和用两个栈模拟队列的方法类似。
-由于是双向队列，左栈和右栈会频繁的倒来倒去，因此每次都只倒一半的元素可以有效减少开销。
-有一侧栈为空时，另一侧栈中上半部分先移动到中间栈中，下半部分倒到另一侧栈里，再从中间栈拿回上半部分元素。
-这样可以确保接下来的 pop 操作一定是常数级别的。
-代码 #  internal class Deque<TItem> {  private readonly Stack<TItem> _left;  private readonly Stack<TItem> _middle;  private readonly Stack<TItem> _right;   /// <summary>  /// 构造一条新的双向队列。  /// </summary>  public Deque()  {  _left = new Stack<TItem>();  _middle = new Stack<TItem>();  _right = new Stack<TItem>();  }   /// <summary>  /// 向双向队列左侧插入一个元素。  /// </summary>  /// <param name=&#34;item&#34;>要插入的元素。</param>  public void PushLeft(TItem item)  {  _left."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.31"><meta property="og:description" content="1.4.31 #  解答 #  三个栈分别命名为左中右。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.31"><meta property="og:description" content="1.4.31 #  解答 #  三个栈分别命名为左中右。
 左侧栈和右侧栈负责模拟队列，和用两个栈模拟队列的方法类似。
 由于是双向队列，左栈和右栈会频繁的倒来倒去，因此每次都只倒一半的元素可以有效减少开销。
 有一侧栈为空时，另一侧栈中上半部分先移动到中间栈中，下半部分倒到另一侧栈里，再从中间栈拿回上半部分元素。

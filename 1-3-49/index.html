@@ -1,17 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.3.49 #  解答 #  那么这里就使用六个栈来解决这个问题。 这个算法来自于这篇论文。
-原文里用的是 Pure Lisp，不过语法很简单，还是很容易看懂的。
-先导知识——用两个栈模拟一个队列 #  如何使用两个栈来模拟一个队列操作？
-这是一道很经典的题目，答案也有很多种，这里只介绍之后会用到的一种方法。
-首先我们有两个栈，H 和 T，分别用作出队和入队用。
-这样，入队操作等同于向 T 添加元素，T 的入栈操作只需要 O(1) 时间。
-如果 H 不为空，出队操作等同于 H 弹栈，H 的弹栈操作也只需要 O(1) 时间。
-但如果 H 为空，则需要将 T 中的元素依次弹出并压入到 H 中，这是一个 O(n) 的操作。
-显然，这种方式中，出队操作的最坏时间复杂度是 O(n)，并不满足题目要求。
-分摊 O(n) #  那么，怎么解决这个问题呢？
-一个很自然的想法是，如果在栈 H 变为空之前，我们就能逐步将栈 T 的内容弹出并压入到另一个栈 H&rsquo; 中，等到栈 H 为空时，直接交换 H 和 H&rsquo; 即可。
-假设目前的队列状态是这样，有三个元素等待出队，还有三个元素等待入队。
-现在依次让三个元素出队，与此同时我们让栈 T 中的元素依次进入 H&rsquo; 中。
-每一次出队都执行两个操作，元素出队和元素复制（Pop & Push），时间复杂度 O(1) + O(1) + O(1) = O(1)。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.49"><meta property="og:description" content="1.3.49 #  解答 #  那么这里就使用六个栈来解决这个问题。 这个算法来自于这篇论文。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.49"><meta property="og:description" content="1.3.49 #  解答 #  那么这里就使用六个栈来解决这个问题。 这个算法来自于这篇论文。
 原文里用的是 Pure Lisp，不过语法很简单，还是很容易看懂的。
 先导知识——用两个栈模拟一个队列 #  如何使用两个栈来模拟一个队列操作？
 这是一道很经典的题目，答案也有很多种，这里只介绍之后会用到的一种方法。

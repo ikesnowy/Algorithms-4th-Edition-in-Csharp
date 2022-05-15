@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.6 #  解答 #  官方 BST 实现见：https://algs4.cs.princeton.edu/32bst/BST.java.html
-二叉树的高度=左右子树最大高度+1，叶结点的高度为 0。 于是我们可以构造如下递归方法：
-protected virtual int Height(Node x) {  return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right)); } 当 x 等于 null 时，说明它是叶子结点的左/右子树，应该返回 0-1=-1。
-也可以在结点中添加一个 Height 属性，记录当前结点的高度，当插入新结点时重新计算高度。
-在 Put 方法中添加计算高度的代码：
-protected virtual Node Put(Node x, TKey key, TValue value) {  if (x == null)  return new Node(key, value, 1);  var cmp = key.CompareTo(x.Key);  if (cmp < 0)  x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.6"><meta property="og:description" content="3.2.6 #  解答 #  官方 BST 实现见：https://algs4.cs.princeton.edu/32bst/BST.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.6"><meta property="og:description" content="3.2.6 #  解答 #  官方 BST 实现见：https://algs4.cs.princeton.edu/32bst/BST.java.html
 二叉树的高度=左右子树最大高度+1，叶结点的高度为 0。 于是我们可以构造如下递归方法：
 protected virtual int Height(Node x) {  return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right)); } 当 x 等于 null 时，说明它是叶子结点的左/右子树，应该返回 0-1=-1。
 也可以在结点中添加一个 Height 属性，记录当前结点的高度，当插入新结点时重新计算高度。

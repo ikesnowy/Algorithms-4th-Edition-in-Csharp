@@ -1,13 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.24 #  解答 #  FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
-二分查找总是与中间值进行比较，现在改为与数组中第 x% 位置上的元素比较。
-具体而言，$\frac{k_x-k_{lo}}{k_{hi}-k_{lo}}$ 代表数组在均匀情况下目标值 $k_x$ 的相对位置（一个比率，在数组第 x% 的位置上）。
-那么相对应的下标就等于 $lo+\frac{k_x-k_{lo}}{k_{hi}-k_{lo}} \times (hi - lo)$。
-用这个式子代替原来的 $mid=lo + (hi-lo)/2$ 即可。
-不难看出这种方法对于分布相对均匀的数组比较有利，相对于二分查找而言迭代次数会少很多。
-但如果数组分布不够均匀，也可能表现出不如二分查找的性能。
-实验结果也证实了这一判断，就随机数组而言，插值查找相对于二分查找只有 1% 左右的性能提升。 代码 #  SearchCompare 在书中没有出现，但可以简单的实现为调用 FrequencyCounter 并计时的方法：
-public static long Time<TKey>(IST<TKey, int> st, TKey[] keys) {  Stopwatch sw = new Stopwatch();  sw.Start();  FrequencyCounter.MostFrequentlyKey(st, keys);  sw.Stop();  return sw.ElapsedMilliseconds; } 由于这里需要使用数字而非字符串作为键值，需要对官方给出的 FrequencyCounter 做一些修改：
-public static TKey MostFrequentlyKey<TKey> (IST<TKey, int> st, TKey[] keys) {  foreach (TKey s in keys)  {  if (st."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.24"><meta property="og:description" content="3.1.24 #  解答 #  FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.24"><meta property="og:description" content="3.1.24 #  解答 #  FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/FrequencyCounter.java.html
 二分查找总是与中间值进行比较，现在改为与数组中第 x% 位置上的元素比较。
 具体而言，$\frac{k_x-k_{lo}}{k_{hi}-k_{lo}}$ 代表数组在均匀情况下目标值 $k_x$ 的相对位置（一个比率，在数组第 x% 的位置上）。
 那么相对应的下标就等于 $lo+\frac{k_x-k_{lo}}{k_{hi}-k_{lo}} \times (hi - lo)$。

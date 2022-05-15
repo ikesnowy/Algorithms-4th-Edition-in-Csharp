@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.32 #  解答 #  编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
-而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
-只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
-只有两种值对性能的影响不大，性能主要由输入的键决定。
-代码 #  测试方法，IST 代表一个符号表。
-static void Test(ISt<string, int>[] sts, int n) {  var sw = new Stopwatch();  var data = SearchCompare.GetRandomArrayString(n, 3, 10);  var item1 = &#34;item1&#34;;  Array.Sort(data);   // 有序的数组  Console.Write(&#34;Sorted Array: &#34;);  sw.Start();  for (var i = 0; i < n; i++)  {  sts[0]."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.32"><meta property="og:description" content="3.1.32 #  解答 #  编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.32"><meta property="og:description" content="3.1.32 #  解答 #  编码实现即可，实验结果如下： 对于保持键有序的 BinarySearchST 来说，逆序输入是最坏情况，顺序输入则是最好情况。
 而对于键无序的 SequentialSearchST 来说，输入顺序对于性能的影响不大。
 只有一种键的时候，每次 Put 都只需要比较一次，值一直在被替换。
 只有两种值对性能的影响不大，性能主要由输入的键决定。

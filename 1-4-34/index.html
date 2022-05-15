@@ -1,12 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.34 #  解答 #  第一种方案，类似于二分查找，先猜测左边界(lo)，再猜测右边界(hi)，如果边界值猜中的话直接返回，否则：
-如果右边界比较热，那么左边界向右边界靠，lo=mid；否则，右边界向左边界靠，hi=mid。其中，mid = lo + (hi – lo)/2。
-每次二分查找都要猜测两次，~2lgN。
-第二种方案，假设上次猜测值为 $lastGuess$，本次即将要猜测的值为 $nowGuess$，通过方程：
-$(lastGuess + nowGuess)/2 = (lo + hi)/2$
-可以求得 $nowGuess$，具体可以查看示意图：
-数字是猜测顺序，黑色范围是猜测值的范围（$lastGuess$ 和 $nowGuess$），绿色的是实际查找的范围（lo 和 hi）。
-代码 #  首先是 Game 类
-internal class Game {  public int N { get; } // 目标值的最大范围。  public int SecretNumber { get; } // 目标值。  public int LastGuess { get; private set; } // 上次猜测的值   /// <summary>  /// 构造函数，新开一局游戏。  /// </summary>  /// <param name=&#34;n&#34;>目标值的最大范围。</param>  public Game(int n)  {  var random = new Random();  N = n;  SecretNumber = random."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.34"><meta property="og:description" content="1.4.34 #  解答 #  第一种方案，类似于二分查找，先猜测左边界(lo)，再猜测右边界(hi)，如果边界值猜中的话直接返回，否则：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.34"><meta property="og:description" content="1.4.34 #  解答 #  第一种方案，类似于二分查找，先猜测左边界(lo)，再猜测右边界(hi)，如果边界值猜中的话直接返回，否则：
 如果右边界比较热，那么左边界向右边界靠，lo=mid；否则，右边界向左边界靠，hi=mid。其中，mid = lo + (hi – lo)/2。
 每次二分查找都要猜测两次，~2lgN。
 第二种方案，假设上次猜测值为 $lastGuess$，本次即将要猜测的值为 $nowGuess$，通过方程：

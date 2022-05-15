@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.30 #  解答 #  steque 作为队列的头部，stack 作为队列的尾部。
-pushLeft：直接 push 到 steque 中即可。
-pushRight：如果 stack 为空，则直接 enqueue 到 steque 中，否则就 push 到 stack 中。
-popLeft：如果 steque 为空，则将 stack 中的元素倒到 steque 中去（steque.push(stack.pop())），然后再从 steque 中 pop。
-popRight：如果 stack 为空，则将 steque 中的元素倒到 stack 中去，然后再从 stack 中 pop。
-代码 #  internal class Deque<TItem> {  private readonly Stack<TItem> _stack; // 代表队列尾部  private readonly Steque<TItem> _steque;// 代表队列头部   /// <summary>  /// 创建一条空的双向队列。  /// </summary>  public Deque()  {  _stack = new Stack<TItem>();  _steque = new Steque<TItem>();  }   /// <summary>  /// 在左侧插入一个新元素。  /// </summary>  /// <param name=&#34;item&#34;>要插入的元素。</param>  public void PushLeft(TItem item)  {  _steque."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.30"><meta property="og:description" content="1.4.30 #  解答 #  steque 作为队列的头部，stack 作为队列的尾部。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.30"><meta property="og:description" content="1.4.30 #  解答 #  steque 作为队列的头部，stack 作为队列的尾部。
 pushLeft：直接 push 到 steque 中即可。
 pushRight：如果 stack 为空，则直接 enqueue 到 steque 中，否则就 push 到 stack 中。
 popLeft：如果 steque 为空，则将 stack 中的元素倒到 steque 中去（steque.push(stack.pop())），然后再从 steque 中 pop。

@@ -1,13 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
-否则视为结点已经下沉到了合适的位置，结束循环。
-根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
-sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。
-于是 sink 操作每次最多需要 $t + 1$ 次比较。
-建堆过程，对 2.4.20 的证明进行推广。
-设 $t$ 叉树的高度为 $h$ ，叶子结点的高度为 $0$，根结点的高度为 $h$。
-根据 sink 操作的定义，高度为 $k$ 的结点最多进行 $k$ 次交换（到达叶子结点）。
-于是建堆需要的总交换次数为：
-$$ \begin{align*} & h+t(h-1)+t^2(h-2)+ \dots + t^h(0) \newline & =\sum_{k=0}^{h-1} t^k(h-k) \newline & =h\sum_{k=0}^{h-1}t^k - \sum_{k=0}^{h-1}kt^k \newline \end {align*} $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.23"><meta property="og:description" content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.23"><meta property="og:description" content="2.4.23 #  解答 #  简单的 sink 实现 #  sink 方法会在所有的 $t$ 个子结点中寻找最大的结点。 如果找到的结点比当前结点大，那么就进行交换。
 否则视为结点已经下沉到了合适的位置，结束循环。
 根据题意，在 $t$ 个元素中找最大值需要 $t$ 次比较。
 sink 操作需要找到 $t$ 个子结点中的最大值并与当前结点相比较。

@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.38 #  解答 #  通过层序遍历计算结点的坐标，然后绘制即可。
-先算出最大深度，确定每一层的高度 Y，
-再将每一层的宽度分成 $2^n-1$ 份，从左到右依次对结点赋值。
-效果如下： 代码 #  计算坐标的函数。
-public void DrawTree(Graphics pen, RectangleF panel) {  var depth = Depth(root); // 确定最大深度。  var layerHeight = panel.Height / depth;  var nowLayer = new Queue<Node>();  var nextLayer = new Queue<Node>();  nextLayer.Enqueue(root);   for (var layer = 0; layer != depth; layer++)  {  var unitSizeX = (float)(panel.Width / Math."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.38"><meta property="og:description" content="3.2.38 #  解答 #  通过层序遍历计算结点的坐标，然后绘制即可。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.38"><meta property="og:description" content="3.2.38 #  解答 #  通过层序遍历计算结点的坐标，然后绘制即可。
 先算出最大深度，确定每一层的高度 Y，
 再将每一层的宽度分成 $2^n-1$ 份，从左到右依次对结点赋值。
 效果如下： 代码 #  计算坐标的函数。

@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.24 #  解答 #  第一问：二分查找即可。
-第二问： 按照第 1, 2, 4, 8,&mldr;, 2^k 层顺序查找，一直到 2^k > F， 随后在 [2^(k - 1), 2^k] 范围中二分查找。
-代码 #  这里建立了一个结构体用于返回测试结果：
-internal struct TestResult {  public int F; // 找到的 F 值。  public int BrokenEggs; // 打碎的鸡蛋数。 } 用于测试的方法：
-/// <summary> /// 扔鸡蛋，没碎返回 true，碎了返回 false。 /// </summary> /// <param name=&#34;floor&#34;>扔鸡蛋的高度。</param> /// <returns></returns> static bool ThrowEgg(int floor) {  return floor <= f; }  /// <summary> /// 第一种方案。 /// </summary> /// <param name=&#34;a&#34;>大楼。</param> /// <returns></returns> static TestResult PlanA(int[] a) {  var lo = 0;  var hi = a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.24"><meta property="og:description" content="1.4.24 #  解答 #  第一问：二分查找即可。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.24"><meta property="og:description" content="1.4.24 #  解答 #  第一问：二分查找即可。
 第二问： 按照第 1, 2, 4, 8,&mldr;, 2^k 层顺序查找，一直到 2^k > F， 随后在 [2^(k - 1), 2^k] 范围中二分查找。
 代码 #  这里建立了一个结构体用于返回测试结果：
 internal struct TestResult {  public int F; // 找到的 F 值。  public int BrokenEggs; // 打碎的鸡蛋数。 } 用于测试的方法：

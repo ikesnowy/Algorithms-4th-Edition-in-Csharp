@@ -1,10 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.7 #  解答 #  平均查找次数 = 树所有结点的深度之和 / 结点个数 + 1。
-只要能够获得深度和，就能构造出如下用于计算平均查找次数的方法：
-public int AverageCompares() {  return DepthSum(_root) / Size() + 1; } 二叉树的深度之和 = 左子树的深度和 + 右子树的深度和 + 左子树的结点个数 + 右子树的结点个数 （加上根结点会使左右子树所有结点的深度+1）
-于是我们可以获得如下递归方法，用于计算一棵树的深度和：
-private int DepthSum(Node x) {  if (x == null)  return 0;  return DepthSum(x.Left) + DepthSum(x.Right) + x.Size - 1; } 也可以在结点中直接添加一个 DepthSum 属性，用于记录当前结点的深度和。
-需要在每次插入新结点时重新计算查找路径上所有结点的 DepthSum。
-private Node Put(Node x, TKey key, TValue value, int depth) {  if (x == null)  return new Node(key, value, 1, depth);  var cmp = key."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.7"><meta property="og:description" content="3.2.7 #  解答 #  平均查找次数 = 树所有结点的深度之和 / 结点个数 + 1。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.7"><meta property="og:description" content="3.2.7 #  解答 #  平均查找次数 = 树所有结点的深度之和 / 结点个数 + 1。
 只要能够获得深度和，就能构造出如下用于计算平均查找次数的方法：
 public int AverageCompares() {  return DepthSum(_root) / Size() + 1; } 二叉树的深度之和 = 左子树的深度和 + 右子树的深度和 + 左子树的结点个数 + 右子树的结点个数 （加上根结点会使左右子树所有结点的深度+1）
 于是我们可以获得如下递归方法，用于计算一棵树的深度和：

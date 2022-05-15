@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.2.17 #  解答 #  排序方式和 2.2.16 十分类似，不再赘述，这里介绍一下归并方法。
-如 gif 图所示，先把要归并的两个链表拆出来，随后确定表头位置，然后进行归并即可。 归并结束后返回 first。
-结果分析如下图所示： 随着有序部分的增加，对于相同大小的数组自然归并排序的耗时会缩短。
-对于有序部分相同的情况，随着数组大小的倍增，耗时呈现了O(nlogn)的趋势。
-代码 #  public class MergeSortNatural : BaseSort {  /// <summary>  /// 利用自然的归并排序进行自底向上的排序。  /// </summary>  /// <typeparam name=&#34;T&#34;>用于排序的元素类型。</typeparam>  /// <param name=&#34;a&#34;>需要排序的数组。</param>  public override void Sort<T>(T[] a)  {  var aux = new T[a.Length];   while (true)  {  // 找到第一个块  var lo = 0;  var mid = FindBlock(lo, a) - 1;  if (mid == a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.17"><meta property="og:description" content="2.2.17 #  解答 #  排序方式和 2.2.16 十分类似，不再赘述，这里介绍一下归并方法。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.17"><meta property="og:description" content="2.2.17 #  解答 #  排序方式和 2.2.16 十分类似，不再赘述，这里介绍一下归并方法。
 如 gif 图所示，先把要归并的两个链表拆出来，随后确定表头位置，然后进行归并即可。 归并结束后返回 first。
 结果分析如下图所示： 随着有序部分的增加，对于相同大小的数组自然归并排序的耗时会缩短。
 对于有序部分相同的情况，随着数组大小的倍增，耗时呈现了O(nlogn)的趋势。

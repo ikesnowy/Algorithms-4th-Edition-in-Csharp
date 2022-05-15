@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.2 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/ArrayST.java.html
-建立两个数组，分别存放键和值，一一对应。
-添加时直接将新键值对放到数组最后即可。
-删除时将待删除的键值对和位于最后的键值对交换，然后将其置空即可。
-代码 #  public class ArraySt<TKey, TValue> : ISt<TKey, TValue> {  /// <summary>  /// 键数组。  /// </summary>  /// <value>键数组。</value>  private TKey[] _keys;  /// <summary>  /// 值数组。  /// </summary>  /// <value>值数组。</value>  private TValue[] _values;  /// <summary>  /// 键值对数目。  /// </summary>  /// <value>键值对数目。</value>  private int _n;   /// <summary>  /// 建立基于数组实现的符号表。  /// </summary>  public ArraySt() : this(8) { }   /// <summary>  /// 建立基于数组实现的符号表。  /// </summary>  /// <param name=&#34;initCapacity&#34;>初始大小。</param>  public ArraySt(int initCapacity)  {  _keys = new TKey[initCapacity];  _values = new TValue[initCapacity];  }   /// <summary>  /// 检查键 <typeparamref name=&#34;TKey&#34;/> 是否存在。  /// </summary>  /// <param name=&#34;key&#34;>需要检查是否存在的键。</param>  /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>  public bool Contains(TKey key) => Get(key)."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.2"><meta property="og:description" content="3.1.2 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/ArrayST.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.2"><meta property="og:description" content="3.1.2 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/ArrayST.java.html
 建立两个数组，分别存放键和值，一一对应。
 添加时直接将新键值对放到数组最后即可。
 删除时将待删除的键值对和位于最后的键值对交换，然后将其置空即可。

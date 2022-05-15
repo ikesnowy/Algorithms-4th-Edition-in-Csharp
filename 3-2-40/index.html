@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.40 #  解答 #  书中的结论是 1986 年 L. Devroye 给出的，原式为 $H_n \rightarrow c\log(n)$。
-其中 $c$ 是方程 $c\log \frac{2e}{c}=1$ 的最大解，约为 $4.31107$。
-2002 年 Michael Drmota 给出了一个跟精确的公式：$\mathrm{E}(H_n)=c\log n-\frac{3c}{2(c-1)}\log \log n + O(1)$。
-测试结果如下，误差基本稳定在一个常数。
-代码 #  static void Main(string[] args) {  var n = 10000;  var trials = 100;   for (var i = 0; i < 3; i++)  {  var items = new int[n];   for (var j = 0; j < n; j++)  {  items[j] = j;  }   var aveHeight = 0d;  for (var j = 0; j < trials; j++)  {  var bst = new BST<int, int>();  Shuffle(items);  foreach (var item in items)  {  bst."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.40"><meta property="og:description" content="3.2.40 #  解答 #  书中的结论是 1986 年 L. Devroye 给出的，原式为 $H_n \rightarrow c\log(n)$。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.40"><meta property="og:description" content="3.2.40 #  解答 #  书中的结论是 1986 年 L. Devroye 给出的，原式为 $H_n \rightarrow c\log(n)$。
 其中 $c$ 是方程 $c\log \frac{2e}{c}=1$ 的最大解，约为 $4.31107$。
 2002 年 Michael Drmota 给出了一个跟精确的公式：$\mathrm{E}(H_n)=c\log n-\frac{3c}{2(c-1)}\log \log n + O(1)$。
 测试结果如下，误差基本稳定在一个常数。

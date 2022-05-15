@@ -1,10 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
-然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
-然后在 sink 方法的循环之后调用 swim。
-为了获得比较次数，你可以添加一个静态全局变量 compareCount，
-然后修改 Less 方法，在作比较的同时使 compareCount++ ，
-每次执行 Sort 时先让 compareCount 置零，最后返回 compareCount。
-代码 #  public static class HeapFloyd {  /// <summary>  /// 利用堆排序对数组进行排序。  /// </summary>  /// <param name=&#34;pq&#34;>需要排序的数组。</param>  public static void Sort<T>(T[] pq) where T : IComparable<T>  {  var n = pq."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.40"><meta property="og:description" content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.40"><meta property="og:description" content="2.4.40 #  解答 #  如同书上所说，可以节省约 50% 的比较次数。 先沉后浮的实现也很简单，将 swim 方法加入，
 然后修改 sink 方法，去掉其中检查是否需要下沉的条件（if(!Less(pq, k, j))），
 然后在 sink 方法的循环之后调用 swim。
 为了获得比较次数，你可以添加一个静态全局变量 compareCount，

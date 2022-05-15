@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.13 #  解答 #  在官方实现的基础上直接删除 j<N 语句，随后在 DelMax() 方法中在 Sink(1) 之前让 pq[n + 1] = pq[1] 即可。
-首先保存最大值，然后把堆中的第一个元素和最后一个元素交换，随后使 n = n - 1。
-随后让 pq[n + 1] = pq[1]，这样在下沉操作时就不会下沉到 pq[n + 1]了。（相等的元素是不会交换的）
-故之后的 Sink() 语句中不再需要进行边界判断，直接删去即可。
-修改后 DelMax() 的代码如下：
-public Key DelMax() {  if (IsEmpty())  throw new ArgumentOutOfRangeException(&#34;Priority Queue Underflow&#34;);   Key max = pq[1];  Exch(1, n--);  pq[n + 1] = pq[1];  Sink(1);  pq[n + 1] = default;  if ((n > 0) && (n == pq."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.13"><meta property="og:description" content="2.4.13 #  解答 #  在官方实现的基础上直接删除 j<N 语句，随后在 DelMax() 方法中在 Sink(1) 之前让 pq[n + 1] = pq[1] 即可。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.13"><meta property="og:description" content="2.4.13 #  解答 #  在官方实现的基础上直接删除 j<N 语句，随后在 DelMax() 方法中在 Sink(1) 之前让 pq[n + 1] = pq[1] 即可。
 首先保存最大值，然后把堆中的第一个元素和最后一个元素交换，随后使 n = n - 1。
 随后让 pq[n + 1] = pq[1]，这样在下沉操作时就不会下沉到 pq[n + 1]了。（相等的元素是不会交换的）
 故之后的 Sink() 语句中不再需要进行边界判断，直接删去即可。

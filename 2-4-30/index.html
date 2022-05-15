@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.30 #  解答 #  单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。
-如下图所示，注意 Median 和两个堆并没有直接连接，这里只是方便理解元素顺序。
-只要左右两个堆含有元素之差不超过 1，那么 Median 变量中存放的就是整个数组的中位数。
-如果元素差大于 1，就需要进行调整，
-把 Median 变量中存放的值插入到元素较少的堆，
-再从元素较多的堆中取出元素放入 Median 变量，直到元素差不大于 1。
-插入元素时，根据插入元素的大小插入到某一个堆中去，再做一次调整。
-删除中位数时，去掉中位数，然后从元素较多的一侧堆中取元素补位，再进行一次调整。
-编写代码时要注意堆中只有一个元素的情况需要特殊处理。
-代码 #  面向中位数的堆（MedianPQ.cs）
-public class MedianPq<TKey> where TKey : IComparable<TKey> {  /// <summary>  /// 最大堆（保存前半段元素）。  /// </summary>  /// <value>最大堆（保存前半段元素）。</value>  private readonly MaxPq<TKey> _maxPq;  /// <summary>  /// 最小堆（保存后半段元素）。  /// </summary>  /// <value>最小堆（保存后半段元素）。</value>  private readonly MinPq<TKey> _minPq;  /// <summary>  /// 中位数。  /// </summary>  /// <value>中位数。</value>  private TKey _median;  /// <summary>  /// 堆的大小。  /// </summary>  /// <value>堆的大小。</value>  private int _n;   /// <summary>  /// 默认构造函数，构造一个面向中位数的堆。  /// </summary>  public MedianPq()  {  _maxPq = new MaxPq<TKey>();  _minPq = new MinPq<TKey>();  _median = default;  _n = 0;  }   /// <summary>  /// 构造一个指定容量的面向中位数的堆。  /// </summary>  /// <param name=&#34;capacity&#34;>初始容量。</param>  public MedianPq(int capacity)  {  _maxPq = new MaxPq<TKey>((capacity - 1) / 2);  _minPq = new MinPq<TKey>((capacity - 1) / 2);  _n = 0;  _median = default;  }   /// <summary>  /// 根据指定数组初始化面向中位数的堆。  /// </summary>  /// <param name=&#34;keys&#34;>初始数组。</param>  public MedianPq(TKey[] keys)  {  _minPq = new MinPq<TKey>();  _maxPq = new MaxPq<TKey>();   if (keys."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.30"><meta property="og:description" content="2.4.30 #  解答 #  单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.30"><meta property="og:description" content="2.4.30 #  解答 #  单独用一个变量存放中位数，然后前半部分元素放在一个最大堆中，后半部分元素放在一个最小堆中。
 如下图所示，注意 Median 和两个堆并没有直接连接，这里只是方便理解元素顺序。
 只要左右两个堆含有元素之差不超过 1，那么 Median 变量中存放的就是整个数组的中位数。
 如果元素差大于 1，就需要进行调整，

@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.2.11 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/22mergesort/MergeX.java.html
-在 MergeSortX 类里添加一个 CUTOFF 字段，排序时如果数组长度小于它则直接调用插入排序进行排序。
-在调用归并方法前判断第一个有序数组的最后一个元素是否大于第二个有序数组的第一个元素，
-如果大于的话就不需要调用归并了，直接首尾相接即可。
-归并的空间优化类似于左手倒右手，从一个数组读数据写到另一个数组中去，下一次归并的时候就可以反过来操作，从而节省数组空间。
-每次归并都需要两个数组，一个用于存放归并结果，这个数组中的内容是无关紧要的（Merge() 方法中的 dst 数组）
-另一个则保存了归并前的数组，用于实际的归并过程（src 数组）。
-归并结束后，前一个数组变成归并后的有序结果（也就是下一次归并时的「归并前数组」），后一个数组中的内容则不再有用。
-我们可以看到这两个数组的角色在下一次归并时正好可以互换。
-要注意的是，交换次数总是一个奇数（左侧排序+右侧排序+总归并），因此在第一次调用 Sort 方法时应该把 aux 和 a 互换传入。
-代码 #  public class MergeSortX : BaseSort {  /// <summary>  /// 对小于 CUTOFF 的数组使用插入排序。  /// </summary>  private static int _cutoff = 7;   /// <summary>  /// 设置启用插入排序的阈值，小于该阈值的数组将采用插入排序。  /// </summary>  /// <param name=&#34;cutoff&#34;>新的阈值。</param>  public void SetCutOff(int cutoff) => _cutoff = cutoff;   /// <summary>  /// 将指定范围内的元素归并。  /// </summary>  /// <typeparam name=&#34;T&#34;>数组元素类型。</typeparam>  /// <param name=&#34;src&#34;>原始数组。</param>  /// <param name=&#34;dst&#34;>目标数组。</param>  /// <param name=&#34;lo&#34;>范围起点。</param>  /// <param name=&#34;mid&#34;>范围中点。</param>  /// <param name=&#34;hi&#34;>范围终点。</param>  private void Merge<T>(T[] src, T[] dst, int lo, int mid, int hi) where T : IComparable<T>  {  int i = lo, j = mid + 1;  for (var k = lo; k <= hi; k++)  {  if (i > mid)  dst[k] = src[j++];  else if (j > hi)  dst[k] = src[i++];  else if (Less(src[j], src[i]))  dst[k] = src[j++];  else  dst[k] = src[i++];  }  }   /// <summary>  /// 自顶向下地对数组指定范围内进行归并排序，需要辅助数组。  /// </summary>  /// <typeparam name=&#34;T&#34;>需要排序的元素类型。</typeparam>  /// <param name=&#34;src&#34;>原数组。</param>  /// <param name=&#34;dst&#34;>辅助数组。</param>  /// <param name=&#34;lo&#34;>排序范围起点。</param>  /// <param name=&#34;hi&#34;>排序范围终点。</param>  private void Sort<T>(T[] src, T[] dst, int lo, int hi) where T : IComparable<T>  {  // 小于 CUTOFF 的数组调用插入排序  if (hi <= lo + _cutoff)  {  var insertion = new InsertionSort();  insertion."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.11"><meta property="og:description" content="2.2.11 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/22mergesort/MergeX.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.11"><meta property="og:description" content="2.2.11 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/22mergesort/MergeX.java.html
 在 MergeSortX 类里添加一个 CUTOFF 字段，排序时如果数组长度小于它则直接调用插入排序进行排序。
 在调用归并方法前判断第一个有序数组的最后一个元素是否大于第二个有序数组的第一个元素，
 如果大于的话就不需要调用归并了，直接首尾相接即可。

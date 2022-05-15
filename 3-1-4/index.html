@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.4 #  解答 #  利用 Time 类型记录时间，用 Event 来记录事件内容。
-Time 类型包含时分秒三个 int 变量，同时实现 IComparable 接口。
-Event 类型只包含事件的名称，相当于对 string 做了一个封装。
-随后以 Time 为键类型，Event 为值类型，利用上一题编写的有序符号表进行操作。
-代码 #  Time 类
-public class Time : IComparable<Time> {  public int Hour { get; init; }  public int Minute { get; init; }  public int Second { get; init; }   public Time() : this(0, 0, 0) { }   public Time(int hour, int minute, int second)  {  Hour = hour;  Minute = minute;  Second = second;  }   public int CompareTo(Time other)  {  var result = Hour."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.4"><meta property="og:description" content="3.1.4 #  解答 #  利用 Time 类型记录时间，用 Event 来记录事件内容。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.4"><meta property="og:description" content="3.1.4 #  解答 #  利用 Time 类型记录时间，用 Event 来记录事件内容。
 Time 类型包含时分秒三个 int 变量，同时实现 IComparable 接口。
 Event 类型只包含事件的名称，相当于对 string 做了一个封装。
 随后以 Time 为键类型，Event 为值类型，利用上一题编写的有序符号表进行操作。

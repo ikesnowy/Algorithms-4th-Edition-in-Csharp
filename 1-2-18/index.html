@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.2.18 #  解答 #  当数据比较大时—— 例如 10^9 加上随机小数组成的数列，这时 double 的小数精度将受限。
-求和之后整数部分更大，小数部分将自动四舍五入，出现误差
-这时再计算平均值时将会带来较大的误差。
-因此采用另一个递推公式：
-k 为下标。
-$M_k = M_{k-1}+ (x_k – M_{k-1})/k$
-$S_k = S_{k-1} + (x_k – M_{k-1})\times(x_k – M_k)$.
-方差 $s^2 = S_k/(k – 1)$.
-这种情况下并没有直接对所有输入值求和，小数精度不会过多受到整数部分长度的影响。
-有关这两个公式的证明可以参考这篇论文，或者去查看我的知乎回答。
-代码 #  public class Accumulator {  private double _m;  private double _s;  private int _n;   public void AddDataValue(double x)  {  _n++;  _s = _s + 1."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.2.18"><meta property="og:description" content="1.2.18 #  解答 #  当数据比较大时—— 例如 10^9 加上随机小数组成的数列，这时 double 的小数精度将受限。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.2.18"><meta property="og:description" content="1.2.18 #  解答 #  当数据比较大时—— 例如 10^9 加上随机小数组成的数列，这时 double 的小数精度将受限。
 求和之后整数部分更大，小数部分将自动四舍五入，出现误差
 这时再计算平均值时将会带来较大的误差。
 因此采用另一个递推公式：

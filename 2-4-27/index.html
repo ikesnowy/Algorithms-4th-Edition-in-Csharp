@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.27 #  解答 #  官网有解答，只要在 MaxPQ 里面加上一个记录最小值的指针就可以了。
-初始状态下这个指针为空。
-每次插入新元素的时候先更新一下这个指针。 删除最后一个元素的时候把它重新置空即可。
-具体实现见代码。
-代码 #  public class MaxPqWithMin<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : class, IComparable<TKey> {  /// <summary>  /// 保存元素的数组。  /// </summary>  /// <value>保存元素的数组。</value>  private TKey[] _pq;  /// <summary>  /// 堆中的元素数量。  /// </summary>  /// <value>堆中的元素数量。</value>  private int _n;  /// <summary>  /// 堆中的最小元素。  /// </summary>  /// <value>堆中的最小元素。</value>  private TKey _min;   /// <summary>  /// 默认构造函数。  /// </summary>  public MaxPqWithMin() : this(1) { }   /// <summary>  /// 建立指定容量的最大堆。  /// </summary>  /// <param name=&#34;capacity&#34;>最大堆的容量。</param>  public MaxPqWithMin(int capacity)  {  _pq = new TKey[capacity + 1];  _n = 0;  _min = null;  }   /// <summary>  /// 从已有元素建立一个最大堆。（O(n)）  /// </summary>  /// <param name=&#34;keys&#34;>已有元素。</param>  public MaxPqWithMin(TKey[] keys)  {  _n = keys."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.27"><meta property="og:description" content="2.4.27 #  解答 #  官网有解答，只要在 MaxPQ 里面加上一个记录最小值的指针就可以了。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.27"><meta property="og:description" content="2.4.27 #  解答 #  官网有解答，只要在 MaxPQ 里面加上一个记录最小值的指针就可以了。
 初始状态下这个指针为空。
 每次插入新元素的时候先更新一下这个指针。 删除最后一个元素的时候把它重新置空即可。
 具体实现见代码。

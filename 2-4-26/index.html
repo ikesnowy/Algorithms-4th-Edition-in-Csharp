@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.26 #  解答 #  用类似于「半交换」的方法避免频繁调用 Exch() 方法。
-上浮时，先单独保存待上浮的元素，随后进行比较，
-如果当前 k 值对应的父结点（即 k/2 ）小于待上浮的元素，令 pq[k]=pq[k/2]。
-否则令当前 k 值等于待上浮的元素，终止循环。 下沉的过程类似。
-修改后的 sink 和 swim 方法：
-/// <summary> /// 使元素上浮。 /// </summary> /// <param name=&#34;k&#34;>需要上浮的元素。</param> private void Swim(int k) {  var key = _pq[k];  while (k > 1 && _pq[k / 2].CompareTo(key) < 0)  {  _pq[k] = _pq[k / 2];  k /= 2;  }  _pq[k] = key; }  /// <summary> /// 使元素下沉。 /// </summary> /// <param name=&#34;k&#34;>需要下沉的元素。</param> private void Sink(int k) {  var key = _pq[k];  while (k * 2 <= _n)  {  var j = 2 * k;  if (Less(j, j + 1))  j++;  if (_pq[j]."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.26"><meta property="og:description" content="2.4.26 #  解答 #  用类似于「半交换」的方法避免频繁调用 Exch() 方法。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.26"><meta property="og:description" content="2.4.26 #  解答 #  用类似于「半交换」的方法避免频繁调用 Exch() 方法。
 上浮时，先单独保存待上浮的元素，随后进行比较，
 如果当前 k 值对应的父结点（即 k/2 ）小于待上浮的元素，令 pq[k]=pq[k/2]。
 否则令当前 k 值等于待上浮的元素，终止循环。 下沉的过程类似。

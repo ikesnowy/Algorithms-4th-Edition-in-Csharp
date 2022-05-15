@@ -1,13 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.40 #  解答 #  N 个数可组成的三元组的总数为：
-$C(N, 3) = N(N-1)(N-2)/3! = ~ (N^3)/6​$ （组合数公式）
-$[-M, M]​$ 中随机 $N​$ 次，有 $(2M+1)^N​$ 种随机序列（每次随机都有 $2M+1​$ 种可能）
-按照分步计数方法，将随机序列分为和为零的三元组和其余 $N-3​$ 个数
-这些序列中，和为零的三元组有 $3M^2 + 3M + 1​$ 种可能。
-其他不为零的 $N-3​$ 个位置有 $(2M+1)^{(N-3)}​$ 种可能。
-总共有 $((N^3)/6) \times (3M^2 + 3M + 1) \times (2M+1)^{(N-3)}​$ 种可能性
-平均值为：
-$[((N^3)/6) \times (3M^2 + 3M + 1) \times (2M+1)^{(N-3)}] / (2M+1)^N​$ $=N^3/16M​$
-$3M^2 + 3M + 1$ 的推导："><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.40"><meta property="og:description" content="1.4.40 #  解答 #  N 个数可组成的三元组的总数为：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.40"><meta property="og:description" content="1.4.40 #  解答 #  N 个数可组成的三元组的总数为：
 $C(N, 3) = N(N-1)(N-2)/3! = ~ (N^3)/6​$ （组合数公式）
 $[-M, M]​$ 中随机 $N​$ 次，有 $(2M+1)^N​$ 种随机序列（每次随机都有 $2M+1​$ 种可能）
 按照分步计数方法，将随机序列分为和为零的三元组和其余 $N-3​$ 个数

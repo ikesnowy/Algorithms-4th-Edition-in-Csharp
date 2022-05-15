@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.1 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
-ST.java：https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/ST.java.html
-建立一个符号表，然后把键值放进去，读取计算即可。
-和上一章节用过的方法类似，先定义了一个接口 IST<Key, Value> ，包含书中提到的基本 API。
-然后定义类 ST ，用标准库里面的 Dictionary 实现了 IST 。
-代码 #  public class St<TKey, TValue> : ISt<TKey, TValue>, IEnumerable<TKey> {  private readonly Dictionary<TKey, TValue> _st;   /// <summary>  /// 新建一个符号表。  /// </summary>  public St() => _st = new Dictionary<TKey, TValue>();   /// <summary>  /// 检查符号表中是否存在与键 <paramref name=&#34;key&#34;/> 对应的值。  /// </summary>  /// <param name=&#34;key&#34;>要检查是否存在的键。</param>  /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>  public virtual bool Contains(TKey key) => _st."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.1"><meta property="og:description" content="3.1.1 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.1"><meta property="og:description" content="3.1.1 #  解答 #  官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
 ST.java：https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/ST.java.html
 建立一个符号表，然后把键值放进去，读取计算即可。
 和上一章节用过的方法类似，先定义了一个接口 IST<Key, Value> ，包含书中提到的基本 API。

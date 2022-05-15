@@ -1,17 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.18 #  解答 #  首先看第一种情况，一次 insert() 接一次 delMax()。
-由于插入的数比堆中的所有元素都大，这个元素会一路上升到根结点。
-记上升路径上的点为 $a_1,a_2,a_3, \dots , a_k$，其中 $a_k$是插入的结点，$a_1$ 是根结点。
-插入完成后路径上点的次序变为 $a_k, a_1, a_2, \dots, a_{k-1}$ 。
-随后进行一次 delMax()，先做交换，次序变为 $a_{k-1}, a_1, \dots, a_{k-2}, a_k$ 。
-由于 $a_1$ 是堆中原来的最大值，下沉时一定会和它交换。
-根据定义，二叉堆是父结点总是优于子结点的完全二叉树，因此以后续结点作为根结点的子树也都是堆。
-故同理 $a_{k-1}$ 会和 $a_2, a_3, \dots,a_{k-2}$ 交换，即沿原路径返回。
-因此这种情况下前后堆不发生改变。
-然后看第二种情况，操作顺序为 insert() insert() delMax() delMax()。
-根据之前的结论，插入最大结点之后立即删除最大元素不会使堆发生变化，中间的两个操作抵消。
-序列变为：insert() delMax()。
-同理再次利用刚才的结论，操作抵消，堆不发生变化。
-故第二种情况也不会使堆发生改变。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.18"><meta property="og:description" content="2.4.18 #  解答 #  首先看第一种情况，一次 insert() 接一次 delMax()。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.18"><meta property="og:description" content="2.4.18 #  解答 #  首先看第一种情况，一次 insert() 接一次 delMax()。
 由于插入的数比堆中的所有元素都大，这个元素会一路上升到根结点。
 记上升路径上的点为 $a_1,a_2,a_3, \dots , a_k$，其中 $a_k$是插入的结点，$a_1$ 是根结点。
 插入完成后路径上点的次序变为 $a_k, a_1, a_2, \dots, a_{k-1}$ 。

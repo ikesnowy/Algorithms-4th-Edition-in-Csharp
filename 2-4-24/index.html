@@ -1,26 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.24 #  解答 #  链式实现，每个结点都包含一个指向父结点的指针和两个指向子结点的指针。
-交换结点可以直接用交换两个结点的值来实现（与数组的实现一样），而不是对两个结点的指针进行交换。
-于是 Sink() 和 Swim() 操作就比较简单，直接按照定义实现即可。
-比较困难的是删除和插入结点，或者更具体的说，
-如何找到按照完全二叉树定义下序号向后/向前一位的结点？
-我们首先在堆里面维护两个指针，一个指向根结点（root），另一个指向当前最后一个结点（last）。
-当需要插入新结点时，我们需要找到 last 的后一位的父结点，然后把新的结点插入为该结点的左子结点。
-这段话可能比较绕，下面这个示意图可以帮助理解，有三种情况：
-标黄的代表 last 指着的位置。
-我们先从简单的说起，中间的第二种情况，新插入的结点应该放在右侧，即作为 last 的父结点的右子结点。
-如果 last 已经是右子结点了，那么就考虑第三种情况。
-此时应该向上回溯，直到在某一次回溯中，结点是从父结点的左侧回溯上来的 （即图中路径 A-B-B，B-B 这一步是从左子树回溯上来的）。
-于是待插入的位置就在该父结点的右子树的最左侧结点（即图中根结点的右子结点 A）。
-最后是图中第一种情况，整棵树已经是满二叉树了。
-这种情况下会一路回溯到根结点，那么只要一路下沉到最左侧的叶子结点，把新结点插入到其左子树上即可。
-删除结点同理，也是这三种情况，只是需要找前一个结点，判断条件中的左右正好相反。
-如果已经是右子结点了，只需要把 last 改为其父结点的左子树即可。
-如果是左子结点，就需要回溯，直到某一次回溯是从右子树回溯上来的，last 应该指向其左子树的最右侧结点。
-如果删除后正好变成满二叉树，那么会一直回溯到根结点，last 应该指向整棵树的最右侧结点。
-代码实现中还需要处理只有一个结点以及没有结点时的特殊情况。
-根据上面的算法，插入/删除找到相应位置所需的最大耗时为 2lgN （从树的一侧回溯到根结点，再下沉到另一侧的底部）。
-Sink 和 Swim 是 O(lgN) 级的，因此整个插入/删除操作是 O(lgN) 的。
-代码 #  public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey> {  /// <summary>  /// 二叉堆的根结点。  /// </summary>  private TreeNode<TKey> _root;  /// <summary>  /// 二叉堆的最后一个结点。  /// </summary>  private TreeNode<TKey> _last;  /// <summary>  /// 二叉堆中的结点个数。  /// </summary>  private int _nodesCount;   /// <summary>  /// 删除并返回最大值。  /// </summary>  /// <returns>最大值。</returns>  /// <remarks>如果希望获得最大值而不删除它，请使用 <see cref=&#34;Max&#34;/>。</remarks>  public TKey DelMax()  {  var result = _root."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.24"><meta property="og:description" content="2.4.24 #  解答 #  链式实现，每个结点都包含一个指向父结点的指针和两个指向子结点的指针。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.24"><meta property="og:description" content="2.4.24 #  解答 #  链式实现，每个结点都包含一个指向父结点的指针和两个指向子结点的指针。
 交换结点可以直接用交换两个结点的值来实现（与数组的实现一样），而不是对两个结点的指针进行交换。
 于是 Sink() 和 Swim() 操作就比较简单，直接按照定义实现即可。
 比较困难的是删除和插入结点，或者更具体的说，

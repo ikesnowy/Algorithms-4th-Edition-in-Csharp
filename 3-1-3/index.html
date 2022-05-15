@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.3 #  解答 #  基于无序链表的官方实现：https://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html
-有序符号表的 API 见书中表 3.1.4（中文版 P230，英文版 P366）。
-在官方实现的基础上修改 Put 方法，先找到合适位置再插入新的键值对，保证链表有序。
-为方便插入操作，可以使用双向链表作为基础进行实现。
-表中同时维护开头和末尾引用，加快获得最值的速度。
-代码 #  public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue>  where TKey : IComparable<TKey> {  /// <summary>  /// 符号表结点。  /// </summary>  private class Node  {  public TKey Key { get; set; } // 键。  public TValue Value { get; set; } // 值。  public Node Next { get; set; } // 后继。  public Node Prev { get; set; } // 前驱。  }   private Node _first; // 起始结点。  private Node _tail; // 末尾结点。  private int _n; // 键值对数量。   /// <summary>  /// 大于等于 key 的最小值。  /// </summary>  /// <returns>大于等于 key 的最小值，不存在则返回 <c>default(Key)</c>。</returns>  public TKey Ceiling(TKey key)  {  var pointer = _first;  while (pointer !"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.3"><meta property="og:description" content="3.1.3 #  解答 #  基于无序链表的官方实现：https://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.3"><meta property="og:description" content="3.1.3 #  解答 #  基于无序链表的官方实现：https://algs4.cs.princeton.edu/31elementary/SequentialSearchST.java.html
 有序符号表的 API 见书中表 3.1.4（中文版 P230，英文版 P366）。
 在官方实现的基础上修改 Put 方法，先找到合适位置再插入新的键值对，保证链表有序。
 为方便插入操作，可以使用双向链表作为基础进行实现。

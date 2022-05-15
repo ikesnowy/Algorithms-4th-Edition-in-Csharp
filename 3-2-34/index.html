@@ -1,11 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.34 #  解答 #  其实就是将所有的结点按照中序序列排成了一个双向链表，对树进行修改时要同时更新这个双向链表。
-当插入新结点时，插到左侧的结点会变为父结点的新前驱，同理右侧会变为新后继。
-注意要更新父结点原来的前驱和后继结点（如果有）。
-删除结点时较为简单，只要更新需要删除结点的前驱和后继结点即可。
-原本操作 left 和 right 的代码不需要更改，只需要加上对 prev 和 next 做操作的代码即可。
-Prev 方法实现如下（Next 类似），修改了内部的 Get 方法使之返回 Node 而非 TValue。
-public TKey Prev(TKey key) {  var node = Get(root, key);  if (node == null || node.Prev == null)  return null;  return node.Prev.Key; } 代码 #  处理结点关系的几个方法。
-private void DeleteNode(Node x) {  if (x.Prev != null)  x.Prev.Next = x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.34"><meta property="og:description" content="3.2.34 #  解答 #  其实就是将所有的结点按照中序序列排成了一个双向链表，对树进行修改时要同时更新这个双向链表。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.34"><meta property="og:description" content="3.2.34 #  解答 #  其实就是将所有的结点按照中序序列排成了一个双向链表，对树进行修改时要同时更新这个双向链表。
 当插入新结点时，插到左侧的结点会变为父结点的新前驱，同理右侧会变为新后继。
 注意要更新父结点原来的前驱和后继结点（如果有）。
 删除结点时较为简单，只要更新需要删除结点的前驱和后继结点即可。

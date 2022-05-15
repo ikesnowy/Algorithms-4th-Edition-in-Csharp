@@ -1,12 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.7 #  解答 #  参考书中给出的快速排序性能分析方法（中文版 P186，英文版 P293）。
-设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
-一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
-于是根据全概率公式，有：
-$$ \begin{eqnarray} C_n&=&\frac {1}{n} (n+1) +\frac{1}{n} (n+1+C_1)+ \cdots + \frac{1}{n}(n+1+C_{n-1}) \newline C_n&=&n+1+\frac{1}{n}(C_1+C_2+\cdots+C_{n-1}) \newline nC_n&=&n(n+1)+(C_1+C_2+\cdots+C_{n-1}) \newline nC_n-(n-1)C_{n-1}&=&2n+C_{n-1} \newline nC_n&=&2n+nC_{n-1} \newline C_n&=&2+C_{n-1} \newline C_n &=& C_1+2(n-1) \newline C_n &=& 2n-2 < 2n \end{eqnarray} $$
-测试结果符合我们的预期。 附加：找出第 $k$ 小的数平均需要的比较次数。
-类似的方法也在计算快速排序的平均比较次数时使用，见 {% post_link 2-3-14.md %}。
-首先和快速排序类似，select 方法的所有元素比较都发生在切分过程中。
-接下来考虑第 $i$ 小和第 $j$ 小的元素（$x_i$ ，$x_j$），"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.7"><meta property="og:description" content="2.5.7 #  解答 #  参考书中给出的快速排序性能分析方法（中文版 P186，英文版 P293）。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.7"><meta property="og:description" content="2.5.7 #  解答 #  参考书中给出的快速排序性能分析方法（中文版 P186，英文版 P293）。
 设 $C_n$ 代表找出 $n$ 个元素中的最小值所需要的比较次数。
 一次切分需要 $n+1$ 次比较，下一侧的元素个数从 $0$ 到 $ n-1 ​$ 都有可能，
 于是根据全概率公式，有：

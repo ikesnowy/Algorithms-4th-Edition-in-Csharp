@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.34 #  解答 #  这里给出最大堆的实现，原因同 2.4.33。
-maxIndex()：pq[1] 就是最小元素的下标。
-change()：首先修改 keys 数组中对应的元素，然后对堆中该下标进行重排序。
-delete()：先从堆中删除元素，再把 keys 和 qp 数组中的对应元素初始化。
-代码 #  /// <summary> /// 返回最大元素对应的索引。 /// </summary> /// <returns>最大元素对应的索引。</returns> /// <exception cref=&#34;ArgumentOutOfRangeException&#34;>当优先队列为空时抛出该异常。</exception> public int MaxIndex() {  if (_n == 0)  throw new InvalidOperationException(&#34;Priority Queue Underflow&#34;);  return _pq[1]; }  /// <summary> /// 将与索引 <paramref name=&#34;i&#34;/> 相关联的元素换成 <paramref name=&#34;k&#34;/>。 /// </summary> /// <param name=&#34;i&#34;>要修改关联元素的索引。</param> /// <param name=&#34;k&#34;>用于替换的新元素。</param> public void ChangeKey(int i, TKey k) {  if (!"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.34"><meta property="og:description" content="2.4.34 #  解答 #  这里给出最大堆的实现，原因同 2.4.33。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.34"><meta property="og:description" content="2.4.34 #  解答 #  这里给出最大堆的实现，原因同 2.4.33。
 maxIndex()：pq[1] 就是最小元素的下标。
 change()：首先修改 keys 数组中对应的元素，然后对堆中该下标进行重排序。
 delete()：先从堆中删除元素，再把 keys 和 qp 数组中的对应元素初始化。

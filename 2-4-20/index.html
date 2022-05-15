@@ -1,13 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.20 #  解答 #  官网给出了解答：https://algs4.cs.princeton.edu/24pq/
-首先介绍第一种解法。
-设叶子结点的高度为 $0$，根结点的高度为 $ h ​$。
-于是某个结点 sink 时的最大交换次数即为该结点的高度。
-故某一层结点的最大交换次数为 该层结点数 × 该层的高度。
-于是总交换次数最大为：
-$$ \begin{align*} & h+2(h-1)+2^2(h-2)+ \dots + 2^h(0) \newline & =\sum_{k=0}^{h-1} 2^k(h-k) \newline & =h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \newline \end {align*} $$
-第一项为等比数列的和，第二项为等差数列乘以等比数列的和。
-于是第一项可以直接通过公式求得，第二项可以利用错位相减法求得。
-$$ \begin{align} & h\sum_{k=0}^{h-1}2^k - \sum_{k=0}^{h-1}k2^k \newline & =h2^{h}-h-\sum_{k=0}^{h-1}k2^k \newline & =h2^{h}-h +\sum_{k=0}^{h-1} k2^k - 2\sum_{k=0}^{h-1} k2^k \newline & =h2^{h}-h+2^h - 2-(h-1)2^h \newline & =2^{h+1}-h-2 \newline & =N-h-1 \le N \end{align} $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.20"><meta property="og:description" content="2.4.20 #  解答 #  官网给出了解答：https://algs4.cs.princeton.edu/24pq/
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.20"><meta property="og:description" content="2.4.20 #  解答 #  官网给出了解答：https://algs4.cs.princeton.edu/24pq/
 首先介绍第一种解法。
 设叶子结点的高度为 $0$，根结点的高度为 $ h ​$。
 于是某个结点 sink 时的最大交换次数即为该结点的高度。

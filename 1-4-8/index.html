@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.8 #  解答 #  平方级别：直接二层循环遍历一遍。
-线性对数：
-先对数组排序，然后遍历一遍数组，在遍历过程中计算重复元素的数量，
-然后用公式 $1+2+\cdots+n-1=n(n-1)/2$ 计算重复整数对的数量。
-代码 #  /// <summary> /// 暴力查找数组中相等的整数对。 /// </summary> /// <param name=&#34;a&#34;>需要查找的数组。</param> /// <returns></returns> static int CountEqual(int[] a) {  var n = a.Length;  var count = 0;  for (var i = 0; i < n; i++)  {  for (var j = i + 1; j < n; j++)  {  if (a[i] == a[j])  count++;  }  }   return count; }  /// <summary> /// 利用 Array."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.8"><meta property="og:description" content="1.4.8 #  解答 #  平方级别：直接二层循环遍历一遍。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.8"><meta property="og:description" content="1.4.8 #  解答 #  平方级别：直接二层循环遍历一遍。
 线性对数：
 先对数组排序，然后遍历一遍数组，在遍历过程中计算重复元素的数量，
 然后用公式 $1+2+\cdots+n-1=n(n-1)/2$ 计算重复整数对的数量。

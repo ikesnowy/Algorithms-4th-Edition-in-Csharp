@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.25 #  解答 #  英文原文指的是 most recently accessed key，因此指的是最近访问的键。
-实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
-然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
-要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。
-利用《双城记》测试的结果： 代码 #  BinarySearchST #  cache 是一个 int 类型的变量，代表下标。 在二分查找前先检查缓存，要注意cache超出数组大小的情况。 如果缓存未命中，则进行二分查找，并在返回结果前更新缓存。
-public TValue Get(TKey key) {  if (key == null)  throw new ArgumentNullException(nameof(key), &#34;argument to Get() is null&#34;);  if (IsEmpty())  return default;  if (_cache < _n && _keys[_cache].Equals(key)) // 缓存检查  return _values[_cache];  var rank = Rank(key);  if (rank < _n && _keys[rank]."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.25"><meta property="og:description" content="3.1.25 #  解答 #  英文原文指的是 most recently accessed key，因此指的是最近访问的键。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.25"><meta property="og:description" content="3.1.25 #  解答 #  英文原文指的是 most recently accessed key，因此指的是最近访问的键。
 实现比较简单，先在类中定义一个新的成员 cache 作为缓存，
 然后修改 Get 方法，在实际查找之前先检查缓存，如果缓存未命中则在查找之后更新它。
 要注意的是缓存指向内容的有效性，在数组中指的是下标是否有效，在链表中指的是结点是否为空。

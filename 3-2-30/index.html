@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.2.30 #  解答 #  本题在原书后续印刷中已修改，这里仍然采用中文版的题目。
-与上一题非常类似，条件有：
-根结点必须在 min 和 max 范围内，
-且左右子树要么不存在，要么小于/大于根结点的键，
-左右子树同样满足上述条件。
-代码 #  protected static bool IsOrdered(Node x, TKey min, TKey max) {  if (x == null)  {  return true; // 空树显然是满足要求的。  }   return IsOrdered(x.Left, min, max) &&  IsOrdered(x.Right, min, max) && // 左右子树都满足要求。  x.Key.CompareTo(max) <= 0 &&  x.Key.CompareTo(min) >= 0 && // 当前结点位于范围内。  (x.Left == null || x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.30"><meta property="og:description" content="3.2.30 #  解答 #  本题在原书后续印刷中已修改，这里仍然采用中文版的题目。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.30"><meta property="og:description" content="3.2.30 #  解答 #  本题在原书后续印刷中已修改，这里仍然采用中文版的题目。
 与上一题非常类似，条件有：
 根结点必须在 min 和 max 范围内，
 且左右子树要么不存在，要么小于/大于根结点的键，

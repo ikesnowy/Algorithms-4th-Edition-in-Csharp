@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.3.22 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
-快速三向切分 #  论文引用见「另请参阅」部分。
-算法演示 Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
-该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。
-这个算法的思想其实很简单，假设我们有三个数 $y_1, y_2, y_3$ ，那么其中位数为：
-$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace $$
-现在对于九个数，我们以三个为一组，取三个中位数：
-$$ y_A= {\rm median}\lbrace y_1,y_2,y_3 \rbrace \newline y_B= {\rm median}\lbrace y_4,y_5,y_6 \rbrace \newline y_C= {\rm median}\lbrace y_7,y_8,y_9 \rbrace $$
-接下来取这三个中位数的中位数，有：
-$$ y_E= {\rm median}\lbrace y_A,y_B,y_C \rbrace $$
-我们把上述过程封装成函数，即 $y_E= {\rm ninther}\lbrace y_1,y_2,\cdots,y_9 \rbrace$ 。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.22"><meta property="og:description" content="2.3.22 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.22"><meta property="og:description" content="2.3.22 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/23quicksort/QuickBentleyMcIlroy.java.html
 快速三向切分 #  论文引用见「另请参阅」部分。
 算法演示 Ninther 算法 #  官方实现中用到了 Ninther 算法用于选取近似中位数（作为枢轴），
 该算法由 John Tukey 在 1978 年提出，论文引用见「另请参阅」部分。

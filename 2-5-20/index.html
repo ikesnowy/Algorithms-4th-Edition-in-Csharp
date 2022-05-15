@@ -1,10 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.20 #  解答 #  我们以事件为单位进行处理，每个事件包含任务名，记录时刻和开始/结束标记。
-随后按照时间从小到大排序，遍历事件数组。
-设开始的时候机器空闲，设置计数器，作为当前正在运行的任务数量。
-当遇到开始事件时，计数器加一；遇到结束事件时，计数器减一。
-如果计数器加一之前计数器为 0，说明空闲状态结束，记录并更新空闲时间，当前时间为忙碌开始的时间。
-如果计数器减一之后计数器为 0，说明忙碌状态结束，记录并更新忙碌时间，当前时间为空闲开始的时间。
-测试结果： 代码 #  var nowRunning = 0; // 正在运行的程序数量 var maxIdle = 0; var maxBusy = 0; var items = int.Parse(Console.ReadLine()); var jobs = new JobEvent[items * 2]; for (var i = 0; i < jobs.Length; i += 2) {  jobs[i] = new JobEvent();  jobs[i + 1] = new JobEvent();   jobs[i].IsFinished = false; // 开始事件  jobs[i + 1]."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.20"><meta property="og:description" content="2.5.20 #  解答 #  我们以事件为单位进行处理，每个事件包含任务名，记录时刻和开始/结束标记。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.20"><meta property="og:description" content="2.5.20 #  解答 #  我们以事件为单位进行处理，每个事件包含任务名，记录时刻和开始/结束标记。
 随后按照时间从小到大排序，遍历事件数组。
 设开始的时候机器空闲，设置计数器，作为当前正在运行的任务数量。
 当遇到开始事件时，计数器加一；遇到结束事件时，计数器减一。

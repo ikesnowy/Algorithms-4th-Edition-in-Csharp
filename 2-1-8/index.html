@@ -1,19 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.1.8 #  解答 #  平方级别。
-如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
-接下来我们证明有重复元素的情况下，这个结论仍然成立：
-首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：
-$$ \underbrace{11&mldr;1}{a} \ \underbrace{22&mldr;2}{b} \ \underbrace{33&mldr;3}{c} \ \underbrace{13121123}{unsorted} $$
-其中，1，2，3 分别代表三种不同的取值及其先后顺序。
-假设这是第 i 次插入前，如果第 i 次插入的是 1，我们需要交换 b+c 次，插入 2 则需要交换 c 次，插入 3 则不需要交换。
-根据题意，这是一个随机数组，我们假设其为均匀分布，那么三种取值的出现几率相等。
-第 i 次插入所需要的平均交换次数即为：
-$$ \frac{b+c+c}{3}=\frac{b+2c}{3} $$
-第 i 次插入后，b + 2c 视插入的元素不同会出现不同的变化：
-如果插入的是 1，那么 b+2c 的值不会变化。
-如果插入的是 2，那么 b+2c 的值增加 1。
-如果插入的是 3，那么 b+2c 的值增加 2。
-同样由于三种取值的概率相等，我们得出第 i + 1 次插入平均需要交换的次数为：
-$$ \frac{b+2c+\frac{0+1+2}{3}}{3}=\frac{b+2c+1}{3} $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.8"><meta property="og:description" content="2.1.8 #  解答 #  平方级别。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.8"><meta property="og:description" content="2.1.8 #  解答 #  平方级别。
 如果数组中元素各不相同，那么这个结论很容易证明（一般的插入排序）。
 接下来我们证明有重复元素的情况下，这个结论仍然成立：
 首先对于插入排序过程中的某一时刻，我们有下图这样的一般情况：

@@ -1,16 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.33 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
-书中算法 2.6 给出的是一个最大堆的实现，但本题给出的部分解答却是最小堆的。
-同时官网给出的解答是最大堆的，这里选择和官网保持一致，给出最大堆的实现。
-初看起来可能会比较难理解，但其实就是以指针为元素的堆。
-堆中存放的只是指向元素的指针（如果元素在数组里那就变成了下标）。
-做比较的时候要先根据指针（下标）找到对应元素，再进行比较。
-再来看题目中给出的要求，keys[] 数组中用于保存元素（比如 keys[0] = ‘A’;），
-而 pq[] 中保存的是元素在 key[] 数组中的下标（比如 pq[1] = 0;)，
-而 qp[] 中保存的是某个下标在 pq[]中 的对应位置。 （比如 qp[0] = 1）。
-在这三个数组中，pq[]是一个堆，我们的堆操作都作用在这个数组上。
-keys[] 数组中的元素不随着 pq[] 中下标的移动而移动，只有当删除或添加元素时才发生变化。
-qp[]与pq[]中的索引一一对应，pq[]交换时也需要交换qp[]中的对应元素。
-代码 #  public class IndexMaxPq<TKey> : IEnumerable<int> where TKey : IComparable<TKey> {  /// <summary>  /// 优先队列中的元素。  /// </summary>  private int _n;  /// <summary>  /// 索引最大堆。  /// </summary>  private readonly int[] _pq;  /// <summary>  /// pq 的逆索引，pq[qp[i]]=qp[pq[i]]=i  /// </summary>  private readonly int[] _qp;  /// <summary>  /// 实际元素。  /// </summary>  private readonly TKey[] _keys;   /// <summary>  /// 建立指定大小的面向索引的最大堆。  /// </summary>  /// <param name=&#34;capacity&#34;>最大堆的容量。</param>  public IndexMaxPq(int capacity)  {  if (capacity < 0)  throw new ArgumentOutOfRangeException();  _n = 0;  _keys = new TKey[capacity + 1];  _pq = new int[capacity + 1];  _qp = new int[capacity + 1];  for (var i = 0; i <= capacity; i++)  _qp[i] = -1;  }   /// <summary>  /// 将与索引 <paramref name=&#34;i&#34;/> 相关联的元素换成 <paramref name=&#34;k&#34;/>。  /// </summary>  /// <param name=&#34;i&#34;>要修改关联元素的索引。</param>  /// <param name=&#34;k&#34;>用于替换的新元素。</param>  public void ChangeKey(int i, TKey k)  {  if (!"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.33"><meta property="og:description" content="2.4.33 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.33"><meta property="og:description" content="2.4.33 #  解答 #  官方实现见：https://algs4.cs.princeton.edu/24pq/IndexMaxPQ.java.html
 书中算法 2.6 给出的是一个最大堆的实现，但本题给出的部分解答却是最小堆的。
 同时官网给出的解答是最大堆的，这里选择和官网保持一致，给出最大堆的实现。
 初看起来可能会比较难理解，但其实就是以指针为元素的堆。

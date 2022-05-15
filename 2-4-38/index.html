@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.38 #  解答 #  直接构造相应的数组测试即可。
-测试结果如下：
-最大堆来说顺序时会比较慢，因为每次插入都要一路上升到顶部。
-逆序的时候则是删除比较慢，最后一个元素是最小的元素，交换后需要一路下沉到底部。
-由于元素相同的时候我们选择不交换（less(i, j) 返回 false），较多的重复元素并不会影响性能。
-代码 #  var random = new Random(); var n = 200000; var repeatTimes = 5; var doubleTimes = 4; for (var i = 0; i < doubleTimes; i++) {  Console.WriteLine(&#34;number=&#34; + n);  // 升序数组  long totalTime = 0;  Console.Write(&#34;Ascending:\t&#34;);  for (var j = 0; j < repeatTimes; j++)  {  var pq = new MaxPq<int>(n);  var data = GetAscending(n);  var time = Test(pq, data);  Console."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.38"><meta property="og:description" content="2.4.38 #  解答 #  直接构造相应的数组测试即可。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.38"><meta property="og:description" content="2.4.38 #  解答 #  直接构造相应的数组测试即可。
 测试结果如下：
 最大堆来说顺序时会比较慢，因为每次插入都要一路上升到顶部。
 逆序的时候则是删除比较慢，最后一个元素是最小的元素，交换后需要一路下沉到底部。

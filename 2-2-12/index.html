@@ -1,13 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.2.12 #  解答 #  中文版的翻译比较难理解。
-实际上就是另一种归并排序的实现方式。
-先把数组分成若干个大小为 M 的块 。
-对于每个块，用选择排序进行排序 。
-随后遍历数组，将各个块归并起来。
-归并时仅复制右侧数组就够了，然后倒着归并（从右到左），可以将额外空间降到 M。
-具体归并流程如下：
- 复制右侧数组到 aux，现在右侧数组a[hi]~a[mid+1]中的元素可以被安全覆盖。 设定指针i,j,k，将数组 a[mid]~a[0] 和 aux[hi-mid-1]~aux[mid + 1] 归并到 a[hi - 1]~a[0]。  在这个流程中左侧数组的指针i是不会大于归并的写入指针k的。
-最坏情况下，aux用尽时 i == k，左侧数组可以直接并上去。
-代码 #  public class MergeSort : BaseSort {  /// <summary>  /// 利用归并排序将数组按升序排序。  /// </summary>  /// <typeparam name=&#34;T&#34;>数组元素类型。</typeparam>  /// <param name=&#34;a&#34;>待排序的数组。</param>  public override void Sort<T>(T[] a)  {  Sort(a, 1);  }   /// <summary>  /// 利用分块法进行归并排序。  /// </summary>  /// <typeparam name=&#34;T&#34;>待排序的数组内容。</typeparam>  /// <param name=&#34;a&#34;>待排序的数组。</param>  /// <param name=&#34;m&#34;>分块大小。</param>  public void Sort<T>(T[] a, int m) where T : IComparable<T>  {  var blockNum = (a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.12"><meta property="og:description" content="2.2.12 #  解答 #  中文版的翻译比较难理解。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.12"><meta property="og:description" content="2.2.12 #  解答 #  中文版的翻译比较难理解。
 实际上就是另一种归并排序的实现方式。
 先把数组分成若干个大小为 M 的块 。
 对于每个块，用选择排序进行排序 。

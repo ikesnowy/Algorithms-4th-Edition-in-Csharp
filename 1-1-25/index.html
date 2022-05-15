@@ -1,11 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
-设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。
-那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。 且 $r_n=0$ （此时算法终止）。
-由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。
-可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。
-则有
-$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$
-可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.1.25"><meta property="og:description" content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.1.25"><meta property="og:description" content="1.1.25 #  解答 #  已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.
 设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。
 那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。 且 $r_n=0$ （此时算法终止）。
 由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。

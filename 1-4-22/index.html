@@ -1,12 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.22 #  解答 #  普通二分查找是通过除法不断减半缩小搜索范围。
-这里我们用斐波那契数列来缩小范围。
-举个例子，例如数组大小是 100，比它大的最小斐波那契数是 144。
-斐波那契数列如下：0 1 1 2 3 5 8 13 21 34 55 89 144
-我们记 F(n) = 144,F(n-1) = 89, F(n-2) = 55。
-我们先查看第 0 + F(n-2) 个数，如果比关键值小则直接将范围缩小到 [55, 100]；否则则在[0, 55]之间查找。
-之后我们令 n = n-1。
-递归上述过程即可完成查找。
-代码 #  /// <summary> /// 使用斐波那契数列进行的查找。 /// </summary> /// <param name=&#34;a&#34;>查找范围。</param> /// <param name=&#34;key&#34;>关键字。</param> /// <returns>返回查找到的关键值下标，没有结果则返回 -1。</returns> static int Rank(int[] a, int key) {  // 使用斐波那契数列作为缩减范围的依据  var fk = 1;  var fk1 = 1;  var fk2 = 0;   // 获得 Fk，Fk需要大于等于数组的大小，复杂度 lgN  while (fk < a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.22"><meta property="og:description" content="1.4.22 #  解答 #  普通二分查找是通过除法不断减半缩小搜索范围。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.22"><meta property="og:description" content="1.4.22 #  解答 #  普通二分查找是通过除法不断减半缩小搜索范围。
 这里我们用斐波那契数列来缩小范围。
 举个例子，例如数组大小是 100，比它大的最小斐波那契数是 144。
 斐波那契数列如下：0 1 1 2 3 5 8 13 21 34 55 89 144

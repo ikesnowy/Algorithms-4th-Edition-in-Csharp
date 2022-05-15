@@ -1,10 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.1.31 #  解答 #  性能测试方法构造如下：
-先编写一个随机字符串方法，生成一个长度大于 50 的字符串（作为未命中访问）。
-然后随机生成符合要求的字符串数组，将它们全部放入符号表中。
-然后遍历 10 次生成的字符串数组，对于数组中的每个元素都进行一次命中查询。
-同时在每次命中查询的同时都进行一次未命中查询即可。
-测试结果： 代码 #  按照要求编写代码，在 SearchCompare 类里添加一个 Random random 成员，并添加如下方法： 随机字符串发生器：
-public static string GetRandomString(int minLength, int maxLength) {  var length = Random.Next(minLength, maxLength);  var sb = new StringBuilder();  for (var i = 0; i < length; i++)  {  var choice = Random.NextDouble();  if (choice < 0.333)  sb.Append((char)Random.Next('A', 'Z'));  else if (choice < 0."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.31"><meta property="og:description" content="3.1.31 #  解答 #  性能测试方法构造如下：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.31"><meta property="og:description" content="3.1.31 #  解答 #  性能测试方法构造如下：
 先编写一个随机字符串方法，生成一个长度大于 50 的字符串（作为未命中访问）。
 然后随机生成符合要求的字符串数组，将它们全部放入符号表中。
 然后遍历 10 次生成的字符串数组，对于数组中的每个元素都进行一次命中查询。

@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.6 #  解答 #  非递归官网实现见：https://algs4.cs.princeton.edu/23quicksort/QuickPedantic.java.html
-原本是和快速排序一块介绍的，将数组重新排列，使得 a[k] 正好是第 k 小的元素，k 从 0 开始。
-具体思路类似于二分查找，
-先切分，如果切分位置小于 k，那么在右半部分继续切分，否则在左半部分继续切分。
-直到切分位置正好等于 k，直接返回 a[k] 。
-代码 #  // 使 a[k] 变为第 k 小的数，k 从 0 开始。 // a[0] ~ a[k-1] 都小于等于 a[k], a[k+1]~a[n-1] 都大于等于 a[k] static T Select<T>(T[] a, int k, int lo, int hi) where T : IComparable<T> {  if (k > a.Length || k < 0)  throw new ArgumentOutOfRangeException(nameof(k), &#34;select out of bound&#34;);  if (lo >= hi)  return a[lo];   var i = Partition(a, lo, hi);  if (i > k)  return Select(a, k, lo, i - 1);  if (i < k)  return Select(a, k, i + 1, hi);  return a[i]; } 另请参阅 #  SortApplication 库"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.6"><meta property="og:description" content="2.5.6 #  解答 #  非递归官网实现见：https://algs4.cs.princeton.edu/23quicksort/QuickPedantic.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.6"><meta property="og:description" content="2.5.6 #  解答 #  非递归官网实现见：https://algs4.cs.princeton.edu/23quicksort/QuickPedantic.java.html
 原本是和快速排序一块介绍的，将数组重新排列，使得 a[k] 正好是第 k 小的元素，k 从 0 开始。
 具体思路类似于二分查找，
 先切分，如果切分位置小于 k，那么在右半部分继续切分，否则在左半部分继续切分。

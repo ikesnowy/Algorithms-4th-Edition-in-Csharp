@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.41 #  解答 #  多叉堆和二叉堆的实现上并没有很大的区别，
-只不过下沉（Sink）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。
-于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。
-先考虑 $d$ 叉堆的在数组中的保存方式，
-第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
-不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
-结点 $i$ 的第一个子结点在哪里呢？
-首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
-以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
-2 号结点前面没有更多兄弟结点，于是第一个子结点下标即为 $2 + d - 1 + 1= 2 + d$。
-3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
-它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
-不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.41"><meta property="og:description" content="2.4.41 #  解答 #  多叉堆和二叉堆的实现上并没有很大的区别，
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.41"><meta property="og:description" content="2.4.41 #  解答 #  多叉堆和二叉堆的实现上并没有很大的区别，
 只不过下沉（Sink）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。
 于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。
 先考虑 $d$ 叉堆的在数组中的保存方式，

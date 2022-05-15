@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.3.31 #  解答 #  双向链表的插入有顺序，务必当心。
-双向链表长这样（似乎有一种画法是把空指针画成“接地”的样子）：
-删除中间那个： 再插回去：
-原则是不要让有用的结点变得无法访问。
-代码 #  DoubleNode<> #  /// <summary> /// 双向链表。 /// </summary> /// <typeparam name=&#34;TItem&#34;>链表中要存放的元素。</typeparam> public class DoubleLinkList<TItem> : IEnumerable<TItem> {  private class DoubleNode<T>  {  public T Item;  public DoubleNode<T> Prev;  public DoubleNode<T> Next;  }   private DoubleNode<TItem> _first;  private DoubleNode<TItem> _last;  private int _count;   /// <summary>  /// 建立一条双向链表。  /// </summary>  public DoubleLinkList()  {  _first = null;  _last = null;  _count = 0;  }   /// <summary>  /// 检查链表是否为空。  /// </summary>  /// <returns></returns>  public bool IsEmpty()  {  return _count == 0;  }   /// <summary>  /// 返回链表中元素的数量。  /// </summary>  /// <returns></returns>  public int Size()  {  return _count;  }   /// <summary>  /// 在表头插入一个元素。  /// </summary>  /// <param name=&#34;item&#34;>要插入的元素。</param>  public void InsertFront(TItem item)  {  var node = new DoubleNode<TItem>  {  Item = item,  Next = _first,  Prev = null  };  if (_first !"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.31"><meta property="og:description" content="1.3.31 #  解答 #  双向链表的插入有顺序，务必当心。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.31"><meta property="og:description" content="1.3.31 #  解答 #  双向链表的插入有顺序，务必当心。
 双向链表长这样（似乎有一种画法是把空指针画成“接地”的样子）：
 删除中间那个： 再插回去：
 原则是不要让有用的结点变得无法访问。

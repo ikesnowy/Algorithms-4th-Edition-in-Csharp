@@ -1,8 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.2.16 #  解答 #  自然归并排序的一个示例如下图所示：
-基本过程和自底向上的归并排序类似，只是每次归并的块大小不一定相同。
-时间分析
-随着有序块的变大，排序速度会加快，但增长的数量级也会变高（平均分块大小变大了）。
-代码 #  public class MergeSortNatural : BaseSort {  /// <summary>  /// 利用自然的归并排序进行自底向上的排序。  /// </summary>  /// <typeparam name=&#34;T&#34;>用于排序的元素类型。</typeparam>  /// <param name=&#34;a&#34;>需要排序的数组。</param>  public override void Sort<T>(T[] a)  {  var aux = new T[a.Length];   while (true)  {  // 找到第一个块  var lo = 0;  var mid = FindBlock(lo, a) - 1;  if (mid == a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.16"><meta property="og:description" content="2.2.16 #  解答 #  自然归并排序的一个示例如下图所示：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.16"><meta property="og:description" content="2.2.16 #  解答 #  自然归并排序的一个示例如下图所示：
 基本过程和自底向上的归并排序类似，只是每次归并的块大小不一定相同。
 时间分析
 随着有序块的变大，排序速度会加快，但增长的数量级也会变高（平均分块大小变大了）。

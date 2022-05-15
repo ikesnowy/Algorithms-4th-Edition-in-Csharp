@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.2.9 #  解答 #  官方给出的归并排序实现中在 Sort 方法里初始化了 aux 数组。
-源码见：https://algs4.cs.princeton.edu/22mergesort/Merge.java.html
-C#实现和官方的实现非常类似，
-首先定义只接受一个参数的公开 Sort 方法，在这个方法里面初始化 aux 数组。
-/// <summary> /// 利用归并排序将数组按升序排序。 /// </summary> /// <typeparam name=&#34;T&#34;>数组元素类型。</typeparam> /// <param name=&#34;a&#34;>待排序的数组。</param> public override void Sort<T>(T[] a) {  T[] aux = new T[a.Length];  Sort(a, aux, 0, a.Length - 1); } 然后建立一个私有的递归 Sort 方法做实际的排序操作。
-/// <summary> /// 自顶向下地对数组指定范围内进行归并排序，需要辅助数组。 /// </summary> /// <typeparam name=&#34;T&#34;>需要排序的元素类型。</typeparam> /// <param name=&#34;a&#34;>原数组。</param> /// <param name=&#34;aux&#34;>辅助数组。</param> /// <param name=&#34;lo&#34;>排序范围起点。</param> /// <param name=&#34;hi&#34;>排序范围终点。</param> private void Sort<T>(T[] a, T[] aux, int lo, int hi) where T : IComparable<T> {  if (hi <= lo)  return;  int mid = lo + (hi - lo) / 2;  Sort(a, aux, lo, mid);  Sort(a, aux, mid + 1, hi);  Merge(a, aux, lo, mid, hi); } 代码 #  public class MergeSort : BaseSort {  /// <summary>  /// 利用归并排序将数组按升序排序。  /// </summary>  /// <typeparam name=&#34;T&#34;>数组元素类型。</typeparam>  /// <param name=&#34;a&#34;>待排序的数组。</param>  public override void Sort<T>(T[] a)  {  var aux = new T[a."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.9"><meta property="og:description" content="2.2.9 #  解答 #  官方给出的归并排序实现中在 Sort 方法里初始化了 aux 数组。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.2.9"><meta property="og:description" content="2.2.9 #  解答 #  官方给出的归并排序实现中在 Sort 方法里初始化了 aux 数组。
 源码见：https://algs4.cs.princeton.edu/22mergesort/Merge.java.html
 C#实现和官方的实现非常类似，
 首先定义只接受一个参数的公开 Sort 方法，在这个方法里面初始化 aux 数组。

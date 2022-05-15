@@ -1,9 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.4.22 #  解答 #  官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
-截取如下：
-// helper function to double the size of the heap array private void resize(int capacity) {  assert capacity > n;  Key[] temp = (Key[]) new Object[capacity];  for (int i = 1; i <= n; i++) {  temp[i] = pq[i];  }  pq = temp; } 只要在队列快满时重新分配空间，再把元素复制进去即可。
-在不触发重新分配空间的情况下，
-每次队列操作的比较次数上限就等于命题 Q 中给出的 $\lg N+1$（插入） 和 $2\lg N$（删除）。
-插入元素最多需要 $\lg N$ 次交换（比较次数-1），"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.22"><meta property="og:description" content="2.4.22 #  解答 #  官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.22"><meta property="og:description" content="2.4.22 #  解答 #  官方实现中已经包含了调整数组大小的代码，见：https://algs4.cs.princeton.edu/24pq/MaxPQ.java.html
 截取如下：
 // helper function to double the size of the heap array private void resize(int capacity) {  assert capacity > n;  Key[] temp = (Key[]) new Object[capacity];  for (int i = 1; i <= n; i++) {  temp[i] = pq[i];  }  pq = temp; } 只要在队列快满时重新分配空间，再把元素复制进去即可。
 在不触发重新分配空间的情况下，

@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.1.14 #  解答 #  用一种类似于冒泡的方法做，具体步骤为：
-重复以下步骤，直到全部完成一遍之后没有发生交换 重复以下步骤 n-1 次 如果顶端两张牌逆序，那么交换它们。 将第一张牌放到牌堆底部。 具体步骤图：
-我们将牌排成一个环，用一支笔隔开，这里我们标记笔的左侧是牌堆顶部，右侧是牌堆底部。
-那么我们能做的三个操作在这里即为：
-查看最上面两张牌 = 从笔的位置开始，逆时针查看两张牌。
-交换最上面两张牌 = 从笔的位置开始，逆时针选择两张牌并交换。
-将最上面的一张牌放到最下面 = 将笔的位置逆时针移动一位。
-下面我们开始执行开始说过的操作，目标顺序是自顶向下从小到大排列。
-初始情况如图所示： 梅花7 和 红桃4 不是逆序对，直接将笔逆时针移动一位。
-红桃4 和 黑桃6 不是逆序对，我们将笔逆时针移动一位。
-再看 黑桃6 和 方片A，是逆序对，我们交换并将笔逆时针移动一位。
-再看 黑桃6 和 红桃J，是逆序对，我们交换并将笔逆时针移动一位。
-现在我们已经操作了 4 次，内部循环结束，我们将笔放回初始位置。
-这样一次循环之后，我们就把最大的牌放在了最下面，依次类推即可完全排序。
-另请参阅 #  Sorting a deque using limited operations?-Stock Overflow"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.14"><meta property="og:description" content="2.1.14 #  解答 #  用一种类似于冒泡的方法做，具体步骤为：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.14"><meta property="og:description" content="2.1.14 #  解答 #  用一种类似于冒泡的方法做，具体步骤为：
 重复以下步骤，直到全部完成一遍之后没有发生交换 重复以下步骤 n-1 次 如果顶端两张牌逆序，那么交换它们。 将第一张牌放到牌堆底部。 具体步骤图：
 我们将牌排成一个环，用一支笔隔开，这里我们标记笔的左侧是牌堆顶部，右侧是牌堆底部。
 那么我们能做的三个操作在这里即为：

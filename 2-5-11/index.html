@@ -1,11 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.11 #  解答 #  结果如下，其中快速排序去掉了一开始打乱数组的步骤： 只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
-插入排序在排序元素完全相同的数组时只会进行一次遍历，不会交换。
-选择排序第 i 次找到的最小值就是 a[i] ，只会让 a[i] 和 a[i] 交换，不会影响顺序。
-希尔排序和插入排序类似，每轮排序都不会进行交换。
-归并排序是稳定的，就本例而言，只会从左到右依次归并，不会发生顺序变化。
-快速排序在遇到相同元素时会交换，因此顺序会发生变化，且每次都是对半切分。
-堆排序在删除最大元素时会将第一个元素和最后一个元素交换，使元素顺序发生变化。
-代码 #  // 插入排序 Console.WriteLine(&#34;Insertion Sort&#34;); Test(new InsertionSort(), 7, 1); // 选择排序 Console.WriteLine(&#34;Selection Sort&#34;); Test(new SelectionSort(), 7, 1); // 希尔排序 Console.WriteLine(&#34;Shell Sort&#34;); Test(new ShellSort(), 7, 1); // 归并排序 Console.WriteLine(&#34;Merge Sort&#34;); Test(new MergeSort(), 7, 1); // 快速排序 Console.WriteLine(&#34;Quick Sort&#34;); var quick = new QuickSortAnalyze { NeedShuffle = false, NeedPath = false }; Test(quick, 7, 1); // 堆排序 Console."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.11"><meta property="og:description" content="2.5.11 #  解答 #  结果如下，其中快速排序去掉了一开始打乱数组的步骤： 只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.11"><meta property="og:description" content="2.5.11 #  解答 #  结果如下，其中快速排序去掉了一开始打乱数组的步骤： 只有快速排序和堆排序会进行交换，剩下四种排序都不会进行交换。
 插入排序在排序元素完全相同的数组时只会进行一次遍历，不会交换。
 选择排序第 i 次找到的最小值就是 a[i] ，只会让 a[i] 和 a[i] 交换，不会影响顺序。
 希尔排序和插入排序类似，每轮排序都不会进行交换。

@@ -1,10 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="3.3.5 #  解答 #   注：英文版原文使用的是 “ignore the order of the subtrees”，也就是忽略子树的顺序。
- 我们将 N=6 时的树形简记为 [{3}, {2, 2, 3}]，代表根结点是一个 3-结点，第二层有两个 2-结点和一个 3-结点。
-一个 N=6 的示例：
-// 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY 考虑插入元素的两种效用，一种是使 2-结点变成 3-结点（当前结点或者它的父结点）；另一种是使树高增加，被插入元素的 3-结点（及其父 3-结点）变回 2-结点。这两种操作的顺序不影响最后的树形。
-于是 N=7 时，我们有两种树形。
-[{3}, {2, 3, 3}]（插入到某个 2-结点）。
-// 'D', 'G', 'K', 'O', 'S', 'Y', 'L' // before |--GO--| D K SY // after |--GO--| D KL SY [{2}, {2, 2}, {2, 2, 2, 2}]（插入到 3-结点，变成满二叉树）。"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.3.5"><meta property="og:description" content="3.3.5 #  解答 #   注：英文版原文使用的是 “ignore the order of the subtrees”，也就是忽略子树的顺序。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.3.5"><meta property="og:description" content="3.3.5 #  解答 #   注：英文版原文使用的是 “ignore the order of the subtrees”，也就是忽略子树的顺序。
  我们将 N=6 时的树形简记为 [{3}, {2, 2, 3}]，代表根结点是一个 3-结点，第二层有两个 2-结点和一个 3-结点。
 一个 N=6 的示例：
 // 'D', 'G', 'K', 'O', 'S', 'Y' |--GO--| D K SY 考虑插入元素的两种效用，一种是使 2-结点变成 3-结点（当前结点或者它的父结点）；另一种是使树高增加，被插入元素的 3-结点（及其父 3-结点）变回 2-结点。这两种操作的顺序不影响最后的树形。

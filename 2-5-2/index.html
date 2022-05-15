@@ -1,12 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="2.5.2 #  解答 #  将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
-组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
-先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
-我们从 canCombine 开始，一个个检查是否是组合词。 如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。
-组合词的长度一定等于被组合词的长度之和，因此我们可以通过长度快速判断有可能的组合词。
-现在题目转化为了如何解决 ThreeSum 问题，即求 a + b = c 型问题，根据 1.4.41 中的解法求解。
-keywords[canCombine] 的长度已知，i 从 0 到 canCombine 之间循环，
-用二分查找确认 i 到 canCombine 之间有没有符合条件的字符串，注意多个字符串可能长度相等。
-代码 #  var keywords = Console.ReadLine().Split(' '); Array.Sort(keywords, new StringLengthComparer()); var minLength = keywords[0].Length * 2; // 找到第一个大于 minLength 的字符串 var canCombine = 0; while (keywords[canCombine]."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.2"><meta property="og:description" content="2.5.2 #  解答 #  将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.2"><meta property="og:description" content="2.5.2 #  解答 #  将字符串数组 keywords 按照长度排序，于是 keywords[0] 就是最短的字符串。
 组合词的最短长度 minLength = 最短字符串的长度 * 2 = keywords[0] * 2。
 先找到第一个长度大于等于 minLength 的字符串，下标为 canCombine。
 我们从 canCombine 开始，一个个检查是否是组合词。 如果 keywords[canCombine] 是一个组合词，那么它一定是由位于它之前的某两个字符串组合而成的。

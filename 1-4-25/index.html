@@ -1,11 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1.4.25 #  解答 #  第一问：
-第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),&mldr;, √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)。
-k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
-第二问：
-按照第 1, 3, 6, 10,&mldr;, 1/2k^2 层顺序查找，一直到 1/2k^2 > F，
-随后在 [1/2k^2 - k, 1/2k^2] 范围中顺序查找。
-代码 #  这里我们同样定义了一个结构体：
-internal struct TestResult {  public int F; // 测试得出的 F 值  public int BrokenEggs; // 碎掉的鸡蛋数。  public int ThrowTimes; // 扔鸡蛋的次数。 } 之后是测试用的方法："><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.25"><meta property="og:description" content="1.4.25 #  解答 #  第一问：
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.25"><meta property="og:description" content="1.4.25 #  解答 #  第一问：
 第一个蛋按照 √(N), 2√(N), 3√(N), 4√(N),&mldr;, √(N) * √(N) 顺序查找直至碎掉。这里扔了 k 次，k <= √(N)。
 k-1√(N) ~ k√(N) 顺序查找直至碎掉，F 值就找到了。这里最多扔 √(N) 次。
 第二问：

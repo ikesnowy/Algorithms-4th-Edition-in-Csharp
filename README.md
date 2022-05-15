@@ -6,6 +6,8 @@
 
 可以在这个网站搜索题解：https://alg4.ikesnowy.com/
 
+另一个项目已经完成了全部的题目，链接：https://github.com/reneargento/algorithms-sedgewick-wayne
+
 ## 目录
 
 - [1.基础 Fundamental](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental)

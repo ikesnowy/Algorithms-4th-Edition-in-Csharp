@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+
 // ReSharper disable CognitiveComplexity
 
 namespace BalancedSearchTree;
@@ -519,6 +521,125 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         {
             _root.Color = Color.Black;
         }
+    }
+    
+    /// <summary>
+    /// 获取二叉树的最大深度。
+    /// </summary>
+    /// <param name="x">二叉树的根结点。</param>
+    /// <returns>二叉树的最大深度。</returns>
+    private int Depth(Node x)
+    {
+        if (x == null)
+            return 0;
+        return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
+    }
+    
+    /// <summary>
+    /// 将二叉树按照树形输出。
+    /// </summary>
+    /// <returns>二叉查找树输出的字符串。</returns>
+    public override string ToString()
+    {
+        if (IsEmpty())
+            return string.Empty;
+
+        var maxDepth = Depth(_root);
+        int layer = 0, bottomLine = (int)Math.Pow(2, maxDepth) * 2;
+
+        // BFS
+        var lines = new List<string>();
+        var nowLayer = new Queue<Node>();
+        var nextLayer = new Queue<Node>();
+        nextLayer.Enqueue(_root);
+
+        while (layer != maxDepth)
+        {
+            var sb = new StringBuilder();
+            var unitSize = bottomLine / (int)Math.Pow(2, layer);
+            var temp = nowLayer;
+            nowLayer = nextLayer;
+            nextLayer = temp;
+
+            while (nowLayer.Count != 0)
+            {
+                var x = nowLayer.Dequeue();
+
+                if (x != null)
+                {
+                    nextLayer.Enqueue(x.Left);
+                    nextLayer.Enqueue(x.Right);
+                }
+                else
+                {
+                    nextLayer.Enqueue(null);
+                    nextLayer.Enqueue(null);
+                }
+
+                if (x != null && x.Left != null)
+                {
+                    for (var i = 0; i < unitSize / 4; i++)
+                        sb.Append(' ');
+                    sb.Append(IsRed(x.Left) ? "||" : "|");
+                    for (var i = 1; i < unitSize / 4; i++)
+                        sb.Append('-');
+                }
+                else
+                {
+                    for (var i = 0; i < unitSize / 2; i++)
+                        sb.Append(' ');
+                }
+
+                if (x == null)
+                    sb.Append(' ');
+                else
+                    sb.Append(x.Key);
+
+                if (x != null && x.Right != null)
+                {
+                    for (var i = 1; i < unitSize / 4; i++)
+                        sb.Append('-');
+                    sb.Append(IsRed(x.Right) ? "||" : '|');
+                    for (var i = 1; i < unitSize / 4; i++)
+                        sb.Append(' ');
+                }
+                else
+                {
+                    for (var i = 1; i < unitSize / 2; i++)
+                        sb.Append(' ');
+                }
+            }
+            lines.Add(sb.ToString());
+            layer++;
+        }
+
+        // Trim
+        var margin = int.MaxValue;
+        foreach (var line in lines)
+        {
+            var firstNonWhite = 0;
+            for (var i = 0; i < line.Length; i++)
+            {
+                if (line[i] == ' ') continue;
+                firstNonWhite = i;
+                break;
+            }
+
+            margin = Math.Min(margin, firstNonWhite);
+        }
+
+        for (var i = 0; i < lines.Count; i++)
+        {
+            lines[i] = lines[i].Substring(margin);
+        }
+
+        var result = new StringBuilder();
+        foreach (var line in lines)
+        {
+            result.AppendLine(line);
+        }
+
+        return result.ToString();
     }
 
     private Node DeleteMax(Node h)

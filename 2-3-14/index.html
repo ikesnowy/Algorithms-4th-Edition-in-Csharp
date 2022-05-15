@@ -1,19 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.14"><meta property="og:description" content="2.3.14 #  解答 #  中文版题目有误，详见官方勘误页面
-假设 $i < j​$ 。
-首先，在快速排序中，如果两个元素要发生交换，意味着其中一个元素被选为枢轴。
-而且数组中的元素各不相同，那么两个特定的元素的比较最多发生一次。
-那么先考虑一个特殊情况，$i = 1, j = n$ ，即求最大值和最小值比较的概率。
-此时，一旦枢轴不是这两个元素之一，
-最大值和最小值会被分到两个不同的子数组，无法发生比较。
-因此在这种特例下第 $i$ 大的元素和第 $j$ 大的元素发生比较的概率为 $\frac{2}{n} = \frac{2}{j-i+1}$ 。
-接下来考虑一般情况，如果枢轴选择了第 $i$ 到第 $j$ 大之外的元素，
-那么第 $i$ 大和第 $j$ 大的元素会被分到同一个子数组里，重复上述过程。
-因此我们所求的概率只和从第 $i$ 大到第 $j$ 大之间的元素有关，概率为 $\frac{2}{j-i+1}$。
-（举个例子，一个箱子里有 2 个红球、1 个蓝球和 7 个白球，现在摸球而不放回。
-如果摸到白球可以再摸一次，直到摸到红球或蓝球为止。
-显然在这样的规则下摸到红球或蓝球的概率为 1，即白球对概率没有影响。）
-现在我们已经得到了某两个元素比较的概率 $E(X_{ij})$，接下来我们求每两个元素比较的概率 $E(X)$。
-$$ \begin{align} E(X) &= \sum_{i=1}^{n}\sum_{j=i+1}^{n}E(X_{ij})\newline &=\sum_{i=1}^{n}2(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n-i+1}) \newline &<2n(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}) \end{align} $$"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-3-14/"><meta property="article:section" content><meta property="article:published_time" content="2018-07-14T15:03:40+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>2.3.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.3.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

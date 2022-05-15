@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.1.14"><meta property="og:description" content="2.1.14 #  解答 #  用一种类似于冒泡的方法做，具体步骤为：
-重复以下步骤，直到全部完成一遍之后没有发生交换 重复以下步骤 n-1 次 如果顶端两张牌逆序，那么交换它们。 将第一张牌放到牌堆底部。 具体步骤图：
-我们将牌排成一个环，用一支笔隔开，这里我们标记笔的左侧是牌堆顶部，右侧是牌堆底部。
-那么我们能做的三个操作在这里即为：
-查看最上面两张牌 = 从笔的位置开始，逆时针查看两张牌。
-交换最上面两张牌 = 从笔的位置开始，逆时针选择两张牌并交换。
-将最上面的一张牌放到最下面 = 将笔的位置逆时针移动一位。
-下面我们开始执行开始说过的操作，目标顺序是自顶向下从小到大排列。
-初始情况如图所示： 梅花7 和 红桃4 不是逆序对，直接将笔逆时针移动一位。
-红桃4 和 黑桃6 不是逆序对，我们将笔逆时针移动一位。
-再看 黑桃6 和 方片A，是逆序对，我们交换并将笔逆时针移动一位。
-再看 黑桃6 和 红桃J，是逆序对，我们交换并将笔逆时针移动一位。
-现在我们已经操作了 4 次，内部循环结束，我们将笔放回初始位置。
-这样一次循环之后，我们就把最大的牌放在了最下面，依次类推即可完全排序。
-另请参阅 #  Sorting a deque using limited operations?-Stock Overflow"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-1-14/"><meta property="article:section" content><meta property="article:published_time" content="2018-06-30T15:15:04+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>2.1.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.1.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

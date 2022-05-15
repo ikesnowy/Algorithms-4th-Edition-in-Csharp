@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.5.14"><meta property="og:description" content="1.5.14 #  解答 #  WeightedQuickUnionByHeight 的官方实现：WeightedQuickUnionByHeightUF.java。
-证明： 一次 Union 操作只可能发生如下两种情况。
-  两棵树的高度相同，这样合并后的新树的高度等于较大那棵树的高度 + 1。
-  两棵树的高度不同，这样合并后的新树高度等于较大那棵树的高度。
-  现在证明通过加权 quick-union 算法构造的高度为 h 的树至少包含 2h 个结点。
-基础情况，高度 h = 0, 结点数 k = 1。
-为了使高度增加，必须用一棵高度相同的树合并，而 h = 0 时结点数一定是 1，则：
-h = 1, k = 2
-由于两棵大小不同的树合并，最大高度不会增加，只会增加结点数。
-因此，每次都使用相同高度的最小树进行合并，有：
-h = 2, k = 4 h = 3, k = 8 h = 4, k = 16 ...... 递推即可得到结论，k ≥ 2^h"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/1-5-14/"><meta property="article:section" content><meta property="article:published_time" content="2018-06-22T20:04:04+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>1.5.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.5.14 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

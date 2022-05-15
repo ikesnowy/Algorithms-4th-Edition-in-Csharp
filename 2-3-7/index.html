@@ -1,20 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.7"><meta property="og:description" content="2.3.7 #  解答 #  我讨厌数学= =
-证明：
-我们设 $C_0(n)$ 代表将 $n$ 个不重复元素排序时大小为 0 的数组的数量。
-同理有 $C_1(n)$ 和 $C_2(n)$ 代表大小为 1 的数组的数量以及大小为 2 的数组的数量。
-设 k 代表切分位置，显然切分位置随机且概率相等，在 1~n 之间均匀分布。
-根据条件，$C_0(n), C_1(n),C_2(n)$ 都满足下式：
-$$ C(n)= \frac{\sum_{k=1}^{n}(C(k-1)+C(n-k))}{n} $$
-根据快速排序算法， $\sum_{k=1}^{n}C(k-1)=\sum_{k=1}^{n}C(n-k)$ ，因此
-$$ C(n)=\frac{2\sum_{k=1}^{n}C(k-1)}{n}\newline nC(n)=2\sum_{k-1}^{n}C(k-1) $$
-同理代入 $n-1$ 有
-$$ (n-1)C(n-1)=2\sum_{k-1}^{n-1}C(k-1) $$
-相减
-$$ nC(n)-(n-1)C(n-1)=2C(n-1)\newline C(n)=\frac{n+1}{n}C(n-1) $$
-利用累乘法求到通项公式
-$$ \frac{C(n)}{C(n-1)}=\frac{n+1}{n} \newline \frac{C(n)}{C(n-1)}\times\frac{C(n-1)}{C(n-2)}\times\dots\times\frac{C(m+1)}{C(m)}= \frac{n+1}{n}\times\frac{n}{n-1}\times\dots\times\frac{m+2}{m+1}\newline \frac{C(n)}{C(m)}=\frac{n+1}{m+1}\newline C(n)=C(m)\frac{n+1}{m+1}，n>m $$
-对于 $C_0(n)$ ，我们有初始条件 $C_0(0)=1, C_0(1)=0,C_0(2)=C_0(0)+C_0(1)=1$
-$$ C_0(n)=\frac{n+1}{3}, n>2 $$"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-3-7/"><meta property="article:section" content><meta property="article:published_time" content="2018-07-10T15:12:35+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>2.3.7 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.3.7 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

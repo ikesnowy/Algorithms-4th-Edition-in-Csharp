@@ -1,20 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.4.26"><meta property="og:description" content="1.4.26 #  解答 #  首先，我们将问题转化为证明三点
-$$ A(a,a^3),B(b,b^3),C(c,c^3) $$
-共线，当且仅当满足
-$$ a+b+c=0 $$
-证明： 若 $A,B,C$ 三点共线，则直线 $AB$ 和 $BC$ 的斜率必定相等，有方程：
-$$ \frac{b^3-a^3}{b-a}=\frac{c^3-b^3}{c-b} $$
-由立方差公式：
-$$ \frac{(b-a)(b^2+ba+a^2)}{b-a}=\frac{(c-b)(c^2+cb+b^2)}{c-b} $$
-化简有：
-$$ b^2+ba+a^2=c^2+cb+b^2\newline ba+a^2=c^2+cb $$
-移项，将 $c$ 视为未知数：
-$$ c^2+cb-ba-a^2=0 $$
-利用十字相乘法进行因式分解：
-$$ (a+b+c)(c-a)=0 $$
-解得：
-$$ c_1=-a-b,c_2=a $$
-显然 $c\ne a$ ，因此当且仅当 $a+b+c=0$ 时 $A,B,C$ 三点共线。 证毕。"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/1-4-26/"><meta property="article:section" content><meta property="article:published_time" content="2018-05-23T22:09:43+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>1.4.26 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.4.26 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

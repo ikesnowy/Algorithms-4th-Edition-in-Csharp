@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.5.32"><meta property="og:description" content="2.5.32 #  解答 #  （前置知识：提前了解 Dijkstra 算法能够降低理解 A* 算法的难度。）
-A* 算法是 Dijkstra 算法和最佳优先算法的一种结合。
-Dijkstra 算法需要遍历所有结点来找到最短路径，唯一的优化条件就是路径长度。
-建立队列 queue ，把所有的结点加入 queue 中；建立数组 d，d[v] 代表起点到点 v 的距离。
-开始时只有起点到起点的距离为 0，其他都为无穷大，然后重复如下步骤：
-从队列中取出已知距离最短的结点 u，检查该结点的所有边。
-如果通过这个点能够以更近的距离到达 v，更新起点到 v 的距离 d[v] = d[u] + distance(u, v)。
-等到队列为空之后数组 d 中就存放着起点到其他所有结点的最短距离。
-Dijkstra 算法会计算起点到所有点的最短路径，因此会均匀的遍历所有结点，效率较低。
-很多时候，我们只需要找到起点到某一终点的最短路径即可，为此遍历整个图显然是不必要的。
-通过修改算法，使得比较接近终点的结点优先得到搜索，我们就可能在遍历完全部结点之前获得结果。
-在 Dijkstra 算法中，离起点最近的点会被优先搜索，记结点离起点的距离为 g[n] 。
-现在引入新的条件，用于估计结点和终点的接近程度，记结点离终点的估计距离为 h[n] 。
-令 f[n] = g[n] + h[n]，我们按照 f[n] 对等待搜索的结点进行排序。
-同时令 h[n] 始终小于 g[n] ，保证离起点的距离 g[n] 权重大于离终点的估计距离 h[n] 。 （h[n]也被称之为容许估计）"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-5-32/"><meta property="article:section" content><meta property="article:published_time" content="2019-01-26T16:04:21+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>2.5.32 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.5.32 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

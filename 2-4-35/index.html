@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.35"><meta property="og:description" content="2.4.35 #  解答 #  本题有两个翻译错误。
-random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
-最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
-提示已经给出了实现方案，我们用一个例子来简单说明一下。
-现在给出一个分布 p，总和 T=1，如下图所示： 为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
-每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图： 为方便起见，我们重新排列一下之前的随机表： 每个值的概率并没有改变，只是每个值对应的区段换了一下。
-经过这样的变换后，你会发现，如果从根结点的角度看：
-如果随机的值小于 0.1，对应的编号就是 1。
-如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
-其他情况对应编号在左子树上。
-扩展到一般情况，就变成了：
-如果随机数小于当前结点，直接返回当前结点的编号。
-如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
-其他情况减去当前结点的权值并移动到左子树。
-思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下： 代码 #  internal class Sample {  public double[] P;  public double[] SumP;  public double T;  private readonly Random _random = new();   /// <summary>  /// 构造一个离散取样类。  /// </summary>  /// <param name=&#34;data&#34;>取样数据。</param>  public Sample(double[] data)  {  // 复制权重  P = new double[data."><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-4-35/"><meta property="article:section" content><meta property="article:published_time" content="2018-12-28T09:28:35+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>2.4.35 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.4.35 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

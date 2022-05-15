@@ -1,17 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="1.3.49"><meta property="og:description" content="1.3.49 #  解答 #  那么这里就使用六个栈来解决这个问题。 这个算法来自于这篇论文。
-原文里用的是 Pure Lisp，不过语法很简单，还是很容易看懂的。
-先导知识——用两个栈模拟一个队列 #  如何使用两个栈来模拟一个队列操作？
-这是一道很经典的题目，答案也有很多种，这里只介绍之后会用到的一种方法。
-首先我们有两个栈，H 和 T，分别用作出队和入队用。
-这样，入队操作等同于向 T 添加元素，T 的入栈操作只需要 O(1) 时间。
-如果 H 不为空，出队操作等同于 H 弹栈，H 的弹栈操作也只需要 O(1) 时间。
-但如果 H 为空，则需要将 T 中的元素依次弹出并压入到 H 中，这是一个 O(n) 的操作。
-显然，这种方式中，出队操作的最坏时间复杂度是 O(n)，并不满足题目要求。
-分摊 O(n) #  那么，怎么解决这个问题呢？
-一个很自然的想法是，如果在栈 H 变为空之前，我们就能逐步将栈 T 的内容弹出并压入到另一个栈 H&rsquo; 中，等到栈 H 为空时，直接交换 H 和 H&rsquo; 即可。
-假设目前的队列状态是这样，有三个元素等待出队，还有三个元素等待入队。
-现在依次让三个元素出队，与此同时我们让栈 T 中的元素依次进入 H&rsquo; 中。
-每一次出队都执行两个操作，元素出队和元素复制（Pop & Push），时间复杂度 O(1) + O(1) + O(1) = O(1)。"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/1-3-49/"><meta property="article:section" content><meta property="article:published_time" content="2018-05-23T09:17:09+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>1.3.49 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.3.49 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

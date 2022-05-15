@@ -1,17 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.42"><meta property="og:description" content="2.4.42 #  解答 #  前序序列与完全二叉树 #  二叉树前序遍历的顺序是：自身，左子树，右子树。
-因此对于一个前序遍历序列，第一个元素是根结点，第二个元素是左子结点。
-再把左子结点找到，就可以把数组分成三部分：根结点，左子树，右子树，进而递归的构造出整个二叉树。
-现在问题是，右子结点在哪，或者说，左子树有多大？
-这里就要用到完全二叉树的性质了，我们先从比较简单的满二叉树入手。
-就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
-在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。 完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
-于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示： 如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
-按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
-现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
-第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。
-于是当 $l<=2^{k-1}$ 时，左右子树大小分别为 $2^{k-1}-1+l$ 和 $2^{k-1}-1$ 。
-当 $l > 2^{k-1}$ 时，左右子树大小分别为 $2^{k} - 1$ 和 $2^{k-1} -1 +l -2^{k-1}=l-1$ 。"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-4-42/"><meta property="article:section" content><meta property="article:published_time" content="2018-12-31T10:26:02+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>2.4.42 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.4.42 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

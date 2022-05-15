@@ -1,23 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.2.5"><meta property="og:description" content="3.2.5 #  解答 #  事实上，这个问题可以归结为，如何根据频率来构造一棵最优的 BST？
-如果知道树的形状，逆推插入顺序也就不难了（先序遍历）。
-首先我们定义某个结点的查找开销为该结点的深度加一乘以频率， （注意根结点的深度为 0，树的高度等于整棵树中最大的深度值）
-所有结点的查找开销加起来就是一整棵树的查找开销了。
-$$ cost(n)=\sum_{i=0}^{n} (depth(i)+1) \times frequency(i) $$
-对于固定的一组键值和频率，$cost$ 最小的树即为我们要找的树。
-这样的树被称为最优化二叉树，或者 Optimal BST。
-根据二叉树的性质，我们可以将 $cost$ 的表达式变为：
-$$ cost(n)=cost(left)+cost(right)+\sum_{i=1}^{n} frequency(i) $$
-即左子树的开销和右子树的开销相加，再加上所有结点的频率之和。 （左子树和右子树开销计算时每个结点的深度都少了 1，因此要加上频率和）
-不难得到结论，Optimal BST 的所有子树也都是 Optimal BST。
-我们可以利用一种类似于构造哈夫曼树的方法构造 Optimal BST，
-哈夫曼树中比较的是频率，而构造 Optimal BST 时比较的则是开销。
-由于二叉查找树是有序的，因此我们先对序列排序。
-然后计算所有大小为 1 的子树开销，显然就等于各个节点的频率。
-再计算大小为 2 的子树，注意这里只能按顺序取结点，不能跳着取（例如取第一个和第三个结点），
-每种结点取法都对应有两种根结点选择，计算出最小的开销并记录。
-以此类推，直到计算到大小为 n 的树，此时整棵 BST 就被构造出来了。
-举个例子，例如给出键值和频率如下表所示：
-$$ \begin{array}{l|lllll} key & 1 & 2 & 3 & 4 & 5 \\ \hline p & 0."><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/3-2-5/"><meta property="article:section" content><meta property="article:published_time" content="2019-05-25T18:27:57+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>3.2.5 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>3.2.5 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

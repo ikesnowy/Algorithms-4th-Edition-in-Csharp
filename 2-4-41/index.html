@@ -1,18 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.41"><meta property="og:description" content="2.4.41 #  解答 #  多叉堆和二叉堆的实现上并没有很大的区别，
-只不过下沉（Sink）时需要比较的子结点数量变多了，上浮时父结点的下标不再是 $\lfloor k /2 \rfloor$。
-于是只要能推出 $d$ 叉堆的下标换算公式即可解决整个问题。
-先考虑 $d$ 叉堆的在数组中的保存方式，
-第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
-不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
-结点 $i$ 的第一个子结点在哪里呢？
-首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
-以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
-2 号结点前面没有更多兄弟结点，于是第一个子结点下标即为 $2 + d - 1 + 1= 2 + d$。
-3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
-它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
-不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-4-41/"><meta property="article:section" content><meta property="article:published_time" content="2018-12-29T19:34:00+00:00"><meta property="article:modified_time" content="2022-03-13T18:37:05+08:00"><title>2.4.41 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.4.41 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

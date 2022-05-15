@@ -1,25 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.3.3"><meta property="og:description" content="2.3.3 #  解答 #  N / 2
-在快速排序中，一个元素要被交换，有以下两种情况
- 该元素是枢轴，在切分的最后一步被交换 该元素位于枢轴错误的一侧，需要被交换到另一侧去  注意，以上两种情况在一次切分中只会出现一次
-首先来看第一种情况，如果一个元素变成了枢轴
-那么在之后的切分中该元素会被排除，不存在后续的交换。
-因此我们的目标应该是：
-最大的元素总是出现在错误的一侧，同时切分的次数尽可能多。
-接下来我们来思考如何构造这样的数组
-由于我们针对的是最大的元素，因此「错误的一侧」就是枢轴的左侧。
-为了使切分的次数尽可能多，我们需要保持最大值移动的距离尽量短。
-但如果每次只移动一位的话，下一次切分时最大值就会变成枢轴
-例如 4 10 3 5 6，枢轴为 4，交换后数组变为：
-4 3 10 5 6
-随后 4 和 3 交换
-3 4 10 5 6
-下一次切分时 10 会变成枢轴，不再参与后续的切分。
-因此我们需要让最大值每次移动两个元素。
-考虑下面的数组：
-2 10 4 1 6 3 8 5 7 9
-第一次切分的时候，枢轴为 2，10 和 1 进行交换
-数组变为：
-2 1 4 10 6 3 8 5 7 9"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-3-3/"><meta property="article:section" content><meta property="article:published_time" content="2018-07-08T19:36:46+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>2.3.3 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.3.3 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

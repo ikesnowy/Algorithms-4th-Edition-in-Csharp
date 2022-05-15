@@ -1,14 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="3.1.23"><meta property="og:description" content="3.1.23 #  解答 #  这里的右移操作可以理解为 「小数点前移一位」
-即数字依次向右退一位，个位上的数字被舍弃。
-对于十进制，小数点前移一位会使 $n$ 变为 $\lfloor n / 10 \rfloor$。
-同样对于二进制就会使 $n$ 变为 $\lfloor n / 2 \rfloor$。
-当需要除以 $2$ 的 $k$ 次幂的时候，可以用右移 $k$ 位代替并减少时间开销。
-同理可以用左移 $k$ 位来代替乘以 $2$ 的 $k$ 次幂。
-注： 这样会降低程序可读性，
-并且某些语言（C / C++）的编译器已经可以自动执行这项优化了。
-请充分考虑你的代码受众之后再决定是否采用这种写法。
-二分查找的最大查找次数 = $ \lg N + 1$ （见 3.1.20 的证明 {% post_link 3-1-20 %}）
-一个数最多被左移的次数也正好等于 $\lfloor \lg N \rfloor + 1$ （任意正整数都能被表示为 $2 ^ k + m$ 的形式，即 $k +1$ 位二进制数）"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/3-1-23/"><meta property="article:section" content><meta property="article:published_time" content="2019-02-28T20:42:58+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>3.1.23 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>3.1.23 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

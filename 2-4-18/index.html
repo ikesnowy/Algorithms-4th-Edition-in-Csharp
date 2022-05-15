@@ -1,17 +1,4 @@
-<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="2.4.18"><meta property="og:description" content="2.4.18 #  解答 #  首先看第一种情况，一次 insert() 接一次 delMax()。
-由于插入的数比堆中的所有元素都大，这个元素会一路上升到根结点。
-记上升路径上的点为 $a_1,a_2,a_3, \dots , a_k$，其中 $a_k$是插入的结点，$a_1$ 是根结点。
-插入完成后路径上点的次序变为 $a_k, a_1, a_2, \dots, a_{k-1}$ 。
-随后进行一次 delMax()，先做交换，次序变为 $a_{k-1}, a_1, \dots, a_{k-2}, a_k$ 。
-由于 $a_1$ 是堆中原来的最大值，下沉时一定会和它交换。
-根据定义，二叉堆是父结点总是优于子结点的完全二叉树，因此以后续结点作为根结点的子树也都是堆。
-故同理 $a_{k-1}$ 会和 $a_2, a_3, \dots,a_{k-2}$ 交换，即沿原路径返回。
-因此这种情况下前后堆不发生改变。
-然后看第二种情况，操作顺序为 insert() insert() delMax() delMax()。
-根据之前的结论，插入最大结点之后立即删除最大元素不会使堆发生变化，中间的两个操作抵消。
-序列变为：insert() delMax()。
-同理再次利用刚才的结论，操作抵消，堆不发生变化。
-故第二种情况也不会使堆发生改变。"><meta property="og:type" content="article"><meta property="og:url" content="https://alg4.ikesnowy.com/2-4-18/"><meta property="article:section" content><meta property="article:published_time" content="2018-09-09T14:28:19+00:00"><meta property="article:modified_time" content="2022-02-23T01:01:43+08:00"><title>2.4.18 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>2.4.18 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/zh.search.min.b90b21fb6f348b64bfb9bb95a030ebe314da3eb83e72998e353a0c1d5d2f9e60.js integrity="sha256-uQsh+280i2S/ubuVoDDr4xTaPrg+cpmONToMHV0vnmA=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>

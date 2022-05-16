@@ -25,3 +25,8 @@ enableGitInfo = true
   BookRepo = 'https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp'
   BookCommitPath = 'commit'
   BookEditPath = 'edit/master/docs'
+
+[sitemap]
+  changefreq = 'daily'
+  filename = 'sitemap.xml'
+  priority = -1

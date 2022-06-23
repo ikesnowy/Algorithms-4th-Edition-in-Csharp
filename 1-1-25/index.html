@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.1.25 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.17280d9492ae34ffae8b6bc53ed8a6c768f394a4ea300d3478043aa3a6bbda1c.js integrity="sha256-FygNlJKuNP+ui2vFPtimx2jzlKTqMA00eAQ6o6a72hw=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.1299e695c39ee0f2dd3c38710f4f466bf5e277dcfead10949595353809d775fd.js integrity="sha256-EpnmlcOe4PLdPDhxD09Ga/Xid9z+rRCUlZU1OAnXdf0=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -36,7 +36,8 @@ r_0&=a \bmod b \newline
 &=a-q_0 \times b\qquad (q_0=\lfloor a/b \rfloor) \newline
 &= mg-q_0\times ng\newline
 &=(m-q_0\times n)g
-\end{aligned}</p><p>$$</p><p>可得 $r_0$ 能够被 $g$ 整除。</p><p>对于 $r_1$ 有：</p><p>$$
+\end{aligned}
+$$</p><p>可得 $r_0$ 能够被 $g$ 整除。</p><p>对于 $r_1$ 有：</p><p>$$
 \begin{aligned}
 r_1 &= b \bmod r_0 \newline
 &=b-q_1 \times r_0 \qquad (q_1=\lfloor b/r_0\rfloor)
@@ -51,6 +52,6 @@ $$</p><p>由于 $r_0$ 和 $r_1$ 都可以被 $g$ 整除，因此 $r_2$ 也可以
 r_k &= r_{k-2} \bmod r_{k-1} \newline
 &= r_{k-2} - q_k \times r_{k-1} \qquad (q_k=\lfloor r_{k-2} / r_{k-1} \rfloor)
 \end{aligned}
-$$</p><p>根据假设， $r_{k-1}$ 和 $r_{k-2}$ 都可以被 $g$ 整除，此时 $r_k$ 也可以被 $g$ 整除。</p><p>由第二类数学归纳法可知对于任意满足 $0 \le x \le n$ 的自然数 $x$，$r_x$ 可以被 $g$ 整除都成立。</p><p>因此 $r_{n-1}$ 可以被 $g$ 整除，则 $g\le r_{n-1}$。</p><p>综上，当且仅当 $g=r_{n-1}$ 时满足关系 $r_{n-1} \le g \le r_{n-1}$，于是 $r_{n-1}=g$ 成立，$r_{n-1}$ 是 $a$ 和 $b$ 的最大公约数。$\blacksquare$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/6e5a0507ee64465f9ae21351bd553bbbcb2c2383 title='最后修改者 沈星繁 | 2022-6-23' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+$$</p><p>根据假设， $r_{k-1}$ 和 $r_{k-2}$ 都可以被 $g$ 整除，此时 $r_k$ 也可以被 $g$ 整除。</p><p>由第二类数学归纳法可知对于任意满足 $0 \le x \le n$ 的自然数 $x$，$r_x$ 可以被 $g$ 整除都成立。</p><p>因此 $r_{n-1}$ 可以被 $g$ 整除，则 $g\le r_{n-1}$。</p><p>综上，当且仅当 $g=r_{n-1}$ 时满足关系 $r_{n-1} \le g \le r_{n-1}$，于是 $r_{n-1}=g$ 成立，$r_{n-1}$ 是 $a$ 和 $b$ 的最大公约数。$\blacksquare$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/a6501db03b40d4b315b0f608041da9d957588ec5 title='最后修改者 沈星繁 | 2022-6-23' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-6-23</span></a></div><div><a class="flex align-center" href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/new?assignees=ikesnowy&labels=BUG&template=----.md&title=%5BBUG%5D1.1.25" target=_blank rel=noopener><img src=/svg/bug-report.svg class=book-icon alt=Edit>
 <span>问题反馈</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li></ul></nav></div></aside></main></body></html>

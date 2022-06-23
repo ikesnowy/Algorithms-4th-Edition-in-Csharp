@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.5.11 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.c8e470801bdb2fc5768de5d340ad7cd987042c18024fc4c4f1e391b2c5fc7187.js integrity="sha256-yORwgBvbL8V2jeXTQK182YcELBgCT8TE8eORssX8cYc=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.17280d9492ae34ffae8b6bc53ed8a6c768f394a4ea300d3478043aa3a6bbda1c.js integrity="sha256-FygNlJKuNP+ui2vFPtimx2jzlKTqMA00eAQ6o6a72hw=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -13,9 +13,9 @@
 </span></span><span style=display:flex><span><span style=color:#75715e>/// &lt;/summary&gt;</span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>WeightedQuickFindUf</span>
 </span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>int</span>[] <span style=color:#ae81ff>_</span>size; <span style=color:#75715e>// 记录每个连通分量的大小。</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>int</span>[] <span style=color:#ae81ff>_</span>id; <span style=color:#75715e>// 记录每个结点的连通分量。</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> <span style=color:#ae81ff>_</span>count;<span style=color:#75715e>// 连通分量总数。</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>int</span>[] _size; <span style=color:#75715e>// 记录每个连通分量的大小。</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>int</span>[] _id; <span style=color:#75715e>// 记录每个结点的连通分量。</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> _count;<span style=color:#75715e>// 连通分量总数。</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> ArrayVisitCount { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>set</span>; } <span style=color:#75715e>//记录数组访问的次数。</span>
 </span></span><span style=display:flex><span>
@@ -25,13 +25,13 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;param name=&#34;n&#34;&gt;并查集的大小。&lt;/param&gt;</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> WeightedQuickFindUf(<span style=color:#66d9ef>int</span> n)
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#ae81ff>_</span>count = n;
-</span></span><span style=display:flex><span>        <span style=color:#ae81ff>_</span>id = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span>[n];
-</span></span><span style=display:flex><span>        <span style=color:#ae81ff>_</span>size = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span>[n];
+</span></span><span style=display:flex><span>        _count = n;
+</span></span><span style=display:flex><span>        _id = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span>[n];
+</span></span><span style=display:flex><span>        _size = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span>[n];
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> i = <span style=color:#ae81ff>0</span>; i &lt; n; i++)
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>            <span style=color:#ae81ff>_</span>id[i] = i;
-</span></span><span style=display:flex><span>            <span style=color:#ae81ff>_</span>size[i] = <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>            _id[i] = i;
+</span></span><span style=display:flex><span>            _size[i] = <span style=color:#ae81ff>1</span>;
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
@@ -49,7 +49,7 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;returns&gt;返回并查集中连通分量的数量。&lt;/returns&gt;</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> Count()
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>_</span>count;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> _count;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>        
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
@@ -61,7 +61,7 @@
 </span></span><span style=display:flex><span>    {
 </span></span><span style=display:flex><span>        Validate(p);
 </span></span><span style=display:flex><span>        ArrayVisitCount++;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>_</span>id[p];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> _id[p];
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
@@ -75,7 +75,7 @@
 </span></span><span style=display:flex><span>        Validate(p);
 </span></span><span style=display:flex><span>        Validate(q);
 </span></span><span style=display:flex><span>        ArrayVisitCount += <span style=color:#ae81ff>2</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>_</span>id[p] == <span style=color:#ae81ff>_</span>id[q];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> _id[p] == _id[q];
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
@@ -87,8 +87,8 @@
 </span></span><span style=display:flex><span>    {
 </span></span><span style=display:flex><span>        Validate(p);
 </span></span><span style=display:flex><span>        Validate(q);
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> pId = <span style=color:#ae81ff>_</span>id[p];
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> qId = <span style=color:#ae81ff>_</span>id[q];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> pId = _id[p];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> qId = _id[q];
 </span></span><span style=display:flex><span>        ArrayVisitCount += <span style=color:#ae81ff>2</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// 如果两个结点同属于一个连通分量，那么什么也不做。</span>
@@ -100,32 +100,32 @@
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// 判断较大的连通分量和较小的连通分量。</span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> larger;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> smaller;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#ae81ff>_</span>size[pId] &gt; <span style=color:#ae81ff>_</span>size[qId])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (_size[pId] &gt; _size[qId])
 </span></span><span style=display:flex><span>        {
 </span></span><span style=display:flex><span>            larger = pId;
 </span></span><span style=display:flex><span>            smaller = qId;
-</span></span><span style=display:flex><span>            <span style=color:#ae81ff>_</span>size[pId] += <span style=color:#ae81ff>_</span>size[qId];
+</span></span><span style=display:flex><span>            _size[pId] += _size[qId];
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
 </span></span><span style=display:flex><span>        {
 </span></span><span style=display:flex><span>            larger = qId;
 </span></span><span style=display:flex><span>            smaller = pId;
-</span></span><span style=display:flex><span>            <span style=color:#ae81ff>_</span>size[qId] += <span style=color:#ae81ff>_</span>size[pId];
+</span></span><span style=display:flex><span>            _size[qId] += _size[pId];
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// 将较小的连通分量连接到较大的连通分量上，</span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// 这会减少赋值语句的执行次数，略微减少数组访问。</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>_</span>id.Length; i++)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> i = <span style=color:#ae81ff>0</span>; i &lt; _id.Length; i++)
 </span></span><span style=display:flex><span>        {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#ae81ff>_</span>id[i] == smaller)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (_id[i] == smaller)
 </span></span><span style=display:flex><span>            {
-</span></span><span style=display:flex><span>                <span style=color:#ae81ff>_</span>id[i] = larger;
+</span></span><span style=display:flex><span>                _id[i] = larger;
 </span></span><span style=display:flex><span>                ArrayVisitCount++;
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        ArrayVisitCount += <span style=color:#ae81ff>_</span>id.Length;
-</span></span><span style=display:flex><span>        <span style=color:#ae81ff>_</span>count--;
+</span></span><span style=display:flex><span>        ArrayVisitCount += _id.Length;
+</span></span><span style=display:flex><span>        _count--;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
@@ -134,7 +134,7 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;returns&gt;id 数组。&lt;/returns&gt;</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span>[] GetId()
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>_</span>id;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> _id;
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;summary&gt;</span>
@@ -144,7 +144,7 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e>/// &lt;exception cref=&#34;ArgumentException&#34;&gt;输入的 p 值无效。&lt;/exception&gt;</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> Validate(<span style=color:#66d9ef>int</span> p)
 </span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> n = <span style=color:#ae81ff>_</span>id.Length;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> n = _id.Length;
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (p &lt; <span style=color:#ae81ff>0</span> || p &gt; n)
 </span></span><span style=display:flex><span>        {
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> ArgumentException(<span style=color:#e6db74>&#34;index &#34;</span> + p + <span style=color:#e6db74>&#34; is not between 0 and &#34;</span> + (n - <span style=color:#ae81ff>1</span>));
@@ -169,6 +169,6 @@
 </span></span><span style=display:flex><span>Console.WriteLine(<span style=color:#e6db74>&#34;quick-find: &#34;</span> + quickFind.ArrayVisitCount);
 </span></span><span style=display:flex><span>Console.WriteLine(<span style=color:#e6db74>&#34;weighted quick-find: &#34;</span> + weightedQuickFind.ArrayVisitCount);
 </span></span></code></pre></div><h2 id=另请参阅>另请参阅
-<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><p><a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/UnionFind>UnionFind 库</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3770ce8eca4a792a299e114999bb534a332b0909 title="最后修改者 沈星繁 | 2022-3-13" target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#%e5%8f%a6%e8%af%b7%e5%8f%82%e9%98%85>#</a></h2><p><a href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/tree/master/1%20Fundamental/1.5/UnionFind>UnionFind 库</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/3770ce8eca4a792a299e114999bb534a332b0909 title='最后修改者 沈星繁 | 2022-3-13' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>2022-3-13</span></a></div><div><a class="flex align-center" href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/new?assignees=ikesnowy&labels=BUG&template=----.md&title=%5BBUG%5D1.5.11" target=_blank rel=noopener><img src=/svg/bug-report.svg class=book-icon alt=Edit>
-<span>问题反馈</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li><li><a href=#代码>代码</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>
+<span>问题反馈</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li><li><a href=#代码>代码</a></li><li><a href=#另请参阅>另请参阅</a></li></ul></nav></div></aside></main></body></html>

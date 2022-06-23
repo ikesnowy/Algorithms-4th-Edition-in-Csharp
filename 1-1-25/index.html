@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>1.1.25 | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.c8e470801bdb2fc5768de5d340ad7cd987042c18024fc4c4f1e391b2c5fc7187.js integrity="sha256-yORwgBvbL8V2jeXTQK182YcELBgCT8TE8eORssX8cYc=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.17280d9492ae34ffae8b6bc53ed8a6c768f394a4ea300d3478043aa3a6bbda1c.js integrity="sha256-FygNlJKuNP+ui2vFPtimx2jzlKTqMA00eAQ6o6a72hw=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -7,8 +7,50 @@
 <strong>1.1.25</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li></ul></nav></aside></header><article class=markdown><h1 id=1125>1.1.25
 <a class=anchor href=#1125>#</a></h1><h2 id=解答>解答
-<a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a></h2><p>已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $ a,b$ 的最大公约数.</p><p>设 $\ r_0=a\bmod b$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。</p><p>那么有 $gcd(a,b)=gcd(b,r_0)=gcd(r_0,r_1)&mldr;=gcd(r_{n-1},r_n)$ 。
-且 $r_n=0$ （此时算法终止）。</p><p>由于 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1} \ (q_n=\lfloor r_{n-2}/r_{n-1}\rfloor)$ 。</p><p>可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。</p><p>则有</p><p>$r_{n-3}\newline =q_{n-1} \times r_{n-2} + r_{n-1}\newline =q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline =q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline =(q_{n-1} \times q_n +1)\times r_{n-1}$</p><p>可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除</p><p>以此类推，$r_{n-1}$ 可以整除 $a$ 和 $b$ ，即 $r_{n-1}$ 是 $a$ 和 $b$ 的公约数</p><p>则 $r_{n-1}\le g$ 。</p><p>因为 $g$ 是 $a,b$ 的最大公约数，由其性质可得：
-$a=mg,b=ng$ ，其中 $m,n$ 是自然数。</p><p>$r_0 \newline =a \bmod b \newline =a-q_0 \times b\qquad (q_0=\lfloor a/b \rfloor) \newline = mg-q_0\times ng\newline =(m-q_0\times n)g$</p><p>可得 $r_0$ 能够被 $g$ 整除。</p><p>同理 $r_0,r_1,r_2\dots r_{n-1}$ 都可以被 $g$ 整除。</p><p>因此 $g\le r_{n-1}$</p><p>综上，$g=r_{n-1}$ ，证明完毕。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/947ee15509f0ed0ef87503c7378a420015089ac5 title="最后修改者 沈星繁 | 2022-2-22" target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
-<span>2022-2-22</span></a></div><div><a class="flex align-center" href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/new?assignees=ikesnowy&labels=BUG&template=----.md&title=%5BBUG%5D1.1.25" target=_blank rel=noopener><img src=/svg/bug-report.svg class=book-icon alt=Edit>
-<span>问题反馈</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li></ul></nav></div></aside></main></body></html>
+<a class=anchor href=#%e8%a7%a3%e7%ad%94>#</a></h2><p>已知：$a,b$ 皆为正整数，且 $a>b$。$g$ 是 $a,b$ 的最大公约数.</p><p>设 $\ r_0=a \bmod b$，$r_1=b \bmod r_0$ ，$r_k = r_{k-2} \bmod\ r_{k-1}$ 。</p><p>那么有 $\gcd(a,b)=\gcd(b,r_0)=\gcd(r_0,r_1)&mldr;=\gcd(r_{n-1},r_n)=r_{n-1}$ ，且 $r_n=0$ （此时算法终止），且 $n$ 是有限的。</p><p>令 $q_n=\lfloor r_{n-2}/r_{n-1} \rfloor$</p><p>有 $r_{n-2}=q_n\times r_{n-1} + r_n=q_n\times r_{n-1}$ （被除数=商✕除数+余数）。</p><p>可得 $r_{n-2}$ 能被 $r_{n-1}$ 整除。</p><p>则有</p><p>$$
+\begin{aligned}
+r_{n-3} &= q_{n-1} \times r_{n-2} + r_{n-1}\newline
+&=q_{n-1}\times (q_n \times r_{n-1})+r_{n-1}\newline
+&=q_{n-1}\times q_n \times r_{n-1} + r_{n-1} \newline
+&=(q_{n-1} \times q_n +1)\times r_{n-1}
+\end{aligned}
+$$</p><p>可得 $r_{n-3}$ 也能被 $r_{n-1}$ 整除</p><p>假设对于任意自然数 $n > x > k \ge 0$, $r_x$ 可以被 $r_{n-1}$ 整除都成立 。</p><p>则对于 $r_k$ 有：</p><p>$$
+\begin{aligned}
+r_{k} &= q_{k+2} \times r_{k+1} + r_{k+2}
+\end{aligned}
+$$</p><p>根据假设，$r_{k+1}$ 和 $r_{k+2}$ 都可以被 $r_{n-1}$ 整除，因此 $r_k$ 也可以被 $r_{n-1}$ 整除。</p><p>根据数学归纳法可以得知对于任意 $x&lt;n$，$r_x$ 都可以被 $r_{n-1}$ 整除。（类似于反向使用第二类数学归纳法）</p><p>现在对于 $r_1$ 有：</p><p>$$
+\begin{aligned}
+r_1 &= b \bmod r_0 \newline
+r_1 &=b-q_1 \times r_0 \qquad (q_1=\lfloor b/r_0\rfloor) \newline
+b &= r_1 + q_1 \times r_0
+\end{aligned}
+$$</p><p>由于 $r_0$ 和 $r_1$ 都可以被 $r_{n-1}$ 整除，则 $b$ 也可以被 $r_{n-1}$ 整除。</p><p>类似地，对于 $r_0$ 有：</p><p>$$
+\begin{aligned}
+r_0 &= a \bmod b \newline
+a &= r_0 + q_0 \times b \qquad (q_0 = \lfloor a/b \rfloor)
+\end{aligned}
+$$</p><p>由于 $r_0$ 和 $b$ 都可以被 $r_{n-1}$ 整除，因此 $a$ 也可以被 $r_{n-1}$ 整除。</p><p>于是得到 $r_{n-1}$ 是 $a$ 和 $b$ 的一个公约数，必然满足 $r_{n-1} \le g$。</p><p>因为 $g$ 是 $a,b$ 的最大公约数，由其性质可得：
+$a=mg,b=ng$ ，其中 $m,n$ 是自然数。</p><p>$$
+\begin{aligned}
+r_0&=a \bmod b \newline
+&=a-q_0 \times b\qquad (q_0=\lfloor a/b \rfloor) \newline
+&= mg-q_0\times ng\newline
+&=(m-q_0\times n)g
+\end{aligned}</p><p>$$</p><p>可得 $r_0$ 能够被 $g$ 整除。</p><p>对于 $r_1$ 有：</p><p>$$
+\begin{aligned}
+r_1 &= b \bmod r_0 \newline
+&=b-q_1 \times r_0 \qquad (q_1=\lfloor b/r_0\rfloor)
+\end{aligned}
+$$</p><p>由于 $b$ 和 $r_0$ 都能被 $g$ 整除，则 $r_1$ 也能被 $g$ 整除</p><p>对于 $r_2$ 有：</p><p>$$
+\begin{aligned}
+r_2 &= r_0 \bmod r_1 \newline
+&= r_0 - q_2 \times r_1 \qquad (q_2=\lfloor r_0 / r_1 \rfloor)
+\end{aligned}
+$$</p><p>由于 $r_0$ 和 $r_1$ 都可以被 $g$ 整除，因此 $r_2$ 也可以被 $g$ 整除。</p><p>假设对于任意自然数 $x &lt; k$， $r_x=r_{x-2} \bmod r_{x-1}$ 可以被 $g$ 整除。</p><p>则对于 $r_k$ 有：</p><p>$$
+\begin{aligned}
+r_k &= r_{k-2} \bmod r_{k-1} \newline
+&= r_{k-2} - q_k \times r_{k-1} \qquad (q_k=\lfloor r_{k-2} / r_{k-1} \rfloor)
+\end{aligned}
+$$</p><p>根据假设， $r_{k-1}$ 和 $r_{k-2}$ 都可以被 $g$ 整除，此时 $r_k$ 也可以被 $g$ 整除。</p><p>由第二类数学归纳法可知对于任意满足 $0 \le x \le n$ 的自然数 $x$，$r_x$ 可以被 $g$ 整除都成立。</p><p>因此 $r_{n-1}$ 可以被 $g$ 整除，则 $g\le r_{n-1}$。</p><p>综上，当且仅当 $g=r_{n-1}$ 时满足关系 $r_{n-1} \le g \le r_{n-1}$，于是 $r_{n-1}=g$ 成立，$r_{n-1}$ 是 $a$ 和 $b$ 的最大公约数。$\blacksquare$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/commit/6e5a0507ee64465f9ae21351bd553bbbcb2c2383 title='最后修改者 沈星繁 | 2022-6-23' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>2022-6-23</span></a></div><div><a class="flex align-center" href="https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/new?assignees=ikesnowy&labels=BUG&template=----.md&title=%5BBUG%5D1.1.25" target=_blank rel=noopener><img src=/svg/bug-report.svg class=book-icon alt=Edit>
+<span>问题反馈</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#解答>解答</a></li></ul></nav></div></aside></main></body></html>

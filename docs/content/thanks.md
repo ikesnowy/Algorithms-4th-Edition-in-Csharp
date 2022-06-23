@@ -26,6 +26,8 @@ weight: 1
 
 [@Hao Liu](https://github.com/Higurashi-kagome), 1.4.15, 1.4.20, [#595](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/595)
 
+[@Heshan](https://github.com/pezy-boy), 1.1.25 [#615](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/615)
+
 ## 第二章
 
 [@雨碎江南](https://github.com/consoles) ，2.2.12 [#532](https://github.com/ikesnowy/Algorithms-4th-Edition-in-Csharp/issues/532)

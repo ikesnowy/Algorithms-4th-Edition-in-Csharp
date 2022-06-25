@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Searching on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/tags/searching/</link><description>Recent content in Searching on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 22 May 2022 21:06:41 +0800</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/tags/searching/index.xml" rel="self" type="application/rss+xml"/><item><title>3.1.1</title><link>https://alg4.ikesnowy.com/3-1-1/</link><pubDate>Tue, 12 Feb 2019 13:49:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-1/</guid><description>3.1.1 # 解答 # 官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Searching on 《算法（第四版）》C# 题解</title><link>https://alg4.ikesnowy.com/tags/searching/</link><description>Recent content in Searching on 《算法（第四版）》C# 题解</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 25 Jun 2022 14:39:32 +0800</lastBuildDate><atom:link href="https://alg4.ikesnowy.com/tags/searching/index.xml" rel="self" type="application/rss+xml"/><item><title>3.1.1</title><link>https://alg4.ikesnowy.com/3-1-1/</link><pubDate>Tue, 12 Feb 2019 13:49:57 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-1/</guid><description>3.1.1 # 解答 # 官方解答：https://algs4.cs.princeton.edu/31elementary/GPA.java.html
 ST.java：https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/ST.java.html
 建立一个符号表，然后把键值放进去，读取计算即可。
 和上一章节用过的方法类似，先定义了一个接口 IST&amp;lt;Key, Value&amp;gt; ，包含书中提到的基本 API。
@@ -407,4 +407,20 @@ $N=6$ 的树形，底部共有 7 个位置可以插入：
 这个示意图位于中文版图 3.3.20，英文版 P436 插图 Insert into a single 3-node (three cases)
 顺序插入（C-&amp;gt;B-&amp;gt;A 或 A-&amp;gt;B-&amp;gt;C） # 先中间，再两边（B-&amp;gt;A-&amp;gt;C 或 B-&amp;gt;C-&amp;gt;A） # 先两边，再中间（C-&amp;gt;A-&amp;gt;B 或 A-&amp;gt;C-&amp;gt;B） #</description></item><item><title>3.3.9</title><link>https://alg4.ikesnowy.com/3-3-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-3-9/</guid><description>3.3.8 # 解答 # 官网有答案：https://algs4.cs.princeton.edu/33balanced/
 iii 和 iv 是红黑树，i 不平衡，ii 不平衡且 F 不属于 D 和 E 之间的元素。</description></item><item><title>3.3.10</title><link>https://alg4.ikesnowy.com/3-3-10/</link><pubDate>Sun, 15 May 2022 21:07:39 +0800</pubDate><guid>https://alg4.ikesnowy.com/3-3-10/</guid><description>3.3.10 # 解答 # 按照题意插入即可，以下是步骤图，红链接会显示为红色。</description></item><item><title>3.3.11</title><link>https://alg4.ikesnowy.com/3-3-11/</link><pubDate>Sun, 15 May 2022 21:11:01 +0800</pubDate><guid>https://alg4.ikesnowy.com/3-3-11/</guid><description>3.3.11 # 解答 # 与上题类似，依次插入元素即可。</description></item><item><title>3.3.12</title><link>https://alg4.ikesnowy.com/3-3-12/</link><pubDate>Sun, 15 May 2022 22:01:06 +0800</pubDate><guid>https://alg4.ikesnowy.com/3-3-12/</guid><description>3.3.12 # 解答 # 插入 P 时的步骤如图所示，用例是 S E A R C H E X A M P L E，在 3.1 章的 3.1.3 节可以找到它。</description></item><item><title>3.3.13</title><link>https://alg4.ikesnowy.com/3-3-13/</link><pubDate>Sun, 22 May 2022 21:06:41 +0800</pubDate><guid>https://alg4.ikesnowy.com/3-3-13/</guid><description>3.3.13 # 解答 # 官网有解答：https://algs4.cs.princeton.edu/33balanced/#:~:text=True%20or%20false%3A%20If%20you%20insert%20keys%20in%20increasing%20order%20into%20a%20red%2Dblack%20BST%2C%20the%20tree%20height%20is%20monotonically%20increasing
-是真的，具体见下一题的题解。</description></item></channel></rss>
+是真的。
+现在考虑在哪些情况下，红黑树插入元素后高度会变小。
+根据红黑树与 2-3 树的对应，红链接其实就是把 2-3 树的 3-结点中的左侧元素变为左子树，并把这个左链接标记为红色。
+那么对于一棵 2-3 树，3-结点对应的到红黑树中是带左侧结点的子树，高度会比同位置的 2-结点多 1。
+现在把 2-3 树中的 2-结点记为 1，3-结点记为 2，数字最大的路径即为决定对应红黑树高度的路径。
+那么只要插入操作后，该路径上的数字和反而减小，对应红黑树的高度不可能变大，只有可能减小或不变。（不变的原因和红黑树的性质有关，见之后的说明）
+现在考虑 2-3 树插入的情况。
+插入到 2-结点 -&amp;gt; 变为 3-结点，最大数字和增加。
+插入到 3-结点 -&amp;gt; 自身变为 2-结点，向上传递 1 个元素
+显然插入到 2-结点不可能减小高度，我们来考虑 3-结点向上传递的情况。
+父结点是 2-结点 -&amp;gt; 父结点变为 3-结点，总数字和不变，红黑树高度不变。
+父结点是 3-结点 -&amp;gt; 父结点变为 2-结点，向上传递一个元素。
+不难发现当路径上有连续两个 3-结点时，插入操作最后会有两种情况：
+停止在父级的某一个 2-结点。这时两个 3-结点变成了 2-结点（-2），一个 2-结点变成了 3-结点（+1），数字和减少 1 整棵 2-3 树的高度增加。这时两个 3-结点变成了 2-结点（-2），整条路径多了 1 个 2-结点（+1），数字和减少 1。 因此只有当该路径上最后两个元素都是 3-结点时，插入后的数字和必然减少，如果没有其他路径上的数字和比它更大，整个 2-3 树的最大数字和就会减小。</description></item><item><title>3.3.14</title><link>https://alg4.ikesnowy.com/3-3-14/</link><pubDate>Sat, 25 Jun 2022 14:39:32 +0800</pubDate><guid>https://alg4.ikesnowy.com/3-3-14/</guid><description> 3.3.14 # 解答 # 官网有解答：https://algs4.cs.princeton.edu/33balanced/#:~:text=True%20or%20false%3A%20If%20you%20insert%20keys%20in%20increasing%20order%20into%20a%20red%2Dblack%20BST%2C%20the%20tree%20height%20is%20monotonically%20increasing
+红黑树的构造过程，|| 代表红链接。
+递增顺序插入等价于一直向 2-3 树最右侧叶子结点的右侧插入元素，对应红黑树的高度是单调递增的，具体说明见上一题的解答。
+A ||-B A |-B-| A C |---B---| A ||-D C ||---D---| |-B-| E A C ||---D---| |-B-| ||-F A C E |---D---| |-B-| |-F-| A C E G |-------D-------| |---B---| |---F---| A C E ||-H G |-------D-------| |---B---| ||---H---| A C |-F-| I E G |-------D-------| |---B---| ||---H---| A C |-F-| ||-J E G I ||-------H-------| |---D---| |---J---| |-B-| |-F-| I K A C E G</description></item></channel></rss>

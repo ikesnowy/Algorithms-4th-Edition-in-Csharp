@@ -119,7 +119,8 @@ FrequencyCounter 的官方实现：https://algs4.cs.princeton.edu/31elementary/F
 对于按频率排序，我们基于已有的实现修改。
 在每次取得最大值之后，输出并删除最大值，如此循环即可获得频率排序的单词序列。
 也可以将单词-频率序列全部读出来存放到数组之中，然后用第二章的排序算法排序。
-测试结果，取 minLength = 13，只截取了部分。 代码 # public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) { // 初始化字典 var sr = new StreamReader(File.OpenRead(dictionaryFile)); var words = sr.ReadToEnd().Split(new[] { &amp;#39; &amp;#39;, &amp;#39;\r&amp;#39;, &amp;#39;\n&amp;#39; }, StringSplitOptions.RemoveEmptyEntries); var dictionary = new BinarySearchSt&amp;lt;string, int&amp;gt;(); for (var i = 0; i &amp;lt; words.</description></item><item><title>3.1.27</title><link>https://alg4.ikesnowy.com/3-1-27/</link><pubDate>Sun, 03 Mar 2019 19:20:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-27/</guid><description>3.1.27 # 解答 # 事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。
+测试结果，取 minLength = 13，只截取了部分。
+代码 # public static void LookUpDictionary(string filename, string dictionaryFile, int minLength) { // 初始化字典 var sr = new StreamReader(File.OpenRead(dictionaryFile)); var words = sr.ReadToEnd().Split(new[] { &amp;#39; &amp;#39;, &amp;#39;\r&amp;#39;, &amp;#39;\n&amp;#39; }, StringSplitOptions.RemoveEmptyEntries); var dictionary = new BinarySearchSt&amp;lt;string, int&amp;gt;(); for (var i = 0; i &amp;lt; words.</description></item><item><title>3.1.27</title><link>https://alg4.ikesnowy.com/3-1-27/</link><pubDate>Sun, 03 Mar 2019 19:20:38 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-1-27/</guid><description>3.1.27 # 解答 # 事实上就是说，先构造一个包含 N 个不重复键的符号表，然后进行 S 次查找。
 给出 S 的增长数量级，使得构造符号表的成本和查找的成本相同。
 这里假设一次数组交换和一次比较的成本是相同的。
 先考虑构造符号表的成本，一次 Put() 需要调用一次 Rank() 和一次插入操作。

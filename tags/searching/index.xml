@@ -184,7 +184,8 @@ $$ \begin {eqnarray*} 1000 \log_2 N &amp;amp;=&amp;amp; N / 2 \newline \log_2 N 
 和上题类似，也是解超越方程。
 插值查找的平均查找次数为 $\lg(\lg(N))$。
 可以解得 N = 1, 4, 58。
-实验结果如下： 由于 N 太小，可以看到插值查找的运行时间几乎没有变化。</description></item><item><title>3.2.1</title><link>https://alg4.ikesnowy.com/3-2-1/</link><pubDate>Sun, 14 Apr 2019 20:04:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-1/</guid><description>3.2.1 # 解答 # 构造出的树如下图所示： 总比较次数：0 + 1 + 1 + 2 + 2 + 3 + 1 + 2 + 4 + 3 + 4 + 5 = 28 次
+实验结果如下： 由于 N 太小，可以看到插值查找的运行时间几乎没有变化。</description></item><item><title>3.2.1</title><link>https://alg4.ikesnowy.com/3-2-1/</link><pubDate>Sun, 14 Apr 2019 20:04:11 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-1/</guid><description>3.2.1 # 解答 # 构造出的树如下图所示：
+总比较次数：0 + 1 + 1 + 2 + 2 + 3 + 1 + 2 + 4 + 3 + 4 + 5 = 28 次
 另请参阅 # BinarySearchTree 库</description></item><item><title>3.2.2</title><link>https://alg4.ikesnowy.com/3-2-2/</link><pubDate>Fri, 19 Apr 2019 21:07:33 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-2/</guid><description> 3.2.2 # 解答 # 用这样的序列就可以构造出最坏情况：
 &amp;#34;A X C S E R H&amp;#34;, &amp;#34;X A S C R E H&amp;#34;, &amp;#34;A C E H R S X&amp;#34;, &amp;#34;X S R H E C A&amp;#34;, &amp;#34;X A S R H E C&amp;#34;, &amp;#34;A X S R H E C&amp;#34; 构造出来的树看起来像这样：</description></item><item><title>3.2.3</title><link>https://alg4.ikesnowy.com/3-2-3/</link><pubDate>Wed, 01 May 2019 20:49:14 +0000</pubDate><guid>https://alg4.ikesnowy.com/3-2-3/</guid><description>3.2.3 # 解答 # 官方答案：第一个插入的是 H，且 C 在 A 和 E 之前插入，S 在 R 和 X 之前插入的树。
 对序列排序，得到 A C E H R S X 。

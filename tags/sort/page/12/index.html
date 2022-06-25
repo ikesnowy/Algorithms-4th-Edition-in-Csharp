@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>Sort | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.0a66e7e198e5570970745d0c036e2eff869abf7d4b0bbba0dbb71999b3ead2ca.js integrity="sha256-Cmbn4ZjlVwlwdF0MA24u/4aav31LC7ug27cZmbPq0so=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.838a41f7cc6fa4229385e3ba7f129de2f831416da8cf8987f5b64949636d3b26.js integrity="sha256-g4pB98xvpCKTheO6fxKd4vgxQW2oz4mH9bZJSWNtOyY=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解"><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -29,8 +29,10 @@ public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException("Prio
 故最末端元素一定小于该第二大元素。
 因此在下沉操作时必定会和第二大元素进行交换。
 故至少发生两次交换，总共有三个元素发生了交换。
-构造的堆（n=15） 92 和 100 交换，随后 92 和 99 交换
-构造最优情况堆的方式如下（取根结点为 100）： 对于每个结点，左子结点大于右子结点，
+构造的堆（n=15）
+92 和 100 交换，随后 92 和 99 交换
+构造最优情况堆的方式如下（取根结点为 100）：
+对于每个结点，左子结点大于右子结点，
 且左子结点的子元素都小于右子树的最小值，
 （上例中省略了这部分元素，可以将它们当作负数）
 于是第一次 DelMax 的时候，只需要两次交换，三个元素被交换。（即 87 最后被交换到上例中 99 的位置）
@@ -41,7 +43,8 @@ public Key DelMax() { if (IsEmpty()) throw new ArgumentOutOfRangeException("Prio
 在线性时间内检测是否是面向最小元素的堆的方法：
 /// &lt;summary> /// 确定以 k 为根节点的二叉树是不是一个最小堆。 /// &lt;/summary> /// &lt;param name="k">需要检查的二叉树根节点。&lt;/param> /// &lt;returns>&lt;/returns> private bool IsMinHeap(int k) { if (k > this.n) return true; int left = 2 * k; int right = 2 * k + 1; if (left &lt;= this.n && Greater(k, left)) return false; if (right &lt;= this.n && Greater(k, right)) return false; return IsMinHeap(left) && IsMinHeap(right); } 用递归方法遍历整个二叉树，确认都满足堆的性质。由于每个结点都只会被比较三次（与父结点比较一次，与每个子结点各比较一次），由于 3N~N，因此这个方法是 O(n) 的。
 <a href=/2-4-15/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-16/>2.4.16</a></h2><h5>2018-9-8</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.16 # 解答 # 最好情况比较简单，只需要一个所有键值完全相同的数组即可。
-最坏情况的构造方法参考了一篇论文（见「另请参阅」部分），结果如下： 最好输入： 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+最坏情况的构造方法参考了一篇论文（见「另请参阅」部分），结果如下：
+最好输入： 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 最坏输入： 1 4 7 12 10 16 14 19 17 20 5 27 8 28 2 24 9 18 6 23 11 22 21 31 13 26 25 30 15 29 3 32
 <a href=/2-4-16/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-17/>2.4.17</a></h2><h5>2018-9-9</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.17 # 解答 # 英文版原文是：insert followed by remove the minimum，因此是先插入再删除。
 大致上相当于一个缓冲区，把比较大的留下来，比较小的筛出去。

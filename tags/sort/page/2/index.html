@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>Sort | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.0a66e7e198e5570970745d0c036e2eff869abf7d4b0bbba0dbb71999b3ead2ca.js integrity="sha256-Cmbn4ZjlVwlwdF0MA24u/4aav31LC7ug27cZmbPq0so=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.838a41f7cc6fa4229385e3ba7f129de2f831416da8cf8987f5b64949636d3b26.js integrity="sha256-g4pB98xvpCKTheO6fxKd4vgxQW2oz4mH9bZJSWNtOyY=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解"><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -25,7 +25,8 @@
 交换最上面两张牌 = 从笔的位置开始，逆时针选择两张牌并交换。
 将最上面的一张牌放到最下面 = 将笔的位置逆时针移动一位。
 下面我们开始执行开始说过的操作，目标顺序是自顶向下从小到大排列。
-初始情况如图所示： 梅花7 和 红桃4 不是逆序对，直接将笔逆时针移动一位。
+初始情况如图所示：
+梅花7 和 红桃4 不是逆序对，直接将笔逆时针移动一位。
 红桃4 和 黑桃6 不是逆序对，我们将笔逆时针移动一位。
 再看 黑桃6 和 方片A，是逆序对，我们交换并将笔逆时针移动一位。
 再看 黑桃6 和 红桃J，是逆序对，我们交换并将笔逆时针移动一位。
@@ -37,11 +38,15 @@
 代码 # 插入排序中的 Exch() 换成了如下方式：
 string temp = new string(s[i].ToCharArray()); s[i] = s[min]; s[min] = temp; 全部程序代码如下：
 var test = new[] { "a", "b", "d", "c", "e" }; Console.WriteLine(CheckArraySort(test)); Console.WriteLine(CheckSelectionSort(test)); // 测试 Array.Sort() 方法。 static bool CheckArraySort(string[] a) { var backup = new string[a.Length]; a.CopyTo(backup, 0); Array.Sort(a); foreach (var n in a) { var isFind = false; for (var i = 0; i &lt; a.
-<a href=/2-1-16/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-1-17/>2.1.17</a></h2><h5>2018-6-30</h5><div><a href=/tags/sort/>Sort</a></div><p>2.1.17 # 解答 # 选择排序： 插入排序： 代码 # 使用一个 timer 按一定时间重绘数组，排序算法里面一次循环后等待一段时间再进行下一次循环。（这并不是一个很好的方法，但对于演示来说足够了）
+<a href=/2-1-16/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-1-17/>2.1.17</a></h2><h5>2018-6-30</h5><div><a href=/tags/sort/>Sort</a></div><p>2.1.17 # 解答 # 选择排序：
+插入排序：
+代码 # 使用一个 timer 按一定时间重绘数组，排序算法里面一次循环后等待一段时间再进行下一次循环。（这并不是一个很好的方法，但对于演示来说足够了）
 这里排序算法是另开线程运行的，防止 Sleep 的时候让程序无响应。
 选择排序：
 using System; using System.Drawing; using System.Windows.Forms; using System.Threading; namespace _2._1._17 { public partial class Form2 : Form { double[] randomDoubles; public Form2(int N) { InitializeComponent(); this.randomDoubles = new double[N]; Random random = new Random(); for (int i = 0; i &lt; N; i++) { this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2; } drawPanel(); this.timer1.Interval = 60; this.
-<a href=/2-1-17/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-1-18/>2.1.18</a></h2><h5>2018-6-30</h5><div><a href=/tags/sort/>Sort</a></div><p>2.1.18 # 解答 # 选择排序 插入排序 代码 # 与上题类似，但要特别标出移动的元素。 选择排序：
+<a href=/2-1-17/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-1-18/>2.1.18</a></h2><h5>2018-6-30</h5><div><a href=/tags/sort/>Sort</a></div><p>2.1.18 # 解答 # 选择排序
+插入排序
+代码 # 与上题类似，但要特别标出移动的元素。 选择排序：
 using System; using System.Drawing; using System.Windows.Forms; using System.Threading; namespace _2._1._18 { public partial class Form2 : Form { double[] randomDoubles; int sortI; int sortJ; int sortMin; public Form2(int N) { InitializeComponent(); this.randomDoubles = new double[N]; Random random = new Random(); for (int i = 0; i &lt; N; i++) { this.randomDoubles[i] = random.NextDouble() * 0.8 + 0.2; } } /// &lt;summary> /// 选择排序。 /// &lt;/summary> private void SelectionSort() { for (this.
 <a href=/2-1-18/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-1-19/>2.1.19</a></h2><h5>2018-6-30</h5><div><a href=/tags/sort/>Sort</a></div><p>2.1.19 # 解答 # 不得不说这道题意外的难。
 放上论文链接：Shellsort and Sorting Networks (Outstanding Dissertations in the Computer Sciences)

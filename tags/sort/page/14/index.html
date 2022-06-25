@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>Sort | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.0a66e7e198e5570970745d0c036e2eff869abf7d4b0bbba0dbb71999b3ead2ca.js integrity="sha256-Cmbn4ZjlVwlwdF0MA24u/4aav31LC7ug27cZmbPq0so=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.838a41f7cc6fa4229385e3ba7f129de2f831416da8cf8987f5b64949636d3b26.js integrity="sha256-g4pB98xvpCKTheO6fxKd4vgxQW2oz4mH9bZJSWNtOyY=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/sort/index.xml title="《算法（第四版）》C# 题解"><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -31,8 +31,11 @@ delete()：先从堆中删除元素，再把 keys 和 qp 数组中的对应元�
 random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引。（return an index i with probability p[i]/T）
 最后一句指的是像堆那样使用数组而非显式指针实现二叉树。（Avoid explicit pointers, as we do for heaps.）
 提示已经给出了实现方案，我们用一个例子来简单说明一下。
-现在给出一个分布 p，总和 T=1，如下图所示： 为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
-每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图： 为方便起见，我们重新排列一下之前的随机表： 每个值的概率并没有改变，只是每个值对应的区段换了一下。
+现在给出一个分布 p，总和 T=1，如下图所示：
+为了实现这样的随机分布，我们在 0~T 之间随机一个小数，然后根据结果返回不同的值。 现在我们将这个思想应用到完全二叉树上。
+每次随机的过程其实构成了一棵选择树，我们把数组 p 当作一棵树，如下图：
+为方便起见，我们重新排列一下之前的随机表：
+每个值的概率并没有改变，只是每个值对应的区段换了一下。
 经过这样的变换后，你会发现，如果从根结点的角度看：
 如果随机的值小于 0.1，对应的编号就是 1。
 如果随机的值大于 0.5，那么对应编号只能是 3 或 6，即根结点的右子树。
@@ -41,12 +44,15 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 如果随机数小于当前结点，直接返回当前结点的编号。
 如果随机数大于左子树权值总和+当前结点的权值，减去它们，移动到右子树。
 其他情况减去当前结点的权值并移动到左子树。
-思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下： 代码 # internal class Sample { public double[] P; public double[] SumP; public double T; private readonly Random _random = new(); /// &lt;summary> /// 构造一个离散取样类。 /// &lt;/summary> /// &lt;param name="data">取样数据。&lt;/param> public Sample(double[] data) { // 复制权重 P = new double[data.
-<a href=/2-4-35/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-36/>2.4.36</a></h2><h5>2018-12-28</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.36 # 解答 # 测试结果如下： 可以看出增长数量级约为 O(nlogn)。
+思想理解之后，代码实现就比较容易了，做了 100000 次实验的结果如下：
+代码 # internal class Sample { public double[] P; public double[] SumP; public double T; private readonly Random _random = new(); /// &lt;summary> /// 构造一个离散取样类。 /// &lt;/summary> /// &lt;param name="data">取样数据。&lt;/param> public Sample(double[] data) { // 复制权重 P = new double[data.
+<a href=/2-4-35/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-36/>2.4.36</a></h2><h5>2018-12-28</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.36 # 解答 # 测试结果如下：
+可以看出增长数量级约为 O(nlogn)。
 代码 # var doubleTime = 5; var repeatTime = 5; var n = 100000; for (var i = 0; i &lt; doubleTime; i++) { long totalTime = 0; Console.WriteLine("count=" + n); for (var j = 0; j &lt; repeatTime; j++) { var pq = new MaxPq&lt;int>(n); var time = Test(pq, n); Console.Write(time + "\t"); totalTime += time; } Console.WriteLine("平均用时：" + totalTime / repeatTime + "毫秒"); n *= 2; } long Test(MaxPq&lt;int> pq, int count) { var random = new Random(); // 生成数据 var initData = new int[count]; var appendData = new int[count / 2]; for (var i = 0; i &lt; count; i++) initData[i] = random.
 <a href=/2-4-36/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-37/>2.4.37</a></h2><h5>2018-12-28</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.37 # 解答 # 建立一个全局变量 isRunning ，每次 DelMax() 之前都先确认这个值是否为 true，
 设立一个 Timer 在 1 秒钟之后自动将 isRunning 置为 false。
-测试结果如下： 随着 n 增大，一秒钟之内能执行的 DelMax() 次数会下降。
+测试结果如下：
+随着 n 增大，一秒钟之内能执行的 DelMax() 次数会下降。
 代码 # var doubleTime = 6; var repeatTime = 6; var n = 1000000; var isRunning = true; for (var i = 0; i &lt; doubleTime; i++) { var totalDelCount = 0; Console.WriteLine("count=" + n); for (var j = 0; j &lt; repeatTime; j++) { var pq = new MaxPq&lt;int>(n); var delCount = Test(n, pq); totalDelCount += delCount; Console.
 <a href=/2-4-37/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-38/>2.4.38</a></h2><h5>2018-12-28</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.38 # 解答 # 直接构造相应的数组测试即可。
 测试结果如下：
@@ -68,7 +74,8 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 先考虑 $d$ 叉堆的在数组中的保存方式，
 第一层显然只有根结点，第二层显然有 $d$ 个结点，第三层则有 $d \times d=d^2$ 个结点，如下图所示：
 不难推出第 $k$ 层有 $d^{k-1}$ 个结点。
-接下来我们对其标号，根结点为 1，以此类推，如下图： 现在我们来推导某个结点的子结点的下标公式。
+接下来我们对其标号，根结点为 1，以此类推，如下图：
+现在我们来推导某个结点的子结点的下标公式。
 结点 $i$ 的第一个子结点在哪里呢？
 首先要加上本层剩下的结点，再加上它前面结点的所有子结点，再下一个就是它的第一个子结点了。
 以 2 号结点为例，它是第二层的第一个结点，第二层共有 $d^{2-1}=d$ 个结点，剩下 $d-1$ 个结点。
@@ -76,7 +83,8 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 3 号结点之后剩余 $d-2$ 个结点，加上前面 2 号结点的 $d$ 个子结点，
 它的第一个子结点下标为 $3+d-2+d+1= 2+2d$。
 不难发现规律，结点序号加一，子结点的下标就要对应加上 $d$（要加上前一个结点的子结点），
-这个规律也可以从图上（$d=3$）看出来： 1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。
+这个规律也可以从图上（$d=3$）看出来：
+1号结点的子结点范围是 $[2,d+1]$，每加一个结点子结点就要加上 $d$ 。
 <a href=/2-4-41/>...</a></p></article><article class="markdown book-post"><h2><a href=/2-4-42/>2.4.42</a></h2><h5>2018-12-31</h5><div><a href=/tags/sort/>Sort</a></div><p>2.4.42 # 解答 # 前序序列与完全二叉树 # 二叉树前序遍历的顺序是：自身，左子树，右子树。
 因此对于一个前序遍历序列，第一个元素是根结点，第二个元素是左子结点。
 再把左子结点找到，就可以把数组分成三部分：根结点，左子树，右子树，进而递归的构造出整个二叉树。
@@ -85,7 +93,8 @@ random() ——返回索引 i 的概率是 p[i]/T，而非返回概率和索引�
 就满二叉树而言，根结点的左子树和右子树是一样大的，即左右子树大小均为 $(n-1)/2$ 。
 在这种情形下，右子结点的下标显然是 $(n+1)/2$ ，根结点下标为 0。 完全二叉树可以视为在满二叉树的基础上加了一层叶子结点，现在我们已知结点总数 $n$。
 于是可以求得二叉树的高度 $k=\lfloor \log_2(n) \rfloor$ ，注意只有一个结点的树高度为 0。
-那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示： 如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
+那么最后一层的叶子结点数目为 $l=n-2^{k}+1$ 个，如下图所示：
+如果把最后一层（第 $k$ 层）去掉，剩余部分即为高度为 $k-1$ 的满二叉树，结点总数为 $2^k - 1$ 。
 按照之前的说明可以知道左右子树大小都等于 $(2^{k}-2)/2=2^{k-1}-1$。
 现在要将第 $k$ 层的 $l$ 个结点分到左右子树里面去。
 第 $k$ 层最多能有 $2^k$ 个结点，取半就是 $2^k / 2 = 2^{k-1}$ 个。

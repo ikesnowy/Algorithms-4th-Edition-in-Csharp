@@ -418,7 +418,7 @@ $S = \frac{n}{2} + \frac{n}{4} + \frac{n}{8} +&amp;hellip;+ 2 &amp;lt; n$
 为了能使栈大小达到 $n$，$M$ 必须大于等于 $\frac{n}{2}$
 因此 $2M \ge n &amp;gt; S$，得证。
 因此我们可以得到 $M$ 次操作后访问数组次数的总和 $S&amp;rsquo; = S + M &amp;lt; 3M$。</description></item><item><title>1.4.33</title><link>https://alg4.ikesnowy.com/1-4-33/</link><pubDate>Thu, 31 May 2018 09:21:08 +0000</pubDate><guid>https://alg4.ikesnowy.com/1-4-33/</guid><description>1.4.33 # 解答 # Integer = 4(int) + 8(对象开销) = 12
-Date = 3 * 4(int * 3) + 8(对象开销) = 20
+Date = 3 × 4(int × 3) + 8(对象开销) = 20
 Counter = 4(String 的引用) + 4(int) + 8(对象开销) = 16
 int[] = 8(对象开销) + 4(数组长度) + 4N = 12 + 4N
 double[] = 8(对象开销) + 4(数组长度) + 8N = 12 + 8N

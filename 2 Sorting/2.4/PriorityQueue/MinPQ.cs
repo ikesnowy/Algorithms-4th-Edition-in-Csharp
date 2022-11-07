@@ -15,7 +15,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 保存元素的数组。
     /// </summary>
     /// <value>保存元素的数组。</value>
-    protected TKey[] Pq;
+    protected TKey?[] Pq;
     /// <summary>
     /// 堆中元素的数量。
     /// </summary>
@@ -33,7 +33,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="capacity">最小堆的容量。</param>
     public MinPq(int capacity)
     {
-        Pq = new TKey[capacity + 1];
+        Pq = new TKey?[capacity + 1];
         N = 0;
     }
 
@@ -41,10 +41,10 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 从已有元素建立一个最小堆。（O(n)）
     /// </summary>
     /// <param name="keys">已有元素。</param>
-    public MinPq(TKey[] keys)
+    public MinPq(TKey?[] keys)
     {
         N = keys.Length;
-        Pq = new TKey[keys.Length + 1];
+        Pq = new TKey?[keys.Length + 1];
         for (var i = 0; i < keys.Length; i++)
             Pq[i + 1] = keys[i];
         for (var k = N / 2; k >= 1; k--)
@@ -58,7 +58,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <returns>最小元素。</returns>
     /// <exception cref="ArgumentOutOfRangeException">如果堆为空则抛出该异常。</exception>
     /// <remarks>如果希望获得最小值但不删除它，请使用 <see cref="Min"/>。</remarks>
-    public TKey DelMin()
+    public TKey? DelMin()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Priority Queue Underflow");
@@ -102,7 +102,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 向堆中插入一个元素。
     /// </summary>
     /// <param name="v">需要插入的元素。</param>
-    public void Insert(TKey v)
+    public void Insert(TKey? v)
     {
         if (N == Pq.Length - 1)
             Resize(2 * Pq.Length);
@@ -123,7 +123,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// </summary>
     /// <returns>堆中最小元素。</returns>
     /// <remarks>如果希望获得并删除最小元素，请使用 <see cref="DelMin"/>。</remarks>
-    public TKey Min() => Pq[1];
+    public TKey? Min() => Pq[1];
 
     /// <summary>
     /// 获得堆中元素的数量。
@@ -142,7 +142,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
             copy.Insert(Pq[i]);
 
         while (!copy.IsEmpty())
-            yield return copy.DelMin(); // 下次迭代的时候从这里继续执行。
+            yield return copy.DelMin()!; // 下次迭代的时候从这里继续执行。
     }
 
     /// <summary>
@@ -192,7 +192,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="capacity">调整后的堆大小。</param>
     private void Resize(int capacity)
     {
-        var temp = new TKey[capacity];
+        var temp = new TKey?[capacity];
         for (var i = 1; i <= N; i++)
         {
             temp[i] = Pq[i];
@@ -207,7 +207,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="j">判断是否较小的元素。</param>
     /// <returns>如果下标为 <paramref name="i"/> 的元素较大，则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
     private bool Greater(int i, int j)
-        => Pq[i].CompareTo(Pq[j]) > 0;
+        => Pq[i]?.CompareTo(Pq[j]) > 0;
 
     /// <summary>
     /// 交换堆中的两个元素。

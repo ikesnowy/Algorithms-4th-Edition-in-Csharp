@@ -85,7 +85,7 @@ public partial class Form2 : Form
         //获取最大值
         var max = counts!.Max();
         //计算间距
-        var unit = Width / (3.0 * counts.Length + 1);
+        var unit = Width / (3.0 * counts!.Length + 1);
         double marginTop = 100;
         //计算直方图的矩形
         var rects = new Rectangle[counts.Length];

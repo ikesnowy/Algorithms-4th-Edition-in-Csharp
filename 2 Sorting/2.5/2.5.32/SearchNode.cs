@@ -7,11 +7,16 @@ namespace _2._5._32;
 /// </summary>
 internal class SearchNode : IComparable<SearchNode>
 {
-    public int[] Status;
+    public int[] Status = Array.Empty<int>();
     public int Steps = 0;
 
-    public int CompareTo(SearchNode other)
+    public int CompareTo(SearchNode? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Steps.CompareTo(other.Steps);
     }
 }

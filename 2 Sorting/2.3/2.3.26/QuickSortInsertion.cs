@@ -15,7 +15,7 @@ public class QuickSortInsertion : BaseSort
     /// </summary>
     public int M { get; set; }
 
-    public int[] Counts;
+    public int[]? Counts;
 
     /// <summary>
     /// 默认构造函数。
@@ -55,7 +55,7 @@ public class QuickSortInsertion : BaseSort
             return;
         if (hi - lo <= M)
         {
-            Counts[hi - lo]++;
+            Counts![hi - lo]++;
             // 调用插入排序
             for (var i = lo; i <= hi; i++)
             for (var k = i; k > lo && Less(a[k], a[k - 1]); k--)

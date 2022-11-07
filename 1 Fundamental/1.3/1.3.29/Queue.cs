@@ -11,7 +11,7 @@ namespace _1._3._29;
 /// <typeparam name="TItem">队列中存放的元素。</typeparam>
 public class Queue<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _last;
+    private Node<TItem>? _last;
     private int _count;
 
     /// <summary>
@@ -49,7 +49,7 @@ public class Queue<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
-        return _last.Next.Item;
+        return _last!.Next!.Item;
     }
 
     /// <summary>
@@ -59,8 +59,7 @@ public class Queue<TItem> : IEnumerable<TItem>
     public void Enqueue(TItem item)
     {
         var oldLast = _last;
-        _last = new Node<TItem>();
-        _last.Item = item;
+        _last = new Node<TItem> { Item = item };
         _last.Next = _last;
 
         if (oldLast != null)
@@ -79,7 +78,7 @@ public class Queue<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
-        var item = _last.Next.Item;
+        var item = _last!.Next!.Item;
         _last.Next = _last.Next.Next;
         _count--;
         if (IsEmpty())
@@ -110,19 +109,18 @@ public class Queue<TItem> : IEnumerable<TItem>
 
     private class QueueEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public QueueEnumerator(Node<TItem> last)
+        public QueueEnumerator(Node<TItem>? last)
         {
-            _current = new Node<TItem>();
-            _current.Next = last.Next;
+            _current = new Node<TItem> { Next = last?.Next };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -132,9 +130,9 @@ public class Queue<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == _first.Next)
+            if (_current?.Next == _first?.Next)
                 return false;
-            _current = _current.Next;
+            _current = _current?.Next;
             return true;
         }
 
@@ -147,6 +145,6 @@ public class Queue<TItem> : IEnumerable<TItem>
 
 public class Node<TItem>
 {
-    public TItem Item;
-    public Node<TItem> Next;
+    public TItem Item { get; set; } = default!;
+    public Node<TItem>? Next { get; set; }
 }

@@ -2,7 +2,7 @@
 using _3._1._4;
 using SymbolTable;
 
-var st = new OrderedSequentialSearchSt<Time, Event>();
+var st = new OrderedSequentialSearchSt<Time, Event?>();
 Time[] times =
 {
     new() { Hour = 9, Minute = 0, Second = 0 }, new() { Hour = 9, Minute = 0, Second = 3 },
@@ -15,7 +15,7 @@ Time[] times =
     new() { Hour = 9, Minute = 25, Second = 52 }, new() { Hour = 9, Minute = 35, Second = 21 },
     new() { Hour = 9, Minute = 36, Second = 14 }, new() { Hour = 9, Minute = 37, Second = 44 }
 };
-Event[] events =
+Event?[] events =
 {
     new() { EventMessage = "Chicago" }, new() { EventMessage = "Phoenix" }, new() { EventMessage = "Houston" },
     new() { EventMessage = "Chicago" }, new() { EventMessage = "Houston" }, new() { EventMessage = "Chicago" },

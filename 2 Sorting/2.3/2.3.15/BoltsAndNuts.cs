@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable CognitiveComplexity
 
 namespace _2._3._15;
@@ -24,8 +25,13 @@ public class Nut<T> : IComparable<Bolt<T>> where T : IComparable<T>
     /// </summary>
     /// <param name="other">需要比较的螺丝。</param>
     /// <returns></returns>
-    public int CompareTo(Bolt<T> other)
+    public int CompareTo(Bolt<T>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Value.CompareTo(other.Value);
     }
 }
@@ -51,8 +57,13 @@ public class Bolt<T> : IComparable<Nut<T>> where T : IComparable<T>
     /// </summary>
     /// <param name="other">需要比较的螺母。</param>
     /// <returns></returns>
-    public int CompareTo(Nut<T> other)
+    public int CompareTo(Nut<T>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Value.CompareTo(other.Value);
     }
 }
@@ -119,6 +130,7 @@ public class BoltsAndNuts
                 break;
             }
         }
+
         // 先用螺母去套螺丝
         while (true)
         {
@@ -133,6 +145,7 @@ public class BoltsAndNuts
                 break;
             Exch(nuts, i, j);
         }
+
         Exch(nuts, lo, j);
 
         // 再用螺丝去比较螺母
@@ -153,6 +166,7 @@ public class BoltsAndNuts
 
             Exch(bolts, i, j);
         }
+
         Exch(bolts, lo, j);
 
         return j;

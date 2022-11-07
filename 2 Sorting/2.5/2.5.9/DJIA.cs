@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable IdentifierTypo
 
 namespace _2._5._9;
@@ -17,8 +18,13 @@ internal class Djia : IComparable<Djia>
         Volume = vol;
     }
 
-    public int CompareTo(Djia other)
+    public int CompareTo(Djia? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Volume.CompareTo(other.Volume);
     }
 }

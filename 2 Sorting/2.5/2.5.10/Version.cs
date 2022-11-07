@@ -19,13 +19,19 @@ internal class Version : IComparable<Version>
         }
     }
 
-    public int CompareTo(Version other)
+    public int CompareTo(Version? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         for (var i = 0; i < _versionNumber.Length && i < other._versionNumber.Length; i++)
         {
             if (_versionNumber[i].CompareTo(other._versionNumber[i]) != 0)
                 return _versionNumber[i].CompareTo(other._versionNumber[i]);
         }
+
         return _versionNumber.Length.CompareTo(other._versionNumber.Length);
     }
 
@@ -36,6 +42,7 @@ internal class Version : IComparable<Version>
         {
             result += _versionNumber[i] + ".";
         }
+
         result += _versionNumber[_versionNumber.Length - 1].ToString();
         return result;
     }

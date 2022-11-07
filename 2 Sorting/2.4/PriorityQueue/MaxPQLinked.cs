@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable CognitiveComplexity
 
 namespace PriorityQueue;
@@ -12,11 +13,13 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// <summary>
     /// 二叉堆的根结点。
     /// </summary>
-    private TreeNode<TKey> _root;
+    private TreeNode<TKey>? _root;
+
     /// <summary>
     /// 二叉堆的最后一个结点。
     /// </summary>
-    private TreeNode<TKey> _last;
+    private TreeNode<TKey>? _last;
+
     /// <summary>
     /// 二叉堆中的结点个数。
     /// </summary>
@@ -27,10 +30,15 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// </summary>
     /// <returns>最大值。</returns>
     /// <remarks>如果希望获得最大值而不删除它，请使用 <see cref="Max"/>。</remarks>
-    public TKey DelMax()
+    public TKey? DelMax()
     {
+        if (_root == null)
+        {
+            return default!;
+        }
+
         var result = _root.Value;
-        Exch(_root, _last);
+        Exch(_root, _last!);
 
         if (_nodesCount == 2)
         {
@@ -50,14 +58,14 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
 
         // 获得前一个结点。
         var newLast = _last;
-        if (newLast == _last.Prev.Right)
+        if (newLast == _last!.Prev!.Right)
             newLast = _last.Prev.Left;
         else
         {
             // 找到上一棵子树。
             while (newLast != _root)
             {
-                if (newLast != newLast.Prev.Left)
+                if (newLast != newLast!.Prev!.Left)
                     break;
                 newLast = newLast.Prev;
             }
@@ -73,8 +81,8 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
             else
             {
                 // 向左子树移动，再一路向右。
-                newLast = newLast.Prev.Left;
-                while (newLast.Right != null)
+                newLast = newLast.Prev!.Left;
+                while (newLast?.Right != null)
                     newLast = newLast.Right;
             }
         }
@@ -97,7 +105,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// 插入一个新的结点。
     /// </summary>
     /// <param name="v">待插入的结点。</param>
-    public void Insert(TKey v)
+    public void Insert(TKey? v)
     {
         var item = new TreeNode<TKey>(v);
         // 堆为空。
@@ -108,7 +116,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
             _nodesCount++;
             return;
         }
-            
+
         // 堆只有一个结点。
         if (_last == _root)
         {
@@ -124,7 +132,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
         var prev = _last.Prev;
 
         // 右子节点为空，插入到右子节点。
-        if (prev.Right == null)
+        if (prev!.Right == null)
         {
             item.Prev = prev;
             prev.Right = item;
@@ -135,7 +143,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
             // 找到下一个子树（回溯的时候是从左子树回溯上去的）。
             while (prev != _root)
             {
-                if (prev != prev.Prev.Right)
+                if (prev != prev.Prev!.Right)
                     break;
                 prev = prev.Prev;
             }
@@ -154,12 +162,12 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
             else
             {
                 // 向右子树移动，再一路向左。
-                prev = prev.Prev.Right;
-                while (prev.Left != null)
+                prev = prev.Prev!.Right;
+                while (prev?.Left != null)
                     prev = prev.Left;
 
                 item.Prev = prev;
-                prev.Left = item;
+                prev!.Left = item;
             }
         }
 
@@ -179,7 +187,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// </summary>
     /// <returns>堆中的最大值。</returns>
     /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
-    public TKey Max() => _root.Value;
+    public TKey? Max() => _root == null ? default : _root.Value;
 
     /// <summary>
     /// 返回二叉堆中的元素个数。
@@ -209,7 +217,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// 使结点下沉。
     /// </summary>
     /// <param name="k">需要下沉的结点。</param>
-    private void Sink(TreeNode<TKey> k)
+    private void Sink(TreeNode<TKey>? k)
     {
         while (k?.Left != null || k?.Right != null)
         {
@@ -219,7 +227,7 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
             else if (k.Left != null)
                 toExch = k.Left;
             else
-                toExch = k.Right;
+                toExch = k.Right!;
 
             if (Less(k, toExch))
                 Exch(k, toExch);
@@ -247,6 +255,5 @@ public class MaxPqLinked<TKey> : IMaxPq<TKey> where TKey : IComparable<TKey>
     /// <param name="a">判断是否较小的结点。</param>
     /// <param name="b">判断是否较大的结点。</param>
     /// <returns>如果 <paramref name="a"/> 较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    private bool Less(TreeNode<TKey> a, TreeNode<TKey> b)
-        => a.Value.CompareTo(b.Value) < 0;
+    private bool Less(TreeNode<TKey> a, TreeNode<TKey> b) => a.Value?.CompareTo(b.Value) < 0;
 }

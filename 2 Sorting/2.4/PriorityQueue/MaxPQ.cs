@@ -16,7 +16,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 保存元素的数组。
     /// </summary>
     /// <value>保存元素的数组。</value>
-    protected TKey[] Pq;               
+    protected TKey?[] Pq;               
     /// <summary>
     /// 堆中的元素数量。
     /// </summary>
@@ -34,7 +34,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="capacity">最大堆的容量。</param>
     public MaxPq(int capacity)
     {
-        Pq = new TKey[capacity + 1];
+        Pq = new TKey?[capacity + 1];
         N = 0;
     }
 
@@ -42,10 +42,10 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 从已有元素建立一个最大堆。（O(n)）
     /// </summary>
     /// <param name="keys">已有元素。</param>
-    public MaxPq(TKey[] keys)
+    public MaxPq(TKey?[] keys)
     {
         N = keys.Length;
-        Pq = new TKey[keys.Length + 1];
+        Pq = new TKey?[keys.Length + 1];
         for (var i = 0; i < keys.Length; i++)
             Pq[i + 1] = keys[i];
         for (var k = N / 2; k >= 1; k--)
@@ -59,7 +59,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <returns>最大的元素。</returns>
     /// <exception cref="ArgumentOutOfRangeException">当堆为空时抛出该异常。</exception>
     /// <remarks>如果希望获得但不删除最大元素，请使用 <see cref="Max"/>。</remarks>
-    public TKey DelMax()
+    public TKey? DelMax()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Priority Queue Underflow");
@@ -67,7 +67,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
         var max = Pq[1];
         Exch(1, N--);
         Sink(1);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         if ((N > 0) && (N == Pq.Length / 4))
             Resize(Pq.Length / 2);
 
@@ -79,7 +79,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 向堆中插入一个元素。
     /// </summary>
     /// <param name="v">需要插入的元素。</param>
-    public void Insert(TKey v)
+    public void Insert(TKey? v)
     {
         if (N == Pq.Length - 1)
             Resize(2 * Pq.Length);
@@ -97,18 +97,18 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     {
         if (k == N)
         {
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
 
         if (N <= 2)
         {
             Exch(1, k);
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
         Exch(k, N--);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         Swim(k);
         Sink(k);
     }
@@ -124,7 +124,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// </summary>
     /// <returns>堆中最大元素。</returns>
     /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
-    public TKey Max() => Pq[1];
+    public TKey? Max() => Pq[1];
 
     /// <summary>
     /// 获得堆中元素的数量。
@@ -155,7 +155,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
             copy.Insert(Pq[i]);
 
         while (!copy.IsEmpty())
-            yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
+            yield return copy.DelMax()!; // 下次迭代的时候从这里继续执行。
     }
 
     /// <summary>
@@ -205,7 +205,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="capacity">调整后的堆大小。</param>
     private void Resize(int capacity)
     {
-        var temp = new TKey[capacity];
+        var temp = new TKey?[capacity];
         for (var i = 1; i <= N; i++)
         {
             temp[i] = Pq[i];
@@ -220,7 +220,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="j">判断是否较大的元素。</param>
     /// <returns>若下标为 <paramref name="i"/> 的元素较小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
     private bool Less(int i, int j)
-        => Pq[i].CompareTo(Pq[j]) < 0; 
+        => Pq[i]?.CompareTo(Pq[j]) < 0; 
 
     /// <summary>
     /// 交换堆中的两个元素。

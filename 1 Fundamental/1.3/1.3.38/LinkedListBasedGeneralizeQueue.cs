@@ -10,13 +10,13 @@ internal class LinkedListBasedGeneralizeQueue<TItem>
 {
     private class Node<T>
     {
-        public T Item;
-        public Node<T> Next;
-        public bool IsVisited;
+        public T Item { get; set; } = default!;
+        public Node<T>? Next { get; set; }
+        public bool IsVisited { get; set; }
     }
 
-    private Node<TItem> _first;
-    private Node<TItem> _last;
+    private Node<TItem>? _first;
+    private Node<TItem>? _last;
     private int _count;
 
     /// <summary>
@@ -81,10 +81,10 @@ internal class LinkedListBasedGeneralizeQueue<TItem>
         var current = _first;
         for (var i = 0; i < k; i++)
         {
-            current = current.Next;
+            current = current!.Next;
         }
 
-        if (current.IsVisited)
+        if (current!.IsVisited)
         {
             throw new ArgumentException("this node had been already deleted");
         }

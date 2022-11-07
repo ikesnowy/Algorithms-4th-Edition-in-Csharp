@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+
 // ReSharper disable PossibleNullReferenceException
 
 // 数据来源：https://introcs.cs.princeton.edu/java/data/california-gov.txt
@@ -22,8 +23,18 @@ internal class CandidateComparer : IComparer<string>
 {
     private const string Order = "RWQOJMVAHBSGZXNTCIEKUPDYFL";
 
-    public int Compare(string x, string y)
+    public int Compare(string? x, string? y)
     {
+        if (x == null || y == null)
+        {
+            if (x == null && y == null)
+            {
+                return 0;
+            }
+
+            return x == null ? 1 : -1;
+        }
+
         var n = Math.Min(x.Length, y.Length);
         for (var i = 0; i < n; i++)
         {

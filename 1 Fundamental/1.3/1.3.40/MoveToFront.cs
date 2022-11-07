@@ -11,11 +11,11 @@ internal class MoveToFront<TItem>
 {
     private class Node<T>
     {
-        public T Item;
-        public Node<T> Next;
+        public T Item { get; set; } = default!;
+        public Node<T>? Next { get; set; }
     }
 
-    private Node<TItem> _first;
+    private Node<TItem>? _first;
     private int _count;
 
     /// <summary>
@@ -41,7 +41,7 @@ internal class MoveToFront<TItem>
     /// </summary>
     /// <param name="item">要寻找的元素。</param>
     /// <returns></returns>
-    private Node<TItem> Find(TItem item)
+    private Node<TItem>? Find(TItem item)
     {
         if (IsEmpty())
         {
@@ -49,9 +49,9 @@ internal class MoveToFront<TItem>
         }
 
         var current = _first;
-        while (current.Next != null)
+        while (current?.Next != null)
         {
-            if (current.Next.Item.Equals(item))
+            if (current.Next.Item!.Equals(item))
             {
                 return current;
             }
@@ -81,8 +81,8 @@ internal class MoveToFront<TItem>
         else if (_count != 1)
         {
             var target = temp.Next;
-            temp.Next = temp.Next.Next;
-            target.Next = _first;
+            temp.Next = temp.Next!.Next;
+            target!.Next = _first;
             _first = target;
         }
     }
@@ -107,8 +107,8 @@ internal class MoveToFront<TItem>
         var current = _first;
         while (current != null)
         {
-            s.Append(current.Item.ToString());
-            s.Append(" ");
+            s.Append(current.Item);
+            s.Append(' ');
             current = current.Next;
         }
 

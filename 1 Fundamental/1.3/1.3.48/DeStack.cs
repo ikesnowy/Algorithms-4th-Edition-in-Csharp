@@ -12,13 +12,13 @@ public class DeStack<TItem> : IEnumerable<TItem>
 {
     private class DoubleNode<T>
     {
-        public T Item;
-        public DoubleNode<T> Next;
-        public DoubleNode<T> Prev;
+        public T Item { get; set; } = default!;
+        public DoubleNode<T>? Next { get; set; }
+        public DoubleNode<T>? Prev { get; set; }
     }
 
-    private DoubleNode<TItem> _first;
-    private DoubleNode<TItem> _last;
+    private DoubleNode<TItem>? _first;
+    private DoubleNode<TItem>? _last;
     private int _leftCount;
     private int _rightCount;
 
@@ -129,7 +129,7 @@ public class DeStack<TItem> : IEnumerable<TItem>
             throw new InvalidOperationException();
         }
 
-        var temp = _last.Item;
+        var temp = _last!.Item;
         _last = _last.Prev;
         _rightCount--;
 
@@ -139,7 +139,7 @@ public class DeStack<TItem> : IEnumerable<TItem>
         }
         else
         {
-            _last.Next.Item = default;
+            _last.Next!.Item = default!;
             _last.Next = null;
         }
         return temp;
@@ -156,7 +156,7 @@ public class DeStack<TItem> : IEnumerable<TItem>
             throw new InvalidOperationException();
         }
 
-        var temp = _first.Item;
+        var temp = _first!.Item;
         _first = _first.Next;
         _leftCount--;
 
@@ -166,7 +166,7 @@ public class DeStack<TItem> : IEnumerable<TItem>
         }
         else
         {
-            _first.Prev.Item = default;
+            _first.Prev!.Item = default!;
             _first.Prev = null;
         }
 
@@ -185,20 +185,18 @@ public class DeStack<TItem> : IEnumerable<TItem>
 
     private class DequeEnumerator : IEnumerator<TItem>
     {
-        private DoubleNode<TItem> _current;
-        private DoubleNode<TItem> _first;
+        private DoubleNode<TItem>? _current;
+        private DoubleNode<TItem>? _first;
 
-        public DequeEnumerator(DoubleNode<TItem> first) 
+        public DequeEnumerator(DoubleNode<TItem>? first) 
         {
-            _current = new DoubleNode<TItem>();
-            _current.Next = first;
-            _current.Prev = null;
+            _current = new DoubleNode<TItem> { Next = first, Prev = null };
             _first = _current;
         }
 
-        public TItem Current => _current.Item;
+        public TItem Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         public void Dispose()
         {
@@ -208,7 +206,7 @@ public class DeStack<TItem> : IEnumerable<TItem>
 
         public bool MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
             _current = _current.Next;
             return true;

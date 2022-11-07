@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+
 // ReSharper disable PossibleNullReferenceException
 // ReSharper disable CognitiveComplexity
 
@@ -16,11 +17,13 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     /// <value>以 X 坐标升序排序的静态比较器。</value>
     public static readonly Comparer<Point2D> XOrderComparer = new XOrder();
+
     /// <summary>
     /// 以 Y 坐标升序排序。
     /// </summary>
     /// <value>以 Y 坐标升序排序的静态比较器。</value>
     public static readonly Comparer<Point2D> YOrderComparer = new YOrder();
+
     /// <summary>
     /// 以极半径升序排序。
     /// </summary>
@@ -32,11 +35,13 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     /// <value>X 坐标。</value>
     public double X { get; }
+
     /// <summary>
     /// 二维坐标的 Y 坐标。
     /// </summary>
     /// <value>Y 坐标。</value>
     public double Y { get; }
+
     /// <summary>
     /// 绘制时点的半径，以像素为单位，默认值为 2。
     /// </summary>
@@ -126,7 +131,6 @@ public sealed class Point2D : IComparable<Point2D>
         return (b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X);
     }
 
-
     /// <summary>
     /// 返回当前点到另一个点之间的距离。
     /// </summary>
@@ -167,8 +171,13 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     /// <param name="other">需要比较的另一个对象。</param>
     /// <returns>如果 <paramref name="other"/> 较小则返回 -1，反之返回 1，相等返回 0。</returns>
-    public int CompareTo(Point2D other)
+    public int CompareTo(Point2D? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         if (Y < other.Y)
             return -1;
         if (Y > other.Y)
@@ -186,8 +195,13 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     private class XOrder : Comparer<Point2D>
     {
-        public override int Compare(Point2D x, Point2D y)
+        public override int Compare(Point2D? x, Point2D? y)
         {
+            if (x == null || y == null)
+            {
+                return Equals(x, y) ? 0 : (x == null ? -1 : 1);
+            }
+            
             if (x.X < y.X)
             {
                 return -1;
@@ -207,13 +221,16 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     private class YOrder : Comparer<Point2D>
     {
-        public override int Compare(Point2D x, Point2D y)
+        public override int Compare(Point2D? x, Point2D? y)
         {
-            if (x.Y < y.Y)
+            var compareX = x?.Y ?? 0;
+            var compareY = y?.Y ?? 0;
+            if (compareX < compareY)
             {
                 return -1;
             }
-            if (x.Y > y.Y)
+
+            if (compareX > compareY)
             {
                 return 1;
             }
@@ -227,9 +244,9 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     private class ROrder : Comparer<Point2D>
     {
-        public override int Compare(Point2D x, Point2D y)
+        public override int Compare(Point2D? x, Point2D? y)
         {
-            var delta = (x.X * x.X + x.Y * x.Y) - (y.X * y.X + y.Y * y.Y);
+            var delta = (x == null ? 0 : x.X * x.X + x.Y * x.Y) - (y == null ? 0 : y.X * y.X + y.Y * y.Y);
             if (delta < 0)
             {
                 return -1;
@@ -255,10 +272,11 @@ public sealed class Point2D : IComparable<Point2D>
         {
             _parent = parent;
         }
-        public override int Compare(Point2D x, Point2D y)
+
+        public override int Compare(Point2D? x, Point2D? y)
         {
-            var angle1 = _parent.AngleTo(x);
-            var angle2 = _parent.AngleTo(y);
+            var angle1 = _parent.AngleTo(x!);
+            var angle2 = _parent.AngleTo(y!);
             if (angle1 < angle2)
             {
                 return -1;
@@ -268,6 +286,7 @@ public sealed class Point2D : IComparable<Point2D>
             {
                 return 1;
             }
+
             return 0;
         }
     }
@@ -283,11 +302,12 @@ public sealed class Point2D : IComparable<Point2D>
         {
             _parent = parent;
         }
-        public override int Compare(Point2D q1, Point2D q2)
+
+        public override int Compare(Point2D? q1, Point2D? q2)
         {
-            var dx1 = q1.X - _parent.X;
+            var dx1 = q1!.X - _parent.X;
             var dy1 = q1.Y - _parent.Y;
-            var dx2 = q2.X - _parent.X;
+            var dx2 = q2!.X - _parent.X;
             var dy2 = q2.Y - _parent.Y;
 
             if (dy2 >= 0 && dy2 < 0)
@@ -299,6 +319,7 @@ public sealed class Point2D : IComparable<Point2D>
             {
                 return 1;
             }
+
             if (dy1 == 0 && dy2 == 0)
             {
                 if (dx1 >= 0 && dx2 < 0)
@@ -310,8 +331,10 @@ public sealed class Point2D : IComparable<Point2D>
                 {
                     return 1;
                 }
+
                 return 0;
             }
+
             return -Ccw(_parent, q1, q2);
         }
     }
@@ -327,10 +350,11 @@ public sealed class Point2D : IComparable<Point2D>
         {
             _parent = parent;
         }
-        public override int Compare(Point2D p, Point2D q)
+
+        public override int Compare(Point2D? p, Point2D? q)
         {
-            var dist1 = _parent.DistanceSquareTo(p);
-            var dist2 = _parent.DistanceSquareTo(q);
+            var dist1 = _parent.DistanceSquareTo(p!);
+            var dist2 = _parent.DistanceSquareTo(q!);
 
             if (dist1 < dist2)
             {
@@ -341,6 +365,7 @@ public sealed class Point2D : IComparable<Point2D>
             {
                 return 1;
             }
+
             return 0;
         }
     }
@@ -377,20 +402,23 @@ public sealed class Point2D : IComparable<Point2D>
     /// </summary>
     /// <param name="obj">要判别相等的另一个对象，</param>
     /// <returns>相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
         {
             return true;
         }
+
         if (obj == null)
         {
             return false;
         }
+
         if (obj.GetType() != GetType())
         {
             return false;
         }
+
         var that = (Point2D)obj;
         return Math.Abs(X - that.X) < float.Epsilon * 5 && Math.Abs(Y - that.Y) < float.Epsilon * 5;
     }

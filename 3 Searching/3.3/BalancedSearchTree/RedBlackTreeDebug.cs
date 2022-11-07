@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BalancedSearchTree;
 
@@ -8,7 +6,7 @@ public class RedBlackTreeDebug<TKey, TValue>  : RedBlackBst<TKey, TValue>
     where TKey : IComparable<TKey>
 {
     /// <inheritdoc />
-    protected override Node Put(Node h, TKey key, TValue value)
+    protected override Node Put(Node? h, TKey key, TValue value)
     {
         if (h == null)
         {

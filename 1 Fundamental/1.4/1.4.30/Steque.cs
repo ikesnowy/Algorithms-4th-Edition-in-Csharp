@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace _1._4._30;
@@ -20,14 +21,14 @@ namespace _1._4._30;
 /// <typeparam name="TItem">Steque 中保存的元素。</typeparam>
 public class Steque<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
-    private Node<TItem> _last;
+    private Node<TItem>? _first;
+    private Node<TItem>? _last;
     private int _count;
 
     private class Node<T>
     {
-        public T Item;
-        public Node<T> Next;
+        public T Item { get; set; } = default!;
+        public Node<T>? Next { get; set; }
     }
 
     /// <summary>
@@ -43,6 +44,7 @@ public class Steque<TItem> : IEnumerable<TItem>
     /// 检查栈是否为空。
     /// </summary>
     /// <returns></returns>
+    [MemberNotNullWhen(false, nameof(_first), nameof(_last))]
     public bool IsEmpty()
     {
         return _count == 0;
@@ -64,9 +66,7 @@ public class Steque<TItem> : IEnumerable<TItem>
     public void Push(TItem item)
     {
         var oldFirst = _first;
-        _first = new Node<TItem>();
-        _first.Item = item;
-        _first.Next = oldFirst;
+        _first = new Node<TItem> { Item = item, Next = oldFirst };
 
         if (oldFirst == null)
         {
@@ -100,13 +100,11 @@ public class Steque<TItem> : IEnumerable<TItem>
     public void Enqueue(TItem item)
     {
         var oldLast = _last;
-        _last = new Node<TItem>();
-        _last.Item = item;
-        _last.Next = null;
+        _last = new Node<TItem> { Item = item, Next = null };
         if (IsEmpty())
             _first = _last;
         else
-            oldLast.Next = _last;
+            oldLast!.Next = _last;
         _count++;
     }
 
@@ -144,19 +142,18 @@ public class Steque<TItem> : IEnumerable<TItem>
 
     private class StackEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public StackEnumerator(Node<TItem> first)
+        public StackEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -166,7 +163,7 @@ public class Steque<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
 
             _current = _current.Next;

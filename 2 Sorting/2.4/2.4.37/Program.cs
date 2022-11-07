@@ -5,7 +5,7 @@ using PriorityQueue;
 var doubleTime = 6;
 var repeatTime = 6;
 var n = 1000000;
-var isRunning = true;
+bool isRunning;
 for (var i = 0; i < doubleTime; i++)
 {
     var totalDelCount = 0;
@@ -47,4 +47,4 @@ int Test(int count, MaxPq<int> pq)
 }
 
 void StartRunning() => isRunning = true;
-void StopRunning(object source, ElapsedEventArgs e) => isRunning = false;
+void StopRunning(object? source, ElapsedEventArgs e) => isRunning = false;

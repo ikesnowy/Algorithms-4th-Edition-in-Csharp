@@ -12,7 +12,7 @@ namespace BinarySearchTree;
 /// <typeparam name="TValue">值类型。</typeparam>
 public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue> where TKey : IComparable<TKey>
 {
-    private readonly Node[] _nodes;
+    private readonly Node?[] _nodes;
     private readonly int[] _left;
     private readonly int[] _right;
     private int _size;
@@ -23,8 +23,8 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// </summary>
     private class Node
     {
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
+        public TKey? Key { get; set; }
+        public TValue? Value { get; set; }
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// </summary>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         if (_size == _nodes.Length)
         {
@@ -74,7 +74,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// <param name="value">值。</param>
     /// <param name="treeSide">子树数组。</param>
     /// <param name="parent">父结点下标。</param>
-    private void Put(TKey key, TValue value, int[] treeSide, int parent)
+    private void Put(TKey key, TValue? value, int[]? treeSide, int parent)
     {
         int now;
         if (treeSide == null)               // init
@@ -93,7 +93,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
             now = treeSide[parent];
         }
 
-        var cmp = _nodes[now].Key.CompareTo(key);
+        var cmp = _nodes[now]!.Key!.CompareTo(key);
         if (cmp > 0)
         {
             Put(key, value, _left, now);
@@ -104,7 +104,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         }
         else
         {
-            _nodes[now].Value = value;
+            _nodes[now]!.Value = value;
         }
     }
 
@@ -113,7 +113,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         var indices = Get(key, _root);
         if (indices == -1)
@@ -121,7 +121,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
             return default;
         }
 
-        return _nodes[indices].Value;
+        return _nodes[indices]!.Value;
     }
 
     /// <summary>
@@ -135,7 +135,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         var now = start;
         while (now != -1)
         {
-            var cmp = _nodes[now].Key.CompareTo(key);
+            var cmp = _nodes[now]!.Key!.CompareTo(key);
             if (cmp > 0)
             {
                 now = _left[now];
@@ -176,14 +176,14 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// <param name="key">要删除的键。</param>
     /// <param name="root">根结点。</param>
     /// <returns>删除结点后树的根结点下标。</returns>
-    private int Delete(TKey key, int root)
+    private int Delete(TKey? key, int root)
     {
         if (root == -1 || _nodes[root] == null)
         {
             return -1;
         }
 
-        var cmp = _nodes[root].Key.CompareTo(key);
+        var cmp = _nodes[root]!.Key!.CompareTo(key);
         if (cmp > 0)
         {
             _left[root] = Delete(key, _left[root]);
@@ -277,7 +277,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         {
             return new List<TKey>();
         }
-        return Keys(Min(), Max());
+        return Keys(Min()!, Max()!);
     }
 
     /// <summary>
@@ -312,8 +312,8 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
             return;
         }
 
-        var cmpLo = lo.CompareTo(_nodes[x].Key);
-        var cmpHi = hi.CompareTo(_nodes[x].Key);
+        var cmpLo = lo.CompareTo(_nodes[x]!.Key);
+        var cmpHi = hi.CompareTo(_nodes[x]!.Key);
         if (cmpLo < 0)
         {
             Keys(_left[x], queue, lo, hi);
@@ -321,7 +321,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
 
         if (cmpLo <= 0 && cmpHi >= 0)
         {
-            queue.Enqueue(_nodes[x].Key);
+            queue.Enqueue(_nodes[x]!.Key!);
         }
 
         if (cmpHi > 0)
@@ -334,14 +334,14 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// 最小的键。
     /// </summary>
     /// <returns>最小的键。</returns>
-    public TKey Min()
+    public TKey? Min()
     {
         if (IsEmpty())
         {
             throw new InvalidOperationException("BST is Empty!");
         }
 
-        return _nodes[Min(_root)].Key;
+        return _nodes[Min(_root)]!.Key;
     }
 
     /// <summary>
@@ -363,14 +363,14 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// 最大的键。
     /// </summary>
     /// <returns>最大的键。</returns>
-    public TKey Max()
+    public TKey? Max()
     {
         if (IsEmpty())
         {
             throw new InvalidOperationException("BST is Empty!");
         }
 
-        return _nodes[Max(_root)].Key;
+        return _nodes[Max(_root)]!.Key;
     }
 
     /// <summary>
@@ -392,7 +392,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// 小于等于 <paramref name="key"/> 的最大值。
     /// </summary>
     /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey? key)
     {
         if (key == null)
         {
@@ -409,7 +409,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
             return default;
         }
 
-        return _nodes[x].Key;
+        return _nodes[x]!.Key;
     }
 
     /// <summary>
@@ -424,7 +424,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         {
             return -1;
         }
-        var cmp = key.CompareTo(_nodes[x].Key);
+        var cmp = key.CompareTo(_nodes[x]!.Key);
         if (cmp == 0)
         {
             return x;
@@ -447,7 +447,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
     /// 大于等于 <paramref name="key"/> 的最小值。
     /// </summary>
     /// <returns>大于等于 <paramref name="key"/> 的最小值。</returns>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey? key)
     {
         if (key == null)
         {
@@ -463,7 +463,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         {
             return default;
         }
-        return _nodes[x].Key;
+        return _nodes[x]!.Key;
     }
 
     /// <summary>
@@ -478,7 +478,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         {
             return -1;
         }
-        var cmp = key.CompareTo(_nodes[x].Key);
+        var cmp = key.CompareTo(_nodes[x]!.Key);
         if (cmp == 0)
         {
             return x;
@@ -520,7 +520,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
         {
             return 0;
         }
-        var cmp = key.CompareTo(_nodes[x].Key);
+        var cmp = key.CompareTo(_nodes[x]!.Key);
         if (cmp < 0)
         {
             return Rank(_left[x], key);
@@ -545,7 +545,7 @@ public class BstArray<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TValue
             throw new ArgumentException("argument to select() is invaild: " + k);
         }
         var x = Select(_root, k);
-        return _nodes[x].Key;
+        return _nodes[x]!.Key!;
     }
 
     /// <summary>

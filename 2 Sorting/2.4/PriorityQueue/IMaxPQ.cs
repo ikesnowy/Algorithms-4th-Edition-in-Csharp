@@ -12,19 +12,19 @@ public interface IMaxPq<TKey> where TKey : IComparable<TKey>
     /// 向优先队列中插入一个元素。
     /// </summary>
     /// <param name="v">插入元素的类型。</param>
-    void Insert(TKey v);
+    void Insert(TKey? v);
 
     /// <summary>
     /// 返回最大元素。
     /// </summary>
     /// <returns>最大的元素。</returns>
-    TKey Max();
+    TKey? Max();
 
     /// <summary>
     /// 删除并返回最大元素。
     /// </summary>
     /// <returns>最大的元素。</returns>
-    TKey DelMax();
+    TKey? DelMax();
 
     /// <summary>
     /// 返回队列是否为空。

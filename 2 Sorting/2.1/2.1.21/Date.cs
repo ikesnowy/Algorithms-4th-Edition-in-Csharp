@@ -4,9 +4,9 @@ namespace _2._1._21;
 
 public class Date : IComparable<Date>
 {
-    public int Month { get; }   // 月
-    public int Day { get; }     // 日
-    public int Year { get; }    // 年
+    public int Month { get; } // 月
+    public int Day { get; } // 日
+    public int Year { get; } // 年
 
     /// <summary>
     /// 构造函数。
@@ -49,7 +49,7 @@ public class Date : IComparable<Date>
     /// </summary>
     /// <param name="obj">需要比较的另一个对象。</param>
     /// <returns></returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
             return true;
@@ -79,8 +79,13 @@ public class Date : IComparable<Date>
     /// </summary>
     /// <param name="other">另一个日期。</param>
     /// <returns></returns>
-    public int CompareTo(Date other)
+    public int CompareTo(Date? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         if (Year > other.Year)
             return 1;
         if (Year < other.Year)

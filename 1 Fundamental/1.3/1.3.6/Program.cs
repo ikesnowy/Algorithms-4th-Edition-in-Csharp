@@ -1,12 +1,12 @@
 ﻿using System;
 using Generics;
 
-var q = new Generics.Queue<string>();
+var q = new Queue<string?>();
 q.Enqueue("first");
 q.Enqueue("second");
 q.Enqueue("third");
 q.Enqueue("fourth");
-var stack = new Stack<string>();
+var stack = new Stack<string?>();
 while (!q.IsEmpty())
     stack.Push(q.Dequeue());
 while (!stack.IsEmpty())

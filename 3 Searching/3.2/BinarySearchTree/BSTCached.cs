@@ -12,21 +12,21 @@ public class BstCached<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparabl
     /// <summary>
     /// 上一次 <see cref="Get"/> 或 <see cref="Put"/> 方法操作的结点。
     /// </summary>
-    private Node _cache;
+    private Node? _cache;
 
     /// <inheritdoc />
-    public override TValue Get(TKey key)
+    public override TValue? Get(TKey key)
     {
-        if (_cache != null && _cache.Key.CompareTo(key) == 0)
+        if (_cache != null && _cache.Key!.CompareTo(key) == 0)
         {
             return _cache.Value;
         }
 
-        return Get(Root, key).Value;
+        return Get(Root, key)!.Value;
     }
 
     /// <inheritdoc />
-    protected override Node Get(Node x, TKey key)
+    protected override Node? Get(Node? x, TKey? key)
     {
         if (key == null)
         {
@@ -52,7 +52,7 @@ public class BstCached<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparabl
     }
 
     /// <inheritdoc />
-    public override void Put(TKey key, TValue value)
+    public override void Put(TKey? key, TValue? value)
     {
         if (key == null)
         {
@@ -65,7 +65,7 @@ public class BstCached<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparabl
             return;
         }
 
-        if (_cache != null && _cache.Key.CompareTo(key) == 0)
+        if (_cache != null && _cache.Key!.CompareTo(key) == 0)
         {
             _cache.Value = value;
             return;
@@ -74,7 +74,7 @@ public class BstCached<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparabl
     }
 
     /// <inheritdoc />
-    protected override Node Put(Node x, TKey key, TValue value)
+    protected override Node Put(Node? x, TKey key, TValue? value)
     {
         if (x == null)
         {

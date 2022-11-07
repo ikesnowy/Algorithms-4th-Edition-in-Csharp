@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace _2._2._15;
@@ -11,8 +12,8 @@ namespace _2._2._15;
 /// <typeparam name="TItem">队列存放的元素类型。</typeparam>
 public class Queue<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
-    private Node<TItem> _last;
+    private Node<TItem>? _first;
+    private Node<TItem>? _last;
     private int _count;
 
     /// <summary>
@@ -41,6 +42,7 @@ public class Queue<TItem> : IEnumerable<TItem>
     /// 检查队列是否为空。
     /// </summary>
     /// <returns></returns>
+    [MemberNotNullWhen(false, nameof(_first), nameof(_last))]
     public bool IsEmpty()
     {
         return _first == null;
@@ -73,13 +75,11 @@ public class Queue<TItem> : IEnumerable<TItem>
     public void Enqueue(TItem item)
     {
         var oldLast = _last;
-        _last = new Node<TItem>();
-        _last.Item = item;
-        _last.Next = null;
+        _last = new Node<TItem> { Item = item, Next = null };
         if (IsEmpty())
             _first = _last;
         else
-            oldLast.Next = _last;
+            oldLast!.Next = _last;
         _count++;
     }
 
@@ -145,19 +145,18 @@ public class Queue<TItem> : IEnumerable<TItem>
 
     private class QueueEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public QueueEnumerator(Node<TItem> first)
+        public QueueEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -167,7 +166,7 @@ public class Queue<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
             _current = _current.Next;
             return true;

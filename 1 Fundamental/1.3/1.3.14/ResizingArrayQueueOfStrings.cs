@@ -10,7 +10,7 @@ namespace _1._3._14;
 /// <typeparam name="TItem">队列中要存放的元素。</typeparam>
 internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
 {
-    private TItem[] _q;
+    private TItem?[] _q;
     private int _count;
     private int _first;
     private int _last;
@@ -37,7 +37,7 @@ internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
     {
         if (capacity < 0)
             throw new ArgumentException("capacity should be above zero");
-        var temp = new TItem[capacity];
+        var temp = new TItem?[capacity];
         for (var i = 0; i < _count; i++)
         {
             temp[i] = _q[(_first + i) % _q.Length];
@@ -62,12 +62,12 @@ internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
         _count++;
     }
 
-    public TItem Dequeue()
+    public TItem? Dequeue()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
         var item = _q[_first];
-        _q[_first] = default;
+        _q[_first] = default!;
         _count--;
         _first++;
         if (_first == _q.Length)
@@ -78,7 +78,7 @@ internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
         return item;
     }
 
-    public TItem Peek()
+    public TItem? Peek()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
@@ -100,9 +100,9 @@ internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
         private int _current;
         private readonly int _first;
         private readonly int _last;
-        private readonly TItem[] _q;
+        private readonly TItem?[] _q;
 
-        public QueueEnumerator(TItem[] q, int first, int last)
+        public QueueEnumerator(TItem?[] q, int first, int last)
         {
             _current = first - 1;
             _first = first;
@@ -110,9 +110,9 @@ internal class ResizingArrayQueueOfStrings<TItem> : IEnumerable<TItem>
             _q = q;
         }
 
-        TItem IEnumerator<TItem>.Current => _q[_current];
+        TItem IEnumerator<TItem>.Current => _q[_current]!;
 
-        object IEnumerator.Current => _q[_current];
+        object IEnumerator.Current => _q[_current]!;
 
         void IDisposable.Dispose()
         {

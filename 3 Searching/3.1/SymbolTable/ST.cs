@@ -9,13 +9,14 @@ namespace SymbolTable;
 /// <typeparam name="TKey">键的类型。</typeparam>
 /// <typeparam name="TValue">值的类型。</typeparam>
 public class St<TKey, TValue> : ISt<TKey, TValue>, IEnumerable<TKey>
+    where TKey : notnull
 {
-    private readonly Dictionary<TKey, TValue> _st;
+    private readonly Dictionary<TKey, TValue?> _st;
 
     /// <summary>
     /// 新建一个符号表。
     /// </summary>
-    public St() => _st = new Dictionary<TKey, TValue>();
+    public St() => _st = new Dictionary<TKey, TValue?>();
 
     /// <summary>
     /// 检查符号表中是否存在与键 <paramref name="key"/> 对应的值。
@@ -35,7 +36,7 @@ public class St<TKey, TValue> : ISt<TKey, TValue>, IEnumerable<TKey>
     /// </summary>
     /// <param name="key">要查找的键。</param>
     /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
-    public virtual TValue Get(TKey key) => _st[key];
+    public virtual TValue? Get(TKey key) => _st[key];
 
     /// <summary>
     /// 获取枚举器。
@@ -60,7 +61,7 @@ public class St<TKey, TValue> : ISt<TKey, TValue>, IEnumerable<TKey>
     /// </summary>
     /// <param name="key">要插入的键。</param>
     /// <param name="value">对应的值。</param>
-    public virtual void Put(TKey key, TValue value)
+    public virtual void Put(TKey key, TValue? value)
     {
         if (_st.ContainsKey(key))
             _st[key] = value;

@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable NotAccessedField.Local
 
 namespace _2._1._38;
@@ -14,8 +15,13 @@ internal class Pair<TKey, TValue> : IComparable<Pair<TKey, TValue>> where TKey :
         _value = value;
     }
 
-    public int CompareTo(Pair<TKey, TValue> other)
+    public int CompareTo(Pair<TKey, TValue>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return _key.CompareTo(other._key);
     }
 }

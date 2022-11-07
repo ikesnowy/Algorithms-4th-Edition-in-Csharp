@@ -11,7 +11,7 @@
  * 
  * equal 或 not equal
  */
-var input = Console.ReadLine();
+var input = Console.ReadLine()!;
 var a = int.Parse(input.Split(' ')[0]);
 var b = int.Parse(input.Split(' ')[1]);
 var c = int.Parse(input.Split(' ')[2]);

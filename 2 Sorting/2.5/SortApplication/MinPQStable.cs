@@ -62,7 +62,7 @@ public class MinPqStable<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : IC
         var min = Pq[1];
         Exch(1, N--);
         Sink(1);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         _time[N + 1] = 0;
         if ((N > 0) && (N == Pq.Length / 4))
             Resize(Pq.Length / 2);

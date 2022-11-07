@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 // ReSharper disable CognitiveComplexity
@@ -9,8 +10,17 @@ namespace BalancedSearchTree;
 public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     where TKey : IComparable<TKey>
 {
-    private Node _root;
-        
+    private Node? _root;
+
+    public RedBlackBst()
+    {
+    }
+
+    public RedBlackBst(Node root)
+    {
+        _root = root;
+    }
+
     /// <inheritdoc />
     public void Put(TKey key, TValue value)
     {
@@ -29,7 +39,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         _root.Color = Color.Black;
     }
 
-    protected virtual Node Put(Node h, TKey key, TValue value)
+    protected virtual Node Put(Node? h, TKey key, TValue value)
     {
         if (h == null)
         {
@@ -55,7 +65,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             h = RotateLeft(h);
         }
 
-        if (IsRed(h.Left) && IsRed(h.Left.Left))
+        if (IsRed(h.Left) && IsRed(h.Left!.Left))
         {
             h = RotateRight(h);
         }
@@ -71,7 +81,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     }
 
     /// <inheritdoc />
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         if (key == null)
         {
@@ -81,7 +91,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Get(_root, key);
     }
 
-    protected TValue Get(Node x, TKey key)
+    protected TValue? Get(Node? x, TKey key)
     {
         while (x != null)
         {
@@ -111,6 +121,11 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             throw new ArgumentNullException(nameof(key), "argument to Delete() is null");
         }
 
+        if (IsEmpty())
+        {
+            throw new InvalidOperationException("Red Black Tree Underflow");
+        }
+
         if (!IsRed(_root.Left) && !IsRed(_root.Right))
         {
             _root.Color = Color.Red;
@@ -123,11 +138,16 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
     }
 
-    protected Node Delete(Node h, TKey key)
+    protected Node? Delete(Node? h, TKey key)
     {
+        if (h == null)
+        {
+            return null;
+        }
+        
         if (key.CompareTo(h.Key) < 0)
         {
-            if (!IsRed(h.Left) && !IsRed(h.Left.Left))
+            if (!IsRed(h.Left) && !IsRed(h.Left!.Left))
             {
                 h = MoveRedRight(h);
             }
@@ -146,14 +166,14 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
                 return null;
             }
 
-            if (!IsRed(h.Right) && !IsRed(h.Right.Left))
+            if (!IsRed(h.Right) && !IsRed(h.Right!.Left))
             {
                 h = MoveRedRight(h);
             }
 
             if (key.CompareTo(h.Key) == 0)
             {
-                var x = Min(h.Right);
+                var x = Min(h.Right!);
                 h.Key = x.Key;
                 h.Value = x.Value;
                 h.Right = DeleteMin(h);
@@ -174,6 +194,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     }
 
     /// <inheritdoc />
+    [MemberNotNullWhen(false, nameof(_root))]
     public bool IsEmpty()
     {
         return _root == null;
@@ -240,7 +261,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return queue;
     }
 
-    protected void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    protected void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
         {
@@ -329,7 +350,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Key;
     }
 
-    protected Node Floor(Node x, TKey key)
+    protected Node? Floor(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -378,7 +399,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Key;
     }
 
-    protected Node Ceiling(Node x, TKey key)
+    protected Node? Ceiling(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -416,7 +437,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Rank(_root, key);
     }
 
-    protected int Rank(Node x, TKey key)
+    protected int Rank(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -437,7 +458,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     }
 
     /// <inheritdoc />
-    public TKey Select(int k)
+    public TKey? Select(int k)
     {
         if (k < 0 || k >= Size())
         {
@@ -447,7 +468,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Select(_root, k);
     }
 
-    protected TKey Select(Node x, int rank)
+    protected TKey? Select(Node? x, int rank)
     {
         if (x == null)
         {
@@ -487,7 +508,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
     }
 
-    protected Node DeleteMin(Node h)
+    protected Node? DeleteMin(Node h)
     {
         if (h.Left == null)
         {
@@ -499,7 +520,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             h = MoveRedLeft(h);
         }
 
-        h.Left = DeleteMin(h.Left);
+        h.Left = DeleteMin(h.Left!);
         return Balance(h);
     }
 
@@ -528,7 +549,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    protected int Depth(Node x)
+    protected int Depth(Node? x)
     {
         if (x == null)
             return 0;
@@ -549,8 +570,8 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
 
         // BFS
         var lines = new List<string>();
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(_root);
 
         while (layer != maxDepth)
@@ -642,7 +663,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return result.ToString();
     }
 
-    protected Node DeleteMax(Node h)
+    protected Node? DeleteMax(Node h)
     {
         if (IsRed(h.Left))
         {
@@ -659,12 +680,12 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             h = MoveRedRight(h);
         }
 
-        h.Right = DeleteMax(h.Right);
+        h.Right = DeleteMax(h.Right!);
 
         return Balance(h);
     }
-
-    protected static bool IsRed(Node x)
+    
+    protected static bool IsRed([NotNullWhen(true)] Node? x)
     {
         if (x == null)
         {
@@ -674,7 +695,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Color == Color.Red;
     }
 
-    protected static int Size(Node x)
+    protected static int Size(Node? x)
     {
         if (x == null)
         {
@@ -684,7 +705,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Size;
     }
 
-    protected virtual Node RotateRight(Node h)
+    protected virtual Node RotateRight(Node? h)
     {
         if (h == null || IsRed(h.Left) == false)
         {
@@ -701,7 +722,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x;
     }
 
-    protected virtual Node RotateLeft(Node h)
+    protected virtual Node RotateLeft(Node? h)
     {
         if (h == null || IsRed(h.Right) == false)
         {
@@ -721,14 +742,14 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     protected virtual void FlipColors(Node h)
     {
         h.Color = Flip(h.Color);
-        h.Left.Color = Flip(h.Left.Color);
-        h.Right.Color = Flip(h.Right.Color);
+        h.Left!.Color = Flip(h.Left.Color);
+        h.Right!.Color = Flip(h.Right.Color);
     }
 
     protected Node MoveRedLeft(Node h)
     {
         FlipColors(h);
-        if (IsRed(h.Right.Left))
+        if (IsRed(h.Right!.Left))
         {
             h.Right = RotateRight(h.Right);
             h = RotateLeft(h);
@@ -741,7 +762,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     protected Node MoveRedRight(Node h)
     {
         FlipColors(h);
-        if (IsRed(h.Left.Left))
+        if (IsRed(h.Left!.Left))
         {
             h = RotateRight(h);
             FlipColors(h);
@@ -776,7 +797,7 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return color == Color.Red ? Color.Black : Color.Red;
     }
 
-    protected class Node
+    public class Node
     {
         public Node(TKey key, TValue value, Color color, int size)
         {
@@ -788,13 +809,13 @@ public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
 
         public TKey Key { get; set; }
         public TValue Value { get; set; }
-        public Node Left { get; set; }
-        public Node Right { get; set; }
+        public Node? Left { get; set; }
+        public Node? Right { get; set; }
         public Color Color { get; set; }
         public int Size { get; set; }
     }
 
-    protected enum Color : byte
+    public enum Color : byte
     {
         Black = 0,
         Red = 1,

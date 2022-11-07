@@ -11,7 +11,7 @@ namespace _1._4._27;
 /// <typeparam name="TItem">链栈中保存的元素。</typeparam>
 public class Stack<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
+    private Node<TItem>? _first;
     private int _count;
 
     /// <summary>
@@ -65,9 +65,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     public void Push(TItem item)
     {
         var oldFirst = _first;
-        _first = new Node<TItem>();
-        _first.Item = item;
-        _first.Next = oldFirst;
+        _first = new Node<TItem> { Item = item, Next = oldFirst };
         _count++;
     }
 
@@ -79,7 +77,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        var item = _first.Item;
+        var item = _first!.Item;
         _first = _first.Next;
         _count--;
         return item;
@@ -93,7 +91,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        return _first.Item;
+        return _first!.Item;
     }
 
     /// <summary>
@@ -112,11 +110,11 @@ public class Stack<TItem> : IEnumerable<TItem>
         else
         {
             var last = s1._first;
-            while (last.Next != null)
+            while (last?.Next != null)
             {
                 last = last.Next;
             }
-            last.Next = s2._first;
+            last!.Next = s2._first;
             s1._count += s2._count;
         }
 
@@ -129,9 +127,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     /// <returns></returns>
     public Stack<TItem> Copy()
     {
-        var temp = new Stack<TItem>();
-        temp._first = _first;
-        temp._count = _count;
+        var temp = new Stack<TItem> { _first = _first, _count = _count };
         return temp;
     }
 
@@ -158,19 +154,18 @@ public class Stack<TItem> : IEnumerable<TItem>
 
     private class StackEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public StackEnumerator(Node<TItem> first)
+        public StackEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -180,7 +175,7 @@ public class Stack<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
 
             _current = _current.Next;

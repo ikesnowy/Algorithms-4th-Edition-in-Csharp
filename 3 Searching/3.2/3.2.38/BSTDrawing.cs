@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
 namespace _3._2._38;
@@ -9,7 +10,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <summary>
     /// 二叉查找树的根结点。
     /// </summary>
-    protected Node Root;
+    protected Node? Root;
 
     /// <summary>
     /// 二叉树结点类型。
@@ -23,31 +24,37 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
         /// 键。
         /// </value>
         public TKey Key { get; set; }
+
         /// <summary>
         /// 键值对中的值。
         /// </summary>
         /// <value>值。</value>
         public TValue Value { get; set; }
+
         /// <summary>
         /// 左子树的引用。
         /// </summary>
         /// <value>左子树的引用。</value>
-        public Node Left { get; set; }
+        public Node? Left { get; set; }
+
         /// <summary>
         /// 右子树的引用。
         /// </summary>
         /// <value>右子树的引用。</value>
-        public Node Right { get; set; }
+        public Node? Right { get; set; }
+
         /// <summary>
         /// 子树的结点数量。
         /// </summary>
         /// <value>子树的结点数量。</value>
         public int Size { get; set; }
+
         /// <summary>
         /// 结点的 X 位置。
         /// </summary>
         /// <value>结点的 X 位置。</value>
         public float X { get; set; }
+
         /// <summary>
         /// 结点的 Y 位置。
         /// </summary>
@@ -84,6 +91,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
             Delete(key);
             return;
         }
+
         Root = Put(Root, key, value);
     }
 
@@ -94,7 +102,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
     /// <returns>插入结点后的根结点。</returns>
-    protected virtual Node Put(Node x, TKey key, TValue value)
+    protected virtual Node Put(Node? x, TKey key, TValue value)
     {
         if (x == null)
             return new Node(key, value, 1);
@@ -114,7 +122,11 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-    public virtual TValue Get(TKey key) => Get(Root, key).Value;
+    public virtual TValue? Get(TKey key)
+    {
+        var node = Get(Root, key);
+        return node == null ? default : node.Value;
+    }
 
     /// <summary>
     /// 递归查找 <paramref name="key"/> 所对应的结点。
@@ -122,7 +134,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">要查找的根结点。</param>
     /// <param name="key">要查找的键。</param>
     /// <returns>如果存在则返回对应的结点，否则返回 <c>default(TValue)</c>。</returns>
-    protected virtual Node Get(Node x, TKey key)
+    protected virtual Node? Get(Node? x, TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "calls get() with a null key");
@@ -154,7 +166,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">要删除的结点的二叉查找树。</param>
     /// <param name="key">要删除的键。</param>
     /// <returns>删除结点后的二叉查找树。</returns>
-    protected virtual Node Delete(Node x, TKey key)
+    protected virtual Node? Delete(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -175,6 +187,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
             x.Right = DeleteMin(t.Right);
             x.Left = t.Left;
         }
+
         x.Size = Size(x.Left) + Size(x.Right) + 1;
         return x;
     }
@@ -193,6 +206,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
         {
             return !EqualityComparer<TValue>.Default.Equals(result, default);
         }
+
         return result != null;
     }
 
@@ -200,6 +214,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// 二叉查找树是否为空。
     /// </summary>
     /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+    [MemberNotNullWhen(false, nameof(Root))]
     public virtual bool IsEmpty() => Size(Root) == 0;
 
     /// <summary>
@@ -213,7 +228,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根的二叉树的结点数量。</returns>
-    protected virtual int Size(Node x)
+    protected virtual int Size(Node? x)
     {
         if (x == null)
             return 0;
@@ -254,7 +269,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉搜索树的根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-    protected virtual int Height(Node x)
+    protected virtual int Height(Node? x)
     {
         return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
     }
@@ -295,7 +310,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="queue">要填充的队列。</param>
     /// <param name="lo">键的下限。</param>
     /// <param name="hi">键的上限。</param>
-    protected virtual void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    protected virtual void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
             return;
@@ -362,7 +377,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
-    public virtual TKey Floor(TKey key)
+    public virtual TKey? Floor(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to floor is null");
@@ -380,7 +395,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
-    protected virtual Node Floor(Node x, TKey key)
+    protected virtual Node? Floor(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -400,7 +415,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>大于等于 <paramref name="key"/> 的最小键。</returns>
-    public virtual TKey Ceiling(TKey key)
+    public virtual TKey? Ceiling(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
@@ -418,7 +433,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
-    protected virtual Node Ceiling(Node x, TKey key)
+    protected virtual Node? Ceiling(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -432,6 +447,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
                 return t;
             return x;
         }
+
         return Ceiling(x.Right, key);
     }
 
@@ -453,7 +469,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">要查找排名的键。</param>
     /// <returns><paramref name="key"/> 的排名。</returns>
-    protected virtual int Rank(Node x, TKey key)
+    protected virtual int Rank(Node? x, TKey key)
     {
         if (x == null)
             return 0;
@@ -475,7 +491,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
         if (k < 0 || k >= Size())
             throw new ArgumentException("argument to select() is invaild: " + k);
         var x = Select(Root, k);
-        return x.Key;
+        return x!.Key;
     }
 
     /// <summary>
@@ -484,7 +500,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">树的根结点。</param>
     /// <param name="k">要挑拣的排名。</param>
     /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
-    protected virtual Node Select(Node x, int k)
+    protected virtual Node? Select(Node? x, int k)
     {
         if (x == null)
             return null;
@@ -512,7 +528,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    protected virtual Node DeleteMin(Node x)
+    protected virtual Node? DeleteMin(Node x)
     {
         if (x.Left == null)
             return x.Right;
@@ -537,7 +553,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    protected virtual Node DeleteMax(Node x)
+    protected virtual Node? DeleteMax(Node x)
     {
         if (x.Right == null)
             return x.Left;
@@ -551,7 +567,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    private int Depth(Node? x)
     {
         if (x == null)
             return 0;
@@ -568,8 +584,8 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
         var depth = Depth(Root);
         var layerHeight = panel.Height / depth;
         // BFS
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(Root);
 
         for (var layer = 0; layer != depth; layer++)
@@ -596,13 +612,12 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
                     nextLayer.Enqueue(null);
                 }
 
-
                 if (node != null)
                 {
                     node.X = cursorX + unitSizeX / 2.0f;
                     node.Y = cursorY;
                 }
-                    
+
                 cursorX += unitSizeX;
             }
         }
@@ -616,8 +631,13 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="node">根结点。</param>
     /// <param name="pen">绘图 <see cref="Graphics"/></param>
-    private void DrawTree(Node node, Graphics pen)
+    private void DrawTree(Node? node, Graphics pen)
     {
+        if (node == null)
+        {
+            return;
+        }
+
         const int pointRadius = 16;
         var pointEdge = new Pen(Color.OrangeRed, 3);
         var line = new Pen(Color.Black, 3);
@@ -635,6 +655,7 @@ public class BstDrawing<TKey, TValue> where TKey : IComparable<TKey>
             pen.DrawLine(line, node.X + pointRadius * 2, node.Y + pointRadius * 2, node.Right.X, node.Right.Y);
             DrawTree(node.Right, pen);
         }
+
         pointEdge.Dispose();
         line.Dispose();
         font.Dispose();

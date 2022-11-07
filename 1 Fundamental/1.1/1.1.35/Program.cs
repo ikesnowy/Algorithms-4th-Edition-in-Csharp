@@ -13,7 +13,7 @@ for (var k = 2; k <= 2 * sides; k++)
 // 不断进行模拟，直至误差小于 0.001
 var n = 36;
 var isAccepted = false;
-double[] distTemp = null;
+double[]? distTemp = null;
 const double error = 0.001;
 while (isAccepted == false)
 {
@@ -31,7 +31,7 @@ while (isAccepted == false)
 Console.WriteLine($"times:{n}\n");
 for (var i = 0; i < dist.Length; i++)
 {
-    Console.WriteLine($"{i}:\nStanderd:{dist[i]}\nSimulated:{distTemp[i]}\nOffset:{Math.Abs(distTemp[i] - dist[i])}");
+    Console.WriteLine($"{i}:\nStanderd:{dist[i]}\nSimulated:{distTemp![i]}\nOffset:{Math.Abs(distTemp[i] - dist[i])}");
 }
 
 static double[] PlayDice(int times)

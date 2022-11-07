@@ -11,7 +11,7 @@ namespace _1._5._20;
 /// <typeparam name="TItem">链表存放的元素类型。</typeparam>
 public class LinkedList<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
+    private Node<TItem>? _first;
     private int _count;
 
     /// <summary>
@@ -29,9 +29,7 @@ public class LinkedList<TItem> : IEnumerable<TItem>
     /// <param name="item">要插入的元素。</param>
     public void Insert(TItem item)
     {
-        var n = new Node<TItem>();
-        n.Item = item;
-        n.Next = _first;
+        var n = new Node<TItem> { Item = item, Next = _first };
         _first = n;
         _count++;
     }
@@ -53,16 +51,15 @@ public class LinkedList<TItem> : IEnumerable<TItem>
             return;
         }
 
-        var n = new Node<TItem>();
-        n.Item = item;
+        var n = new Node<TItem> { Item = item };
 
         var front = _first;
         for (var i = 1; i < position; i++)
         {
-            front = front.Next;
+            front = front!.Next;
         }
 
-        n.Next = front.Next;
+        n.Next = front!.Next;
         front.Next = n;
         _count++;
     }
@@ -82,10 +79,10 @@ public class LinkedList<TItem> : IEnumerable<TItem>
         var current = _first;
         for (var i = 0; i < index; i++)
         {
-            current = current.Next;
+            current = current!.Next;
         }
 
-        return current.Item;
+        return current!.Item;
     }
 
     /// <summary>
@@ -103,10 +100,10 @@ public class LinkedList<TItem> : IEnumerable<TItem>
         var current = _first;
         for (var i = 0; i < index; i++)
         {
-            current = current.Next;
+            current = current!.Next;
         }
 
-        current.Item = value;
+        current!.Item = value;
     }
 
     /// <summary>
@@ -122,7 +119,7 @@ public class LinkedList<TItem> : IEnumerable<TItem>
         }
 
         var front = _first;
-        var temp = _first.Item;
+        var temp = _first!.Item;
         if (index == 0)
         {
             _count--;
@@ -132,10 +129,10 @@ public class LinkedList<TItem> : IEnumerable<TItem>
 
         for (var i = 1; i < index; i++)
         {
-            front = front.Next;
+            front = front!.Next;
         }
 
-        temp = front.Next.Item;
+        temp = front!.Next!.Item;
         front.Next = front.Next.Next;
         _count--;
         return temp;
@@ -188,19 +185,18 @@ public class LinkedList<TItem> : IEnumerable<TItem>
 
     private class LinkedListEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public LinkedListEnumerator(Node<TItem> first)
+        public LinkedListEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -210,7 +206,7 @@ public class LinkedList<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
             _current = _current.Next;
             return true;

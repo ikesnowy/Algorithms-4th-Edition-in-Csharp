@@ -95,7 +95,7 @@ public class Interval2D
     /// </summary>
     /// <param name="obj">需要比较的另一个区间。</param>
     /// <returns>相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
         {

@@ -29,8 +29,13 @@ internal class EuclideanDistance3D : IComparable<EuclideanDistance3D>
     /// </summary>
     /// <param name="other">另一个欧几里得距离。</param>
     /// <returns></returns>
-    public int CompareTo(EuclideanDistance3D other)
+    public int CompareTo(EuclideanDistance3D? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return _distance.CompareTo(other._distance);
     }
 

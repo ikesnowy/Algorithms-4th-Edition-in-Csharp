@@ -24,10 +24,8 @@ while (current != null)
     current = current.Next;
 }
 
-var t = new Node<string>();
-t.Item = "t";
+var t = new Node<string> { Item = "t", Next = second.Next };
 
-t.Next = second.Next;
 second.Next = t;
 
 Console.WriteLine();

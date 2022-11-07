@@ -38,7 +38,7 @@ internal class ShellSortWorstCase
         var b = new int[n];
         for (var i = 0; i < n; i++)
         {
-            b[i] = (int)a[i + 1];
+            b[i] = (int)a[i + 1]!;
         }
 
         return b;

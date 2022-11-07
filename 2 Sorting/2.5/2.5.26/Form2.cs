@@ -8,9 +8,9 @@ namespace _2._5._26;
 
 public partial class Form2 : Form
 {
-    private Graphics _panel;
-    private List<Point2D> _points;
-    private Point2D _startPoint;
+    private Graphics? _panel;
+    private List<Point2D>? _points;
+    private Point2D? _startPoint;
 
     private double _maxX, _maxY;
 
@@ -36,7 +36,7 @@ public partial class Form2 : Form
     /// <param name="point"></param>
     public void Add(Point2D point)
     {
-        _points.Add(point);
+        _points!.Add(point);
         if (_startPoint == null)
         {
             _startPoint = point;
@@ -64,11 +64,11 @@ public partial class Form2 : Form
         double left = ClientRectangle.Left;
         double bottom = ClientRectangle.Bottom;
 
-        _panel.Clear(BackColor);
+        _panel!.Clear(BackColor);
         var line = (Pen)Pens.Red.Clone();
         line.Width = 6;
         var before = _startPoint;
-        foreach (var p in _points)
+        foreach (var p in _points!)
         {
             _panel.FillEllipse(Brushes.Black, 
                 (float)(left + p.X * unitX - 5.0), 
@@ -76,16 +76,16 @@ public partial class Form2 : Form
                 (float)10.0, 
                 (float)10.0);
             _panel.DrawLine(line,
-                (float)(left + before.X * unitX),
+                (float)(left + before!.X * unitX),
                 (float)(bottom - before.Y * unitY),
                 (float)(left + p.X * unitX),
                 (float)(bottom - p.Y * unitY));
             before = p;
         }
         _panel.DrawLine(line,
-            (float)(left + before.X * unitX),
+            (float)(left + before!.X * unitX),
             (float)(bottom - before.Y * unitY),
-            (float)(left + _startPoint.X * unitX),
+            (float)(left + _startPoint!.X * unitX),
             (float)(bottom - _startPoint.Y * unitY));
     }
 }

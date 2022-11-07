@@ -4,7 +4,7 @@ using System.IO;
 
 // 官方解答：https://algs4.cs.princeton.edu/25applications/FileSorter.java.html
 // 输入 ./ 获得当前目录文件。
-var directoryName = Console.ReadLine();
+var directoryName = Console.ReadLine()!;
 if (!Directory.Exists(directoryName))
 {
     Console.WriteLine(directoryName + " doesn't exist or isn't a directory");

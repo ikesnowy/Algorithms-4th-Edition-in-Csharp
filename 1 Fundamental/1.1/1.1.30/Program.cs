@@ -2,7 +2,7 @@
 // ReSharper disable AssignNullToNotNullAttribute
 
 // 互质 = 最大公约数为 1 = gcd(i, j) == 1
-var n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine()!);
 
 var a = new bool[n, n];
 

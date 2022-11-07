@@ -37,6 +37,7 @@ public class Transaction : IComparable<Transaction>
         {
             throw new ArgumentException("Amount cannot be NaN or Infinity");
         }
+
         Who = who;
         When = when;
         Amount = amount;
@@ -74,8 +75,13 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     /// <param name="other">比较的另一个对象。</param>
     /// <returns></returns>
-    public int CompareTo(Transaction other)
+    public int CompareTo(Transaction? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         if (Amount < other.Amount)
             return -1;
         if (Amount > other.Amount)
@@ -88,7 +94,7 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     public class WhoOrder : IComparer<Transaction>
     {
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             Debug.Assert(y != null, nameof(y) + " != null");
@@ -101,7 +107,7 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     public class WhenOrder : IComparer<Transaction>
     {
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             Debug.Assert(y != null, nameof(y) + " != null");
@@ -114,7 +120,7 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     public class HowMuchOrder : IComparer<Transaction>
     {
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             Debug.Assert(y != null, nameof(y) + " != null");
@@ -127,7 +133,7 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     /// <param name="obj">另一个对象。</param>
     /// <returns></returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
             return true;
@@ -138,9 +144,7 @@ public class Transaction : IComparable<Transaction>
         var that = (Transaction)obj;
 
         return
-            (Math.Abs(that.Amount - Amount) < float.Epsilon * 5) &&
-            (that.When.Equals(When)) &&
-            (that.Who == Who);
+            (Math.Abs(that.Amount - Amount) < float.Epsilon * 5) && (that.When.Equals(When)) && (that.Who == Who);
     }
 
     /// <summary>

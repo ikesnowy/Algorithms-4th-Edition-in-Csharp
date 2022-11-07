@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable PossibleNullReferenceException
 // ReSharper disable AssignNullToNotNullAttribute
 
@@ -6,7 +7,7 @@
 var nowRunning = 0; // 正在运行的程序数量
 var maxIdle = 0;
 var maxBusy = 0;
-var items = int.Parse(Console.ReadLine());
+var items = int.Parse(Console.ReadLine()!);
 var jobs = new JobEvent[items * 2];
 for (var i = 0; i < jobs.Length; i += 2)
 {
@@ -16,7 +17,7 @@ for (var i = 0; i < jobs.Length; i += 2)
     jobs[i].IsFinished = false; // 开始事件
     jobs[i + 1].IsFinished = true; // 停止事件
 
-    var record = Console.ReadLine().Split(new[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries);
+    var record = Console.ReadLine()!.Split(new[] { ' ', ':' }, StringSplitOptions.RemoveEmptyEntries);
     jobs[i].JobName = record[0];
     jobs[i + 1].JobName = record[0];
 
@@ -71,12 +72,17 @@ Console.WriteLine("Max Busy: " + maxBusy);
 /// </summary>
 internal class JobEvent : IComparable<JobEvent>
 {
-    public string JobName;
+    public string JobName = string.Empty;
     public int Time;
     public bool IsFinished; // false = 开始，true = 结束
 
-    public int CompareTo(JobEvent other)
+    public int CompareTo(JobEvent? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Time.CompareTo(other.Time);
     }
 }

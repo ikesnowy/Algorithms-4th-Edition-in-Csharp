@@ -43,13 +43,13 @@ public interface IOrderedSt<TKey, TValue> : ISt<TKey, TValue>
     /// 小于等于 <paramref name="key"/> 的最大值。
     /// </summary>
     /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
-    TKey Floor(TKey key);
+    TKey? Floor(TKey key);
 
     /// <summary>
     /// 大于等于 <paramref name="key"/> 的最小值。
     /// </summary>
     /// <returns>大于等于 <paramref name="key"/> 的最小值。</returns>
-    TKey Ceiling(TKey key);
+    TKey? Ceiling(TKey key);
 
     /// <summary>
     /// 小于 <paramref name="key"/> 的键的数量。
@@ -62,7 +62,7 @@ public interface IOrderedSt<TKey, TValue> : ISt<TKey, TValue>
     /// </summary>
     /// <param name="k">需要获得的键的排名。</param>
     /// <returns>排名为 k 的键。</returns>
-    TKey Select(int k);
+    TKey? Select(int k);
 
     /// <summary>
     /// 删除最小的键。

@@ -10,7 +10,7 @@ namespace Generics;
 /// <typeparam name="TItem">背包中存放的元素类型。</typeparam>
 public class Bag<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
+    private Node<TItem>? _first;
     private int _count;
 
     /// <summary>
@@ -47,9 +47,7 @@ public class Bag<TItem> : IEnumerable<TItem>
     public void Add(TItem item)
     {
         var oldFirst = _first;
-        _first = new Node<TItem>();
-        _first.Item = item;
-        _first.Next = oldFirst;
+        _first = new Node<TItem> { Item = item, Next = oldFirst };
         _count++;
     }
 
@@ -77,21 +75,20 @@ public class Bag<TItem> : IEnumerable<TItem>
     /// </summary>
     private class BagEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item!;
 
-        object IEnumerator.Current => _current.Item;
+        object? IEnumerator.Current => _current!.Item;
 
         /// <summary>
         /// 构造一个背包枚举器。
         /// </summary>
         /// <param name="first">背包的第一个结点。</param>
-        public BagEnumerator(Node<TItem> first)
+        public BagEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
@@ -103,7 +100,7 @@ public class Bag<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
 
             _current = _current.Next;

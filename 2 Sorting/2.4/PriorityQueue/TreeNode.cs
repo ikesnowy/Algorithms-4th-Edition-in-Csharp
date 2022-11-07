@@ -12,28 +12,28 @@ internal class TreeNode<T> where T : IComparable<T>
     /// 父结点引用。
     /// </summary>
     /// <value>父节点引用。</value>
-    public TreeNode<T> Prev { get; set; }
+    public TreeNode<T>? Prev { get; set; }
     /// <summary>
     /// 左子树的引用。
     /// </summary>
     /// <value>左子结点的引用。</value>
-    public TreeNode<T> Left { get; set; }
+    public TreeNode<T>? Left { get; set; }
     /// <summary>
     /// 右子树的引用。
     /// </summary>
     /// <value>右子结点的引用。</value>
-    public TreeNode<T> Right { get; set; }
+    public TreeNode<T>? Right { get; set; }
     /// <summary>
     /// 当前结点的值。
     /// </summary>
     /// <value>当前结点的值。</value>
-    public T Value { get; set; }
+    public T? Value { get; set; }
         
     /// <summary>
     /// 构造器，建立一个引用全部为 null 的结点。
     /// </summary>
     /// <param name="value">结点的值。</param>
-    public TreeNode(T value)
+    public TreeNode(T? value)
     {
         Value = value;
         Prev = null;
@@ -48,7 +48,7 @@ internal class TreeNode<T> where T : IComparable<T>
     /// <param name="left">左子树的引用。</param>
     /// <param name="right">右子树的引用。</param>
     /// <param name="value">当前结点的值。</param>
-    public TreeNode(TreeNode<T> prev, TreeNode<T> left, TreeNode<T> right, T value)
+    public TreeNode(TreeNode<T>? prev, TreeNode<T>? left, TreeNode<T>? right, T? value)
     {
         Prev = prev;
         Left = left;

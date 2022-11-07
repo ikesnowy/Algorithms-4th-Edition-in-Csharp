@@ -10,12 +10,12 @@ internal class Node<T>
     /// 结点中存放的元素。
     /// </summary>
     /// <value>结点中存放的元素。</value>
-    public T Item;
+    public T Item = default!;
     /// <summary>
     /// 下一个结点的引用。
     /// </summary>
     /// <value>下一个结点的引用。</value>
-    public Node<T> Next;
+    public Node<T>? Next { get; set; }
 
     /// <summary>
     /// 默认无参构造器。

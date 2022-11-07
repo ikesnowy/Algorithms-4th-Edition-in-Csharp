@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using SortApplication;
+
 // ReSharper disable AssignNullToNotNullAttribute
 // ReSharper disable PossibleNullReferenceException
 
-var processorNum = int.Parse(Console.ReadLine());
-var jobNum = int.Parse(Console.ReadLine());
+var processorNum = int.Parse(Console.ReadLine()!);
+var jobNum = int.Parse(Console.ReadLine()!);
 
 var jobs = new Job[jobNum];
 for (var i = 0; i < jobNum; i++)
 {
-    var jobDesc = Console.ReadLine().Split(' ');
+    var jobDesc = Console.ReadLine()!.Split(' ');
     jobs[i] = new Job(jobDesc[0], double.Parse(jobDesc[1]));
 }
 
@@ -46,8 +47,13 @@ internal class Job : IComparable<Job>
         Time = time;
     }
 
-    public int CompareTo(Job other)
+    public int CompareTo(Job? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Time.CompareTo(other.Time);
     }
 }
@@ -63,8 +69,13 @@ internal class Processor : IComparable<Processor>
         _busyTime += job.Time;
     }
 
-    public int CompareTo(Processor other)
+    public int CompareTo(Processor? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return _busyTime.CompareTo(other._busyTime);
     }
 

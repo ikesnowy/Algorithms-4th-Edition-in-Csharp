@@ -113,7 +113,7 @@ public class Rational
         return Gcd(b, a % b);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (this == obj)
             return true;

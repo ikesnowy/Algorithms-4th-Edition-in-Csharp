@@ -29,7 +29,7 @@ while (current != null)
     current = current.Next;
 }
 
-static void InsertAfter<TItem>(Node<TItem> a, Node<TItem> b)
+static void InsertAfter<TItem>(Node<TItem>? a, Node<TItem>? b)
 {
     if (a == null || b == null)
         return;

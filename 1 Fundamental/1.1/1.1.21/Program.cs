@@ -12,7 +12,7 @@
  * 
  */
 var columns = 2;
-var rows = int.Parse(Console.ReadLine()); // 行号
+var rows = int.Parse(Console.ReadLine()!); // 行号
 
 var names = new string[rows]; // 姓名
 var array = new int[rows, columns]; // 输入的两个整数
@@ -20,7 +20,7 @@ var results = new double[rows]; // 计算结果
 
 for (var i = 0; i < rows; i++)
 {
-    var temp = Console.ReadLine();
+    var temp = Console.ReadLine()!;
     names[i] = temp.Split(' ')[0];
     for (var j = 0; j < columns; j++)
     {

@@ -21,7 +21,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
     /// 中位数。
     /// </summary>
     /// <value>中位数。</value>
-    private TKey _median;
+    private TKey? _median;
     /// <summary>
     /// 堆的大小。
     /// </summary>
@@ -55,7 +55,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
     /// 根据指定数组初始化面向中位数的堆。
     /// </summary>
     /// <param name="keys">初始数组。</param>
-    public MedianPq(TKey[] keys)
+    public MedianPq(TKey?[] keys)
     {
         _minPq = new MinPq<TKey>();
         _maxPq = new MaxPq<TKey>();
@@ -71,7 +71,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
         _median = keys[0];
         for (var i = 1; i < keys.Length; i++)
         {
-            if (_median.CompareTo(keys[i]) < 0)
+            if (_median?.CompareTo(keys[i]) < 0)
                 _minPq.Insert(keys[i]);
             else
                 _maxPq.Insert(keys[i]);
@@ -84,7 +84,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
     /// 向面向中位数的堆中插入一个元素。
     /// </summary>
     /// <param name="key">需要插入的元素。</param>
-    public void Insert(TKey key)
+    public void Insert(TKey? key)
     {
         if (_n == 0)
         {
@@ -93,7 +93,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
             return;
         }
 
-        if (key.CompareTo(_median) < 0)
+        if (key?.CompareTo(_median) < 0)
             _maxPq.Insert(key);
         else
             _minPq.Insert(key);
@@ -108,7 +108,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
     /// <returns>中位数。</returns>
     /// <exception cref="ArgumentOutOfRangeException">当堆为空时抛出该异常。</exception>
     /// <remarks>如果希望获得中位数但不将其删除，请使用 <see cref="Median"/>。</remarks>
-    public TKey DelMedian()
+    public TKey? DelMedian()
     {
         if (IsEmpty())
             throw new InvalidOperationException("MedianPQ underflow!");
@@ -136,7 +136,7 @@ public class MedianPq<TKey> where TKey : IComparable<TKey>
     /// </summary>
     /// <returns>中位数。</returns>
     /// <remarks>如果希望删除并返回中位数，请使用 <see cref="DelMedian"/>。</remarks>
-    public TKey Median() => _median;
+    public TKey? Median() => _median;
 
     /// <summary>
     /// 判断堆是否为空。

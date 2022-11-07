@@ -11,7 +11,7 @@ namespace _1._3._50;
 /// <typeparam name="TItem">栈中保存的元素。</typeparam>
 public class Stack<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
+    private Node<TItem>? _first;
     private int _count;
     private int _popCount;
     private int _pushCount;
@@ -68,9 +68,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     public void Push(TItem item)
     {
         var oldFirst = _first;
-        _first = new Node<TItem>();
-        _first.Item = item;
-        _first.Next = oldFirst;
+        _first = new Node<TItem> { Item = item, Next = oldFirst };
         _count++;
         _pushCount++;
     }
@@ -83,7 +81,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        var item = _first.Item;
+        var item = _first!.Item;
         _first = _first.Next;
         _count--;
         _popCount++;
@@ -98,7 +96,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        return _first.Item;
+        return _first!.Item;
     }
 
     /// <summary>
@@ -117,11 +115,11 @@ public class Stack<TItem> : IEnumerable<TItem>
         else
         {
             var last = s1._first;
-            while (last.Next != null)
+            while (last?.Next != null)
             {
                 last = last.Next;
             }
-            last.Next = s2._first;
+            last!.Next = s2._first;
             s1._count += s2._count;
         }
 
@@ -134,9 +132,7 @@ public class Stack<TItem> : IEnumerable<TItem>
     /// <returns></returns>
     public Stack<TItem> Copy()
     {
-        var temp = new Stack<TItem>();
-        temp._first = _first;
-        temp._count = _count;
+        var temp = new Stack<TItem> { _first = _first, _count = _count };
         return temp;
     }
 
@@ -163,22 +159,22 @@ public class Stack<TItem> : IEnumerable<TItem>
 
     private class StackEnumerator : IEnumerator<TItem>
     {
-        private Stack<TItem> _s;
-        private readonly int _popcount;
-        private readonly int _pushcount;
-        private Node<TItem> _current;
+        private Stack<TItem>? _s;
+        private readonly int _popCount;
+        private readonly int _pushCount;
+        private Node<TItem>? _current;
 
         public StackEnumerator(Stack<TItem> s)
         {
             _s = s;
             _current = s._first;
-            _popcount = s._popCount;
-            _pushcount = s._pushCount;
+            _popCount = s._popCount;
+            _pushCount = s._pushCount;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -188,10 +184,10 @@ public class Stack<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_s._popCount != _popcount || _s._pushCount != _pushcount)
+            if (_s!._popCount != _popCount || _s._pushCount != _pushCount)
                 throw new InvalidOperationException("Stack has been modified");
 
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
 
             _current = _current.Next;
@@ -200,7 +196,7 @@ public class Stack<TItem> : IEnumerable<TItem>
 
         void IEnumerator.Reset()
         {
-            _current = _s._first;
+            _current = _s!._first;
         }
     }
 }

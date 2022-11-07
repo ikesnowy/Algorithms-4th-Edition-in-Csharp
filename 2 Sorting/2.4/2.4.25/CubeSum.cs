@@ -11,10 +11,12 @@ internal class CubeSum : IComparable<CubeSum>
     /// 立方和。
     /// </summary>
     internal readonly long Sum;
+
     /// <summary>
     /// 第一个数。
     /// </summary>
     internal readonly long I;
+
     /// <summary>
     /// 第二个数。
     /// </summary>
@@ -28,8 +30,8 @@ internal class CubeSum : IComparable<CubeSum>
     public CubeSum(long i, long j)
     {
         Sum = i * i * i + j * j * j;
-        this.I = i;
-        this.J = j;
+        I = i;
+        J = j;
     }
 
     /// <summary>
@@ -37,8 +39,13 @@ internal class CubeSum : IComparable<CubeSum>
     /// </summary>
     /// <param name="other">需要与之比较的另一个数。</param>
     /// <returns></returns>
-    public int CompareTo(CubeSum other)
+    public int CompareTo(CubeSum? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Sum.CompareTo(other.Sum);
     }
 

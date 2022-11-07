@@ -4,7 +4,7 @@ using Geometry;
 // ReSharper disable AssignNullToNotNullAttribute
 
 Console.WriteLine("Type the value of N:");
-var n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine()!);
 var pointList = new List<Point2D>();
 var random = new Random();
 

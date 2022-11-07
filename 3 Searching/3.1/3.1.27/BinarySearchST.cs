@@ -16,17 +16,18 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     /// 符号表的默认长度。
     /// </summary>
     /// <value>符号表的默认长度。</value>
-    private static readonly int InitCapacity = 2;
+    private const int InitCapacity = 2;
+
     /// <summary>
     /// 保存符号表键的数组。
     /// </summary>
     /// <value>保存符号表键的数组。</value>
-    private TKey[] _keys;
+    private TKey?[] _keys;
     /// <summary>
     /// 保存符号表值的数组。
     /// </summary>
     /// <value>保存符号表值的数组。</value>
-    private TValue[] _values;
+    private TValue?[] _values;
     /// <summary>
     /// 符号表中的键值对数量。
     /// </summary>
@@ -48,7 +49,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     public BinarySearchSt(int capacity)
     {
         _keys = new TKey[capacity];
-        _values = new TValue[capacity];
+        _values = new TValue?[capacity];
         _n = 0;
     }
 
@@ -58,7 +59,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小的键。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Ceiling is null");
@@ -77,7 +78,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "key can't be null");
-        return !Get(key).Equals(default(TValue));
+        return Get(key) == null;
     }
 
     /// <summary>
@@ -94,7 +95,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
 
         var i = Rank(key);
 
-        if (i == _n && _keys[i].CompareTo(key) != 0)
+        if (i == _n && _keys[i]!.CompareTo(key) != 0)
             return;
 
         for (var j = i; j < _n - 1; j++)
@@ -127,12 +128,12 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Floor() is null");
         var i = Rank(key);
-        if (i < _n && _keys[i].CompareTo(key) == 0)
+        if (i < _n && _keys[i]!.CompareTo(key) == 0)
             return _keys[i];
         if (i == 0)
             return default;
@@ -145,7 +146,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     /// <param name="key">键。</param>
     /// <returns><paramref name="key"/> 对应的值。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Get() is null");
@@ -153,7 +154,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
             return default;
         var rank = Rank(key);
         Compares++;
-        if (rank < _n && _keys[rank].Equals(key))
+        if (rank < _n && _keys[rank]!.Equals(key))
             return _values[rank];
         return default;
     }
@@ -187,9 +188,9 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
         if (lo.CompareTo(hi) > 0)
             return list;
         for (var i = Rank(lo); i < Rank(hi); i++)
-            list.Add(_keys[i]);
+            list.Add(_keys[i]!);
         if (Contains(hi))
-            list.Add(_keys[Rank(hi)]);
+            list.Add(_keys[Rank(hi)]!);
         return list;
     }
 
@@ -202,7 +203,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     {
         if (IsEmpty())
             throw new InvalidOperationException("called Max() with empty table");
-        return _keys[_n - 1];
+        return _keys[_n - 1]!;
     }
 
     /// <summary>
@@ -214,7 +215,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     {
         if (IsEmpty())
             throw new InvalidOperationException("called Min() with empty table");
-        return _keys[0];
+        return _keys[0]!;
     }
 
     /// <summary>
@@ -223,7 +224,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     /// <param name="key">要插入的键。</param>
     /// <param name="value">要插入的值。</param>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出。</exception>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "first argument to Put() is null");
@@ -235,7 +236,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
 
         var i = Rank(key);
 
-        if (i < _n && _keys[i].CompareTo(key) == 0)
+        if (i < _n && _keys[i]!.CompareTo(key) == 0)
         {
             _values[i] = value;
             return;
@@ -270,7 +271,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
         while (lo <= hi)
         {
             var mid = lo + (hi - lo) / 2;
-            var compare = _keys[mid].CompareTo(key);
+            var compare = _keys[mid]!.CompareTo(key);
 
             Compares++;        // 统计比较次数
 
@@ -293,7 +294,7 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
     {
         if (k < 0 || k >= _n)
             throw new ArgumentOutOfRangeException("called Select() with invaild k: " + k);
-        return _keys[k];
+        return _keys[k]!;
     }
 
     /// <summary>
@@ -333,10 +334,10 @@ public class BinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, 
         if (capacity < _n)
             throw new ArgumentOutOfRangeException(nameof(capacity), "分配容量不能小于表中元素数量。");
         var tempKeys = new TKey[capacity];
-        var tempValues = new TValue[capacity];
+        var tempValues = new TValue?[capacity];
         for (var i = 0; i < _n; i++)
         {
-            tempKeys[i] = _keys[i];
+            tempKeys[i] = _keys[i]!;
             tempValues[i] = _values[i];
         }
         _keys = tempKeys;

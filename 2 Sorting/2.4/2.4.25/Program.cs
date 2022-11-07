@@ -19,7 +19,7 @@ var prev = new CubeSum(-1, -1);
 long pairCount = 0;
 while (!pq.IsEmpty())
 {
-    var s = pq.DelMin();
+    var s = pq.DelMin()!;
     if (s.Sum == prev.Sum)
     {
         sw.WriteLine(s + " = " + prev.I + "^3 + " + prev.J + "^3");

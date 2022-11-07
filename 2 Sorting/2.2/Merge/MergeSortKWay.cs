@@ -98,7 +98,7 @@ public class MergeSortKWay : BaseSort
             var isInit = true;
             if (pointers[K - 1] > hi)
             {
-                min = default;                 // 初始化以避免编译错误
+                min = default!;                 // 初始化以避免编译错误
             }
             else
             {

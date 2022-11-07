@@ -93,8 +93,8 @@ public class RandomBag<TItem> : IEnumerable<TItem>
 
     private class RandomBagEnumerator : IEnumerator<TItem>
     {
-        private TItem[] _bag;
-        private int[] _sequence;
+        private TItem[]? _bag;
+        private int[]? _sequence;
         private int _current;
         private readonly int _count;
 
@@ -129,9 +129,9 @@ public class RandomBag<TItem> : IEnumerable<TItem>
             }
         }
 
-        TItem IEnumerator<TItem>.Current => _bag[_sequence[_current]];
+        TItem IEnumerator<TItem>.Current => _bag![_sequence![_current]];
 
-        object IEnumerator.Current => _bag[_sequence[_current]];
+        object IEnumerator.Current => _bag![_sequence![_current]]!;
 
         void IDisposable.Dispose()
         {

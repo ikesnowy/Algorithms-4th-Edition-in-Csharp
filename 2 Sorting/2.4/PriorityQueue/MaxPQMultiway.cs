@@ -19,7 +19,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// 保存元素的数组。
     /// </summary>
     /// <value>保存元素的数组。</value>
-    protected TKey[] Pq;
+    protected TKey?[] Pq;
     /// <summary>
     /// 堆中的元素数量。
     /// </summary>
@@ -40,7 +40,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     public MaxPqMultiway(int d, int capacity)
     {
         _d = d;
-        Pq = new TKey[capacity + 1];
+        Pq = new TKey?[capacity + 1];
         N = 0;
     }
 
@@ -49,11 +49,11 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// </summary>
     /// <param name="keys">已有元素。</param>
     /// <param name="d">堆的分叉数。</param>
-    public MaxPqMultiway(int d, TKey[] keys)
+    public MaxPqMultiway(int d, TKey?[] keys)
     {
         _d = d;
         N = keys.Length;
-        Pq = new TKey[keys.Length + 1];
+        Pq = new TKey?[keys.Length + 1];
         for (var i = 0; i < keys.Length; i++)
             Pq[i + 1] = keys[i];
         for (var i = (N - 2) / _d + 1; i >= 1; i--)
@@ -67,7 +67,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// <returns>堆中的最大元素。</returns>
     /// <exception cref="ArgumentOutOfRangeException">如果堆为空则抛出该异常。</exception>
     /// <remarks>如果希望获得最大元素而不删除它，请使用 <see cref="Max"/>。</remarks>
-    public TKey DelMax()
+    public TKey? DelMax()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Priority Queue Underflow");
@@ -87,7 +87,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// 向堆中插入一个元素。
     /// </summary>
     /// <param name="v">需要插入的元素。</param>
-    public void Insert(TKey v)
+    public void Insert(TKey? v)
     {
         if (N == Pq.Length - 1)
             Resize(2 * Pq.Length);
@@ -132,7 +132,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// </summary>
     /// <returns>堆中最大的元素。</returns>
     /// <remarks>如果希望删除并返回最大元素，请使用 <see cref="DelMax"/>。</remarks>
-    public TKey Max() => Pq[1];
+    public TKey? Max() => Pq[1];
 
     /// <summary>
     /// 获得堆中元素的数量。
@@ -151,7 +151,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
             copy.Insert(Pq[i]);
 
         while (!copy.IsEmpty())
-            yield return copy.DelMax(); // 下次迭代的时候从这里继续执行。
+            yield return copy.DelMax()!; // 下次迭代的时候从这里继续执行。
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// <param name="capacity">调整后的堆大小。</param>
     private void Resize(int capacity)
     {
-        var temp = new TKey[capacity];
+        var temp = new TKey?[capacity];
         for (var i = 1; i <= N; i++)
         {
             temp[i] = Pq[i];
@@ -219,7 +219,7 @@ public class MaxPqMultiway<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : 
     /// <param name="j">判断是否较大的元素。</param>
     /// <returns>如果下标为 <paramref name="i"/> 的元素更小则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
     private bool Less(int i, int j)
-        => Pq[i].CompareTo(Pq[j]) < 0;
+        => Pq[i]!.CompareTo(Pq[j]) < 0;
 
     /// <summary>
     /// 交换堆中的两个元素。

@@ -8,12 +8,12 @@ namespace _1._5._19;
 
 internal static class Program
 {
-    private static RandomBag<Connection> _bag;
-    private static Graphics _graphics;
-    private static TextBox _logBox;
-    private static PointF[] _points;
-    private static Timer _timer;
-    private static List<Connection> _connections;
+    private static RandomBag<Connection>? _bag;
+    private static Graphics? _graphics;
+    private static TextBox? _logBox;
+    private static PointF[]? _points;
+    private static Timer? _timer;
+    private static List<Connection>? _connections;
     private static int _count;
 
     /// <summary>
@@ -84,15 +84,15 @@ internal static class Program
         _timer.Start();              
     }
 
-    private static void DrawOneLine(object sender, EventArgs e)
+    private static void DrawOneLine(object? sender, EventArgs e)
     {
-        var c = _connections[_count];
+        var c = _connections![_count];
         _count++;
-        _graphics.DrawLine(Pens.Black, _points[c.P], _points[c.Q]);
-        _logBox.AppendText("\r\n绘制" + "(" + c.P + ", " + c.Q + ")");
-        if (_count == _bag.Size())
+        _graphics!.DrawLine(Pens.Black, _points![c.P], _points[c.Q]);
+        _logBox!.AppendText("\r\n绘制" + "(" + c.P + ", " + c.Q + ")");
+        if (_count == _bag!.Size())
         {
-            _timer.Stop();
+            _timer!.Stop();
             _logBox.AppendText("\r\n绘制结束");
             _count = 0;
         }

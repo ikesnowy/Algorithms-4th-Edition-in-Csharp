@@ -84,8 +84,13 @@ internal class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
         Key = elements;
     }
 
-    public int CompareTo(Wrapper<T> other)
+    public int CompareTo(Wrapper<T>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Key.CompareTo(other.Key);
     }
 }

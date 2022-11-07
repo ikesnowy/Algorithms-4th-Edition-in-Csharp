@@ -6,8 +6,8 @@
 /// <typeparam name="T">结点存放的元素类型。</typeparam>
 public class Node<T>
 {
-    public T Item;
-    public Node<T> Next;
+    public T Item { get; set; } = default!;
+    public Node<T>? Next { get; set; }
 
     public Node() { }
 

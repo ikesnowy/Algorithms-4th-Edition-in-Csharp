@@ -13,7 +13,7 @@ public class BstRandomKey<TKey, TValue> : Bst<TKey, TValue> where TKey : ICompar
     public TKey RandomKey()
     {
         var rank = _random.Next(1, Size() + 1);
-        return GetKeyWithRank(Root, rank);
+        return GetKeyWithRank(Root!, rank);
     }
 
     /// <summary>
@@ -24,16 +24,16 @@ public class BstRandomKey<TKey, TValue> : Bst<TKey, TValue> where TKey : ICompar
     /// <returns>排名为 <paramref name="rank"/> 的结点。</returns>
     private TKey GetKeyWithRank(Node x, int rank)
     {
-        var left = (x.Left == null ? 0 : x.Left.Size) + 1;  // 加上结点本身。
+        var left = (x.Left?.Size ?? 0) + 1;  // 加上结点本身。
         if (left > rank)
         {
-            return GetKeyWithRank(x.Left, rank);
+            return GetKeyWithRank(x.Left!, rank);
         }
 
         if (left == rank)
         {
-            return x.Key;
+            return x.Key!;
         }
-        return GetKeyWithRank(x.Right, rank - left);
+        return GetKeyWithRank(x.Right!, rank - left);
     }
 }

@@ -36,10 +36,10 @@ internal class StackQueue<TItem>
     {
         if (_isRecopying)
         {
-            return h.Peek();
+            return h.Peek()!;
         }
 
-        return H.Peek();
+        return H.Peek()!;
     }
 
     public void Enqueue(TItem item)

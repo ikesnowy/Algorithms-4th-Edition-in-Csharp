@@ -135,7 +135,7 @@ public class Interval1D
     /// </summary>
     /// <param name="obj">相比较的区间。</param>
     /// <returns>如果区间相等则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
         {
@@ -166,7 +166,7 @@ public class Interval1D
 
     private class MinEndpointComparer : Comparer<Interval1D>
     {
-        public override int Compare(Interval1D a, Interval1D b)
+        public override int Compare(Interval1D? a, Interval1D? b)
         {
             Debug.Assert(a != null, nameof(a) + " != null");
             Debug.Assert(b != null, nameof(b) + " != null");
@@ -193,7 +193,7 @@ public class Interval1D
 
     private class MaxEndpointComparer : Comparer<Interval1D>
     {
-        public override int Compare(Interval1D a, Interval1D b)
+        public override int Compare(Interval1D? a, Interval1D? b)
         {
             Debug.Assert(a != null, nameof(a) + " != null");
             Debug.Assert(b != null, nameof(b) + " != null");
@@ -220,7 +220,7 @@ public class Interval1D
 
     private class LengthComparer : Comparer<Interval1D>
     {
-        public override int Compare(Interval1D a, Interval1D b)
+        public override int Compare(Interval1D? a, Interval1D? b)
         {
             Debug.Assert(a != null, nameof(a) + " != null");
             var alen = a.Length();

@@ -4,7 +4,7 @@
 var whiteList = new[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 Array.Sort(whiteList);
 Console.WriteLine("Type the numbers you want to query: ");
-var input = Console.ReadLine();
+var input = Console.ReadLine()!;
 var query = new int[input.Split(' ').Length];
 for (var i = 0; i < query.Length; i++)
 {

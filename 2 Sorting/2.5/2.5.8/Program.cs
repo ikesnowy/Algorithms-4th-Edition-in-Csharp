@@ -43,8 +43,13 @@ internal class Record : IComparable<Record>
         Value = value;
     }
 
-    public int CompareTo(Record other)
+    public int CompareTo(Record? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Value.CompareTo(other.Value);
     }
 }

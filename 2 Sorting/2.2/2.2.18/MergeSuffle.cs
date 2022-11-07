@@ -21,7 +21,7 @@ public class MergeShuffle
         {
             // 找到第一个块
             var lo = a.GetFirst();
-            var mid = FindBlock(lo, blockLen);
+            var mid = FindBlock(lo!, blockLen);
 
             if (mid.Next == null)
                 break;
@@ -32,12 +32,12 @@ public class MergeShuffle
                 Node<T>[] result;
                 if (lo == a.GetFirst())
                 {
-                    result = Merge(lo, mid, hi, random);
+                    result = Merge(lo!, mid, hi, random);
                     a.SetFirst(result[0]);
                 }
                 else
                 {
-                    result = Merge(lo.Next, mid, hi, random);
+                    result = Merge(lo!.Next!, mid, hi, random);
                     lo.Next = result[0];
                 }
 
@@ -83,8 +83,8 @@ public class MergeShuffle
         }
         else
         {
-            current = j;
-            j = j.Next;
+            current = j!;
+            j = j!.Next;
         }
 
         var first = current;

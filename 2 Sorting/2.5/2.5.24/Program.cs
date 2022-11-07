@@ -27,8 +27,13 @@ internal class Wrapper<T> : IComparable<Wrapper<T>> where T : IComparable<T>
         Index = index;
     }
 
-    public int CompareTo(Wrapper<T> other)
+    public int CompareTo(Wrapper<T>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Value.CompareTo(other.Value);
     }
 }

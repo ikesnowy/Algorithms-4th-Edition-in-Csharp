@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+
 // ReSharper disable PossibleNullReferenceException
 // ReSharper disable StringCompareToIsCultureSpecific
 
-var arguments = Console.ReadLine().Split(' ');
+var arguments = Console.ReadLine()!.Split(' ');
 var directoryPath = arguments[0];
 var filenames = Directory.GetFiles(directoryPath);
 var fileInfos = new FileInfo[filenames.Length];
@@ -59,24 +60,37 @@ static void InsertionSort<T>(T[] keys, Comparer<T>[] comparers)
 
 internal class FileSizeComparer : Comparer<FileInfo>
 {
-    public override int Compare(FileInfo x, FileInfo y)
+    public override int Compare(FileInfo? x, FileInfo? y)
     {
-        return x.Length.CompareTo(y.Length);
+        var xLength = x?.Length ?? 0;
+        var yLength = y?.Length ?? 0;
+        return xLength.CompareTo(yLength);
     }
 }
 
 internal class FileNameComparer : Comparer<FileInfo>
 {
-    public override int Compare(FileInfo x, FileInfo y)
+    public override int Compare(FileInfo? x, FileInfo? y)
     {
-        return x.FullName.CompareTo(y.FullName);
+        var xFullName = x?.FullName ?? string.Empty;
+        var yFullName = y?.FullName ?? string.Empty;
+        return xFullName.CompareTo(yFullName);
     }
 }
 
 internal class FileTimeStampComparer : Comparer<FileInfo>
 {
-    public override int Compare(FileInfo x, FileInfo y)
+    public override int Compare(FileInfo? x, FileInfo? y)
     {
+        if (x == null || y == null)
+        {
+            if (x == null && y == null)
+            {
+                return 0;
+            }
+
+            return x == null ? -1 : 1;
+        }
         return x.LastWriteTime.CompareTo(y.LastWriteTime);
     }
 }

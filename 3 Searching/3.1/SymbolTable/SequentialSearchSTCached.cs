@@ -19,12 +19,12 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     /// 链表头结点。
     /// </summary>
     /// <value>链表头结点。</value>
-    private Node _first;
+    private Node? _first;
 
     /// <summary>
     /// 最近一次访问的链表结点。
     /// </summary>
-    private Node _cache;
+    private Node? _cache;
 
     /// <summary>
     /// 链表结点。
@@ -32,10 +32,10 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     private class Node
     {
         public TKey Key;
-        public TValue Value;
-        public Node Next;
+        public TValue? Value;
+        public Node? Next;
 
-        public Node(TKey key, TValue value, Node next)
+        public Node(TKey key, TValue? value, Node? next)
         {
             Key = key;
             Value = value;
@@ -54,7 +54,7 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to contains() can't be null!");
         for (var pointer = _first; pointer != null; pointer = pointer.Next)
-            if (pointer.Key.Equals(key))
+            if (pointer.Key!.Equals(key))
                 return true;
         return false;
     }
@@ -67,8 +67,9 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "key can't be null");
-        Node before = null, target = _first;
-        while (target != null && !target.Key.Equals(key))
+        Node? before = null;
+        var target = _first;
+        while (target != null && !target.Key!.Equals(key))
         {
             before = target;
             target = target.Next;
@@ -85,7 +86,7 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     /// <param name="before"><paramref name="target"/> 的前驱。</param>
     /// <param name="target">准备删除的结点。</param>
     /// <exception cref="ArgumentNullException">当 <paramref name="target"/> 为 <c>null</c> 时抛出此异常。</exception>
-    private void Delete(Node before, Node target)
+    private void Delete(Node? before, Node target)
     {
         if (target == null)
             throw new ArgumentNullException(nameof(target), "target can't be null");
@@ -102,16 +103,16 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "key can't be null");
 
-        if (_cache != null && _cache.Key.Equals(key)) // 检查缓存
+        if (_cache != null && _cache.Key!.Equals(key)) // 检查缓存
             return _cache.Value;
         for (var pointer = _first; pointer != null; pointer = pointer.Next)
         {
-            if (pointer.Key.Equals(key))
+            if (pointer.Key!.Equals(key))
             {
                 _cache = pointer;                         // 更新缓存
                 return pointer.Value;
@@ -136,7 +137,7 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
         var pointer = _first;
         for (var i = 0; i < _n; i++)
         {
-            keys[i] = pointer.Key;
+            keys[i] = pointer!.Key;
             pointer = pointer.Next;
         }
         return keys;
@@ -148,7 +149,7 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
     /// <param name="key">新的键。</param>
     /// <param name="value">新的值。</param>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "key can't be null!");
@@ -159,7 +160,7 @@ public class SequentialSearchStCached<TKey, TValue> : ISt<TKey, TValue>
         }
         for (var pointer = _first; pointer != null; pointer = pointer.Next)
         {
-            if (pointer.Key.Equals(key))
+            if (pointer.Key!.Equals(key))
             {
                 pointer.Value = value;
                 return;

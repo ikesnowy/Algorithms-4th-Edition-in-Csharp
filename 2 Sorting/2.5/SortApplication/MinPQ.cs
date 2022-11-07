@@ -15,12 +15,12 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 相等比较器。
     /// </summary>
     /// <value>相等比较器。</value>
-    protected IEqualityComparer<TKey> EqualityComparer;
+    protected IEqualityComparer<TKey>? EqualityComparer;
     /// <summary>
     /// 排序比较器。
     /// </summary>
     /// <value>排序比较器。</value>
-    protected IComparer<TKey> Comparer;
+    protected IComparer<TKey>? Comparer;
     /// <summary>
     /// 保存元素的数组。
     /// </summary>
@@ -47,7 +47,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// 根据指定比较器进行排序和相等判断。
     /// </summary>
     /// <param name="comparer">排序比较器。</param>
-    public MinPq(IComparer<TKey> comparer) : this(1, comparer, null) { }
+    public MinPq(IComparer<TKey>? comparer) : this(1, comparer, null) { }
 
     /// <summary>
     /// 根据指定的比较器排序，并用指定比较器判断相等。
@@ -62,10 +62,10 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     /// <param name="capacity">最小堆的容量。</param>
     /// <param name="comparer">排序比较器。</param>
     /// <param name="equality">相等比较器。</param>
-    public MinPq(int capacity, IComparer<TKey> comparer, IEqualityComparer<TKey> equality)
+    public MinPq(int capacity, IComparer<TKey>? comparer, IEqualityComparer<TKey>? equality)
     {
         EqualityComparer = equality;
-        this.Comparer = comparer;
+        Comparer = comparer;
         Pq = new TKey[capacity + 1];
         N = 0;
     }
@@ -112,7 +112,7 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
         var min = Pq[1];
         Exch(1, N--);
         Sink(1);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         if ((N > 0) && (N == Pq.Length / 4))
             Resize(Pq.Length / 2);
 
@@ -128,18 +128,18 @@ public class MinPq<TKey> : IMinPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     {
         if (k == N)
         {
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
 
         if (N <= 2)
         {
             Exch(1, k);
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
         Exch(k, N--);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         Swim(k);
         Sink(k);
     }

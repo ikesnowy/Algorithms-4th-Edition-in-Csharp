@@ -13,7 +13,7 @@ public class BstTimer<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparable
     /// </summary>
     /// <param name="key">要插入的键。</param>
     /// <param name="value">要插入的值。</param>
-    public override void Put(TKey key, TValue value)
+    public override void Put(TKey? key, TValue? value)
     {
         var timer = Stopwatch.StartNew();
         base.Put(key, value);
@@ -26,7 +26,7 @@ public class BstTimer<TKey, TValue> : Bst<TKey, TValue> where TKey : IComparable
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-    public override TValue Get(TKey key)
+    public override TValue? Get(TKey key)
     {
         var timer = Stopwatch.StartNew();
         var result = base.Get(key);

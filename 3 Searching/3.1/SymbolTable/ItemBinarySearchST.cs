@@ -15,12 +15,12 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// 符号表的默认长度。
     /// </summary>
     /// <value>符号表的默认长度。</value>
-    private static readonly int InitCapacity = 2;
+    private const int InitCapacity = 2;
 
     /// <summary>
     /// 符号表键值对数组。
     /// </summary>
-    private Item<TKey, TValue>[] _items;
+    private Item<TKey, TValue?>[] _items;
 
     /// <summary>
     /// 符号表中的键值对数量。
@@ -39,7 +39,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="capacity">符号表初始容量。</param>
     public ItemBinarySearchSt(int capacity)
     {
-        _items = new Item<TKey, TValue>[capacity];
+        _items = new Item<TKey, TValue?>[capacity];
         _n = 0;
     }
 
@@ -49,7 +49,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="items">已有的键值对。</param>
     public ItemBinarySearchSt(Item<TKey, TValue>[] items)
     {
-        _items = new Item<TKey, TValue>[items.Length];
+        _items = new Item<TKey, TValue?>[items.Length];
         Array.Copy(items, _items, items.Length);
         _n = items.Length;
         var merge = new MergeSort();
@@ -62,7 +62,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小的键。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Ceiling is null");
@@ -81,7 +81,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "key can't be null");
-        return !Get(key).Equals(default(TKey));
+        return Get(key) != null;
     }
 
     /// <summary>
@@ -98,7 +98,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
 
         var i = Rank(key);
 
-        if (i == _n && _items[i].Key.CompareTo(key) != 0)
+        if (i == _n && _items[i].Key!.CompareTo(key) != 0)
             return;
 
         for (var j = i; j < _n - 1; j++)
@@ -130,12 +130,12 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Floor() is null");
         var i = Rank(key);
-        if (i < _n && _items[i].Key.CompareTo(key) == 0)
+        if (i < _n && _items[i].Key!.CompareTo(key) == 0)
             return _items[i].Key;
         if (i == 0)
             return default;
@@ -148,14 +148,14 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="key">键。</param>
     /// <returns><paramref name="key"/> 对应的值。</returns>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出此异常。</exception>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to Get() is null");
         if (IsEmpty())
             return default;
         var rank = Rank(key);
-        if (rank < _n && _items[rank].Key.Equals(key))
+        if (rank < _n && _items[rank].Key!.Equals(key))
             return _items[rank].Value;
         return default;
     }
@@ -189,9 +189,9 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
         if (lo.CompareTo(hi) > 0)
             return list;
         for (var i = Rank(lo); i < Rank(hi); i++)
-            list.Add(_items[i].Key);
+            list.Add(_items[i].Key!);
         if (Contains(hi))
-            list.Add(_items[Rank(hi)].Key);
+            list.Add(_items[Rank(hi)].Key!);
         return list;
     }
 
@@ -204,7 +204,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     {
         if (IsEmpty())
             throw new InvalidOperationException("called Max() with empty table");
-        return _items[_n - 1].Key;
+        return _items[_n - 1].Key!;
     }
 
     /// <summary>
@@ -216,7 +216,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     {
         if (IsEmpty())
             throw new InvalidOperationException("called Min() with empty table");
-        return _items[0].Key;
+        return _items[0].Key!;
     }
 
     /// <summary>
@@ -225,7 +225,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     /// <param name="key">要插入的键。</param>
     /// <param name="value">要插入的值。</param>
     /// <exception cref="ArgumentNullException">当 <paramref name="key"/> 为 <c>null</c> 时抛出。</exception>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "first argument to Put() is null");
@@ -237,7 +237,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
 
         var i = Rank(key);
 
-        if (i < _n && _items[i].Key.CompareTo(key) == 0)
+        if (i < _n && _items[i].Key!.CompareTo(key) == 0)
         {
             _items[i].Value = value;
             return;
@@ -250,7 +250,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
         {
             _items[j] = _items[j - 1];
         }
-        _items[i] = new Item<TKey, TValue> { Key = key, Value = value };
+        _items[i] = new Item<TKey, TValue?> { Key = key, Value = value };
         _n++;
     }
 
@@ -268,7 +268,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
         while (lo <= hi)
         {
             var mid = lo + (hi - lo) / 2;
-            var compare = _items[mid].Key.CompareTo(key);
+            var compare = _items[mid].Key!.CompareTo(key);
             if (compare > 0)
                 hi = mid - 1;
             else if (compare < 0)
@@ -288,7 +288,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     {
         if (k < 0 || k >= _n)
             throw new ArgumentOutOfRangeException("called Select() with invaild k: " + k);
-        return _items[k].Key;
+        return _items[k].Key!;
     }
 
     /// <summary>
@@ -327,7 +327,7 @@ public class ItemBinarySearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TK
     {
         if (capacity < _n)
             throw new ArgumentOutOfRangeException(nameof(capacity), "分配容量不能小于表中元素数量。");
-        var temp = new Item<TKey, TValue>[capacity];
+        var temp = new Item<TKey, TValue?>[capacity];
         for (var i = 0; i < _n; i++)
         {
             temp[i] = _items[i];

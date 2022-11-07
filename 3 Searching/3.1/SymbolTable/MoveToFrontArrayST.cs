@@ -9,17 +9,18 @@ namespace SymbolTable;
 /// <typeparam name="TKey">键类型。</typeparam>
 /// <typeparam name="TValue">值类型。</typeparam>
 public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
+    where TKey : notnull
 {
     /// <summary>
     /// 键数组。
     /// </summary>
     /// <value>键数组。</value>
-    private TKey[] _keys;
+    private TKey?[] _keys;
     /// <summary>
     /// 值数组。
     /// </summary>
     /// <value>值数组。</value>
-    private TValue[] _values;
+    private TValue?[] _values;
     /// <summary>
     /// 键值对数目。
     /// </summary>
@@ -38,7 +39,7 @@ public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
     public MoveToFrontArraySt(int initCapacity)
     {
         _keys = new TKey[initCapacity];
-        _values = new TValue[initCapacity];
+        _values = new TValue?[initCapacity];
     }
 
     /// <summary>
@@ -46,7 +47,7 @@ public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
     /// </summary>
     /// <param name="key">需要检查是否存在的键。</param>
     /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public bool Contains(TKey key) => Get(key).Equals(default(TKey));
+    public bool Contains(TKey key) => Get(key) != null;
 
     /// <summary>
     /// 删除键 <paramref name="key"/> 及对应的值。
@@ -75,11 +76,11 @@ public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(Value)</c></returns>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         int i;
         for (i = 0; i < _n; i++)
-            if (_keys[i].Equals(key))
+            if (_keys[i]!.Equals(key))
                 break;
 
         if (i == _n)
@@ -121,7 +122,7 @@ public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
     /// </summary>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         Delete(key);
 
@@ -145,8 +146,8 @@ public class MoveToFrontArraySt<TKey, TValue> : ISt<TKey, TValue>
     /// <param name="capacity">新分配的空间大小。</param>
     private void Resize(int capacity)
     {
-        var tempKey = new TKey[capacity];
-        var tempValue = new TValue[capacity];
+        var tempKey = new TKey?[capacity];
+        var tempValue = new TValue?[capacity];
 
         for (var i = 0; i < _n; i++)
             tempKey[i] = _keys[i];

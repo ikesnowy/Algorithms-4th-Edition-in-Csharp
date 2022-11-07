@@ -12,11 +12,13 @@ public class Date : IComparable<Date>
     /// </summary>
     /// <value>月份数据。</value>
     public int Month { get; }
+
     /// <summary>
     /// 日期。
     /// </summary>
     /// <value>日期数据。</value>
     public int Day { get; }
+
     /// <summary>
     /// 年份。
     /// </summary>
@@ -65,7 +67,7 @@ public class Date : IComparable<Date>
     /// </summary>
     /// <param name="obj">需要比较的另一个对象。</param>
     /// <returns>相等返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
             return true;
@@ -95,8 +97,13 @@ public class Date : IComparable<Date>
     /// </summary>
     /// <param name="other">另一个日期。</param>
     /// <returns><paramref name="other"/> 较后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
-    public int CompareTo(Date other)
+    public int CompareTo(Date? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         if (Year > other.Year)
             return 1;
         if (Year < other.Year)

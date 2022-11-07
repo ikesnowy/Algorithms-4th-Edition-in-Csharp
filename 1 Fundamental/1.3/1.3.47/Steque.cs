@@ -20,14 +20,14 @@ namespace _1._3._47;
 /// <typeparam name="TItem">Steque 中要包含的元素。</typeparam>
 public class Steque<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
-    private Node<TItem> _last;
+    private Node<TItem>? _first;
+    private Node<TItem>? _last;
     private int _count;
 
     private class Node<T>
     {
-        public T Item;
-        public Node<T> Next;
+        public T Item { get; set; } = default!;
+        public Node<T>? Next { get; set; }
     }
 
     /// <summary>
@@ -64,9 +64,7 @@ public class Steque<TItem> : IEnumerable<TItem>
     public void Push(TItem item)
     {
         var oldFirst = _first;
-        _first = new Node<TItem>();
-        _first.Item = item;
-        _first.Next = oldFirst;
+        _first = new Node<TItem> { Item = item, Next = oldFirst };
 
         if (oldFirst == null)
         {
@@ -83,7 +81,7 @@ public class Steque<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        var item = _first.Item;
+        var item = _first!.Item;
         _first = _first.Next;
         _count--;
         if (_count == 0)
@@ -100,13 +98,11 @@ public class Steque<TItem> : IEnumerable<TItem>
     public void Enqueue(TItem item)
     {
         var oldLast = _last;
-        _last = new Node<TItem>();
-        _last.Item = item;
-        _last.Next = null;
+        _last = new Node<TItem> { Item = item, Next = null };
         if (IsEmpty())
             _first = _last;
         else
-            oldLast.Next = _last;
+            oldLast!.Next = _last;
         _count++;
     }
 
@@ -118,7 +114,7 @@ public class Steque<TItem> : IEnumerable<TItem>
     {
         if (IsEmpty())
             throw new InvalidOperationException("Stack Underflow");
-        return _first.Item;
+        return _first!.Item;
     }
 
     /// <summary>
@@ -137,7 +133,7 @@ public class Steque<TItem> : IEnumerable<TItem>
         }
         else
         {
-            s1._last.Next = s2._first;
+            s1._last!.Next = s2._first;
             s1._count += s2._count;
         }
 
@@ -167,19 +163,18 @@ public class Steque<TItem> : IEnumerable<TItem>
 
     private class StackEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public StackEnumerator(Node<TItem> first)
+        public StackEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -189,7 +184,7 @@ public class Steque<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
 
             _current = _current.Next;

@@ -12,7 +12,9 @@ public class Time : IComparable<Time>
     public int Minute { get; init; }
     public int Second { get; init; }
 
-    public Time() : this(0, 0, 0) { }
+    public Time() : this(0, 0, 0)
+    {
+    }
 
     public Time(int hour, int minute, int second)
     {
@@ -21,8 +23,13 @@ public class Time : IComparable<Time>
         Second = second;
     }
 
-    public int CompareTo(Time other)
+    public int CompareTo(Time? other)
     {
+        if (other == null)
+        {
+            return 1;
+        }
+
         var result = Hour.CompareTo(other.Hour);
         if (result == 0)
             result = Minute.CompareTo(other.Minute);
@@ -31,11 +38,11 @@ public class Time : IComparable<Time>
         return result;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (this == obj)
             return true;
-        return CompareTo((Time)obj) == 0;
+        return CompareTo((Time?)obj) == 0;
     }
 
     public override int GetHashCode()

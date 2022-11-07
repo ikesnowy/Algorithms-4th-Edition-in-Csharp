@@ -76,7 +76,7 @@ public class IndexMaxPq<TKey> : IEnumerable<int> where TKey : IComparable<TKey>
         Exch(index, _n--);
         Swim(index);
         Sink(index);
-        _keys[i] = default;
+        _keys[i] = default!;
         _qp[i] = -1;
     }
 
@@ -93,7 +93,7 @@ public class IndexMaxPq<TKey> : IEnumerable<int> where TKey : IComparable<TKey>
         Sink(1);
 
         _qp[max] = -1;
-        _keys[max] = default;
+        _keys[max] = default!;
         _pq[_n + 1] = -1;
         return max;
     }

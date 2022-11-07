@@ -21,7 +21,7 @@ public abstract class AStar<T> where T : IComparable<T>
     /// </summary>
     private class DefaultEqualityComparer : IEqualityComparer<T>
     {
-        public bool Equals(T x, T y)
+        public bool Equals(T? x, T? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             return x.Equals(y);
@@ -45,13 +45,13 @@ public abstract class AStar<T> where T : IComparable<T>
             _fScore = fScore;
         }
 
-        public int Compare(T x, T y)
+        public int Compare(T? x, T? y)
         {
             if (!_fScore.ContainsKey(x!))
-                _fScore[x] = int.MaxValue;
+                _fScore[x!] = int.MaxValue;
             if (!_fScore.ContainsKey(y!))
-                _fScore[y] = int.MaxValue;
-            return _fScore[x].CompareTo(_fScore[y]);
+                _fScore[y!] = int.MaxValue;
+            return _fScore[x!].CompareTo(_fScore[y!]);
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class AStar<T> where T : IComparable<T>
     /// <param name="start">起始状态。</param>
     /// <param name="goal">终止状态。</param>
     /// <returns><paramref name="start"/> 至 <paramref name="goal"/> 之间的最短路径。</returns>
-    public T[] GetPath(T start, T goal)
+    public T[]? GetPath(T start, T goal)
     {
         var comeFrom = new Dictionary<T, T>(_equalityComparer);
         var gScore = new Dictionary<T, int>(_equalityComparer);

@@ -13,7 +13,7 @@ public class BstNonHibbard<TKey, TValue> : Bst<TKey, TValue> where TKey : ICompa
     /// <param name="x">要删除的结点的二叉查找树。</param>
     /// <param name="key">要删除的键。</param>
     /// <returns>删除结点后的二叉查找树。</returns>
-    protected override Node Delete(Node x, TKey key)
+    protected override Node? Delete(Node? x, TKey key)
     {
         if (x == null)
         {

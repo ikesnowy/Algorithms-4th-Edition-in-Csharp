@@ -14,7 +14,7 @@ var sr = new StreamReader(File.OpenRead("DJIA.prn"));
 var list = new List<Djia>();
 while (!sr.EndOfStream)
 {
-    var blocks = sr.ReadLine().Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+    var blocks = sr.ReadLine()!.Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
     list.Add(new Djia(blocks[0], long.Parse(blocks[1])));
 }
 

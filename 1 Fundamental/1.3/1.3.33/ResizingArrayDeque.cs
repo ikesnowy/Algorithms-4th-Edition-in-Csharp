@@ -142,7 +142,7 @@ public class ResizingArrayDeque<TItem> : IEnumerable<TItem>
 
     private class ResizingDequeEnumerator : IEnumerator<TItem>
     {
-        private TItem[] _deque;
+        private TItem[]? _deque;
         private int _current;
         private readonly int _first;
         private readonly int _count;
@@ -155,9 +155,9 @@ public class ResizingArrayDeque<TItem> : IEnumerable<TItem>
             _current = -1;
         }
 
-        TItem IEnumerator<TItem>.Current => _deque[(_first + _current) % _deque.Length];
+        TItem IEnumerator<TItem>.Current => _deque![(_first + _current) % _deque.Length];
 
-        object IEnumerator.Current => _deque[(_first + _current) % _deque.Length];
+        object IEnumerator.Current => _deque![(_first + _current) % _deque.Length]!;
 
         void IDisposable.Dispose()
         {

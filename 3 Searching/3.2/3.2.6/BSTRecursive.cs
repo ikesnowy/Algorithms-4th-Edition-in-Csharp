@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using BinarySearchTree;
 // ReSharper disable CognitiveComplexity
@@ -12,7 +13,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <summary>
     /// 二叉查找树的根结点。
     /// </summary>
-    private Node _root;
+    private Node? _root;
 
     /// <summary>
     /// 二叉树结点类型。
@@ -30,17 +31,17 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
         /// 键值对中的值。
         /// </summary>
         /// <value>值。</value>
-        public TValue Value { get; set; }
+        public TValue? Value { get; set; }
         /// <summary>
         /// 左子树的引用。
         /// </summary>
         /// <value>左子树的引用。</value>
-        public Node Left { get; set; }
+        public Node? Left { get; set; }
         /// <summary>
         /// 右子树的引用。
         /// </summary>
         /// <value>右子树的引用。</value>
-        public Node Right { get; set; }
+        public Node? Right { get; set; }
         /// <summary>
         /// 子树的结点数量。
         /// </summary>
@@ -53,7 +54,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
         /// <param name="key">键。</param>
         /// <param name="value">值。</param>
         /// <param name="size">子树大小。</param>
-        public Node(TKey key, TValue value, int size)
+        public Node(TKey key, TValue? value, int size)
         {
             Key = key;
             Value = value;
@@ -68,7 +69,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="key">要插入的键。</param>
     /// <param name="value">要插入的值。</param>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey? key, TValue? value)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "calls Put() with a null key");
@@ -87,7 +88,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
     /// <returns>插入结点后的根结点。</returns>
-    private Node Put(Node x, TKey key, TValue value)
+    private Node Put(Node? x, TKey key, TValue? value)
     {
         if (x == null)
             return new Node(key, value, 1);
@@ -107,7 +108,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-    public TValue Get(TKey key) => Get(_root, key);
+    public TValue? Get(TKey key) => Get(_root, key);
 
     /// <summary>
     /// 递归查找 <paramref name="key"/> 所对应的值。
@@ -115,7 +116,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">要查找的根结点。</param>
     /// <param name="key">要查找的键。</param>
     /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
-    private TValue Get(Node x, TKey key)
+    private TValue? Get(Node? x, TKey? key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "calls get() with a null key");
@@ -147,7 +148,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">要删除的结点的二叉查找树。</param>
     /// <param name="key">要删除的键。</param>
     /// <returns>删除结点后的二叉查找树。</returns>
-    private Node Delete(Node x, TKey key)
+    private Node? Delete(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -188,6 +189,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// 二叉查找树是否为空。
     /// </summary>
     /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+    [MemberNotNullWhen(false, nameof(_root))]
     public bool IsEmpty() => Size(_root) == 0;
 
     /// <summary>
@@ -201,7 +203,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="x">根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根的二叉树的结点数量。</returns>
-    private int Size(Node x)
+    private int Size(Node? x)
     {
         if (x == null)
             return 0;
@@ -242,7 +244,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="x">二叉搜索树的根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-    private int Height(Node x)
+    private int Height(Node? x)
     {
         return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
     }
@@ -283,7 +285,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="queue">要填充的队列。</param>
     /// <param name="lo">键的下限。</param>
     /// <param name="hi">键的上限。</param>
-    private void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    private void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
             return;
@@ -350,7 +352,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey? key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to floor is null");
@@ -368,7 +370,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
-    private Node Floor(Node x, TKey key)
+    private Node? Floor(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -388,7 +390,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>大于等于 <paramref name="key"/> 的最小键。</returns>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey? key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
@@ -406,7 +408,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
-    private Node Ceiling(Node x, TKey key)
+    private Node? Ceiling(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -441,7 +443,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">要查找排名的键。</param>
     /// <returns><paramref name="key"/> 的排名。</returns>
-    private int Rank(Node x, TKey key)
+    private int Rank(Node? x, TKey key)
     {
         if (x == null)
             return 0;
@@ -463,7 +465,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
         if (k < 0 || k >= Size())
             throw new ArgumentException("argument to select() is invaild: " + k);
         var x = Select(_root, k);
-        return x.Key;
+        return x!.Key;
     }
 
     /// <summary>
@@ -472,7 +474,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// <param name="x">根结点。</param>
     /// <param name="k">要挑拣的排名。</param>
     /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
-    private Node Select(Node x, int k)
+    private Node? Select(Node? x, int k)
     {
         if (x == null)
             return null;
@@ -500,7 +502,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    private Node DeleteMin(Node x)
+    private Node? DeleteMin(Node x)
     {
         if (x.Left == null)
             return x.Right;
@@ -525,7 +527,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    private Node DeleteMax(Node x)
+    private Node? DeleteMax(Node x)
     {
         if (x.Right == null)
             return x.Left;
@@ -548,8 +550,8 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
 
         //BST
         var sb = new StringBuilder();
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(_root);
 
         while (layer != maxDepth)
@@ -619,7 +621,7 @@ public class BstRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey, TV
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    private int Depth(Node? x)
     {
         if (x == null)
             return 0;

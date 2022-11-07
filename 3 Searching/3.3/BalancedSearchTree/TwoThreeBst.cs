@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
@@ -16,7 +17,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     where TKey : IComparable<TKey>
 {
     private int _count;
-    private Node _root;
+    private Node? _root;
 
     /// <inheritdoc />
     public void Put(TKey key, TValue value)
@@ -32,13 +33,13 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         if (current != null)
             throw new InvalidOperationException($"The Key {key} has already been added");
 
-        ends.AddPair(key, value);
+        ends!.AddPair(key, value);
         _root = BalanceBottomUp(ends);
         _count++;
     }
 
     /// <inheritdoc />
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         if (_root == null)
             return default;
@@ -79,7 +80,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             {
                 // node is 2-node, make it 3 or 4
                 // find sibling
-                Node sibling;
+                Node? sibling;
                 if (node == parent.Left)
                 {
                     sibling = parent.Children[1];
@@ -90,10 +91,10 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
                 }
                 else
                 {
-                    sibling = parent.Left.Degree > parent.Right.Degree ? parent.Left : parent.Right;
+                    sibling = parent.Left!.Degree > parent.Right!.Degree ? parent.Left : parent.Right;
                 }
 
-                if (sibling.Degree == 2)
+                if (sibling!.Degree == 2)
                 {
                     node = Merge(node, sibling);
                 }
@@ -111,11 +112,11 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             return;
         }
 
-        var min = Min(node.Right);
+        var min = Min(node.Right!);
         var t = node.Contents[index];
         node.Contents[index] = min.Contents[0];
         min.Contents[0] = t;
-        node.Right = DeleteMin(node.Right);
+        node.Right = DeleteMin(node.Right!);
         _count--;
     }
 
@@ -126,6 +127,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     }
 
     /// <inheritdoc />
+    [MemberNotNullWhen(false, nameof(_root))]
     public bool IsEmpty()
     {
         return _root == null;
@@ -137,7 +139,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return _count;
     }
 
-    private int Size(Node x)
+    private int Size(Node? x)
     {
         if (x == null)
         {
@@ -207,7 +209,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return queue;
     }
 
-    private void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    private void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
         {
@@ -317,7 +319,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Contents[0].Key;
     }
 
-    private Node Floor(Node x, TKey key)
+    private Node? Floor(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -380,7 +382,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return x.Contents[^1].Key;
     }
 
-    private Node Ceiling(Node x, TKey key)
+    private Node? Ceiling(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -432,7 +434,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Rank(_root, key);
     }
 
-    private int Rank(Node x, TKey key)
+    private int Rank(Node? x, TKey key)
     {
         if (x == null)
         {
@@ -469,7 +471,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     }
 
     /// <inheritdoc />
-    public TKey Select(int k)
+    public TKey? Select(int k)
     {
         if (k < 0 || k >= Size())
         {
@@ -479,7 +481,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         return Select(_root, k);
     }
 
-    private TKey Select(Node x, int rank)
+    private TKey? Select(Node? x, int rank)
     {
         if (x == null)
         {
@@ -541,7 +543,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             return DeleteMin(x.Left);
         }
             
-        if (x.Children[1].Degree > 2)
+        if (x.Children[1]!.Degree > 2)
         {
             // sibling is not 2-node, borrow one key into left
                 
@@ -549,12 +551,12 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             x.Left.AddPair(x.Contents[0]);
             // parent get key from sibling
             x.Contents.RemoveAt(0);
-            x.Contents.Insert(0, x.Children[1].Contents[0]);
+            x.Contents.Insert(0, x.Children[1]!.Contents[0]);
             // sibling delete min key
-            x.Children[1].Contents.RemoveAt(0);
+            x.Children[1]!.Contents.RemoveAt(0);
             // move sibling's child to left's child
-            x.Left.Children.Add(x.Children[1].Left);
-            x.Children[1].Children.RemoveAt(0);
+            x.Left.Children.Add(x.Children[1]!.Left);
+            x.Children[1]!.Children.RemoveAt(0);
 
             return DeleteMin(x.Left);
         }
@@ -564,9 +566,9 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         {
             // current node and its children are all 2-node
             x.AddPair(x.Left.Contents[0]);
-            x.AddPair(x.Right.Contents[0]);
-            x.Left.Children.ForEach(c => c.Parent = x);
-            x.Right.Children.ForEach(c => c.Parent = x);
+            x.AddPair(x.Right!.Contents[0]);
+            x.Left.Children.ForEach(c => c!.Parent = x);
+            x.Right.Children.ForEach(c => c!.Parent = x);
             var t = x.Left;
             x.Left = t.Left;
             x.MiddleLeft = t.Right;
@@ -578,9 +580,9 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             
         x.Left.AddPair(x.Contents[0]);
         x.Contents.RemoveAt(0);
-        x.Left.AddPair(x.Children[1].Contents[0]);
-        x.Left.MiddleRight = x.Children[1].Left;
-        x.Left.Right = x.Children[1].Right;
+        x.Left.AddPair(x.Children[1]!.Contents[0]);
+        x.Left.MiddleRight = x.Children[1]!.Left;
+        x.Left.Right = x.Children[1]!.Right;
         x.Children.RemoveAt(1);
         return DeleteMin(x.Left);
     }
@@ -612,7 +614,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             return DeleteMax(x.Right);
         }
             
-        if (x.Children[^2].Degree > 2)
+        if (x.Children[^2]!.Degree > 2)
         {
             // sibling is not 2-node, borrow one key into left
                 
@@ -620,12 +622,12 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             x.Right.AddPair(x.Contents[^1]);
             // parent get key from sibling
             x.Contents.RemoveAt(x.Contents.Count - 1);
-            x.Contents.Insert(x.Contents.Count - 1, x.Children[^2].Contents[^1]);
+            x.Contents.Insert(x.Contents.Count - 1, x.Children[^2]!.Contents[^1]);
             // sibling delete max key
-            x.Children[^2].Contents.RemoveAt(x.Children[^2].Contents.Count - 1);
+            x.Children[^2]!.Contents.RemoveAt(x.Children[^2]!.Contents.Count - 1);
             // move sibling's child to right's child
-            x.Right.Children.Add(x.Children[^2].Right);
-            x.Children[^2].Children.RemoveAt(x.Children[^2].Degree - 1);
+            x.Right.Children.Add(x.Children[^2]!.Right);
+            x.Children[^2]!.Children.RemoveAt(x.Children[^2]!.Degree - 1);
 
             return DeleteMax(x.Right);
         }
@@ -634,10 +636,10 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         if (x.Degree == 2)
         {
             // current node and its children are all 2-node
-            x.AddPair(x.Left.Contents[0]);
+            x.AddPair(x.Left!.Contents[0]);
             x.AddPair(x.Right.Contents[0]);
-            x.Left.Children.ForEach(c => c.Parent = x);
-            x.Right.Children.ForEach(c => c.Parent = x);
+            x.Left.Children.ForEach(c => c!.Parent = x);
+            x.Right.Children.ForEach(c => c!.Parent = x);
             var t = x.Left;
             x.Left = t.Left;
             x.MiddleLeft = t.Right;
@@ -649,9 +651,9 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
             
         x.Right.AddPair(x.Contents[^1]);
         x.Contents.RemoveAt(x.Contents.Count - 1);
-        x.Right.AddPair(x.Children[^2].Contents[^1]);
-        x.Left.MiddleRight = x.Children[^2].Left;
-        x.Left.Right = x.Children[^2].Right;
+        x.Right.AddPair(x.Children[^2]!.Contents[^1]);
+        x.Left!.MiddleRight = x.Children[^2]!.Left;
+        x.Left.Right = x.Children[^2]!.Right;
         x.Children.RemoveAt(x.Degree - 2);
         return DeleteMax(x.Right);
     }
@@ -669,8 +671,8 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
 
         // BFS
         var lines = new List<string>();
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(_root);
 
         while (layer != maxDepth)
@@ -775,7 +777,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    private int Depth(Node? x)
     {
         if (x == null) return 0;
         if (x.Degree == 2) return 1 + Math.Max(Depth(x.Left), Depth(x.Right));
@@ -868,7 +870,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     /// <param name="current">当前结点</param>
     /// <param name="key">要搜索的键。</param>
     /// <returns>父结点、当前结点和键的下标。</returns>
-    private static (Node Parent, Node Node, int Index) Get(Node parent, Node current, TKey key)
+    private static (Node? Parent, Node? Node, int Index) Get(Node? parent, Node? current, TKey key)
     {
         if (current == null)
             return (parent, null, -1);
@@ -908,7 +910,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
 
         var parent = x.Parent;
-        if (parent.Degree == 2)
+        if (parent!.Degree == 2)
         {
             parent.AddPair(x.Contents[0]);
             parent.AddPair(y.Contents[0]);
@@ -923,7 +925,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         {
             // merge middle to left
             x = parent.Left;
-            y = parent.Middle;
+            y = parent.Middle!;
 
             x.AddPair(parent.Contents[0]);
             x.AddPair(y.Contents[0]);
@@ -935,8 +937,8 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
             
         // merge middle to right
-        x = parent.Middle;
-        y = parent.Right;
+        x = parent.Middle!;
+        y = parent.Right!;
             
         y.AddPair(parent.Contents[^1]);
         y.AddPair(x.Contents[0]);
@@ -968,7 +970,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         }
 
         var parent = node.Parent;
-        if (node == parent.Left)
+        if (node == parent!.Left)
         {
             // flow to left
             node.AddPair(parent.Contents[0]);
@@ -1019,7 +1021,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// 构造一个空的 2-3 树结点，并设置父结点。
         /// </summary>
         /// <param name="parent">父结点。</param>
-        public Node(Node parent)
+        public Node(Node? parent)
         {
             Parent = parent;
         }
@@ -1027,7 +1029,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// <summary>
         /// 父结点。
         /// </summary>
-        public Node Parent { get; set; }
+        public Node? Parent { get; set; }
             
         /// <summary>
         /// 结点保存的键值对。
@@ -1037,7 +1039,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// <summary>
         /// 结点的子结点。
         /// </summary>
-        public List<Node> Children { get; } = new() { null };
+        public List<Node?> Children { get; } = new() { null };
 
         /// <summary>
         /// 结点的度，例如 2-结点返回的就是 2。
@@ -1047,7 +1049,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// <summary>
         /// 左子结点。
         /// </summary>
-        public Node Left
+        public Node? Left
         {
             get => Children[0];
             set
@@ -1062,10 +1064,9 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// 第二个子结点，只有当 <see cref="Degree"/> 是 4 时才可以访问这个属性。
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 4。</exception>
-        public Node MiddleLeft
+        public Node? MiddleLeft
         {
-            get
-                => Degree == 4
+            get => Degree == 4
                     ? Children[1]
                     : throw new InvalidOperationException("only 4-node has middle left");
             set
@@ -1080,7 +1081,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// 位于中间的子结点，只有当 <see cref="Degree"/> 为 3 时才可以访问这个属性。
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 3。</exception>
-        public Node Middle
+        public Node? Middle
         {
             get => Degree == 3
                 ? Children[1]
@@ -1097,10 +1098,9 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// 第三个子结点，只有当 <see cref="Degree"/> 是 4 时才可以访问这个属性。
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="Degree"/> 不为 4。</exception>
-        public Node MiddleRight
+        public Node? MiddleRight
         {
-            get
-                => Degree == 4
+            get => Degree == 4
                     ? Children[2]
                     : throw new InvalidOperationException("only 4-node has middle right");
             set
@@ -1114,7 +1114,7 @@ public class TwoThreeBst<TKey, TValue> : IOrderedSt<TKey, TValue>
         /// <summary>
         /// 右子结点。
         /// </summary>
-        public Node Right
+        public Node? Right
         {
             // ^1 即最后一个，与 Children.Count - 1 等同。
             get => Children[^1];

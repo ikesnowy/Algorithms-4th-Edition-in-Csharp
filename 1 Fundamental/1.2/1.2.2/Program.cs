@@ -5,7 +5,7 @@ using Geometry;
 // ReSharper disable PossibleNullReferenceException
 
 Console.WriteLine("Type the value of N:");
-var n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine()!);
 var intervalList = new List<Interval1D>();
 
 if (n < 2)
@@ -18,7 +18,7 @@ if (n < 2)
 Console.WriteLine("Type the data, make sure there is a space between two numbers.\nExample: 0.5 1");
 for (var i = 0; i < n; i++)
 {
-    var temp = Console.ReadLine();
+    var temp = Console.ReadLine()!;
     var lo = double.Parse(temp.Split(' ')[0]);
     var hi = double.Parse(temp.Split(' ')[1]);
 

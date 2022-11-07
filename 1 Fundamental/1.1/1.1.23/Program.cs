@@ -13,7 +13,7 @@ for (var i = 0; i < whiteListLines.Length; i++)
 Array.Sort(whiteList);
 Console.WriteLine("Type the numbers you want to query: ");
 // 输入样例：5 824524 478510 387221
-var input = Console.ReadLine();
+var input = Console.ReadLine()!;
 var query = new int[input.Split(' ').Length];
 for (var i = 0; i < query.Length; i++)
 {
@@ -22,7 +22,7 @@ for (var i = 0; i < query.Length; i++)
 
 Console.WriteLine(
     "Type '+' to get the numbers that not in the whitelist," + "'-' to get the numbers that in the whitelist.");
-var operation = Console.ReadLine()[0];
+var operation = Console.ReadLine()![0];
 foreach (var n in query)
 {
     if (Rank(n, whiteList) == -1)

@@ -66,7 +66,7 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
         var max = Pq[1];
         Exch(1, N--);
         Sink(1);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         if ((N > 0) && (N == Pq.Length / 4))
             Resize(Pq.Length / 2);
 
@@ -96,18 +96,18 @@ public class MaxPq<TKey> : IMaxPq<TKey>, IEnumerable<TKey> where TKey : ICompara
     {
         if (k == N)
         {
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
 
         if (N <= 2)
         {
             Exch(1, k);
-            Pq[N--] = default;
+            Pq[N--] = default!;
             return;
         }
         Exch(k, N--);
-        Pq[N + 1] = default;
+        Pq[N + 1] = default!;
         Swim(k);
         Sink(k);
     }

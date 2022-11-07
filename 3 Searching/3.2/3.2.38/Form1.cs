@@ -6,7 +6,7 @@ namespace _3._2._38;
 
 public partial class Form1 : Form
 {
-    private Form2 _drawPad;
+    private Form2? _drawPad;
 
     public Form1()
     {
@@ -27,11 +27,11 @@ public partial class Form1 : Form
 
     private void AddNode_Click(object sender, EventArgs e)
     {
-        _drawPad.AddNode(int.Parse(textBox1.Text));
+        _drawPad?.AddNode(int.Parse(textBox1.Text));
     }
 
     private void DeleteNode_Click(object sender, EventArgs e)
     {
-        _drawPad.DeleteNode(int.Parse(textBox2.Text));
+        _drawPad?.DeleteNode(int.Parse(textBox2.Text));
     }
 }

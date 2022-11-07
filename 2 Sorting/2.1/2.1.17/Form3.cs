@@ -22,8 +22,7 @@ public partial class Form3 : Form
         timer1.Interval = 60;
         timer1.Start();
 
-        var thread = new Thread(InsertionSort);
-        thread.IsBackground = true;
+        var thread = new Thread(InsertionSort) { IsBackground = true };
         thread.Start();
     }
 

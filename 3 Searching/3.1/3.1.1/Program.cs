@@ -18,7 +18,7 @@ st.Put("D", 1.00);
 st.Put("F", 0.00);
 
 double total = 0;
-var gpaList = Console.ReadLine().Split(' ');
+var gpaList = Console.ReadLine()!.Split(' ');
 foreach (var gpa in gpaList)
 {
     total += st.Get(gpa);

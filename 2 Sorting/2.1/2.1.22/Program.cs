@@ -12,7 +12,7 @@ var a = new Transaction[4];
 
 for (var i = 0; i < a.Length; i++)
 {
-    var input = Console.ReadLine();
+    var input = Console.ReadLine()!;
     a[i] = new Transaction(input);
 }
 

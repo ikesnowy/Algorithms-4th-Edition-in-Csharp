@@ -32,7 +32,7 @@ static void DeleteLast(Node<string> first)
 {
     var current = first;
 
-    while (current.Next.Next != null)
+    while (current.Next?.Next != null)
     {
         current = current.Next;
     }

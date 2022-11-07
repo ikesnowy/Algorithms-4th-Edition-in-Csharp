@@ -14,8 +14,13 @@ internal class Vector : IComparable<Vector>
         Length = data.Length;
     }
 
-    public int CompareTo(Vector other)
+    public int CompareTo(Vector? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         var maxN = Math.Max(Length, other.Length);
         for (var i = 0; i < maxN; i++)
         {
@@ -23,6 +28,7 @@ internal class Vector : IComparable<Vector>
             if (comp != 0)
                 return comp;
         }
+
         return Length.CompareTo(other.Length);
     }
 
@@ -35,6 +41,7 @@ internal class Vector : IComparable<Vector>
                 sb.Append(' ');
             sb.Append(_data[i]);
         }
+
         return sb.ToString();
     }
 }

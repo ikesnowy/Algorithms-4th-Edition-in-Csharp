@@ -17,7 +17,7 @@ for (var i = 0; i < strings.Length; i++)
 Array.Sort(whiteList);
 Console.WriteLine("Type the numbers you want to query: ");
 // 输入样例：5 824524 478510 387221
-var input = Console.ReadLine();
+var input = Console.ReadLine()!;
 var query = new int[input.Split(' ').Length];
 for (var i = 0; i < query.Length; i++)
 {

@@ -125,8 +125,8 @@ public class RandomQueue<TItem> : IEnumerable<TItem>
     {
         private int _current;
         private readonly int _count;
-        private TItem[] _queue;
-        private int[] _sequence;
+        private TItem[]? _queue;
+        private int[]? _sequence;
 
         public RandomQueueEnumerator(TItem[] queue, int count)
         {
@@ -161,9 +161,9 @@ public class RandomQueue<TItem> : IEnumerable<TItem>
             }
         }
 
-        TItem IEnumerator<TItem>.Current => _queue[_sequence[_current]];
+        TItem IEnumerator<TItem>.Current => _queue![_sequence![_current]];
 
-        object IEnumerator.Current => _queue[_sequence[_current]];
+        object IEnumerator.Current => _queue![_sequence![_current]]!;
 
         void IDisposable.Dispose()
         {

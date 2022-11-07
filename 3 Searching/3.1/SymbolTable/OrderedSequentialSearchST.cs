@@ -17,21 +17,21 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// </summary>
     private class Node
     {
-        public TKey Key { get; set; }        // 键。
-        public TValue Value { get; set; }    // 值。
-        public Node Next { get; set; }      // 后继。
-        public Node Prev { get; set; }      // 前驱。
+        public TKey Key { get; set; } = default!; // 键。
+        public TValue? Value { get; set; }    // 值。
+        public Node? Next { get; set; }      // 后继。
+        public Node? Prev { get; set; }      // 前驱。
     }
 
-    private Node _first;      // 起始结点。
-    private Node _tail;       // 末尾结点。
+    private Node? _first;      // 起始结点。
+    private Node? _tail;       // 末尾结点。
     private int _n;              // 键值对数量。
 
     /// <summary>
     /// 大于等于 key 的最小值。
     /// </summary>
     /// <returns>大于等于 key 的最小值，不存在则返回 <c>default(Key)</c>。</returns>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey key)
     {
         var pointer = _first;
         while (pointer != null && Less(pointer.Key, key))
@@ -44,7 +44,7 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>如果存在则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
-    public bool Contains(TKey key) => Floor(key).Equals(key);
+    public bool Contains(TKey key) => Floor(key)?.Equals(key) ?? false;
 
     /// <summary>
     /// 从表中删去键 <paramref name="key"/> 对应的值。
@@ -85,7 +85,7 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     {
         if (_n == 0)
             throw new Exception("ST Underflow");
-        Delete(_tail);
+        Delete(_tail!);
     }
 
     /// <summary>
@@ -95,14 +95,14 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     {
         if (_n == 0)
             throw new Exception("ST Underflow");
-        Delete(_first);
+        Delete(_first!);
     }
 
     /// <summary>
     /// 小于等于 Key 的最大值。
     /// </summary>
     /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey key)
     {
         var pointer = _tail;
         while (pointer != null && Greater(pointer.Key, key))
@@ -115,7 +115,7 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns><typeparamref name="TKey"/> 对应的值。</returns>
-    public TValue Get(TKey key)
+    public TValue? Get(TKey key)
     {
         var pointer = _first;
         while (pointer != null && Greater(key, pointer.Key))
@@ -138,7 +138,7 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// 获得符号表中所有键的集合。
     /// </summary>
     /// <returns>符号表中所有键的集合。</returns>
-    public IEnumerable<TKey> Keys() => _n == 0 ? new List<TKey>() : Keys(_first.Key, _tail.Key);
+    public IEnumerable<TKey> Keys() => _n == 0 ? new List<TKey>() : Keys(_first!.Key, _tail!.Key);
 
     /// <summary>
     /// 获得符号表中 [<paramref name="lo"/>, <paramref name="hi"/>] 之间的键。
@@ -168,20 +168,20 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// 最大的键。
     /// </summary>
     /// <returns>最大的键，不存在则返回 <c>default(Key)</c>。</returns>
-    public TKey Max() => _tail == null ? default : _tail.Key;
+    public TKey? Max() => _tail == null ? default : _tail.Key;
 
     /// <summary>
     /// 最小的键。
     /// </summary>
     /// <returns>最小的键，不存在则返回 <c>default(Key)</c>。</returns>
-    public TKey Min() => _first == null ? default : _first.Key;
+    public TKey? Min() => _first == null ? default : _first.Key;
 
     /// <summary>
     /// 向符号表插入键值对，重复值将被替换。
     /// </summary>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey key, TValue? value)
     {
         Delete(key);
 
@@ -193,7 +193,8 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
             Next = null
         };
 
-        Node left = null, right = _first;
+        Node? left = null;
+        var right = _first;
         while (right != null && Less(right.Key, temp.Key))
         {
             left = right;
@@ -237,8 +238,8 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
 
         var pointer = _first;
         for (var i = 0; i < k; i++)
-            pointer = pointer.Next;
-        return pointer.Key;
+            pointer = pointer!.Next;
+        return pointer!.Key;
     }
 
     /// <summary>
@@ -289,7 +290,7 @@ public class OrderedSequentialSearchSt<TKey, TValue> : ISt<TKey, TValue>, IOrder
     /// <param name="left">作为前驱的结点。</param>
     /// <param name="right">作为后继的结点。</param>
     /// <param name="insert">待插入的结点。</param>
-    private void Insert(Node left, Node right, Node insert)
+    private void Insert(Node? left, Node? right, Node insert)
     {
         insert.Prev = left;
         insert.Next = right;

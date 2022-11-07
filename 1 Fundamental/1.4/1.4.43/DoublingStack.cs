@@ -109,7 +109,7 @@ internal class DoublingStack<TItem> : IEnumerable<TItem>
     private class StackEnumerator : IEnumerator<TItem>
     {
         private int _current;
-        private TItem[] _items;
+        private TItem[]? _items;
 
         public StackEnumerator(TItem[] items)
         {
@@ -117,9 +117,9 @@ internal class DoublingStack<TItem> : IEnumerable<TItem>
             _current = -1;
         }
 
-        TItem IEnumerator<TItem>.Current => _items[_current];
+        TItem IEnumerator<TItem>.Current => _items![_current];
 
-        object IEnumerator.Current => _items[_current];
+        object IEnumerator.Current => _items![_current]!;
 
         void IDisposable.Dispose()
         {
@@ -129,7 +129,7 @@ internal class DoublingStack<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current == _items.Length - 1)
+            if (_current == _items!.Length - 1)
                 return false;
             _current++;
             return true;

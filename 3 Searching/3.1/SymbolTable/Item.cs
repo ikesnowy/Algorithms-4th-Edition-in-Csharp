@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SymbolTable;
 
@@ -10,11 +11,17 @@ namespace SymbolTable;
 public class Item<TKey, TValue> : IComparable<Item<TKey, TValue>>
     where TKey : IComparable<TKey>
 {
-    public TKey Key { get; set; }
-    public TValue Value { get; set; }
+    public TKey? Key { get; set; }
+    public TValue? Value { get; set; }
 
-    public int CompareTo(Item<TKey, TValue> other)
+    public int CompareTo(Item<TKey, TValue>? other)
     {
-        return Key.CompareTo(other.Key);
+        if (other == null)
+        {
+            return 1;
+        }
+
+
+        return Comparer<TKey>.Default.Compare(Key, other.Key);
     }
 }

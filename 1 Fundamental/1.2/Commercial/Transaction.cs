@@ -14,12 +14,14 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     /// <value>客户姓名。</value>
     public string Who { get; }
+
     /// <summary>
     /// 交易日期。
     /// </summary>
     /// <value>交易日期。</value>
     /// <seealso cref="Date"/>
     public Date When { get; }
+
     /// <summary>
     /// 交易金额。
     /// </summary>
@@ -50,6 +52,7 @@ public class Transaction : IComparable<Transaction>
         {
             throw new ArgumentException("Amount cannot be NaN or Infinity");
         }
+
         Who = who;
         When = when;
         Amount = amount;
@@ -69,8 +72,13 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     /// <param name="other">比较的另一个对象。</param>
     /// <returns></returns>
-    public int CompareTo(Transaction other)
+    public int CompareTo(Transaction? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         if (Amount < other.Amount)
             return -1;
         if (Amount > other.Amount)
@@ -89,7 +97,7 @@ public class Transaction : IComparable<Transaction>
         /// <param name="x">需要比较的第一个记录。</param>
         /// <param name="y">需要比较的第二个记录。</param>
         /// <returns><paramref name="x"/> 姓名靠后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             return string.Compare(x?.Who, y?.Who, StringComparison.Ordinal);
         }
@@ -106,7 +114,7 @@ public class Transaction : IComparable<Transaction>
         /// <param name="x">需要比较的第一个记录。</param>
         /// <param name="y">需要比较的第二个记录。</param>
         /// <returns><paramref name="x"/> 时间靠后时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             Debug.Assert(y != null, nameof(y) + " != null");
@@ -125,7 +133,7 @@ public class Transaction : IComparable<Transaction>
         /// <param name="x">需要比较的第一个记录。</param>
         /// <param name="y">需要比较的第二个记录。</param>
         /// <returns><paramref name="x"/> 金额较大时返回大于 0 的数，反之返回小于 0 的数，相等返回 0。</returns>
-        int IComparer<Transaction>.Compare(Transaction x, Transaction y)
+        int IComparer<Transaction>.Compare(Transaction? x, Transaction? y)
         {
             Debug.Assert(x != null, nameof(x) + " != null");
             Debug.Assert(y != null, nameof(y) + " != null");
@@ -138,7 +146,7 @@ public class Transaction : IComparable<Transaction>
     /// </summary>
     /// <param name="obj">另一个对象。</param>
     /// <returns></returns>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == this)
             return true;
@@ -149,9 +157,7 @@ public class Transaction : IComparable<Transaction>
         var that = (Transaction)obj;
 
         return
-            Math.Abs(that.Amount - Amount) < float.Epsilon * 5 &&
-            that.When.Equals(When) &&
-            that.Who == Who;
+            Math.Abs(that.Amount - Amount) < float.Epsilon * 5 && that.When.Equals(When) && that.Who == Who;
     }
 
     /// <summary>
@@ -160,7 +166,7 @@ public class Transaction : IComparable<Transaction>
     /// <returns>交易信息的哈希值。</returns>
     public override int GetHashCode()
     {
-        var hash = 31 * + Who.GetHashCode();
+        var hash = 31 * +Who.GetHashCode();
         hash = 31 * hash + When.GetHashCode();
         hash = 31 * hash + Amount.GetHashCode();
         return hash;

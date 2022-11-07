@@ -2,16 +2,16 @@
 
 public class Event
 {
-    public string EventMessage { get; set; }
+    public string? EventMessage { get; set; }
 
     public Event() : this(null) { }
 
-    public Event(string message)
+    public Event(string? message)
     {
         EventMessage = message;
     }
 
-    public override string ToString()
+    public override string? ToString()
     {
         return EventMessage;
     }

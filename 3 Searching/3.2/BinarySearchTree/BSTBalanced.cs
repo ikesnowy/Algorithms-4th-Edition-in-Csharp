@@ -22,7 +22,7 @@ public class BstBalanced<TKey, TValue> : Bst<TKey, TValue> where TKey : ICompara
     /// <param name="lo">构造范围的下标最小值。</param>
     /// <param name="hi">构造范围的下标最大值。</param>
     /// <returns>构造完毕后二叉搜索树的根结点。</returns>
-    private Node BuildTree(KeyValuePair<TKey, TValue>[] init, int lo, int hi)
+    private Node? BuildTree(KeyValuePair<TKey, TValue>[] init, int lo, int hi)
     {
         if (lo > hi)
         {

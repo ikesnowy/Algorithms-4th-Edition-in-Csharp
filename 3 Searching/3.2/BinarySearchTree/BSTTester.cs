@@ -51,8 +51,8 @@ public static class BstTester
             Console.WriteLine($"{s} {st.Rank(s)} {st.Floor(s)} {st.Ceiling(s)}");
         }
 
-        var from = new[] { "A", "Z", "X", "0", "B", "C" };
-        var to = new[] { "Z", "A", "X", "Z", "G", "L" };
+        string[] from = new[] { "A", "Z", "X", "0", "B", "C" };
+        string[] to = new[] { "Z", "A", "X", "Z", "G", "L" };
         Console.WriteLine("range search");
         Console.WriteLine("---------------------------");
         for (var i = 0; i < from.Length; i++)
@@ -78,7 +78,7 @@ public static class BstTester
 
         while (!st.IsEmpty())
         {
-            st.Delete(st.Select(st.Size() / 2));
+            st.Delete(st.Select(st.Size() / 2)!);
         }
         Console.WriteLine("After deleting the remaining keys");
         Console.WriteLine("---------------------------");

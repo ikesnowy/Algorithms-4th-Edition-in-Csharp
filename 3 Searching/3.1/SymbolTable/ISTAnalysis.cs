@@ -19,14 +19,14 @@ public interface IStAnalysis<TKey, TValue>
     /// </summary>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
-    void Put(TKey key, TValue value);
+    void Put(TKey key, TValue? value);
 
     /// <summary>
     /// 获取键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>键 <paramref name="key"/> 对应的值，不存在则返回 <c>default(Value)</c>。</returns>
-    TValue Get(TKey key);
+    TValue? Get(TKey key);
 
     /// <summary>
     /// 从表中删去键 <paramref name="key"/> 及其对应的值。

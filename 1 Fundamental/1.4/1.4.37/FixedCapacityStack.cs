@@ -71,7 +71,7 @@ internal class FixedCapacityStack<TItem> : IEnumerable<TItem>
 
     public IEnumerator<TItem> GetEnumerator()
     {
-        return new ReverseEnmerator(_a);
+        return new ReverseEnumerator(_a);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -79,20 +79,20 @@ internal class FixedCapacityStack<TItem> : IEnumerable<TItem>
         return GetEnumerator();
     }
 
-    private class ReverseEnmerator : IEnumerator<TItem>
+    private class ReverseEnumerator : IEnumerator<TItem>
     {
         private int _current;
-        private TItem[] _a;
+        private TItem[]? _a;
 
-        public ReverseEnmerator(TItem[] a)
+        public ReverseEnumerator(TItem[] a)
         {
             _current = a.Length;
             _a = a;
         }
 
-        TItem IEnumerator<TItem>.Current => _a[_current];
+        TItem IEnumerator<TItem>.Current => _a![_current];
 
-        object IEnumerator.Current => _a[_current];
+        object IEnumerator.Current => _a![_current]!;
 
         void IDisposable.Dispose()
         {
@@ -110,7 +110,7 @@ internal class FixedCapacityStack<TItem> : IEnumerable<TItem>
 
         void IEnumerator.Reset()
         {
-            _current = _a.Length;
+            _current = _a!.Length;
         }
     }
 }

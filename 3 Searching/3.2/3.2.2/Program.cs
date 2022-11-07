@@ -8,7 +8,7 @@ string[] worstInput =
 
 foreach (var worst in worstInput)
 {
-    var keys = worst.Split(' ');
+    string?[] keys = worst.Split(' ');
     var bst = new Bst<string, string>();
     foreach (var key in keys)
     {

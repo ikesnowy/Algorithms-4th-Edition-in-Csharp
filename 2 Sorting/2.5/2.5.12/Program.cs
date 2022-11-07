@@ -1,13 +1,14 @@
 ﻿using System;
+
 // ReSharper disable AssignNullToNotNullAttribute
 // ReSharper disable PossibleNullReferenceException
 
 // 官方解答：https://algs4.cs.princeton.edu/25applications/SPT.java.html
-var n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine()!);
 var jobs = new Job[n];
 for (var i = 0; i < n; i++)
 {
-    var input = Console.ReadLine().Split(' ');
+    var input = Console.ReadLine()!.Split(' ');
     jobs[i] = new Job(input[0], double.Parse(input[1]));
 }
 
@@ -28,8 +29,13 @@ internal class Job : IComparable<Job>
         Time = time;
     }
 
-    public int CompareTo(Job other)
+    public int CompareTo(Job? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Time.CompareTo(other.Time);
     }
 }

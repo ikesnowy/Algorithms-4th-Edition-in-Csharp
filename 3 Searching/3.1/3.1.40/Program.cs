@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-// ReSharper disable UnusedLocalFunctionReturnValue
 
+// ReSharper disable UnusedLocalFunctionReturnValue
 
 // 简单解方程，注意顺序查找平均要查询一半的元素。
 // 1000 * logN = N / 2
@@ -114,8 +114,13 @@ internal class TestNode : IComparable<TestNode>
 {
     public long Value { get; init; }
 
-    public int CompareTo(TestNode other)
+    public int CompareTo(TestNode? other)
     {
+        if (other == null)
+        {
+            return 1;
+        }
+
         return Value.CompareTo(other.Value);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using SymbolTable;
 
-var st = new MoveToFrontArraySt<string, string>();
+var st = new MoveToFrontArraySt<string, string?>();
 st.Put("alpha", "α");
 st.Put("beta", "β");
 st.Put("omega", "ω");

@@ -34,7 +34,7 @@ while (current != null)
 }
 
 // 使用书中的递归方式实现
-static Node<TItem> Reverse<TItem>(Node<TItem> first)
+static Node<TItem>? Reverse<TItem>(Node<TItem>? first)
 {
     if (first == null)
         return null;

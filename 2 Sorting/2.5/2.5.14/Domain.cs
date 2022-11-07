@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+
 // ReSharper disable StringCompareToIsCultureSpecific
 
 namespace _2._5._14;
@@ -22,8 +23,13 @@ internal class Domain : IComparable<Domain>
         _n = _fields.Length;
     }
 
-    public int CompareTo(Domain other)
+    public int CompareTo(Domain? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         var minLength = Math.Min(_n, other._n);
         for (var i = 0; i < minLength; i++)
         {
@@ -44,6 +50,7 @@ internal class Domain : IComparable<Domain>
                 sb.Append('.');
             sb.Append(_fields[i]);
         }
+
         return sb.ToString();
     }
 }

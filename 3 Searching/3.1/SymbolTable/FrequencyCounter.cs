@@ -46,12 +46,12 @@ public class FrequencyCounter
     {
         // 初始化字典
         var sr = new StreamReader(File.OpenRead(dictionaryFile));
-        var words = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        string?[] words = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
         var dictionary = new BinarySearchSt<string, int>();
         for (var i = 0; i < words.Length; i++)
         {
-            if (words[i].Length > minLength)
-                dictionary.Put(words[i], i);
+            if (words[i]!.Length > minLength)
+                dictionary.Put(words[i]!, i);
         }
         sr.Close();
 
@@ -78,7 +78,7 @@ public class FrequencyCounter
         foreach (var i in stDictionary.Keys())
         {
             var s = stDictionary.Get(i);
-            Console.WriteLine(s + "\t" + stFrequency.Get(s));
+            Console.WriteLine(s + "\t" + stFrequency.Get(s!));
         }
 
         // 频率序

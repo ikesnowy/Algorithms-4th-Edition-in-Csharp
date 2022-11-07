@@ -26,8 +26,7 @@ while (current != null)
     current = current.Next;
 }
 
-var t = new Node<string>();
-t.Item = "t";
+var t = new Node<string> { Item = "t" };
 
 second.Next = t;
 t.Next = second.Next;

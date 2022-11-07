@@ -70,7 +70,7 @@ internal abstract class AStarSolverFor8Puzzles : AStar<SearchNode>
     /// </summary>
     /// <param name="current">当前状态。</param>
     /// <returns></returns>
-    protected SearchNode MoveRight(SearchNode current)
+    protected SearchNode? MoveRight(SearchNode current)
     {
         var spaceIndex = GetSpaceIndex(current);
         if ((spaceIndex + 1) % 3 == 0)
@@ -93,7 +93,7 @@ internal abstract class AStarSolverFor8Puzzles : AStar<SearchNode>
     /// </summary>
     /// <param name="current">当前状态。</param>
     /// <returns></returns>
-    protected SearchNode MoveLeft(SearchNode current)
+    protected SearchNode? MoveLeft(SearchNode current)
     {
         var spaceIndex = GetSpaceIndex(current);
         if (spaceIndex % 3 == 0)
@@ -116,7 +116,7 @@ internal abstract class AStarSolverFor8Puzzles : AStar<SearchNode>
     /// </summary>
     /// <param name="current">当前状态。</param>
     /// <returns></returns>
-    protected SearchNode MoveUp(SearchNode current)
+    protected SearchNode? MoveUp(SearchNode current)
     {
         var spaceIndex = GetSpaceIndex(current);
         if (spaceIndex - 3 < 0)
@@ -139,7 +139,7 @@ internal abstract class AStarSolverFor8Puzzles : AStar<SearchNode>
     /// </summary>
     /// <param name="current">当前状态。</param>
     /// <returns></returns>
-    protected SearchNode MoveDown(SearchNode current)
+    protected SearchNode? MoveDown(SearchNode current)
     {
         var spaceIndex = GetSpaceIndex(current);
         if (spaceIndex + 3 >= current.Status.Length)

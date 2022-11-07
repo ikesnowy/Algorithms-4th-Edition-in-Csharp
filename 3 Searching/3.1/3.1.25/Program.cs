@@ -7,7 +7,7 @@ using SymbolTable;
 var sr = new StreamReader(File.OpenRead("tale.txt"));
 var data = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-var repeatTimes = 1;
+var repeatTimes = 2;
 
 Console.WriteLine("BinarySearchST");
 Console.WriteLine("Origin\tCached\tRatio");

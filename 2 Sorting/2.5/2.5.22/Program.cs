@@ -1,5 +1,6 @@
 ﻿using System;
 using SortApplication;
+
 // ReSharper disable AssignNullToNotNullAttribute
 // ReSharper disable PossibleNullReferenceException
 
@@ -7,11 +8,11 @@ using SortApplication;
 var buyer = new MaxPq<Ticket>();
 var seller = new MinPq<Ticket>();
 
-var n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine()!);
 for (var i = 0; i < n; i++)
 {
     var ticket = new Ticket();
-    var item = Console.ReadLine().Split(' ');
+    var item = Console.ReadLine()!.Split(' ');
 
     ticket.Price = double.Parse(item[1]);
     ticket.Share = int.Parse(item[2]);
@@ -33,7 +34,6 @@ while (!buyer.IsEmpty() && !seller.IsEmpty())
         Console.WriteLine(" -> " + sell.Share + " -> $" + buy.Price + " * " + buy.Share + " buy");
         buy.Share -= sell.Share;
         buyer.Insert(buy);
-
     }
     else if (buy.Share < sell.Share)
     {
@@ -45,7 +45,6 @@ while (!buyer.IsEmpty() && !seller.IsEmpty())
     {
         Console.WriteLine(" -> " + sell.Share + " -> $" + buy.Price + " * " + buy.Share + " buy");
     }
-
 }
 
 internal class Ticket : IComparable<Ticket>
@@ -53,8 +52,13 @@ internal class Ticket : IComparable<Ticket>
     public double Price;
     public int Share;
 
-    public int CompareTo(Ticket other)
+    public int CompareTo(Ticket? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Price.CompareTo(other.Price);
     }
 }

@@ -42,7 +42,7 @@ void RestoreArray(short[] data, int index)
         File.OpenText(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "data" + index + ".txt");
     for (var i = 0; i < data.Length; i++)
     {
-        data[i] = short.Parse(sr.ReadLine());
+        data[i] = short.Parse(sr.ReadLine()!);
     }
 
     sr.Close();

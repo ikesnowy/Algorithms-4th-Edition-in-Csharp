@@ -16,14 +16,14 @@ public interface IOrderedSt<TKey, TValue>
     /// </summary>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
-    void Put(TKey key, TValue value);
+    void Put(TKey key, TValue? value);
 
     /// <summary>
     /// 获取键 <paramref name="key"/> 对应的值，不存在则返回 null。
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns><typeparamref name="TKey"/> 对应的值。</returns>
-    TValue Get(TKey key);
+    TValue? Get(TKey key);
 
     /// <summary>
     /// 从表中删去键 <paramref name="key"/> 对应的值。
@@ -78,25 +78,25 @@ public interface IOrderedSt<TKey, TValue>
     /// 最小的键。
     /// </summary>
     /// <returns>最小的键。</returns>
-    TKey Min();
+    TKey? Min();
 
     /// <summary>
     /// 最大的键。
     /// </summary>
     /// <returns>最大的键。</returns>
-    TKey Max();
+    TKey? Max();
 
     /// <summary>
     /// 小于等于 <paramref name="key"/> 的最大值。
     /// </summary>
     /// <returns>小于等于 <paramref name="key"/> 的最大值。</returns>
-    TKey Floor(TKey key);
+    TKey? Floor(TKey? key);
 
     /// <summary>
     /// 大于等于 <paramref name="key"/> 的最小值。
     /// </summary>
     /// <returns>大于等于 <paramref name="key"/> 的最小值。</returns>
-    TKey Ceiling(TKey key);
+    TKey? Ceiling(TKey? key);
 
     /// <summary>
     /// 小于 <paramref name="key"/> 的键的数量。
@@ -109,7 +109,7 @@ public interface IOrderedSt<TKey, TValue>
     /// </summary>
     /// <param name="k">需要获得的键的排名。</param>
     /// <returns>排名为 k 的键。</returns>
-    TKey Select(int k);
+    TKey? Select(int k);
 
     /// <summary>
     /// 删除最小的键。

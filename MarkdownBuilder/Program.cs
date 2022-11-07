@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 
 Console.WriteLine("当前节：");
-var section = Console.ReadLine();
+var section = Console.ReadLine()!;
 Console.WriteLine("题目总数：");
 var questionNum = int.Parse(Console.ReadLine()!);
 

@@ -13,7 +13,7 @@ static bool Find<TItem>(LinkedList<TItem> link, TItem key)
 {
     foreach (var i in link)
     {
-        if (i.Equals(key))
+        if (i!.Equals(key))
         {
             return true;
         }

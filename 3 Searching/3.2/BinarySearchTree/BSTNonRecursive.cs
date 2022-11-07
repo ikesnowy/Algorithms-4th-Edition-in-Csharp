@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 // ReSharper disable CognitiveComplexity
 
@@ -16,7 +17,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <summary>
     /// 二叉查找树的根结点。
     /// </summary>
-    private Node _root;
+    private Node? _root;
 
     /// <summary>
     /// 二叉树结点类型。
@@ -29,22 +30,22 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
         /// <value>
         /// 键。
         /// </value>
-        public TKey Key { get; set; }
+        public TKey? Key { get; set; }
         /// <summary>
         /// 键值对中的值。
         /// </summary>
         /// <value>值。</value>
-        public TValue Value { get; set; }
+        public TValue? Value { get; set; }
         /// <summary>
         /// 左子树的引用。
         /// </summary>
         /// <value>左子树的引用。</value>
-        public Node Left { get; set; }
+        public Node? Left { get; set; }
         /// <summary>
         /// 右子树的引用。
         /// </summary>
         /// <value>右子树的引用。</value>
-        public Node Right { get; set; }
+        public Node? Right { get; set; }
         /// <summary>
         /// 子树的结点数量。
         /// </summary>
@@ -57,7 +58,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
         /// <param name="key">键。</param>
         /// <param name="value">值。</param>
         /// <param name="size">子树大小。</param>
-        public Node(TKey key, TValue value, int size)
+        public Node(TKey key, TValue? value, int size)
         {
             Key = key;
             Value = value;
@@ -72,7 +73,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="key">要插入的键。</param>
     /// <param name="value">要插入的值。</param>
-    public void Put(TKey key, TValue value)
+    public void Put(TKey? key, TValue? value)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "calls Put() with a null key");
@@ -91,7 +92,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
     /// <returns>插入结点后的根结点。</returns>
-    private Node Put(Node x, TKey key, TValue value)
+    private Node Put(Node? x, TKey key, TValue? value)
     {
         if (x == null)
             return new Node(key, value, 1);
@@ -115,7 +116,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
 
         var parent = path.Peek();
         var node = new Node(key, value, 1);
-        if (parent.Key.CompareTo(key) > 0)
+        if (parent.Key!.CompareTo(key) > 0)
             parent.Left = node;
         else
             parent.Right = node;
@@ -131,7 +132,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-    public TValue Get(TKey key) => Get(_root, key);
+    public TValue? Get(TKey key) => Get(_root, key);
 
     /// <summary>
     /// 查找 <paramref name="key"/> 所对应的值。
@@ -139,7 +140,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">要查找的根结点。</param>
     /// <param name="key">要查找的键。</param>
     /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
-    private TValue Get(Node x, TKey key)
+    private TValue? Get(Node? x, TKey? key)
     {
         if (key == null) throw new ArgumentNullException(nameof(key), "calls get() with a null key");
         var cur = x;
@@ -175,7 +176,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">要删除的结点的二叉查找树。</param>
     /// <param name="key">要删除的键。</param>
     /// <returns>删除结点后的二叉查找树。</returns>
-    private Node Delete(Node x, TKey key)
+    private Node? Delete(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -216,6 +217,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// 二叉查找树是否为空。
     /// </summary>
     /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+    [MemberNotNullWhen(false, nameof(_root))]
     public bool IsEmpty() => Size(_root) == 0;
 
     /// <summary>
@@ -229,7 +231,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根的二叉树的结点数量。</returns>
-    private int Size(Node x)
+    private int Size(Node? x)
     {
         if (x == null)
             return 0;
@@ -270,7 +272,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉搜索树的根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-    private int Height(Node x)
+    private int Height(Node? x)
     {
         if (x == null)
             return -1;
@@ -285,7 +287,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     {
         if (IsEmpty())
             return new List<TKey>();
-        return Keys(Min(), Max());
+        return Keys(Min()!, Max()!);
     }
 
     /// <summary>
@@ -313,7 +315,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="queue">要填充的队列。</param>
     /// <param name="lo">键的下限。</param>
     /// <param name="hi">键的上限。</param>
-    private static void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    private static void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         var stack = new Stack<Node>();
 
@@ -336,7 +338,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
                 var cmpLo = lo.CompareTo(x.Key);
                 var cmpHi = hi.CompareTo(x.Key);
                 if (cmpLo <= 0 && cmpHi >= 0)
-                    queue.Enqueue(x.Key);
+                    queue.Enqueue(x.Key!);
                 x = x.Right;
             }
         }
@@ -347,7 +349,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <returns>二叉查找树中最小的键。</returns>
     /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-    public TKey Min()
+    public TKey? Min()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Symbol Table Underflow");
@@ -359,7 +361,8 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>包含最小键的结点。</returns>
-    private Node Min(Node x)
+    [return: NotNullIfNotNull("x")]
+    private Node? Min(Node? x)
     {
         while (x != null)
         {
@@ -375,7 +378,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <returns>二叉查找树中最大的键。</returns>
     /// <exception cref="InvalidOperationException">当二叉查找树为空时抛出此异常。</exception>
-    public TKey Max()
+    public TKey? Max()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Symbol Table Underflow");
@@ -387,7 +390,8 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>包含最大键的结点。</returns>
-    private Node Max(Node x)
+    [return: NotNullIfNotNull("x")]
+    private Node? Max(Node? x)
     {
         while (x != null)
         {
@@ -403,7 +407,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
-    public TKey Floor(TKey key)
+    public TKey? Floor(TKey? key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to floor is null");
@@ -421,9 +425,9 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
-    private Node Floor(Node x, TKey key)
+    private Node? Floor(Node? x, TKey key)
     {
-        Node floor = null;
+        Node? floor = null;
         while (x != null)
         {
             var cmp = key.CompareTo(x.Key);
@@ -451,7 +455,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>大于等于 <paramref name="key"/> 的最小键。</returns>
-    public TKey Ceiling(TKey key)
+    public TKey? Ceiling(TKey? key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
@@ -469,9 +473,9 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
-    private Node Ceiling(Node x, TKey key)
+    private Node? Ceiling(Node? x, TKey key)
     {
-        Node ceil = null;
+        Node? ceil = null;
         while (x != null)
         {
             var cmp = key.CompareTo(x.Key);
@@ -511,7 +515,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">要查找排名的键。</param>
     /// <returns><paramref name="key"/> 的排名。</returns>
-    private int Rank(Node x, TKey key)
+    private int Rank(Node? x, TKey key)
     {
         var rank = 0;
         while (x != null)
@@ -547,7 +551,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
         if (k < 0 || k >= Size())
             throw new ArgumentException("argument to select() is invalid: " + k);
         var x = Select(_root, k);
-        return x.Key;
+        return x!.Key!;
     }
 
     /// <summary>
@@ -556,7 +560,8 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// <param name="x">树的根结点。</param>
     /// <param name="k">要挑拣的排名。</param>
     /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
-    private Node Select(Node x, int k)
+    [return: NotNullIfNotNull("x")]
+    private Node? Select(Node? x, int k)
     {
         while (x != null)
         {
@@ -595,7 +600,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    private Node DeleteMin(Node x)
+    private Node? DeleteMin(Node x)
     {
         if (x.Left == null)
             return x.Right;
@@ -620,7 +625,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    private Node DeleteMax(Node x)
+    private Node? DeleteMax(Node x)
     {
         if (x.Right == null)
             return x.Left;
@@ -643,8 +648,8 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
 
         //BST
         var lines = new List<string>();
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(_root);
 
         while (layer != maxDepth)
@@ -740,14 +745,14 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// 将二叉树转变为数组表示。
     /// </summary>
     /// <returns>包含所有键值的数组。</returns>
-    public TKey[] ToKeyArray()
+    public TKey?[] ToKeyArray()
     {
         // 取最近的二的幂
         var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-        var result = new TKey[size];
+        var result = new TKey?[size];
 
         // 层序遍历。
-        var queue = new Queue<Node>();
+        var queue = new Queue<Node?>();
         var index = 0;
         queue.Enqueue(_root);
         while (queue.Count != 0 && index < size)
@@ -771,14 +776,14 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// 将二叉树转变为数组表示。
     /// </summary>
     /// <returns>表示二叉树的数组。</returns>
-    public TValue[] ToValueArray()
+    public TValue?[] ToValueArray()
     {
         // 取最近的二的幂
         var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-        var result = new TValue[size];
+        var result = new TValue?[size];
 
         // 层序遍历。
-        var queue = new Queue<Node>();
+        var queue = new Queue<Node?>();
         var index = 0;
         queue.Enqueue(_root);
         while (queue.Count != 0 && index < size)
@@ -803,7 +808,7 @@ public class BstNonRecursive<TKey, TValue> : ISt<TKey, TValue>, IOrderedSt<TKey,
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    private int Depth(Node? x)
     {
         if (x == null)
             return 0;

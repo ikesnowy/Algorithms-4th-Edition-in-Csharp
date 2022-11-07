@@ -26,6 +26,7 @@ public static class FrequencyCounter
             if (!st.Contains(keys[i]))
                 st.Put(keys[i], ++distinct);
         }
+
         return distinct;
     }
 
@@ -36,7 +37,7 @@ public static class FrequencyCounter
     /// <param name="st">用于计算的符号表。</param>
     /// <param name="keys">所有的键。</param>
     /// <returns><paramref name="keys"/> 中出现频率最高的键。</returns>
-    public static TKey MostFrequentlyKey<TKey>(ISt<TKey, int> st, TKey[] keys)
+    public static TKey? MostFrequentlyKey<TKey>(ISt<TKey?, int> st, TKey?[] keys)
     {
         foreach (var s in keys)
         {
@@ -65,11 +66,8 @@ public static class FrequencyCounter
     {
         var sr = new StreamReader(File.OpenRead(filename));
 
-        var inputs = 
-            sr
-                .ReadToEnd()
-                .Split(new[] { ' ', '\r', '\n' }, 
-                    StringSplitOptions.RemoveEmptyEntries);
+        var inputs =
+            sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var s in inputs)
         {
@@ -102,15 +100,11 @@ public static class FrequencyCounter
     /// <param name="minLength">字符串最小长度。</param>
     /// <param name="st">用于计算的符号表。</param>
     /// <returns>文本文档出现频率最高的字符串。</returns>
-    public static string MostFrequentlyWord(string filename, int counts, int minLength, ISt<string, int> st)
+    public static string? MostFrequentlyWord(string filename, int counts, int minLength, ISt<string?, int> st)
     {
         var sr = new StreamReader(File.OpenRead(filename));
 
-        var inputs =
-            sr
-                .ReadToEnd()
-                .Split(new[] { ' ', '\r', '\n' },
-                    StringSplitOptions.RemoveEmptyEntries);
+        var inputs = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         for (var i = 0; i < counts && i < inputs.Length; i++)
         {
@@ -150,7 +144,12 @@ public static class FrequencyCounter
     /// <param name="st">用于计算的符号表。</param>
     /// <param name="callIndex">调用次数。</param>
     /// <param name="timeRecord">对应耗时。</param>
-    public static void MostFrequentlyWordAnalysis(string filename, int minLength, ISt<string, int> st, out int[] callIndex, out long[] timeRecord)
+    public static void MostFrequentlyWordAnalysis(
+        string filename,
+        int minLength,
+        ISt<string, int> st,
+        out int[] callIndex,
+        out long[] timeRecord)
     {
         var call = new List<int>();
         var time = new List<long>();
@@ -159,11 +158,7 @@ public static class FrequencyCounter
         var callTime = 0;
         var sr = new StreamReader(File.OpenRead(filename));
 
-        var inputs =
-            sr
-                .ReadToEnd()
-                .Split(new[] { ' ', '\r', '\n' },
-                    StringSplitOptions.RemoveEmptyEntries);
+        var inputs = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         for (var i = 0; i < inputs.Length; i++)
         {
@@ -210,15 +205,11 @@ public static class FrequencyCounter
     /// <param name="minLength">字符串最小长度。</param>
     /// <param name="st">用于计算的符号表。</param>
     /// <returns>文本文档出现频率最高的字符串数组。</returns>
-    public static string[] MostFrequentlyWords(string filename, int minLength, ISt<string, int> st)
+    public static string?[] MostFrequentlyWords(string filename, int minLength, ISt<string?, int> st)
     {
         var sr = new StreamReader(File.OpenRead(filename));
 
-        var inputs =
-            sr
-                .ReadToEnd()
-                .Split(new[] { ' ', '\r', '\n' },
-                    StringSplitOptions.RemoveEmptyEntries);
+        var inputs = sr.ReadToEnd().Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var s in inputs)
         {
@@ -235,7 +226,7 @@ public static class FrequencyCounter
         }
 
         var max = "";
-        var queue = new Queue<string>();
+        var queue = new Queue<string?>();
         st.Put(max, 0);
         foreach (var s in st.Keys())
         {

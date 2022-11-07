@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 // ReSharper disable CognitiveComplexity
 // ReSharper disable UnusedMember.Local
@@ -11,7 +12,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <summary>
     /// 二叉查找树的根结点。
     /// </summary>
-    protected Node Root;
+    protected Node? Root;
 
     /// <summary>
     /// 二叉树结点类型。
@@ -34,22 +35,22 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
         /// 左子树的引用。
         /// </summary>
         /// <value>左子树的引用。</value>
-        public Node Left { get; set; }
+        public Node? Left { get; set; }
         /// <summary>
         /// 右子树的引用。
         /// </summary>
         /// <value>右子树的引用。</value>
-        public Node Right { get; set; }
+        public Node? Right { get; set; }
         /// <summary>
         /// 前驱结点的引用。
         /// </summary>
         /// <value>前驱结点的引用。</value>
-        public Node Prev { get; set; }
+        public Node? Prev { get; set; }
         /// <summary>
         /// 后继结点的引用。
         /// </summary>
         /// <value>后继结点的引用。</value>
-        public Node Next { get; set; }
+        public Node? Next { get; set; }
         /// <summary>
         /// 子树的结点数量。
         /// </summary>
@@ -77,7 +78,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">输入的键。</param>
     /// <returns><paramref name="key"/>的前驱键，如果不存在则返回 default。</returns>
-    public TKey Prev(TKey key)
+    public TKey? Prev(TKey key)
     {
         var node = Get(Root, key);
         if (node == null || node.Prev == null)
@@ -90,7 +91,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">输入的键。</param>
     /// <returns><paramref name="key"/>的后继键，如果不存在则返回 default。</returns>
-    public TKey Next(TKey key)
+    public TKey? Next(TKey key)
     {
         var node = Get(Root, key);
         if (node == null || node.Next == default)
@@ -122,7 +123,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="key">键。</param>
     /// <param name="value">值。</param>
     /// <returns>插入结点后的根结点。</returns>
-    protected virtual Node Put(Node x, TKey key, TValue value)
+    protected virtual Node Put(Node? x, TKey key, TValue value)
     {
         if (x == null)
         {
@@ -166,7 +167,16 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">需要查找的键。</param>
     /// <returns>找到的值，不存在则返回 <c>default(TValue)</c>。</returns>
-    public virtual TValue Get(TKey key) => Get(Root, key).Value;
+    public virtual TValue? Get(TKey key)
+    {
+        var node = Get(Root, key);
+        if (node == null)
+        {
+            return default;
+        }
+
+        return node.Value;
+    }
 
     /// <summary>
     /// 递归查找 <paramref name="key"/> 所对应的值。
@@ -174,7 +184,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">要查找的根结点。</param>
     /// <param name="key">要查找的键。</param>
     /// <returns>如果存在则返回对应的值，否则返回 <c>default(TValue)</c>。</returns>
-    protected virtual Node Get(Node x, TKey key)
+    protected virtual Node? Get(Node? x, TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "calls get() with a null key");
@@ -206,7 +216,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">要删除的结点的二叉查找树。</param>
     /// <param name="key">要删除的键。</param>
     /// <returns>删除结点后的二叉查找树。</returns>
-    protected virtual Node Delete(Node x, TKey key)
+    protected virtual Node? Delete(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -253,6 +263,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// 二叉查找树是否为空。
     /// </summary>
     /// <returns>为空则返回 <c>true</c>，否则返回 <c>false</c>。</returns>
+    [MemberNotNullWhen(false, nameof(Root))]
     public virtual bool IsEmpty() => Size(Root) == 0;
 
     /// <summary>
@@ -266,7 +277,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根的二叉树的结点数量。</returns>
-    protected virtual int Size(Node x)
+    protected virtual int Size(Node? x)
     {
         if (x == null)
             return 0;
@@ -307,7 +318,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉搜索树的根结点。</param>
     /// <returns>以 <paramref name="x"/> 为根结点的二叉树的高度。</returns>
-    protected virtual int Height(Node x)
+    protected virtual int Height(Node? x)
     {
         return x == null ? -1 : 1 + Math.Max(Height(x.Left), Height(x.Right));
     }
@@ -348,7 +359,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="queue">要填充的队列。</param>
     /// <param name="lo">键的下限。</param>
     /// <param name="hi">键的上限。</param>
-    protected virtual void Keys(Node x, Queue<TKey> queue, TKey lo, TKey hi)
+    protected virtual void Keys(Node? x, Queue<TKey> queue, TKey lo, TKey hi)
     {
         if (x == null)
             return;
@@ -415,7 +426,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大键。</returns>
-    public virtual TKey Floor(TKey key)
+    public virtual TKey? Floor(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to floor is null");
@@ -433,7 +444,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>小于等于 <paramref name="key"/> 的最大结点。</returns>
-    protected virtual Node Floor(Node x, TKey key)
+    protected virtual Node? Floor(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -453,7 +464,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="key">键。</param>
     /// <returns>大于等于 <paramref name="key"/> 的最小键。</returns>
-    public virtual TKey Ceiling(TKey key)
+    public virtual TKey? Ceiling(TKey key)
     {
         if (key == null)
             throw new ArgumentNullException(nameof(key), "argument to ceiling is null");
@@ -471,7 +482,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">键。</param>
     /// <returns>符号表中大于等于 <paramref name="key"/> 的最小结点。</returns>
-    protected virtual Node Ceiling(Node x, TKey key)
+    protected virtual Node? Ceiling(Node? x, TKey key)
     {
         if (x == null)
             return null;
@@ -506,7 +517,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <param name="key">要查找排名的键。</param>
     /// <returns><paramref name="key"/> 的排名。</returns>
-    protected virtual int Rank(Node x, TKey key)
+    protected virtual int Rank(Node? x, TKey key)
     {
         if (x == null)
             return 0;
@@ -523,12 +534,12 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="k">要挑拣的排名。</param>
     /// <returns>排名为 <paramref name="k"/> 的键。</returns>
-    public virtual TKey Select(int k)
+    public virtual TKey? Select(int k)
     {
         if (k < 0 || k >= Size())
             throw new ArgumentException("argument to select() is invaild: " + k);
         var x = Select(Root, k);
-        return x.Key;
+        return x == null ? default : x.Key;
     }
 
     /// <summary>
@@ -537,7 +548,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="x">树的根结点。</param>
     /// <param name="k">要挑拣的排名。</param>
     /// <returns>排名为 <paramref name="k"/> 的结点。</returns>
-    protected virtual Node Select(Node x, int k)
+    protected virtual Node? Select(Node? x, int k)
     {
         if (x == null)
             return null;
@@ -565,7 +576,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    protected virtual Node DeleteMin(Node x)
+    protected virtual Node? DeleteMin(Node x)
     {
         if (x.Left == null)
         {
@@ -593,7 +604,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉查找树的根结点。</param>
     /// <returns>删除后的二叉查找树。</returns>
-    protected virtual Node DeleteMax(Node x)
+    protected virtual Node? DeleteMax(Node x)
     {
         if (x.Right == null)
         {
@@ -660,7 +671,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// <param name="prev">前驱。</param>
     /// <param name="newNode">新结点。</param>
     /// <param name="next">后继。</param>
-    private void InsertBetween(Node prev, Node newNode, Node next)
+    private void InsertBetween(Node? prev, Node newNode, Node? next)
     {
         newNode.Prev = prev;
         newNode.Next = next;
@@ -690,8 +701,8 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
 
         //BST
         var lines = new List<string>();
-        var nowLayer = new Queue<Node>();
-        var nextLayer = new Queue<Node>();
+        var nowLayer = new Queue<Node?>();
+        var nextLayer = new Queue<Node?>();
         nextLayer.Enqueue(Root);
 
         while (layer != maxDepth)
@@ -787,14 +798,14 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// 将二叉树转变为数组表示。
     /// </summary>
     /// <returns>包含所有键值的数组。</returns>
-    public TKey[] ToKeyArray()
+    public TKey?[] ToKeyArray()
     {
         // 取最近的二的幂
         var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-        var result = new TKey[size];
+        var result = new TKey?[size];
 
         // 层序遍历。
-        var queue = new Queue<Node>();
+        var queue = new Queue<Node?>();
         var index = 0;
         queue.Enqueue(Root);
         while (queue.Count != 0 && index < size)
@@ -819,14 +830,14 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// 将二叉树转变为数组表示。
     /// </summary>
     /// <returns>表示二叉树的数组。</returns>
-    public TValue[] ToValueArray()
+    public TValue?[] ToValueArray()
     {
         // 取最近的二的幂
         var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-        var result = new TValue[size];
+        var result = new TValue?[size];
 
         // 层序遍历。
-        var queue = new Queue<Node>();
+        var queue = new Queue<Node?>();
         var index = 0;
         queue.Enqueue(Root);
         while (queue.Count != 0 && index < size)
@@ -851,14 +862,14 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// 将二叉树转变为数组表示。
     /// </summary>
     /// <returns>用数组表示的二叉树。</returns>
-    private Node[] ToArray()
+    private Node?[] ToArray()
     {
         // 取最近的二的幂
         var size = (int)Math.Pow(2, Math.Ceiling(Math.Log(Size(), 2)));
-        var result = new Node[size];
+        var result = new Node?[size];
 
         // 层序遍历。
-        var queue = new Queue<Node>();
+        var queue = new Queue<Node?>();
         var index = 0;
         queue.Enqueue(Root);
         while (queue.Count != 0 && index < size)
@@ -884,7 +895,7 @@ public class ThreadedSt<TKey, TValue> where TKey : IComparable<TKey>
     /// </summary>
     /// <param name="x">二叉树的根结点。</param>
     /// <returns>二叉树的最大深度。</returns>
-    private int Depth(Node x)
+    private int Depth(Node? x)
     {
         if (x == null)
             return 0;

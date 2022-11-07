@@ -53,8 +53,13 @@ internal class Item<T> : IComparable<Item<T>> where T : IComparable<T>
         Key = key;
     }
 
-    public int CompareTo(Item<T> other)
+    public int CompareTo(Item<T>? other)
     {
+        if (other == null)
+        {
+            return -1;
+        }
+
         return Key.CompareTo(other.Key);
     }
 }

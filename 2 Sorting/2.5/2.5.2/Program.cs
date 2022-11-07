@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 // ReSharper disable PossibleNullReferenceException
 
-var keywords = Console.ReadLine().Split(' ');
+var keywords = Console.ReadLine()!.Split(' ');
 Array.Sort(keywords, new StringLengthComparer());
 var minLength = keywords[0].Length * 2;
 // 找到第一个大于 minLength 的字符串
@@ -60,8 +60,10 @@ static int BinarySearch(string[] keys, int length, int lo, int hi)
 /// </summary>
 internal class StringLengthComparer : IComparer<string>
 {
-    public int Compare(string x, string y)
+    public int Compare(string? x, string? y)
     {
-        return x.Length.CompareTo(y.Length);
+        var xLength = x?.Length ?? 0;
+        var yLength = y?.Length ?? 0;
+        return xLength.CompareTo(yLength);
     }
 }

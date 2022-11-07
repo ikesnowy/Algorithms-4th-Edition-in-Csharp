@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Merge;
+
 // ReSharper disable CognitiveComplexity
 
 namespace _2._2._17;
@@ -35,6 +36,7 @@ public class MergeSortNatural : BaseSort
                 mid = FindBlock(lo, a) + lo;
             }
         }
+
         Debug.Assert(IsSorted(a));
     }
 
@@ -49,6 +51,11 @@ public class MergeSortNatural : BaseSort
         {
             // 找到第一个块
             var lo = a.GetFirst();
+            if (lo == null)
+            {
+                break;
+            }
+
             var mid = FindBlock(lo);
 
             if (mid.Next == null)
@@ -60,7 +67,7 @@ public class MergeSortNatural : BaseSort
                 if (lo == a.GetFirst())
                     a.SetFirst(Merge(lo, mid, hi));
                 else
-                    lo.Next = Merge(lo.Next, mid, hi);
+                    lo.Next = Merge(lo.Next!, mid, hi);
 
                 // 跳到表尾
                 if (Less(hi.Item, mid.Item))
@@ -127,8 +134,8 @@ public class MergeSortNatural : BaseSort
     private Node<T> Merge<T>(Node<T> lo, Node<T> mid, Node<T> hi) where T : IComparable<T>
     {
         var after = hi.Next; // 要合并的两个块之后的元素
-        var i = lo;          // 链表1
-        var j = mid.Next;    // 链表2
+        var i = lo; // 链表1
+        var j = mid.Next; // 链表2
 
         // 切割链表
         mid.Next = null;
@@ -136,7 +143,7 @@ public class MergeSortNatural : BaseSort
 
         Node<T> current;
         // 决定新的表头
-        if (Less(i.Item, j.Item))
+        if (Less(i.Item, j!.Item))
         {
             current = i;
             i = i.Next;
@@ -197,6 +204,7 @@ public class MergeSortNatural : BaseSort
             else
                 break;
         }
+
         return size;
     }
 
@@ -216,6 +224,7 @@ public class MergeSortNatural : BaseSort
             else
                 break;
         }
+
         return hi;
     }
 }

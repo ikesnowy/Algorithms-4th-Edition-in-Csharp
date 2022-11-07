@@ -18,7 +18,7 @@ fourth.Next = null;
 
 Console.WriteLine("Max:" + Max(first));
 
-static int Max(Node<int> first, int max = 0)
+static int Max(Node<int>? first, int max = 0)
 {
     if (first == null)
         return max;

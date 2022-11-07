@@ -11,8 +11,8 @@ namespace Generics;
 /// <typeparam name="TItem">队列存放的元素类型。</typeparam>
 public class Queue<TItem> : IEnumerable<TItem>
 {
-    private Node<TItem> _first;
-    private Node<TItem> _last;
+    private Node<TItem>? _first;
+    private Node<TItem>? _last;
     private int _count;
 
     /// <summary>
@@ -61,11 +61,11 @@ public class Queue<TItem> : IEnumerable<TItem>
     /// <returns>队列中的第一个元素。</returns>
     /// <exception cref="InvalidOperationException">当队列为空时抛出此异常。</exception>
     /// <remarks>若要删除并返回第一个元素，请使用 <see cref="Dequeue"/>。</remarks>
-    public TItem Peek()
+    public TItem? Peek()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
-        return _first.Item;
+        return _first!.Item;
     }
 
     /// <summary>
@@ -75,13 +75,11 @@ public class Queue<TItem> : IEnumerable<TItem>
     public void Enqueue(TItem item)
     {
         var oldLast = _last;
-        _last = new Node<TItem>();
-        _last.Item = item;
-        _last.Next = null;
+        _last = new Node<TItem> { Item = item, Next = null };
         if (IsEmpty())
             _first = _last;
         else
-            oldLast.Next = _last;
+            oldLast!.Next = _last;
         _count++;
     }
 
@@ -91,11 +89,11 @@ public class Queue<TItem> : IEnumerable<TItem>
     /// <returns>队列中的第一个元素。</returns>
     /// <exception cref="InvalidOperationException">当队列为空时抛出此异常。</exception>
     /// <remarks>若不希望第一个元素被删除，请使用 <see cref="Peek"/>。</remarks>
-    public TItem Dequeue()
+    public TItem? Dequeue()
     {
         if (IsEmpty())
             throw new InvalidOperationException("Queue underflow");
-        var item = _first.Item;
+        var item = _first!.Item;
         _first = _first.Next;
         _count--;
         if (IsEmpty())
@@ -119,7 +117,7 @@ public class Queue<TItem> : IEnumerable<TItem>
         }
         else
         {
-            q1._last.Next = q2._first;
+            q1._last!.Next = q2._first;
             q1._last = q2._last;
             q1._count += q2._count;
         }
@@ -163,19 +161,18 @@ public class Queue<TItem> : IEnumerable<TItem>
 
     private class QueueEnumerator : IEnumerator<TItem>
     {
-        private Node<TItem> _current;
-        private Node<TItem> _first;
+        private Node<TItem>? _current;
+        private Node<TItem>? _first;
 
-        public QueueEnumerator(Node<TItem> first)
+        public QueueEnumerator(Node<TItem>? first)
         {
-            _current = new Node<TItem>();
-            _current.Next = first;
+            _current = new Node<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item!;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -185,7 +182,7 @@ public class Queue<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
             _current = _current.Next;
             return true;

@@ -13,13 +13,13 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
 {
     private class DoubleNode<T>
     {
-        public T Item;
-        public DoubleNode<T> Prev;
-        public DoubleNode<T> Next;
+        public T Item { get; set; } = default!;
+        public DoubleNode<T>? Prev { get; set; }
+        public DoubleNode<T>? Next { get; set; }
     }
 
-    private DoubleNode<TItem> _first;
-    private DoubleNode<TItem> _last;
+    private DoubleNode<TItem>? _first;
+    private DoubleNode<TItem>? _last;
     private int _count;
 
     /// <summary>
@@ -111,9 +111,9 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         var current = _first;
         for (var i = 0; i < index; i++)
         {
-            current = current.Next;
+            current = current!.Next;
         }
-        return current.Item;
+        return current!.Item;
     }
 
     /// <summary>
@@ -129,9 +129,9 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         var current = _first;
         for (var i = 0; i < index; i++)
         {
-            current = current.Next;
+            current = current!.Next;
         }
-        return current;
+        return current!;
     }
 
     /// <summary>
@@ -157,7 +157,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
             Prev = current.Prev,
             Item = item
         };
-        current.Prev.Next = node;
+        current.Prev!.Next = node;
         current.Prev = node;
         _count++;
     }
@@ -185,7 +185,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
             Next = current.Next,
             Item = item
         };
-        current.Next.Prev = node;
+        current.Next!.Prev = node;
         current.Next = node;
         _count++;
     }
@@ -199,7 +199,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         if (IsEmpty())
             throw new InvalidOperationException("List underflow");
 
-        var temp = _first.Item;
+        var temp = _first!.Item;
         _first = _first.Next;
         _count--;
         if (IsEmpty())
@@ -208,7 +208,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         }
         else
         {
-            _first.Prev = null;
+            _first!.Prev = null;
         }
         return temp;
     }
@@ -222,7 +222,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         if (IsEmpty())
             throw new InvalidOperationException("List underflow");
 
-        var temp = _last.Item;
+        var temp = _last!.Item;
         _last = _last.Prev;
         _count--;
         if (IsEmpty())
@@ -231,7 +231,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
         }
         else
         {
-            _last.Next = null;
+            _last!.Next = null;
         }
         return temp;
     }
@@ -258,8 +258,8 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
 
         var current = Find(index);
         var temp = current.Item;
-        current.Prev.Next = current.Next;
-        current.Next.Prev = current.Prev;
+        current.Prev!.Next = current.Next;
+        current.Next!.Prev = current.Prev;
         _count--;
         return temp;
     }
@@ -270,8 +270,8 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
 
         foreach (var i in this)
         {
-            s.Append(i.ToString());
-            s.Append(" ");
+            s.Append(i);
+            s.Append(' ');
         }
 
         return s.ToString();
@@ -289,19 +289,18 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
 
     private class DoubleLinkListEnumerator : IEnumerator<TItem>
     {
-        private DoubleNode<TItem> _current;
-        private DoubleNode<TItem> _first;
+        private DoubleNode<TItem>? _current;
+        private DoubleNode<TItem>? _first;
 
-        public DoubleLinkListEnumerator(DoubleNode<TItem> first)
+        public DoubleLinkListEnumerator(DoubleNode<TItem>? first)
         {
-            _current = new DoubleNode<TItem>();
-            _current.Next = first;
+            _current = new DoubleNode<TItem> { Next = first };
             _first = _current;
         }
 
-        TItem IEnumerator<TItem>.Current => _current.Item;
+        TItem IEnumerator<TItem>.Current => _current!.Item;
 
-        object IEnumerator.Current => _current.Item;
+        object IEnumerator.Current => _current!.Item!;
 
         void IDisposable.Dispose()
         {
@@ -311,7 +310,7 @@ public class DoubleLinkList<TItem> : IEnumerable<TItem>
 
         bool IEnumerator.MoveNext()
         {
-            if (_current.Next == null)
+            if (_current?.Next == null)
                 return false;
             _current = _current.Next;
             return true;

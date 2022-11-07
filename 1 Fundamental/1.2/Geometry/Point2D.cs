@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
 // ReSharper disable PossibleNullReferenceException
@@ -10,6 +11,7 @@ namespace Geometry;
 /// <summary>
 /// Point2D 二维点类。
 /// </summary>
+[SuppressMessage("Interoperability", "CA1416:验证平台兼容性")]
 public sealed class Point2D : IComparable<Point2D>
 {
     /// <summary>

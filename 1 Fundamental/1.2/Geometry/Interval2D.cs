@@ -1,10 +1,12 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 
 namespace Geometry;
 
 /// <summary>
 /// 二维闭合区间。
 /// </summary>
+[SuppressMessage("Interoperability", "CA1416:验证平台兼容性")]
 public class Interval2D
 {
     private readonly Interval1D _x;

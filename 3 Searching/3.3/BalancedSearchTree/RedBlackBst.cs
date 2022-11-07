@@ -7,6 +7,7 @@ using System.Text;
 
 namespace BalancedSearchTree;
 
+[SuppressMessage("ReSharper", "MemberHidesStaticFromOuterClass")]
 public class RedBlackBst<TKey, TValue> : IOrderedSt<TKey, TValue>
     where TKey : IComparable<TKey>
 {

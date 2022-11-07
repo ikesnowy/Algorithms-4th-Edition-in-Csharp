@@ -117,7 +117,9 @@ public class Interval1D
     {
         var a = new Point((int)Min, y);
         var b = new Point((int)Max, y);
+#pragma warning disable CA1416
         g.DrawLine(Pens.Black, a, b);
+#pragma warning restore CA1416
     }
 
     /// <summary>

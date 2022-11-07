@@ -93,7 +93,7 @@ public partial class Form2 : Form
         graphics.DrawLine(Pens.Black, center.Left, center.Top, center.Left, center.Bottom);
         graphics.DrawLine(Pens.Black, center.Left, center.Bottom, center.Right, center.Bottom);
         graphics.DrawString(result!.Max().ToString(CultureInfo.CurrentCulture), Font, Brushes.Black, rect.Location);
-        graphics.DrawString(result.Length.ToString(), Font, Brushes.Black, center.Right, center.Bottom);
+        graphics.DrawString(result!.Length.ToString(), Font, Brushes.Black, center.Right, center.Bottom);
         graphics.DrawString("0", Font, Brushes.Black, rect.Left, center.Bottom);
 
         // 初始化点。

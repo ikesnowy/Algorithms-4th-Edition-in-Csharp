@@ -1,5 +1,5 @@
 <!doctype html><html lang=zh dir=" ltr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><title>Fundamental | 《算法（第四版）》C# 题解</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.svg type=image/x-icon><link rel=stylesheet href=/book.min.b088d72622ac43ceeb356f529c02732d6afb9cfd58291c14fcaeead8eb52c9d8.css integrity="sha256-sIjXJiKsQ87rNW9SnAJzLWr7nP1YKRwU/K7q2OtSydg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
-<script defer src=/zh.search.min.635d9312be95e14c6c4ab7cde1aedd6ed125832ca4b0f2a8ca291c2c6740110f.js integrity="sha256-Y12TEr6V4UxsSrfN4a7dbtElgyyksPKoyikcLGdAEQ8=" crossorigin=anonymous></script>
+<script defer src=/zh.search.min.300df288435160f43af6bd7a790443d4bd342f387ee41f096b801792e7ebdd75.js integrity="sha256-MA3yiENRYPQ69r16eQRD1L00Lzh+5B8Ja4AXkufr3XU=" crossorigin=anonymous></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SCLB4WQT"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-71SCLB4WQT",{anonymize_ip:!1})}</script><link rel=alternate type=application/rss+xml href=https://alg4.ikesnowy.com/tags/fundamental/index.xml title="《算法（第四版）》C# 题解"><script>window.katexOption={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body,window.katexOption)></script></head><body dir=" ltr"><input type=checkbox class="hidden toggle" id=menu-control>
@@ -43,8 +43,9 @@
 这是一道很经典的题目，答案也有很多种，这里只介绍之后会用到的一种方法。
 首先我们有两个栈，H 和 T，分别用作出队和入队用。
 这样，入队操作等同于向 T 添加元素，T 的入栈操作只需要 O(1) 时间。
-如果 H 不为空，出队操作等同于 H 弹栈，H 的弹栈操作也只需要 O(1) 时间。
+如果 H 不为空，出队操作等同于 H 出栈，H 的出栈操作也只需要 O(1) 时间。
 但如果 H 为空，则需要将 T 中的元素依次弹出并压入到 H 中，这是一个 O(n) 的操作。
+下图分别展示了这三种情况。
 显然，这种方式中，出队操作的最坏时间复杂度是 O(n)，并不满足题目要求。
 分摊 O(n) # 那么，怎么解决这个问题呢？
 一个很自然的想法是，如果在栈 H 变为空之前，我们就能逐步将栈 T 的内容弹出并压入到另一个栈 H&rsquo; 中，等到栈 H 为空时，直接交换 H 和 H&rsquo; 即可。
